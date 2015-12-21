@@ -1,0 +1,25 @@
+<div class="publications-container">
+	<div class="container">
+		<div class="section-header">
+			<h1>Publications</h1>
+		</div>
+	</div>
+	<div class="publications-wrapper"
+		ng-repeat="publication in publications">
+		<div class="publications-list">
+			<div class="shape-publications-wrapper">
+				<div class="shape-publications"></div>
+			</div>
+			<div class="text-publications-wrapper">
+				<div class="text-publications">
+					<span>{{publication.title}}</span>
+				</div>
+			</div>
+			<div class="year-publications-wrapper">
+				<div class="year-publications">
+					<span>{{publication.year}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,293 @@
+<div class="page-wrapper" ng-controller="DemoController">
+	<search-box></search-box>
+	<div id="page">
+		<reader-header></reader-header>
+		<!-- Main Content -->
+		<div class="content-wrapper">
+			<carousel-section></carousel-section>
+			<!-- Main Content -->
+				<div class="container">
+						<div class="section-header">
+							<h1>Demonstration</h1>
+						</div>
+					</div>
+			<div class="content-wrapper">
+				<div class="form-group demo-wrapper">
+					<!-- <div class="container">
+						<div class="section-header">
+							<h1>ReaderBench Demo</h1>
+						</div>
+					</div> -->
+					<div class="bottom-buttons">
+						<button class="filter-button" ng-click="changeTab('TEXT_PROCESSING')">Text processing</button>
+						<button class="filter-button" ng-click="changeTab('SEMANTIC_ANNOTATION')">Semantic annotation</button>
+						<button class="filter-button" ng-click="changeTab('SELF_EXPLANATION')">Self explanation</button>
+					</div>
+					<hr />
+					<div id="tabs-demo">
+						<div id="tabs-text" ng-if="tabDemo == 'TEXT_PROCESSING'">
+							<h3>Text processing</h3>
+							<textarea class="form-control" rows="20" id="comment" ng-model="q"></textarea>
+							<div class="bottom-buttons" ng-if="!loading">
+								<button class="filter-button" ng-click="buttonClick('SENTIMENT')">Sentiment Analysis</button>
+								<button class="filter-button" ng-click="buttonClick('COMPLEXITY')">Textual Complexity</button>
+								<button class="filter-button" ng-click="buttonClick('CONCEPT')">Concept Map</button>
+								<button class="filter-button" ng-click="buttonClick('SEARCH')">Semantic Search</button>
+							</div>        
+							<div class="bottom-buttons" ng-if="loading">Loading...</div>
+						
+							<div ng-if="showSentiment">
+								<h4>Sentiment analysis</h4>
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="sentiment in sentiments">
+						                <div class="heading">
+						                	<span class="lesson-nr no-select">{{sentiment.content}}</span>
+						                </div>
+										<div class="body">&nbsp;</div>
+										<ul class="lesson-description" style="display: none;">
+											<li ng-repeat="sentimentValence in sentiment.valences">
+												<div class="heading">
+													<!-- <i class="icon icon-divider visible"></i> -->
+													<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
+												</div>
+												<div class="body">
+													<p>{{sentimentValence.content}}</p>
+												</div>
+											</li>
+										</ul>
+						            </li>
+						        </ul>
+					        </div>
+					        
+					        <div ng-if="showComplexity">
+								<h4>Textual complexity</h4>
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="complex in complexity">
+						                <div class="heading">
+						                	<span class="lesson-nr no-select">{{complex.content}}</span>
+						                </div>
+										<div class="body">&nbsp;</div>
+										<ul class="lesson-description" style="display: none;">
+											<li ng-repeat="complexEntry in complex.valences">
+												<div class="heading">
+													<!-- <i class="icon icon-divider visible"></i> -->
+													<span class="lesson-nr no-select">{{complexEntry.score}}</span>
+												</div>
+												<div class="body">
+													<p>{{complexEntry.content}}</p>
+												</div>
+											</li>
+										</ul>
+						            </li>
+						        </ul>
+					        </div>
+					        
+					        <div ng-if="showConcept" class="row">
+					        	<div class="col-xs-12 col-md-3">
+							        <h4>Concept map</h4>
+									<ul class="course-description-list">
+							            <li class="lesson" ng-repeat="topic in topics | limitTo:25">
+							            	<div class="heading">
+												<span class="lesson-nr no-select">{{topic.value}}</span>
+											</div>
+											<div class="body">
+												<p>{{topic.name}}</p>
+											</div>
+							            </li>
+							        </ul>
+						        </div>
+						        <div class="col-xs-12 col-md-9" id="conceptMap">
+						        </div>
+					        </div>
+					        
+					        <div ng-if="showSearch">
+						        <h4>Semantic search</h4>
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="s in search">
+						            	<div class="heading">
+											<span class="lesson-nr no-select">{{s.relevance}}</span>
+										</div>
+										<div class="body">
+											<p>{{s.content}} - {{s.url}}</p>
+										</div>
+						            </li>
+						        </ul>
+					        </div>
+						</div>
+						<div id="tabs-semantic" ng-if="tabDemo == 'SEMANTIC_ANNOTATION'">
+							<h3>Semantic annotation</h3>
+							<p ng-if="!useUri">
+								<label for="semantic_url">URL (PDF document) <span class="required">*</span></label>
+								<input id="semantic_url" class="form-control" ng-model="semanticAnnotationFormData.semanticUrl" />
+								<!-- <small><a ng-click="changeDocumentUseUri(true)">Use File upload</a></small> -->
+							</p>
+							<p ng-if="useUri">
+								<label for="semantic_file">File upload (PDF document) <span class="required">*</span> <small>(relative path on server)</small></label>
+								<input id="semantic_file" class="form-control" ng-model="semanticAnnotationFormData.semanticFile" />
+								<small><a ng-click="changeDocumentUseUri(false)">Use URL</a></small>
+							</p>
+							<p>
+								<label for="semantic_abstract">Abstract</label>
+								<textarea id="semantic_abstract" class="form-control" rows="8" ng-model="semanticAnnotationFormData.semanticAbstract"></textarea>
+							</p>
+							<p>
+								<label for="semantic_keywords">Keywords (use comma as delimiter)</label>
+								<textarea id="semantic_keywords" class="form-control" ng-model="semanticAnnotationFormData.semanticKeywords"></textarea>
+							</p>
+							<p>
+								<label for="semantic_language">Language <span class="required">*</span></label>
+								<input id="semantic_language" readonly="readonly" class="form-control" ng-model="semanticAnnotationFormData.semanticLanguage" />
+							</p>
+							<p>
+								<label for="semantic_lsa">LSA <span class="required">*</span></label>
+								<input id="semantic_lsa" readonly="readonly" class="form-control" ng-model="semanticAnnotationFormData.semanticLSA" />
+							</p>
+							<p>
+								<label for="semantic_lda">LDA <span class="required">*</span></label>
+								<input id="semantic_lda" readonly="readonly" class="form-control" ng-model="semanticAnnotationFormData.semanticLDA" />
+							</p>
+							<p>
+								<label for="semantic_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
+								<select ng-model="semanticAnnotationFormData.semanticPosTagging" ng-options="option.name for option in semanticAnnotationFormData.semanticPosTaggingOptions track by option.id"></select>
+							</p>
+							<p>
+								<label for="semantic_threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
+								<input type="number" step="0.1" min="0.0" max="0.9" id="semantic_threshold" class="form-control" ng-model="semanticAnnotationFormData.semanticThreshold" />
+							</p>
+							<div class="bottom-buttons" ng-if="!loading">
+								<button class="filter-button" ng-click="buttonClick('SEMANTIC_PROCESS')">Process</button>
+							</div>
+							<div class="bottom-buttons" ng-if="loading">Loading...</div>
+							
+							<!-- <div class="bottom-buttons" ng-if="showSemanticConcept || showSemanticRelevance || showSemanticCategories">
+								<button class="filter-button" ng-click="changeTabSemanticAnnotation('SEMANTIC_CONCEPT')">Concept map</button>
+								<button class="filter-button" ng-click="changeTabSemanticAnnotation('SEMANTIC_RELEVANCE')">Description &amp; keywords relevance</button>
+								<button class="filter-button" ng-click="changeTabSemanticAnnotation('SEMANTIC_CATEGORIES')">Categorisation</button>
+							</div> -->
+					        
+					        <!-- Semantic Annotation => Concept map tab -->
+					        <div ng-if="showSemanticConcept" class="row"><!--  && tabSemanticAnnotation == 'SEMANTIC_CONCEPT' -->
+					        	<div class="col-xs-12 col-md-3">
+							        <h4>Concept map</h4>
+									<ul class="course-description-list">
+							            <li class="lesson" ng-repeat="topic in semanticTopics | limitTo:25">
+							            	<div class="heading">
+												<span class="lesson-nr no-select">{{topic.value}}</span>
+											</div>
+											<div class="body">
+												<p>{{topic.name}}</p>
+											</div>
+							            </li>
+							        </ul>
+						        </div>
+						        <div class="col-xs-12 col-md-9" id="semanticConceptMap">
+						        </div>
+					        </div>
+					        
+					        <!-- Semantic Annotation => Semantic Relevance -->
+					        <div ng-if="showSemanticRelevance" class="row"><!--  && tabSemanticAnnotation == 'SEMANTIC_RELEVANCE' -->
+					        	<div class="col-xs-12 col-md-12">
+						        	<h4>Description & keywords relevance</h4>
+						        	<div class="col-xs-12 col-md-6">
+						        		<h5>Keyword overlap</h5>
+						        		<ul class="course-description-list">
+						        			<li class="lesson" ng-repeat="keyword in semanticKeywords">
+								            	<div class="heading">
+													<span class="lesson-nr no-select">{{keyword.relevance}}</span>
+												</div>
+												<div class="body">
+													<p>{{keyword.name}} ({{keyword.noOccurences}} occurences)</p>
+												</div>
+								            </li>
+						        		</ul>
+						        	</div>
+						        	<div class="col-xs-12 col-md-6">
+						        		<h5>Relevance</h5>
+						        		<ul class="course-description-list">
+						        			<li class="lesson">
+						        				<div class="heading">
+													<span class="lesson-nr no-select">{{semanticAbstractDocumentSimilarity}}</span>
+												</div>
+												<div class="body">
+													<p>(Abstract, document) similarity</p>
+												</div>
+						        			</li>
+						        			<li class="lesson">
+						        				<div class="heading">
+													<span class="lesson-nr no-select">{{semanticKeywordsAbstractCoverage}}</span>
+												</div>
+												<div class="body">
+													<p>(Keywords, abstract) coverage</p>
+												</div>
+						        			</li>
+						        			<li class="lesson">
+						        				<div class="heading">
+													<span class="lesson-nr no-select">{{semanticKeywordsDocumentCoverage}}</span>
+												</div>
+												<div class="body">
+													<p>(Keywords, document) coverage</p>
+												</div>
+						        			</li>
+						        		</ul>
+						        	</div>
+						        </div>
+					        </div>
+					        
+					        <!-- Semantic Annotation => Categorisation -->
+					        <div ng-if="showSemanticCategories" class="row"><!--  && tabSemanticAnnotation == 'SEMANTIC_CATEGORIES' -->
+					        	<div class="col-xs-12 col-md-12">
+						        	<h4>Categorisation</h4>
+						        	<ul class="course-description-list">
+							            <li class="lesson" ng-repeat="category in semanticCategories">
+							            	<div class="heading">
+												<span class="lesson-nr no-select">{{category.relevance}}</span>
+											</div>
+											<div class="body">
+												<p>{{category.name}}</p>
+											</div>
+							            </li>
+							        </ul>
+						        </div>
+					        </div>
+					        
+						</div>
+						<div id="tabs-self" ng-if="tabDemo == 'SELF_EXPLANATION'">
+							<p>
+								<label for="self_text">Text input</label>
+								<textarea class="form-control" rows="10" id="self_text" ng-model="selfExplanationFormData.selfText"></textarea>
+							</p>
+							<p>
+								<label for="self_explanation">Self explanation</label>
+								<textarea class="form-control" rows="6" id="self_explanation" ng-model="selfExplanationFormData.selfExplanation"></textarea>
+							</p>
+							<p>
+								<label for="self_language">Language <span class="required">*</span></label>
+								<input id="self_language" readonly="readonly" class="form-control" ng-model="selfExplanationFormData.selfLanguage" />
+							</p>
+							<p>
+								<label for="self_lsa">LSA <span class="required">*</span></label>
+								<input id="self_lsa" readonly="readonly" class="form-control" ng-model="selfExplanationFormData.selfLSA" />
+							</p>
+							<p>
+								<label for="self_lda">LDA <span class="required">*</span></label>
+								<input id="self_lda" readonly="readonly" class="form-control" ng-model="selfExplanationFormData.selfLDA" />
+							</p>
+							<p>
+								<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
+								<select ng-model="selfExplanationFormData.selfPosTagging" ng-options="option.name for option in selfExplanationFormData.selfPosTaggingOptions track by option.id"></select>
+							</p>
+							<p>
+								<label for="self_threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
+								<input type="number" step="0.1" min="0.0" max="0.9" id="self_threshold" class="form-control" ng-model="selfExplanationFormData.selfThreshold" />
+							</p>
+							<div class="bottom-buttons" ng-if="!loading">
+								<button class="filter-button" ng-click="buttonClick('SELF_EXPLANATION')">Identify reading strategies</button>
+							</div>        
+							<div class="bottom-buttons" ng-if="loading">Loading...</div>
+						</div>
+					</div>
+			    </div>
+				<!-- <action-box></action-box> -->
+			</div>
+		</div>
+	</div>

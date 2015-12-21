@@ -1,0 +1,8 @@
+<div class="col-xs-8  col-sm-8 .col-md-8 .col-lg-8 reader-menu" ng-controller="ReaderMenuController">
+	<nav ng-class="{'open' : !hamburgerMenu, 'fade' : !hamburgerMenu}" ng-show="hamburgerMenu">
+		<ul>
+			<li ng-repeat="item in navItems"><a ng-href="{{item.href}}">{{item.name}}</a>
+			</li>
+		</ul>
+	</nav>
+</div>

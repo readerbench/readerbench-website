@@ -1,0 +1,32 @@
+<!-- Header -->
+
+<header ng-controller="HeaderController">
+	<div class="">
+		<div class="row">
+			<div class="col-xs-2 col-sm-2 .col-md-2 .col-lg-2">
+				<a class="brand" href="#/home"> <img src="img/readerbench.png"
+					alt="ReaderBench" />
+				</a>
+			</div>
+			<reader-menu></reader-menu>
+			<div class="col-xs-2 col-sm-2 .col-md-2 .col-lg-2 right-buttons-menu">
+				<!-- <a href="#/demo"
+					class="slider-component second-row btn theme-btn-1 demo-button-menu">
+					<span class="button">Live Demo</span>
+				</a> -->
+				<div class="action-bar">
+					<span class="menu-toggle no-select"
+						ng-class="{'menu-opened' : !hamburgerMenu}" ng-click="openMenu()">
+						<span class="hamburger"> <span class="menui top-menu"
+							ng-class="{'top-animate' : hamburgerMenu}"></span> <span
+							class="menui mid-menu" ng-class="{'mid-animate' : hamburgerMenu}"></span>
+							<span class="menui bottom-menu"
+							ng-class="{'bottom-animate' : hamburgerMenu}"></span>
+					</span>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</header>
+	<script src="js/libs/options.js"></script>
