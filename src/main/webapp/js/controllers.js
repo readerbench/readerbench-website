@@ -9,12 +9,16 @@
 		
 	.controller('HeaderController', ['$scope', '$window', function($scope, $window){
 
-			
+			$scope.navItems = NavBarItems;
 			$scope.hamburgerMenu = false;
-		
+			$scope.searchQuery = false;
 			
+			$scope.openSearch = function(){
+				$scope.searchQuery = !$scope.searchQuery;
+			}
 			$scope.openMenu = function(){
-					$scope.hamburgerMenu = !$scope.hamburgerMenu;
+				$scope.hamburgerMenu = !$scope.hamburgerMenu;
+				
 			}  
 			
 //			angular.element($window).bind("scroll", function() {
@@ -30,14 +34,10 @@
 //			 })
 		 	
 		}])
-	.controller('ReaderMenuController', ['$scope', '$window', function($scope, $window){
 		
-		$scope.navItems = NavBarItems;
-		
-	}])
 	.controller('HomeController', ['$scope', function($scope){
-		$scope.browseSections = BrowseItems;
-		$scope.aboutSections = AboutSections; 	
+
+		 	
 		}])
 		
 	.controller('ContactController', ['$scope', function($scope){
@@ -45,17 +45,9 @@
 		   
 		}])
 		
-	.controller('PublicationsController', ['$scope', function($scope){
-		$scope.publications = Publications;
-		   
-		}])
-		
 	.controller('PeopleController', ['$scope', function($scope){
 
-	 	 	$scope.peopleListUPB = PeopleUPB;
-	 	 	$scope.peopleListLSE = PeopleLSE;
-	 	 	$scope.peopleListLMU = PeopleLMU;
-	 	 	$scope.peopleListUSA = PeopleUSA;
+	 	 	$scope.peopleList = People;
 		   
 		}])
 		
@@ -65,21 +57,70 @@
 			//$scope.tabDemo = 'TEXT_PROCESSING';
 			$scope.tabDemo = 'SEMANTIC_ANNOTATION';
 			
-			// semantic annotation data
+			$scope.tabSemanticAnnotation = 'SEMANTIC_CONCEPT';
+			
+			// Semantic Annotation Form Data
+			$scope.semanticAnnotationFormData = {
+				semanticUrl : 'https://linkededucation.files.wordpress.com/2013/03/lak-dataset-taibi.pdf',
+				semanticFile : 'MS_training_SE_1999',
+				semanticAbstract : 'This paper describes the Learning Analytics and Knowledge ' + 
+					'(LAK) Dataset, an unprecedented collection of structured data ' +
+					'created from a set of key research publications in the emerging ' +
+					'field of learning analytics. The unstructured publications have ' +
+					'been processed and exposed in a variety of formats, most notably ' +
+					'according to Linked Data principles, in order to provide simplified ' +
+					'access for researchers and practitioners. The aim of this dataset is ' +
+					'to provide the opportunity to conduct investigations, for instance, ' +
+					'about the evolution of the research field over time, correlations ' +
+					'with other disciplines or to provide compelling applications which ' +
+					'take advantage of the dataset in an innovative manner. In this ' +
+					'paper, we describe the dataset, the design choices and rationale ' +
+					'and provide an outlook on future investigations.',
+				semanticKeywords : 'educational data mining, learning analytics, dataset',
+				semanticLanguage: 'eng',
+				semanticLSA: 'tasa_lak_en',
+				semanticLDA: 'tasa_lak_en',
+				semanticPosTagging : {id: '2', name: 'No', value: false},
+				semanticPosTaggingOptions : [
+     				{id: '1', name: 'Yes', value: true},
+     	            {id: '2', name: 'No', value: false}
+                 ],
+                 semanticThreshold: 0.3
+			};
+			
+			$scope.selfExplanationFormData = {
+					selfText : 'This paper describes the Learning Analytics and Knowledge ' + 
+						'(LAK) Dataset, an unprecedented collection of structured data ' +
+						'created from a set of key research publications in the emerging ' +
+						'field of learning analytics. The unstructured publications have ' +
+						'been processed and exposed in a variety of formats, most notably ' +
+						'according to Linked Data principles, in order to provide simplified ' +
+						'access for researchers and practitioners. The aim of this dataset is ' +
+						'to provide the opportunity to conduct investigations, for instance, ' +
+						'about the evolution of the research field over time, correlations ' +
+						'with other disciplines or to provide compelling applications which ' +
+						'take advantage of the dataset in an innovative manner. In this ' +
+						'paper, we describe the dataset, the design choices and rationale ' +
+						'and provide an outlook on future investigations.',
+					selfLanguage: 'eng',
+					selfLSA: 'tasa_lak_en',
+					selfLDA: 'tasa_lak_en',
+					selfPosTagging : {id: '2', name: 'No', value: false},
+					selfPosTaggingOptions : [
+	     				{id: '1', name: 'Yes', value: true},
+	     	            {id: '2', name: 'No', value: false}
+	                 ],
+	                 selfThreshold: 0.3
+				};
+	
 			$scope.useUri = false;
-			$scope.semanticUrl = '';
-			$scope.semanticFile = 'MS_training_SE_1999';
-			$scope.semanticAbstract = 'This research examines the effectiveness of a training intervention program designed to improve strategies for learning from texts and to determine whether the success of this intervention depends on readers\' individual differences. Previous research has shown that readers who self-explain text aloud understand more from a text and construct better mental models of the content. However, some readers are poor self-explainers and gain little from the self-explanation process. This study examined the benefits of providing training in the use of self-explanation to undergraduate college students. Effects of prior knowledge, reading skill, and working memory capacity were also examined in relation to the benefits of self-explaining and self-explanation training. We found that comprehension and the benefits of self-explanation depended largely on prior knowledge. Training was more effective for low-knowledge readers, but only in terms of improving memory for the text. Training did not improve the low-knowledge readers\' understanding of the text at a conceptual level.';
-			$scope.semanticKeywords = 'self explanation, reading strategy, comprehension prediction and performance';
-			$scope.semanticLanguage = 'eng';
-			$scope.semanticLSA = 'tasa_lak_en';
-			$scope.semanticLDA = 'tasa_lak_en';
-			$scope.semanticPosTagging = {id: '2', name: 'No', value: false};
-			$scope.semanticPosTaggingOptions = [
-				{id: '1', name: 'Yes', value: true},
-	            {id: '2', name: 'No', value: false}
-            ];
-			$scope.semanticThreshold = 0.3;
+			$scope.semanticTopics = null;
+			$scope.semanticTopicEdges = null;
+			$scope.semanticAbstractDocumentSimilarity = -1;
+			$scope.semanticKeywordsAbstractCoverage = -1;
+			$scope.semanticKeywordsDocumentCoverage = -1;
+			$scope.semanticKeywords = null;
+			$scope.semanticCategories = null;
 			    
 			$scope.SERVER_DELIM = '/';
 			$scope.SERVER_SEMICOLON = ':';
@@ -99,6 +140,10 @@
 			
 			$scope.changeTab = function(tabName) {
 				$scope.tabDemo = tabName;
+			}
+			
+			$scope.changeTabSemanticAnnotation = function(tabName) {
+				$scope.tabSemanticAnnotation = tabName;
 			}
 			
 			$scope.buildPath = function(path) {
@@ -132,18 +177,24 @@
 			$scope.showConcept = false;
 			$scope.showSearch = false;
 			
+			$scope.showSemanticConcept = false;
+			
 			$scope.sentiments = null;
 			$scope.complexity = null;
 			$scope.topics = null;
 			$scope.topicEdges = null;
 			$scope.search = null;
-			$scope.uri = "MS_training_SE_1999";
+			$scope.uri = "";
 		
 			$scope.buttonClick = function(req) {
 				$scope.showSentiment = false;
 				$scope.showComplexity = false
 				$scope.showConcept = false;
 				$scope.showSearch = false;
+				
+				$scope.showSemanticConcept = false;
+				$scope.showSemanticRelevance = false;
+				$scope.showSemanticCategories = false;
 				
 				var endpoint;
 				switch(req) {
@@ -208,7 +259,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data);
+								d3jsForTopics(response.data.data, "#conceptMap");
 							}
 				        }, 1000);
 						//console.log($scope.topics);
@@ -253,7 +304,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data);
+								d3jsForTopics(response.data.data, "#conceptMap");
 							}
 				        }, 1000);
 					});
@@ -262,33 +313,94 @@
 					$scope.loading = true;
 					endpoint = 'semanticProcess';
 					//console.log('you clicked concept');
-					$http.post($scope.buildPathSemanticProcess(endpoint), {
-						q: encodeURIComponent($scope.uri).replace(/%0D/g,"%0A"), // TODO: check if file upload or url here
-						abstract: $scope.semanticAbstract,
-						keywords: $scope.semanticKeywords,
-						lang: $scope.semanticLanguage, // TODO: check if language is ok eng
-						lsa: 'resources/config/LSA/' + $scope.semanticLSA, 
-						lda: 'resources/config/LDA/' + $scope.semanticLDA,
+					var data = {
+						uri: "",
+						abstract: $scope.semanticAnnotationFormData.semanticAbstract,
+						keywords: $scope.semanticAnnotationFormData.semanticKeywords,
+						lang: $scope.semanticAnnotationFormData.semanticLanguage, // TODO: check if language is ok eng
+						lsa: 'resources/config/LSA/' + $scope.semanticAnnotationFormData.semanticLSA, 
+						lda: 'resources/config/LDA/' + $scope.semanticAnnotationFormData.semanticLDA,
 						postagging: false, // put pos value here
-						threshold: $scope.semanticThreshold
-					}).then(function(response) {
+						threshold: $scope.semanticAnnotationFormData.semanticThreshold
+					}
+					if ($scope.useUri == true) {
+						data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticFile).replace(/%0D/g,"%0A");
+					}
+					else {
+						//data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticUrl).replace(/%0D/g,"%0A");
+						data.uri = $scope.semanticAnnotationFormData.semanticUrl;
+					}
+					//console.log(data.uri);
+					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
 						$scope.loading = false;
 						if (response.data.success != true) {
 							alert('Server error occured!');
 							return;
 						}
-						$scope.showConcept = true;
-						$scope.topics = response.data.data.nodes;
-						$scope.topicEdges = response.data.data.links;
+						
+						$scope.showSemanticConcept = true;
+						$scope.showSemanticRelevance = true;
+						$scope.showSemanticCategories = true;
+						
+						$scope.semanticTopics = response.data.data.concepts.nodes;
+						$scope.semanticTopicEdges = response.data.data.concepts.links;
+						$scope.semanticAbstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
+						$scope.semanticKeywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
+						$scope.semanticKeywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
+						$scope.semanticKeywords = response.data.data.keywords;
+						$scope.semanticCategories = response.data.data.categories;
+						
 						var interval = setInterval(function()
 				        {
-							if($scope.topicEdges.count == response.data.data.links.count)
+							if($scope.semanticTopicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data);
+								d3jsForTopics(response.data.data.concepts, "#semanticConceptMap");
 							}
 				        }, 1000);
 						//console.log($scope.topics);
+					});
+					break;
+				case 'SELF_EXPLANATION':
+					$scope.loading = true;
+					endpoint = 'selfExplanation';
+					//console.log('you clicked concept');
+					var data = {
+						text: $scope.selfExplanationFormData.selfText,
+						explanation: $scope.selfExplanationFormData.selfExplanation,
+						lang: $scope.selfExplanationFormData.selfLanguage, // TODO: check if language is ok eng
+						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.selfLSA, 
+						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.selfLDA,
+						postagging: false, // put pos value here
+						threshold: $scope.selfExplanationFormData.selfThreshold
+					}
+					// buildPathSemanticProcess is ok for buildPathSelfExplanation
+					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
+						$scope.loading = false;
+						if (response.data.success != true) {
+							alert('Server error occured!');
+							return;
+						}
+						
+						$scope.showReadingStrategies = true;
+						
+						/*$scope.semanticTopics = response.data.data.concepts.nodes;
+						$scope.semanticTopicEdges = response.data.data.concepts.links;
+						$scope.semanticAbstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
+						$scope.semanticKeywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
+						$scope.semanticKeywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
+						$scope.semanticKeywords = response.data.data.keywords;
+						$scope.semanticCategories = response.data.data.categories;
+						
+						var interval = setInterval(function()
+				        {
+							if($scope.semanticTopicEdges.count == response.data.data.concepts.links.count)
+							{
+								clearInterval(interval);
+								d3jsForTopics(response.data.data.concepts, "#semanticConceptMap");
+							}
+				        }, 1000);
+						//console.log($scope.topics);*/
 					});
 					break;
 				}
