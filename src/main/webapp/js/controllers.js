@@ -9,13 +9,8 @@
 		
 	.controller('HeaderController', ['$scope', '$window', function($scope, $window){
 
-			$scope.navItems = NavBarItems;
 			$scope.hamburgerMenu = false;
-			$scope.searchQuery = false;
 			
-			$scope.openSearch = function(){
-				$scope.searchQuery = !$scope.searchQuery;
-			}
 			$scope.openMenu = function(){
 				$scope.hamburgerMenu = !$scope.hamburgerMenu;
 				
@@ -34,20 +29,30 @@
 //			 })
 		 	
 		}])
-		
-	.controller('HomeController', ['$scope', function($scope){
-
+	.controller('ReaderMenuController', ['$scope', function($scope){
+	
+		$scope.navItems = NavBarItems;
 		 	
+	}])
+	.controller('HomeController', ['$scope', function($scope){
+		$scope.browseSections = BrowseItems;
+		$scope.aboutSections = AboutSections; 	
 		}])
 		
 	.controller('ContactController', ['$scope', function($scope){
 
 		   
 		}])
-		
+	.controller('PublicationsController', ['$scope', function($scope){
+		$scope.publications = Publications;
+		   
+		}])
 	.controller('PeopleController', ['$scope', function($scope){
 
-	 	 	$scope.peopleList = People;
+			$scope.peopleListUPB = PeopleUPB;
+	 	 	$scope.peopleListLSE = PeopleLSE;
+	 	 	$scope.peopleListLMU = PeopleLMU;
+	 	 	$scope.peopleListUSA = PeopleUSA;
 		   
 		}])
 		
