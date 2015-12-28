@@ -9,7 +9,7 @@
 		
 	.controller('HeaderController', ['$scope', '$window', function($scope, $window){
 
-			$scope.hamburgerMenu = false;
+			$scope.hamburgerMenu = true;
 			
 			$scope.openMenu = function(){
 				$scope.hamburgerMenu = !$scope.hamburgerMenu;
