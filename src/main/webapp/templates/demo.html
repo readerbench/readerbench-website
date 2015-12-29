@@ -286,6 +286,17 @@
 							</div>        
 							<div class="bottom-buttons" ng-if="loading">Loading...</div>
 						</div>
+						<div id="tabs-self" ng-if="tabDemo == 'CSCL'">
+							<h3>CSCL</h3>
+							<p>
+								<label for="self_text">Upload conversation</label>
+								<textarea class="form-control" rows="10" id="self_text" ng-model="selfExplanationFormData.selfText"></textarea>
+							</p>
+							<div class="bottom-buttons" ng-if="!loading">
+								<button class="filter-button" ng-click="buttonClick('CSCL')">Process</button>
+							</div>        
+							<div class="bottom-buttons" ng-if="loading">Loading...</div>
+						</div>
 					</div>
 			    </div>
 				<!-- <action-box></action-box> -->
