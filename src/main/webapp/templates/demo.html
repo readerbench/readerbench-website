@@ -263,15 +263,15 @@
 							</p>
 							<p>
 								<label for="self_language">Language <span class="required">*</span></label>
-								<input id="self_language" readonly="readonly" class="form-control" ng-model="selfExplanationFormData.selfLanguage" />
+								<select ng-model="selfExplanationFormData.selfLanguage" ng-options="option.name for option in languages track by option.id"></select>
 							</p>
 							<p>
 								<label for="self_lsa">LSA <span class="required">*</span></label>
-								<input id="self_lsa" readonly="readonly" class="form-control" ng-model="selfExplanationFormData.selfLSA" />
+								<select ng-model="selfExplanationFormData.selfLSA" ng-options="option.name for option in lsaOptions track by option.id"></select>
 							</p>
 							<p>
 								<label for="self_lda">LDA <span class="required">*</span></label>
-								<input id="self_lda" readonly="readonly" class="form-control" ng-model="selfExplanationFormData.selfLDA" />
+								<select ng-model="selfExplanationFormData.selfLDA" ng-options="option.name for option in ldaOptions track by option.id"></select>
 							</p>
 							<p>
 								<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>

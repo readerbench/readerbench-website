@@ -60,9 +60,43 @@
 		
 			$scope.q = DemoText;
 			//$scope.tabDemo = 'TEXT_PROCESSING';
-			$scope.tabDemo = 'SEMANTIC_ANNOTATION';
+			//$scope.tabDemo = 'SEMANTIC_ANNOTATION';
+			$scope.tabDemo = 'SELF_EXPLANATION';
+			$scope.lsaOptions = '';
+			$scope.ldaOptions = '';
 			
 			$scope.tabSemanticAnnotation = 'SEMANTIC_CONCEPT';
+			
+			$scope.languages = [
+ 				{id: '1', name: 'English', value: 'eng'},
+ 	            {id: '2', name: 'French', value: 'fr'}
+             ];
+			
+			$scope.lsaOptionsByLanguage = {
+				eng: [
+	 				{id: '1', name: 'tasa_en', value: 'LSA/tasa_en'},
+	 	            {id: '2', name: 'tasa_lak_en', value: 'LSA/tasa_lak_en'},
+	 	            {id: '3', name: 'financial_en', value: 'LSA/financial_en'}
+	             ],
+	             fr: [
+	 				{id: '1', name: 'none', value: ''},
+	 	            {id: '2', name: 'lemonde_fr', value: 'LSA/lemonde_fr'},
+	 	            {id: '3', name: 'testenfants_fr', value: 'LSA/testenfants_fr'}
+	             ]
+			}
+			
+			$scope.ldaOptionsByLanguage = {
+				eng: [
+	 				{id: '1', name: 'tasa_en', value: 'LSA/tasa_en'},
+	 	            {id: '2', name: 'tasa_lak_en', value: 'LSA/tasa_lak_en'},
+	 	            {id: '3', name: 'tasa_smart_cities_en', value: 'LSA/tasa_smart_cities_en'}
+	             ],
+	             fr: [
+	 				{id: '1', name: 'none', value: ''},
+	 	            {id: '2', name: 'lemonde_fr', value: 'LSA/lemonde_fr'},
+	 	            {id: '3', name: 'philosophy_fr', value: 'LSA/philosophy_fr'}
+	             ]
+			}
 			
 			// Semantic Annotation Form Data
 			$scope.semanticAnnotationFormData = {
@@ -89,34 +123,39 @@
 				semanticPosTaggingOptions : [
      				{id: '1', name: 'Yes', value: true},
      	            {id: '2', name: 'No', value: false}
-                 ],
-                 semanticThreshold: 0.3
+                ],
+                semanticThreshold: 0.3
 			};
 			
 			$scope.selfExplanationFormData = {
-					selfText : 'This paper describes the Learning Analytics and Knowledge ' + 
-						'(LAK) Dataset, an unprecedented collection of structured data ' +
-						'created from a set of key research publications in the emerging ' +
-						'field of learning analytics. The unstructured publications have ' +
-						'been processed and exposed in a variety of formats, most notably ' +
-						'according to Linked Data principles, in order to provide simplified ' +
-						'access for researchers and practitioners. The aim of this dataset is ' +
-						'to provide the opportunity to conduct investigations, for instance, ' +
-						'about the evolution of the research field over time, correlations ' +
-						'with other disciplines or to provide compelling applications which ' +
-						'take advantage of the dataset in an innovative manner. In this ' +
-						'paper, we describe the dataset, the design choices and rationale ' +
-						'and provide an outlook on future investigations.',
-					selfLanguage: 'eng',
-					selfLSA: 'tasa_lak_en',
-					selfLDA: 'tasa_lak_en',
-					selfPosTagging : {id: '2', name: 'No', value: false},
-					selfPosTaggingOptions : [
-	     				{id: '1', name: 'Yes', value: true},
-	     	            {id: '2', name: 'No', value: false}
-	                 ],
-	                 selfThreshold: 0.3
-				};
+				selfText : 'This paper describes the Learning Analytics and Knowledge ' + 
+					'(LAK) Dataset, an unprecedented collection of structured data ' +
+					'created from a set of key research publications in the emerging ' +
+					'field of learning analytics. The unstructured publications have ' +
+					'been processed and exposed in a variety of formats, most notably ' +
+					'according to Linked Data principles, in order to provide simplified ' +
+					'access for researchers and practitioners. The aim of this dataset is ' +
+					'to provide the opportunity to conduct investigations, for instance, ' +
+					'about the evolution of the research field over time, correlations ' +
+					'with other disciplines or to provide compelling applications which ' +
+					'take advantage of the dataset in an innovative manner. In this ' +
+					'paper, we describe the dataset, the design choices and rationale ' +
+					'and provide an outlook on future investigations.',
+				selfLanguage: {id: '2', name: 'French', value: 'fr'},
+				selfLSA: '',
+				selfLDA: '',
+				selfPosTagging : {id: '2', name: 'No', value: false},
+				selfPosTaggingOptions : [
+     				{id: '1', name: 'Yes', value: true},
+     	            {id: '2', name: 'No', value: false}
+                ],
+                selfThreshold: 0.3
+			};
+			
+			$scope.$watch('selfExplanationFormData.selfLanguage', function() {
+				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.selfLanguage.value];
+				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.selfLanguage.value];
+			});
 	
 			$scope.useUri = false;
 			$scope.semanticTopics = null;
@@ -373,9 +412,9 @@
 					var data = {
 						text: $scope.selfExplanationFormData.selfText,
 						explanation: $scope.selfExplanationFormData.selfExplanation,
-						lang: $scope.selfExplanationFormData.selfLanguage, // TODO: check if language is ok eng
-						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.selfLSA, 
-						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.selfLDA,
+						lang: $scope.selfExplanationFormData.selfLanguage.value,
+						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.selfLSA.value, 
+						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.selfLDA.value,
 						postagging: false, // put pos value here
 						threshold: $scope.selfExplanationFormData.selfThreshold
 					}
