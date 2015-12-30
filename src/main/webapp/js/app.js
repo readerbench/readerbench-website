@@ -2,7 +2,8 @@
 
 (function(){
 	angular.module('readerbench', ['ngRoute', 'controllers', 'directives', 'filters'])
-		.config(['$routeProvider', '$httpProvider', function($routeProvider, $httpProvider){
+		.config(['$routeProvider', '$locationProvider', '$httpProvider',
+		         function($routeProvider, $locationProvider, $httpProvider){
 			
 			 $httpProvider.defaults.headers.common = {};
 			 $httpProvider.defaults.headers.post = {};
@@ -33,6 +34,8 @@
 					redirectTo: "/"
 				});
 			
+				// use the HTML5 History API
+	        	$locationProvider.html5Mode(true);
 				$httpProvider.defaults.useXDomain = true;
 	        	delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		}])

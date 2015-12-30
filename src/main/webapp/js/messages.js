@@ -1,10 +1,10 @@
 NavBarItems = [
- 	{name:'Home', href:'#/home'},
- 	{name:'Demo', href:'#/demo'},
- 	{name:'People', href:'#/people'},
- 	{name:'Projects', href:'#/projects'},
- 	{name:'Publications', href:'#/publications'},
- 	{name:'Contact', href:'#/contact'}
+ 	{name:'Home', href:'/'},
+ 	{name:'Demo', href:'demo'},
+ 	{name:'People', href:'people'},
+ 	{name:'Projects', href:'projects'},
+ 	{name:'Publications', href:'publications'},
+ 	{name:'Contact', href:'contact'}
 ]; 
 Reviews = [
     {message:'"Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedid quo minus id quos maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus."', 
