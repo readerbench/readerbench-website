@@ -128,19 +128,53 @@
 			};
 			
 			$scope.selfExplanationFormData = {
-				selfText : 'This paper describes the Learning Analytics and Knowledge ' + 
-					'(LAK) Dataset, an unprecedented collection of structured data ' +
-					'created from a set of key research publications in the emerging ' +
-					'field of learning analytics. The unstructured publications have ' +
-					'been processed and exposed in a variety of formats, most notably ' +
-					'according to Linked Data principles, in order to provide simplified ' +
-					'access for researchers and practitioners. The aim of this dataset is ' +
-					'to provide the opportunity to conduct investigations, for instance, ' +
-					'about the evolution of the research field over time, correlations ' +
-					'with other disciplines or to provide compelling applications which ' +
-					'take advantage of the dataset in an innovative manner. In this ' +
-					'paper, we describe the dataset, the design choices and rationale ' +
-					'and provide an outlook on future investigations.',
+				selfText : 'Ce soir-là, la famille de Matilda dînait comme d’habitude devant la télévision, ' + 
+					'quand ils entendirent une voix forte venant du salon dire : « salut, salut, salut ». ' + 
+
+					'La mère devint toute blanche. Elle dit à son mari « il y a quelqu’un dans la  ' + 
+
+					'maison ». Ils arrêtèrent tous de manger. Ils étaient tous sur le qui-vive. La voix  ' +  
+
+					'reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se  ' + 
+
+					'leva et alla éteindre la télévision.  ' + 
+
+					'La mère, paniquée, dit à son mari : « Henri, des voleurs, ils sont dans le salon, tu  ' + 
+
+					'devrais y aller ». Le père, raide sur sa chaise ne bougea pas. Il n’avait pas envie de  ' + 
+
+					'jouer au héros.  ' + 
+
+					'Sa femme lui dit : « Alors, tu te décides ? Ils doivent être en train de faucher  ' + 
+
+					'l’argenterie ! ».  ' + 
+
+					'Monsieur Verdebois s’essuya nerveusement les lèvres avec sa serviette et  ' + 
+
+					'proposa d’aller voir tous ensemble. La mère attrapa un tisonnier au coin de la  ' + 
+
+					'cheminée. Le père s’arma d’une canne de golf posée dans un coin. Le frère attrapa  ' + 
+
+					'un tabouret. Matilda prit le couteau avec lequel elle mangeait. Puis ils se  ' + 
+
+					'dirigèrent tous les quatre vers la porte du salon en marchant sur la pointe des  ' + 
+
+					'pieds. ' + 
+
+					'À ce moment-là, ils entendirent à nouveau la voix. Matilda fit alors irruption dans  ' + 
+
+					'la pièce en brandissant son couteau et cria « haut les mains, vous êtes pris ! ». Les  ' + 
+
+					'autres la suivirent en agitant leurs armes. Puis, ils s’arrêtèrent pour regarder  ' + 
+
+					'autour d’eux. Ils ne virent personne. Le père fut soulagé et dit « il n’y a pas de  ' + 
+
+					'voleur ici ». Sa femme lui répondit d’une voix tremblante « mais Henri, je l’ai  ' + 
+
+					'entendu, et toi aussi ». Matilda appuya la réponse de sa mère en ajoutant « je suis  ' + 
+
+					'sûre de l’avoir entendu, il est ici quelque part ».',
+				selfExplanation: 'y a la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.',
 				selfLanguage: {id: '2', name: 'French', value: 'fr'},
 				selfLSA: '',
 				selfLDA: '',
