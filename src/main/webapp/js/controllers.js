@@ -137,17 +137,17 @@
 
 					'reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se  ' + 
 
-					'leva et alla éteindre la télévision.  ' + 
+					'leva et alla éteindre la télévision.  '  + String.fromCharCode(13) +
 
 					'La mère, paniquée, dit à son mari : « Henri, des voleurs, ils sont dans le salon, tu  ' + 
 
 					'devrais y aller ». Le père, raide sur sa chaise ne bougea pas. Il n’avait pas envie de  ' + 
 
-					'jouer au héros.  ' + 
+					'jouer au héros.  ' +  String.fromCharCode(13) +
 
 					'Sa femme lui dit : « Alors, tu te décides ? Ils doivent être en train de faucher  ' + 
 
-					'l’argenterie ! ».  ' + 
+					'l’argenterie ! ».  ' + String.fromCharCode(13) +
 
 					'Monsieur Verdebois s’essuya nerveusement les lèvres avec sa serviette et  ' + 
 
@@ -159,7 +159,7 @@
 
 					'dirigèrent tous les quatre vers la porte du salon en marchant sur la pointe des  ' + 
 
-					'pieds. ' + 
+					'pieds. '  + String.fromCharCode(13) +
 
 					'À ce moment-là, ils entendirent à nouveau la voix. Matilda fit alors irruption dans  ' + 
 
@@ -173,7 +173,27 @@
 
 					'entendu, et toi aussi ». Matilda appuya la réponse de sa mère en ajoutant « je suis  ' + 
 
-					'sûre de l’avoir entendu, il est ici quelque part ».',
+					'sûre de l’avoir entendu, il est ici quelque part ».'  + String.fromCharCode(13) + 
+					
+					'C’est alors que la voix s’éleva à nouveau. Ils sursautèrent tous, y compris Matilda  ' + 
+
+					'qui jouait très bien la comédie. Ils inspectèrent la grande pièce. Ils ne trouvèrent   ' + 
+
+					'toujours personne. Matilda dit alors que c’était un fantôme : « Le salon est hanté,   ' + 
+
+					'je croyais que vous le saviez. Je sais que c’est le fantôme, je l’ai déjà entendu ici ».   ' + 
+
+					'Les parents, très pâles, sortirent du salon suivis par les enfants.   ' + String.fromCharCode(13) +
+
+					'Plus tard, suivie de son frère, Matilda retourna dans la pièce. C’est alors qu’elle  ' +  
+
+					'sortit du manteau de la cheminée le perroquet de leur copain Arthur. Ils   ' + 
+
+					'éclatèrent alors de rire. Ils passèrent par la porte de derrière en emmenant   ' + 
+
+					'l’animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il  ' +  
+
+					'n’y eut plus jamais de fantôme chez les Verdebois.',
 				selfExplanation: 'y a la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.',
 				selfLanguage: {id: '2', name: 'French', value: 'fr'},
 				selfLSA: '',
