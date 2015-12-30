@@ -504,7 +504,7 @@
 						}
 						$scope.showReadingStrategies = true;
 						$scope.initialTextColored = $sce.trustAsHtml(response.data.data.initialTextColored);
-						$scopr.alternateText = $sce.trustAsHtml(response.data.data.alternateText);
+						$scope.alternateText = $sce.trustAsHtml(response.data.data.alternateText);
 						$scope.strategies = response.data.data.strategies;
 						var interval = setInterval(function()
 				        {
