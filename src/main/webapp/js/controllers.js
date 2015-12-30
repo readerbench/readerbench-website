@@ -101,7 +101,7 @@
 	 	            {id: '4', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'}
 	             ],
 	             fr: [
-	 				{id: '1', name: 'none', value: ''},
+	 				{id: '1', name: '', value: ''},
 	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
 	 	            {id: '3', name: 'textenfants_fr', value: 'textenfants_fr'},
 	 	            {id: '4', name: 'philosophy_fr', value: 'philosophy_fr'}
