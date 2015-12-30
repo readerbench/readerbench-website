@@ -74,27 +74,45 @@
 			
 			$scope.lsaOptionsByLanguage = {
 				eng: [
-	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
-	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-	 	            {id: '3', name: 'financial_en', value: 'financial_en'}
+				    {id: '1', name: '', value: ''},
+	 				{id: '2', name: 'tasa_en', value: 'tasa_en'},
+	 	            {id: '3', name: 'tasa_lak_en', value: 'tasa_lak_en'},
+	 	            {id: '4', name: 'financial_en', value: 'financial_en'}
 	             ],
 	             fr: [
-	 				{id: '1', name: 'none', value: ''},
+	 				{id: '1', name: '', value: ''},
 	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
-	 	            {id: '3', name: 'testenfants_fr', value: 'testenfants_fr'}
+	 	            {id: '3', name: 'textenfants_fr', value: 'textenfants_fr'}
+	             ],
+	             it: [
+	                {id: '1', name: '', value: ''}
+	             ],
+	             es: [
+	                {id: '1', name: '', value: ''},
+	                {id: '2', name: 'joseantonio_es', value: 'joseantonio_es'}
 	             ]
 			}
 			
 			$scope.ldaOptionsByLanguage = {
 				eng: [
-	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
-	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-	 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'}
+				    {id: '1', name: '', value: ''},
+	 				{id: '2', name: 'tasa_en', value: 'tasa_en'},
+	 	            {id: '3', name: 'tasa_lak_en', value: 'tasa_lak_en'},
+	 	            {id: '4', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'}
 	             ],
 	             fr: [
 	 				{id: '1', name: 'none', value: ''},
 	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
-	 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'}
+	 	            {id: '3', name: 'textenfants_fr', value: 'textenfants_fr'},
+	 	            {id: '4', name: 'philosophy_fr', value: 'philosophy_fr'}
+	             ],
+	             it: [
+	                {id: '1', name: '', value: ''},
+	                {id: '2', name: 'paisa_it', value: 'paisa_it'}
+	             ],	             
+	             es: [
+	                {id: '1', name: '', value: ''},
+	                {id: '2', name: 'joseantonio_es', value: 'joseantonio_es'}
 	             ]
 			}
 			
@@ -202,8 +220,7 @@
 				selfPosTaggingOptions : [
      				{id: '1', name: 'Yes', value: true},
      	            {id: '2', name: 'No', value: false}
-                ],
-                selfThreshold: 0.3
+                ]
 			};
 			
 			$scope.$watch('selfExplanationFormData.selfLanguage', function() {
@@ -472,7 +489,6 @@
 						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.selfLSA.value, 
 						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.selfLDA.value,
 						postagging: false, // put pos value here
-						threshold: $scope.selfExplanationFormData.selfThreshold
 					}
 					// buildPathSemanticProcess is ok for buildPathSelfExplanation
 					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {

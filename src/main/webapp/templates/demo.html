@@ -277,10 +277,6 @@
 								<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
 								<select ng-model="selfExplanationFormData.selfPosTagging" ng-options="option.name for option in selfExplanationFormData.selfPosTaggingOptions track by option.id"></select>
 							</p>
-							<p>
-								<label for="self_threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
-								<input type="number" step="0.1" min="0.0" max="0.9" id="self_threshold" class="form-control" ng-model="selfExplanationFormData.selfThreshold" />
-							</p>
 							<div class="bottom-buttons" ng-if="!loading">
 								<button class="filter-button" ng-click="buttonClick('SELF_EXPLANATION')">Identify reading strategies</button>
 							</div>        
@@ -294,10 +290,10 @@
 									<ul class="course-description-list">
 							            <li class="lesson" ng-repeat="strategy in strategies">
 							            	<div class="heading">
-												<span class="lesson-nr no-select">{{strategy.name}}</span>
+												<span class="lesson-nr no-select">{{strategy.score}}</span>
 											</div>
 											<div class="body">
-												<p>{{strategy.score}}</p>
+												<p>{{strategy.name}}</p>
 											</div>
 							            </li>
 							        </ul>
