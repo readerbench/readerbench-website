@@ -211,7 +211,12 @@
 
 					'l’animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il  ' +  
 
-					'n’y eut plus jamais de fantôme chez les Verdebois.',
+					'n’y eut plus jamais de fantôme chez les Verdebois.' + 
+					
+					'j’ ai l’ impression' + 
+					
+					'j’ me souviens'
+					,
 				selfExplanation: 'y a la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.',
 				selfLanguage: {id: '2', name: 'French', value: 'fr'},
 				selfLSA: '',
@@ -499,6 +504,7 @@
 						}
 						$scope.showReadingStrategies = true;
 						$scope.initialTextColored = $sce.trustAsHtml(response.data.data.initialTextColored);
+						$scopr.alternateText = $sce.trustAsHtml(response.data.data.alternateText);
 						$scope.strategies = response.data.data.strategies;
 						var interval = setInterval(function()
 				        {
