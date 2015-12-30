@@ -56,7 +56,7 @@
 		   
 		}])
 		
-	.controller('DemoController', ['$scope', '$http', function($scope, $http){
+	.controller('DemoController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 		
 			$scope.q = DemoText;
 			//$scope.tabDemo = 'TEXT_PROCESSING';
@@ -74,27 +74,27 @@
 			
 			$scope.lsaOptionsByLanguage = {
 				eng: [
-	 				{id: '1', name: 'tasa_en', value: 'LSA/tasa_en'},
-	 	            {id: '2', name: 'tasa_lak_en', value: 'LSA/tasa_lak_en'},
-	 	            {id: '3', name: 'financial_en', value: 'LSA/financial_en'}
+	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
+	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
+	 	            {id: '3', name: 'financial_en', value: 'financial_en'}
 	             ],
 	             fr: [
 	 				{id: '1', name: 'none', value: ''},
-	 	            {id: '2', name: 'lemonde_fr', value: 'LSA/lemonde_fr'},
-	 	            {id: '3', name: 'testenfants_fr', value: 'LSA/testenfants_fr'}
+	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
+	 	            {id: '3', name: 'testenfants_fr', value: 'testenfants_fr'}
 	             ]
 			}
 			
 			$scope.ldaOptionsByLanguage = {
 				eng: [
-	 				{id: '1', name: 'tasa_en', value: 'LSA/tasa_en'},
-	 	            {id: '2', name: 'tasa_lak_en', value: 'LSA/tasa_lak_en'},
-	 	            {id: '3', name: 'tasa_smart_cities_en', value: 'LSA/tasa_smart_cities_en'}
+	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
+	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
+	 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'}
 	             ],
 	             fr: [
 	 				{id: '1', name: 'none', value: ''},
-	 	            {id: '2', name: 'lemonde_fr', value: 'LSA/lemonde_fr'},
-	 	            {id: '3', name: 'philosophy_fr', value: 'LSA/philosophy_fr'}
+	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
+	 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'}
 	             ]
 			}
 			
@@ -239,6 +239,8 @@
 				$scope.showSemanticConcept = false;
 				$scope.showSemanticRelevance = false;
 				$scope.showSemanticCategories = false;
+				
+				$scope.showReadingStrategies = false;
 				
 				var endpoint;
 				switch(req) {
@@ -425,26 +427,17 @@
 							alert('Server error occured!');
 							return;
 						}
-						
 						$scope.showReadingStrategies = true;
-						
-						/*$scope.semanticTopics = response.data.data.concepts.nodes;
-						$scope.semanticTopicEdges = response.data.data.concepts.links;
-						$scope.semanticAbstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
-						$scope.semanticKeywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
-						$scope.semanticKeywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
-						$scope.semanticKeywords = response.data.data.keywords;
-						$scope.semanticCategories = response.data.data.categories;
-						
+						$scope.initialTextColored = $sce.trustAsHtml(response.data.data.initialTextColored);
+						$scope.strategies = response.data.data.strategies;
 						var interval = setInterval(function()
 				        {
-							if($scope.semanticTopicEdges.count == response.data.data.concepts.links.count)
+							if($scope.strategies.count == response.data.data.strategies.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#semanticConceptMap");
+								courseDescriptionToggle();
 							}
 				        }, 1000);
-						//console.log($scope.topics);*/
 					});
 					break;
 				}

@@ -285,6 +285,24 @@
 								<button class="filter-button" ng-click="buttonClick('SELF_EXPLANATION')">Identify reading strategies</button>
 							</div>        
 							<div class="bottom-buttons" ng-if="loading">Loading...</div>
+							<div ng-if="showReadingStrategies">
+								<div class="col-xs-12 col-md-12">
+									<h4>Reading Strategies</h4>
+									<div ng-bind-html="initialTextColored"></div>
+								</div>
+								<div class="col-xs-12 col-md-12">
+									<ul class="course-description-list">
+							            <li class="lesson" ng-repeat="strategy in strategies">
+							            	<div class="heading">
+												<span class="lesson-nr no-select">{{strategy.name}}</span>
+											</div>
+											<div class="body">
+												<p>{{strategy.score}}</p>
+											</div>
+							            </li>
+							        </ul>
+							       </div>
+					        </div>
 						</div>
 						<div id="tabs-self" ng-if="tabDemo == 'CSCL'">
 							<h3>CSCL</h3>

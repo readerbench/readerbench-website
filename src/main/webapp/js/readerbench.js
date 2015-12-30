@@ -95,3 +95,7 @@ var d3jsForTopics = function(graph) {
 		      .attr("y2", function(d) { return d.target.fisheye.y; });
 	  });
 }
+
+var htmlEncode = function(mystring) {
+	return mystring.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+}
