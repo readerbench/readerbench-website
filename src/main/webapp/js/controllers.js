@@ -61,7 +61,8 @@
 			$scope.q = DemoText;
 			//$scope.tabDemo = 'TEXT_PROCESSING';
 			//$scope.tabDemo = 'SEMANTIC_ANNOTATION';
-			$scope.tabDemo = 'SELF_EXPLANATION';
+			//$scope.tabDemo = 'SELF_EXPLANATION';
+			$scope.tabDemo = 'CSCL';
 			$scope.lsaOptions = '';
 			$scope.ldaOptions = '';
 			
@@ -151,8 +152,8 @@
 			};
 			
 			$scope.selfExplanationFormData = {
-				text: DemoTexts[0].selfExplanation[0].text,
-				explanation: DemoTexts[0].selfExplanation[0].explanation,
+				text: DemoTexts.selfExplanation.text,
+				explanation: DemoTexts.selfExplanation.explanation,
 				language: {id: '2', name: 'French', value: 'fr'},
 				lsa: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
 				lda: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
@@ -163,6 +164,20 @@
 				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
 				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
 			});
+			
+			$scope.$watch('csclFormData.language', function() {
+				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.csclFormData.language.value];
+				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.csclFormData.language.value];
+			});
+			
+			$scope.csclFormData = {
+					conversation: DemoTexts.csclProcessing.conversation,
+					language: {id: '1', name: 'English', value: 'eng'},
+					lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
+					lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
+					posTagging: {id: '1', name: 'Yes', value: true},
+					threshold: 0.3
+				};
 	
 			$scope.useUri = false;
 			$scope.semanticTopics = null;
@@ -441,6 +456,37 @@
 							{
 								clearInterval(interval);
 								courseDescriptionToggle();
+							}
+				        }, 1000);
+					});
+					break;
+				case 'CSCL':
+					$scope.loading = true;
+					endpoint = 'csclProcessing';
+					var data = {
+						conversation: $scope.csclFormData.conversation,
+						lang: $scope.csclFormData.language.value,
+						lsa: 'resources/config/LSA/' + $scope.csclFormData.lsa.value, 
+						lda: 'resources/config/LDA/' + $scope.csclFormData.lda.value,
+						postagging: $scope.csclFormData.posTagging.value,
+						threshold: $scope.csclFormData.threshold
+					}
+					// buildPathSemanticProcess is ok for buildPathCsclProcessing
+					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
+						$scope.loading = false;
+						if (response.data.success != true) {
+							alert('Server error occured!');
+							return;
+						}
+						$scope.showCsclProcessing = true;
+						$scope.topics = response.data.data.nodes;
+						$scope.topicEdges = response.data.data.links;
+						var interval = setInterval(function()
+				        {
+							if($scope.topicEdges.count == response.data.data.links.count)
+							{
+								clearInterval(interval);
+								d3jsForTopics(response.data.data, "#conceptMap");
 							}
 				        }, 1000);
 					});
