@@ -74,45 +74,45 @@
 			
 			$scope.lsaOptionsByLanguage = {
 				eng: [
-				    {id: '1', name: '', value: ''},
-	 				{id: '2', name: 'tasa_en', value: 'tasa_en'},
-	 	            {id: '3', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-	 	            {id: '4', name: 'financial_en', value: 'financial_en'}
+	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
+	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
+	 	            {id: '3', name: 'financial_en', value: 'financial_en'},
+	 	            {id: '4', name: '', value: ''}
 	             ],
 	             fr: [
-	 				{id: '1', name: '', value: ''},
-	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
-	 	            {id: '3', name: 'textenfants_fr', value: 'textenfants_fr'}
+	 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+	 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
+	 	            {id: '3', name: '', value: ''}
 	             ],
 	             it: [
 	                {id: '1', name: '', value: ''}
 	             ],
 	             es: [
-	                {id: '1', name: '', value: ''},
-	                {id: '2', name: 'joseantonio_es', value: 'joseantonio_es'}
+	                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
+	                {id: '2', name: '', value: ''}
 	             ]
 			}
 			
 			$scope.ldaOptionsByLanguage = {
 				eng: [
-				    {id: '1', name: '', value: ''},
-	 				{id: '2', name: 'tasa_en', value: 'tasa_en'},
-	 	            {id: '3', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-	 	            {id: '4', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'}
+	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
+	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
+	 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
+	 	            {id: '4', name: '', value: ''}
 	             ],
 	             fr: [
-	 				{id: '1', name: '', value: ''},
-	 	            {id: '2', name: 'lemonde_fr', value: 'lemonde_fr'},
-	 	            {id: '3', name: 'textenfants_fr', value: 'textenfants_fr'},
-	 	            {id: '4', name: 'philosophy_fr', value: 'philosophy_fr'}
+	 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+	 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
+	 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
+	 	            {id: '4', name: '', value: ''}
 	             ],
 	             it: [
-	                {id: '1', name: '', value: ''},
-	                {id: '2', name: 'paisa_it', value: 'paisa_it'}
+	                {id: '1', name: 'paisa_it', value: 'paisa_it'},
+	                {id: '2', name: '', value: ''}
 	             ],	             
 	             es: [
-	                {id: '1', name: '', value: ''},
-	                {id: '2', name: 'joseantonio_es', value: 'joseantonio_es'}
+	                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
+	                {id: '2', name: '', value: ''}
 	             ]
 			}
 			
@@ -219,9 +219,9 @@
 					,
 				selfExplanation: 'y a la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.',
 				selfLanguage: {id: '2', name: 'French', value: 'fr'},
-				selfLSA: '',
-				selfLDA: '',
-				selfPosTagging : {id: '2', name: 'No', value: false},
+				selfLSA: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+				selfLDA: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+				selfPosTagging : {id: '1', name: 'Yes', value: true},
 				selfPosTaggingOptions : [
      				{id: '1', name: 'Yes', value: true},
      	            {id: '2', name: 'No', value: false}
@@ -503,8 +503,7 @@
 							return;
 						}
 						$scope.showReadingStrategies = true;
-						$scope.initialTextColored = $sce.trustAsHtml(response.data.data.initialTextColored);
-						$scope.alternateText = $sce.trustAsHtml(response.data.data.alternateText);
+						$scope.selfExplanationColored = $sce.trustAsHtml(response.data.data.selfExplanationColored);
 						$scope.strategies = response.data.data.strategies;
 						var interval = setInterval(function()
 				        {
