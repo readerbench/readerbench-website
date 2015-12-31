@@ -493,7 +493,7 @@
 						lang: $scope.selfExplanationFormData.selfLanguage.value,
 						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.selfLSA.value, 
 						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.selfLDA.value,
-						postagging: false, // put pos value here
+						postagging: $scope.selfExplanationFormData.selfPosTagging.value,
 					}
 					// buildPathSemanticProcess is ok for buildPathSelfExplanation
 					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
