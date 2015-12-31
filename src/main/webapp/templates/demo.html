@@ -255,27 +255,27 @@
 							<h3>Self Explanation</h3>
 							<p>
 								<label for="self_text">Text input</label>
-								<textarea class="form-control" rows="10" id="self_text" ng-model="selfExplanationFormData.selfText"></textarea>
+								<textarea class="form-control" rows="10" id="self_text" ng-model="selfExplanationFormData.text"></textarea>
 							</p>
 							<p>
 								<label for="self_explanation">Self explanation</label>
-								<textarea class="form-control" rows="6" id="self_explanation" ng-model="selfExplanationFormData.selfExplanation"></textarea>
+								<textarea class="form-control" rows="6" id="self_explanation" ng-model="selfExplanationFormData.explanation"></textarea>
 							</p>
 							<p>
 								<label for="self_language">Language <span class="required">*</span></label>
-								<select ng-model="selfExplanationFormData.selfLanguage" ng-options="option.name for option in languages track by option.id"></select>
+								<select ng-model="selfExplanationFormData.language" ng-options="option.name for option in languages track by option.id"></select>
 							</p>
 							<p>
 								<label for="self_lsa">LSA <span class="required">*</span></label>
-								<select ng-model="selfExplanationFormData.selfLSA" ng-options="option.name for option in lsaOptions track by option.id"></select>
+								<select ng-model="selfExplanationFormData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
 							</p>
 							<p>
 								<label for="self_lda">LDA <span class="required">*</span></label>
-								<select ng-model="selfExplanationFormData.selfLDA" ng-options="option.name for option in ldaOptions track by option.id"></select>
+								<select ng-model="selfExplanationFormData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
 							</p>
 							<p>
 								<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
-								<select ng-model="selfExplanationFormData.selfPosTagging" ng-options="option.name for option in selfExplanationFormData.selfPosTaggingOptions track by option.id"></select>
+								<select ng-model="selfExplanationFormData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
 							</p>
 							<div class="bottom-buttons" ng-if="!loading">
 								<button class="filter-button" ng-click="buttonClick('SELF_EXPLANATION')">Identify reading strategies</button>

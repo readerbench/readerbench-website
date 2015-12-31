@@ -72,6 +72,11 @@
  	            {id: '2', name: 'French', value: 'fr'}
              ];
 			
+			$scope.posTaggingOptions = [
+ 				{id: '1', name: 'Yes', value: true},
+ 	            {id: '2', name: 'No', value: false}
+            ];
+			
 			$scope.lsaOptionsByLanguage = {
 				eng: [
 	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
@@ -146,91 +151,17 @@
 			};
 			
 			$scope.selfExplanationFormData = {
-				selfText : 'Ce soir-là, la famille de Matilda dînait comme d’habitude devant la télévision, ' + 
-					'quand ils entendirent une voix forte venant du salon dire : « salut, salut, salut ». ' + 
-
-					'La mère devint toute blanche. Elle dit à son mari « il y a quelqu’un dans la  ' + 
-
-					'maison ». Ils arrêtèrent tous de manger. Ils étaient tous sur le qui-vive. La voix  ' +  
-
-					'reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se  ' + 
-
-					'leva et alla éteindre la télévision.  '  + String.fromCharCode(13) +
-
-					'La mère, paniquée, dit à son mari : « Henri, des voleurs, ils sont dans le salon, tu  ' + 
-
-					'devrais y aller ». Le père, raide sur sa chaise ne bougea pas. Il n’avait pas envie de  ' + 
-
-					'jouer au héros.  ' +  String.fromCharCode(13) +
-
-					'Sa femme lui dit : « Alors, tu te décides ? Ils doivent être en train de faucher  ' + 
-
-					'l’argenterie ! ».  ' + String.fromCharCode(13) +
-
-					'Monsieur Verdebois s’essuya nerveusement les lèvres avec sa serviette et  ' + 
-
-					'proposa d’aller voir tous ensemble. La mère attrapa un tisonnier au coin de la  ' + 
-
-					'cheminée. Le père s’arma d’une canne de golf posée dans un coin. Le frère attrapa  ' + 
-
-					'un tabouret. Matilda prit le couteau avec lequel elle mangeait. Puis ils se  ' + 
-
-					'dirigèrent tous les quatre vers la porte du salon en marchant sur la pointe des  ' + 
-
-					'pieds. '  + String.fromCharCode(13) +
-
-					'À ce moment-là, ils entendirent à nouveau la voix. Matilda fit alors irruption dans  ' + 
-
-					'la pièce en brandissant son couteau et cria « haut les mains, vous êtes pris ! ». Les  ' + 
-
-					'autres la suivirent en agitant leurs armes. Puis, ils s’arrêtèrent pour regarder  ' + 
-
-					'autour d’eux. Ils ne virent personne. Le père fut soulagé et dit « il n’y a pas de  ' + 
-
-					'voleur ici ». Sa femme lui répondit d’une voix tremblante « mais Henri, je l’ai  ' + 
-
-					'entendu, et toi aussi ». Matilda appuya la réponse de sa mère en ajoutant « je suis  ' + 
-
-					'sûre de l’avoir entendu, il est ici quelque part ».'  + String.fromCharCode(13) + 
-					
-					'C’est alors que la voix s’éleva à nouveau. Ils sursautèrent tous, y compris Matilda  ' + 
-
-					'qui jouait très bien la comédie. Ils inspectèrent la grande pièce. Ils ne trouvèrent   ' + 
-
-					'toujours personne. Matilda dit alors que c’était un fantôme : « Le salon est hanté,   ' + 
-
-					'je croyais que vous le saviez. Je sais que c’est le fantôme, je l’ai déjà entendu ici ».   ' + 
-
-					'Les parents, très pâles, sortirent du salon suivis par les enfants.   ' + String.fromCharCode(13) +
-
-					'Plus tard, suivie de son frère, Matilda retourna dans la pièce. C’est alors qu’elle  ' +  
-
-					'sortit du manteau de la cheminée le perroquet de leur copain Arthur. Ils   ' + 
-
-					'éclatèrent alors de rire. Ils passèrent par la porte de derrière en emmenant   ' + 
-
-					'l’animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il  ' +  
-
-					'n’y eut plus jamais de fantôme chez les Verdebois.' + 
-					
-					'j’ ai l’ impression' + 
-					
-					'j’ me souviens'
-					,
-				selfExplanation: 'y a la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.',
-				selfLanguage: {id: '2', name: 'French', value: 'fr'},
-				selfLSA: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-				selfLDA: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-				selfPosTagging : {id: '1', name: 'Yes', value: true},
-				selfPosTaggingOptions : [
-     				{id: '1', name: 'Yes', value: true},
-     	            {id: '2', name: 'No', value: false}
-                ]
+				text: DemoTexts[0].selfExplanation[0].text,
+				explanation: DemoTexts[0].selfExplanation[0].explanation,
+				language: {id: '2', name: 'French', value: 'fr'},
+				lsa: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+				lda: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+				posTagging : {id: '1', name: 'Yes', value: true}
 			};
 			
-			$scope.$watch('selfExplanationFormData.selfLanguage', function() {
-				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.selfLanguage.value];
-				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.selfLanguage.value];
+			$scope.$watch('selfExplanationFormData.language', function() {
+				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
+				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
 			});
 	
 			$scope.useUri = false;
@@ -486,14 +417,13 @@
 				case 'SELF_EXPLANATION':
 					$scope.loading = true;
 					endpoint = 'selfExplanation';
-					//console.log('you clicked concept');
 					var data = {
-						text: $scope.selfExplanationFormData.selfText,
-						explanation: $scope.selfExplanationFormData.selfExplanation,
-						lang: $scope.selfExplanationFormData.selfLanguage.value,
-						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.selfLSA.value, 
-						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.selfLDA.value,
-						postagging: $scope.selfExplanationFormData.selfPosTagging.value,
+						text: $scope.selfExplanationFormData.text,
+						explanation: $scope.selfExplanationFormData.explanation,
+						lang: $scope.selfExplanationFormData.language.value,
+						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.lsa.value, 
+						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.lda.value,
+						postagging: $scope.selfExplanationFormData.posTagging.value,
 					}
 					// buildPathSemanticProcess is ok for buildPathSelfExplanation
 					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {

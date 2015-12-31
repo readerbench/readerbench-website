@@ -104,3 +104,74 @@ Publications = [
 DemoText = 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE – Realising an Applied Gaming Eco-system,  is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.' + String.fromCharCode(13) +
 'The EU based industry for non-leisure games – Applied Games – is an emerging business with multiple uses in industry, education, health and the public administration sectors. As such, it is still fragmented and needs critical mass to compete globally. Nevertheless its growth potential is widely recognised and even suggested to exceed the growth potential of the leisure games market.' + String.fromCharCode(13) +
 'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by gaming companies integrated in the RAGE consortium. These companies will be creating games that will be empirically validated in real world pilots in different application scenarios representing different markets and target groups for the Applied Games industry.';
+DemoTexts = [
+             // Self Explanation (Reading Strategies)
+             {selfExplanation: [{
+            	 	text : 'Ce soir-là, la famille de Matilda dînait comme d’habitude devant la télévision, ' + 
+					'quand ils entendirent une voix forte venant du salon dire : « salut, salut, salut ». ' + 
+
+					'La mère devint toute blanche. Elle dit à son mari « il y a quelqu’un dans la  ' + 
+
+					'maison ». Ils arrêtèrent tous de manger. Ils étaient tous sur le qui-vive. La voix  ' +  
+
+					'reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se  ' + 
+
+					'leva et alla éteindre la télévision.  '  + String.fromCharCode(13) +
+
+					'La mère, paniquée, dit à son mari : « Henri, des voleurs, ils sont dans le salon, tu  ' + 
+
+					'devrais y aller ». Le père, raide sur sa chaise ne bougea pas. Il n’avait pas envie de  ' + 
+
+					'jouer au héros.  ' +  String.fromCharCode(13) +
+
+					'Sa femme lui dit : « Alors, tu te décides ? Ils doivent être en train de faucher  ' + 
+
+					'l’argenterie ! ».  ' + String.fromCharCode(13) +
+
+					'Monsieur Verdebois s’essuya nerveusement les lèvres avec sa serviette et  ' + 
+
+					'proposa d’aller voir tous ensemble. La mère attrapa un tisonnier au coin de la  ' + 
+
+					'cheminée. Le père s’arma d’une canne de golf posée dans un coin. Le frère attrapa  ' + 
+
+					'un tabouret. Matilda prit le couteau avec lequel elle mangeait. Puis ils se  ' + 
+
+					'dirigèrent tous les quatre vers la porte du salon en marchant sur la pointe des  ' + 
+
+					'pieds. '  + String.fromCharCode(13) +
+
+					'À ce moment-là, ils entendirent à nouveau la voix. Matilda fit alors irruption dans  ' + 
+
+					'la pièce en brandissant son couteau et cria « haut les mains, vous êtes pris ! ». Les  ' + 
+
+					'autres la suivirent en agitant leurs armes. Puis, ils s’arrêtèrent pour regarder  ' + 
+
+					'autour d’eux. Ils ne virent personne. Le père fut soulagé et dit « il n’y a pas de  ' + 
+
+					'voleur ici ». Sa femme lui répondit d’une voix tremblante « mais Henri, je l’ai  ' + 
+
+					'entendu, et toi aussi ». Matilda appuya la réponse de sa mère en ajoutant « je suis  ' + 
+
+					'sûre de l’avoir entendu, il est ici quelque part ».'  + String.fromCharCode(13) + 
+					
+					'C’est alors que la voix s’éleva à nouveau. Ils sursautèrent tous, y compris Matilda  ' + 
+
+					'qui jouait très bien la comédie. Ils inspectèrent la grande pièce. Ils ne trouvèrent   ' + 
+
+					'toujours personne. Matilda dit alors que c’était un fantôme : « Le salon est hanté,   ' + 
+
+					'je croyais que vous le saviez. Je sais que c’est le fantôme, je l’ai déjà entendu ici ».   ' + 
+
+					'Les parents, très pâles, sortirent du salon suivis par les enfants.   ' + String.fromCharCode(13) +
+
+					'Plus tard, suivie de son frère, Matilda retourna dans la pièce. C’est alors qu’elle  ' +  
+
+					'sortit du manteau de la cheminée le perroquet de leur copain Arthur. Ils   ' + 
+
+					'éclatèrent alors de rire. Ils passèrent par la porte de derrière en emmenant   ' + 
+
+					'l’animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il  ' +  
+
+					'n’y eut plus jamais de fantôme chez les Verdebois.',
+					explanation: 'je crois qu\'il y a donc la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.'}
+             ]}];
