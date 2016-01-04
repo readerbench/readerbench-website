@@ -487,6 +487,12 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 	font-weight: bold;
 }
 
+line.link {
+	stroke: #999;
+    stroke-opacity: .6;
+    stroke-width: 1.5px;
+}
+
 /* @media (min-width: 1149px) {
 	.action-bar{
  		display: block;
