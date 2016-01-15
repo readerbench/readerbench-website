@@ -58,15 +58,13 @@
 		
 	.controller('DemoController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 		
-			$scope.q = DemoText;
+			$scope.q = DemoTexts.textProcessing.text;
 			$scope.tabDemo = 'TEXT_PROCESSING';
 			//$scope.tabDemo = 'SEMANTIC_ANNOTATION';
 			//$scope.tabDemo = 'SELF_EXPLANATION';
 			//$scope.tabDemo = 'CSCL';
 			$scope.lsaOptions = '';
 			$scope.ldaOptions = '';
-			
-			$scope.tabSemanticAnnotation = 'SEMANTIC_CONCEPT';
 			
 			$scope.languages = [
  				{id: '1', name: 'English', value: 'eng'},
@@ -126,20 +124,8 @@
 			$scope.semanticAnnotationFormData = {
 				semanticUrl : 'https://linkededucation.files.wordpress.com/2013/03/lak-dataset-taibi.pdf',
 				semanticFile : 'MS_training_SE_1999',
-				semanticAbstract : 'This paper describes the Learning Analytics and Knowledge ' + 
-					'(LAK) Dataset, an unprecedented collection of structured data ' +
-					'created from a set of key research publications in the emerging ' +
-					'field of learning analytics. The unstructured publications have ' +
-					'been processed and exposed in a variety of formats, most notably ' +
-					'according to Linked Data principles, in order to provide simplified ' +
-					'access for researchers and practitioners. The aim of this dataset is ' +
-					'to provide the opportunity to conduct investigations, for instance, ' +
-					'about the evolution of the research field over time, correlations ' +
-					'with other disciplines or to provide compelling applications which ' +
-					'take advantage of the dataset in an innovative manner. In this ' +
-					'paper, we describe the dataset, the design choices and rationale ' +
-					'and provide an outlook on future investigations.',
-				semanticKeywords : 'educational data mining, learning analytics, dataset',
+				semanticAbstract : DemoTexts.semanticAnnotation.abstractText,
+				semanticKeywords : DemoTexts.semanticAnnotation.keywods,
 				semanticLanguage: 'eng',
 				semanticLSA: 'tasa_lak_en',
 				semanticLDA: 'tasa_lak_en',
@@ -206,10 +192,6 @@
 			
 			$scope.changeTab = function(tabName) {
 				$scope.tabDemo = tabName;
-			}
-			
-			$scope.changeTabSemanticAnnotation = function(tabName) {
-				$scope.tabSemanticAnnotation = tabName;
 			}
 			
 			$scope.buildPath = function(path) {

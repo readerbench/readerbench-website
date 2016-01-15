@@ -101,80 +101,93 @@ Publications = [
           	{title:'Traian Rebedea, Mihai Dascalu, Stefan Trausan-Matu, Dan Banica, Alexandru Gartner, Costin-Gabriel Chiru, Dan Mihaila:Overview and Preliminary Results of Using PolyCAFe for Collaboration Analysis and Feedback Generation. EC-TEL 2010: 420-425', year:'2010'},
           	{title:'Mihai Dascalu, Erol-Valeriu Chioasca, Stefan Trausan-Matu: ASAP- An Advanced System for Assessing Chat Participants. AIMSA 2008: 58-68', year:'2008'}
           	 ]; 
-DemoText = 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE – Realising an Applied Gaming Eco-system,  is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.' + String.fromCharCode(13) +
-'The EU based industry for non-leisure games – Applied Games – is an emerging business with multiple uses in industry, education, health and the public administration sectors. As such, it is still fragmented and needs critical mass to compete globally. Nevertheless its growth potential is widely recognised and even suggested to exceed the growth potential of the leisure games market.' + String.fromCharCode(13) +
-'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by gaming companies integrated in the RAGE consortium. These companies will be creating games that will be empirically validated in real world pilots in different application scenarios representing different markets and target groups for the Applied Games industry.';
 DemoTexts = {
+		// Text Processing
+		textProcessing: {
+			text: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry ' + 
+			'into self-contained gaming assets (i.e. solutions showing economic value potential) that support game ' + 
+			'studios at developing applied games easier, faster and more cost-effectively. These assets will be ' + 
+			'available along with a large volume of high-quality knowledge resources through a self-sustainable ' + 
+			'Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education ' + 
+			'providers, policy makers and end-users. RAGE – Realising an Applied Gaming Eco-system,  is a 48-months ' +
+			'Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for ' + 
+			'Research and Innovation, Horizon 2020.' +
+			String.fromCharCode(13) +
+			'The EU based industry for non-leisure games – Applied Games – is an emerging business with multiple uses ' + 
+			'in industry, education, health and the public administration sectors. As such, it is still fragmented and ' + 
+			'needs critical mass to compete globally. Nevertheless its growth potential is widely recognised and even ' + 
+			'suggested to exceed the growth potential of the leisure games market.' +
+			String.fromCharCode(13) +
+			'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by gaming ' + 
+			'companies integrated in the RAGE consortium. These companies will be creating games that will be ' + 
+			'empirically validated in real world pilots in different application scenarios representing different ' + 
+			'markets and target groups for the Applied Games industry.'
+		},
+		// Semantic Annotation
+		semanticAnnotation: {
+			abstractText: 'This paper describes the Learning Analytics and Knowledge ' + 
+			'(LAK) Dataset, an unprecedented collection of structured data ' +
+			'created from a set of key research publications in the emerging ' +
+			'field of learning analytics. The unstructured publications have ' +
+			'been processed and exposed in a variety of formats, most notably ' +
+			'according to Linked Data principles, in order to provide simplified ' +
+			'access for researchers and practitioners. The aim of this dataset is ' +
+			'to provide the opportunity to conduct investigations, for instance, ' +
+			'about the evolution of the research field over time, correlations ' +
+			'with other disciplines or to provide compelling applications which ' +
+			'take advantage of the dataset in an innovative manner. In this ' +
+			'paper, we describe the dataset, the design choices and rationale ' +
+			'and provide an outlook on future investigations.',
+			keywords: 'educational data mining, learning analytics, dataset'
+		},
 		// Self Explanation (Reading Strategies)
         selfExplanation: {
     	 	text : 'Ce soir-là, la famille de Matilda dînait comme d’habitude devant la télévision, ' + 
 			'quand ils entendirent une voix forte venant du salon dire : « salut, salut, salut ». ' + 
-
 			'La mère devint toute blanche. Elle dit à son mari « il y a quelqu’un dans la  ' + 
-
 			'maison ». Ils arrêtèrent tous de manger. Ils étaient tous sur le qui-vive. La voix  ' +  
-
 			'reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se  ' + 
-
-			'leva et alla éteindre la télévision.  '  + String.fromCharCode(13) +
-
+			'leva et alla éteindre la télévision.' +
+			String.fromCharCode(13) +
 			'La mère, paniquée, dit à son mari : « Henri, des voleurs, ils sont dans le salon, tu  ' + 
-
 			'devrais y aller ». Le père, raide sur sa chaise ne bougea pas. Il n’avait pas envie de  ' + 
-
-			'jouer au héros.  ' +  String.fromCharCode(13) +
-
+			'jouer au héros.' +
+			String.fromCharCode(13) +
 			'Sa femme lui dit : « Alors, tu te décides ? Ils doivent être en train de faucher  ' + 
-
-			'l’argenterie ! ».  ' + String.fromCharCode(13) +
-
+			'l’argenterie ! ».' +
+			String.fromCharCode(13) +
 			'Monsieur Verdebois s’essuya nerveusement les lèvres avec sa serviette et  ' + 
-
 			'proposa d’aller voir tous ensemble. La mère attrapa un tisonnier au coin de la  ' + 
-
 			'cheminée. Le père s’arma d’une canne de golf posée dans un coin. Le frère attrapa  ' + 
-
 			'un tabouret. Matilda prit le couteau avec lequel elle mangeait. Puis ils se  ' + 
-
 			'dirigèrent tous les quatre vers la porte du salon en marchant sur la pointe des  ' + 
-
-			'pieds. '  + String.fromCharCode(13) +
-
+			'pieds.' +
+			String.fromCharCode(13) +
 			'À ce moment-là, ils entendirent à nouveau la voix. Matilda fit alors irruption dans  ' + 
-
 			'la pièce en brandissant son couteau et cria « haut les mains, vous êtes pris ! ». Les  ' + 
-
 			'autres la suivirent en agitant leurs armes. Puis, ils s’arrêtèrent pour regarder  ' + 
-
 			'autour d’eux. Ils ne virent personne. Le père fut soulagé et dit « il n’y a pas de  ' + 
-
 			'voleur ici ». Sa femme lui répondit d’une voix tremblante « mais Henri, je l’ai  ' + 
-
 			'entendu, et toi aussi ». Matilda appuya la réponse de sa mère en ajoutant « je suis  ' + 
-
-			'sûre de l’avoir entendu, il est ici quelque part ».'  + String.fromCharCode(13) + 
-			
+			'sûre de l’avoir entendu, il est ici quelque part ».' +
+			String.fromCharCode(13) + 
 			'C’est alors que la voix s’éleva à nouveau. Ils sursautèrent tous, y compris Matilda  ' + 
-
 			'qui jouait très bien la comédie. Ils inspectèrent la grande pièce. Ils ne trouvèrent   ' + 
-
 			'toujours personne. Matilda dit alors que c’était un fantôme : « Le salon est hanté,   ' + 
-
 			'je croyais que vous le saviez. Je sais que c’est le fantôme, je l’ai déjà entendu ici ».   ' + 
-
-			'Les parents, très pâles, sortirent du salon suivis par les enfants.   ' + String.fromCharCode(13) +
-
+			'Les parents, très pâles, sortirent du salon suivis par les enfants.' +
+			String.fromCharCode(13) +
 			'Plus tard, suivie de son frère, Matilda retourna dans la pièce. C’est alors qu’elle  ' +  
-
 			'sortit du manteau de la cheminée le perroquet de leur copain Arthur. Ils   ' + 
-
 			'éclatèrent alors de rire. Ils passèrent par la porte de derrière en emmenant   ' + 
-
 			'l’animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il  ' +  
-
 			'n’y eut plus jamais de fantôme chez les Verdebois.',
-			
-			explanation: 'je crois qu\'il y a donc la famille de Matilda ben ils sont en train de manger et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils sortent tous du salon.'
+			explanation: 'je crois qu\'il y a donc la famille de Matilda ben ils sont en train de manger ' + 
+			'et soudain y a quelqu\'un qui entre en disant salut salut salut. Après ils croient que c\'étaient ' + 
+			'des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est ' + 
+			'des voleurs mais le père il croit pas. Et la femme et Matilda ils croient elles croient que c\'est ' +
+			'des voleurs. Et après Matilda elle dit que c\'est un fantôme et qu\'il hante la salle. Et après ils ' + 
+			'sortent tous du salon.'
 		},
 		csclProcessing: {
 			conversation: '<?xml version = "1.0" ?><Dialog team="34"><Participants><Person nickname="Mona-chat"/><Person nickname="stefan-blog"/><Person nickname="corina-forum"/><Person nickname="diana-wiki"/><Person nickname="cristi-wave"/></Participants><Topics/><Body><Turn nickname="Mona-chat"><Utterance genid="1" ref="0" time="11:43:05">joins the room</Utterance></Turn><Turn nickname="corina-forum"><Utterance genid="2" ref="0" time="11:45:01">joins the room</Utterance></Turn><Turn nickname="corina-forum"><Utterance genid="3" ref="0" time="11:45:06">Hello</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="4" ref="0" time="11:45:08">Hello, Corina!</Utterance></Turn><Turn nickname="diana-wiki"><Utterance genid="5" ref="0" time="11:45:18">joins the room</Utterance></Turn><Turn nickname="cristi-wave"><Utterance genid="6" ref="0" time="11:45:23">joins the room</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="7" ref="0" time="11:45:28">Hello, Diana!</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="8" ref="0" time="11:45:36">Hello, Cristi!</Utterance></Turn><Turn nickname="diana-wiki"><Utterance genid="9" ref="0" time="11:45:37">Hello :)</Utterance></Turn><Turn nickname="cristi-wave"><Utterance genid="10" ref="8" time="11:46:08">hello </Utterance></Turn><Turn nickname="stefan-blog"><Utterance genid="11" ref="0" time="11:46:32">joins the room</Utterance></Turn><Turn nickname="stefan-blog"><Utterance genid="12" ref="0" time="11:46:38">Hello</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="13" ref="12" time="11:46:45">Hello, Stefan!</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="14" ref="0" time="11:46:55">So.... everybody is here....</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="15" ref="0" time="11:47:33">First of all I think we should talk a little about the workflow of our converstion</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="16" ref="0" time="11:48:05">What kind of company are we?</Utterance></Turn><Turn nickname="cristi-wave"><Utterance genid="17" ref="16" time="11:48:16">we are supposed to be in company , right ? </Utterance></Turn><Turn nickname="cristi-wave"><Utterance genid="18" ref="17" time="11:48:32">*a</Utterance></Turn><Turn nickname="corina-forum"><Utterance genid="19" ref="17" time="11:48:34">I think so</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="20" ref="16" time="11:48:59">I was thinking of something related to IT</Utterance></Turn><Turn nickname="stefan-blog"><Utterance genid="21" ref="16" time="11:49:04">We have to implement a communication solution</Utterance></Turn><Turn nickname="diana-wiki"><Utterance genid="22" ref="16" time="11:49:25">i don\'t think this is very important</Utterance></Turn><Turn nickname="stefan-blog"><Utterance genid="23" ref="22" time="11:49:35">I agree</Utterance></Turn><Turn nickname="corina-forum"><Utterance genid="24" ref="21" time="11:49:45">So we don\'t need a company...</Utterance></Turn><Turn nickname="diana-wiki"><Utterance genid="25" ref="0" time="11:49:49">maybe it should be in general</Utterance></Turn><Turn nickname="Mona-chat"><Utterance genid="26" ref="25" time="11:49:56">ok.... so we are just a company....</Utterance></Turn><Turn nickname="diana-wiki"><Utterance genid="27" ref="26" time="11:50:30">and we have to decide which of the 5 concepts are better for us</Utterance></Turn></Body><Annotation><Implicit_refs></Implicit_refs></Annotation></Dialog>'
