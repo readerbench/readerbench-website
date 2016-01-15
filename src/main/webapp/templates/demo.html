@@ -150,7 +150,7 @@
 							<h4>Sentiment analysis</h4>
 							<ul class="course-description-list">
 					            <li class="lesson" ng-repeat="sentiment in sentiments">
-					                <div class="heading">
+					                <div class="heading title">
 					                	<span class="lesson-nr no-select">{{sentiment.content}}</span>
 					                </div>
 									<div class="body">&nbsp;</div>
@@ -164,7 +164,7 @@
 											</div>
 										</li>
 										<li class="lesson" ng-repeat="innerObject in sentiment.innerObjects">
-											<div class="heading">
+											<div class="heading title">
 												<span class="lesson-nr no-select">{{innerObject.content}}</span>
 											</div>
 											<div class="body">&nbsp;</div>
@@ -178,7 +178,7 @@
 													</div>
 												</li>
 												<li class="lesson" ng-repeat="innerObject2 in innerObject.innerObject">
-													<div class="heading">
+													<div class="heading title">
 														<span class="lesson-nr no-select">{{innerObject2.content}}</span>
 													</div>
 													<div class="body">&nbsp;</div>

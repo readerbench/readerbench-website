@@ -5236,12 +5236,15 @@ footer .copyrights p a:hover {
     position: relative
 }
 .course-description-list .lesson .lesson-description li .heading {
-    top: 50%;
+	top: 50%;
     -webkit-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -o-transform: translateY(-50%);
     transform: translateY(-50%)
+}
+.course-description-list .lesson .lesson-description li .heading.title {
+	top: 5%;
 }
 .course-description-list .lesson .lesson-description li .heading .icon {
     -webkit-transition: all 0.8s ease-in-out;
