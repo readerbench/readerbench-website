@@ -265,7 +265,6 @@
 								courseDescriptionToggle();
 							}
 				        }, 1000);
-						console.log('testare');
 					});
 					break;
 				case 'COMPLEXITY':
