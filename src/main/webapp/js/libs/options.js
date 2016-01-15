@@ -155,7 +155,7 @@ courseDescriptionToggle = function () {
 			lessonDescription = jQuery(this).find('> .lesson-description'),
 			lessonDescriptionItems = jQuery(this).find('> .lesson-description > li');
 
-		lesson.find('.heading > .lesson-nr').on('click', function () {
+		lesson.find('> .heading > .lesson-nr').on('click', function () {
 			lessonDescription.toggleClass('visible');
 
 			if (lessonDescription.hasClass('visible')) {
