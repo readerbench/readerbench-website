@@ -5244,7 +5244,7 @@ footer .copyrights p a:hover {
     transform: translateY(-50%)
 }
 .course-description-list .lesson .lesson-description li .heading.title {
-	top: 5%;
+	top: 8%;
 }
 .course-description-list .lesson .lesson-description li .heading .icon {
     -webkit-transition: all 0.8s ease-in-out;
