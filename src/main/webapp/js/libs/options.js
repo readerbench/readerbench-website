@@ -151,11 +151,11 @@ courseDescriptionToggle = function () {
 		courseLessons = jQuery('.course-description-list .lesson');
 
 	courseLessons.each(function () {
-		var lesson = jQuery(this).children(),
-			lessonDescription = jQuery(this).children().find('.lesson-description'),
-			lessonDescriptionItems = jQuery(this).children().find('.lesson-description li');
+		var lesson = jQuery(this),
+			lessonDescription = jQuery(this).find('> .lesson-description'),
+			lessonDescriptionItems = jQuery(this).find('> .lesson-description > li');
 
-		lesson.find('.lesson-nr').on('click', function () {
+		lesson.find('.heading > .lesson-nr').on('click', function () {
 			lessonDescription.toggleClass('visible');
 
 			if (lessonDescription.hasClass('visible')) {
