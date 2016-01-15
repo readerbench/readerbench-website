@@ -59,10 +59,10 @@
 	.controller('DemoController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 		
 			$scope.q = DemoText;
-			//$scope.tabDemo = 'TEXT_PROCESSING';
+			$scope.tabDemo = 'TEXT_PROCESSING';
 			//$scope.tabDemo = 'SEMANTIC_ANNOTATION';
 			//$scope.tabDemo = 'SELF_EXPLANATION';
-			$scope.tabDemo = 'CSCL';
+			//$scope.tabDemo = 'CSCL';
 			$scope.lsaOptions = '';
 			$scope.ldaOptions = '';
 			
@@ -243,8 +243,6 @@
 			$scope.showConcept = false;
 			$scope.showSearch = false;
 			
-			$scope.showSemanticConcept = false;
-			
 			$scope.sentiments = null;
 			$scope.complexity = null;
 			$scope.topics = null;
@@ -258,7 +256,6 @@
 				$scope.showConcept = false;
 				$scope.showSearch = false;
 				
-				$scope.showSemanticConcept = false;
 				$scope.showSemanticRelevance = false;
 				$scope.showSemanticCategories = false;
 				
@@ -286,6 +283,7 @@
 								courseDescriptionToggle();
 							}
 				        }, 1000);
+						console.log('testare');
 					});
 					break;
 				case 'COMPLEXITY':
@@ -327,7 +325,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap");
+								d3jsForTopics(response.data.data, ".conceptMap");
 							}
 				        }, 1000);
 						//console.log($scope.topics);
@@ -372,7 +370,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap");
+								d3jsForTopics(response.data.data, ".conceptMap");
 							}
 				        }, 1000);
 					});
@@ -406,7 +404,7 @@
 							return;
 						}
 						
-						$scope.showSemanticConcept = true;
+						$scope.showConcept = true;
 						$scope.showSemanticRelevance = true;
 						$scope.showSemanticCategories = true;
 						
@@ -423,7 +421,7 @@
 							if($scope.semanticTopicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#semanticConceptMap");
+								d3jsForTopics(response.data.data.concepts, ".conceptMap");
 							}
 				        }, 1000);
 						//console.log($scope.topics);
@@ -486,7 +484,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap");
+								d3jsForTopics(response.data.data, ".conceptMap");
 							}
 				        }, 1000);
 					});
