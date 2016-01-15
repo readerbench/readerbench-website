@@ -421,7 +421,7 @@
 							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, ".conceptMap");
+								d3jsForTopics(response.data.data.concepts, ".conceptMap");
 							}
 				        }, 1000);
 						//console.log($scope.topics);
