@@ -408,8 +408,8 @@
 						$scope.showSemanticRelevance = true;
 						$scope.showSemanticCategories = true;
 						
-						$scope.semanticTopics = response.data.data.concepts.nodes;
-						$scope.semanticTopicEdges = response.data.data.concepts.links;
+						$scope.topics = response.data.data.concepts.nodes;
+						$scope.topicEdges = response.data.data.concepts.links;
 						$scope.semanticAbstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
 						$scope.semanticKeywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
 						$scope.semanticKeywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
@@ -418,7 +418,7 @@
 						
 						var interval = setInterval(function()
 				        {
-							if($scope.semanticTopicEdges.count == response.data.data.concepts.links.count)
+							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
 								d3jsForTopics(response.data.data.concepts, ".conceptMap");
