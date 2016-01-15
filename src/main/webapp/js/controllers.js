@@ -476,7 +476,7 @@
 							alert('Server error occured!');
 							return;
 						}
-						$scope.showCsclProcessing = true;
+						$scope.showConcept = true;
 						$scope.topics = response.data.data.nodes;
 						$scope.topicEdges = response.data.data.links;
 						var interval = setInterval(function()
