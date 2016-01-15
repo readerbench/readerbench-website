@@ -157,13 +157,44 @@
 									<ul class="lesson-description" style="display: none;">
 										<li ng-repeat="sentimentValence in sentiment.valences">
 											<div class="heading">
-												<!-- <i class="icon icon-divider visible"></i> -->
 												<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
 											</div>
 											<div class="body">
 												<p>{{sentimentValence.content}}</p>
 											</div>
 										</li>
+										<li ng-repeat="innerObject in sentiment.innerObjects">
+											<div class="heading">
+												<span class="lesson-nr no-select">{{innerObject.content}}</span>
+											</div>
+											<div class="body">&nbsp;</div>
+											<ul class="lesson-description" style="display: none;">
+												<li ng-repeat="sentimentValence in innerObject.valences">
+													<div class="heading">
+														<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
+													</div>
+													<div class="body">
+														<p>{{sentimentValence.content}}</p>
+													</div>
+												</li>
+												<li ng-repeat="innerObject2 in innerObject.innerObject">
+													<div class="heading">
+														<span class="lesson-nr no-select">{{innerObject2.content}}</span>
+													</div>
+													<div class="body">&nbsp;</div>
+													<ul class="lesson-description" style="display: none;">
+														<li ng-repeat="sentimentValence in innerObject2.valences">
+															<div class="heading">
+																<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
+															</div>
+															<div class="body">
+																<p>{{sentimentValence.content}}</p>
+															</div>
+														</li>
+													</ul>
+												<li>
+											</ul>
+										<li>
 									</ul>
 					            </li>
 					        </ul>
