@@ -5244,11 +5244,14 @@ footer .copyrights p a:hover {
 .course-description-list .lesson .lesson-description li.inline-li {
 	float: left;
 }
-.course-description-list .lesson .lesson-description li.inline-li:last {
+.course-description-list .lesson .lesson-description li.inline-li:last-child {
 	clear: both;
 }
 .course-description-list .lesson .lesson-description li.lesson {
 	margin-left: 50px;
+}
+.course-description-list .lesson .lesson-description li.lesson:first-child {
+	clear: left;
 }
 .course-description-list .lesson .lesson-description li.lesson li.lesson {
 	margin-left: 100px;

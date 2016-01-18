@@ -157,10 +157,10 @@
 									<ul class="lesson-description" style="display: none;">
 										<li class="inline-li" ng-repeat="sentimentValence in sentiment.valences">
 											<div class="heading">
-												<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
+												<span class="lesson-nr no-select">{{sentimentValence.content}}</span>
 											</div>
 											<div class="body">
-												<p>{{sentimentValence.content}}</p>
+												<p>{{sentimentValence.score}}</p>
 											</div>
 										</li>
 										<li class="lesson" ng-repeat="innerObject in sentiment.innerObjects">
