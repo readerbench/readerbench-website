@@ -5151,7 +5151,7 @@ footer .copyrights p a:hover {
     left: 0
 }
 .course-description-list .lesson .lesson-description li.inline-li .heading {
-	min-width: none;
+	min-width: 0;
 }
 .course-description-list .lesson .heading:after {
     position: absolute;
@@ -5196,6 +5196,7 @@ footer .copyrights p a:hover {
 }
 .course-description-list .lesson .lesson-description li.inline-li .body {
 	padding-left: 108px;
+	padding-right: 10px;
 }
 .course-description-list .lesson .body:after {
     position: absolute;
@@ -5244,14 +5245,8 @@ footer .copyrights p a:hover {
 .course-description-list .lesson .lesson-description li.inline-li {
 	float: left;
 }
-.course-description-list .lesson .lesson-description li.inline-li:last-child {
-	clear: both;
-}
 .course-description-list .lesson .lesson-description li.lesson {
 	margin-left: 50px;
-}
-.course-description-list .lesson .lesson-description li.lesson:first-child {
-	clear: left;
 }
 .course-description-list .lesson .lesson-description li.lesson li.lesson {
 	margin-left: 100px;
