@@ -171,12 +171,12 @@
 											</div>
 											<div class="body">&nbsp;</div>
 											<ul class="lesson-description" style="display: none;">
-												<li ng-repeat="sentimentValence in innerObject.valences">
+												<li class="inline-li" ng-repeat="sentimentValence in innerObject.valences">
 													<div class="heading">
-														<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
+														<span class="lesson-nr no-select">{{sentimentValence.content}}</span>
 													</div>
 													<div class="body">
-														<p>{{sentimentValence.content}}</p>
+														<p>{{sentimentValence.score}}</p>
 													</div>
 												</li>
 												<li class="lesson" ng-repeat="innerObject2 in innerObject.innerObjects">
@@ -185,12 +185,12 @@
 													</div>
 													<div class="body">&nbsp;</div>
 													<ul class="lesson-description" style="display: none;">
-														<li ng-repeat="sentimentValence in innerObject2.valences">
+														<li class="inline-li" ng-repeat="sentimentValence in innerObject2.valences">
 															<div class="heading">
-																<span class="lesson-nr no-select">{{sentimentValence.score}}</span>
+																<span class="lesson-nr no-select">{{sentimentValence.content}}</span>
 															</div>
 															<div class="body">
-																<p>{{sentimentValence.content}}</p>
+																<p>{{sentimentValence.score}}</p>
 															</div>
 														</li>
 													</ul>
