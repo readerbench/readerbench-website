@@ -5237,7 +5237,7 @@ footer .copyrights p a:hover {
 }
 .course-description-list .lesson .lesson-description {
     display: none;
-    border-top: 1px dashed #e1e1e1
+    border-top: 1px dashed #e1e1e1;
     clear: both;
 }
 .course-description-list .lesson .lesson-description li {
