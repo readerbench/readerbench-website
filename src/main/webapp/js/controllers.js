@@ -218,6 +218,8 @@
 				return $scope.SERVER_URL + path;
 			}
 			
+			$scope.conceptMapTitle = "";
+			
 			$scope.loading = false;
 			$scope.loadingpdf = false;
 			$scope.showSentiment = false;
@@ -298,6 +300,7 @@
 							alert('Server error occured!');
 							return;
 						}
+						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
 						$scope.showConcept = true;
 						$scope.topics = response.data.data.nodes;
 						$scope.topicEdges = response.data.data.links;
@@ -343,6 +346,7 @@
 							alert('Server error occured!');
 							return;
 						}
+						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
 						$scope.showConcept = true;
 						$scope.topics = response.data.data.nodes;
 						$scope.topicEdges = response.data.data.links;
@@ -385,6 +389,7 @@
 							return;
 						}
 						
+						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
 						$scope.showConcept = true;
 						$scope.showSemanticRelevance = true;
 						$scope.showSemanticCategories = true;
@@ -457,6 +462,7 @@
 							alert('Server error occured!');
 							return;
 						}
+						$scope.conceptMapTitle = DemoTexts.csclProcessing.participantInteractionTitle;
 						$scope.showConcept = true;
 						$scope.topics = response.data.data.nodes;
 						$scope.topicEdges = response.data.data.links;
