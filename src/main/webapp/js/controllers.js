@@ -59,10 +59,10 @@
 	.controller('DemoController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 		
 			$scope.q = DemoTexts.textProcessing.text;
-			$scope.tabDemo = 'TEXT_PROCESSING';
+			//$scope.tabDemo = 'TEXT_PROCESSING';
 			//$scope.tabDemo = 'SEMANTIC_ANNOTATION';
 			//$scope.tabDemo = 'SELF_EXPLANATION';
-			//$scope.tabDemo = 'CSCL';
+			$scope.tabDemo = 'CSCL';
 			$scope.lsaOptions = '';
 			$scope.ldaOptions = '';
 			
@@ -247,7 +247,10 @@
 				$scope.showSemanticCategories = false;
 				
 				$scope.showReadingStrategies = false;
+				
+				$scope.showParticipantInteractionMap = false;
 				$scope.showCollaborationGraphs = false;
+				
 				
 				var endpoint;
 				switch(req) {
@@ -313,7 +316,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap");
+								d3jsForTopics(response.data.data, "#conceptMap", true);
 							}
 				        }, 1000);
 						//console.log($scope.topics);
@@ -359,7 +362,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap");
+								d3jsForTopics(response.data.data, "#conceptMap", true);
 							}
 				        }, 1000);
 					});
@@ -411,7 +414,7 @@
 							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#conceptMap");
+								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
 							}
 				        }, 1000);
 						//console.log($scope.topics);
@@ -467,17 +470,30 @@
 							return;
 						}
 						
-						// build participant interaction concept map
-						$scope.conceptMapTitle = DemoTexts.csclProcessing.participantInteractionTitle;
+						// build concept map
+						$scope.conceptMapTitle = "Concept Map";
 						$scope.showConcept = true;
-						$scope.topics = response.data.data.participantInteraction.nodes;
-						$scope.topicEdges = response.data.data.participantInteraction.links;
+						$scope.topics = response.data.data.concepts.nodes;
+						$scope.topicEdges = response.data.data.concepts.links;
 						var interval = setInterval(function()
 				        {
-							if($scope.topicEdges.count == response.data.data.participantInteraction.links.count)
+							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data.participantInteraction, "#conceptMap");
+								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
+							}
+				        }, 1000);
+						
+						// build participant interaction concept map
+						$scope.showParticipantInteractionMap = true;
+						$scope.participants = response.data.data.participantInteraction.nodes;
+						$scope.participantEdges = response.data.data.participantInteraction.links;
+						var intervalParticipantInteraction = setInterval(function()
+				        {
+							if($scope.participantEdges.count == response.data.data.participantInteraction.links.count)
+							{
+								clearInterval(intervalParticipantInteraction);
+								d3jsForTopics(response.data.data.participantInteraction, "#participantInteractionMap", false);
 							}
 				        }, 1000);
 						
@@ -490,9 +506,8 @@
 				        {
 							if($scope.collaborationSocialKBNodes.count == response.data.data.socialKB.count)
 							{
-								console.log('test1');
 								clearInterval(intervalCollaborationSocialKB);
-								d3jsLineGraph(response.data.data.socialKB, "#collaborationSocialKB");
+								d3jsLineGraph(response.data.data.socialKB, "#collaborationSocialKB", "Contribution ID", "Social KB value");
 							}
 				        }, 1000);
 										
@@ -503,9 +518,8 @@
 				        {
 							if($scope.voiceOverlapNodes.count == response.data.data.voiceOverlap.count)
 							{
-								console.log('test2');
 								clearInterval(intervalCollaborationVoiceOverlap);
-								d3jsLineGraph(response.data.data.voiceOverlap, "#collaborationVoiceOverlap");
+								d3jsLineGraph(response.data.data.voiceOverlap, "#collaborationVoiceOverlap", "Contribution ID", "Voice PMI");
 							}
 				        }, 1000);
 					});

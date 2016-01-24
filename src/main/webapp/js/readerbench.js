@@ -1,4 +1,4 @@
-var d3jsForTopics = function(graph) {
+var d3jsForTopics = function(graph, element, enableFisheye) {
 	
 	var width = 690,
     height = 600;
@@ -15,7 +15,7 @@ var d3jsForTopics = function(graph) {
     .distance(100)
     .size([width, height]);
 	
-	var svg = d3.select("#conceptMap").append("svg")
+	var svg = d3.select(element).append("svg")
 	    .attr("width", width)
 	    .attr("height", height);
 	
@@ -77,27 +77,29 @@ var d3jsForTopics = function(graph) {
 	  var fisheye = d3.fisheye.circular()
 	  	.radius(200);
 	  
-	  svg.on("mousemove", function() {
-		  fisheye.focus(d3.mouse(this));
-		  
-		  node.each(function(d) { d.fisheye = fisheye(d); })
-		      .attr("cx", function(d) { return d.fisheye.x; })
-		      .attr("cy", function(d) { return d.fisheye.y; })
-		      .attr("r", function(d) { return d.fisheye.z * 5; });
-		  
-		  node.attr("transform", function(d) {
-			  return "translate(" + d.fisheye.x + "," + d.fisheye.y + ")";
+	  if (enableFisheye == true) {
+		  svg.on("mousemove", function() {
+			  fisheye.focus(d3.mouse(this));
+			  
+			  node.each(function(d) { d.fisheye = fisheye(d); })
+			      .attr("cx", function(d) { return d.fisheye.x; })
+			      .attr("cy", function(d) { return d.fisheye.y; })
+			      .attr("r", function(d) { return d.fisheye.z * 5; });
+			  
+			  node.attr("transform", function(d) {
+				  return "translate(" + d.fisheye.x + "," + d.fisheye.y + ")";
+			  });
+		
+			  link.attr("x1", function(d) { return d.source.fisheye.x; })
+			      .attr("y1", function(d) { return d.source.fisheye.y; })
+			      .attr("x2", function(d) { return d.target.fisheye.x; })
+			      .attr("y2", function(d) { return d.target.fisheye.y; });
 		  });
-	
-		  link.attr("x1", function(d) { return d.source.fisheye.x; })
-		      .attr("y1", function(d) { return d.source.fisheye.y; })
-		      .attr("x2", function(d) { return d.target.fisheye.x; })
-		      .attr("y2", function(d) { return d.target.fisheye.y; });
-	  });
+	  }
 }
 
 // values = node values; element = html element
-var d3jsLineGraph = function(values, element){
+var d3jsLineGraph = function(values, element, xLabel, yLabel){
 	
 	var lineFunc = d3.svg.line()
 		.x(function(d) {
@@ -106,11 +108,11 @@ var d3jsLineGraph = function(values, element){
 		.y(function(d) {
 		  return yRange(d.y);
 		})
-		.interpolate('linear');
+		.interpolate('monotone');
 	
 	var vis = d3.select(element),
 	    WIDTH = 1000,
-	    HEIGHT = 500,
+	    HEIGHT = 250,
 	    MARGINS = {
 	      top: 20,
 	      right: 20,
@@ -139,19 +141,42 @@ var d3jsLineGraph = function(values, element){
 	
 	vis.append('svg:g')
 	  .attr('class', 'x axis')
+	  .attr('stroke', '#b8bebf')
 	  .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
 	  .call(xAxis);
 	
 	vis.append('svg:g')
 	  .attr('class', 'y axis')
+	  .attr('stroke', '#b8bebf')
 	  .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
 	  .call(yAxis);
 	
 	vis.append('svg:path')
 	  .attr('d', lineFunc(values))
-	  .attr('stroke', 'blue')
+	  .attr('stroke', '#43b9c7')
 	  .attr('stroke-width', 2)
 	  .attr('fill', 'none');
+	
+	vis.select(".axis")
+		.style('font-family', '"Lato", sans-serif')
+		.style('font-size', '14px');
+	
+	vis.append("text")
+	    .attr("class", "x label")
+	    .attr("text-anchor", "end")
+	    .attr("x", WIDTH / 2)
+	    .attr("y", HEIGHT + 10)
+	    .attr('stroke', '#b8bebf')
+	    .text(xLabel);
+	
+	vis.append("text")
+	    .attr("class", "y label")
+	    .attr("text-anchor", "end")
+	    .attr("y", 10)
+	    .attr("dy", ".75em")
+	    .attr("transform", "rotate(-90)")
+	    .attr('stroke', '#b8bebf')
+	    .text(yLabel);
 	
 }
 

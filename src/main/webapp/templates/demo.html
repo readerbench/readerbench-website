@@ -344,13 +344,31 @@
 						       </div>
 				        </div>
 				        
+				        <div ng-if="showParticipantInteractionMap" class="row">
+				        	<div class="col-xs-12 col-md-3">
+						        <h4>Participant Interaction</h4>
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="topic in participants">
+						            	<div class="heading">
+											<span class="lesson-nr no-select">{{topic.value}}</span>
+										</div>
+										<div class="body">
+											<p>{{topic.name}}</p>
+										</div>
+						            </li>
+						        </ul>
+					        </div>
+					        <div class="col-xs-12 col-md-9" id="participantInteractionMap">
+					        </div>
+				        </div>
+				        
 				        <div ng-if="showCollaborationGraphs">
 				        	<div class="row">
 								<div class="col-xs-12 col-md-12">
-									<h4>Collaboration - Social KB</h4>
+									<h4>Collaboration - Social Knowledge Building</h4>
 								</div>
 								<div class="col-xs-12 col-md-12">
-									<svg id="collaborationSocialKB" width="100%" height="600"></svg>
+									<svg id="collaborationSocialKB" width="100%" height="300"></svg>
 								</div>
 							</div>
 				        	<div class="row">
@@ -358,7 +376,7 @@
 									<h4>Collaboration - Voice Overlap</h4>
 								</div>
 								<div class="col-xs-12 col-md-12">
-									<svg id="collaborationVoiceOverlap" width="100%" height="600"></svg>
+									<svg id="collaborationVoiceOverlap" width="100%" height="300"></svg>
 								</div>
 							</div>
 				        </div>
