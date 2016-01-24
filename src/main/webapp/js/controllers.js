@@ -249,6 +249,7 @@
 				$scope.showReadingStrategies = false;
 				
 				$scope.showParticipantInteractionMap = false;
+				$scope.showParticipantEvolutionGraph = false;
 				$scope.showCollaborationGraphs = false;
 				
 				
@@ -494,6 +495,18 @@
 							{
 								clearInterval(intervalParticipantInteraction);
 								d3jsForTopics(response.data.data.participantInteraction, "#participantInteractionMap", false);
+							}
+				        }, 1000);
+						
+						// build participant evolution graph
+						$scope.showParticipantEvolutionGraph = true;
+						$scope.participantEvolution = response.data.data.participantEvolution;
+						var intervalParticipantEvolution = setInterval(function()
+				        {
+							if($scope.participantEvolution.count == response.data.data.participantEvolution.count)
+							{
+								clearInterval(intervalParticipantEvolution);
+								d3jsMultipleLinesGraph(response.data.data.participantEvolution, "#participantEvolution", "Contribution ID", "value");
 							}
 				        }, 1000);
 						

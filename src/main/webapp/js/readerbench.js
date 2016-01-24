@@ -180,6 +180,123 @@ var d3jsLineGraph = function(values, element, xLabel, yLabel){
 	
 }
 
+var d3jsMultipleLinesGraph = function(values, element, xLabel, yLabel){
+	
+	var lineFunc = d3.svg.line()
+	.x(function(d) {
+	  return xRange(d.x);
+	})
+	.y(function(d) {
+	  return yRange(d.y);
+	})
+	.interpolate('monotone');
+	
+	var vis = d3.select(element),
+	    WIDTH = 1000,
+	    HEIGHT = 250,
+	    MARGINS = {
+	        top: 50,
+	        right: 20,
+	        bottom: 50,
+	        left: 50
+	    },
+	    xRange = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(values, function(d) {
+		      return d.x;
+		    }), d3.max(values, function(d) {
+		      return d.x;
+		    })]),
+	    yRange = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([d3.min(values, function(d) {
+	      return d.y;
+	    }), d3.max(values, function(d) {
+	      return d.y;
+	    })]),
+	    xAxis = d3.svg.axis()
+	      .scale(xRange)
+	      .tickSize(1)
+	      .tickSubdivide(true),
+	    yAxis = d3.svg.axis()
+	      .scale(yRange)
+	      .tickSize(1)
+	      .orient('left')
+	      .tickSubdivide(true);
+	
+	xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right]).domain([d3.min(values, function(d) {
+		    return d.x;
+		}), d3.max(values, function(d) {
+		    return d.x;
+		})]);
+	
+	yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom]).domain([d3.min(values, function(d) {
+	    return d.y;
+	}), d3.max(values, function(d) {
+	    return d.y;
+	})]);
+	
+	var dataGroup = d3.nest()
+	    .key(function(d) {
+	        return d.nodeName;
+	    })
+	    .entries(values);
+	
+	var lSpace = WIDTH/dataGroup.length;
+	
+	var color = function(d, j) {
+        return "hsl(" + Math.random() * 360 + ",100%,50%)";
+    };
+    
+	dataGroup.forEach(function(d, i) {
+		
+		var localColor = color(d, i);
+        
+	    vis.append('svg:path')
+	        .attr('d', lineFunc(d.values))
+	        .attr('stroke', localColor)
+	        .attr('stroke-width', 2)
+	        .attr('fill', 'none');
+	    
+	    vis.append("text")
+	    .attr("x", (lSpace / 2) + i * lSpace)
+	    .attr("y", HEIGHT)
+	    .style("fill", localColor)
+	    .text(d.key);
+	    
+	});
+	
+	vis.append('svg:g')
+	  .attr('class', 'x axis')
+	  .attr('stroke', '#b8bebf')
+	  .attr('transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
+	  .call(xAxis);
+	
+	vis.append('svg:g')
+	  .attr('class', 'y axis')
+	  .attr('stroke', '#b8bebf')
+	  .attr('transform', 'translate(' + (MARGINS.left) + ',0)')
+	  .call(yAxis);
+	
+	vis.select(".axis")
+		.style('font-family', '"Lato", sans-serif')
+		.style('font-size', '14px');
+	
+	vis.append("text")
+	    .attr("class", "x label")
+	    .attr("text-anchor", "end")
+	    .attr("x", WIDTH / 2)
+	    .attr("y", HEIGHT + 10)
+	    .attr('stroke', '#b8bebf')
+	    .text(xLabel);
+	
+	vis.append("text")
+	    .attr("class", "y label")
+	    .attr("text-anchor", "end")
+	    .attr("y", 10)
+	    .attr("dy", ".75em")
+	    .attr("transform", "rotate(-90)")
+	    .attr('stroke', '#b8bebf')
+	    .text(yLabel);
+	
+}
+
 var htmlEncode = function(mystring) {
 	return mystring.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
 }
