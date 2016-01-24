@@ -233,6 +233,9 @@
 			$scope.topicEdges = null;
 			$scope.search = null;
 			$scope.uri = "";
+			
+			$scope.collaborationSocialKBNodes = null;
+			$scope.collaborationVoiceOverlapNodes = null;
 		
 			$scope.buttonClick = function(req) {
 				$scope.showSentiment = false;
@@ -244,6 +247,7 @@
 				$scope.showSemanticCategories = false;
 				
 				$scope.showReadingStrategies = false;
+				$scope.showCollaborationGraphs = false;
 				
 				var endpoint;
 				switch(req) {
@@ -462,16 +466,46 @@
 							alert('Server error occured!');
 							return;
 						}
+						
+						// build participant interaction concept map
 						$scope.conceptMapTitle = DemoTexts.csclProcessing.participantInteractionTitle;
 						$scope.showConcept = true;
-						$scope.topics = response.data.data.nodes;
-						$scope.topicEdges = response.data.data.links;
+						$scope.topics = response.data.data.participantInteraction.nodes;
+						$scope.topicEdges = response.data.data.participantInteraction.links;
 						var interval = setInterval(function()
 				        {
-							if($scope.topicEdges.count == response.data.data.links.count)
+							if($scope.topicEdges.count == response.data.data.participantInteraction.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap");
+								d3jsForTopics(response.data.data.participantInteraction, "#conceptMap");
+							}
+				        }, 1000);
+						
+						$scope.showCollaborationGraphs = true;
+						
+						// build collaboration kb graph
+						// wait for nodes to be loaded
+						$scope.collaborationSocialKBNodes = response.data.data.socialKB;
+						var intervalCollaborationSocialKB = setInterval(function()
+				        {
+							if($scope.collaborationSocialKBNodes.count == response.data.data.socialKB.count)
+							{
+								console.log('test1');
+								clearInterval(intervalCollaborationSocialKB);
+								d3jsLineGraph(response.data.data.socialKB, "#collaborationSocialKB");
+							}
+				        }, 1000);
+										
+						// build collaboration voice graph
+						// wait for nodes to be loaded
+						$scope.voiceOverlapNodes = response.data.data.voiceOverlap;
+						var intervalCollaborationVoiceOverlap = setInterval(function()
+				        {
+							if($scope.voiceOverlapNodes.count == response.data.data.voiceOverlap.count)
+							{
+								console.log('test2');
+								clearInterval(intervalCollaborationVoiceOverlap);
+								d3jsLineGraph(response.data.data.voiceOverlap, "#collaborationVoiceOverlap");
 							}
 				        }, 1000);
 					});
