@@ -344,6 +344,30 @@
 					        </div>
 				        </div>
 				        
+				        <div ng-if="showParticipantCsclIndices" class="row">
+				        	<div class="col-xs-12 col-md-12">
+				        		<h4>CSCL Indices</h4>
+				        		<table class="cscl-indices">
+				        			<tbody>
+				        				<tr class="entry" ng-repeat="(key, value) in csclIndices">
+				        					<td class="participant">{{key}}</td>
+				        					<td class="value" ng-repeat="(keyInner, valueInner) in csclIndices[key]">
+				        						{{valueInner}}
+				        					</td>
+				        				</tr>
+				        			</tbody>
+				        			<thead>
+				        				<tr ng-repeat="(key, value) in csclIndices" ng-if="$first">
+				        					<td>Participant</td>
+				        					<td ng-repeat="(keyInner, valueInner) in csclIndices[key]">
+				        						{{keyInner}}
+				        					</td>
+				        				</tr>
+				        			</thead>
+				        		</table>
+				        	</div>
+				        </div>
+				        
 				        <div ng-if="showParticipantEvolutionGraph" class="row">
 				        	<div class="col-xs-12 col-md-12">
 								<h4>Participant evolution</h4>

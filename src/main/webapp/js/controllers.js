@@ -251,6 +251,7 @@
 				$scope.showParticipantInteractionMap = false;
 				$scope.showParticipantEvolutionGraph = false;
 				$scope.showCollaborationGraphs = false;
+				$scope.showParticipantCsclIndices = false;
 				
 				
 				var endpoint;
@@ -533,6 +534,20 @@
 							{
 								clearInterval(intervalCollaborationVoiceOverlap);
 								d3jsLineGraph(response.data.data.voiceOverlap, "#collaborationVoiceOverlap", "Contribution ID", "Voice PMI");
+							}
+				        }, 1000);
+						
+						console.log('test');
+						// build cscl indices
+						$scope.showParticipantCsclIndices = true;
+						console.log('tes2');
+						$scope.csclIndices = response.data.data.csclIndices;
+						console.log($scope.csclIndices);
+						var intervalCsclIndices = setInterval(function()
+				        {
+							if($scope.csclIndices.count == response.data.data.csclIndices.count)
+							{
+								clearInterval(intervalCsclIndices);
 							}
 				        }, 1000);
 					});

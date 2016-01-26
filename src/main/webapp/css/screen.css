@@ -5680,3 +5680,24 @@ footer .copyrights p a:hover {
         height: 100%
     }
 }
+
+.cscl-indices tr.entry {
+	
+}
+.cscl-indices td {
+	font-size: 12px;
+	padding: 0 5px;
+}
+.cscl-indices thead {
+	color: #43b9c7;
+	font-size: 10px;
+	font-weight: 700;
+}
+.cscl-indices td.participant {
+	color: #43b9c7;
+	font-size: 10px;
+	font-weight: 700;
+}
+.cscl-indices td.value {
+	text-align: right;
+}
