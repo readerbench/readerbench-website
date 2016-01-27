@@ -158,7 +158,7 @@
 			
 			$scope.csclFormData = {
 					//conversation: DemoTexts.csclProcessing.conversation,
-					conversationPath: 'resources/in/corpus_v2/paduraru_352_c1_in.xml',
+					conversationPath: 'resources/in/corpus_v2/Beizadea_352C2_in.xml',
 					language: {id: '1', name: 'English', value: 'eng'},
 					lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 					lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
