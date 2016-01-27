@@ -116,8 +116,9 @@
 						<div id="tabs-cscl" ng-if="tabDemo == 'CSCL'">
 							<h3>CSCL</h3>
 							<p>
-								<label for="cscl_conversation">Upload conversation</label>
-								<textarea class="form-control" rows="10" id="cscl_conversation" ng-model="csclFormData.conversation"></textarea>
+								<label for="cscl_path">Upload conversation</label>
+								<!-- <textarea class="form-control" rows="10" id="cscl_conversation" ng-model="csclFormData.conversation"></textarea> -->
+								<input id="cscl_path" class="form-control" ng-model="csclFormData.conversationPath" />
 							</p>
 							<p>
 								<label for="cscl_language">Language <span class="required">*</span></label>

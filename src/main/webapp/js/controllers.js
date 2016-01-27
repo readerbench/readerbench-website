@@ -157,7 +157,8 @@
 			});
 			
 			$scope.csclFormData = {
-					conversation: DemoTexts.csclProcessing.conversation,
+					//conversation: DemoTexts.csclProcessing.conversation,
+					conversationPath: 'resources/in/corpus_v2/paduraru_352_c1_in.xml',
 					language: {id: '1', name: 'English', value: 'eng'},
 					lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 					lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
@@ -457,7 +458,8 @@
 					$scope.loading = true;
 					endpoint = 'csclProcessing';
 					var data = {
-						conversation: $scope.csclFormData.conversation,
+						//conversation: $scope.csclFormData.conversation,
+						conversationPath: $scope.csclFormData.conversationPath,
 						lang: $scope.csclFormData.language.value,
 						lsa: 'resources/config/LSA/' + $scope.csclFormData.lsa.value, 
 						lda: 'resources/config/LDA/' + $scope.csclFormData.lda.value,
