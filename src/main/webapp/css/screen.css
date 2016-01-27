@@ -5192,7 +5192,10 @@ footer .copyrights p a:hover {
 .course-description-list .lesson .body {
     position: relative;
     min-height: 50px;
-    padding: 14px 20px 12px 135px
+    padding: 14px 20px 12px 135px;
+}
+.course-description-list .lesson.cscl-indices-description .body {
+	padding-left: 335px;
 }
 .course-description-list .lesson .lesson-description li.inline-li .body {
 	padding-left: 108px;

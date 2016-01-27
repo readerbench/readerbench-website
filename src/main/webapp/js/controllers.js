@@ -537,17 +537,24 @@
 							}
 				        }, 1000);
 						
-						console.log('test');
+
 						// build cscl indices
 						$scope.showParticipantCsclIndices = true;
-						console.log('tes2');
 						$scope.csclIndices = response.data.data.csclIndices;
-						console.log($scope.csclIndices);
 						var intervalCsclIndices = setInterval(function()
 				        {
 							if($scope.csclIndices.count == response.data.data.csclIndices.count)
 							{
 								clearInterval(intervalCsclIndices);
+							}
+				        }, 1000);
+						
+						$scope.csclIndicesDescription = response.data.data.csclIndicesDescription;
+						var intervalCsclIndicesDescription = setInterval(function()
+				        {
+							if($scope.csclIndicesDescription.count == response.data.data.csclIndicesDescription.count)
+							{
+								clearInterval(intervalCsclIndicesDescription);
 							}
 				        }, 1000);
 					});

@@ -366,6 +366,19 @@
 				        			</thead>
 				        		</table>
 				        	</div>
+				        	<div class="col-xs-12 col-md-12">
+				        		<h5>CSCL Indices Description</h5>
+				        		<ul class="course-description-list">
+						            <li class="lesson cscl-indices-description" ng-repeat="(key, value) in csclIndicesDescription">
+						            	<div class="heading">
+											<span class="lesson-nr no-select">{{key}}</span>
+										</div>
+										<div class="body">
+											<p>{{value}}</p>
+										</div>
+						            </li>
+						        </ul>
+				        	</div>
 				        </div>
 				        
 				        <div ng-if="showParticipantEvolutionGraph" class="row">
