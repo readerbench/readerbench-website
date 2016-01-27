@@ -162,7 +162,7 @@
 					language: {id: '1', name: 'English', value: 'eng'},
 					lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 					lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-					posTagging: {id: '1', name: 'Yes', value: true},
+					posTagging: {id: '2', name: 'No', value: false},
 					threshold: 0.3
 				};
 	
