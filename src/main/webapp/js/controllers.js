@@ -125,7 +125,7 @@
 				semanticUrl : 'https://linkededucation.files.wordpress.com/2013/03/lak-dataset-taibi.pdf',
 				semanticFile : 'MS_training_SE_1999',
 				semanticAbstract : DemoTexts.semanticAnnotation.abstractText,
-				semanticKeywords : DemoTexts.semanticAnnotation.keywods,
+				semanticKeywords : DemoTexts.semanticAnnotation.keywords,
 				semanticLanguage: 'eng',
 				semanticLSA: 'tasa_lak_en',
 				semanticLDA: 'tasa_lak_en',
