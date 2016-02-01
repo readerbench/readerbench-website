@@ -122,7 +122,7 @@
 			
 			// Semantic Annotation Form Data
 			$scope.semanticAnnotationFormData = {
-				semanticUrl : 'https://linkededucation.files.wordpress.com/2013/03/lak-dataset-taibi.pdf',
+				semanticUrl : DemoTexts.semanticAnnotation.url,
 				semanticFile : 'MS_training_SE_1999',
 				semanticAbstract : DemoTexts.semanticAnnotation.abstractText,
 				semanticKeywords : DemoTexts.semanticAnnotation.keywords,

@@ -126,20 +126,19 @@ DemoTexts = {
 		},
 		// Semantic Annotation
 		semanticAnnotation: {
-			abstractText: 'This paper describes the Learning Analytics and Knowledge ' + 
-			'(LAK) Dataset, an unprecedented collection of structured data ' +
-			'created from a set of key research publications in the emerging ' +
-			'field of learning analytics. The unstructured publications have ' +
-			'been processed and exposed in a variety of formats, most notably ' +
-			'according to Linked Data principles, in order to provide simplified ' +
-			'access for researchers and practitioners. The aim of this dataset is ' +
-			'to provide the opportunity to conduct investigations, for instance, ' +
-			'about the evolution of the research field over time, correlations ' +
-			'with other disciplines or to provide compelling applications which ' +
-			'take advantage of the dataset in an innovative manner. In this ' +
-			'paper, we describe the dataset, the design choices and rationale ' +
-			'and provide an outlook on future investigations.',
-			keywords: 'educational data mining, learning analytics, dataset',
+			url: 'http://readerbench.com/papers/feeling_and_reasoning_a_computational_model_for_emotional_agents.pdf',
+			abstractText: 'Interactive virtual environments (IVEs) are now seen as an ' +
+				'engaging new way by which children learn experimental sciences and ' +
+				'other disciplines. These environments are populated by synthetic characters ' +
+				'that guide and stimulate the children activities. In order to build ' +
+				'such environments, one needs to address the problem of how achieve believable ' +
+				'lievable and empathic characters that act autonomously. Inspired by the ' +
+				'work of traditional character animators, this paper proposes an architectural ' +
+				'model to build autonomous characters where the agent’s reasoning ' +
+				'and behaviour is influenced by its emotional state and personality. We ' +
+				'performed a small case evaluation in order to determine if the characters ' +
+				'evoked empathic reactions in the users with positive results.',
+			keywords: 'interactive virtual environment, emotional characters, empathic reactions',
 			conceptMapTitle: 'Concept Map'
 		},
 		// Self Explanation (Reading Strategies)
