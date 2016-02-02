@@ -43,6 +43,10 @@
 							<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
 							<select ng-model="selfExplanationFormData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
 						</p>
+						<p>
+							<label for="self_dialogism">Compute dialogism <span class="required">*</span></label>
+							<select id="self_dialogism" ng-model="selfExplanationFormData.dialogism" ng-options="option.name for option in dialogismOptions track by option.id"></select>
+						</p>
 						<div class="bottom-buttons" ng-if="!loading">
 							<button class="filter-button" ng-click="buttonClick('SELF_EXPLANATION')">Identify reading strategies</button>
 						</div>        

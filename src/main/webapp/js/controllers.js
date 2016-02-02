@@ -76,10 +76,6 @@
  	            {id: '2', name: 'No', value: false}
             ];
 			
-            $scope.dialogismOptions = [
- 				{id: '1', name: 'Yes', value: true},
- 	            {id: '2', name: 'No', value: false}
-            ];
 			$scope.lsaOptionsByLanguage = {
 				eng: [
 	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
@@ -609,7 +605,7 @@
                 {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
                 {id: '2', name: '', value: ''}
              ]
-		}
+		};
 			
 		$scope.ldaOptionsByLanguage = {
 			eng: [
@@ -632,7 +628,7 @@
                 {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
                 {id: '2', name: '', value: ''}
              ]
-		}
+		};
 			
 		/*$scope.$watch('selfExplanationFormData.language', function() {
 			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
@@ -667,7 +663,8 @@
 						lsa: ServerSettings.lsaRoot + '/tasa_en',
 						lda: ServerSettings.ldaRoot + '/tasa_en',
 						lang: 'en',
-						postagging: 'false'
+						postagging: 'false',
+						dialogism: 'false'
 					}
 
 					$http.get(buildServerPath(endpoint, params)).then(function(response) {
@@ -703,7 +700,8 @@
 						lsa: ServerSettings.lsaRoot + '/tasa_en',
 						lda: ServerSettings.ldaRoot + '/tasa_en',
 						lang: 'en',
-						postagging: 'false'
+						postagging: 'false',
+						dialogism: 'false'
 					}
 					
 					$http.get(buildServerPath(endpoint, params)).then(function(response) {
@@ -740,6 +738,7 @@
 						lda: ServerSettings.ldaRoot + '/tasa_en',
 						lang: 'en',
 						postagging: 'false',
+						dialogism: 'false',
 						threshold: 0.3
 					}
 					
@@ -841,7 +840,7 @@
                 {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
                 {id: '2', name: '', value: ''}
              ]
-		}
+		};
 		
 		$scope.ldaOptionsByLanguage = {
 			eng: [
@@ -864,7 +863,12 @@
                 {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
                 {id: '2', name: '', value: ''}
              ]
-		}
+		};
+		
+		$scope.dialogismOptions = [
+	        {id: '1', name: 'Yes', value: true},
+	        {id: '2', name: 'No', value: false}
+		];
 		
 		// Semantic Annotation Form Data
 		$scope.semanticAnnotationFormData = {
@@ -880,6 +884,7 @@
  				{id: '1', name: 'Yes', value: true},
  	            {id: '2', name: 'No', value: false}
             ],
+            dialogism: {id: '2', name: 'No', value: false},
             semanticThreshold: 0.3
 		};
 		
@@ -896,21 +901,6 @@
 		$scope.semanticKeywordsDocumentCoverage = -1;
 		$scope.semanticKeywords = null;
 		$scope.semanticCategories = null;
-		    
-		$scope.changeDocumentUseUri = function(useUri) {
-			$scope.useUri = useUri;
-		}
-		
-		$scope.buildPathTopicsPdf = function(path) {
-			return $scope.SERVER_URL + path + '?uri=' + encodeURIComponent($scope.uri).replace(/%0D/g,"%0A") + 
-			'&lsa=resources/config/LSA/tasa_en&lda=resources/config/LDA/tasa_en&lang=en&postagging=false&threshold=0.3';
-		}
-		
-		$scope.buildPathSemanticProcess = function(path) {
-			return $scope.SERVER_URL + path;
-		}
-		
-		$scope.conceptMapTitle = "";
 		
 		$scope.loading = false;
 		$scope.loadingpdf = false;
@@ -968,6 +958,7 @@
 						lsa: ServerSettings.lsaRoot + '/' + $scope.semanticAnnotationFormData.semanticLSA, 
 						lda: ServerSettings.ldaRoot + '/' + $scope.semanticAnnotationFormData.semanticLDA,
 						postagging: false, // put pos value here
+						dialogism: $scope.semanticAnnotationFormData.dialogism.value,
 						threshold: $scope.semanticAnnotationFormData.semanticThreshold
 					}
 					if ($scope.useUri == true) {
@@ -1079,13 +1070,19 @@
              ]
 		};
 		
+		$scope.dialogismOptions = [
+   			{id: '1', name: 'Yes', value: true},
+            {id: '2', name: 'No', value: false}
+   		];
+		
 		$scope.selfExplanationFormData = {
 			text: DemoTexts.selfExplanation.text,
 			explanation: DemoTexts.selfExplanation.explanation,
 			language: {id: '2', name: 'French', value: 'fr'},
 			lsa: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
 			lda: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-			posTagging : {id: '1', name: 'Yes', value: true}
+			posTagging : {id: '1', name: 'Yes', value: true},
+			dialogism: {id: '2', name: 'No', value: false}
 		};
 		
 		$scope.$watch('selfExplanationFormData.language', function() {
@@ -1114,6 +1111,7 @@
 						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.lsa.value, 
 						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.lda.value,
 						postagging: $scope.selfExplanationFormData.posTagging.value,
+						dialogism: $scope.selfExplanationFormData.dialogism.value
 					};
 					
 					var params = {
@@ -1204,6 +1202,11 @@
              ]
 		};
 		
+		$scope.dialogismOptions = [
+			{id: '1', name: 'Yes', value: true},
+            {id: '2', name: 'No', value: false}
+       ];
+		
 		$scope.$watch('csclFormData.language', function() {
 			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.csclFormData.language.value];
 			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.csclFormData.language.value];
@@ -1216,6 +1219,7 @@
 			lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 			lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 			posTagging: {id: '2', name: 'No', value: false},
+			dialogism: {id: '2', name: 'No', value: false},
 			threshold: 0.3
 		};
 		
@@ -1254,6 +1258,7 @@
 						lsa: ServerSettings.lsaRoot + '/' + $scope.csclFormData.lsa.value, 
 						lda: ServerSettings.ldaRoot + '/' + $scope.csclFormData.lda.value,
 						postagging: $scope.csclFormData.posTagging.value,
+						dialogism: $scope.csclFormData.dialogism.value,
 						threshold: $scope.csclFormData.threshold
 					};
 					
