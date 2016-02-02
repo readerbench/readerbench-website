@@ -76,6 +76,10 @@
  	            {id: '2', name: 'No', value: false}
             ];
 			
+            $scope.dialogismOptions = [
+ 				{id: '1', name: 'Yes', value: true},
+ 	            {id: '2', name: 'No', value: false}
+            ];
 			$scope.lsaOptionsByLanguage = {
 				eng: [
 	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
@@ -163,6 +167,7 @@
 					lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 					lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
 					posTagging: {id: '2', name: 'No', value: false},
+					dialogism: {id: '2', name: 'No', value: false},
 					threshold: 0.3
 				};
 	
@@ -464,6 +469,7 @@
 						lsa: 'resources/config/LSA/' + $scope.csclFormData.lsa.value, 
 						lda: 'resources/config/LDA/' + $scope.csclFormData.lda.value,
 						postagging: $scope.csclFormData.posTagging.value,
+                        dialogism: $scope.csclFormData.dialogism.value,
 						threshold: $scope.csclFormData.threshold
 					}
 					// buildPathSemanticProcess is ok for buildPathCsclProcessing

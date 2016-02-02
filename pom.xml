@@ -3,7 +3,7 @@
   <groupId>com.upb.readerbench</groupId>
   <artifactId>readerbench</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>Reader Bench</name>
+  <name>ReaderBench-website</name>
   <description>This is a web application for Reader Bench App</description>
   <packaging>war</packaging>
   <dependencies>
