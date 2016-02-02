@@ -6,4 +6,11 @@
   <name>Reader Bench</name>
   <description>This is a web application for Reader Bench App</description>
   <packaging>war</packaging>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.tuckey</groupId>
+  		<artifactId>urlrewritefilter</artifactId>
+  		<version>4.0.4</version>
+  	</dependency>
+  </dependencies>
 </project>
