@@ -918,6 +918,22 @@ header .action-bar .my-account .popup:after {
   -o-transition: all 0.5s ease;
 }
 
+.demo-menu nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: table;
+    margin: 0 auto;
+}
+.demo-menu nav ul li {
+	/* width:120px; */
+    display: inline-block;
+    margin-right: 25px;
+    text-align: center;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease
+}
+
 .reader-menu nav ul {
     list-style-type: none;
     font-size: 0;

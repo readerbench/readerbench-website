@@ -1,0 +1,78 @@
+<div class="page-wrapper" ng-controller="DemoSelfExplanationController">
+	<search-box></search-box>
+	<div id="page">
+		<reader-header></reader-header>
+		<!-- Main Content -->
+		<div class="content-wrapper">
+			<carousel-section></carousel-section>
+			<!-- Main Content -->
+			<div class="container">
+				<demo-menu></demo-menu>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-12">
+						<h2>{{title}}</h2>
+					</div>
+				</div>
+			</div>
+			<div class="content-wrapper">
+				<div class="form-group demo-wrapper">
+					<div class="input">
+						<p>
+							<label for="self_text">Text input</label>
+							<textarea class="form-control" rows="10" id="self_text" ng-model="selfExplanationFormData.text"></textarea>
+						</p>
+						<p>
+							<label for="self_explanation">Self explanation</label>
+							<textarea class="form-control" rows="6" id="self_explanation" ng-model="selfExplanationFormData.explanation"></textarea>
+						</p>
+						<p>
+							<label for="self_language">Language <span class="required">*</span></label>
+							<select ng-model="selfExplanationFormData.language" ng-options="option.name for option in languages track by option.id"></select>
+						</p>
+						<p>
+							<label for="self_lsa">LSA <span class="required">*</span></label>
+							<select ng-model="selfExplanationFormData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
+						</p>
+						<p>
+							<label for="self_lda">LDA <span class="required">*</span></label>
+							<select ng-model="selfExplanationFormData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
+						</p>
+						<p>
+							<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
+							<select ng-model="selfExplanationFormData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
+						</p>
+						<div class="bottom-buttons" ng-if="!loading">
+							<button class="filter-button" ng-click="buttonClick('SELF_EXPLANATION')">Identify reading strategies</button>
+						</div>        
+						<div class="bottom-buttons" ng-if="loading">Loading...</div>
+					</div>
+					<div id="results">
+
+				        <div ng-if="showReadingStrategies">
+							<div class="col-xs-12 col-md-12">
+								<h4>Reading Strategies</h4>
+								<div ng-bind-html="selfExplanationColored"></div>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="strategy in strategies">
+						            	<div class="heading">
+											<span class="lesson-nr no-select">{{strategy.score}}</span>
+										</div>
+										<div class="body">
+											<p>{{strategy.name}}</p>
+										</div>
+						            </li>
+						        </ul>
+						       </div>
+				        </div>
+				        
+					</div>
+			    </div>
+				<!-- <action-box></action-box> -->
+			</div>
+		</div>
+	</div>
+</div>

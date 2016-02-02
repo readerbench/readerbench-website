@@ -1,4 +1,4 @@
-"use strict";
+	"use strict";
 
 (function(){
 	angular.module('readerbench', ['ngRoute', 'controllers', 'directives', 'filters'])
@@ -18,6 +18,18 @@
 				.when("/demo", {
 					templateUrl: 'templates/demo.html'
 				})
+					.when("/demo/text-processing", {
+						templateUrl: 'templates/demo/text-processing.html'
+					})
+					.when("/demo/semantic-annotation", {
+						templateUrl: 'templates/demo/semantic-annotation.html'
+					})
+					.when("/demo/self-explanation", {
+						templateUrl: 'templates/demo/self-explanation.html'
+					})
+					.when("/demo/cscl", {
+						templateUrl: 'templates/demo/cscl.html'
+					})
 				.when("/contact", {
 					templateUrl: 'templates/contact.html'
 				})

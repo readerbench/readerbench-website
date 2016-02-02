@@ -2,5 +2,4 @@
 
 (function(){
 	angular.module('services', ['ngStorage'])
-	
 })();
