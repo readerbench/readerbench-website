@@ -575,11 +575,11 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 			
-		$scope.languages = DemoLanguages;
-		$scope.posTaggingOptions = DemoPosTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoMetricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoMetricOptions.lda;
-		$scope.dialogismOptions = DemoDialogismOptions;
+		$scope.languages = DemoElements.languages;
+		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
+		$scope.dialogismOptions = DemoElements.dialogismOptions;
 			
 		/*$scope.$watch('selfExplanationFormData.language', function() {
 			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
@@ -762,11 +762,11 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 		
-		$scope.languages = DemoLanguages;
-		$scope.posTaggingOptions = DemoPosTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoMetricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoMetricOptions.lda;
-		$scope.dialogismOptions = DemoDialogismOptions;
+		$scope.languages = DemoElements.languages;
+		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
+		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
 		// Semantic Annotation Form Data
 		$scope.semanticAnnotationFormData = {
@@ -914,20 +914,20 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 		
-		$scope.languages = DemoLanguages;
-		$scope.posTaggingOptions = DemoPosTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoMetricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoMetricOptions.lda;
-		$scope.dialogismOptions = DemoDialogismOptions;
+		$scope.languages = DemoElements.languages;
+		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
+		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
 		$scope.selfExplanationFormData = {
 			text: DemoTexts.selfExplanation.text,
 			explanation: DemoTexts.selfExplanation.explanation,
-			language: {id: '2', name: 'French', value: 'fr'},
-			lsa: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-			lda: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-			posTagging : {id: '1', name: 'Yes', value: true},
-			dialogism: {id: '2', name: 'No', value: false}
+			language: DemoElements.defaultLanguage,
+			lsa: DemoElements.defaultMetricOptions.lsa.eng,
+			lda: DemoElements.defaultMetricOptions.lda.eng,
+			posTagging : DemoElements.defaultPosTaggingOption,
+			dialogism: DemoElements.defaultDialogismOption
 		};
 		
 		$scope.$watch('selfExplanationFormData.language', function() {
@@ -953,8 +953,8 @@
 						text: $scope.selfExplanationFormData.text,
 						explanation: $scope.selfExplanationFormData.explanation,
 						lang: $scope.selfExplanationFormData.language.value,
-						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.lsa.value, 
-						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.lda.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.selfExplanationFormData.lsa.value, 
+						lda: ServerSettings.ldaRoot + '/' + $scope.selfExplanationFormData.lda.value,
 						postagging: $scope.selfExplanationFormData.posTagging.value,
 						dialogism: $scope.selfExplanationFormData.dialogism.value
 					};
