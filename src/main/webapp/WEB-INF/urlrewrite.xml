@@ -9,66 +9,28 @@
 -->
 <urlrewrite>
 
-    <rule>
+    <!-- <rule>
         <note>
             The rule means that requests to /test/status/ will be redirected to /rewrite-status
             the url will be rewritten.
         </note>
         <from>/test/status/</from>
         <to type="redirect">%{context-path}/rewrite-status</to>
-    </rule>
+    </rule> -->
     
-    <rule match-type="wildcard">
-	  <from>/home</from>
-	  <to>index.html</to>
+    <rule>
+    	<note>General rule for pages</note>
+	  	<from>^/(home|demo|people|projects|publications|contact)$</from>
+	  	<to>/index.html</to>
+	</rule>
+	
+	<rule>
+		<note>Rule for demo subsections</note>
+	 	<from>^/demo/(text-processing|semantic-annotation|self-explanation|cscl)$</from>
+	  	<to>/index.html</to>
 	</rule>
 
-	<rule match-type="wildcard">
-	  <from>/demo</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/demo/text-processing</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/demo/semantic-annotation</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/demo/self-explanation</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/demo/cscl</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/people</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/projects</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/publications</from>
-	  <to>index.html</to>
-	</rule>
-	
-	<rule match-type="wildcard">
-	  <from>/contact</from>
-	  <to>index.html</to>
-	</rule>
-
-    <outbound-rule>
+   	<!-- <outbound-rule>
         <note>
             The outbound-rule specifies that when response.encodeURL is called (if you are using JSTL c:url)
             the url /rewrite-status will be rewritten to /test/status/.
@@ -79,7 +41,7 @@
         </note>
         <from>/rewrite-status</from>
         <to>/test/status/</to>
-    </outbound-rule>
+    </outbound-rule> -->
 
 
     <!--
