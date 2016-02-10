@@ -931,7 +931,10 @@ header .action-bar .my-account .popup:after {
     text-align: center;
     -webkit-transition: all 0.3s ease;
     -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease
+    transition: all 0.3s ease;
+}
+.demo-menu nav ul li a {
+	color: #43b9c7;
 }
 
 .reader-menu nav ul {
