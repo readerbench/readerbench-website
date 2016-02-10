@@ -255,7 +255,6 @@
 				$scope.showCollaborationGraphs = false;
 				$scope.showParticipantCsclIndices = false;
 				
-				
 				var endpoint;
 				switch(req) {
 				case 'SENTIMENT':
@@ -576,59 +575,11 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 			
-		$scope.languages = [
-			{id: '1', name: 'English', value: 'eng'},
-            {id: '2', name: 'French', value: 'fr'}
-         ];
-			
-		$scope.posTaggingOptions = [
-			{id: '1', name: 'Yes', value: true},
-            {id: '2', name: 'No', value: false}
-        ];
-			
-		$scope.lsaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'financial_en', value: 'financial_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: '', value: ''}
-             ],
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-			
-		$scope.ldaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: 'paisa_it', value: 'paisa_it'},
-                {id: '2', name: '', value: ''}
-             ],	             
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
+		$scope.languages = DemoLanguages;
+		$scope.posTaggingOptions = DemoPosTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoMetricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoMetricOptions.lda;
+		$scope.dialogismOptions = DemoDialogismOptions;
 			
 		/*$scope.$watch('selfExplanationFormData.language', function() {
 			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
@@ -811,64 +762,11 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 		
-		$scope.languages = [
-			{id: '1', name: 'English', value: 'eng'},
-            {id: '2', name: 'French', value: 'fr'}
-         ];
-		
-		$scope.posTaggingOptions = [
-			{id: '1', name: 'Yes', value: true},
-            {id: '2', name: 'No', value: false}
-        ];
-		
-		$scope.lsaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'financial_en', value: 'financial_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: '', value: ''}
-             ],
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-		
-		$scope.ldaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: 'paisa_it', value: 'paisa_it'},
-                {id: '2', name: '', value: ''}
-             ],	             
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-		
-		$scope.dialogismOptions = [
-	        {id: '1', name: 'Yes', value: true},
-	        {id: '2', name: 'No', value: false}
-		];
+		$scope.languages = DemoLanguages;
+		$scope.posTaggingOptions = DemoPosTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoMetricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoMetricOptions.lda;
+		$scope.dialogismOptions = DemoDialogismOptions;
 		
 		// Semantic Annotation Form Data
 		$scope.semanticAnnotationFormData = {
@@ -1016,64 +914,11 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 		
-		$scope.languages = [
-			{id: '1', name: 'English', value: 'eng'},
-            {id: '2', name: 'French', value: 'fr'}
-         ];
-		
-		$scope.posTaggingOptions = [
-			{id: '1', name: 'Yes', value: true},
-            {id: '2', name: 'No', value: false}
-        ];
-		
-		$scope.lsaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'financial_en', value: 'financial_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: '', value: ''}
-             ],
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-		
-		$scope.ldaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: 'paisa_it', value: 'paisa_it'},
-                {id: '2', name: '', value: ''}
-             ],	             
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-		
-		$scope.dialogismOptions = [
-   			{id: '1', name: 'Yes', value: true},
-            {id: '2', name: 'No', value: false}
-   		];
+		$scope.languages = DemoLanguages;
+		$scope.posTaggingOptions = DemoPosTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoMetricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoMetricOptions.lda;
+		$scope.dialogismOptions = DemoDialogismOptions;
 		
 		$scope.selfExplanationFormData = {
 			text: DemoTexts.selfExplanation.text,
@@ -1148,85 +993,29 @@
 		$scope.lsaOptions = '';
 		$scope.ldaOptions = '';
 		
-		$scope.languages = [
-			{id: '1', name: 'English', value: 'eng'},
-            {id: '2', name: 'French', value: 'fr'}
-         ];
+		$scope.languages = DemoElements.languages;
+		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
+		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
-		$scope.posTaggingOptions = [
-			{id: '1', name: 'Yes', value: true},
-            {id: '2', name: 'No', value: false}
-        ];
-		
-		$scope.lsaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'financial_en', value: 'financial_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: '', value: ''}
-             ],
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-		
-		$scope.ldaOptionsByLanguage = {
-			eng: [
- 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
- 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
- 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             fr: [
- 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
- 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
- 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
- 	            {id: '4', name: '', value: ''}
-             ],
-             it: [
-                {id: '1', name: 'paisa_it', value: 'paisa_it'},
-                {id: '2', name: '', value: ''}
-             ],	             
-             es: [
-                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-                {id: '2', name: '', value: ''}
-             ]
-		};
-		
-		$scope.dialogismOptions = [
-			{id: '1', name: 'Yes', value: true},
-            {id: '2', name: 'No', value: false}
-       ];
-		
-		$scope.$watch('csclFormData.language', function() {
-			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.csclFormData.language.value];
-			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.csclFormData.language.value];
+		$scope.$watch('formData.language', function() {
+			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.formData.language.value];
+			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.formData.language.value];
 		});
 		
-		$scope.csclFormData = {
-			//conversation: DemoTexts.csclProcessing.conversation,
-			conversationPath: 'resources/in/corpus_v2/Beizadea_352C2_in.xml',
-			language: {id: '1', name: 'English', value: 'eng'},
-			lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-			lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-			posTagging: {id: '2', name: 'No', value: false},
-			dialogism: {id: '2', name: 'No', value: false},
-			threshold: 0.3
+		$scope.formData = {
+			conversationRootPath: ServerSettings.resourceRoot,
+			conversationPath: DemoTexts.csclProcessing.conversationFile,
+			language: DemoElements.defaultLanguage,
+			lsa: DemoElements.defaultMetricOptions.lsa.eng,
+			lda: DemoElements.defaultMetricOptions.lda.eng,
+			posTagging: DemoElements.defaultPosTaggingOption,
+			dialogism: DemoElements.defaultDialogismOption,
+			threshold: DemoElements.defaultSemanticSimilarityThresholdDefault
 		};
 		
-		$scope.conceptMapTitle = "";
-		
 		$scope.loading = false;
-		$scope.loadingpdf = false;
 		
 		$scope.topics = null;
 		$scope.topicEdges = null;
@@ -1235,13 +1024,12 @@
 		$scope.collaborationVoiceOverlapNodes = null;
 	
 		$scope.buttonClick = function(req) {
-			$scope.showConcept = false;
 			
 			$scope.showParticipantInteractionMap = false;
+			$scope.showParticipantCsclIndices = false;
 			$scope.showParticipantEvolutionGraph = false;
 			$scope.showCollaborationGraphs = false;
-			$scope.showParticipantCsclIndices = false;
-			
+			$scope.showConceptMap = false;			
 			
 			var endpoint;
 			switch(req) {
@@ -1252,20 +1040,17 @@
 					endpoint = 'csclProcessing';
 					
 					var data = {
-						//conversation: $scope.csclFormData.conversation,
-						conversationPath: $scope.csclFormData.conversationPath,
-						lang: $scope.csclFormData.language.value,
-						lsa: ServerSettings.lsaRoot + '/' + $scope.csclFormData.lsa.value, 
-						lda: ServerSettings.ldaRoot + '/' + $scope.csclFormData.lda.value,
-						postagging: $scope.csclFormData.posTagging.value,
-						dialogism: $scope.csclFormData.dialogism.value,
-						threshold: $scope.csclFormData.threshold
+						conversationPath: $scope.formData.conversationRootPath + $scope.formData.conversationPath,
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value,
+						threshold: $scope.formData.threshold
 					};
 					
-					var params = {
-					};
+					var params = {};
 					
-					// buildPathSemanticProcess is ok for buildPathCsclProcessing
 					$http.post(buildServerPath(endpoint, params), data).then(function(response) {
 						
 						$scope.loading = false;
@@ -1276,7 +1061,7 @@
 						}
 						
 						// build concept map
-						$scope.showConcept = true;
+						$scope.showConceptMap = true;
 						$scope.topics = response.data.data.concepts.nodes;
 						$scope.topicEdges = response.data.data.concepts.links;
 						var interval = setInterval(function()
@@ -1316,7 +1101,6 @@
 						$scope.showCollaborationGraphs = true;
 						
 						// build collaboration kb graph
-						// wait for nodes to be loaded
 						$scope.collaborationSocialKBNodes = response.data.data.socialKB;
 						var intervalCollaborationSocialKB = setInterval(function()
 				        {
@@ -1328,7 +1112,6 @@
 				        }, 1000);
 										
 						// build collaboration voice graph
-						// wait for nodes to be loaded
 						$scope.voiceOverlapNodes = response.data.data.voiceOverlap;
 						var intervalCollaborationVoiceOverlap = setInterval(function()
 				        {
@@ -1350,6 +1133,7 @@
 							}
 				        }, 1000);
 						
+						// build cscl indices description
 						$scope.csclIndicesDescription = response.data.data.csclIndicesDescription;
 						var intervalCsclIndicesDescription = setInterval(function()
 				        {
