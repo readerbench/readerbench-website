@@ -498,46 +498,22 @@ DemoTexts = {
 	// Self Explanation (Reading Strategies)
 	selfExplanation : {
 		title: 'Self Explanation',
-		text : 'Ce soir-lÃ , la famille de Matilda dÃ®nait comme dâ€™habitude devant la tÃ©lÃ©vision, '
-				+ 'quand ils entendirent une voix forte venant du salon dire : Â«Â salut, salut, salutÂ Â». '
-				+ 'La mÃ¨re devint toute blanche. Elle dit Ã  son mari Â«Â il y a quelquâ€™un dans la  '
-				+ 'maisonÂ Â». Ils arrÃªtÃ¨rent tous de manger. Ils Ã©taient tous sur le qui-vive. La voix  '
-				+ 'reprit Â«Â salut, salut, salutÂ Â». Le frÃ¨re se mit Ã  crier Â« Ã§a recommence ! Â». Matilda se  '
-				+ 'leva et alla Ã©teindre la tÃ©lÃ©vision.'
+		text : 'Ce soir-là, la famille de Matilda dînait comme d\'habitude devant la télévision. Ils entendirent une voix forte venant du salon dire : « salut, salut, salut ».'
+				+ 'La mère devint toute blanche. Elle dit à son mari « il y a quelqu\'un dans la maison ». Ils arrêtèrent tous de manger. Ils étaient tous sur le qui-vive. La voix reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se leva et alla éteindre la télévision.'
 				+ String.fromCharCode(13)
-				+ 'La mÃ¨re, paniquÃ©e, dit Ã  son mari : Â«Â Henri, des voleurs, ils sont dans le salon, tu  '
-				+ 'devrais y allerÂ Â». Le pÃ¨re, raide sur sa chaise ne bougea pas. Il nâ€™avait pas envie de  '
-				+ 'jouer au hÃ©ros.'
+				+ 'La mère, paniquée, dit à son mari : « Henri, des voleurs, ils sont dans le salon, tu devrais y aller ». Le père, raide sur sa chaise ne bougea pas. Il n\'avait pas envie de jouer au héros.  Sa femme lui dit : « Alors, tu te décides ? Ils doivent être en train de faucher l\'argenterie ! ».'
 				+ String.fromCharCode(13)
-				+ 'Sa femme lui dit : Â«Â Alors, tu te dÃ©cidesÂ ? Ils doivent Ãªtre en train de faucher  '
-				+ 'lâ€™argenterieÂ !Â Â».'
+				+ 'Monsieur Verdebois s\'essuya nerveusement les lèvres avec sa serviette et proposa d\'aller voir tous ensemble. La mère attrapa un tisonnier au coin de la cheminée. Le père s\'arma d\'une canne de golf posée dans un coin. Le frère attrapa un tabouret. Matilda prit le couteau avec lequel elle mangeait. Puis ils se dirigèrent tous les quatre vers la porte du salon en marchant sur la pointe des pieds.'
+				+ 'À ce moment-là, ils entendirent à nouveau la voix. Matilda fit alors irruption dans la pièce en brandissant son couteau et cria « haut les mains, vous êtes pris ! ».  Les autres la suivirent en agitant leurs armes.'
 				+ String.fromCharCode(13)
-				+ 'Monsieur Verdebois sâ€™essuya nerveusement les lÃ¨vres avec sa serviette et  '
-				+ 'proposa dâ€™aller voir tous ensemble. La mÃ¨re attrapa un tisonnier au coin de la  '
-				+ 'cheminÃ©e. Le pÃ¨re sâ€™arma dâ€™une canne de golf posÃ©e dans un coin. Le frÃ¨re attrapa  '
-				+ 'un tabouret. Matilda prit le couteau avec lequel elle mangeait. Puis ils se  '
-				+ 'dirigÃ¨rent tous les quatre vers la porte du salon en marchant sur la pointe des  '
-				+ 'pieds.'
+				+ 'Puis, ils s\'arrêtèrent pour regarder autour d\'eux. Ils ne virent personne. Le père fut soulagé et dit « il n\'y a pas de voleur ici ». Sa femme lui répondit d\'une voix tremblante « mais Henri, je l\'ai entendu, et toi aussi ». Matilda appuya la réponse de sa mère en ajoutant « je suis sûre de l\'avoir entendu, il est ici quelque part ».'
+				+ 'C\'est alors que la voix s\'éleva à nouveau. Ils sursautèrent tous, y compris Matilda qui jouait très bien la comédie. Ils inspectèrent la grande pièce. Ils ne trouvèrent toujours personne.'
 				+ String.fromCharCode(13)
-				+ 'Ã€ ce moment-lÃ , ils entendirent Ã  nouveau la voix. Matilda fit alors irruption dans  '
-				+ 'la piÃ¨ce en brandissant son couteau et cria Â«Â haut les mains, vous Ãªtes prisÂ !Â Â». Les  '
-				+ 'autres la suivirent en agitant leurs armes. Puis, ils sâ€™arrÃªtÃ¨rent pour regarder  '
-				+ 'autour dâ€™eux. Ils ne virent personne. Le pÃ¨re fut soulagÃ© et dit Â«Â il nâ€™y a pas de  '
-				+ 'voleur iciÂ Â». Sa femme lui rÃ©pondit dâ€™une voix tremblante Â«Â mais Henri, je lâ€™ai  '
-				+ 'entendu, et toi aussiÂ Â». Matilda appuya la rÃ©ponse de sa mÃ¨re en ajoutant Â«Â je suis  '
-				+ 'sÃ»re de lâ€™avoir entendu, il est ici quelque partÂ Â».'
+				+ 'Matilda dit alors que c\'était un fantôme : « Le salon est hanté, je croyais que vous le saviez. Je sais que c\'est le fantôme, je l\'ai déjà entendu ici ». Les parents, très pâles, sortirent du salon suivis par les enfants.'
 				+ String.fromCharCode(13)
-				+ 'Câ€™est alors que la voix sâ€™Ã©leva Ã  nouveau. Ils sursautÃ¨rent tous, y compris Matilda  '
-				+ 'qui jouait trÃ¨s bien la comÃ©die. Ils inspectÃ¨rent la grande piÃ¨ce. Ils ne trouvÃ¨rent   '
-				+ 'toujours personne. Matilda dit alors que câ€™Ã©tait un fantÃ´me : Â«Â Le salon est hantÃ©,   '
-				+ 'je croyais que vous le saviez. Je sais que câ€™est le fantÃ´me, je lâ€™ai dÃ©jÃ  entendu iciÂ Â».   '
-				+ 'Les parents, trÃ¨s pÃ¢les, sortirent du salon suivis par les enfants.'
+				+ 'Plus tard, suivie de son frère, Matilda retourna dans la pièce. C\'est alors qu\'elle sortit du manteau de la cheminée le perroquet de leur copain Arthur. Ils éclatèrent alors de rire.'
 				+ String.fromCharCode(13)
-				+ 'Plus tard, suivie de son frÃ¨re, Matilda retourna dans la piÃ¨ce. Câ€™est alors quâ€™elle  '
-				+ 'sortit du manteau de la cheminÃ©e le perroquet de leur copain Arthur. Ils   '
-				+ 'Ã©clatÃ¨rent alors de rire. Ils passÃ¨rent par la porte de derriÃ¨re en emmenant   '
-				+ 'lâ€™animal avec eux. Matilda rendit son perroquet Ã  Arthur et lui raconta la soirÃ©e. Il  '
-				+ 'nâ€™y eut plus jamais de fantÃ´me chez les Verdebois.',
+				+ 'Ils passèrent par la porte de derrière en emmenant l\'animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il n\'y eut plus jamais de fantôme chez les Verdebois.',
 		explanation : 'je crois qu\'il y a donc la famille de Matilda ben ils sont en train de manger '
 				+ 'et soudain y a quelqu\'un qui entre en disant salut salut salut. AprÃ¨s ils croient que c\'Ã©taient '
 				+ 'des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est '
