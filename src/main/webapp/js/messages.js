@@ -11,7 +11,8 @@ DemoItems = [
  	{name:'Text processing', href:'demo/text-processing'},
  	{name:'Semantic annotation', href:'demo/semantic-annotation'},
  	{name:'Self explanation', href:'demo/self-explanation'},
- 	{name:'CSCL', href:'demo/cscl'}
+ 	{name:'CSCL', href:'demo/cscl'},
+ 	{name:'CV & Cover letter', href:'demo/cv-cover'}
 ];
 DemoElements = {
 		languages: [
@@ -528,5 +529,9 @@ DemoTexts = {
 		participantEvolutionTitle : 'Participant Evolution',
 		collaborationSocialKB : 'Collaboration - Social KB',
 		collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap'
+	},
+	cvCover : {
+		title: 'CV & Cover',
+		language: DemoElements.languages[1] // fr
 	}
 };

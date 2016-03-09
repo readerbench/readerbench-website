@@ -1,7 +1,7 @@
 "use strict";
 
 (function(){
-	angular.module('controllers', ['services'])
+	angular.module('controllers', ['services', 'ngFileUpload'])
 	.controller('AppController', ['$location', function($location){
 		var vm = this;  // Use 'controller as' syntax.    
 	}])
@@ -1142,6 +1142,148 @@
 								clearInterval(intervalCsclIndicesDescription);
 							}
 				        }, 1000);
+					});
+					break;
+			}
+		}
+	   
+	}])
+	.controller('DemoCvcoverController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function($scope, $http, $sce, Upload, $timeout){
+		
+		var params = {};
+		var endpoint = 'fileUpload';
+		$scope.uploadFile = function(type, file, errFiles) {
+	        $scope.f = file;
+	        $scope.errFile = errFiles && errFiles[0];
+	        if (file) {
+	            file.upload = Upload.upload({
+	                url: buildServerPath(endpoint, params),
+	                data: {file: file}
+	            });
+
+	            file.upload.then(function (response) {
+	                $timeout(function () {
+	                    file.result = response.data;
+	                    switch(type) {
+	                    case 'CV':
+	                    	$scope.formData.cv = file.result;
+	                    	break;
+	                    case 'COVER':
+	                    	$scope.formData.cover = file.result;
+	                    	break;
+	                    }
+	                });
+	            }, function (response) {
+	                if (response.status > 0)
+	                    $scope.errorMsg = response.status + ': ' + response.data;
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	            });
+	        }   
+	    }
+
+		$scope.title = DemoTexts.cvCover.title;
+		
+		$scope.lsaOptions = '';
+		$scope.ldaOptions = '';
+		
+		$scope.languages = DemoElements.languages;
+		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
+		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
+		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
+		$scope.dialogismOptions = DemoElements.dialogismOptions;
+		
+		$scope.$watch('formData.language', function() {
+			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.formData.language.value];
+			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.formData.language.value];
+		});
+		
+		console.log(DemoTexts.cvCover);
+		$scope.formData = {
+			language: DemoTexts.cvCover.language,
+			lsa: DemoElements.defaultMetricOptions.lsa.fr,
+			lda: DemoElements.defaultMetricOptions.lda.fr,
+			posTagging: DemoElements.defaultPosTaggingOption,
+			dialogism: DemoElements.defaultDialogismOption,
+			threshold: DemoElements.defaultSemanticSimilarityThresholdDefault
+		};
+		
+		$scope.loading = false;
+		
+		$scope.topics = null;
+		$scope.topicEdges = null;
+		
+		$scope.buttonClick = function(req) {
+			
+			$scope.showConceptMap = false;			
+			
+			var endpoint;
+			switch(req) {
+				case 'CV_COVER':
+					
+					$scope.loading = true;
+					
+					endpoint = 'cvCoverProcessing';
+					
+					var data = {
+						cvFile: $scope.formData.cv,
+						coverFile: $scope.formData.cover,
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value,
+						threshold: $scope.formData.threshold
+					};
+					
+					var params = {};
+					
+					$http.post(buildServerPath(endpoint, params), data).then(function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.data.success != true) {
+							alert('Server error occured!');
+							return;
+						}
+						
+						// build concept map
+						$scope.showConceptMap = true;
+						$scope.cvTopics = response.data.data.cv.concepts.nodes;
+						$scope.cvTopicEdges = response.data.data.cv.concepts.links;
+						$scope.coverTopics = response.data.data.cover.concepts.nodes;
+						$scope.coverTopicEdges = response.data.data.cover.concepts.links;
+						var interval = setInterval(function()
+				        {
+							if($scope.cvTopicEdges.count == response.data.data.cv.concepts.links.count)
+							{
+								clearInterval(interval);
+								//d3jsForTopics(response.data.data.cv.concepts, "#conceptMapCv", true);
+							}
+				        }, 1000);
+						var interval = setInterval(function()
+				        {
+							if($scope.coverTopicEdges.count == response.data.data.cover.concepts.links.count)
+							{
+								clearInterval(interval);
+								//d3jsForTopics(response.data.data.cover.concepts, "#conceptMapCover", true);
+							}
+				        }, 1000);
+						
+						// show sentiments
+						$scope.showSentiment = true;
+						$scope.cvSentiments = response.data.data;
+						$scope.coverSentiments = response.data.data;
+						var interval = setInterval(function()
+				        {
+							if($scope.cv.sentiments.count == response.data.data.cv.sentiments.count)
+							{
+								clearInterval(interval);
+								courseDescriptionToggle();
+							}
+				        }, 1000);
+						
 					});
 					break;
 			}
