@@ -30,6 +30,9 @@
 					.when("/demo/cscl", {
 						templateUrl: 'templates/demo/cscl.html'
 					})
+					.when("/demo/cv-cover", {
+						templateUrl: 'templates/demo/cv-cover.html'
+					})
 				.when("/contact", {
 					templateUrl: 'templates/contact.html'
 				})
