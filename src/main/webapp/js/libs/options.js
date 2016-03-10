@@ -146,14 +146,16 @@
 	});
 }());
 
-courseDescriptionToggle = function () {
-	var courseDescription = jQuery('.course-description-list'),
-		courseLessons = jQuery('.course-description-list .lesson');
+courseDescriptionToggle = function (element) {
+	console.log(element);
+	if (typeof element == 'undefined') element = '.course-description-list';
+	var courseDescription = jQuery(element),
+		courseLessons = courseDescription.find('.lesson');
 
 	courseLessons.each(function () {
 		var lesson = jQuery(this),
-			lessonDescription = jQuery(this).find('> .lesson-description'),
-			lessonDescriptionItems = jQuery(this).find('> .lesson-description > li');
+			lessonDescription = lesson.find('> .lesson-description'),
+			lessonDescriptionItems = lessonDescription.find('> li');
 
 		lesson.find('> .heading > .lesson-nr').on('click', function () {
 			lessonDescription.toggleClass('visible');
