@@ -165,7 +165,7 @@
 				        <div ng-if="showSentiment" class="row top-buffer">
 							<div class="col-xs-12 col-md-12">
 							<h4>Sentiment analysis</h4>
-								<ul class="course-description-list">
+								<ul class="course-description-list" id="list-cv-sentiments">
 						            <li class="lesson" ng-repeat="sentiment in cvSentiments">
 						                <div class="heading title">
 						                	<span class="lesson-nr no-select">{{sentiment.content}}</span>
@@ -243,7 +243,7 @@
 				        <div ng-if="showSentiment" class="row top-buffer">
 							<div class="col-xs-12 col-md-12">
 							<h4>Sentiment analysis</h4>
-								<ul class="course-description-list">
+								<ul class="course-description-list" id="list-cover-sentiments">
 						            <li class="lesson" ng-repeat="sentiment in coverSentiments">
 						                <div class="heading title">
 						                	<span class="lesson-nr no-select">{{sentiment.content}}</span>

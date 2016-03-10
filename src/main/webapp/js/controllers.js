@@ -1270,7 +1270,7 @@
 								if($scope.cvSentiments.count == response.data.data.cv.sentiments.count)
 								{
 									clearInterval(intervalCvSentiments);
-									courseDescriptionToggle();
+									courseDescriptionToggle('#list-cv-sentiments');
 								}
 					        }, 1000);
 						}
@@ -1292,7 +1292,7 @@
 								if($scope.coverSentiments.count == response.data.data.cover.sentiments.count)
 								{
 									clearInterval(intervalCoverSentiments);
-									courseDescriptionToggle();
+									courseDescriptionToggle('#list-cover-sentiments');
 								}
 					        }, 1000);
 						}
