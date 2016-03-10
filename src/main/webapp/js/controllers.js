@@ -1152,9 +1152,9 @@
 		
 		var params = {};
 		var endpoint = 'fileUpload';
-		$scope.uploadFile = function(type, file, errFiles) {
-	        $scope.f = file;
-	        $scope.errFile = errFiles && errFiles[0];
+		$scope.uploadFile = function(type, file, errFiles, f, errFile, errorMsg) {
+	        $scope[f] = file;
+	        $scope[errFile] = errFiles && errFiles[0];
 	        if (file) {
 	            file.upload = Upload.upload({
 	                url: buildServerPath(endpoint, params),
@@ -1175,7 +1175,7 @@
 	                });
 	            }, function (response) {
 	                if (response.status > 0)
-	                    $scope.errorMsg = response.status + ': ' + response.data;
+	                    $scope[errorMsg] = response.status + ': ' + response.data;
 	            }, function (evt) {
 	                file.progress = Math.min(100, parseInt(100.0 * 
 	                                         evt.loaded / evt.total));
@@ -1250,39 +1250,52 @@
 						
 						// build concept map
 						$scope.showConceptMap = true;
-						$scope.cvTopics = response.data.data.cv.concepts.nodes;
-						$scope.cvTopicEdges = response.data.data.cv.concepts.links;
-						$scope.coverTopics = response.data.data.cover.concepts.nodes;
-						$scope.coverTopicEdges = response.data.data.cover.concepts.links;
-						var interval = setInterval(function()
-				        {
-							if($scope.cvTopicEdges.count == response.data.data.cv.concepts.links.count)
-							{
-								clearInterval(interval);
-								//d3jsForTopics(response.data.data.cv.concepts, "#conceptMapCv", true);
-							}
-				        }, 1000);
-						var interval = setInterval(function()
-				        {
-							if($scope.coverTopicEdges.count == response.data.data.cover.concepts.links.count)
-							{
-								clearInterval(interval);
-								//d3jsForTopics(response.data.data.cover.concepts, "#conceptMapCover", true);
-							}
-				        }, 1000);
-						
-						// show sentiments
+						// show sentiments						
 						$scope.showSentiment = true;
-						$scope.cvSentiments = response.data.data;
-						$scope.coverSentiments = response.data.data;
-						var interval = setInterval(function()
-				        {
-							if($scope.cv.sentiments.count == response.data.data.cv.sentiments.count)
-							{
-								clearInterval(interval);
-								courseDescriptionToggle();
-							}
-				        }, 1000);
+						if (typeof response.data.data.cv != 'undefined') {
+							$scope.cvTopics = response.data.data.cv.concepts.nodes;
+							$scope.cvTopicEdges = response.data.data.cv.concepts.links;
+							var intervalCvTopics = setInterval(function()
+					        {
+								if($scope.cvTopicEdges.count == response.data.data.cv.concepts.links.count)
+								{
+									clearInterval(intervalCvTopics);
+									d3jsForTopics(response.data.data.cv.concepts, "#conceptMapCv", true);
+								}
+					        }, 1000);
+							
+							$scope.cvSentiments = response.data.data.cv.sentiments;
+							var intervalCvSentiments = setInterval(function()
+						    {
+								if($scope.cvSentiments.count == response.data.data.cv.sentiments.count)
+								{
+									clearInterval(intervalCvSentiments);
+									courseDescriptionToggle();
+								}
+					        }, 1000);
+						}
+						if (typeof response.data.data.cover != 'undefined') {
+							$scope.coverTopics = response.data.data.cover.concepts.nodes;
+							$scope.coverTopicEdges = response.data.data.cover.concepts.links;
+							var intervalCoverTopics = setInterval(function()
+					        {
+								if($scope.coverTopicEdges.count == response.data.data.cover.concepts.links.count)
+								{
+									clearInterval(intervalCoverTopics);
+									d3jsForTopics(response.data.data.cover.concepts, "#conceptMapCover", true);
+								}
+					        }, 1000);
+							
+							$scope.coverSentiments = response.data.data.cover.sentiments;
+							var intervalCoverSentiments = setInterval(function()
+						    {
+								if($scope.coverSentiments.count == response.data.data.cover.sentiments.count)
+								{
+									clearInterval(intervalCoverSentiments);
+									courseDescriptionToggle();
+								}
+					        }, 1000);
+						}
 						
 					});
 					break;

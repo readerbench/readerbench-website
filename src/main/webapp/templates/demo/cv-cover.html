@@ -25,16 +25,16 @@
 								<label for="cscl_path">CV</label>
 							</div>
 							<div class="col-xs-7 col-md-7">
-								<button class="filter-button" type="file" ngf-select="uploadFile('CV', $file, $invalidFiles)"
+								<button class="filter-button" type="file" ngf-select="uploadFile('CV', $file, $invalidFiles, 'cvFile', 'cvErrFile', 'cvErrorMsg')"
 								          accept="application/pdf" ngf-max-height="1000" ngf-max-size="10MB">
 								      Select File</button>
 								File:
-								<small>{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-									<span class="progress" ng-show="f.progress >= 0">
-								    	<div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+								<small>{{cvFile.name}} {{cvErrFile.name}} {{cvErrFile.$error}} {{cvErrFile.$errorParam}}
+									<span class="progress" ng-show="cvFile.progress >= 0">
+								    	<div style="width:{{cvFile.progress}}%" ng-bind="cvFile.progress + '%'"></div>
 								    </span>
 								</small>     
-								{{errorMsg}}
+								{{cvErrorMsg}}
 								<input type="hidden" ng-model="formData.cv" />
 							 </div>
 						</div>
@@ -44,16 +44,16 @@
 								<label for="cscl_path">Cover letter</label>
 							</div>
 							<div class="col-xs-7 col-md-7">
-								<button class="filter-button" type="file" ngf-select="uploadFile('COVER', $file, $invalidFiles)"
+								<button class="filter-button" type="file" ngf-select="uploadFile('COVER', $file, $invalidFiles, 'coverFile', 'coverErrFile', 'coverErrorMsg'	)"
 								          accept="application/pdf" ngf-max-height="1000" ngf-max-size="10MB">
 								      Select File</button>
 								File:
-								<small>{{f.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
-									<span class="progress" ng-show="f.progress >= 0">
-								    	<div style="width:{{f.progress}}%" ng-bind="f.progress + '%'"></div>
+								<small>{{coverFile.name}} {{coverErrFile.name}} {{coverErrFile.$error}} {{coverErrFile.$errorParam}}
+									<span class="progress" ng-show="coverFile.progress >= 0">
+								    	<div style="width:{{coverFile.progress}}%" ng-bind="coverFile.progress + '%'"></div>
 								    </span>
 								</small>     
-								{{errorMsg}}
+								{{coverErrorMsg}}
 								<input type="hidden" ng-model="formData.cover" />
 							 </div>
 						</div>
@@ -162,7 +162,7 @@
 					        <div class="col-xs-12 col-md-9" id="conceptMapCv">
 					        </div>
 				        </div>
-				        <div ng-if="showSentiments" class="row top-buffer">
+				        <div ng-if="showSentiment" class="row top-buffer">
 							<div class="col-xs-12 col-md-12">
 							<h4>Sentiment analysis</h4>
 								<ul class="course-description-list">
