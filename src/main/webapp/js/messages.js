@@ -502,12 +502,7 @@ DemoTexts = {
 				+ 'Plus tard, suivie de son frère, Matilda retourna dans la pièce. C\'est alors qu\'elle sortit du manteau de la cheminée le perroquet de leur copain Arthur. Ils éclatèrent alors de rire.'
 				+ String.fromCharCode(13)
 				+ 'Ils passèrent par la porte de derrière en emmenant l\'animal avec eux. Matilda rendit son perroquet à Arthur et lui raconta la soirée. Il n\'y eut plus jamais de fantôme chez les Verdebois.',
-		explanation : 'je crois qu\'il y a donc la famille de Matilda ben ils sont en train de manger '
-				+ 'et soudain y a quelqu\'un qui entre en disant salut salut salut. AprÃ¨s ils croient que c\'Ã©taient '
-				+ 'des voleurs alors ils prennent des armes et ils vont vers le voleur. Y en a qui croient que c\'est '
-				+ 'des voleurs mais le pÃ¨re il croit pas. Et la femme et Matilda ils croient elles croient que c\'est '
-				+ 'des voleurs. Et aprÃ¨s Matilda elle dit que c\'est un fantÃ´me et qu\'il hante la salle. Et aprÃ¨s ils '
-				+ 'sortent tous du salon.'
+		explanation : 'au début c\'est une famille de riches qui mangent et puis ils entendent une phrase avec une voix grave salut salut. Donc les parents commencent à avoir peur. Donc la mère de la fille elle croit que c\'est un voleur qui vient leur voler leur argent leur argenterie. Et du coup elle dit au père d\'y aller mais il veut pas donc ils y vont tous ensemble. Et la fille elle joue bien la comédie parce que ça redit salut salut salut et elle commence à sursauter. Et puis un moment elle leur raconte l\'histoire de fantômes donc ils y croient. Et puis au bout d\'un moment elle arrête la plaisanterie en allant chercher le perroquet qu\'elle avait mis au-dessus de la cheminée qu\'elle avait emprunté à son copain Arthur. Et du coup ben ils eurent plus jamais de fantômes chez eux. C\'était juste pour jouer un tour à ses parents.'
 	},
 	csclProcessing : {
 		title: 'CSCL',
