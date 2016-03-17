@@ -147,7 +147,6 @@
 }());
 
 courseDescriptionToggle = function (element) {
-	console.log(element);
 	if (typeof element == 'undefined') element = '.course-description-list';
 	var courseDescription = jQuery(element),
 		courseLessons = courseDescription.find('.lesson');

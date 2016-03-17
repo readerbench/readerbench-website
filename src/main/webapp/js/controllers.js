@@ -13,7 +13,7 @@
 		$scope.openMenu = function(){
 			$scope.hamburgerMenu = !$scope.hamburgerMenu;
 			
-		}  
+	}
 		
 //			angular.element($window).bind("scroll", function() {
 //				console.log("in scroll")
@@ -260,7 +260,6 @@
 				case 'SENTIMENT':
 					$scope.loading = true;
 					endpoint = 'getSentiment';
-					//console.log('you clicked sentiment');
 					$http.get($scope.buildPath(endpoint)).then(function(response) {
 						$scope.loading = false;
 						if (response.data.success != true) {
@@ -303,7 +302,6 @@
 				case 'CONCEPT':
 					$scope.loading = true;
 					endpoint = 'getTopics';
-					//console.log('you clicked concept');
 					$http.get($scope.buildPathTopics(endpoint)).then(function(response) {
 						$scope.loading = false;
 						if (response.data.success != true) {
@@ -322,7 +320,6 @@
 								d3jsForTopics(response.data.data, "#conceptMap", true);
 							}
 				        }, 1000);
-						//console.log($scope.topics);
 					});
 					break;
 				case 'SEARCH':
@@ -373,7 +370,6 @@
 				case 'SEMANTIC_PROCESS':
 					$scope.loading = true;
 					endpoint = 'semanticProcess';
-					//console.log('you clicked concept');
 					var data = {
 						uri: "",
 						abstract: $scope.semanticAnnotationFormData.semanticAbstract,
@@ -391,7 +387,6 @@
 						//data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticUrl).replace(/%0D/g,"%0A");
 						data.uri = $scope.semanticAnnotationFormData.semanticUrl;
 					}
-					//console.log(data.uri);
 					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
 						$scope.loading = false;
 						if (response.data.success != true) {
@@ -420,7 +415,6 @@
 								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
 							}
 				        }, 1000);
-						//console.log($scope.topics);
 					});
 					break;
 				case 'SELF_EXPLANATION':
@@ -611,9 +605,9 @@
 					
 					var params = {
 						text: encodeURIComponent($scope.text).replace(/%0D/g,"%0A"),
+						lang: 'en',
 						lsa: ServerSettings.lsaRoot + '/tasa_en',
 						lda: ServerSettings.ldaRoot + '/tasa_en',
-						lang: 'en',
 						postagging: 'false',
 						dialogism: 'false'
 					}
@@ -1199,7 +1193,6 @@
 			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.formData.language.value];
 		});
 		
-		console.log(DemoTexts.cvCover);
 		$scope.formData = {
 			language: DemoTexts.cvCover.language,
 			lsa: DemoElements.defaultMetricOptions.lsa.fr,
