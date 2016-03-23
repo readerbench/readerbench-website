@@ -749,50 +749,68 @@
 		}
 	   
 	}])
-	.controller('DemoSemanticAnnotationController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
+	.controller('DemoSemanticAnnotationController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function($scope, $http, $sce, Upload, $timeout){
 
+		var params = {};
+		var endpoint = 'fileUpload';
+		$scope.uploadFile = function(file, errFiles, f, errFile, errorMsg) {
+	        $scope[f] = file;
+	        $scope[errFile] = errFiles && errFiles[0];
+	        if (file) {
+	            file.upload = Upload.upload({
+	                url: buildServerPath(endpoint, params),
+	                data: {file: file}
+	            });
+
+	            file.upload.then(function (response) {
+	                $timeout(function () {
+	                    file.result = response.data;
+	                    $scope.formData.file = file.result;
+	                });
+	            }, function (response) {
+	                if (response.status > 0)
+	                    $scope[errorMsg] = response.status + ': ' + response.data;
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	            });
+	        }   
+	    }
+		
+		// texts
 		$scope.title = DemoTexts.semanticAnnotation.title;
 		
-		$scope.lsaOptions = '';
-		$scope.ldaOptions = '';
-		
+		// options for selectable fields
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
+		$scope.$watch('formData.semanticLanguage', function() {
+			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+		});
+		
 		// Semantic Annotation Form Data
-		$scope.semanticAnnotationFormData = {
-			semanticUrl : DemoTexts.semanticAnnotation.url,
-			semanticFile : 'MS_training_SE_1999',
-			semanticAbstract : DemoTexts.semanticAnnotation.abstractText,
-			semanticKeywords : DemoTexts.semanticAnnotation.keywords,
-			semanticLanguage: 'eng',
-			semanticLSA: 'tasa_lak_en',
-			semanticLDA: 'tasa_lak_en',
-			semanticPosTagging : {id: '2', name: 'No', value: false},
-			semanticPosTaggingOptions : [
+		$scope.formData = {
+			abstract : DemoTexts.semanticAnnotation.abstractText,
+			keywords : DemoTexts.semanticAnnotation.keywords,
+			language: {id: '1', name: 'English', value: 'eng'},
+			lsa: DemoElements.defaultMetricOptions.lsa.eng,
+			lda: DemoElements.defaultMetricOptions.lda.eng,
+			posTagging : {id: '2', name: 'No', value: false},
+			posTaggingOptions : [
  				{id: '1', name: 'Yes', value: true},
  	            {id: '2', name: 'No', value: false}
             ],
             dialogism: {id: '2', name: 'No', value: false},
-            semanticThreshold: 0.3
+            threshold: 0.3
 		};
-		
-		/*$scope.$watch('selfExplanationFormData.language', function() {
-			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-		});*/
 
-		$scope.useUri = false;
-		$scope.semanticTopics = null;
-		$scope.semanticTopicEdges = null;
-		$scope.semanticAbstractDocumentSimilarity = -1;
-		$scope.semanticKeywordsAbstractCoverage = -1;
-		$scope.semanticKeywordsDocumentCoverage = -1;
-		$scope.semanticKeywords = null;
-		$scope.semanticCategories = null;
+		$scope.abstractDocumentSimilarity = -1;
+		$scope.keywordsAbstractCoverage = -1;
+		$scope.keywordsDocumentCoverage = -1;
+		$scope.keywords = null;
+		$scope.categories = null;
 		
 		$scope.loading = false;
 		$scope.loadingpdf = false;
@@ -843,27 +861,18 @@
 					endpoint = 'semanticProcess';
 
 					var data = {
-						uri: "",
-						abstract: $scope.semanticAnnotationFormData.semanticAbstract,
-						keywords: $scope.semanticAnnotationFormData.semanticKeywords,
-						lang: $scope.semanticAnnotationFormData.semanticLanguage, // TODO: check if language is ok eng
-						lsa: ServerSettings.lsaRoot + '/' + $scope.semanticAnnotationFormData.semanticLSA, 
-						lda: ServerSettings.ldaRoot + '/' + $scope.semanticAnnotationFormData.semanticLDA,
-						postagging: false, // put pos value here
-						dialogism: $scope.semanticAnnotationFormData.dialogism.value,
-						threshold: $scope.semanticAnnotationFormData.semanticThreshold
-					}
-					if ($scope.useUri == true) {
-						data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticFile).replace(/%0D/g,"%0A");
-					}
-					else {
-						//data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticUrl).replace(/%0D/g,"%0A");
-						data.uri = $scope.semanticAnnotationFormData.semanticUrl;
+						file: $scope.formData.file,
+						abstract: $scope.formData.abstract,
+						keywords: $scope.formData.keywords,
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging : $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value,
+						threshold: $scope.formData.threshold
 					}
 					
-					var params = {
-					};
-					
+					var params = {};
 					$http.post(buildServerPath(endpoint, params), data).then(function(response) {
 						
 						$scope.loading = false;
@@ -879,11 +888,11 @@
 						
 						$scope.topics = response.data.data.concepts.nodes;
 						$scope.topicEdges = response.data.data.concepts.links;
-						$scope.semanticAbstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
-						$scope.semanticKeywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
-						$scope.semanticKeywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
-						$scope.semanticKeywords = response.data.data.keywords;
-						$scope.semanticCategories = response.data.data.categories;
+						$scope.abstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
+						$scope.keywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
+						$scope.keywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
+						$scope.keywords = response.data.data.keywords;
+						$scope.categories = response.data.data.categories;
 						
 						var interval = setInterval(function()
 				        {
@@ -894,6 +903,17 @@
 							}
 				        }, 1000);
 
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
 					});
 					break;
 			}
@@ -980,22 +1000,45 @@
 		}
 	   
 	}])
-	.controller('DemoCsclController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
+	.controller('DemoCsclController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function($scope, $http, $sce, Upload, $timeout){
 
+		var params = {};
+		var endpoint = 'fileUpload';
+		$scope.uploadFile = function(file, errFiles, f, errFile, errorMsg) {
+	        $scope[f] = file;
+	        $scope[errFile] = errFiles && errFiles[0];
+	        if (file) {
+	            file.upload = Upload.upload({
+	                url: buildServerPath(endpoint, params),
+	                data: {file: file}
+	            });
+
+	            file.upload.then(function (response) {
+	                $timeout(function () {
+	                    file.result = response.data;
+	                    $scope.formData.csclFile = file.result;
+	                });
+	            }, function (response) {
+	                if (response.status > 0)
+	                    $scope[errorMsg] = response.status + ': ' + response.data;
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	            });
+	        }   
+	    }
+		
+		// texts
 		$scope.title = DemoTexts.csclProcessing.title;
 		
-		$scope.lsaOptions = '';
-		$scope.ldaOptions = '';
-		
+		// options for selectable fields
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
 		$scope.$watch('formData.language', function() {
-			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.formData.language.value];
-			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.formData.language.value];
+			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
 		});
 		
 		$scope.formData = {
@@ -1006,7 +1049,7 @@
 			lda: DemoElements.defaultMetricOptions.lda.eng,
 			posTagging: DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption,
-			threshold: DemoElements.defaultSemanticSimilarityThresholdDefault
+			threshold: DemoElements.defaultSemanticSimilarityThreshold
 		};
 		
 		$scope.loading = false;
@@ -1034,7 +1077,7 @@
 					endpoint = 'csclProcessing';
 					
 					var data = {
-						conversationPath: $scope.formData.conversationRootPath + $scope.formData.conversationPath,
+						csclFile: $scope.formData.csclFile,
 						lang: $scope.formData.language.value,
 						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
 						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
@@ -1136,6 +1179,17 @@
 								clearInterval(intervalCsclIndicesDescription);
 							}
 				        }, 1000);
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
 					});
 					break;
 			}
@@ -1177,20 +1231,17 @@
 	        }   
 	    }
 
+		// texts
 		$scope.title = DemoTexts.cvCover.title;
 		
-		$scope.lsaOptions = '';
-		$scope.ldaOptions = '';
-		
+		// options for selectable fields
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
 		$scope.$watch('formData.language', function() {
-			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.formData.language.value];
-			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.formData.language.value];
+			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
 		});
 		
 		$scope.formData = {
@@ -1199,7 +1250,7 @@
 			lda: DemoElements.defaultMetricOptions.lda.fr,
 			posTagging: DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption,
-			threshold: DemoElements.defaultSemanticSimilarityThresholdDefault
+			threshold: DemoElements.defaultSemanticSimilarityThreshold
 		};
 		
 		$scope.loading = false;
@@ -1288,6 +1339,17 @@
 									courseDescriptionToggle('#list-cover-sentiments');
 								}
 					        }, 1000);
+						}
+						
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
 						}
 						
 					});

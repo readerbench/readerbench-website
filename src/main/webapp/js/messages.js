@@ -89,7 +89,7 @@ DemoElements = {
 				
 			}
 		},
-    	defaultSemanticSimilarityThresholdDefault: 0.3
+    	defaultSemanticSimilarityThreshold: 0.3
 };
 NavBarItems = [ {
 	name : 'Home',
@@ -468,7 +468,6 @@ DemoTexts = {
 	// Semantic Annotation
 	semanticAnnotation : {
 		title: 'Semantic Annotation',
-		url : 'http://readerbench.com/papers/feeling_and_reasoning_a_computational_model_for_emotional_agents.pdf',
 		abstractText : 'Interactive virtual environments (IVEs) are now seen as an '
 				+ 'engaging new way by which children learn experimental sciences and '
 				+ 'other disciplines. These environments are populated by synthetic characters '

@@ -19,95 +19,108 @@
 			<div class="content-wrapper">
 				<div class="form-group demo-wrapper">
 					<div class="input">
-					
+						
 						<div class="row">
 							<div class="col-xs-3 col-md-3">
-								<label for="cscl_path">Conversation file <span class="required">*</span></label>
+								<label for="file">Conversation file <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
+								          accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="10MB">
+								      Select File</button>
+								File:
+								<small>{{csclFile.name}} {{csclErrFile.name}} {{csclErrFile.$error}} {{csclErrFile.$errorParam}}
+									<span class="progress" ng-show="csclFile.progress >= 0">
+								    	<div style="width:{{csclFile.progress}}%" ng-bind="csclFile.progress + '%'"></div>
+								    </span>
+								</small>     
+								{{csclErrorMsg}}
+								<input type="hidden" ng-model="formData.csclFile" />
+							 </div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="language">Conversation language <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
-									<!-- <textarea class="form-control" rows="10" id="cscl_conversation" ng-model="formData.conversation"></textarea> -->
-									<span class="input-group-addon">{{formData.conversationRootPath}}</span>
-									<input id="cscl_path" class="form-control" ng-model="formData.conversationPath" />
+									<select id="language" class="form-control" ng-model="formData.language" ng-options="option.name for option in languages track by option.id"></select>
 								</div>
 							</div>
 						</div>
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="cscl_language">Conversation language <span class="required">*</span></label>
+								<label for="lsa">LSA corpus <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
-									<select id="cscl_language" class="form-control" ng-model="formData.language" ng-options="option.name for option in languages track by option.id"></select>
+									<select id="lsa" class="form-control" ng-model="formData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
 								</div>
 							</div>
 						</div>
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="cscl_lsa">LSA corpus <span class="required">*</span></label>
+								<label for="lda">LDA corpus <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
-									<select id="cscl_lsa" class="form-control" ng-model="formData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
+									<select id="lda" class="form-control" ng-model="formData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
 								</div>
 							</div>
 						</div>
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="cscl_lda">LDA corpus <span class="required">*</span></label>
+								<label for="pos">Part of speech tagging <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
-									<select id="cscl_lda" class="form-control" ng-model="formData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
+									<select id="pos" class="form-control" ng-model="formData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
 								</div>
 							</div>
 						</div>
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="cscl_pos">Part of speech tagging <span class="required">*</span></label>
-							</div>
-							<div class="col-xs-9 col-md-9">
-								<div class="input-group">
-									<select id="cscl_pos" class="form-control" ng-model="formData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row top-buffer">
-							<div class="col-xs-3 col-md-3">
-								<label for="cscl_dialogism">Compute dialogism <span class="required">*</span></label>
+								<label for="dialogism">Compute dialogism <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 		                        <div class="input-group">
-									<select id="cscl_dialogism" class="form-control" ng-model="formData.dialogism" ng-options="option.name for option in dialogismOptions track by option.id"></select>
+									<select id="dialogism" class="form-control" ng-model="formData.dialogism" ng-options="option.name for option in dialogismOptions track by option.id"></select>
 								</div>
 							</div>
 						</div>
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="cscl_threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
+								<label for="threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
-									<input id="cscl_threshold" class="form-control" type="number" step="0.1" min="0.0" max="0.9" ng-model="formData.threshold" />
+									<input id="threshold" class="form-control" type="number" step="0.1" min="0.0" max="0.9" ng-model="formData.threshold" />
 								</div>
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
-							<div class="bottom-buttons" ng-if="!loading">
-								<button class="filter-button" ng-click="buttonClick('CSCL')">Process</button>
+						<div class="row top-buffer" ng-if="!loading">
+							<div class="col-xs-12 col-md-12">
+								<div class="bottom-buttons">
+									<button class="filter-button" ng-click="buttonClick('CSCL')">Process</button>
+								</div>
 							</div>
-							<div class="bottom-buttons" ng-if="loading">Loading...</div>
 						</div>        
 						
 					</div>
 					<div id="results">
+					
+						<div class="row" ng-if="loading">
+							<div class="col-xs-12 col-md-12">
+								<img src="img/loading.gif" alt="Loading..." />
+							</div>
+						</div>
 				        
 				        <div ng-if="showParticipantInteractionMap" class="row">
 				        	<div class="col-xs-12 col-md-3">

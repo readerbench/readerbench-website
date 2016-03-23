@@ -19,54 +19,126 @@
 			<div class="content-wrapper">
 				<div class="form-group demo-wrapper">
 					<div class="input">
-						<p ng-if="!useUri">
-							<label for="semantic_url">URL (PDF document) <span class="required">*</span></label>
-							<input id="semantic_url" class="form-control" ng-model="semanticAnnotationFormData.semanticUrl" />
-							<!-- <small><a ng-click="changeDocumentUseUri(true)">Use File upload</a></small> -->
-						</p>
-						<p ng-if="useUri">
-							<label for="semantic_file">File upload (PDF document) <span class="required">*</span> <small>(relative path on server)</small></label>
-							<input id="semantic_file" class="form-control" ng-model="semanticAnnotationFormData.semanticFile" />
-							<small><a ng-click="changeDocumentUseUri(false)">Use URL</a></small>
-						</p>
-						<p>
-							<label for="semantic_abstract">Abstract</label>
-							<textarea id="semantic_abstract" class="form-control" rows="8" ng-model="semanticAnnotationFormData.semanticAbstract"></textarea>
-						</p>
-						<p>
-							<label for="semantic_keywords">Keywords (use comma as delimiter)</label>
-							<textarea id="semantic_keywords" class="form-control" ng-model="semanticAnnotationFormData.semanticKeywords"></textarea>
-						</p>
-						<p>
-							<label for="semantic_language">Language <span class="required">*</span></label>
-							<input id="semantic_language" readonly="readonly" class="form-control" ng-model="semanticAnnotationFormData.semanticLanguage" />
-						</p>
-						<p>
-							<label for="semantic_lsa">LSA <span class="required">*</span></label>
-							<input id="semantic_lsa" readonly="readonly" class="form-control" ng-model="semanticAnnotationFormData.semanticLSA" />
-						</p>
-						<p>
-							<label for="semantic_lda">LDA <span class="required">*</span></label>
-							<input id="semantic_lda" readonly="readonly" class="form-control" ng-model="semanticAnnotationFormData.semanticLDA" />
-						</p>
-						<p>
-							<label for="semantic_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
-							<select ng-model="semanticAnnotationFormData.semanticPosTagging" ng-options="option.name for option in semanticAnnotationFormData.semanticPosTaggingOptions track by option.id"></select>
-						</p>
-						<p>
-							<label for="semantic_dialogism">Compute dialogism <span class="required">*</span></label>
-							<select id="semantic_dialogism" ng-model="semanticAnnotationFormData.dialogism" ng-options="option.name for option in dialogismOptions track by option.id"></select>
-						</p>
-						<p>
-							<label for="semantic_threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
-							<input type="number" step="0.1" min="0.0" max="0.9" id="semantic_threshold" class="form-control" ng-model="semanticAnnotationFormData.semanticThreshold" />
-						</p>
-						<div class="bottom-buttons" ng-if="!loading">
-							<button class="filter-button" ng-click="buttonClick('SEMANTIC_ANNOTATION')">Process</button>
+					
+						<div class="row">
+							<div class="col-xs-3 col-md-3">
+								<label for="file">PDF file <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'file', 'errFile', 'errorMsg')"
+								          accept="application/pdf" ngf-max-height="1000" ngf-max-size="10MB">
+								      Select File</button>
+								File:
+								<small>{{file.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+									<span class="progress" ng-show="file.progress >= 0">
+								    	<div style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
+								    </span>
+								</small>     
+								{{errorMsg}}
+								<input type="hidden" ng-model="formData.file" />
+							 </div>
 						</div>
-						<div class="bottom-buttons" ng-if="loading">Loading...</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="semantic_abstract">Abstract</label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<textarea id="semantic_abstract" class="form-control" rows="8" ng-model="formData.abstract"></textarea>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="semantic_keywords">Keywords (use comma as delimiter)</label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<textarea id="semantic_keywords" class="form-control" ng-model="formData.keywords"></textarea>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="semantic_language">Document language <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<select id="semantic_language" class="form-control" ng-model="formData.language" ng-options="option.name for option in languages track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="lsa">LSA corpus <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<select id="lsa" class="form-control" ng-model="formData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="lda">LDA corpus <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<select id="lda" class="form-control" ng-model="formData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="pos">Part of Speech tagging <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<select id="pos" ng-model="formData.posTagging" class="form-control" ng-options="option.name for option in formData.posTaggingOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="dialogism">Compute dialogism <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<select id="dialogism" ng-model="formData.dialogism" class="form-control" ng-options="option.name for option in dialogismOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<input type="number" step="0.1" min="0.0" max="0.9" id="threshold" class="form-control" ng-model="formData.threshold" />
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer" ng-if="!loading">
+							<div class="col-xs-12 col-md-12">
+								<div class="bottom-buttons">
+									<button class="filter-button" ng-click="buttonClick('SEMANTIC_ANNOTATION')">Process</button>
+								</div>
+							</div>
+						</div>
+						
 					</div>
 					<div id="results">
+					
+						<div class="row" ng-if="loading">
+							<div class="col-xs-12 col-md-12">
+								<img src="img/loading.gif" alt="Loading..." />
+							</div>
+						</div>
 				        
 				        <!-- Semantic Annotation => Semantic Relevance -->
 				        <div ng-if="showSemanticRelevance" class="row"><!--  && tabSemanticAnnotation == 'SEMANTIC_RELEVANCE' -->
@@ -75,7 +147,7 @@
 					        	<div class="col-xs-12 col-md-6">
 					        		<h5>Keyword overlap</h5>
 					        		<ul class="course-description-list">
-					        			<li class="lesson" ng-repeat="keyword in semanticKeywords">
+					        			<li class="lesson" ng-repeat="keyword in keywords">
 							            	<div class="heading">
 												<span class="lesson-nr no-select">{{keyword.relevance}}</span>
 											</div>
@@ -90,7 +162,7 @@
 					        		<ul class="course-description-list">
 					        			<li class="lesson">
 					        				<div class="heading">
-												<span class="lesson-nr no-select">{{semanticAbstractDocumentSimilarity}}</span>
+												<span class="lesson-nr no-select">{{abstractDocumentSimilarity}}</span>
 											</div>
 											<div class="body">
 												<p>(Abstract, document) similarity</p>
@@ -98,7 +170,7 @@
 					        			</li>
 					        			<li class="lesson">
 					        				<div class="heading">
-												<span class="lesson-nr no-select">{{semanticKeywordsAbstractCoverage}}</span>
+												<span class="lesson-nr no-select">{{keywordsAbstractCoverage}}</span>
 											</div>
 											<div class="body">
 												<p>(Keywords, abstract) coverage</p>
@@ -106,7 +178,7 @@
 					        			</li>
 					        			<li class="lesson">
 					        				<div class="heading">
-												<span class="lesson-nr no-select">{{semanticKeywordsDocumentCoverage}}</span>
+												<span class="lesson-nr no-select">{{keywordsDocumentCoverage}}</span>
 											</div>
 											<div class="body">
 												<p>(Keywords, document) coverage</p>
@@ -122,7 +194,7 @@
 				        	<div class="col-xs-12 col-md-12">
 					        	<h4>Categorisation</h4>
 					        	<ul class="course-description-list">
-						            <li class="lesson" ng-repeat="category in semanticCategories">
+						            <li class="lesson" ng-repeat="category in categories">
 						            	<div class="heading">
 											<span class="lesson-nr no-select">{{category.relevance}}</span>
 										</div>
