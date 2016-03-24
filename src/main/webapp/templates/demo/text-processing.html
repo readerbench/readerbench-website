@@ -19,16 +19,92 @@
 			<div class="content-wrapper">
 				<div class="form-group demo-wrapper">
 					<div class="input">
-						<textarea class="form-control" rows="20" id="comment" ng-model="text"></textarea>
-						<div class="bottom-buttons" ng-if="!loading">
-							<button class="filter-button" ng-click="buttonClick('SENTIMENT_ANALYSIS')">Sentiment Analysis</button>
-							<button class="filter-button" ng-click="buttonClick('TEXTUAL_COMPLEXITY')">Textual Complexity</button>
-							<button class="filter-button" ng-click="buttonClick('CONCEPT_MAP')">Concept Map</button>
-							<button class="filter-button" ng-click="buttonClick('SEMANTIC_SEARCH')">Semantic Search</button>
-						</div>        
-						<div class="bottom-buttons" ng-if="loading">Loading...</div>
+					
+						<div class="row">
+							<div class="col-xs-3 col-md-3">
+								<label for="comment">Text <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<textarea class="form-control" rows="20" id="comment" ng-model="formData.text"></textarea>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="self_language">Language <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<div class="input-group">
+									<select class="form-control" ng-model="formData.language" ng-options="option.name for option in languages track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="self_lsa">LSA <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<div class="input-group">
+									<select class="form-control" ng-model="formData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="self_lda">LDA <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<div class="input-group">
+									<select class="form-control" ng-model="formData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<div class="input-group">
+									<select class="form-control" ng-model="formData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="self_dialogism">Compute dialogism <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<div class="input-group">
+									<select class="form-control" id="self_dialogism" ng-model="formData.dialogism" ng-options="option.name for option in dialogismOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer" ng-if="!loading">
+							<div class="col-xs-12 col-md-12">
+						
+								<div class="bottom-buttons" ng-if="!loading">
+									<button class="filter-button" ng-click="buttonClick('SENTIMENT_ANALYSIS')">Sentiment Analysis</button>
+									<button class="filter-button" ng-click="buttonClick('TEXTUAL_COMPLEXITY')">Textual Complexity</button>
+									<button class="filter-button" ng-click="buttonClick('CONCEPT_MAP')">Concept Map</button>
+									<button class="filter-button" ng-click="buttonClick('SEMANTIC_SEARCH')">Semantic Search</button>
+								</div>
+							</div>
+						</div>
+						
 					</div>
 					<div id="results">
+						
+						<div class="row" ng-if="loading">
+							<div class="col-xs-12 col-md-12">
+								<img src="img/loading.gif" alt="Loading..." />
+							</div>
+						</div>	
+						
 						<div ng-if="showResults == 'SENTIMENT_ANALYSIS'">
 							<div class="col-xs-12 col-md-12">
 							<h4>Sentiment analysis</h4>

@@ -56,533 +56,34 @@
 		$scope.demoItems = DemoItems;
 		 	
 	}])
-	.controller('DemoController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
-
-			$scope.q = DemoTexts.textProcessing.text;
-			//$scope.tabDemo = 'TEXT_PROCESSING';
-			//$scope.tabDemo = 'SEMANTIC_ANNOTATION';
-			//$scope.tabDemo = 'SELF_EXPLANATION';
-			$scope.tabDemo = 'CSCL';
-			$scope.lsaOptions = '';
-			$scope.ldaOptions = '';
-			
-			$scope.languages = [
- 				{id: '1', name: 'English', value: 'eng'},
- 	            {id: '2', name: 'French', value: 'fr'}
-             ];
-			
-			$scope.posTaggingOptions = [
- 				{id: '1', name: 'Yes', value: true},
- 	            {id: '2', name: 'No', value: false}
-            ];
-			
-			$scope.lsaOptionsByLanguage = {
-				eng: [
-	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
-	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-	 	            {id: '3', name: 'financial_en', value: 'financial_en'},
-	 	            {id: '4', name: '', value: ''}
-	             ],
-	             fr: [
-	 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-	 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
-	 	            {id: '3', name: '', value: ''}
-	             ],
-	             it: [
-	                {id: '1', name: '', value: ''}
-	             ],
-	             es: [
-	                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-	                {id: '2', name: '', value: ''}
-	             ]
-			}
-			
-			$scope.ldaOptionsByLanguage = {
-				eng: [
-	 				{id: '1', name: 'tasa_en', value: 'tasa_en'},
-	 	            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-	 	            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
-	 	            {id: '4', name: '', value: ''}
-	             ],
-	             fr: [
-	 	            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-	 	            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
-	 	            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
-	 	            {id: '4', name: '', value: ''}
-	             ],
-	             it: [
-	                {id: '1', name: 'paisa_it', value: 'paisa_it'},
-	                {id: '2', name: '', value: ''}
-	             ],	             
-	             es: [
-	                {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
-	                {id: '2', name: '', value: ''}
-	             ]
-			}
-			
-			// Semantic Annotation Form Data
-			$scope.semanticAnnotationFormData = {
-				semanticUrl : DemoTexts.semanticAnnotation.url,
-				semanticFile : 'MS_training_SE_1999',
-				semanticAbstract : DemoTexts.semanticAnnotation.abstractText,
-				semanticKeywords : DemoTexts.semanticAnnotation.keywords,
-				semanticLanguage: 'eng',
-				semanticLSA: 'tasa_lak_en',
-				semanticLDA: 'tasa_lak_en',
-				semanticPosTagging : {id: '2', name: 'No', value: false},
-				semanticPosTaggingOptions : [
-     				{id: '1', name: 'Yes', value: true},
-     	            {id: '2', name: 'No', value: false}
-                ],
-                semanticThreshold: 0.3
-			};
-			
-			$scope.selfExplanationFormData = {
-				text: DemoTexts.selfExplanation.text,
-				explanation: DemoTexts.selfExplanation.explanation,
-				language: {id: '2', name: 'French', value: 'fr'},
-				lsa: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-				lda: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-				posTagging : {id: '1', name: 'Yes', value: true}
-			};
-			
-			$scope.$watch('selfExplanationFormData.language', function() {
-				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-			});
-			
-			$scope.$watch('csclFormData.language', function() {
-				$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.csclFormData.language.value];
-				$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.csclFormData.language.value];
-			});
-			
-			$scope.csclFormData = {
-					//conversation: DemoTexts.csclProcessing.conversation,
-					conversationPath: 'resources/in/corpus_v2/Beizadea_352C2_in.xml',
-					language: {id: '1', name: 'English', value: 'eng'},
-					lsa: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-					lda: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-					posTagging: {id: '2', name: 'No', value: false},
-					dialogism: {id: '2', name: 'No', value: false},
-					threshold: 0.3
-				};
-	
-			$scope.useUri = false;
-			$scope.semanticTopics = null;
-			$scope.semanticTopicEdges = null;
-			$scope.semanticAbstractDocumentSimilarity = -1;
-			$scope.semanticKeywordsAbstractCoverage = -1;
-			$scope.semanticKeywordsDocumentCoverage = -1;
-			$scope.semanticKeywords = null;
-			$scope.semanticCategories = null;
-			    
-			$scope.SERVER_DELIM = '/';
-			$scope.SERVER_SEMICOLON = ':';
-			$scope.SERVER_PROTOCOL = 'http';
-			//$scope.SERVER_IP = '141.85.227.48';
-			$scope.SERVER_IP = window.location.hostname;
-			$scope.SERVER_PORT = '8080';
-			
-			$scope.SERVER_URL = 
-				$scope.SERVER_PROTOCOL + $scope.SERVER_SEMICOLON + $scope.SERVER_DELIM + $scope.SERVER_DELIM + 
-				$scope.SERVER_IP + $scope.SERVER_SEMICOLON + 
-				$scope.SERVER_PORT + $scope.SERVER_DELIM;
-			
-			$scope.changeDocumentUseUri = function(useUri) {
-				$scope.useUri = useUri;
-			}
-			
-			$scope.changeTab = function(tabName) {
-				$scope.tabDemo = tabName;
-			}
-			
-			$scope.buildPath = function(path) {
-				return $scope.SERVER_URL + path + '?q=' + encodeURIComponent($scope.q).replace(/%0D/g,"%0A") + 
-				'&lsa=resources/config/LSA/tasa_en&lda=resources/config/LDA/tasa_en&lang=en&postagging=false';
-			}
-			
-			$scope.buildPathTopics = function(path) {
-				return $scope.SERVER_URL + path + '?q=' + encodeURIComponent($scope.q).replace(/%0D/g,"%0A") + 
-				'&lsa=resources/config/LSA/tasa_en&lda=resources/config/LDA/tasa_en&lang=en&postagging=false&threshold=0.3';
-			}
-			
-			$scope.buildPathSearch = function(path) {
-				return $scope.SERVER_URL + path + '?q=' + encodeURIComponent($scope.q).replace(/%0D/g,"%0A") + 
-				'&path=tasa_search_en';
-			}
-			
-			$scope.buildPathTopicsPdf = function(path) {
-				return $scope.SERVER_URL + path + '?uri=' + encodeURIComponent($scope.uri).replace(/%0D/g,"%0A") + 
-				'&lsa=resources/config/LSA/tasa_en&lda=resources/config/LDA/tasa_en&lang=en&postagging=false&threshold=0.3';
-			}
-			
-			$scope.buildPathSemanticProcess = function(path) {
-				return $scope.SERVER_URL + path;
-			}
-			
-			$scope.conceptMapTitle = "";
-			
-			$scope.loading = false;
-			$scope.loadingpdf = false;
-			$scope.showSentiment = false;
-			$scope.showComplexity = false
-			$scope.showConcept = false;
-			$scope.showSearch = false;
-			
-			$scope.sentiments = null;
-			$scope.complexity = null;
-			$scope.topics = null;
-			$scope.topicEdges = null;
-			$scope.search = null;
-			$scope.uri = "";
-			
-			$scope.collaborationSocialKBNodes = null;
-			$scope.collaborationVoiceOverlapNodes = null;
-		
-			$scope.buttonClick = function(req) {
-				$scope.showSentiment = false;
-				$scope.showComplexity = false
-				$scope.showConcept = false;
-				$scope.showSearch = false;
-				
-				$scope.showSemanticRelevance = false;
-				$scope.showSemanticCategories = false;
-				
-				$scope.showReadingStrategies = false;
-				
-				$scope.showParticipantInteractionMap = false;
-				$scope.showParticipantEvolutionGraph = false;
-				$scope.showCollaborationGraphs = false;
-				$scope.showParticipantCsclIndices = false;
-				
-				var endpoint;
-				switch(req) {
-				case 'SENTIMENT':
-					$scope.loading = true;
-					endpoint = 'getSentiment';
-					$http.get($scope.buildPath(endpoint)).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.showSentiment = true;
-						$scope.sentiments = response.data.data;
-						var interval = setInterval(function()
-				        {
-							if($scope.sentiments.count == response.data.data.count)
-							{
-								clearInterval(interval);
-								courseDescriptionToggle();
-							}
-				        }, 1000);
-					});
-					break;
-				case 'COMPLEXITY':
-					$scope.loading = true;
-					endpoint = 'getComplexity';
-					$http.get($scope.buildPath(endpoint)).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.showComplexity = true;
-						$scope.complexity = response.data.data;
-						var interval = setInterval(function()
-				        {
-							if($scope.complexity.count == response.data.data.count)
-							{
-								clearInterval(interval);
-								courseDescriptionToggle();
-							}
-				        }, 1000);
-					});
-					break;
-				case 'CONCEPT':
-					$scope.loading = true;
-					endpoint = 'getTopics';
-					$http.get($scope.buildPathTopics(endpoint)).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
-						$scope.showConcept = true;
-						$scope.topics = response.data.data.nodes;
-						$scope.topicEdges = response.data.data.links;
-						var interval = setInterval(function()
-				        {
-							if($scope.topicEdges.count == response.data.data.links.count)
-							{
-								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap", true);
-							}
-				        }, 1000);
-					});
-					break;
-				case 'SEARCH':
-					$scope.loading = true;
-					endpoint = 'search';
-					$http.get($scope.buildPathSearch(endpoint)).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.showSearch = true;
-						$scope.search = response.data.data;
-						var interval = setInterval(function()
-				        {
-							if($scope.search.count == response.data.data.count)
-							{
-								clearInterval(interval);
-								courseDescriptionToggle();
-							}
-				        }, 1000);
-					});
-					break;
-				case 'CONCEPT_PDF':
-					// reads text from PDF document
-					$scope.loading = true;
-					endpoint = 'getTopicsFromPdf';
-					$http.get($scope.buildPathTopicsPdf(endpoint)).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
-						$scope.showConcept = true;
-						$scope.topics = response.data.data.nodes;
-						$scope.topicEdges = response.data.data.links;
-						var interval = setInterval(function()
-				        {
-							if($scope.topicEdges.count == response.data.data.links.count)
-							{
-								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap", true);
-							}
-				        }, 1000);
-					});
-					break;
-				case 'SEMANTIC_PROCESS':
-					$scope.loading = true;
-					endpoint = 'semanticProcess';
-					var data = {
-						uri: "",
-						abstract: $scope.semanticAnnotationFormData.semanticAbstract,
-						keywords: $scope.semanticAnnotationFormData.semanticKeywords,
-						lang: $scope.semanticAnnotationFormData.semanticLanguage, // TODO: check if language is ok eng
-						lsa: 'resources/config/LSA/' + $scope.semanticAnnotationFormData.semanticLSA, 
-						lda: 'resources/config/LDA/' + $scope.semanticAnnotationFormData.semanticLDA,
-						postagging: false, // put pos value here
-						threshold: $scope.semanticAnnotationFormData.semanticThreshold
-					}
-					if ($scope.useUri == true) {
-						data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticFile).replace(/%0D/g,"%0A");
-					}
-					else {
-						//data.uri = encodeURIComponent($scope.semanticAnnotationFormData.semanticUrl).replace(/%0D/g,"%0A");
-						data.uri = $scope.semanticAnnotationFormData.semanticUrl;
-					}
-					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						
-						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
-						$scope.showConcept = true;
-						$scope.showSemanticRelevance = true;
-						$scope.showSemanticCategories = true;
-						
-						$scope.topics = response.data.data.concepts.nodes;
-						$scope.topicEdges = response.data.data.concepts.links;
-						$scope.semanticAbstractDocumentSimilarity = response.data.data.abstractDocumentSimilarity;
-						$scope.semanticKeywordsAbstractCoverage = response.data.data.keywordsAbstractCoverage;
-						$scope.semanticKeywordsDocumentCoverage = response.data.data.keywordsDocumentCoverage;
-						$scope.semanticKeywords = response.data.data.keywords;
-						$scope.semanticCategories = response.data.data.categories;
-						
-						var interval = setInterval(function()
-				        {
-							if($scope.topicEdges.count == response.data.data.concepts.links.count)
-							{
-								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
-							}
-				        }, 1000);
-					});
-					break;
-				case 'SELF_EXPLANATION':
-					$scope.loading = true;
-					endpoint = 'selfExplanation';
-					var data = {
-						text: $scope.selfExplanationFormData.text,
-						explanation: $scope.selfExplanationFormData.explanation,
-						lang: $scope.selfExplanationFormData.language.value,
-						lsa: 'resources/config/LSA/' + $scope.selfExplanationFormData.lsa.value, 
-						lda: 'resources/config/LDA/' + $scope.selfExplanationFormData.lda.value,
-						postagging: $scope.selfExplanationFormData.posTagging.value,
-					}
-					// buildPathSemanticProcess is ok for buildPathSelfExplanation
-					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.showReadingStrategies = true;
-						$scope.selfExplanationColored = $sce.trustAsHtml(response.data.data.selfExplanationColored);
-						$scope.strategies = response.data.data.strategies;
-						var interval = setInterval(function()
-				        {
-							if($scope.strategies.count == response.data.data.strategies.count)
-							{
-								clearInterval(interval);
-								courseDescriptionToggle();
-							}
-				        }, 1000);
-					});
-					break;
-				case 'CSCL':
-					$scope.loading = true;
-					endpoint = 'csclProcessing';
-					var data = {
-						//conversation: $scope.csclFormData.conversation,
-						conversationPath: $scope.csclFormData.conversationPath,
-						lang: $scope.csclFormData.language.value,
-						lsa: 'resources/config/LSA/' + $scope.csclFormData.lsa.value, 
-						lda: 'resources/config/LDA/' + $scope.csclFormData.lda.value,
-						postagging: $scope.csclFormData.posTagging.value,
-                        dialogism: $scope.csclFormData.dialogism.value,
-						threshold: $scope.csclFormData.threshold
-					}
-					// buildPathSemanticProcess is ok for buildPathCsclProcessing
-					$http.post($scope.buildPathSemanticProcess(endpoint), data).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						
-						// build concept map
-						$scope.conceptMapTitle = "Concept Map";
-						$scope.showConcept = true;
-						$scope.topics = response.data.data.concepts.nodes;
-						$scope.topicEdges = response.data.data.concepts.links;
-						var interval = setInterval(function()
-				        {
-							if($scope.topicEdges.count == response.data.data.concepts.links.count)
-							{
-								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
-							}
-				        }, 1000);
-						
-						// build participant interaction concept map
-						$scope.showParticipantInteractionMap = true;
-						$scope.participants = response.data.data.participantInteraction.nodes;
-						$scope.participantEdges = response.data.data.participantInteraction.links;
-						var intervalParticipantInteraction = setInterval(function()
-				        {
-							if($scope.participantEdges.count == response.data.data.participantInteraction.links.count)
-							{
-								clearInterval(intervalParticipantInteraction);
-								d3jsForTopics(response.data.data.participantInteraction, "#participantInteractionMap", false);
-							}
-				        }, 1000);
-						
-						// build participant evolution graph
-						$scope.showParticipantEvolutionGraph = true;
-						$scope.participantEvolution = response.data.data.participantEvolution;
-						var intervalParticipantEvolution = setInterval(function()
-				        {
-							if($scope.participantEvolution.count == response.data.data.participantEvolution.count)
-							{
-								clearInterval(intervalParticipantEvolution);
-								d3jsMultipleLinesGraph(response.data.data.participantEvolution, "#participantEvolution", "Contribution ID", "value");
-							}
-				        }, 1000);
-						
-						$scope.showCollaborationGraphs = true;
-						
-						// build collaboration kb graph
-						// wait for nodes to be loaded
-						$scope.collaborationSocialKBNodes = response.data.data.socialKB;
-						var intervalCollaborationSocialKB = setInterval(function()
-				        {
-							if($scope.collaborationSocialKBNodes.count == response.data.data.socialKB.count)
-							{
-								clearInterval(intervalCollaborationSocialKB);
-								d3jsLineGraph(response.data.data.socialKB, "#collaborationSocialKB", "Contribution ID", "Social KB value");
-							}
-				        }, 1000);
-										
-						// build collaboration voice graph
-						// wait for nodes to be loaded
-						$scope.voiceOverlapNodes = response.data.data.voiceOverlap;
-						var intervalCollaborationVoiceOverlap = setInterval(function()
-				        {
-							if($scope.voiceOverlapNodes.count == response.data.data.voiceOverlap.count)
-							{
-								clearInterval(intervalCollaborationVoiceOverlap);
-								d3jsLineGraph(response.data.data.voiceOverlap, "#collaborationVoiceOverlap", "Contribution ID", "Voice PMI");
-							}
-				        }, 1000);
-						
-
-						// build cscl indices
-						$scope.showParticipantCsclIndices = true;
-						$scope.csclIndices = response.data.data.csclIndices;
-						var intervalCsclIndices = setInterval(function()
-				        {
-							if($scope.csclIndices.count == response.data.data.csclIndices.count)
-							{
-								clearInterval(intervalCsclIndices);
-							}
-				        }, 1000);
-						
-						$scope.csclIndicesDescription = response.data.data.csclIndicesDescription;
-						var intervalCsclIndicesDescription = setInterval(function()
-				        {
-							if($scope.csclIndicesDescription.count == response.data.data.csclIndicesDescription.count)
-							{
-								clearInterval(intervalCsclIndicesDescription);
-							}
-				        }, 1000);
-					});
-					break;
-				}
-			}
-		   
-		}])
-		
 	.controller('DemoTextProcessingController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 		
+		// texts
 		$scope.title = DemoTexts.textProcessing.title;
 		$scope.text = DemoTexts.textProcessing.text;
-			
-		$scope.lsaOptions = '';
-		$scope.ldaOptions = '';
-			
+		
+		// options for selectable fields
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
 			
-		/*$scope.$watch('selfExplanationFormData.language', function() {
-			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-		});*/
+		$scope.$watch('formData.language', function() {
+			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+		});
+		
+		// Text Processing Form Data
+		$scope.formData = {
+			text: DemoTexts.textProcessing.text,
+			language: DemoElements.defaultLanguage,
+			lsa: DemoElements.defaultMetricOptions.lsa.eng,
+			lda: DemoElements.defaultMetricOptions.lda.eng,
+			posTagging: DemoElements.defaultPosTaggingOption,
+            dialogism: DemoElements.defaultDialogismOption,
+            threshold: DemoElements.defaultSemanticSimilarityThreshold
+		};
 		
 		$scope.loading = false;
-		
-		$scope.showResults = 'NONE';
 		
 		$scope.sentiments = null;
 		$scope.complexity = null;
@@ -604,12 +105,12 @@
 					endpoint = 'getSentiment';
 					
 					var params = {
-						text: encodeURIComponent($scope.text).replace(/%0D/g,"%0A"),
-						lang: 'en',
-						lsa: ServerSettings.lsaRoot + '/tasa_en',
-						lda: ServerSettings.ldaRoot + '/tasa_en',
-						postagging: 'false',
-						dialogism: 'false'
+						text: encodeURIComponent($scope.formData.text).replace(/%0D/g,"%0A"),
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value,
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value
 					}
 
 					$http.get(buildServerPath(endpoint, params)).then(function(response) {
@@ -633,6 +134,17 @@
 							}
 				        }, 1000);
 						
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
 					});
 					break;
 					
@@ -641,12 +153,12 @@
 					endpoint = 'getComplexity';
 					
 					var params = {
-						text: encodeURIComponent($scope.text).replace(/%0D/g,"%0A"),
-						lsa: ServerSettings.lsaRoot + '/tasa_en',
-						lda: ServerSettings.ldaRoot + '/tasa_en',
-						lang: 'en',
-						postagging: 'false',
-						dialogism: 'false'
+						text: encodeURIComponent($scope.formData.text).replace(/%0D/g,"%0A"),
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value,
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value
 					}
 					
 					$http.get(buildServerPath(endpoint, params)).then(function(response) {
@@ -670,6 +182,17 @@
 							}
 				        }, 1000);
 						
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
 					});
 					break;
 					
@@ -678,13 +201,13 @@
 					endpoint = 'getTopics';
 					
 					var params = {
-						text: encodeURIComponent($scope.text).replace(/%0D/g,"%0A"),
-						lsa: ServerSettings.lsaRoot + '/tasa_en',
-						lda: ServerSettings.ldaRoot + '/tasa_en',
-						lang: 'en',
-						postagging: 'false',
-						dialogism: 'false',
-						threshold: 0.3
+						text: encodeURIComponent($scope.formData.text).replace(/%0D/g,"%0A"),
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value,
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value,
+						threshold: $scope.formData.threshold
 					}
 					
 					$http.get(buildServerPath(endpoint, params)).then(function(response) {
@@ -709,6 +232,17 @@
 							}
 				        }, 1000);
 
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
 					});
 					break;
 					
@@ -717,7 +251,7 @@
 					endpoint = 'search';
 					
 					var params = {
-						text: encodeURIComponent($scope.text).replace(/%0D/g,"%0A"),
+						text: encodeURIComponent($scope.formData.text).replace(/%0D/g,"%0A"),
 						path: 'tasa_search_en'
 					}
 					
@@ -741,6 +275,17 @@
 								courseDescriptionToggle();
 							}
 				        }, 1000);
+						
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
 						
 					});
 					break;
@@ -785,7 +330,7 @@
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
-		$scope.$watch('formData.semanticLanguage', function() {
+		$scope.$watch('formData.language', function() {
 			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
 			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
 		});
@@ -794,16 +339,12 @@
 		$scope.formData = {
 			abstract : DemoTexts.semanticAnnotation.abstractText,
 			keywords : DemoTexts.semanticAnnotation.keywords,
-			language: {id: '1', name: 'English', value: 'eng'},
+			language: DemoElements.defaultLanguage,
 			lsa: DemoElements.defaultMetricOptions.lsa.eng,
 			lda: DemoElements.defaultMetricOptions.lda.eng,
-			posTagging : {id: '2', name: 'No', value: false},
-			posTaggingOptions : [
- 				{id: '1', name: 'Yes', value: true},
- 	            {id: '2', name: 'No', value: false}
-            ],
-            dialogism: {id: '2', name: 'No', value: false},
-            threshold: 0.3
+			posTagging : DemoElements.defaultPosTaggingOption,
+            dialogism: DemoElements.defaultDialogismOption,
+            threshold: DemoElements.defaultSemanticSimilarityThreshold
 		};
 
 		$scope.abstractDocumentSimilarity = -1;
@@ -813,7 +354,6 @@
 		$scope.categories = null;
 		
 		$scope.loading = false;
-		$scope.loadingpdf = false;
 		
 		$scope.topics = null;
 		$scope.topicEdges = null;
@@ -830,30 +370,7 @@
 			
 			var endpoint;
 			switch(req) {
-				/*case 'CONCEPT_PDF':
-					// reads text from PDF document
-					$scope.loading = true;
-					endpoint = 'getTopicsFromPdf';
-					$http.get($scope.buildPathTopicsPdf(endpoint)).then(function(response) {
-						$scope.loading = false;
-						if (response.data.success != true) {
-							alert('Server error occured!');
-							return;
-						}
-						$scope.conceptMapTitle = DemoTexts.textProcessing.conceptMapTitle;
-						$scope.showConcept = true;
-						$scope.topics = response.data.data.nodes;
-						$scope.topicEdges = response.data.data.links;
-						var interval = setInterval(function()
-				        {
-							if($scope.topicEdges.count == response.data.data.links.count)
-							{
-								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap", true);
-							}
-				        }, 1000);
-					});
-					break;*/
+			
 				case 'SEMANTIC_ANNOTATION':
 					
 					$scope.loading = true;
@@ -922,35 +439,30 @@
 	}])
 	.controller('DemoSelfExplanationController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 
+		// texts
 		$scope.title = DemoTexts.selfExplanation.title;
-		$scope.q = DemoTexts.textProcessing.text;
 		
-		$scope.lsaOptions = '';
-		$scope.ldaOptions = '';
-		
+		// options for selectable fields
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
-		$scope.lsaOptionsByLanguage = DemoElements.metricOptions.lsa;
-		$scope.ldaOptionsByLanguage = DemoElements.metricOptions.lda;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
 		
-		$scope.selfExplanationFormData = {
+		$scope.$watch('formData.language', function() {
+			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+		});
+		
+		$scope.formData = {
 			text: DemoTexts.selfExplanation.text,
 			explanation: DemoTexts.selfExplanation.explanation,
-			language: DemoElements.defaultLanguage,
-			lsa: DemoElements.defaultMetricOptions.lsa.eng,
-			lda: DemoElements.defaultMetricOptions.lda.eng,
+			language: {id: '2', name: 'French', value: 'fr'},
+			lsa: DemoElements.defaultMetricOptions.lsa.fr,
+			lda: DemoElements.defaultMetricOptions.lda.fr,
 			posTagging : DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption
 		};
 		
-		$scope.$watch('selfExplanationFormData.language', function() {
-			$scope.lsaOptions = $scope.lsaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-			$scope.ldaOptions = $scope.ldaOptionsByLanguage[$scope.selfExplanationFormData.language.value];
-		});
-		
 		$scope.loading = false;
-		$scope.loadingpdf = false;
 		
 		$scope.buttonClick = function(req) {
 			
@@ -964,17 +476,16 @@
 					
 					endpoint = 'selfExplanation';
 					var data = {
-						text: $scope.selfExplanationFormData.text,
-						explanation: $scope.selfExplanationFormData.explanation,
-						lang: $scope.selfExplanationFormData.language.value,
-						lsa: ServerSettings.lsaRoot + '/' + $scope.selfExplanationFormData.lsa.value, 
-						lda: ServerSettings.ldaRoot + '/' + $scope.selfExplanationFormData.lda.value,
-						postagging: $scope.selfExplanationFormData.posTagging.value,
-						dialogism: $scope.selfExplanationFormData.dialogism.value
+						text: $scope.formData.text,
+						explanation: $scope.formData.explanation,
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value
 					};
 					
-					var params = {
-					};
+					var params = {};
 					
 					$http.post(buildServerPath(endpoint, params), data).then(function(response) {
 						$scope.loading = false;
@@ -994,6 +505,17 @@
 								courseDescriptionToggle();
 							}
 				        }, 1000);
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
 					});
 					break;
 			}
@@ -1042,8 +564,6 @@
 		});
 		
 		$scope.formData = {
-			conversationRootPath: ServerSettings.resourceRoot,
-			conversationPath: DemoTexts.csclProcessing.conversationFile,
 			language: DemoElements.defaultLanguage,
 			lsa: DemoElements.defaultMetricOptions.lsa.eng,
 			lda: DemoElements.defaultMetricOptions.lda.eng,
