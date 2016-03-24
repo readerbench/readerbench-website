@@ -56,6 +56,8 @@
 		$scope.demoItems = DemoItems;
 		 	
 	}])
+	.controller('DemoController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
+	}])
 	.controller('DemoTextProcessingController', ['$scope', '$http', '$sce', function($scope, $http, $sce){
 		
 		// texts
