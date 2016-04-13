@@ -306,6 +306,30 @@
 							</div>
 				        </div>
 				        
+				        
+				        <div ng-if="showCommonWords" class="row top-buffer">
+				        	<div class="col-xs-12 col-md-12">
+								<h4>Overlapping content words</h4>
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="(key, value) in commonWords">
+						            	<div class="heading">
+											<span class="lesson-nr no-select">{{key}}</span>
+										</div>
+										<div class="body">
+											<p>{{value}}</p>
+										</div>
+						            </li>
+						        </ul>
+							</div>
+				        </div>
+				        
+				        <div ng-if="showSemanticSimilarity" class="row top-buffer">
+				        	<div class="col-xs-12 col-md-12">
+				        		<h4>Semantic Similarity</h4>
+				        		{{semanticSimilarity}}
+				        	</div>
+				        </div>
+				        
 					</div>
 			    </div>
 				<!-- <action-box></action-box> -->

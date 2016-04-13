@@ -863,6 +863,12 @@
 					        }, 1000);
 						}
 						
+						$scope.showCommonWords = true;
+						$scope.commonWords = response.data.data.wordOccurences;
+						$scope.showSemanticSimilarity = true;
+						$scope.semanticSimilarity = response.data.data.similarity;
+							
+						
 					}, function(response) {
 						
 						$scope.loading = false;
