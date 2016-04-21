@@ -33,6 +33,9 @@
 					.when("/demo/cv-cover", {
 						templateUrl: 'templates/demo/cv-cover.html'
 					})
+					.when("/demo/cv", {
+						templateUrl: 'templates/demo/cv.html'
+					})
 				.when("/contact", {
 					templateUrl: 'templates/contact.html'
 				})

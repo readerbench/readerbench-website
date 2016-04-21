@@ -886,6 +886,164 @@
 		}
 	   
 	}])
+	.controller('DemoCvController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function($scope, $http, $sce, Upload, $timeout){
+		
+		var params = {};
+		var endpoint = 'fileUpload';
+		$scope.uploadFile = function(type, file, errFiles, f, errFile, errorMsg) {
+	        $scope[f] = file;
+	        $scope[errFile] = errFiles && errFiles[0];
+	        if (file) {
+	            file.upload = Upload.upload({
+	                url: buildServerPath(endpoint, params),
+	                data: {file: file}
+	            });
+
+	            file.upload.then(function (response) {
+	                $timeout(function () {
+	                    file.result = response.data;
+	                    switch(type) {
+	                    case 'CV':
+	                    	$scope.formData.cv = file.result;
+	                    	break;
+	                    case 'COVER':
+	                    	$scope.formData.cover = file.result;
+	                    	break;
+	                    }
+	                });
+	            }, function (response) {
+	                if (response.status > 0)
+	                    $scope[errorMsg] = response.status + ': ' + response.data;
+	            }, function (evt) {
+	                file.progress = Math.min(100, parseInt(100.0 * 
+	                                         evt.loaded / evt.total));
+	            });
+	        }   
+	    }
+
+		// texts
+		$scope.title = DemoTexts.cv.title;
+		
+		// options for selectable fields
+		$scope.languages = DemoElements.languages;
+		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
+		$scope.dialogismOptions = DemoElements.dialogismOptions;
+		
+		$scope.$watch('formData.language', function() {
+			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+		});
+		
+		$scope.formData = {
+			language: DemoTexts.cvCover.language,
+			lsa: DemoElements.defaultMetricOptions.lsa.fr,
+			lda: DemoElements.defaultMetricOptions.lda.fr,
+			posTagging: DemoElements.defaultPosTaggingOption,
+			dialogism: DemoElements.defaultDialogismOption,
+			threshold: DemoElements.defaultSemanticSimilarityThreshold
+		};
+		
+		$scope.loading = false;
+		
+		$scope.topics = null;
+		$scope.topicEdges = null;
+		
+		$scope.buttonClick = function(req) {
+			
+			$scope.showConceptMap = false;			
+			
+			var endpoint;
+			switch(req) {
+				case 'CV_COVER':
+					
+					$scope.loading = true;
+					
+					endpoint = 'cvProcessing';
+					
+					var data = {
+						cvFile: $scope.formData.cv,
+						lang: $scope.formData.language.value,
+						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
+						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
+						postagging: $scope.formData.posTagging.value,
+						dialogism: $scope.formData.dialogism.value,
+						threshold: $scope.formData.threshold
+					};
+					
+					var params = {};
+					
+					$http.post(buildServerPath(endpoint, params), data).then(function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.data.success != true) {
+							alert('Server error occured!');
+							return;
+						}
+						
+						// build concept map
+						$scope.showConceptMap = true;
+						$scope.topics = response.data.data.concepts.nodes;
+						$scope.topicEdges = response.data.data.concepts.links;
+						var intervalCvTopics = setInterval(function()
+				        {
+							if($scope.topicEdges.count == response.data.data.concepts.links.count)
+							{
+								clearInterval(intervalCvTopics);
+								d3jsForTopics(response.data.data.concepts, "#conceptMapCv", true);
+							}
+				        }, 1000);
+						
+						// show textual complexity
+						$scope.showComplexity = true;
+						$scope.complexity = response.data.data.textualComplexity;
+						var intervalComplexity = setInterval(function()
+				        {
+							if($scope.complexity.count == response.data.data.textualComplexity.count)
+							{
+								clearInterval(intervalComplexity);
+								courseDescriptionToggle('#textual-complexity');
+							}
+				        }, 1000);
+						
+						$scope.showStats = true;
+						$scope.images = response.data.data.images;
+						$scope.colors = response.data.data.colors;
+						$scope.pages = response.data.data.pages;
+						
+						$scope.showWords = true;
+						$scope.positiveWords = response.data.data.positiveWords;
+						$scope.negativeWords = response.data.data.negativeWords;
+						
+						// show LIWC valences
+						$scope.showValences = true;
+						$scope.liwcEmotions = response.data.data.liwcEmotions;
+						var intervalLiwc = setInterval(function()
+				        {
+							if($scope.liwcEmotions.count == response.data.data.liwcEmotions.count)
+							{
+								clearInterval(intervalLiwc);
+								courseDescriptionToggle('#liwc-sentiments');
+							}
+				        }, 1000);
+						
+					}, function(response) {
+						
+						$scope.loading = false;
+						
+						if (response.status == 0) {
+							alert('Server error occured!');
+						}
+						else {
+							alert(response.statusText);
+						}
+						
+					});
+					break;
+			}
+		}
+	   
+	}])
 	.controller('ProjectsController', ['$scope', function($scope){
 
  	 	$scope.projectsList = Projects;

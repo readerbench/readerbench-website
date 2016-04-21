@@ -12,7 +12,8 @@ DemoItems = [
  	{name:'Semantic annotation', href:'demo/semantic-annotation'},
  	{name:'Self explanation', href:'demo/self-explanation'},
  	{name:'CSCL', href:'demo/cscl'},
- 	{name:'CV & Cover letter', href:'demo/cv-cover'}
+ 	{name:'CV & Cover letter', href:'demo/cv-cover'},
+ 	{name:'CV', href:'demo/cv'}
 ];
 DemoElements = {
 		languages: [
@@ -513,6 +514,10 @@ DemoTexts = {
 	},
 	cvCover : {
 		title: 'CV & Cover',
+		language: DemoElements.languages[1] // fr
+	},
+	cv: {
+		title: 'CV',
 		language: DemoElements.languages[1] // fr
 	}
 };
