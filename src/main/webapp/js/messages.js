@@ -20,7 +20,7 @@ DemoElements = {
 			{id: '1', name: 'English', value: 'English'},
 		    {id: '2', name: 'French', value: 'French'}
 		],
-		defaultLanguage: {id: '1', name: 'English', value: 'eng'},
+		defaultLanguage: {id: '1', name: 'English', value: 'English'},
 		posTaggingOptions: [
         	{id: '1', name: 'Yes', value: true},
             {id: '2', name: 'No', value: false}
