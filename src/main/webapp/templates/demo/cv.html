@@ -41,6 +41,15 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
+								<label for="keywords">Specific keywords (use comma as delimiter)</label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<textarea id="keywords" class="form-control" ng-model="formData.keywords"></textarea>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
 								<label for="language">Conversation language <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
@@ -193,7 +202,39 @@
 				        			</li>
 				        		</ul>
 				        	</div>
-				        </div>	
+				        </div>
+				        
+				        <div ng-if="showSemanticRelevance" class="row top-buffer">
+				        	<div class="col-xs-12 col-md-12">
+					        	<h4>Keywords relevance</h4>
+					        	<div class="col-xs-12 col-md-6">
+					        		<h5>Keyword overlap</h5>
+					        		<ul class="course-description-list">
+					        			<li class="lesson" ng-repeat="keyword in keywords">
+							            	<div class="heading">
+												<span class="lesson-nr no-select">{{keyword.relevance}}</span>
+											</div>
+											<div class="body">
+												<p>{{keyword.name}} ({{keyword.noOccurences}} occurences)</p>
+											</div>
+							            </li>
+					        		</ul>
+					        	</div>
+					        	<div class="col-xs-12 col-md-6">
+					        		<h5>Relevance</h5>
+					        		<ul class="course-description-list">
+					        			<li class="lesson">
+					        				<div class="heading">
+												<span class="lesson-nr no-select">{{keywordsDocumentCoverage}}</span>
+											</div>
+											<div class="body">
+												<p>(Keywords, document) coverage</p>
+											</div>
+					        			</li>
+					        		</ul>
+					        	</div>
+					        </div>
+				        </div>
 				        
 					    <div ng-if="showConceptMap" class="row top-buffer">
 				        	<div class="col-xs-12 col-md-3">

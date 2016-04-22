@@ -935,7 +935,8 @@
 		});
 		
 		$scope.formData = {
-			language: DemoTexts.cvCover.language,
+			keywords: DemoTexts.cv.keywords,
+			language: DemoTexts.cv.language,
 			lsa: DemoElements.defaultMetricOptions.lsa.French,
 			lda: DemoElements.defaultMetricOptions.lda.French,
 			posTagging: DemoElements.defaultPosTaggingOption,
@@ -962,6 +963,7 @@
 					
 					var data = {
 						cvFile: $scope.formData.cv,
+						keywords: $scope.formData.keywords,
 						lang: $scope.formData.language.value,
 						lsa: ServerSettings.lsaRoot + '/' + $scope.formData.lsa.value, 
 						lda: ServerSettings.ldaRoot + '/' + $scope.formData.lda.value,
@@ -1030,6 +1032,12 @@
 								courseDescriptionToggle('#liwc-sentiments');
 							}
 				        }, 1000);
+						
+						$scope.showSemanticRelevance = true;
+						// specific keywords
+						$scope.keywords = response.data.data.keywords;
+						// keywords document relevance
+						$scope.keywordsDocumentCoverage = response.data.data.keywordsDocumentRelevance;
 						
 					}, function(response) {
 						
