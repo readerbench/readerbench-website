@@ -457,7 +457,7 @@
 		$scope.formData = {
 			text: DemoTexts.selfExplanation.text,
 			explanation: DemoTexts.selfExplanation.explanation,
-			language: {id: '2', name: 'French', value: 'fr'},
+			language: DemoTexts.selfExplanation.language,
 			lsa: DemoElements.defaultMetricOptions.lsa.French,
 			lda: DemoElements.defaultMetricOptions.lda.French,
 			posTagging : DemoElements.defaultPosTaggingOption,
