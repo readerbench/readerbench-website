@@ -33,60 +33,60 @@ DemoElements = {
         defaultDialogismOption: {id: '2', name: 'No', value: false},
         metricOptions: {
     		 lsa: {
-    	    	   eng: [
+    			 	English: [
     	    	         {id: '1', name: 'tasa_en', value: 'tasa_en'},
     	    	         {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
     	    	         {id: '3', name: 'financial_en', value: 'financial_en'},
     	    	         {id: '4', name: '', value: ''}
-    	    	   ],
-    	    	   fr: [
+    	    	    ],
+    	    	    French: [
     	    	        {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
     	    	        {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
     	    	        {id: '3', name: '', value: ''}
-    	    	   ],
-    	    	   it: [
+    	    	    ],
+    	    	    Italian: [
     	    	        {id: '1', name: '', value: ''}
-    	    	   ],
-    	    	   es: [
+    	    	    ],
+    	    	    Spanish: [
     	    	        {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
     	    	        {id: '2', name: '', value: ''}
-    	    	   ]
+    	    	    ]
     		 },
     		 lda: {
-    			   eng: [
+    			 	English: [
     					{id: '1', name: 'tasa_en', value: 'tasa_en'},
     		            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
     		            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
     		            {id: '4', name: '', value: ''}
-    	           ],
-    	           fr: [
+    	            ],
+    	            French: [
     		            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
     		            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
     		            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
     		            {id: '4', name: '', value: ''}
-    		       ],
-    	           it: [
+    		        ],
+    		        Italian: [
     	               {id: '1', name: 'paisa_it', value: 'paisa_it'},
     	               {id: '2', name: '', value: ''}
-    	           ],	             
-    	           es: [
+    	            ],	             
+    	            Spanish: [
     	               {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'},
     	               {id: '2', name: '', value: ''}
-    	           ]
+    	            ]
     		 }      
     	},
     	defaultMetricOptions: {
 			lsa: {
-				eng: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-				fr: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-				it: {id: '1', name: '', value: ''},
-				es: {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'}
+				English: {id: '1', name: 'tasa_en', value: 'tasa_en'},
+				French: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+				Italian: {id: '1', name: '', value: ''},
+				Spanish: {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'}
 			},
 			lda: {
-				eng: {id: '1', name: 'tasa_en', value: 'tasa_en'},
-				fr: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
-				it: {id: '1', name: 'paisa_it', value: 'paisa_it'},
-				es: {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'}
+				English: {id: '1', name: 'tasa_en', value: 'tasa_en'},
+				French: {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
+				Italian: {id: '1', name: 'paisa_it', value: 'paisa_it'},
+				esSpanish: {id: '1', name: 'joseantonio_es', value: 'joseantonio_es'}
 				
 			}
 		},
