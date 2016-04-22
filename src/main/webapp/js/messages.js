@@ -17,8 +17,8 @@ DemoItems = [
 ];
 DemoElements = {
 		languages: [
-			{id: '1', name: 'English', value: 'eng'},
-		    {id: '2', name: 'French', value: 'fr'}
+			{id: '1', name: 'English', value: 'English'},
+		    {id: '2', name: 'French', value: 'French'}
 		],
 		defaultLanguage: {id: '1', name: 'English', value: 'eng'},
 		posTaggingOptions: [

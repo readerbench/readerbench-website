@@ -1007,9 +1007,13 @@
 				        }, 1000);
 						
 						$scope.showStats = true;
-						$scope.images = response.data.data.images;
-						$scope.colors = response.data.data.colors;
 						$scope.pages = response.data.data.pages;
+						$scope.paragraphs = response.data.data.paragraphs;
+						$scope.sentences = response.data.data.sentences;
+						$scope.words = response.data.data.words;
+						$scope.contentWords = response.data.data.contentWords;
+						$scope.colors = response.data.data.colors;
+						$scope.images = response.data.data.images;
 						
 						$scope.showWords = true;
 						$scope.positiveWords = response.data.data.positiveWords;
