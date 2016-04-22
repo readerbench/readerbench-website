@@ -78,8 +78,8 @@
 		$scope.formData = {
 			text: DemoTexts.textProcessing.text,
 			language: DemoElements.defaultLanguage,
-			lsa: DemoElements.defaultMetricOptions.lsa.eng,
-			lda: DemoElements.defaultMetricOptions.lda.eng,
+			lsa: DemoElements.defaultMetricOptions.lsa.English,
+			lda: DemoElements.defaultMetricOptions.lda.English,
 			posTagging: DemoElements.defaultPosTaggingOption,
             dialogism: DemoElements.defaultDialogismOption,
             threshold: DemoElements.defaultSemanticSimilarityThreshold
@@ -342,8 +342,8 @@
 			abstract : DemoTexts.semanticAnnotation.abstractText,
 			keywords : DemoTexts.semanticAnnotation.keywords,
 			language: DemoElements.defaultLanguage,
-			lsa: DemoElements.defaultMetricOptions.lsa.eng,
-			lda: DemoElements.defaultMetricOptions.lda.eng,
+			lsa: DemoElements.defaultMetricOptions.lsa.English,
+			lda: DemoElements.defaultMetricOptions.lda.English,
 			posTagging : DemoElements.defaultPosTaggingOption,
             dialogism: DemoElements.defaultDialogismOption,
             threshold: DemoElements.defaultSemanticSimilarityThreshold
@@ -458,8 +458,8 @@
 			text: DemoTexts.selfExplanation.text,
 			explanation: DemoTexts.selfExplanation.explanation,
 			language: {id: '2', name: 'French', value: 'fr'},
-			lsa: DemoElements.defaultMetricOptions.lsa.fr,
-			lda: DemoElements.defaultMetricOptions.lda.fr,
+			lsa: DemoElements.defaultMetricOptions.lsa.French,
+			lda: DemoElements.defaultMetricOptions.lda.French,
 			posTagging : DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption
 		};
@@ -567,8 +567,8 @@
 		
 		$scope.formData = {
 			language: DemoElements.defaultLanguage,
-			lsa: DemoElements.defaultMetricOptions.lsa.eng,
-			lda: DemoElements.defaultMetricOptions.lda.eng,
+			lsa: DemoElements.defaultMetricOptions.lsa.English,
+			lda: DemoElements.defaultMetricOptions.lda.English,
 			posTagging: DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption,
 			threshold: DemoElements.defaultSemanticSimilarityThreshold
@@ -768,8 +768,8 @@
 		
 		$scope.formData = {
 			language: DemoTexts.cvCover.language,
-			lsa: DemoElements.defaultMetricOptions.lsa.fr,
-			lda: DemoElements.defaultMetricOptions.lda.fr,
+			lsa: DemoElements.defaultMetricOptions.lsa.French,
+			lda: DemoElements.defaultMetricOptions.lda.French,
 			posTagging: DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption,
 			threshold: DemoElements.defaultSemanticSimilarityThreshold
@@ -936,8 +936,8 @@
 		
 		$scope.formData = {
 			language: DemoTexts.cvCover.language,
-			lsa: DemoElements.defaultMetricOptions.lsa.fr,
-			lda: DemoElements.defaultMetricOptions.lda.fr,
+			lsa: DemoElements.defaultMetricOptions.lsa.French,
+			lda: DemoElements.defaultMetricOptions.lda.French,
 			posTagging: DemoElements.defaultPosTaggingOption,
 			dialogism: DemoElements.defaultDialogismOption,
 			threshold: DemoElements.defaultSemanticSimilarityThreshold
