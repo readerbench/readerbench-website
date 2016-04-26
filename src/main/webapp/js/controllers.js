@@ -230,7 +230,7 @@
 							if($scope.topicEdges.count == response.data.data.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data, "#conceptMap", true);
+								d3jsForTopics(response.data.data, "#conceptMap", false);
 							}
 				        }, 1000);
 
@@ -418,7 +418,7 @@
 							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
+								d3jsForTopics(response.data.data.concepts, "#conceptMap", false);
 							}
 				        }, 1000);
 
@@ -628,7 +628,7 @@
 							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#conceptMap", true);
+								d3jsForTopics(response.data.data.concepts, "#conceptMap", false);
 							}
 				        }, 1000);
 						
@@ -826,7 +826,7 @@
 								if($scope.cvTopicEdges.count == response.data.data.cv.concepts.links.count)
 								{
 									clearInterval(intervalCvTopics);
-									d3jsForTopics(response.data.data.cv.concepts, "#conceptMapCv", true);
+									d3jsForTopics(response.data.data.cv.concepts, "#conceptMapCv", false);
 								}
 					        }, 1000);
 							
@@ -848,7 +848,7 @@
 								if($scope.coverTopicEdges.count == response.data.data.cover.concepts.links.count)
 								{
 									clearInterval(intervalCoverTopics);
-									d3jsForTopics(response.data.data.cover.concepts, "#conceptMapCover", true);
+									d3jsForTopics(response.data.data.cover.concepts, "#conceptMapCover", false);
 								}
 					        }, 1000);
 							
@@ -992,7 +992,7 @@
 							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(intervalCvTopics);
-								d3jsForTopics(response.data.data.concepts, "#conceptMapCv", true);
+								d3jsForTopics(response.data.data.concepts, "#conceptMapCv", false);
 							}
 				        }, 1000);
 						
