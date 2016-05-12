@@ -40,8 +40,17 @@
 		
 	.controller('ContactController', ['$scope', function($scope){
 	}])
-	.controller('PublicationsController', ['$scope', function($scope){
+	.controller('PublicationsController', ['$scope', '$timeout', function($scope, $timeout){
 		$scope.publications = Publications;
+		FacetedPublications.settings.items = $scope.publications;
+		// Put the function in a closure
+		var facetelize = function() {
+			$.facetelize(FacetedPublications.settings);
+		};
+		// and add it to the browser queue with delay 0. This ensures that the DOM is fully loaded before applying
+		// the function. For further details, see:
+		// http://blog.brunoscopelliti.com/run-a-directive-after-the-dom-has-finished-rendering/
+		$timeout(facetelize, 0);
 	}])
 	.controller('PeopleController', ['$scope', function($scope){
 
