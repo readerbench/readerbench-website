@@ -403,7 +403,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 
 /* Publications */
 
-.publication-wrapper{
+.publication-wrapper {
 	width: 80%;
     height: 70px;
     min-height: 70px;
@@ -483,6 +483,47 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 	font-size: 16px;
 	text-align: center;
 	font-weight: bold;
+}
+
+#publications-facets-wrapper {
+    width: 80%;
+    margin: 10px auto;
+}
+
+#publications-facets-wrapper .facetsearch {
+    display: inline-block;
+    vertical-align: top;
+}
+
+#publications-facets-wrapper .bottomline {
+    margin-top: 15px;
+}
+
+#publications-facets-wrapper .bottomline .facettotalcount {
+    margin: 20px auto;
+}
+
+#publications-facets-wrapper .bottomline .orderby {
+    margin: 10px auto 20px auto;
+    float: left;
+}
+
+#publications-facets-wrapper .bottomline .orderby ul {
+    display: inline-block;
+}
+
+#publications-facets-wrapper .bottomline .orderby ul li {
+    display: inline;
+    margin: auto 20px;
+}
+
+#publications-facets-wrapper .bottomline .orderby .selected-order {
+    text-decoration: underline;
+}
+
+#publications-facets-wrapper .bottomline .deselectstartover {
+    margin: 10px auto 20px auto;
+    float: right;
 }
 
 line.link {

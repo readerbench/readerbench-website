@@ -45,7 +45,10 @@
 		FacetedPublications.settings.items = $scope.publications;
 		// Put the function in a closure
 		var facetelize = function() {
+			// Add facets
 			$.facetelize(FacetedPublications.settings);
+			// Style the facets columns
+			FacetedPublications.styleFacets();
 		};
 		// and add it to the browser queue with delay 0. This ensures that the DOM is fully loaded before applying
 		// the function. For further details, see:
