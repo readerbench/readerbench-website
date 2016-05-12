@@ -4,20 +4,21 @@
 			<h1>Publications</h1>
 		</div>
 	</div>
-	<div class="publications-wrapper"
-		ng-repeat="publication in publications">
-		<div class="publications-list">
-			<div class="shape-publications-wrapper">
-				<div class="shape-publications"></div>
-			</div>
-			<div class="text-publications-wrapper">
-				<div class="text-publications">
-					<span>{{publication.title}}</span>
+	<div class="publications-wrapper">
+		<div class="publication-wrapper" ng-repeat="publication in publications">
+			<div class="publications-list">
+				<div class="shape-publication-wrapper">
+					<div class="shape-publication"></div>
 				</div>
-			</div>
-			<div class="year-publications-wrapper">
-				<div class="year-publications">
-					<span>{{publication.year}}</span>
+				<div class="text-publication-wrapper">
+					<div class="text-publication">
+						<span>{{publication.description}}</span>
+					</div>
+				</div>
+				<div class="year-publication-wrapper">
+					<div class="year-publication">
+						<span>{{publication.year}}</span>
+					</div>
 				</div>
 			</div>
 		</div>
