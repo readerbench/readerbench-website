@@ -511,7 +511,8 @@ DemoTexts = {
 		participantInteractionTitle : 'Participant Interaction',
 		participantEvolutionTitle : 'Participant Evolution',
 		collaborationSocialKB : 'Collaboration - Social KB',
-		collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap'
+		collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap',
+		sampleFileUrl: '../../samples/cscl.xml'
 	},
 	cvCover : {
 		title: 'CV & Cover',
