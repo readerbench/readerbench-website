@@ -12,7 +12,8 @@ DemoItems = [
  	{name:'Semantic annotation', href:'demo/semantic-annotation'},
  	{name:'Self explanation', href:'demo/self-explanation'},
  	{name:'CSCL', href:'demo/cscl'},
- 	{name:'CV & Cover letter', href:'demo/cv-cover'},
+
+ //	{name:'CV & Cover letter', href:'demo/cv-cover'},
  	{name:'CV', href:'demo/cv'},
  	{name:'vCoP', href:'demo/vCoPView'}
 ];
@@ -519,7 +520,8 @@ DemoTexts = {
 		participantInteractionTitle : 'Participant Interaction',
 		participantEvolutionTitle : 'Participant Evolution',
 		collaborationSocialKB : 'Collaboration - Social KB',
-		collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap'
+		collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap',
+		sampleFileUrl: '../../samples/cscl.xml'
 	},
 	cvCover : {
 		title: 'CV & Cover',

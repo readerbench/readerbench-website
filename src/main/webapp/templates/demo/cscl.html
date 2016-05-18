@@ -24,7 +24,7 @@
 							<div class="col-xs-3 col-md-3">
 								<label for="file">Conversation file <span class="required">*</span></label>
 							</div>
-							<div class="col-xs-7 col-md-7">
+							<div class="col-xs-4 col-md-4">
 								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
 								          accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="10MB">
 								      Select File</button>
@@ -36,6 +36,9 @@
 								</small>     
 								{{csclErrorMsg}}
 								<input type="hidden" ng-model="formData.csclFile" />
+							 </div>
+							 <div class="col-xs-3 col-md-3">
+							 	<a href="{{sampleFileUrl}}" target="_blank">Sample CSCL file</a>
 							 </div>
 						</div>
 						

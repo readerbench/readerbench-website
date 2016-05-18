@@ -565,6 +565,7 @@
 			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
 		});
 		
+		$scope.sampleFileUrl = DemoTexts.csclProcessing.sampleFileUrl;
 		$scope.formData = {
 			language: DemoElements.defaultLanguage,
 			lsa: DemoElements.defaultMetricOptions.lsa.English,
