@@ -36,6 +36,9 @@
 					.when("/demo/cv", {
 						templateUrl: 'templates/demo/cv.html'
 					})
+					.when("/demo/vCoPView", {
+						templateUrl: 'templates/demo/vCoPView.html'
+					})
 				.when("/contact", {
 					templateUrl: 'templates/contact.html'
 				})

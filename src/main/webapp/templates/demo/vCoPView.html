@@ -1,0 +1,173 @@
+<div class="page-wrapper" ng-controller="DemovCoPViewController">
+	<search-box></search-box>
+	<meta charset="utf-8">
+	  <title>jQuery UI Datepicker - Default functionality</title>
+	  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+	  <link rel="stylesheet" href="/resources/demos/style.css">
+	<div id="page">
+		<reader-header></reader-header>
+		<!-- Main Content -->
+		<div class="content-wrapper">
+			<carousel-section></carousel-section>
+			<!-- Main Content -->
+			<div class="container">
+				<demo-menu></demo-menu>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-md-12">
+						<h2>{{title}}</h2>
+					</div>
+				</div>
+			</div>
+			<div class="content-wrapper">
+				<div class="form-group demo-wrapper">
+					<div class="input">
+						
+						<div class="row">
+							<div class="col-xs-3 col-md-3">
+								<label for="file">Conversation file <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
+								          accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="10MB">
+								      Select File</button>
+								File:
+								<small>{{csclFile.name}} {{vCoPErrFile.name}} {{vCoPErrFile.$error}} {{vCoPErrFile.$errorParam}}
+									<span class="progress" ng-show="vCoPFile.progress >= 0">
+								    	<div style="width:{{vCoPFile.progress}}%" ng-bind="vCoPFile.progress + '%'"></div>
+								    </span>
+								</small>     
+								{{csclErrorMsg}}
+								<input type="hidden" ng-model="formData.csclFile" />
+							 </div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="language">Conversation language <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<select id="language" class="form-control" ng-model="formData.language" ng-options="option.name for option in languages track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="startDate">Initial date <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<script>
+									  $(function() {
+									    $( "#startDate" ).datepicker();
+									  });
+									  </script>
+									<input type="text" id="startDate" class="form-control" ng-model="formData.startDate"></input>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="endDate">Final date <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									 <script>
+									  $(function() {
+									    $( "#endDate" ).datepicker();
+									  });
+									  </script>
+									<input type="text" id="endDate" class="form-control" ng-model="formData.endDate"></input>
+								</div>
+							</div>
+						</div>	
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="useTextualComplexity">Use textual complexity <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+		                        <div class="input-group">
+									<select id="useTextualComplexity" class="form-control" ng-model="formData.useTextualComplexity" ng-options="option.name for option in textualComplexityOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="monthIncrement">Month increment <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<input id="monthIncrement" class="form-control" type="number" step="1" min="0" max="12" ng-model="formData.monthIncrement" />
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer">
+							<div class="col-xs-3 col-md-3">
+								<label for="dayIncrement">Day increment<span class="required">*</span></label>
+							</div>
+							<div class="col-xs-9 col-md-9">
+								<div class="input-group">
+									<input id="dayIncrement" class="form-control" type="number" step="1" min="0" max="30" ng-model="formData.dayIncrement" />
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer" ng-if="!loading">
+							<div class="col-xs-12 col-md-12">
+								<div class="bottom-buttons">
+									<button class="filter-button" ng-click="buttonClick('vCoPView')">View Community</button>
+								</div>
+							</div>
+						</div>        
+						
+					</div>
+					<div id="results">
+					
+						<div class="row" ng-if="loading">
+							<div class="col-xs-12 col-md-12">
+								<img src="img/loading.gif" alt="Loading..." />
+							</div>
+						</div>
+				        
+				        <div ng-if="showParticipantInteractionMap" class="row">
+				        	<div class="col-xs-12 col-md-3">
+						        <h4>Participant Interaction</h4>
+								<ul class="course-description-list">
+						            <li class="lesson" ng-repeat="topic in participants">
+						            	<div class="heading">
+											<span class="lesson-nr no-select">{{topic.value}}</span>
+										</div>
+										<div class="body">
+											<p>{{topic.name}}</p>
+										</div>
+						            </li>
+						        </ul>
+					        </div>
+					        <div class="col-xs-12 col-md-9" id="participantInteractionMap">
+					        </div>
+				        </div>
+
+				        <div ng-if="showParticipantEvolutionGraph" class="row top-buffer">
+				        	<div class="col-xs-12 col-md-12">
+								<h4>Participant evolution</h4>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<svg id="participantEvolution" width="100%" height="300"></svg>
+							</div>
+				        </div>
+				        
+					</div>
+			    </div>
+				<!-- <action-box></action-box> -->
+			</div>
+		</div>
+	</div>

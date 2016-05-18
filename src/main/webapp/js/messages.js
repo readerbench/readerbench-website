@@ -12,8 +12,10 @@ DemoItems = [
  	{name:'Semantic annotation', href:'demo/semantic-annotation'},
  	{name:'Self explanation', href:'demo/self-explanation'},
  	{name:'CSCL', href:'demo/cscl'},
- 	//{name:'CV & Cover letter', href:'demo/cv-cover'},
- 	{name:'CV', href:'demo/cv'}
+
+ //	{name:'CV & Cover letter', href:'demo/cv-cover'},
+ 	{name:'CV', href:'demo/cv'},
+ 	{name:'vCoP', href:'demo/vCoPView'}
 ];
 DemoElements = {
 		languages: [
@@ -90,6 +92,13 @@ DemoElements = {
 				
 			}
 		},
+        textualComplexityOptions: [
+                               	   {id: '1', name: 'Yes', value: true},
+                                   {id: '2', name: 'No', value: false}
+                               ],
+        defaulttextualComplexityOptions: {id: '2', name: 'No', value: false},
+        defaultMonthIncrement: 0,
+        defaultDayIncrement: 7,
     	defaultSemanticSimilarityThreshold: 0.3
 };
 NavBarItems = [ {
@@ -522,5 +531,14 @@ DemoTexts = {
 		title: 'CV',
 		keywords: 'prospection, prospect, développement, clients, fidélisation, chiffred’affaires, marge, vente, portefeuille, négociation, budget, rendez-vous, proposition, terrain, téléphone, rentabilité, business, reporting, veille, secteur, objectifs, comptes, animation, suivi, création, gestion',
 		language: DemoElements.languages[1] // fr
+	},
+	vCoPView : {
+		title: 'View Community',
+		language: DemoElements.languages[0]
+		//conversationFile : 'corpus_v2/Beizadea_352C2_in.xml',
+		//participantInteractionTitle : 'Participant Interaction',
+		//participantEvolutionTitle : 'Participant Evolution',
+		//collaborationSocialKB : 'Collaboration - Social KB',
+		//collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap'
 	}
 };
