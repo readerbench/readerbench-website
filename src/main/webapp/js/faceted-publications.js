@@ -9,7 +9,7 @@ var FacetedPublications = {
         facetsCount: 3,
         resultSelector: '#publications-wrapper',
         facetSelector:  '#publications-facets-wrapper',
-        countTemplate: '<div class=facettotalcount><%= count %> Publications</div>',
+        countTemplate: '<div class=facettotalcount><%= count %> Publications match your criteria</div>',
         resultTemplate:
             '<div class="publication-wrapper" data-year="<%= obj.year %>" data-category="<%= obj.category %>" data-type="<%= obj.type %>">' +
             '   <div class="text-publication-wrapper">' +
@@ -88,5 +88,7 @@ var FacetedPublications = {
                 });
             });
         });
+
+        $('#orderby_year').trigger('click');
     }
 };

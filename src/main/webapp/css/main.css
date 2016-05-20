@@ -485,6 +485,15 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
     vertical-align: top;
 }
 
+#publications-facets-wrapper .facetsearch .facetlist {
+    max-height: 100px;
+    overflow-y: scroll;
+}
+
+#publications-facets-wrapper .facetsearch .facetlist .facetitem {
+    cursor: pointer;
+}
+
 #publications-facets-wrapper .bottomline {
     margin-top: 15px;
 }
