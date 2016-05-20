@@ -12,19 +12,21 @@ var FacetedPublications = {
         countTemplate: '<div class=facettotalcount><%= count %> Publications</div>',
         resultTemplate:
             '<div class="publication-wrapper">' +
-                '<div class="shape-publication-wrapper">' +
-                '    <div class="shape-publication"></div>' +
-                '</div>' +
-                '<div class="text-publication-wrapper">' +
-                '    <div class="text-publication">' +
-                '        <span><%= obj.description %></span>' +
-                '    </div>' +
-                '</div>' +
-                '<div class="year-publication-wrapper">' +
-                '    <div class="year-publication">' +
-                '        <span><%= obj.year %></span>' +
-                '    </div>' +
-                '</div>' +
+            '   <div class="text-publication-wrapper">' +
+            '       <div class="text-publication">' +
+            '           <span><%= obj.authors + obj.description %></span>' +
+            '      </div>' +
+            '   </div>' +
+            '   <div class="year-publication-wrapper">' +
+            '       <div class="year-publication">' +
+            '           <span><%= obj.year %></span>' +
+            '      </div>' +
+            '       <div class="shape-publication-wrapper">' +
+            '           <a href="<%= obj.link %>" download>' +
+            '               <img class="publication-download-icon" src="images/ic_file_download_black_24dp_2x.png" />' +
+            '           </a>' +
+            '       </div>' +
+            '   </div>' +
             '</div>',
         orderByOptions: {
             'year':     'Year',
