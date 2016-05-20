@@ -60,6 +60,10 @@ var FacetedPublications = {
         var orderByElementsContainer = $('#publications-facets-wrapper .bottomline .orderby ul');
         var publicationsNodeList = '#publications-wrapper>.publication-wrapper';
         var publicationsWrapper = $('#publications-wrapper');
+        var order = {
+            ascending: 'asc',
+            descending: 'desc'
+        };
 
         orderByElementsContainer.empty();
 
@@ -67,12 +71,20 @@ var FacetedPublications = {
             orderByElementsContainer
                 .append(orderByElement(id, title));
 
-            publicationsWrapper.data(id + '-order', 'asc');
+            publicationsWrapper.data(id + '-order', order.ascending);
 
             $('#orderby_' + id).on('click', function() {
+                var orderData = id + '-order';
+
+                if (publicationsWrapper.data(orderData) == order.ascending) {
+                    publicationsWrapper.data(orderData, order.descending);
+                } else if (publicationsWrapper.data(orderData) == order.descending) {
+                    publicationsWrapper.data(orderData, order.ascending);
+                }
+
                 tinysort(publicationsNodeList, {
                     data: id,
-                    order: 'asc'
+                    order: publicationsWrapper.data(orderData)
                 });
             });
         });
