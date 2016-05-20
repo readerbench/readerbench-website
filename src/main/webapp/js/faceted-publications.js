@@ -35,22 +35,20 @@ var FacetedPublications = {
         }
     },
     styleFacets: function() {
+        // Makes facets lists of egual width
         $('#publications-facets-wrapper .facetsearch')
             .css('width', (100 / this.settings.facetsCount) + '%')
             .addClass('text-center');
-        $('#publications-facets-wrapper .bottomline .facettotalcount')
+        // Centers the total count element
+        var centerTotalCount = function() {
             .addClass('text-center');
+                $('#publications-facets-wrapper .bottomline .facettotalcount')
+        };
+
+        centerTotalCount();
 
         $(this.settings.resultSelector).bind('facetedsearchresultupdate', function() {
-            $('#publications-facets-wrapper .bottomline .facettotalcount')
-                .addClass('text-center');
-        });
-
-        $(this.settings.facetSelector).bind('facetedsearchorderby', function(event, orderByElementId) {
-            $('#publications-facets-wrapper .bottomline .orderby .orderbyitem')
-                .removeClass('selected-order');
-            $('#publications-facets-wrapper .bottomline .orderby #orderby_' + orderByElementId)
-                .addClass('selected-order');
+            centerTotalCount();
         });
     },
     addSorting: function() {
@@ -65,23 +63,29 @@ var FacetedPublications = {
             descending: 'desc'
         };
 
+        // Empties the container populated by facetedsearch library
         orderByElementsContainer.empty();
 
+        // Iterate over the sort by categories and add them tot the previously emptied container
         _.each(this.settings.orderByOptions, function(title, id) {
             orderByElementsContainer
                 .append(orderByElement(id, title));
 
+            // Save the sorting order
             publicationsWrapper.data(id + '-order', order.ascending);
 
+            // Attach an event listener for click to reorder elements when a button is pressed
             $('#orderby_' + id).on('click', function() {
                 var orderData = id + '-order';
 
+                // Save the new order
                 if (publicationsWrapper.data(orderData) == order.ascending) {
                     publicationsWrapper.data(orderData, order.descending);
                 } else if (publicationsWrapper.data(orderData) == order.descending) {
                     publicationsWrapper.data(orderData, order.ascending);
                 }
 
+                // And apply it to the publications list
                 tinysort(publicationsNodeList, {
                     data: id,
                     order: publicationsWrapper.data(orderData)
@@ -89,6 +93,7 @@ var FacetedPublications = {
             });
         });
 
+        // Force the publications to be sorted by year in descending order when the page is loaded
         $('#orderby_year').trigger('click');
     }
 };
