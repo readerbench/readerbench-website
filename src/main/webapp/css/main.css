@@ -505,6 +505,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 #publications-facets-wrapper .bottomline .orderby ul li {
     display: inline;
     margin: auto 20px;
+    cursor: pointer;
 }
 
 #publications-facets-wrapper .bottomline .orderby .selected-order {

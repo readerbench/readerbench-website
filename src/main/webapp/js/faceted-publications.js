@@ -11,10 +11,10 @@ var FacetedPublications = {
         facetSelector:  '#publications-facets-wrapper',
         countTemplate: '<div class=facettotalcount><%= count %> Publications</div>',
         resultTemplate:
-            '<div class="publication-wrapper">' +
+            '<div class="publication-wrapper" data-year="<%= obj.year %>" data-category="<%= obj.category %>" data-type="<%= obj.type %>">' +
             '   <div class="text-publication-wrapper">' +
             '       <div class="text-publication">' +
-            '           <span><%= obj.authors + obj.description %></span>' +
+            '           <span><%= obj.authors + ". " + obj.description + "." %></span>' +
             '      </div>' +
             '   </div>' +
             '   <div class="year-publication-wrapper">' +
@@ -53,4 +53,28 @@ var FacetedPublications = {
                 .addClass('selected-order');
         });
     },
+    addSorting: function() {
+        var orderByElement = function(id, title) {
+            return '<li class="orderbyitem" id="orderby_' + id + '">' + title + '</li>';
+        };
+        var orderByElementsContainer = $('#publications-facets-wrapper .bottomline .orderby ul');
+        var publicationsNodeList = '#publications-wrapper>.publication-wrapper';
+        var publicationsWrapper = $('#publications-wrapper');
+
+        orderByElementsContainer.empty();
+
+        _.each(this.settings.orderByOptions, function(title, id) {
+            orderByElementsContainer
+                .append(orderByElement(id, title));
+
+            publicationsWrapper.data(id + '-order', 'asc');
+
+            $('#orderby_' + id).on('click', function() {
+                tinysort(publicationsNodeList, {
+                    data: id,
+                    order: 'asc'
+                });
+            });
+        });
+    }
 };

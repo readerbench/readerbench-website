@@ -49,7 +49,7 @@
                 $.facetelize(FacetedPublications.settings);
                 // Style the facets columns
                 FacetedPublications.styleFacets();
-                console.log($.facetelize);
+                FacetedPublications.addSorting();
             };
             // and add it to the browser queue with delay 0. This ensures that the DOM is fully loaded before applying
             // the function. For further details, see:
