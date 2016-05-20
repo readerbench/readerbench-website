@@ -1,0 +1,74 @@
+[
+  {
+    "description": "Tehnologii Web Centrate pe Interacțiunea Om-Calculator. Bucharest, Romania: Politehnica Press",
+    "year": "2015",
+    "category": "",
+    "type": "Books",
+    "authors": "Chiru, C., Dascalu, M., Posea, V., & Trausan-Matu, S.",
+    "link": ""
+  },
+  {
+    "description": "Analyzing Discourse and Text Complexity for Learning and Collaborating, Studies in Computational Intelligence (Vol. 534). Switzerland: Springer",
+    "year": "2014",
+    "category": "",
+    "type": "Books",
+    "authors": "Dascalu, M.",
+    "link": ""
+  },
+  {
+    "description": "Predicting Newcomer Integration in Online Knowledge Communities by Automated Dialog Analysis. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 13–17). Berlin, Germany: Springer-Verlag Singapur",
+    "year": "2015",
+    "category": "",
+    "type": "Books",
+    "authors": "Nistor, N., Dascalu, M., Stavarache, L.L., Tarnai, C., & Trausan-Matu, S.",
+    "link": ""
+  },
+  {
+    "description": "A Paper Recommendation System with ReaderBench: The Graphical Visualization of Semantically Related Papers and Concepts. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 443–449). Berlin, Germany: Springer-Verlag Singapur",
+    "year": "2015",
+    "category": "",
+    "type": "Books",
+    "authors": "Paraschiv, I.C., Dascalu, M., Dessus, P., Trausan-Matu, S., & McNamara, D.S.",
+    "link": ""
+  },
+  {
+    "description": "Mining Texts, Learners Productions and Strategies with ReaderBench. In A. Peña-Ayala (Ed.), Educational Data Mining: Applications and Trends (pp. 335–377). Switzerland: Springer",
+    "year": "2014",
+    "category": "",
+    "type": "Books",
+    "authors": "Dascalu, M., Dessus, P., Bianco, M., Trausan-Matu, S., & Nardy, A.",
+    "link": ""
+  },
+  {
+    "description": "Analysis of discourse in collaborative learning chat conversations with multiple participants. In D. Tufis & C. Forascu (Eds.), Multilinguality and Interoperability in Language Processing with Emphasis on Romanian (pp. 313–330). Bucharest, Romania: Editura Academiei",
+    "year": "2010",
+    "category": "",
+    "type": "Books",
+    "authors": "Trausan-Matu, S., Rebedea, T., & Dascalu, M.",
+    "link": ""
+  },
+  {
+    "description": "Finding student-centered open learning environments on the internet: Automated dialogue assessment in academic virtual communities of practice. Computers in Human Behavior, 47(1), 119–127. doi: 10.1016/j.chb.2014.07.029",
+    "year": "2015",
+    "category": "",
+    "type": "Journals",
+    "authors": "Nistor, N., Trausan-Matu, S., Dascalu, M., Duttweiler, H., Chiru, C., Baltes, B., & Smeaton, G.",
+    "link": ""
+  },
+  {
+    "description": "ReaderBench – Automated Evaluation of Collaboration based on Cohesion and Dialogism. International Journal of Computer-Supported Collaborative Learning, 10(4), 395–423. doi: 10.1007/s11412-015-9226-y",
+    "year": "2015",
+    "category": "",
+    "type": "Journals",
+    "authors": "Dascalu, M., Trausan-Matu, S., McNamara, D.S., & Dessus, P. ",
+    "link": ""
+  },
+  {
+    "description": "PolyCAFe–automatic support for the polyphonic analysis of CSCL chats. International Journal of Computer-Supported Collaborative Learning, 9(2), 127–156. doi: 10.1007/s11412-014-9190-y",
+    "year": "2014",
+    "category": "",
+    "type": "Journals",
+    "authors": "Trausan-Matu, S., Dascalu, M., & Rebedea, T.",
+    "link": ""
+  }
+]
