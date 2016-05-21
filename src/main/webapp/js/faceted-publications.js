@@ -41,8 +41,8 @@ var FacetedPublications = {
             .addClass('text-center');
         // Centers the total count element
         var centerTotalCount = function() {
-            .addClass('text-center');
-                $('#publications-facets-wrapper .bottomline .facettotalcount')
+            $('#publications-facets-wrapper .bottomline .facettotalcount')
+                .addClass('text-center');
         };
 
         centerTotalCount();
