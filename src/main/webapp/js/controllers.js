@@ -1102,24 +1102,21 @@
 			language: DemoElements.defaultLanguage,
 			useTextualComplexity: DemoElements.defaulttextualComplexityOptions,
 			monthIncrement: DemoElements.defaultMonthIncrement,
-			dayIncrement: DemoElements.defaultDayIncrement	
+			dayIncrement: DemoElements.defaultDayIncrement
 		};
 		
 		$scope.loading = false;
 		
-		$scope.topics = null;
-		$scope.topicEdges = null;
+		$scope.communityNodes = null;
+		$scope.communityEdges = null;
 		
-		$scope.collaborationSocialKBNodes = null;
-		$scope.collaborationVoiceOverlapNodes = null;
+		$scope.communityInTimeFrameNodes = null;
+		$scope.communityInTimeFrameEdges = null;
 	
 		$scope.buttonClick = function(req) {
 			
-			$scope.showParticipantInteractionMap = false;
-			$scope.showParticipantCsclIndices = false;
-			$scope.showParticipantEvolutionGraph = false;
-			$scope.showCollaborationGraphs = false;
-			$scope.showConceptMap = false;			
+			$scope.showCommunityGraph = false;
+			$scope.showCommunityInATimeFrameGraph = false;		
 			
 			var endpoint;
 			switch(req) {
@@ -1132,11 +1129,11 @@
 					var data = {
 						vCoPFile: $scope.formData.vCoPFile,
 						lang: $scope.formData.language.value,
-						startDate: $scope.formData.startDate.value, 
-						endDate: $scope.formData.endDate.value,
-						monthIncrement: $scope.formData.monthIncrement.value,
-						dayIncrement: $scope.formData.dayIncrement.value,
-						useTextualComplexity: $scope.formData.useTextualComplexity
+						startDate: $scope.formData.startDate, 
+						endDate: $scope.formData.endDate,
+						monthIncrement: $scope.formData.monthIncrement,
+						dayIncrement: $scope.formData.dayIncrement,
+						useTextualComplexity: $scope.formData.useTextualComplexity.value
 					};
 					
 					var params = {};
@@ -1150,68 +1147,31 @@
 							return;
 						}
 						
-						// build concept map
-						$scope.showConceptMap = true;
-						$scope.topics = response.data.data.concepts.nodes;
-						$scope.topicEdges = response.data.data.concepts.links;
-						var interval = setInterval(function()
+						// build community graph
+						$scope.showCommunityGraph = true;
+						$scope.communityNodes = response.data.data.concepts.nodes;
+						$scope.communityEdges = response.data.data.concepts.links;
+						var intervalCommunity = setInterval(function()
 				        {
-							if($scope.topicEdges.count == response.data.data.concepts.links.count)
+							if($scope.communityEdges.count == response.data.data.concepts.links.count)
 							{
-								clearInterval(interval);
-								d3jsForTopics(response.data.data.concepts, "#conceptMap", false);
+								clearInterval(intervalCommunity);
+								d3jsForTopics(response.data.data.concepts, "#communityGraph", false);
 							}
 				        }, 1000);
 						
 						// build participant interaction concept map
-						$scope.showParticipantInteractionMap = true;
-						$scope.participants = response.data.data.participantInteraction.nodes;
-						$scope.participantEdges = response.data.data.participantInteraction.links;
-						var intervalParticipantInteraction = setInterval(function()
+						$scope.showCommunityInATimeFrameGraph = true;
+						$scope.communityInTimeFrameNodes = response.data.data.communityInTimeFrame.nodes;
+						$scope.communityInTimeFrameEdges = response.data.data.communityInTimeFrame.links;
+						var intervalCommunityInTimeFrame = setInterval(function()
 				        {
-							if($scope.participantEdges.count == response.data.data.participantInteraction.links.count)
+							if($scope.communityInTimeFrameEdges.count == response.data.data.participantInteraction.links.count)
 							{
-								clearInterval(intervalParticipantInteraction);
-								d3jsForTopics(response.data.data.participantInteraction, "#participantInteractionMap", false);
+								clearInterval(intervalCommunityInTimeFrame);
+								d3jsForTopics(response.data.data.communityInTimeFrame, "#communityInATimeFrameGraph", false);
 							}
 				        }, 1000);
-						
-						// build participant evolution graph
-						$scope.showParticipantEvolutionGraph = true;
-						$scope.participantEvolution = response.data.data.participantEvolution;
-						var intervalParticipantEvolution = setInterval(function()
-				        {
-							if($scope.participantEvolution.count == response.data.data.participantEvolution.count)
-							{
-								clearInterval(intervalParticipantEvolution);
-								d3jsMultipleLinesGraph(response.data.data.participantEvolution, "#participantEvolution", "Contribution ID", "value");
-							}
-				        }, 1000);
-						
-						$scope.showCollaborationGraphs = true;
-						
-						// build collaboration kb graph
-						$scope.collaborationSocialKBNodes = response.data.data.socialKB;
-						var intervalCollaborationSocialKB = setInterval(function()
-				        {
-							if($scope.collaborationSocialKBNodes.count == response.data.data.socialKB.count)
-							{
-								clearInterval(intervalCollaborationSocialKB);
-								d3jsLineGraph(response.data.data.socialKB, "#collaborationSocialKB", "Contribution ID", "Social KB value");
-							}
-				        }, 1000);
-										
-						// build collaboration voice graph
-						$scope.voiceOverlapNodes = response.data.data.voiceOverlap;
-						var intervalCollaborationVoiceOverlap = setInterval(function()
-				        {
-							if($scope.voiceOverlapNodes.count == response.data.data.voiceOverlap.count)
-							{
-								clearInterval(intervalCollaborationVoiceOverlap);
-								d3jsLineGraph(response.data.data.voiceOverlap, "#collaborationVoiceOverlap", "Contribution ID", "Voice PMI");
-							}
-				        }, 1000);
-						
 					}, function(response) {
 						
 						$scope.loading = false;

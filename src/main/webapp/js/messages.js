@@ -534,11 +534,8 @@ DemoTexts = {
 	},
 	vCoPView : {
 		title: 'View Community',
-		language: DemoElements.languages[0]
-		//conversationFile : 'corpus_v2/Beizadea_352C2_in.xml',
-		//participantInteractionTitle : 'Participant Interaction',
-		//participantEvolutionTitle : 'Participant Evolution',
-		//collaborationSocialKB : 'Collaboration - Social KB',
-		//collaborationVoiceOverlapTitle : 'Collaboration - Voice Overlap'
+		language: DemoElements.languages[0],
+		CommunityGlobalView : 'Coommunity Global View',
+		CommunityInTimeFrameView : 'Community in selected timeframe view'
 	}
 };

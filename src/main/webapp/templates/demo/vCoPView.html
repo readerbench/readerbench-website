@@ -5,7 +5,6 @@
 	  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 	  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-	  <link rel="stylesheet" href="/resources/demos/style.css">
 	<div id="page">
 		<reader-header></reader-header>
 		<!-- Main Content -->
@@ -28,20 +27,20 @@
 						
 						<div class="row">
 							<div class="col-xs-3 col-md-3">
-								<label for="file">Conversation file <span class="required">*</span></label>
+								<label for="file">Path <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-7 col-md-7">
-								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
-								          accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="10MB">
+								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'vCoPFile', 'vCoPErrFile', 'vCoPErrMsg')"
+								          accept="application/xml,text/ser" ngf-max-height="1000" ngf-max-size="20MB">
 								      Select File</button>
 								File:
-								<small>{{csclFile.name}} {{vCoPErrFile.name}} {{vCoPErrFile.$error}} {{vCoPErrFile.$errorParam}}
+								<small>{{vCoPFile.name}} {{vCoPErrFile.name}} {{vCoPErrFile.$error}} {{vCoPErrFile.$errorParam}}
 									<span class="progress" ng-show="vCoPFile.progress >= 0">
 								    	<div style="width:{{vCoPFile.progress}}%" ng-bind="vCoPFile.progress + '%'"></div>
 								    </span>
-								</small>     
-								{{csclErrorMsg}}
-								<input type="hidden" ng-model="formData.csclFile" />
+								</small>
+								{{vCoPErrorMsg}}
+								<input type="hidden" ng-model="formData.vCoPFile" />
 							 </div>
 						</div>
 						
@@ -124,7 +123,7 @@
 						<div class="row top-buffer" ng-if="!loading">
 							<div class="col-xs-12 col-md-12">
 								<div class="bottom-buttons">
-									<button class="filter-button" ng-click="buttonClick('vCoPView')">View Community</button>
+									<button class="filter-button" ng-click="buttonClick('Community')">View Community</button>
 								</div>
 							</div>
 						</div>        
@@ -137,31 +136,22 @@
 								<img src="img/loading.gif" alt="Loading..." />
 							</div>
 						</div>
-				        
-				        <div ng-if="showParticipantInteractionMap" class="row">
-				        	<div class="col-xs-12 col-md-3">
-						        <h4>Participant Interaction</h4>
-								<ul class="course-description-list">
-						            <li class="lesson" ng-repeat="topic in participants">
-						            	<div class="heading">
-											<span class="lesson-nr no-select">{{topic.value}}</span>
-										</div>
-										<div class="body">
-											<p>{{topic.name}}</p>
-										</div>
-						            </li>
-						        </ul>
-					        </div>
-					        <div class="col-xs-12 col-md-9" id="participantInteractionMap">
-					        </div>
+						
+						<div ng-if="showCommunityGraph" class="row top-buffer">
+				        	<div class="col-xs-12 col-md-12">
+								<h4>Global Community view</h4>
+							</div>
+							<div class="col-xs-12 col-md-12">
+								<svg id="communityGraph" width="100%" height="300"></svg>
+							</div>
 				        </div>
 
-				        <div ng-if="showParticipantEvolutionGraph" class="row top-buffer">
+				        <div ng-if="showCommunityInATimeFrameGraph" class="row top-buffer">
 				        	<div class="col-xs-12 col-md-12">
 								<h4>Participant evolution</h4>
 							</div>
 							<div class="col-xs-12 col-md-12">
-								<svg id="participantEvolution" width="100%" height="300"></svg>
+								<svg id="communityInATimeFrameGraph" width="100%" height="300"></svg>
 							</div>
 				        </div>
 				        
