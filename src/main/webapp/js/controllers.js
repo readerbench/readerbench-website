@@ -926,6 +926,7 @@
 		$scope.title = DemoTexts.cv.title;
 		
 		// options for selectable fields
+		$scope.advanced = false;
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
@@ -937,6 +938,7 @@
 		
 		$scope.formData = {
 			keywords: DemoTexts.cv.keywords,
+			ignore: DemoTexts.cv.ignore,
 			language: DemoTexts.cv.language,
 			lsa: DemoElements.defaultMetricOptions.lsa.French,
 			lda: DemoElements.defaultMetricOptions.lda.French,
