@@ -1008,7 +1008,7 @@
 							if($scope.topicEdges.count == response.data.data.concepts.links.count)
 							{
 								clearInterval(intervalCvTopics);
-								d3jsForTopics(response.data.data.concepts, "#conceptMapCv", false);
+								d3jsForTopicsForvCop(response.data.data.concepts, "#conceptMapCv", false);
 							}
 				        }, 1000);
 						
@@ -1127,11 +1127,15 @@
 		
 		$scope.communityInTimeFrameNodes = null;
 		$scope.communityInTimeFrameEdges = null;
+		
+		$scope.communityInTimeNodes = null;
+		$scope.communityInTimeEdges = null;
 	
 		$scope.buttonClick = function(req) {
 			
 			$scope.showCommunityGraph = false;
-			$scope.showCommunityInATimeFrameGraph = false;		
+			$scope.showCommunityInATimeFrameGraph = false;
+			$scope.showCommunityInTimeGraph = false;
 			
 			var endpoint;
 			switch(req) {
@@ -1162,30 +1166,43 @@
 							return;
 						}
 						
-						// build community graph
+						// build all the community
 						$scope.showCommunityGraph = true;
-						$scope.communityNodes = response.data.data.concepts.nodes;
-						$scope.communityEdges = response.data.data.concepts.links;
-						var intervalCommunity = setInterval(function()
+						$scope.communityNodes = response.data.data.participantInteractionAllDocuments.nodes;
+						$scope.communityEdges = response.data.data.participantInteractionAllDocuments.links;
+
+						var intervalParticipantInteraction = setInterval(function()
 				        {
-							if($scope.communityEdges.count == response.data.data.concepts.links.count)
+							if($scope.communityEdges.count == response.data.data.participantInteractionAllDocuments.links.count)
 							{
-								clearInterval(intervalCommunity);
-								d3jsForTopics(response.data.data.concepts, "#communityGraph", false);
+								clearInterval(intervalParticipantInteraction);
+								d3jsForTopicsForvCop(response.data.data.participantInteractionAllDocuments, "#communityGraph", false);
 							}
 				        }, 1000);
 						
-						// build participant interaction concept map
+						// build community from start to end
 						$scope.showCommunityInATimeFrameGraph = true;
-						$scope.communityInTimeFrameNodes = response.data.data.communityInTimeFrame.nodes;
-						$scope.communityInTimeFrameEdges = response.data.data.communityInTimeFrame.links;
+						$scope.communityInTimeFrameNodes = response.data.data.participantInteractionStartEndDate.nodes;
+						$scope.communityInTimeFrameEdges = response.data.data.participantInteractionStartEndDate.links;
 						var intervalCommunityInTimeFrame = setInterval(function()
 				        {
-							if($scope.communityInTimeFrameEdges.count == response.data.data.participantInteraction.links.count)
+							if($scope.communityInTimeFrameEdges.count == response.data.data.participantInteractionStartEndDate.links.count)
 							{
 								clearInterval(intervalCommunityInTimeFrame);
-								d3jsForTopics(response.data.data.communityInTimeFrame, "#communityInATimeFrameGraph", false);
+								d3jsForTopicsForvCop(response.data.data.participantInteractionStartEndDate, "#communityInATimeFrameGraph", false);
 							}
+				        }, 1000);
+						
+						// build community from start to end
+						$scope.showCommunityInTimeGraph = true;
+						$scope.communityInTimeNodes = response.data.data.participantInteractionInTime.nodes;
+						$scope.communityInTimeEdges = response.data.data.participantInteractionInTime.links;
+						alert("1");
+						response.data.data.participantInteractionInTime.forEach(function()
+				        {
+								alert("2");
+								d3jsForTopicsForvCop(response.data.data.participantInteractionInTime, "#communityInTimeGraph", false);
+								alert("3");
 				        }, 1000);
 					}, function(response) {
 						
