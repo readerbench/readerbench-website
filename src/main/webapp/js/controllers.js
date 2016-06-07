@@ -1077,27 +1077,28 @@
 	.controller('DemovCoPViewController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function($scope, $http, $sce, Upload, $timeout){
 
 		var params = {};
-		var endpoint = 'fileUpload';
-		$scope.uploadFile = function(file, errFiles, f, errFile, errorMsg) {
-	        $scope[f] = file;
-	        $scope[errFile] = errFiles && errFiles[0];
-	        if (file) {
-	            file.upload = Upload.upload({
-	                url: buildServerPath(endpoint, params),
-	                data: {file: file}
-	            });
-
-	            file.upload.then(function (response) {
-	                $timeout(function () {
-	                    file.result = response.data;
-	                    $scope.formData.vCoPFile = file.result;
-	                });
-	            }, function (response) {
-	                if (response.status > 0)
-	                    $scope[errorMsg] = response.status + ': ' + response.data;
-	            }, function (evt) {
-	                file.progress = Math.min(100, parseInt(100.0 * 
-	                                         evt.loaded / evt.total));
+		var endpoint = 'folderUpload';
+	    $scope.uploadFiles = function (files) {
+	    	 console.log("1");
+	           $scope.files = files;
+	           if (files && files.length) {
+	        	   console.log("2");
+	                 Upload.upload({
+	                       url: buildServerPath(endpoint, params),
+	                       data: {files: files}
+	                        }).then(function (response) {
+	                            $timeout(function () {
+	                                $scope.result = response.data;
+	        	                    $scope.formData.vCoPFile = $scope.result;
+	        	                    console.log($scope.formData.vCoPFile);
+	                            });
+	                        }, function (response) {
+	                            if (response.status > 0) {
+	                                $scope.errorMsg = response.status + ': ' + response.data;
+	                            }
+	                        }, function (evt) {
+	                            $scope.progress = 
+	                                Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
 	            });
 	        }   
 	    }
@@ -1107,16 +1108,9 @@
 		
 		
 		// options for selectable fields
-		$scope.languages = DemoElements.languages;
 		$scope.textualComplexityOptions = DemoElements.textualComplexityOptions;
 		
-		$scope.$watch('formData.language', function() {
-			$scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
-			$scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
-		});
-		
 		$scope.formData = {
-			language: DemoElements.defaultLanguage,
 			useTextualComplexity: DemoElements.defaulttextualComplexityOptions,
 			monthIncrement: DemoElements.defaultMonthIncrement,
 			dayIncrement: DemoElements.defaultDayIncrement
@@ -1130,6 +1124,7 @@
 		$scope.communityInTimeFrameNodes = null;
 		$scope.communityInTimeFrameEdges = null;
 		
+		$scope.communityInTimeList = null;
 		$scope.communityInTimeNodes = null;
 		$scope.communityInTimeEdges = null;
 	
@@ -1149,7 +1144,6 @@
 					
 					var data = {
 						vCoPFile: $scope.formData.vCoPFile,
-						lang: $scope.formData.language.value,
 						startDate: $scope.formData.startDate, 
 						endDate: $scope.formData.endDate,
 						monthIncrement: $scope.formData.monthIncrement,
@@ -1197,15 +1191,18 @@
 						
 						// build community from start to end
 						$scope.showCommunityInTimeGraph = true;
-						$scope.communityInTimeNodes = response.data.data.participantInteractionInTime.nodes;
-						$scope.communityInTimeEdges = response.data.data.participantInteractionInTime.links;
-						alert("1");
-						response.data.data.participantInteractionInTime.forEach(function()
-				        {
-								alert("2");
-								d3jsForTopicsForvCop(response.data.data.participantInteractionInTime, "#communityInTimeGraph", false);
-								alert("3");
-				        }, 1000);
+						$scope.communityInTimeList = response.data.data.participantInteractionInTimeList;
+
+						var i = 0;
+						
+						setInterval(function(){
+							response.data.data.participantInteractionInTimeList.forEach(function(participantInteractionInTime, index) {
+								console.log("1");
+								console.log(participantInteractionInTime);
+								d3jsForTopicsForvCoPSubcommunities(participantInteractionInTime, "#communityInTimeGraph"+index, false);
+							i++;
+						})
+						}, 1000);
 					}, function(response) {
 						
 						$scope.loading = false;
