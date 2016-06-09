@@ -149,7 +149,8 @@ var d3jsForTopicsForvCop = function(graph, element, enableFisheye) {
 	      .nodes(graph.nodes)
 	      .links(graph.links)
 	      .linkDistance(function(link) {
-		       return link.score * 400;
+		      // return link.score * 400;
+	    	  return 300;
 		  })
 	      .start();
 	
@@ -167,11 +168,11 @@ var d3jsForTopicsForvCop = function(graph, element, enableFisheye) {
 	  
 	  if (max > 0){
 		  node.append("circle")
-		      .attr("r", function(d) { return (d.value / max) * 20; })
+		      .attr("r", function(d) { return (d.value / max) * 30; })
 		      .style("fill", function(d) { return color(d.group); });
 	  }else{
 		  node.append("circle")
-	      .attr("r", function(d) { return 1; })
+	      .attr("r", function(d) { return 3; })
 	      .style("fill", function(d) { return color(d.group); });
 	  }
 	
@@ -453,7 +454,8 @@ var d3jsForTopicsForvCopTimeFrame = function(nodes, links, element, enableFishey
 	      .nodes(nodes)
 	      .links(links)
 	      .linkDistance(function(link) {
-		       return link.score * 400;
+		      // return link.score * 400;
+	    	  return 200;
 		  })
 	      .start();
 	  
@@ -537,10 +539,10 @@ var d3jsForTopicsForvCoPSubcommunities = function(graph, element, enableFisheye)
 	
 	graph.links.forEach(function(link, index, list) {
         if (typeof graph.nodes[link.source] === 'undefined') {
-            console.log('undefined source', link);
+        //    console.log('undefined source', link);
         }
         if (typeof graph.nodes[link.target] === 'undefined') {
-            console.log('undefined target', link);
+        //    console.log('undefined target', link);
         }
     });
 	
@@ -548,7 +550,12 @@ var d3jsForTopicsForvCoPSubcommunities = function(graph, element, enableFisheye)
 	      .nodes(graph.nodes)
 	      .links(graph.links)
 	      .linkDistance(function(link) {
+	    	/*  if(link.score > 1){
 		       return link.score * 25;
+	    	  }else{
+	    		  return link.score * 200;
+	    	  }*/
+	    	  return 160;
 		  })
 	      .start();
 	
@@ -564,13 +571,13 @@ var d3jsForTopicsForvCoPSubcommunities = function(graph, element, enableFisheye)
 	      .attr("class", "node")
 	      .call(force.drag);
 	  
-	  if (max > 0){
+	  if (max > 0.5){
 		  node.append("circle")
 		      .attr("r", function(d) { return (d.value / max) * 20; })
 		      .style("fill", function(d) { return color(d.group); });
 	  }else{
 		  node.append("circle")
-	      .attr("r", function(d) { return 1; })
+	      .attr("r", function(d) { return 3; })
 	      .style("fill", function(d) { return color(d.group); });
 	  }
 	
@@ -613,4 +620,69 @@ var d3jsForTopicsForvCoPSubcommunities = function(graph, element, enableFisheye)
 			      .attr("y2", function(d) { return d.target.fisheye.y; });
 		  });
 	  }
+}
+
+
+var try1 = function(graph, element){
+	var width = 960,
+    height = 500;
+
+var force = d3.layout.force()
+    .nodes(graph.nodes)
+    .links(graph.links)
+    .size([width, height])
+    .linkDistance(200)
+    .charge(-300)
+    .on("tick", tick)
+    .start();
+
+var svg = d3.select(element).append("svg")
+    .attr("width", width)
+    .attr("height", height);
+
+// add the links and the arrows
+var path = svg.append("svg:g").selectAll("path")
+    .data(graph.links)
+  .enter().append("svg:path")
+//    .attr("class", function(d) { return "link " + d.type; })
+    .attr("class", "link")
+    .style("stroke-width", "1px");
+
+// define the nodes
+var node = svg.selectAll(".node")
+    .data(graph.nodes)
+  .enter().append("g")
+    .attr("class", "node")
+    .call(force.drag);
+
+// add the nodes
+node.append("circle")
+    .attr("r", 5)
+    .style("stroke-width", "1px")
+    .style("fill", function(d) { return color(d.group); });
+
+// add the text 
+node.append("text")
+    .attr("x", 12)
+    .attr("dy", ".35em")
+    .text(function(d) { return d.name; });
+
+		// add the curvy lines
+		function tick() {
+		    path.attr("d", function(d) {
+		        var dx = d.target.x - d.source.x,
+		            dy = d.target.y - d.source.y,
+		            dr = Math.sqrt(dx * dx + dy * dy);
+		        return "M" + 
+		            d.source.x + "," + 
+		            d.source.y + "A" + 
+		            dr + "," + dr + " 0 0,1 " + 
+		            d.target.x + "," + 
+		            d.target.y;
+		    });
+		
+		    node
+		        .attr("transform", function(d) { 
+		  	    return "translate(" + d.x + "," + d.y + ")"; });
+		}
 }

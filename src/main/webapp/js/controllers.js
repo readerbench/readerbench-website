@@ -1079,10 +1079,8 @@
 		var params = {};
 		var endpoint = 'folderUpload';
 	    $scope.uploadFiles = function (files) {
-	    	 console.log("1");
 	           $scope.files = files;
 	           if (files && files.length) {
-	        	   console.log("2");
 	                 Upload.upload({
 	                       url: buildServerPath(endpoint, params),
 	                       data: {files: files}
@@ -1194,14 +1192,18 @@
 						$scope.communityInTimeList = response.data.data.participantInteractionInTimeList;
 
 						var i = 0;
-						
-						setInterval(function(){
+						$scope.communityParticipantInteractionInTimeEdges = null;
+						var intervalparticipantInteractionInTime = setInterval(function(){
 							response.data.data.participantInteractionInTimeList.forEach(function(participantInteractionInTime, index) {
-								console.log("1");
 								console.log(participantInteractionInTime);
-								d3jsForTopicsForvCoPSubcommunities(participantInteractionInTime, "#communityInTimeGraph"+index, false);
-							i++;
-						})
+								$scope.communityParticipantInteractionInTimeEdges = participantInteractionInTime.links;	
+								if($scope.communityParticipantInteractionInTimeEdges.count == response.data.data.participantInteractionInTimeList[index].links.count)
+									{
+										clearInterval(intervalparticipantInteractionInTime);
+										d3jsForTopicsForvCoPSubcommunities(participantInteractionInTime, "#communityInTimeGraph"+index, false);
+										
+									}
+								})
 						}, 1000);
 					}, function(response) {
 						
