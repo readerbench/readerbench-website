@@ -543,7 +543,7 @@ line.link {
 } */
 
 @media (max-width: 959px) {
-.people-social .social-block li i {
+	.people-social .social-block li i {
 	 padding: 0 6px;
 	}
 }
