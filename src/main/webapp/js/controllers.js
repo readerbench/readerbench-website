@@ -80,6 +80,7 @@
 		$scope.text = DemoTexts.textProcessing.text;
 		
 		// options for selectable fields
+		$scope.advanced = false;
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
@@ -343,6 +344,7 @@
 		$scope.title = DemoTexts.semanticAnnotation.title;
 		
 		// options for selectable fields
+		$scope.advanced = false;
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
@@ -460,6 +462,7 @@
 		$scope.title = DemoTexts.selfExplanation.title;
 		
 		// options for selectable fields
+		$scope.advanced = false;
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
@@ -571,6 +574,7 @@
 		$scope.title = DemoTexts.csclProcessing.title;
 		
 		// options for selectable fields
+		$scope.advanced = false;
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;
@@ -773,6 +777,7 @@
 		$scope.title = DemoTexts.cvCover.title;
 		
 		// options for selectable fields
+		$scope.advanced = false;
 		$scope.languages = DemoElements.languages;
 		$scope.posTaggingOptions = DemoElements.posTaggingOptions;
 		$scope.dialogismOptions = DemoElements.dialogismOptions;

@@ -22,7 +22,7 @@
 					
 						<div class="row">
 							<div class="col-xs-3 col-md-3">
-								<label for="cv_file">CV</label>
+								<label for="cv_file">CV file <span class="required">*</span><br /><small>(only PDF files allowed)</small></label>
 							</div>
 							<div class="col-xs-7 col-md-7">
 								<button id="cv_file" class="filter-button" type="file" ngf-select="uploadFile('CV', $file, $invalidFiles, 'cvFile', 'cvErrFile', 'cvErrorMsg')"
@@ -41,7 +41,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="keywords">Specific keywords (use comma as delimiter)</label>
+								<label for="keywords">Specific keywords <span class="required">*</span><br /><smalL>(use comma as delimiter)</smalL></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<textarea id="keywords" class="form-control" ng-model="formData.keywords" rows="4"></textarea>
@@ -50,7 +50,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="keywords">Words to ignore (use comma as delimiter)</label>
+								<label for="keywords">Words to ignore<br /><small>(use comma as delimiter)</small></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<textarea id="ignore" class="form-control" ng-model="formData.ignore" rows="2"></textarea>
@@ -59,7 +59,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="language">Conversation language <span class="required">*</span></label>
+								<label for="language">Language <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">

@@ -22,7 +22,7 @@
 					
 						<div class="row">
 							<div class="col-xs-3 col-md-3">
-								<label for="file">PDF file <span class="required">*</span></label>
+								<label for="file">Publication file <span class="required">*</span><br /><small>(only PDF files allowed)</small></label>
 							</div>
 							<div class="col-xs-7 col-md-7">
 								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'file', 'errFile', 'errorMsg')"
@@ -41,7 +41,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="semantic_abstract">Abstract</label>
+								<label for="semantic_abstract">Abstract <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<textarea id="semantic_abstract" class="form-control" rows="8" ng-model="formData.abstract"></textarea>
@@ -50,7 +50,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="semantic_keywords">Keywords (use comma as delimiter)</label>
+								<label for="semantic_keywords">Keywords <span class="required">*</span><br /><small>(use comma as delimiter)</small></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<textarea id="semantic_keywords" class="form-control" ng-model="formData.keywords"></textarea>
@@ -59,7 +59,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="semantic_language">Document language <span class="required">*</span></label>
+								<label for="semantic_language">Language <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
@@ -69,6 +69,27 @@
 						</div>
 						
 						<div class="row top-buffer">
+							<div class="col-xs-12 col-md-12">
+								<a ng-click="advanced = !advanced" class="pointer">
+									<span ng-if="!advanced">&#x25BC; Show</span>
+									<span ng-if="advanced">&#x25B2; Hide</span>
+									advanced options
+								</a>
+							</div>
+						</div>
+						
+						<div class="row top-buffer" ng-if="advanced">
+							<div class="col-xs-3 col-md-3">
+								<label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
+							</div>
+							<div class="col-xs-7 col-md-7">
+								<div class="input-group">
+									<select class="form-control" ng-model="formData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="lsa">LSA corpus <span class="required">*</span></label>
 							</div>
@@ -79,7 +100,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="lda">LDA corpus <span class="required">*</span></label>
 							</div>
@@ -90,9 +111,9 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
-								<label for="pos">Part of Speech tagging <span class="required">*</span></label>
+								<label for="pos">Part of speech tagging <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
@@ -101,7 +122,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="dialogism">Compute dialogism <span class="required">*</span></label>
 							</div>
@@ -112,7 +133,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
 							</div>

@@ -22,7 +22,7 @@
 						
 						<div class="row">
 							<div class="col-xs-3 col-md-3">
-								<label for="file">Conversation file <span class="required">*</span></label>
+								<label for="file">CSCL file <span class="required">*</span><br /><small>(only XML files allowed)</small></label>
 							</div>
 							<div class="col-xs-4 col-md-4">
 								<button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
@@ -44,7 +44,7 @@
 						
 						<div class="row top-buffer">
 							<div class="col-xs-3 col-md-3">
-								<label for="language">Conversation language <span class="required">*</span></label>
+								<label for="language">Language <span class="required">*</span></label>
 							</div>
 							<div class="col-xs-9 col-md-9">
 								<div class="input-group">
@@ -54,6 +54,16 @@
 						</div>
 						
 						<div class="row top-buffer">
+							<div class="col-xs-12 col-md-12">
+								<a ng-click="advanced = !advanced" class="pointer">
+									<span ng-if="!advanced">&#x25BC; Show</span>
+									<span ng-if="advanced">&#x25B2; Hide</span>
+									advanced options
+								</a>
+							</div>
+						</div>
+						
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="lsa">LSA corpus <span class="required">*</span></label>
 							</div>
@@ -64,7 +74,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="lda">LDA corpus <span class="required">*</span></label>
 							</div>
@@ -75,7 +85,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="pos">Part of speech tagging <span class="required">*</span></label>
 							</div>
@@ -86,7 +96,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="dialogism">Compute dialogism <span class="required">*</span></label>
 							</div>
@@ -97,7 +107,7 @@
 							</div>
 						</div>
 						
-						<div class="row top-buffer">
+						<div class="row top-buffer" ng-if="advanced">
 							<div class="col-xs-3 col-md-3">
 								<label for="threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
 							</div>

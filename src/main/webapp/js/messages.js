@@ -374,7 +374,7 @@ DemoTexts = {
 		explanation : 'au début c\'est une famille de riches qui mangent et puis ils entendent une phrase avec une voix grave salut salut. Donc les parents commencent à avoir peur. Donc la mère de la fille elle croit que c\'est un voleur qui vient leur voler leur argent leur argenterie. Et du coup elle dit au père d\'y aller mais il veut pas donc ils y vont tous ensemble. Et la fille elle joue bien la comédie parce que ça redit salut salut salut et elle commence à sursauter. Et puis un moment elle leur raconte l\'histoire de fantômes donc ils y croient. Et puis au bout d\'un moment elle arrête la plaisanterie en allant chercher le perroquet qu\'elle avait mis au-dessus de la cheminée qu\'elle avait emprunté à son copain Arthur. Et du coup ben ils eurent plus jamais de fantômes chez eux. C\'était juste pour jouer un tour à ses parents.'
 	},
 	csclProcessing : {
-		title: 'CSCL',
+		title: 'CSCL Conversation Analysis',
 		conversationFile : 'corpus_v2/Beizadea_352C2_in.xml',
 		participantInteractionTitle : 'Participant Interaction',
 		participantEvolutionTitle : 'Participant Evolution',
@@ -387,7 +387,7 @@ DemoTexts = {
 		language: DemoElements.languages[1] // fr
 	},
 	cv: {
-		title: 'CV',
+		title: 'CV Analysis',
 		keywords: 'prospection, prospect, développement, clients, fidélisation, chiffred’affaires, marge, vente, portefeuille, négociation, budget, rendez-vous, proposition, terrain, téléphone, rentabilité, business, reporting, veille, secteur, objectifs, comptes, animation, suivi, création, gestion',
 		ignore: 'janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre',
 		language: DemoElements.languages[1] // fr
