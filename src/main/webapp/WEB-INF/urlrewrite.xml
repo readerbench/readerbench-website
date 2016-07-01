@@ -29,7 +29,17 @@
 	 	<from>^/demo/(text-processing|semantic-annotation|self-explanation|cscl|cv-cover|cv|vCoPView)$</from>
 	  	<to>/index.html</to>
 	</rule>
-
+	
+	<rule>
+        <from>/docs/sentiment-analysis/manual</from>       
+        <to type="redirect">https://docs.google.com/document/d/1QLQ5tArdyrZurp_uCqg4wTsFRpzWsTybHQaeMYwYD5A/edit?usp=sharing</to>
+    </rule>
+	
+	<rule>
+        <from>/docs/sentiment-analysis/sdd</from>       
+        <to type="redirect">https://docs.google.com/document/d/1zcSfpth0UP4qm9T8VkIJca7TqOvtQtWTrZ-FbnCENDQ/edit?usp=sharing</to>
+    </rule>
+	
    	<!-- <outbound-rule>
         <note>
             The outbound-rule specifies that when response.encodeURL is called (if you are using JSTL c:url)
