@@ -30,14 +30,63 @@
 	  	<to>/index.html</to>
 	</rule>
 	
+	<!-- Sentiment analysis -->
 	<rule>
+		<note>Sentiment analysis manual</note>
         <from>/docs/sentiment-analysis/manual</from>       
         <to type="redirect">https://docs.google.com/document/d/1QLQ5tArdyrZurp_uCqg4wTsFRpzWsTybHQaeMYwYD5A/edit?usp=sharing</to>
     </rule>
 	
 	<rule>
+		<note>Sentiment analysis SDD</note>
         <from>/docs/sentiment-analysis/sdd</from>       
         <to type="redirect">https://docs.google.com/document/d/1zcSfpth0UP4qm9T8VkIJca7TqOvtQtWTrZ-FbnCENDQ/edit?usp=sharing</to>
+    </rule>
+    
+    <!-- Semantic Models -->
+    <rule>
+    	<note>Semantic Models manual</note>
+        <from>/docs/semantic-models/manual</from>       
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+    </rule>
+    
+    <rule>
+    	<note>Semantic Models SDD</note>
+        <from>/docs/semantic-models/sdd</from>       
+        <to type="redirect">https://docs.google.com/document/d/1fMyOof5giKd9-BZt9i4ThXzi7hNp_fqFIa9U8BD3haQ/edit</to>
+    </rule>
+    
+    <!-- Essay grading -->
+    <rule>
+        <from>/docs/essay-grading/manual</from>       
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+    </rule>
+    
+    <rule>
+        <from>/docs/essay-grading/sdd</from>       
+        <to type="redirect"></to>
+    </rule>
+    
+    <!-- CSCL -->
+    <rule>
+        <from>/docs/cscl/manual</from>       
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+    </rule>
+    
+    <rule>
+        <from>/docs/cscl/sdd</from>       
+        <to type="redirect"></to>
+    </rule>
+    
+    <!-- Reading Strategies -->
+    <rule>
+        <from>/docs/reading-strategies/manual</from>       
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+    </rule>
+    
+    <rule>
+        <from>/docs/reading-strategies/sdd</from>       
+        <to type="redirect"></to>
     </rule>
 	
    	<!-- <outbound-rule>
