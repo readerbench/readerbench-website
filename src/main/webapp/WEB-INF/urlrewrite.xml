@@ -64,7 +64,7 @@
     
     <rule>
         <from>/docs/essay-grading/sdd</from>       
-        <to type="redirect"></to>
+        <to type="redirect">https://docs.google.com/document/d/1r2l_qaewGmZP_yKwg6lVQHw4n5T1gMqQjUm46z1a-VY/edit</to>
     </rule>
     
     <!-- CSCL -->
@@ -75,7 +75,7 @@
     
     <rule>
         <from>/docs/cscl/sdd</from>       
-        <to type="redirect"></to>
+        <to type="redirect">https://docs.google.com/document/d/17JP49EtZXoZglRLklLeGnVLwBRT2hKsBuuf9PUFVbGs/edit</to>
     </rule>
     
     <!-- Reading Strategies -->
@@ -86,7 +86,7 @@
     
     <rule>
         <from>/docs/reading-strategies/sdd</from>       
-        <to type="redirect"></to>
+        <to type="redirect">https://docs.google.com/document/d/1Q-BsAuWp2XmY1xmqursZuTbIyzeXoEAWs0m4mXDhhTc/edit</to>
     </rule>
 	
    	<!-- <outbound-rule>
