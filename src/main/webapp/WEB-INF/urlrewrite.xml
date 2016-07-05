@@ -47,7 +47,7 @@
     <rule>
     	<note>Semantic Models manual</note>
         <from>/docs/semantic-models/manual</from>       
-        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.b1foaomg7if4</to>
     </rule>
     
     <rule>
@@ -59,7 +59,7 @@
     <!-- Essay grading -->
     <rule>
         <from>/docs/essay-grading/manual</from>       
-        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.typdl8bjnljw</to>
     </rule>
     
     <rule>
@@ -70,7 +70,7 @@
     <!-- CSCL -->
     <rule>
         <from>/docs/cscl/manual</from>       
-        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.r5mzxbuhlnrd</to>
     </rule>
     
     <rule>
@@ -81,7 +81,7 @@
     <!-- Reading Strategies -->
     <rule>
         <from>/docs/reading-strategies/manual</from>       
-        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM</to>
+        <to type="redirect">https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.8waasfe8387d</to>
     </rule>
     
     <rule>
