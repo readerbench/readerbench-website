@@ -1,74 +1,388 @@
 [
   {
-    "description": "Tehnologii Web Centrate pe Interacțiunea Om-Calculator. Bucharest, Romania: Politehnica Press",
+    "description": "Newcomer Integration in Online Knowledge Communities: Exploring the Role of Dialogic Textual Complexity. In 12th Int. Conf. on Learning Sciences (ICLS 2016) (pp. 914–917). Singapore: International Society of the Learning Sciences (ISLS).",
+    "year": "2016",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Nistor, N., Dascalu, M., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/0uRlxSnfZ0GtpUA"
+  },
+  
+  {
+    "description": "{ENTER}ing the Time Series {SPACE}: Uncovering the Writing Process through Keystroke Analyses. In 9th Int. Conf. on Educational Data Mining (EDM 2016) (pp. 22–29). Raleigh, NC: International Educational Data Mining Society.",
+    "year": "2016",
+    "category": "Keystroke",
+    "type": "Conference Proceedings",
+    "authors": "Allen, L. K., Jacovina, M. E., Dascalu, M., Roscoe, R., Kent, K., Likens, A., & McNamara, D. S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/NhFA4UiQVfiDjT6"
+  },
+    
+  {
+    "description": "Age of Exposure: A Model of Word Learning. In 30th AAAI Conference on Artificial Intelligence (pp. 2928–2934). Phoenix, AZ: AAAI Press.",
+    "year": "2016",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., McNamara, D. S., Crossley, S. A., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/dVjdU1qA1pqxIvN"
+  },
+  
+  {
+    "description": "Combining Click-Stream Data with NLP Tools to Better Understand MOOC Completion. In 6th Int. Conf. on Learning Analytics & Knowledge (LAK '16) (pp. 6–14). Edingurgh, UK: ACM.",
+    "year": "2016",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Crossley, S. A., Paquette, L., Dascalu, M., McNamara, D. S., & Baker, R. S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/NhFA4UiQVfiDjT6"
+  },
+  
+  {
+    "description":  "Modeling Individual Differences among Writers Using ReaderBench. In EduLearn (pp. 5269–5279). Barcelona, Spain: IATED.",
+    "year": "2016",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Allen, L. K., Dascalu, M., McNamara, D. S., Crossley, S., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/wXc7ZqynpQVpiwV"
+  },
+  
+  {
+    "description": "Visualization of Polyphonic Voices Inter-animation in CSCL Chats. Revista Romana de Interactiune Om-Calculator, 8(4), 305–322.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Journals",
+    "authors": "Trausan-Matu, S., & Dascalu, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/R9miIkJ6OHHGqOx"
+  },
+  
+  {
+    "description": "Predicting the Integration of Newcomers in OKBCs based on Existing Members’ Involvement. In 6th Int. Conf. on Information, Intelligence, Systems and Applications (IISA 2015) (pp. 1–5). Corfu, Greece: IEEE.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Stavarache, L. L., Dascalu, M., Trausan-Matu, S., & Nistor, N.",
+    "link": "https://owncloud.readerbench.com/index.php/s/BQu3lS3VVeTIexs"
+  },
+  
+  {
+    "description": "How Does Time Shape a Virtual Community of Practice? In I. Roceanu (Ed.), 4th Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 11th Int. Conf. on eLearning and Software for Education (eLSE 2015) (pp. 380–386). Bucharest, Romania: Carol I NDU Publishing House.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Stavarache, L. L., Dascalu, M., Trausan-Matu, S., & Nistor, N.",
+    "link": "https://owncloud.readerbench.com/index.php/s/4kbVcCb2AivgMTO"
+  },
+  
+  {
+    "description": "Topics Evolution in Online Knowledge Building Communities: A case study of cooking versus politics blogs. In 2nd Int. Workshop on Design and Spontaneity in Computer-Supported Collaborative Learning (DS-CSCL-2015), in conjunction with the 20th Int. Conf. on Control Systems and Computer Science (CSCS20) (pp. 765–772). Bucharest, Romania: IEEE.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Stavarache, L. L., Dascalu, M., Trausan-Matu, S., & Nistor, N.",
+    "link": "https://owncloud.readerbench.com/index.php/s/3R4nKIGbYczKqcG"
+  },
+  
+  {
+    "description": "Creativity stimulation in chat conversations through morphological analysis. Scientific Bulletin, University Politehnica of Bucharest, Series C, 77(4), 17–30.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Journals",
+    "authors": "Stamati, D., Dascalu, M., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/t0Hws1nJNI0ogw1"
+  },
+  
+  {
+    "description": "Analyzing the Semantic Relatedness of Paper Abstracts - An Application to the Educational Research Field. In 2nd Int. Workshop on Design and Spontaneity in Computer-Supported Collaborative Learning (DS-CSCL-2015), in conjunction with the 20th Int. Conf. on Control Systems and Computer Science (CSCS20) (pp. 759–764). Bucharest, Romania: IEEE.",
+    "year": "2015",
+    "category": "Semantic Search",
+    "type": "Conference Proceedings",
+    "authors": "Paraschiv, I. C., Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/HArb2pq3ShJVkV4"
+  },
+  
+  {
+    "description": "A Paper Recommendation System with ReaderBench: The Graphical Visualization of Semantically Related Papers and Concepts. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 443–449). Berlin, Germany: Springer-Verlag Singapur.",
     "year": "2015",
     "category": "",
-    "type": "Books",
-    "authors": "Chiru, C., Dascalu, M., Posea, V., & Trausan-Matu, S.",
-    "link": ""
+    "type": "Book Chapters",
+    "authors": "Paraschiv, I. C., Dascalu, M., Dessus, P., Trausan-Matu, S., & McNamara, D.S. ",
+    "link": "https://owncloud.readerbench.com/index.php/s/k8bz6aWeBHLexuJ"
   },
+  
   {
-    "description": "Analyzing Discourse and Text Complexity for Learning and Collaborating, Studies in Computational Intelligence (Vol. 534). Switzerland: Springer",
-    "year": "2014",
-    "category": "",
-    "type": "Books",
-    "authors": "Dascalu, M.",
-    "link": "docs/publications/0534_Springer.pdf"
-  },
-  {
-    "description": "Predicting Newcomer Integration in Online Knowledge Communities by Automated Dialog Analysis. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 13–17). Berlin, Germany: Springer-Verlag Singapur",
+    "description": "Finding student-centered open learning environments on the Internet: Automated dialogue assessment in academic virtual communities of practice. Computers in Human Behavior, 47(1), 119–127.",
     "year": "2015",
-    "category": "",
-    "type": "Books",
-    "authors": "Nistor, N., Dascalu, M., Stavarache, L.L., Tarnai, C., & Trausan-Matu, S.",
-    "link": ""
-  },
-  {
-    "description": "A Paper Recommendation System with ReaderBench: The Graphical Visualization of Semantically Related Papers and Concepts. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 443–449). Berlin, Germany: Springer-Verlag Singapur",
-    "year": "2015",
-    "category": "",
-    "type": "Books",
-    "authors": "Paraschiv, I.C., Dascalu, M., Dessus, P., Trausan-Matu, S., & McNamara, D.S.",
-    "link": ""
-  },
-  {
-    "description": "Mining Texts, Learners Productions and Strategies with ReaderBench. In A. Peña-Ayala (Ed.), Educational Data Mining: Applications and Trends (pp. 335–377). Switzerland: Springer",
-    "year": "2014",
-    "category": "",
-    "type": "Books",
-    "authors": "Dascalu, M., Dessus, P., Bianco, M., Trausan-Matu, S., & Nardy, A.",
-    "link": ""
-  },
-  {
-    "description": "Analysis of discourse in collaborative learning chat conversations with multiple participants. In D. Tufis & C. Forascu (Eds.), Multilinguality and Interoperability in Language Processing with Emphasis on Romanian (pp. 313–330). Bucharest, Romania: Editura Academiei",
-    "year": "2010",
-    "category": "",
-    "type": "Books",
-    "authors": "Trausan-Matu, S., Rebedea, T., & Dascalu, M.",
-    "link": ""
-  },
-  {
-    "description": "Finding student-centered open learning environments on the internet: Automated dialogue assessment in academic virtual communities of practice. Computers in Human Behavior, 47(1), 119–127. doi: 10.1016/j.chb.2014.07.029",
-    "year": "2015",
-    "category": "",
+    "category": "CSCL",
     "type": "Journals",
     "authors": "Nistor, N., Trausan-Matu, S., Dascalu, M., Duttweiler, H., Chiru, C., Baltes, B., & Smeaton, G.",
-    "link": ""
+    "link": "https://owncloud.readerbench.com/index.php/s/wXMzPNRswf5JcB4"
   },
+  
   {
-    "description": "ReaderBench – Automated Evaluation of Collaboration based on Cohesion and Dialogism. International Journal of Computer-Supported Collaborative Learning, 10(4), 395–423. doi: 10.1007/s11412-015-9226-y",
+    "description": "Online Knowledge Communities as Student-Centered Open Learning Environments: How Likely Will They be to Integrate Learners as New Members? In O. Lindwall, P. Häkkinen, T. Koschmann, P. Tchounikine & S. Ludvigsen (Eds.), 11th Int. Conf. on Computer-Supported Collaborative Learning (CSCL 2015) (pp. 494–498). Gothenburg, Sweden: ISLS.",
     "year": "2015",
-    "category": "",
-    "type": "Journals",
-    "authors": "Dascalu, M., Trausan-Matu, S., McNamara, D.S., & Dessus, P. ",
-    "link": ""
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Nistor, N., Dascalu, M., Tarnai, C., Bresser, N., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/cv9f0YIHBMaUnOS"
   },
+  
   {
-    "description": "PolyCAFe–automatic support for the polyphonic analysis of CSCL chats. International Journal of Computer-Supported Collaborative Learning, 9(2), 127–156. doi: 10.1007/s11412-014-9190-y",
+    "description": "Predicting Newcomer Integration in Online Knowledge Communities by Automated Dialog Analysis. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 13–17). Berlin, Germany: Springer-Verlag Singapur.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Book Chapters",
+    "authors": "Nistor, N., Dascalu, M., Stavarache, L. L., Tarnai, C., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/5zBAbC5QMfXEvxW"
+  },
+  
+  {
+    "description": "Informal Learning in Online Knowledge Communities: Predicting Community Response to Visitor Inquiries. In G. Conole, T. Klobucar, C. Rensing, J. Konert & É. Lavoué (Eds.), 10th European Conf. on Technology Enhanced Learning (pp. 447–452). Toledo, Spain: Springer.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Nistor, N., Dascalu, M., Stavarache, L. L., Serafin, Y., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/l0adoyF4pgQB4dZ"
+  },
+  
+  {
+    "description": "ReaderBench – Automated Evaluation of Collaboration based on Cohesion and Dialogism. International Journal of Computer-Supported Collaborative Learning, 10(4), 395–423.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Journals",
+    "authors": "Dascalu, M., Trausan-Matu, S., McNamara, D.S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/LAx8wH2XYdF4ASF"
+  },
+  
+  {
+    "description": "Dialogism: A Framework for CSCL and a Signature of Collaboration. In O. Lindwall, P. Häkkinen, T. Koschmann, P. Tchounikine & S. Ludvigsen (Eds.), 11th Int. Conf. on Computer-Supported Collaborative Learning (CSCL 2015) (pp. 86–93). Gothenburg, Sweden: ISLS.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., Dessus, P., & McNamara, D.S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/Cow6Imzu0Kb8PoZ"
+  },
+  
+  {
+    "description": "Discourse cohesion: A signature of collaboration. In 5th Int. Learning Analytics & Knowledge Conf. (LAK'15) (pp. 350–354). Poughkeepsie, NY: ACM.",
+    "year": "2015",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., Dessus, P., & McNamara, D. S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/KmdHgVo6gtRzpgy"
+  },
+  
+  {
+    "description": "ReaderBench: An Integrated Tool Supporting both Individual and Collaborative Learning. In 5th Int. Learning Analytics & Knowledge Conf. (LAK'15) (pp. 436-437). Poughkeepsie, NY: ACM.",
+    "year": "2015",
+    "category": "General",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Stavarache, L. L., Trausan-Matu, S., Dessus, P., Bianco, M., & McNamara, D. S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/hjuKyNKm6itmdBV"
+  },
+  
+  {
+    "description": "ReaderBench: An Integrated Cohesion-Centered Framework. In G. Conole, T. Klobucar, C. Rensing, J. Konert & É. Lavoué (Eds.), 10th European Conf. on Technology Enhanced Learning (pp. 505–508). Toledo, Spain: Springer.",
+    "year": "2015",
+    "category": "General",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Stavarache, L. L., Dessus, P., Trausan-Matu, S., McNamara, D. S., & Bianco, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/EkNK1wDs6znu4go"
+  },
+  
+  {
+    "description": "ReaderBench: The Learning Companion. In 17th Int. Conf. on Artificial Intelligence in Education (AIED 2015) (pp. 915–916). Madrid, Spain: Springer.",
+    "year": "2015",
+    "category": "General",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Stavarache, L. L., Dessus, P., Trausan-Matu, S., McNamara, D.S., & Bianco, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/gIRBU1EmGssfgNs"
+  },
+  
+  {
+    "description": "Predicting Comprehension from Students’ Summaries. In 17th Int. Conf. on Artificial Intelligence in Education (AIED 2015) (pp. 95–104). Madrid, Spain: Springer.",
+    "year": "2015",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Stavarache, L. L., Dessus, P., Trausan-Matu, S., McNamara, D.S., & Bianco, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/Frna8TOAbe5Dffl"
+  },
+  
+  {
+    "description": "Evaluating the Complexity of Online Romanian Press. In D. Gifu, D. Trandabat, D. Cristea & D. Tufis (Eds.), 11th Int. Conf. Linguistic Resources and Tools for Processing the Romanian Language (pp. 149–162). Iasi, Romania.",
+    "year": "2015",
+     "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., & Gifu, D.",
+    "link": "https://owncloud.readerbench.com/index.php/s/TW9wPLlhpjeS0GI"
+  },
+  
+  {
+    "description": "PolyCAFe–automatic support for the polyphonic analysis of CSCL chats. International Journal of Computer-Supported Collaborative Learning, 9(2), 127–156.",
     "year": "2014",
-    "category": "",
+    "category": "CSCL",
     "type": "Journals",
     "authors": "Trausan-Matu, S., Dascalu, M., & Rebedea, T.",
-    "link": ""
+    "link": "https://owncloud.readerbench.com/index.php/s/ZqjdW3KZgdrHZzP"
+  },
+  
+  {
+    "description": "Papers vs. Slides: Do they have similar textual traits? In 3rd Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 10th Int. Conf. on eLearning and software for Education (pp. 187–192). Bucharest, Romania: Editura Universitatii Nationale de Aparare "Carol I".",
+    "year": "2014",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Stavarache, L. L., Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/zIJwzbaS2EmU9lH"
+  },
+  
+  {
+    "description": "Designing Smart Knowledge Building Communities. Interaction Design and Architecture(s) Journal – IxD&A, 22, 9–21.",
+    "year": "2014",
+    "category": "CSCL",
+    "type": "Journals",
+    "authors": "Oca, A.M. Montes de, Nistor, N., Dascalu, M., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/OonAsrt8Pf7RdpS"
+  },
+  
+  {
+    "description": "Participation in virtual academic communities of practice under the influence of technology acceptance and community factors. A learning analytics application. Computers in Human Behavior, 34, 339–344.",
+    "year": "2014",
+    "category": "CSCL",
+    "type": "Journals",
+    "authors": "Nistor, N., Baltes, B., Dascalu, M., Mihaila, D., Smeaton, G., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/yPSQeJh7zThqsnX"
+  },
+  
+  {
+    "description": "Analiza automată a materialelor școlare franceze din prisma complexității textuale. In Conf. Nat. de Interactiune Om-Calculator (RoCHI 2014) (pp. 55–60). Bucuresti, Romania: MatrixRom.",
+    "year": "2014",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Stavarache, L. L., Trausan-Matu, S., Dessus, P., & Bianco, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/AegsmOAl2OATJ5B"
+  },
+
+  {
+    "description": "Reflecting Comprehension through French Textual Complexity Factors. In 26th Int. Conf. on Tools with Artificial Intelligence (ICTAI 2014) (pp. 615–619). Limassol, Cyprus: IEEE.",
+    "year": "2014",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Stavarache, L. L., Trausan-Matu, S., Dessus, P., & Bianco, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/GyowQDL93EYRixI"
+  },
+  
+  {
+    "description": "Mining texts, learner productions and strategies with ReaderBench. In A. Peña-Ayala (Ed.), Educational Data Mining: Applications and Trends (pp. 345–377). Cham, Switzerland: Springer.",
+    "year": "2014",
+    "category": "Textual Complexity",
+    "type": "Book Chapters",
+    "authors": "Dascalu, M., Dessus, P., Bianco, M., Trausan-Matu, S., & Nardy, A.",
+    "link": "https://owncloud.readerbench.com/index.php/s/KAW8a2V2DkiAxKo"
+  },
+
+  {
+    "description": "Validating the Automated Assessment of Participation and of Collaboration in Chat Conversations. In S. Trausan-Matu, K. E. Boyer, M. Crosby & K. Panourgia (Eds.), 12th Int. Conf. on Intelligent Tutoring Systems (ITS 2014) (pp. 230–235). Honolulu, USA: Springer.",
+    "year": "2014",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/K1akT7qC5KINcP9"
+  },
+  
+  {
+    "description": "Are Automatically Identified Reading Strategies Reliable Predictors of Comprehension? In S. Trausan-Matu, K. E. Boyer, M. Crosby & K. Panourgia (Eds.), 12th Int. Conf. on Intelligent Tutoring Systems (ITS 2014) (pp. 456–465). Honolulu, USA: Springer.",
+    "year": "2014",
+    "category": "Reading Strategies",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Dessus, P., Bianco, M., & Trausan-Matu, S.",
+    "link": "https://owncloud.readerbench.com/index.php/s/VeTd2usoHXwk25C"
+  },
+  
+  {
+    "description": "Analyzing discourse and text complexity for learning and collaborating, Studies in Computational Intelligence (Vol. 534). Cham, Switzerland: Springer.",
+    "year": "2014",
+    "category": "General",
+    "type": "Book",
+    "authors": "Dascalu, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/VlvYhCYwpoFC9Sf"
+  },
+  
+  {
+    "description": "Analiza complexităţii manualelor şcolare din sistemul de învăţământ francez primar. Revista Romana de Interactiune Om-Calculator, 6(4), 339–356.",
+    "year": "2013",
+    "category": "Textual Complexity",
+    "type": "Journals",
+    "authors": "Stavarache, L.L., Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/8YCzWyXKY90QGha"
+  },
+  
+  {
+    "description": "Virtual Communities of Practice in Academia: Automated Analysis of Collaboration Based on the Social Knowledge-Building Model. In D. Hernández-Leo, T. Ley, R. Klamma & A. Harrer (Eds.), 8th European Conference on Technology Enhanced Learning (EC-TEL 2013) (pp. 623–624). Paphos, Cyprus: Springer.",
+    "year": "2013",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Nistor, N., Dascalu, M., Trausan-Matu, S., Mihaila, D., Baltes, B., & Smeaton, G.",
+    "link": "https://owncloud.readerbench.com/index.php/s/N2M3DRWmFkfAQai"
+  },
+  
+  {
+    "description": "ReaderBench, o platformă integrată pentru analiza complexități textuale și a strategiilor de lectură. In T. Stefanut & C. Rusu (Eds.), Conf. Nat. de Interactiune Om-Calculator (RoCHI 2013) (pp. 39–46). Bucuresti, Romania: MatrixRom.",
+    "year": "2013",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., Dessus, P., Bianco, M., & Nardy, A.",
+    "link": "https://owncloud.readerbench.com/index.php/s/mmNdZitbzMvMCM7"
+  },
+  
+  {
+    "description": "Voices’ inter-animation detection with ReaderBench – Modelling and assessing polyphony in CSCL chats as voice synergy. In 2nd Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 2nd Int. Conf. on Systems and Computer Science (ICSCS) (pp. 280–285). Villeneuve d'Ascq, France: IEEE.",
+    "year": "2013",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/NBISGttOdMiXREE"
+  },
+  
+  {
+    "description": "Cohesion-based analysis of CSCL conversations: Holistic and individual perspectives. In N. Rummel, M. Kapur, M. Nathan & S. Puntambekar (Eds.), 10th Int. Conf. on Computer-Supported Collaborative Learning (CSCL 2013) (pp. 145–152). Madison, USA: ISLS.",
+    "year": "2013",
+    "category": "CSCL",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/3NLvZELt7eDbUih"
+  },
+  
+  {
+    "description": "ReaderBench, an environment for analyzing text complexity and reading strategies. In H. C. Lane, K. Yacef, J. Mostow & P. Pavlik (Eds.), 16th Int. Conf. on Artificial Intelligence in Education (AIED 2013) (pp. 379–388). Memphis, USA: Springer.",
+    "year": "2013",
+    "category": "Reading Strategies",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Dessus, P., Trausan-Matu, S., Bianco, M., & Nardy, A.",
+    "link": "https://owncloud.readerbench.com/index.php/s/xrQLHuSjTURqeQI"
+  },
+  
+  {
+    "description": "Textual complexity and discourse structure in Computer-Supported Collaborative Learning. In S. A. Cerri, W. J. Clancey, G. Papadourakis & K. Panourgia (Eds.), 11th Int. Conf. on Intelligent Tutoring Systems (ITS 2012) (pp. 352–357). Chania, Grece: Springer.",
+    "year": "2012",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Trausan-Matu, S., Dascalu, M., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/vpD2lyx4mxm5XDk"
+  },
+  
+  {
+    "description": "Towards an integrated approach for evaluating textual complexity for learning purposes. In E. Popescu, R. Klamma, H. Leung & M. Specht (Eds.), 11th Int. Conf. in Advances in Web-Based Learning (ICWL 2012) (pp. 268–278). Sinaia, Romania: Springer.",
+    "year": "2012",
+    "category": "Textual Complexity",
+    "type": "Conference Proceedings",
+    "authors": "Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+    "link": "https://owncloud.readerbench.com/index.php/s/gcPtMcXx21HVxTN"
+  },
+  
+  {
+    "description": "Analysis of discourse in collaborative learning chat conversations with multiple participants. In D. Tufis & C. Forascu (Eds.), Multilinguality and Interoperability in Language Processing with Emphasis on Romanian (pp. 313–330). Bucharest, Romania: Editura Academiei.",
+    "year": "2010",
+    "category": "CSCL",
+    "type": "Book Chapters",
+    "authors": "Trausan-Matu, S., Rebedea, T., & Dascalu, M.",
+    "link": "https://owncloud.readerbench.com/index.php/s/rc8eCoBaxWiGNNf"
   }
 ]
