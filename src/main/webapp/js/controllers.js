@@ -63,7 +63,8 @@
 			$scope.peopleListUPB = PeopleUPB;
 	 	 	$scope.peopleListLSE = PeopleLSE;
 	 	 	$scope.peopleListLMU = PeopleLMU;
-	 	 	$scope.peopleListUSA = PeopleUSA;
+	 	 	$scope.peopleListASU = PeopleASU;
+	 	 	$scope.peopleListGSU = PeopleGSU;
 		   
 	}])
 	.controller('DemoMenuController', ['$scope', function($scope){

@@ -11,7 +11,7 @@
 				<div class="header">
 					<div class="sign-picture-wrapper">
 						<div class="sign-picture">
-							<img ng-src="img/Sigla UPB.jpg" alt="location picture" />
+							<img ng-src="img/UPB.jpg" alt="location picture" />
 						</div>
 					</div>
 				</div>
@@ -39,7 +39,7 @@
 				<div class="header">
 					<div class="sign-picture-wrapper">
 						<div class="sign-picture">
-							<img ng-src="img/sigla_upmf.jpg" alt="location picture" />
+							<img ng-src="img/UGA.jpg" alt="location picture" />
 						</div>
 					</div>
 				</div>
@@ -67,7 +67,7 @@
 				<div class="header">
 					<div class="sign-picture-wrapper">
 						<div class="sign-picture">
-							<img ng-src="img/2000px-LMU_Muenchen_Logo.svg.png"
+							<img ng-src="img/LMU.png"
 								alt="location picture" />
 						</div>
 					</div>
@@ -96,12 +96,40 @@
 				<div class="header">
 					<div class="sign-picture-wrapper">
 						<div class="sign-picture">
-							<img ng-src="img/LSI ASU.jpg" alt="location picture" />
+							<img ng-src="img/ASU.jpg" alt="location picture" />
 						</div>
 					</div>
 				</div>
 				<div class="people-list-wrapper">
-					<div class="people-list" ng-repeat="people in peopleListUSA">
+					<div class="people-list" ng-repeat="people in peopleListASU">
+						<div class="people-photo-wrapper">
+							<div class="people-photo">
+								<img ng-src="{{people.picture}}" alt="member avatar" />
+							</div>
+						</div>
+						<div class="people-name">
+							<span>{{people.name}}</span>
+						</div>
+						<div class="people-social">
+							<ul class="social-block">
+								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
+								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
+								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="people-container">
+				<div class="header">
+					<div class="sign-picture-wrapper">
+						<div class="sign-picture">
+							<img ng-src="img/GSU.jpg" alt="location picture" />
+						</div>
+					</div>
+				</div>
+				<div class="people-list-wrapper">
+					<div class="people-list" ng-repeat="people in peopleListGSU">
 						<div class="people-photo-wrapper">
 							<div class="people-photo">
 								<img ng-src="{{people.picture}}" alt="member avatar" />

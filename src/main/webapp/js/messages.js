@@ -164,16 +164,19 @@ PeoplePlaces = [ {
 	picture : 'img/A&C-logo-EN-gradient.png'
 }, {
 	name : 'Ludwig Maximilians Unversity of Munchen',
-	picture : 'img/2000px-LMU_Muenchen_Logo.svg.png'
+	picture : 'img/LMU.png'
 }, {
-	name : 'Learning Sciences Instutute - Arizona State University',
-	picture : 'img/LSI ASU.jpg'
+	name : 'Institute for the Science of Learning & Teaching - Arizona State University',
+	picture : 'img/ASU.jpg'
 }, {
-	name : 'Universite Pierre Mendes-France - Sciences Sociales & Humaines',
-	picture : 'img/sigla_upmf.jpg'
+	name : 'Laboratoire de Science de l\'Education - University Grenoble Alpes',
+	picture : 'img/UGA.jpg'
 }, {
 	name : 'University "Politehnica" of Bucharest',
-	picture : 'img/Sigla UPB.jpg'
+	picture : 'img/UPB.jpg'
+}, {
+	name : 'Georgia State University',
+	picture : 'img/GSU.jpg'
 } ];
 PeopleUPB = [
 	{
@@ -244,7 +247,7 @@ PeopleLSE = [
 	{
 		name : 'Philippe Dessus',
 		picture : 'img/male.jpg',
-		area : 'Software Development',
+		area : 'Educational Sciences',
 		linkedin : '',
 		scholarlink : 'https://scholar.google.com/citations?user=I-RoP1cAAAAJ&hl=en',
 		dblplink : 'http://dblp.uni-trier.de/pers/hd/d/Dessus:Philippe'
@@ -252,7 +255,7 @@ PeopleLSE = [
 	{
 		name : 'Maryse Bianco',
 		picture : 'img/female.jpg',
-		area : 'Software Development',
+		area : 'Educational Sciences',
 		linkedin : '',
 		scholarlink : 'https://scholar.google.com/citations?user=jFYNe4UAAAAJ&hl=en',
 		dblplink : 'http://dblp.uni-trier.de/pers/hd/b/Bianco:Maryse'
@@ -260,7 +263,7 @@ PeopleLSE = [
 	{
 		name : 'Aurelie Nardy',
 		picture : 'img/female.jpg',
-		area : 'Software Development',
+		area : 'Educational Sciences',
 		linkedin : '',
 		scholarlink : 'https://scholar.google.com/citations?user=6LYAdBIAAAAJ&hl=en',
 		dblplink : 'http://dblp.uni-trier.de/pers/hd/n/Nardy:Aur=eacute=lie'
@@ -268,35 +271,37 @@ PeopleLSE = [
 PeopleLMU = [ {
 	name : 'Nicolae Nistor',
 	picture : 'img/male.jpg',
-	area : 'Software Development',
+	area : 'Psychology',
 	linkedin : '',
 	scholarlink : 'https://scholar.google.com/citations?user=cNVq5HUAAAAJ&hl=en',
 	dblplink : 'http://dblp.uni-trier.de/pers/hd/n/Nistor:Nicolae'
 } ];
-PeopleUSA = [
+PeopleASU = [
 	{
 		name : 'Danielle S. McNamara',
 		picture : 'img/female.jpg',
-		area : 'Software Development',
+		area : 'Cognitive Psychology',
 		linkedin : '',
 		scholarlink : 'https://scholar.google.com/citations?user=NOxLJQUAAAAJ&hl=en',
 		dblplink : 'http://dblp.uni-trier.de/pers/hd/m/McNamara:Danielle_S='
 	},
 	{
-		name : 'Scott Crossley',
-		picture : 'img/male.jpg',
-		area : 'Software Development',
-		linkedin : 'https://www.linkedin.com/in/scott-crossley-1bb07b5b',
-		scholarlink : 'https://scholar.google.com/citations?user=PDzqXW4AAAAJ&hl=en',
-		dblplink : 'http://dblp.uni-trier.de/pers/hd/c/Crossley:Scott_A='
-	}, {
 		name : 'Laura V. Allen',
 		picture : 'img/female.jpg',
-		area : 'Software Development',
+		area : 'Cognitive Psychology',
 		linkedin : '',
 		scholarlink : '',
 		dblplink : 'http://dblp.uni-trier.de/pers/hd/a/Allen:Laura'
 	} ];
+PeopleGSU = [
+    {
+        name : 'Scott Crossley',
+        picture : 'img/male.jpg',
+        area : 'Computational Linguistics',
+        linkedin : 'https://www.linkedin.com/in/scott-crossley-1bb07b5b',
+        scholarlink : 'https://scholar.google.com/citations?user=PDzqXW4AAAAJ&hl=en',
+        dblplink : 'http://dblp.uni-trier.de/pers/hd/c/Crossley:Scott_A='
+     }];
 Projects = [
 	{
 		title : 'RAGE',

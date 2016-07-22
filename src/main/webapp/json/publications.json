@@ -101,7 +101,7 @@
   {
     "description": "A Paper Recommendation System with ReaderBench: The Graphical Visualization of Semantically Related Papers and Concepts. In Y. Li, M. Chang, M. Kravcik, E. Popescu, R. Huang, Kinshuk & N.-S. Chen (Eds.), State-of-the-Art and Future Directions of Smart Learning (Vol. Lecture Notes in Educational Technology, pp. 443–449). Berlin, Germany: Springer-Verlag Singapur.",
     "year": "2015",
-    "category": "",
+    "category": "Semantic Search",
     "type": "Book Chapters",
     "authors": "Paraschiv, I. C., Dascalu, M., Dessus, P., Trausan-Matu, S., & McNamara, D.S. ",
     "link": "https://owncloud.readerbench.com/index.php/s/k8bz6aWeBHLexuJ"
@@ -225,7 +225,7 @@
   },
   
   {
-    "description": "Papers vs. Slides: Do they have similar textual traits? In 3rd Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 10th Int. Conf. on eLearning and software for Education (pp. 187–192). Bucharest, Romania: Editura Universitatii Nationale de Aparare "Carol I".",
+    "description": "Papers vs. Slides: Do they have similar textual traits? In 3rd Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 10th Int. Conf. on eLearning and software for Education (pp. 187–192). Bucharest, Romania: Editura Universitatii Nationale de Aparare Carol I.",
     "year": "2014",
     "category": "Textual Complexity",
     "type": "Conference Proceedings",
