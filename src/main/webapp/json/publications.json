@@ -36,7 +36,7 @@
   },
   
   {
-    "description":  "Modeling Individual Differences among Writers Using ReaderBench. In EduLearn (pp. 5269–5279). Barcelona, Spain: IATED.",
+    "description": "Modeling Individual Differences among Writers Using ReaderBench. In EduLearn (pp. 5269–5279). Barcelona, Spain: IATED.",
     "year": "2016",
     "category": "Textual Complexity",
     "type": "Conference Proceedings",
@@ -225,11 +225,7 @@
   },
   
   {
-<<<<<<< HEAD
     "description": "Papers vs. Slides: Do they have similar textual traits? In 3rd Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 10th Int. Conf. on eLearning and software for Education (pp. 187–192). Bucharest, Romania: Editura Universitatii Nationale de Aparare Carol I.",
-=======
-    "description": "Papers vs. Slides: Do they have similar textual traits? In 3rd Int. Workshop on Semantic and Collaborative Technologies for the Web, in conjunction with the 10th Int. Conf. on eLearning and software for Education (pp. 187–192). Bucharest, Romania: Editura Universitatii Nationale de Aparare \"Carol I\".",
->>>>>>> fdf1e2ae30e3e97f3531022209c6145c09bacc5e
     "year": "2014",
     "category": "Textual Complexity",
     "type": "Conference Proceedings",
