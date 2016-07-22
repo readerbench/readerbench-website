@@ -22,7 +22,7 @@ var FacetedPublications = {
             '           <span><%= obj.year %></span>' +
             '      </div>' +
             '       <div class="shape-publication-wrapper">' +
-            '           <a href="<%= obj.link %>" target="_blank" download>' +
+            '           <a href="<%= obj.link %>/download" target="_blank" download>' +
             '               <img class="publication-download-icon" src="images/ic_file_download_black_24dp_2x.png" />' +
             '           </a>' +
             '       </div>' +
