@@ -1,4 +1,4 @@
-Ôªø@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Roboto+Slab:400,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700,900|Roboto+Slab:400,700);
 * {
     margin: 0;
     border: 0;
@@ -1837,13 +1837,13 @@ footer .copyrights p a:hover {
     left: 8px
 }
 .section-courses .filters-box .advanced-filters-box .filter-input-box .input-box .dropdown .calendar .ui-datepicker-header .ui-datepicker-prev:after {
-    content: "ÔÅì"
+    content: "Ô?ì"
 }
 .section-courses .filters-box .advanced-filters-box .filter-input-box .input-box .dropdown .calendar .ui-datepicker-header .ui-datepicker-next {
     right: 8px
 }
 .section-courses .filters-box .advanced-filters-box .filter-input-box .input-box .dropdown .calendar .ui-datepicker-header .ui-datepicker-next:after {
-    content: "ÔÅî"
+    content: "Ô?î"
 }
 .section-courses .filters-box .advanced-filters-box .filter-input-box .input-box .dropdown .calendar .ui-datepicker-title {
     padding: 8px;
@@ -3747,7 +3747,7 @@ footer .copyrights p a:hover {
     font-family: icomoon;
     margin-right: 10px;
     position: absolute;
-    content: "ÓÉÉ";
+    content: "Ó??";
     color: #43b9c7;
     top: -1px;
     left: -2px
@@ -4805,7 +4805,7 @@ footer .copyrights p a:hover {
     background: #fe4445
 }
 .share-block a.pinterest:before {
-    content: "ÔÉí"
+    content: "Ô?í"
 }
 .share-block a.dribbble {
     background: #fc80b0
@@ -5510,7 +5510,7 @@ footer .copyrights p a:hover {
     background: #c54a2e
 }
 .register-popup .popup-wrapper form .social-buttons a.google-plus:before {
-    content: "ÔÉï"
+    content: "Ô?ï"
 }
 .register-popup .popup-wrapper form .social-buttons a:last-of-type {
     margin: 0
