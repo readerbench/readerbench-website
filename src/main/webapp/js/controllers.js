@@ -51,6 +51,8 @@
                 FacetedPublications.styleFacets();
                 // Add sorting functionality
                 FacetedPublications.addSorting();
+                // Sort years facet descending
+                FacetedPublications.descendingOrderForYearsFilter();
             };
             // and add it to the browser queue with delay 0. This ensures that the DOM is fully loaded before applying
             // the function. For further details, see:
