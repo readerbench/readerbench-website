@@ -97,8 +97,6 @@ function initFacetCount() {
     var sortedstore = {};
     _.each(sorted, function(el) {
       sortedstore[el] = settings.facetStore[facettitle][el];
-      console.log(sortedstore);
-      co
     });
     settings.facetStore[facettitle] = sortedstore;
   });
