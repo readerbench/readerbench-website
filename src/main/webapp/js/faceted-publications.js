@@ -32,13 +32,16 @@ var FacetedPublications = {
             'year':     'Year',
             'category': 'Category',
             'type':     'Type'
-        }
+        },
+        showMoreTemplate: '<button id="showmorebutton">Show more</button>',
+        noResults: '<div class="text-center">Sorry, but no items match these criteria.</div>'
     },
     styleFacets: function() {
         // Makes facets lists of egual width
         $('#publications-facets-wrapper .facetsearch')
             .css('width', (100 / this.settings.facetsCount) + '%')
             .addClass('text-center');
+
         // Centers the total count element
         var centerTotalCount = function() {
             $('#publications-facets-wrapper .bottomline .facettotalcount')
@@ -56,7 +59,7 @@ var FacetedPublications = {
             return '<li class="orderbyitem" id="orderby_' + id + '">' + title + '</li>';
         };
         var orderByElementsContainer = $('#publications-facets-wrapper .bottomline .orderby ul');
-        var publicationsNodeList = '#publications-wrapper>.publication-wrapper';
+        var publicationsNodeList = '#publications-wrapper > .publication-wrapper';
         var publicationsWrapper = $('#publications-wrapper');
         var order = {
             ascending: 'asc',
@@ -95,5 +98,10 @@ var FacetedPublications = {
 
         // Force the publications to be sorted by year in descending order when the page is loaded
         $('#orderby_year').trigger('click');
+    },
+    descendingOrderForYearsFilter: function() {
+        var selector = '#publications-facets-wrapper > #year > .facetlist';
+
+        $(selector).append($(selector + '> .facetitem').get().reverse());
     }
 };

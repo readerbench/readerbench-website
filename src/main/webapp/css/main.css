@@ -487,7 +487,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 }
 
 #publications-facets-wrapper .facetsearch .facetlist {
-    max-height: 100px;
+    max-height: 170px;
     overflow-y: scroll;
 }
 
@@ -525,6 +525,16 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 #publications-facets-wrapper .bottomline .deselectstartover {
     margin: 10px auto 20px auto;
     float: right;
+}
+
+#publications-wrapper {
+    clear: both;
+}
+
+#showmorebutton {
+    padding: 10px;
+    margin: 15px 0 0 43%;
+    color: black;
 }
 
 line.link {
