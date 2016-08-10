@@ -38,8 +38,7 @@ DemoElements = {
     			 	English: [
     	    	         {id: '1', name: 'tasa_en', value: 'tasa_en'},
     	    	         {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-    	    	         {id: '3', name: 'financial_en', value: 'financial_en'},
-    	    	         {id: '4', name: '', value: ''}
+    	    	         {id: '3', name: '', value: ''}
     	    	    ],
     	    	    French: [
     	    	        {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
@@ -58,14 +57,12 @@ DemoElements = {
     			 	English: [
     					{id: '1', name: 'tasa_en', value: 'tasa_en'},
     		            {id: '2', name: 'tasa_lak_en', value: 'tasa_lak_en'},
-    		            {id: '3', name: 'tasa_smart_cities_en', value: 'tasa_smart_cities_en'},
-    		            {id: '4', name: '', value: ''}
+    		            {id: '3', name: '', value: ''}
     	            ],
     	            French: [
     		            {id: '1', name: 'lemonde_fr', value: 'lemonde_fr'},
     		            {id: '2', name: 'textenfants_fr', value: 'textenfants_fr'},
-    		            {id: '3', name: 'philosophy_fr', value: 'philosophy_fr'},
-    		            {id: '4', name: '', value: ''}
+    		            {id: '3', name: '', value: ''}
     		        ],
     		        Italian: [
     	               {id: '1', name: 'paisa_it', value: 'paisa_it'},
