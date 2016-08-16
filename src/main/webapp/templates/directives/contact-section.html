@@ -1,48 +1,79 @@
-<section class="section-contact">
-	<div class="contact-info-wrapper">
-		<div class="container">
-			<div class="section-header">
-				<h1>Contact Us</h1>
-			</div>
-		</div>
-		<div class="container">
+<div class="container">
+	<div class="section-header">
+		<h1>Contact us</h1>
+	</div>
+</div>
+<div class="content-wrapper" ng-controller="ContactController">
+	<div class="form-group demo-wrapper">
+		<div class="input">
 			<div class="row">
-				<div class="contacts-wrapper">
-					<form class="contact-form">
-						<label> <input type="text" class="form-input js-input"
-							name="username" /> <span>Your name</span>
-						</label> <label> <input type="text" class="form-input js-input"
-							name="email" /> <span>E-mail address</span>
-						</label> <label> <input type="text" class="form-input js-input"
-							name="subject" /> <span>Subject</span>
-						</label> <label> <textarea class="form-input js-input"
-								name="message"></textarea> <span>Message</span>
-						</label>
-
-						<button class="btn theme-btn-1">
-							<span class="button">Send message</span>
-						</button>
-					</form>
+				<div class="col-xs-12 col-md-12">
+					<p>In order to contact us, please send us a message using the following form.</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-3 col-md-3">
+					<label for="name">Your name <span class="required">*</span></label>
+				</div>
+				<div class="col-xs-9 col-md-9">
+					<div class="input-group">
+						<input id="name" type="text" class="form-control" ng-model="formData.name" />
+					</div>
+				</div>
+			</div>
+	
+			<div class="row top-buffer">
+				<div class="col-xs-3 col-md-3">
+					<label for="email">Your e-mail <span class="required">*</span></label>
+				</div>
+				<div class="col-xs-9 col-md-9">
+					<div class="input-group">
+						<input id="email" type="text" class="form-control" ng-model="formData.email" />
+					</div>
+				</div>
+			</div>
+	
+			<div class="row top-buffer">
+				<div class="col-xs-3 col-md-3">
+					<label for="subject">Subject <span class="required">*</span></label>
+				</div>
+				<div class="col-xs-9 col-md-9">
+					<div class="input-group">
+						<input id="subject" type="text" class="form-control" ng-model="formData.subject" />
+					</div>
+				</div>
+			</div>
+	
+			<div class="row top-buffer">
+				<div class="col-xs-3 col-md-3">
+					<label for="message">Message <span class="required">*</span></label>
+				</div>
+				<div class="col-xs-9 col-md-9">
+					<textarea id="message" class="form-control" ng-model="formData.message" rows="10"></textarea>
+				</div>
+			</div>
+	
+		</div>
+		<div class="row top-buffer" ng-if="!loading">
+			<div class="col-xs-12 col-md-12">
+				<div class="bottom-buttons">
+					<button class="filter-button">
+						<span class="button" ng-click="sendMessage()">Send message</span>
+					</button>
 				</div>
 			</div>
 		</div>
-	</div>
-
-	<div class="row contacts-wrapper">
-
-		<div class="col-sm-6">
-			<div class="contact-info-block has-icon"></div>
-		</div>
-
-		<div class="col-sm-6">
-			<div class="contact-info-block">
-				<div class="block-meta">
-					<h4>Email contact</h4>
-					<p>
-						<a href="#">mihai.dascalu@cs.pub.ro</a>
-					</p>
+		<div id="results">
+			<div class="row" ng-if="loading">
+				<div class="col-xs-12 col-md-12">
+					<img src="img/loading.gif" alt="Loading..." />
 				</div>
+			</div>
+			<div ng-if="showResponse">
+				<div ng-if="showSuccess" class="row top-buffer alert alert-success">{{message}}</div>
+				<div ng-if="showError" class="row top-buffer alert alert-danger">
+					{{message}}</div>
 			</div>
 		</div>
 	</div>
-</section>
+</div>

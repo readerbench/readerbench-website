@@ -394,10 +394,13 @@ DemoTexts = {
 		ignore: 'janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre',
 		language: DemoElements.languages[1] // fr
 	},
-	vCoPView : {
+	vCoPView: {
 		title: 'View Community',
 		language: DemoElements.languages[0],
 		CommunityGlobalView : 'Coommunity Global View',
 		CommunityInTimeFrameView : 'Community in selected timeframe view'
+	},
+	contact: {
+		title: 'Contact Us'
 	}
 };
