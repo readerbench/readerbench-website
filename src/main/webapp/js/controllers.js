@@ -163,10 +163,12 @@
 											text : encodeURIComponent(
 													$scope.formData.text)
 													.replace(/%0D/g, "%0A"),
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value
@@ -220,10 +222,12 @@
 											text : encodeURIComponent(
 													$scope.formData.text)
 													.replace(/%0D/g, "%0A"),
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value
@@ -277,10 +281,12 @@
 											text : encodeURIComponent(
 													$scope.formData.text)
 													.replace(/%0D/g, "%0A"),
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value,
@@ -499,10 +505,12 @@
 											file : $scope.formData.file,
 											abstract : $scope.formData.abstract,
 											keywords : $scope.formData.keywords,
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value,
@@ -616,10 +624,12 @@
 										var data = {
 											text : $scope.formData.text,
 											explanation : $scope.formData.explanation,
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value
@@ -771,10 +781,12 @@
 
 										var data = {
 											csclFile : $scope.formData.csclFile,
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value,
@@ -1021,10 +1033,12 @@
 										var data = {
 											cvFile : $scope.formData.cv,
 											coverFile : $scope.formData.cover,
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value,
@@ -1226,10 +1240,12 @@
 										var data = {
 											cvFile : $scope.formData.cv,
 											keywords : $scope.formData.keywords,
-											lang : $scope.formData.language.value,
-											lsa : ServerSettings.lsaRoot + '/'
+											lang : $scope.formData.language.name,
+											lsa : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LSA' + '/'
 													+ $scope.formData.lsa.value,
-											lda : ServerSettings.ldaRoot + '/'
+											lda : ServerSettings.configRoot + '/'
+                                                                                                        + $scope.formData.language.value + '/' + 'LDA' + '/'
 													+ $scope.formData.lda.value,
 											postagging : $scope.formData.posTagging.value,
 											dialogism : $scope.formData.dialogism.value,
