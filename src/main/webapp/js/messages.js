@@ -13,7 +13,7 @@ DemoItems = [
     {name: 'CSCL', href: 'demo/cscl'},
     //	{name:'CV & Cover letter', href:'demo/cv-cover'},
     {name: 'CV', href: 'demo/cv'},
-    {name: 'vCoP', href: 'demo/vCoPView'}
+    {name: 'VCoP', href: 'demo/vcop'}
 ];
 DemoElements = {
     languages: [
@@ -87,6 +87,11 @@ DemoElements = {
 
         }
     },
+    vcopCommunityOptions: [
+        {id: '1', name: 'Forum Nic', value: 'forum_Nic'},
+        {id: '2', name: '', value: ''}
+    ],
+    defaultVcopCommunityOptions: {id: '1', name: 'Forum Nic', value: 'forum_Nic'},
     textualComplexityOptions: [
         {id: '1', name: 'Yes', value: true},
         {id: '2', name: 'No', value: false}
@@ -392,7 +397,7 @@ DemoTexts = {
         ignore: 'janvier, février, mars, avril, mai, juin, juillet, août, septembre, octobre, novembre, décembre',
         language: DemoElements.languages[1] // fr
     },
-    vCoPView: {
+    vcop: {
         title: 'View Community',
         language: DemoElements.languages[0],
         CommunityGlobalView: 'Coommunity Global View',
