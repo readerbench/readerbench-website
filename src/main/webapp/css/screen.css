@@ -20,13 +20,13 @@ img {
 html .row-fit {
     margin: 0
 }
-html .row-fit[class*="col-"] {
+html .row-fit [class*="col-"] {
     padding: 0
 }
 html .row-fit-10 {
     margin: 0 -5px
 }
-html .row-fit-10[class*="col-"] {
+html .row-fit-10 [class*="col-"] {
     padding: 0 5px
 }
 input[type="number"],
