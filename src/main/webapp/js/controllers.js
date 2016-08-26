@@ -1,5 +1,9 @@
 "use strict";
 
+var NavBarItems;
+var BrowseItems;
+var AboutSections;
+
 (function () {
     angular
             .module('controllers', ['services', 'ngFileUpload'])
@@ -14,8 +18,7 @@
 
                     $scope.openMenu = function () {
                         $scope.hamburgerMenu = !$scope.hamburgerMenu;
-
-                    }
+                    };
 
                     // angular.element($window).bind("scroll", function() {
                     // console.log("in scroll")
@@ -31,9 +34,7 @@
 
                 }])
             .controller('ReaderMenuController', ['$scope', function ($scope) {
-
                     $scope.navItems = NavBarItems;
-
                 }])
             .controller('HomeController', ['$scope', function ($scope) {
                     $scope.browseSections = BrowseItems;
@@ -85,18 +86,14 @@
                                     });
                 }])
             .controller('PeopleController', ['$scope', function ($scope) {
-
                     $scope.peopleListUPB = PeopleUPB;
                     $scope.peopleListLSE = PeopleLSE;
                     $scope.peopleListLMU = PeopleLMU;
                     $scope.peopleListASU = PeopleASU;
                     $scope.peopleListGSU = PeopleGSU;
-
                 }])
             .controller('DemoMenuController', ['$scope', function ($scope) {
-
                     $scope.demoItems = DemoItems;
-
                 }])
             .controller('DemoController',
             ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
@@ -119,13 +116,10 @@
                     $scope.posTaggingOptions = DemoElements.posTaggingOptions;
                     $scope.dialogismOptions = DemoElements.dialogismOptions;
 
-                    $scope
-                            .$watch(
-                                    'formData.language',
-                                    function () {
-                                        $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
-                                        $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
-                                    });
+                    $scope.$watch('formData.language', function () {
+                        $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+                        $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+                    });
 
                     // Text Processing Form Data
                     $scope.formData = {
@@ -160,8 +154,7 @@
                                 endpoint = 'getSentiment';
 
                                 var params = {
-                                    text: encodeURIComponent(
-                                            $scope.formData.text)
+                                    text: encodeURIComponent($scope.formData.text)
                                             .replace(/%0D/g, "%0A"),
                                     lang: $scope.formData.language.name,
                                     lsa: ServerSettings.configRoot + '/'
@@ -172,45 +165,34 @@
                                             + $scope.formData.lda.value,
                                     postagging: $scope.formData.posTagging.value,
                                     dialogism: $scope.formData.dialogism.value
-                                }
+                                };
 
                                 $http
-                                        .get(
-                                                buildServerPath(
-                                                        endpoint,
-                                                        params))
-                                        .then(
+                                        .get(buildServerPath(endpoint, params))
+                                        .then(function (response) {
+                                            $scope.loading = false;
+                                            if (response.data.success != true) {
+                                                alert('Server error occured!');
+                                                return;
+                                            }
+
+                                            $scope.showResults = 'SENTIMENT_ANALYSIS';
+
+                                            $scope.sentiments = response.data.data;
+                                            var interval = setInterval(function () {
+                                                if ($scope.sentiments.count == response.data.data.count) {
+                                                    clearInterval(interval);
+                                                    courseDescriptionToggle();
+                                                }
+                                            }, 1000);
+                                        },
                                                 function (response) {
-
                                                     $scope.loading = false;
-
-                                                    if (response.data.success != true) {
-                                                        alert('Server error occured!');
-                                                        return;
-                                                    }
-
-                                                    $scope.showResults = 'SENTIMENT_ANALYSIS';
-
-                                                    $scope.sentiments = response.data.data;
-                                                    var interval = setInterval(
-                                                            function () {
-                                                                if ($scope.sentiments.count == response.data.data.count) {
-                                                                    clearInterval(interval);
-                                                                    courseDescriptionToggle();
-                                                                }
-                                                            }, 1000);
-
-                                                },
-                                                function (response) {
-
-                                                    $scope.loading = false;
-
                                                     if (response.status == 0) {
                                                         alert('Server error occured!');
                                                     } else {
                                                         alert(response.statusText);
                                                     }
-
                                                 });
                                 break;
 
@@ -1183,391 +1165,387 @@
                                                                                                                     },
                                                                                                                     function (evt) {
                                                                                                                         file.progress = Math
-                                                                                                                                .min(
-                                                                                                                                        100,
-                                                                                                                                        parseInt(100.0
-                                                                                                                                                * evt.loaded
-                                                                                                                                                / evt.total));
-                                                                                                                                    });
-                                                                                                                        }
-                                                                                                                    }
+                                                                                                                                .min(100, parseInt(100.0 * evt.loaded / evt.total));
+                                                                                                                    });
+                                                                                                }
+                                                                                            }
 
-                                                                                                                    // texts
-                                                                                                                    $scope.title = DemoTexts.cv.title;
+                                                                                            // texts
+                                                                                            $scope.title = DemoTexts.cv.title;
 
-                                                                                                                    // options for selectable fields
-                                                                                                                    $scope.advanced = false;
-                                                                                                                    $scope.languages = DemoElements.languages;
-                                                                                                                    $scope.posTaggingOptions = DemoElements.posTaggingOptions;
-                                                                                                                    $scope.dialogismOptions = DemoElements.dialogismOptions;
+                                                                                            // options for selectable fields
+                                                                                            $scope.advanced = false;
+                                                                                            $scope.languages = DemoElements.languages;
+                                                                                            $scope.posTaggingOptions = DemoElements.posTaggingOptions;
+                                                                                            $scope.dialogismOptions = DemoElements.dialogismOptions;
 
-                                                                                                                    $scope
-                                                                                                                            .$watch(
-                                                                                                                                    'formData.language',
+                                                                                            $scope
+                                                                                                    .$watch(
+                                                                                                            'formData.language',
+                                                                                                            function () {
+                                                                                                                $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+                                                                                                                $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+                                                                                                            });
+
+                                                                                            $scope.formData = {
+                                                                                                keywords: DemoTexts.cv.keywords,
+                                                                                                ignore: DemoTexts.cv.ignore,
+                                                                                                language: DemoTexts.cv.language,
+                                                                                                lsa: DemoElements.defaultMetricOptions.lsa.French,
+                                                                                                lda: DemoElements.defaultMetricOptions.lda.French,
+                                                                                                posTagging: DemoElements.defaultPosTaggingOption,
+                                                                                                dialogism: DemoElements.defaultDialogismOption,
+                                                                                                threshold: DemoElements.defaultSemanticSimilarityThreshold
+                                                                                            };
+
+                                                                                            $scope.loading = false;
+
+                                                                                            $scope.topics = null;
+                                                                                            $scope.topicEdges = null;
+
+                                                                                            $scope.buttonClick = function (req) {
+
+                                                                                                $scope.showConceptMap = false;
+
+                                                                                                var endpoint;
+                                                                                                switch (req) {
+                                                                                                    case 'CV_COVER':
+
+                                                                                                        $scope.loading = true;
+
+                                                                                                        endpoint = 'cvProcessing';
+
+                                                                                                        var data = {
+                                                                                                            cvFile: $scope.formData.cv,
+                                                                                                            keywords: $scope.formData.keywords,
+                                                                                                            lang: $scope.formData.language.name,
+                                                                                                            lsa: ServerSettings.configRoot + '/'
+                                                                                                                    + $scope.formData.language.value + '/' + 'LSA' + '/'
+                                                                                                                    + $scope.formData.lsa.value,
+                                                                                                            lda: ServerSettings.configRoot + '/'
+                                                                                                                    + $scope.formData.language.value + '/' + 'LDA' + '/'
+                                                                                                                    + $scope.formData.lda.value,
+                                                                                                            postagging: $scope.formData.posTagging.value,
+                                                                                                            dialogism: $scope.formData.dialogism.value,
+                                                                                                            threshold: $scope.formData.threshold
+                                                                                                        };
+
+                                                                                                        var params = {};
+
+                                                                                                        $http
+                                                                                                                .post(
+                                                                                                                        buildServerPath(
+                                                                                                                                endpoint,
+                                                                                                                                params), data)
+                                                                                                                .then(
+                                                                                                                        function (response) {
+
+                                                                                                                            $scope.loading = false;
+
+                                                                                                                            if (response.data.success != true) {
+                                                                                                                                alert('Server error occured!');
+                                                                                                                                return;
+                                                                                                                            }
+
+                                                                                                                            // build concept map
+                                                                                                                            $scope.showConceptMap = true;
+                                                                                                                            $scope.topics = response.data.data.concepts.nodes;
+                                                                                                                            $scope.topicEdges = response.data.data.concepts.links;
+                                                                                                                            var intervalCvTopics = setInterval(
                                                                                                                                     function () {
-                                                                                                                                        $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
-                                                                                                                                        $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
-                                                                                                                                    });
+                                                                                                                                        if ($scope.topicEdges.count == response.data.data.concepts.links.count) {
+                                                                                                                                            clearInterval(intervalCvTopics);
+                                                                                                                                            d3jsForTopicsForvCop(
+                                                                                                                                                    response.data.data.concepts,
+                                                                                                                                                    "#conceptMapCv",
+                                                                                                                                                    false);
+                                                                                                                                        }
+                                                                                                                                    }, 1000);
 
-                                                                                                                    $scope.formData = {
-                                                                                                                        keywords: DemoTexts.cv.keywords,
-                                                                                                                        ignore: DemoTexts.cv.ignore,
-                                                                                                                        language: DemoTexts.cv.language,
-                                                                                                                        lsa: DemoElements.defaultMetricOptions.lsa.French,
-                                                                                                                        lda: DemoElements.defaultMetricOptions.lda.French,
-                                                                                                                        posTagging: DemoElements.defaultPosTaggingOption,
-                                                                                                                        dialogism: DemoElements.defaultDialogismOption,
-                                                                                                                        threshold: DemoElements.defaultSemanticSimilarityThreshold
-                                                                                                                    };
+                                                                                                                            // show textual
+                                                                                                                            // complexity
+                                                                                                                            $scope.showComplexity = true;
+                                                                                                                            $scope.complexity = response.data.data.textualComplexity;
+                                                                                                                            var intervalComplexity = setInterval(
+                                                                                                                                    function () {
+                                                                                                                                        if ($scope.complexity.count == response.data.data.textualComplexity.count) {
+                                                                                                                                            clearInterval(intervalComplexity);
+                                                                                                                                            courseDescriptionToggle('#textual-complexity');
+                                                                                                                                        }
+                                                                                                                                    }, 1000);
 
-                                                                                                                    $scope.loading = false;
+                                                                                                                            $scope.showStats = true;
+                                                                                                                            $scope.pages = response.data.data.pages;
+                                                                                                                            $scope.paragraphs = response.data.data.paragraphs;
+                                                                                                                            $scope.sentences = response.data.data.sentences;
+                                                                                                                            $scope.words = response.data.data.words;
+                                                                                                                            $scope.contentWords = response.data.data.contentWords;
+                                                                                                                            $scope.colors = response.data.data.colors;
+                                                                                                                            $scope.images = response.data.data.images;
 
-                                                                                                                    $scope.topics = null;
-                                                                                                                    $scope.topicEdges = null;
+                                                                                                                            $scope.showWords = true;
+                                                                                                                            $scope.positiveWords = response.data.data.positiveWords;
+                                                                                                                            $scope.negativeWords = response.data.data.negativeWords;
 
-                                                                                                                    $scope.buttonClick = function (req) {
+                                                                                                                            // show LIWC
+                                                                                                                            // valences
+                                                                                                                            $scope.showValences = true;
+                                                                                                                            $scope.liwcEmotions = response.data.data.liwcEmotions;
+                                                                                                                            var intervalLiwc = setInterval(
+                                                                                                                                    function () {
+                                                                                                                                        if ($scope.liwcEmotions.count == response.data.data.liwcEmotions.count) {
+                                                                                                                                            clearInterval(intervalLiwc);
+                                                                                                                                            courseDescriptionToggle('#liwc-sentiments');
+                                                                                                                                        }
+                                                                                                                                    }, 1000);
 
-                                                                                                                        $scope.showConceptMap = false;
+                                                                                                                            $scope.showSemanticRelevance = true;
+                                                                                                                            // specific keywords
+                                                                                                                            $scope.keywords = response.data.data.keywords;
+                                                                                                                            // keywords document
+                                                                                                                            // relevance
+                                                                                                                            $scope.keywordsDocumentCoverage = response.data.data.keywordsDocumentRelevance;
 
-                                                                                                                        var endpoint;
-                                                                                                                        switch (req) {
-                                                                                                                            case 'CV_COVER':
+                                                                                                                        },
+                                                                                                                        function (response) {
 
-                                                                                                                                $scope.loading = true;
+                                                                                                                            $scope.loading = false;
 
-                                                                                                                                endpoint = 'cvProcessing';
+                                                                                                                            if (response.status == 0) {
+                                                                                                                                alert('Server error occured!');
+                                                                                                                            } else {
+                                                                                                                                alert(response.statusText);
+                                                                                                                            }
 
-                                                                                                                                var data = {
-                                                                                                                                    cvFile: $scope.formData.cv,
-                                                                                                                                    keywords: $scope.formData.keywords,
-                                                                                                                                    lang: $scope.formData.language.name,
-                                                                                                                                    lsa: ServerSettings.configRoot + '/'
-                                                                                                                                            + $scope.formData.language.value + '/' + 'LSA' + '/'
-                                                                                                                                            + $scope.formData.lsa.value,
-                                                                                                                                    lda: ServerSettings.configRoot + '/'
-                                                                                                                                            + $scope.formData.language.value + '/' + 'LDA' + '/'
-                                                                                                                                            + $scope.formData.lda.value,
-                                                                                                                                    postagging: $scope.formData.posTagging.value,
-                                                                                                                                    dialogism: $scope.formData.dialogism.value,
-                                                                                                                                    threshold: $scope.formData.threshold
-                                                                                                                                };
+                                                                                                                        });
+                                                                                                        break;
+                                                                                                }
+                                                                                            }
 
-                                                                                                                                var params = {};
+                                                                                        }])
+                                                                                    .controller(
+                                                                                            'DemoVcopController',
+                                                                                    [
+                                                                                        '$scope',
+                                                                                        '$http',
+                                                                                        '$sce',
+                                                                                        'Upload',
+                                                                                        '$timeout',
+                                                                                        function ($scope, $http, $sce, Upload, $timeout) {
 
-                                                                                                                                $http
-                                                                                                                                        .post(
-                                                                                                                                                buildServerPath(
-                                                                                                                                                        endpoint,
-                                                                                                                                                        params), data)
-                                                                                                                                        .then(
-                                                                                                                                                function (response) {
+                                                                                            // texts
+                                                                                            $scope.title = DemoTexts.vcop.title;
 
-                                                                                                                                                    $scope.loading = false;
+                                                                                            // options for selectable fields
+                                                                                            $scope.vcopCommunityOptions = DemoElements.vcopCommunityOptions;
+                                                                                            $scope.textualComplexityOptions = DemoElements.textualComplexityOptions;
 
-                                                                                                                                                    if (response.data.success != true) {
-                                                                                                                                                        alert('Server error occured!');
-                                                                                                                                                        return;
+                                                                                            $scope.formData = {
+                                                                                                community: DemoElements.defaultVcopCommunityOptions,
+                                                                                                useTextualComplexity: DemoElements.defaulttextualComplexityOptions,
+                                                                                                monthIncrement: DemoElements.defaultMonthIncrement,
+                                                                                                dayIncrement: DemoElements.defaultDayIncrement
+                                                                                            };
+
+                                                                                            $scope.loading = false;
+
+                                                                                            $scope.communityNodes = null;
+                                                                                            $scope.communityEdges = null;
+
+                                                                                            $scope.communityInTimeFrameNodes = null;
+                                                                                            $scope.communityInTimeFrameEdges = null;
+
+                                                                                            $scope.communityInTimeList = null;
+                                                                                            $scope.communityInTimeNodes = null;
+                                                                                            $scope.communityInTimeEdges = null;
+
+                                                                                            $scope.buttonClick = function (req) {
+
+                                                                                                $scope.showCommunityGraph = false;
+                                                                                                $scope.showCommunityInATimeFrameGraph = false;
+                                                                                                $scope.showCommunityInTimeGraph = false;
+
+                                                                                                var endpoint;
+                                                                                                switch (req) {
+                                                                                                    case 'Community':
+
+                                                                                                        $scope.loading = true;
+
+                                                                                                        endpoint = 'vcop';
+
+                                                                                                        var data = {
+                                                                                                            community: $scope.formData.community.value,
+                                                                                                            startDate: $scope.formData.startDate,
+                                                                                                            endDate: $scope.formData.endDate,
+                                                                                                            monthIncrement: $scope.formData.monthIncrement,
+                                                                                                            dayIncrement: $scope.formData.dayIncrement,
+                                                                                                            useTextualComplexity: $scope.formData.useTextualComplexity.value
+                                                                                                        };
+
+                                                                                                        var params = {};
+
+                                                                                                        $http
+                                                                                                                .post(
+                                                                                                                        buildServerPath(
+                                                                                                                                endpoint,
+                                                                                                                                params), data)
+                                                                                                                .then(
+                                                                                                                        function (response) {
+
+                                                                                                                            $scope.loading = false;
+
+                                                                                                                            if (response.data.success != true) {
+                                                                                                                                alert('Server error occured!');
+                                                                                                                                return;
+                                                                                                                            }
+
+                                                                                                                            // build all the
+                                                                                                                            // community
+                                                                                                                            $scope.showCommunityGraph = true;
+                                                                                                                            $scope.communityNodes = response.data.data.participantInteractionAllDocuments.nodes;
+                                                                                                                            $scope.communityEdges = response.data.data.participantInteractionAllDocuments.links;
+
+                                                                                                                            var intervalParticipantInteraction = setInterval(
+                                                                                                                                    function () {
+                                                                                                                                        if ($scope.communityEdges.count == response.data.data.participantInteractionAllDocuments.links.count) {
+                                                                                                                                            clearInterval(intervalParticipantInteraction);
+                                                                                                                                            d3jsForTopicsForvCop(
+                                                                                                                                                    response.data.data.participantInteractionAllDocuments,
+                                                                                                                                                    "#communityGraph",
+                                                                                                                                                    false);
+                                                                                                                                        }
+                                                                                                                                    }, 1000);
+
+                                                                                                                            // build community
+                                                                                                                            // from start to end
+                                                                                                                            $scope.showCommunityInATimeFrameGraph = true;
+                                                                                                                            $scope.communityInTimeFrameNodes = response.data.data.participantInteractionStartEndDate.nodes;
+                                                                                                                            $scope.communityInTimeFrameEdges = response.data.data.participantInteractionStartEndDate.links;
+                                                                                                                            var intervalCommunityInTimeFrame = setInterval(
+                                                                                                                                    function () {
+                                                                                                                                        if ($scope.communityInTimeFrameEdges.count == response.data.data.participantInteractionStartEndDate.links.count) {
+                                                                                                                                            clearInterval(intervalCommunityInTimeFrame);
+                                                                                                                                            d3jsForTopicsForvCop(
+                                                                                                                                                    response.data.data.participantInteractionStartEndDate,
+                                                                                                                                                    "#communityInATimeFrameGraph",
+                                                                                                                                                    false);
+                                                                                                                                        }
+                                                                                                                                    }, 1000);
+
+                                                                                                                            // build community
+                                                                                                                            // from start to end
+                                                                                                                            $scope.showCommunityInTimeGraph = true;
+                                                                                                                            $scope.communityInTimeList = response.data.data.participantInteractionInTimeList;
+
+                                                                                                                            var i = 0;
+                                                                                                                            $scope.communityParticipantInteractionInTimeEdges = null;
+                                                                                                                            var intervalparticipantInteractionInTime = setInterval(
+                                                                                                                                    function () {
+                                                                                                                                        response.data.data.participantInteractionInTimeList
+                                                                                                                                                .forEach(function (
+                                                                                                                                                        participantInteractionInTime,
+                                                                                                                                                        index) {
+                                                                                                                                                    console
+                                                                                                                                                            .log(participantInteractionInTime);
+                                                                                                                                                    $scope.communityParticipantInteractionInTimeEdges = participantInteractionInTime.links;
+                                                                                                                                                    if ($scope.communityParticipantInteractionInTimeEdges.count == response.data.data.participantInteractionInTimeList[index].links.count) {
+                                                                                                                                                        clearInterval(intervalparticipantInteractionInTime);
+                                                                                                                                                        d3jsForTopicsForvCoPSubcommunities(
+                                                                                                                                                                participantInteractionInTime,
+                                                                                                                                                                "#communityInTimeGraph"
+                                                                                                                                                                + index,
+                                                                                                                                                                false);
+
                                                                                                                                                     }
+                                                                                                                                                })
+                                                                                                                                    }, 1000);
+                                                                                                                        },
+                                                                                                                        function (response) {
 
-                                                                                                                                                    // build concept map
-                                                                                                                                                    $scope.showConceptMap = true;
-                                                                                                                                                    $scope.topics = response.data.data.concepts.nodes;
-                                                                                                                                                    $scope.topicEdges = response.data.data.concepts.links;
-                                                                                                                                                    var intervalCvTopics = setInterval(
-                                                                                                                                                            function () {
-                                                                                                                                                                if ($scope.topicEdges.count == response.data.data.concepts.links.count) {
-                                                                                                                                                                    clearInterval(intervalCvTopics);
-                                                                                                                                                                    d3jsForTopicsForvCop(
-                                                                                                                                                                            response.data.data.concepts,
-                                                                                                                                                                            "#conceptMapCv",
-                                                                                                                                                                            false);
-                                                                                                                                                                }
-                                                                                                                                                            }, 1000);
+                                                                                                                            $scope.loading = false;
 
-                                                                                                                                                    // show textual
-                                                                                                                                                    // complexity
-                                                                                                                                                    $scope.showComplexity = true;
-                                                                                                                                                    $scope.complexity = response.data.data.textualComplexity;
-                                                                                                                                                    var intervalComplexity = setInterval(
-                                                                                                                                                            function () {
-                                                                                                                                                                if ($scope.complexity.count == response.data.data.textualComplexity.count) {
-                                                                                                                                                                    clearInterval(intervalComplexity);
-                                                                                                                                                                    courseDescriptionToggle('#textual-complexity');
-                                                                                                                                                                }
-                                                                                                                                                            }, 1000);
+                                                                                                                            if (response.status == 0) {
+                                                                                                                                alert('Server error occured!');
+                                                                                                                            } else {
+                                                                                                                                alert(response.statusText);
+                                                                                                                            }
 
-                                                                                                                                                    $scope.showStats = true;
-                                                                                                                                                    $scope.pages = response.data.data.pages;
-                                                                                                                                                    $scope.paragraphs = response.data.data.paragraphs;
-                                                                                                                                                    $scope.sentences = response.data.data.sentences;
-                                                                                                                                                    $scope.words = response.data.data.words;
-                                                                                                                                                    $scope.contentWords = response.data.data.contentWords;
-                                                                                                                                                    $scope.colors = response.data.data.colors;
-                                                                                                                                                    $scope.images = response.data.data.images;
+                                                                                                                        });
+                                                                                                        break;
+                                                                                                }
+                                                                                            }
 
-                                                                                                                                                    $scope.showWords = true;
-                                                                                                                                                    $scope.positiveWords = response.data.data.positiveWords;
-                                                                                                                                                    $scope.negativeWords = response.data.data.negativeWords;
+                                                                                        }]).controller(
+                                                                                    'ContactController',
+                                                                            [
+                                                                                '$scope',
+                                                                                '$http',
+                                                                                '$sce',
+                                                                                function ($scope, $http, $sce) {
 
-                                                                                                                                                    // show LIWC
-                                                                                                                                                    // valences
-                                                                                                                                                    $scope.showValences = true;
-                                                                                                                                                    $scope.liwcEmotions = response.data.data.liwcEmotions;
-                                                                                                                                                    var intervalLiwc = setInterval(
-                                                                                                                                                            function () {
-                                                                                                                                                                if ($scope.liwcEmotions.count == response.data.data.liwcEmotions.count) {
-                                                                                                                                                                    clearInterval(intervalLiwc);
-                                                                                                                                                                    courseDescriptionToggle('#liwc-sentiments');
-                                                                                                                                                                }
-                                                                                                                                                            }, 1000);
+                                                                                    // texts
+                                                                                    $scope.title = DemoTexts.contact.title;
 
-                                                                                                                                                    $scope.showSemanticRelevance = true;
-                                                                                                                                                    // specific keywords
-                                                                                                                                                    $scope.keywords = response.data.data.keywords;
-                                                                                                                                                    // keywords document
-                                                                                                                                                    // relevance
-                                                                                                                                                    $scope.keywordsDocumentCoverage = response.data.data.keywordsDocumentRelevance;
+                                                                                    $scope.loading = false;
 
-                                                                                                                                                },
-                                                                                                                                                function (response) {
+                                                                                    $scope.formData = {
+                                                                                        name: '',
+                                                                                        email: '',
+                                                                                        title: '',
+                                                                                        message: ''
+                                                                                    };
 
-                                                                                                                                                    $scope.loading = false;
+                                                                                    $scope.sendMessage = function () {
 
-                                                                                                                                                    if (response.status == 0) {
-                                                                                                                                                        alert('Server error occured!');
-                                                                                                                                                    } else {
-                                                                                                                                                        alert(response.statusText);
-                                                                                                                                                    }
+                                                                                        $scope.showResponse = false;
 
-                                                                                                                                                });
-                                                                                                                                break;
-                                                                                                                        }
-                                                                                                                    }
+                                                                                        var endpoint;
 
-                                                                                                                }])
-                                                                                                            .controller(
-                                                                                                                    'DemoVcopController',
-                                                                                                            [
-                                                                                                                '$scope',
-                                                                                                                '$http',
-                                                                                                                '$sce',
-                                                                                                                'Upload',
-                                                                                                                '$timeout',
-                                                                                                                function ($scope, $http, $sce, Upload, $timeout) {
+                                                                                        $scope.loading = true;
 
-                                                                                                                    // texts
-                                                                                                                    $scope.title = DemoTexts.vcop.title;
+                                                                                        endpoint = 'sendContactEmail';
+                                                                                        var data = {
+                                                                                            name: $scope.formData.name,
+                                                                                            email: $scope.formData.email,
+                                                                                            subject: $scope.formData.subject,
+                                                                                            message: $scope.formData.message
+                                                                                        };
 
-                                                                                                                    // options for selectable fields
-                                                                                                                    $scope.vcopCommunityOptions = DemoElements.vcopCommunityOptions;
-                                                                                                                    $scope.textualComplexityOptions = DemoElements.textualComplexityOptions;
-                                                                                                                    
-                                                                                                                    $scope.formData = {
-                                                                                                                        community: DemoElements.defaultVcopCommunityOptions,
-                                                                                                                        useTextualComplexity: DemoElements.defaulttextualComplexityOptions,
-                                                                                                                        monthIncrement: DemoElements.defaultMonthIncrement,
-                                                                                                                        dayIncrement: DemoElements.defaultDayIncrement
-                                                                                                                    };
+                                                                                        var params = {};
 
-                                                                                                                    $scope.loading = false;
+                                                                                        $http.post(
+                                                                                                buildServerPath(endpoint, params),
+                                                                                                data).then(function (response) {
 
-                                                                                                                    $scope.communityNodes = null;
-                                                                                                                    $scope.communityEdges = null;
+                                                                                            $scope.loading = false;
+                                                                                            $scope.showResponse = true;
 
-                                                                                                                    $scope.communityInTimeFrameNodes = null;
-                                                                                                                    $scope.communityInTimeFrameEdges = null;
+                                                                                            if (response.data.success != true) {
+                                                                                                alert('Server error occured!');
+                                                                                                return;
+                                                                                            }
 
-                                                                                                                    $scope.communityInTimeList = null;
-                                                                                                                    $scope.communityInTimeNodes = null;
-                                                                                                                    $scope.communityInTimeEdges = null;
-
-                                                                                                                    $scope.buttonClick = function (req) {
-
-                                                                                                                        $scope.showCommunityGraph = false;
-                                                                                                                        $scope.showCommunityInATimeFrameGraph = false;
-                                                                                                                        $scope.showCommunityInTimeGraph = false;
-
-                                                                                                                        var endpoint;
-                                                                                                                        switch (req) {
-                                                                                                                            case 'Community':
-
-                                                                                                                                $scope.loading = true;
-
-                                                                                                                                endpoint = 'vcop';
-
-                                                                                                                                var data = {
-                                                                                                                                    community: $scope.formData.community.value,
-                                                                                                                                    startDate: $scope.formData.startDate,
-                                                                                                                                    endDate: $scope.formData.endDate,
-                                                                                                                                    monthIncrement: $scope.formData.monthIncrement,
-                                                                                                                                    dayIncrement: $scope.formData.dayIncrement,
-                                                                                                                                    useTextualComplexity: $scope.formData.useTextualComplexity.value
-                                                                                                                                };
-
-                                                                                                                                var params = {};
-
-                                                                                                                                $http
-                                                                                                                                        .post(
-                                                                                                                                                buildServerPath(
-                                                                                                                                                        endpoint,
-                                                                                                                                                        params), data)
-                                                                                                                                        .then(
-                                                                                                                                                function (response) {
-
-                                                                                                                                                    $scope.loading = false;
-
-                                                                                                                                                    if (response.data.success != true) {
-                                                                                                                                                        alert('Server error occured!');
-                                                                                                                                                        return;
-                                                                                                                                                    }
-
-                                                                                                                                                    // build all the
-                                                                                                                                                    // community
-                                                                                                                                                    $scope.showCommunityGraph = true;
-                                                                                                                                                    $scope.communityNodes = response.data.data.participantInteractionAllDocuments.nodes;
-                                                                                                                                                    $scope.communityEdges = response.data.data.participantInteractionAllDocuments.links;
-
-                                                                                                                                                    var intervalParticipantInteraction = setInterval(
-                                                                                                                                                            function () {
-                                                                                                                                                                if ($scope.communityEdges.count == response.data.data.participantInteractionAllDocuments.links.count) {
-                                                                                                                                                                    clearInterval(intervalParticipantInteraction);
-                                                                                                                                                                    d3jsForTopicsForvCop(
-                                                                                                                                                                            response.data.data.participantInteractionAllDocuments,
-                                                                                                                                                                            "#communityGraph",
-                                                                                                                                                                            false);
-                                                                                                                                                                }
-                                                                                                                                                            }, 1000);
-
-                                                                                                                                                    // build community
-                                                                                                                                                    // from start to end
-                                                                                                                                                    $scope.showCommunityInATimeFrameGraph = true;
-                                                                                                                                                    $scope.communityInTimeFrameNodes = response.data.data.participantInteractionStartEndDate.nodes;
-                                                                                                                                                    $scope.communityInTimeFrameEdges = response.data.data.participantInteractionStartEndDate.links;
-                                                                                                                                                    var intervalCommunityInTimeFrame = setInterval(
-                                                                                                                                                            function () {
-                                                                                                                                                                if ($scope.communityInTimeFrameEdges.count == response.data.data.participantInteractionStartEndDate.links.count) {
-                                                                                                                                                                    clearInterval(intervalCommunityInTimeFrame);
-                                                                                                                                                                    d3jsForTopicsForvCop(
-                                                                                                                                                                            response.data.data.participantInteractionStartEndDate,
-                                                                                                                                                                            "#communityInATimeFrameGraph",
-                                                                                                                                                                            false);
-                                                                                                                                                                }
-                                                                                                                                                            }, 1000);
-
-                                                                                                                                                    // build community
-                                                                                                                                                    // from start to end
-                                                                                                                                                    $scope.showCommunityInTimeGraph = true;
-                                                                                                                                                    $scope.communityInTimeList = response.data.data.participantInteractionInTimeList;
-
-                                                                                                                                                    var i = 0;
-                                                                                                                                                    $scope.communityParticipantInteractionInTimeEdges = null;
-                                                                                                                                                    var intervalparticipantInteractionInTime = setInterval(
-                                                                                                                                                            function () {
-                                                                                                                                                                response.data.data.participantInteractionInTimeList
-                                                                                                                                                                        .forEach(function (
-                                                                                                                                                                                participantInteractionInTime,
-                                                                                                                                                                                index) {
-                                                                                                                                                                            console
-                                                                                                                                                                                    .log(participantInteractionInTime);
-                                                                                                                                                                            $scope.communityParticipantInteractionInTimeEdges = participantInteractionInTime.links;
-                                                                                                                                                                            if ($scope.communityParticipantInteractionInTimeEdges.count == response.data.data.participantInteractionInTimeList[index].links.count) {
-                                                                                                                                                                                clearInterval(intervalparticipantInteractionInTime);
-                                                                                                                                                                                d3jsForTopicsForvCoPSubcommunities(
-                                                                                                                                                                                        participantInteractionInTime,
-                                                                                                                                                                                        "#communityInTimeGraph"
-                                                                                                                                                                                        + index,
-                                                                                                                                                                                        false);
-
-                                                                                                                                                                            }
-                                                                                                                                                                        })
-                                                                                                                                                            }, 1000);
-                                                                                                                                                },
-                                                                                                                                                function (response) {
-
-                                                                                                                                                    $scope.loading = false;
-
-                                                                                                                                                    if (response.status == 0) {
-                                                                                                                                                        alert('Server error occured!');
-                                                                                                                                                    } else {
-                                                                                                                                                        alert(response.statusText);
-                                                                                                                                                    }
-
-                                                                                                                                                });
-                                                                                                                                break;
-                                                                                                                        }
-                                                                                                                    }
-
-                                                                                                                }]).controller(
-                                                                                                            'ContactController',
-                                                                                                    [
-                                                                                                        '$scope',
-                                                                                                        '$http',
-                                                                                                        '$sce',
-                                                                                                        function ($scope, $http, $sce) {
-
-                                                                                                            // texts
-                                                                                                            $scope.title = DemoTexts.contact.title;
-
-                                                                                                            $scope.loading = false;
-
-                                                                                                            $scope.formData = {
-                                                                                                                name: '',
-                                                                                                                email: '',
-                                                                                                                title: '',
-                                                                                                                message: ''
-                                                                                                            };
-
-                                                                                                            $scope.sendMessage = function () {
-
-                                                                                                                $scope.showResponse = false;
-
-                                                                                                                var endpoint;
-
-                                                                                                                $scope.loading = true;
-
-                                                                                                                endpoint = 'sendContactEmail';
-                                                                                                                var data = {
-                                                                                                                    name: $scope.formData.name,
-                                                                                                                    email: $scope.formData.email,
-                                                                                                                    subject: $scope.formData.subject,
-                                                                                                                    message: $scope.formData.message
-                                                                                                                };
-
-                                                                                                                var params = {};
-
-                                                                                                                $http.post(
-                                                                                                                        buildServerPath(endpoint, params),
-                                                                                                                        data).then(function (response) {
-
-                                                                                                                    $scope.loading = false;
-                                                                                                                    $scope.showResponse = true;
-
-                                                                                                                    if (response.data.success != true) {
-                                                                                                                        alert('Server error occured!');
-                                                                                                                        return;
-                                                                                                                    }
-
-                                                                                                                    $scope.message = response.data.mailgun.message;
-                                                                                                                    $scope.showSuccess = true;
+                                                                                            $scope.message = response.data.mailgun.message;
+                                                                                            $scope.showSuccess = true;
 
 
-                                                                                                                }, function (response) {
+                                                                                        }, function (response) {
 
-                                                                                                                    $scope.loading = false;
+                                                                                            $scope.loading = false;
 
-                                                                                                                    if (response.status == 0) {
-                                                                                                                        alert('Server error occured!');
-                                                                                                                    } else {
-                                                                                                                        alert(response.statusText);
-                                                                                                                    }
+                                                                                            if (response.status == 0) {
+                                                                                                alert('Server error occured!');
+                                                                                            } else {
+                                                                                                alert(response.statusText);
+                                                                                            }
 
-                                                                                                                });
-                                                                                                            }
+                                                                                        });
+                                                                                    }
 
-                                                                                                        }]).controller('ProjectsController',
-                                                                                                    ['$scope', function ($scope) {
+                                                                                }]).controller('ProjectsController',
+                                                                            ['$scope', function ($scope) {
 
-                                                                                                            $scope.projectsList = Projects;
+                                                                                    $scope.projectsList = Projects;
 
-                                                                                                        }])
-                                                                                                })();
+                                                                                }])
+                                                                        })();
