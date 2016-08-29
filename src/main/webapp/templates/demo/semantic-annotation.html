@@ -214,16 +214,32 @@
 				        <div ng-if="showSemanticCategories" class="row"><!--  && tabSemanticAnnotation == 'SEMANTIC_CATEGORIES' -->
 				        	<div class="col-xs-12 col-md-12">
 					        	<h4>Categorisation</h4>
-					        	<ul class="course-description-list">
-						            <li class="lesson" ng-repeat="category in categories">
-						            	<div class="heading">
-											<span class="lesson-nr no-select">{{category.relevance}}</span>
-										</div>
-										<div class="body">
-											<p>{{category.name}}</p>
-										</div>
-						            </li>
-						        </ul>
+                                <div class="col-xs-12 col-md-6">
+                                    <h5>ACM Classification</h5>
+                                    <ul class="course-description-list">
+                                        <li class="lesson" ng-repeat="category in categories | filter:{ type: 1 }">
+                                            <div class="heading">
+                                                <span class="lesson-nr no-select">{{category.relevance}}</span>
+                                            </div>
+                                            <div class="body">
+                                                <p>{{category.name}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-md-6">
+                                    <h5>Serious Games Classification</h5>
+                                    <ul class="course-description-list">
+                                        <li class="lesson" ng-repeat="category in categories | filter:{ type: 2 }">
+                                            <div class="heading">
+                                                <span class="lesson-nr no-select">{{category.relevance}}</span>
+                                            </div>
+                                            <div class="body">
+                                                <p>{{category.name}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
 					        </div>
 				        </div>
 					        
