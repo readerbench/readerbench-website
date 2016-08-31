@@ -22,13 +22,13 @@ module.exports = function(grunt) {
         },
         delta: {
             css: {
-                files: 'css/**/*.css',
+                files: '**/*.css',
                 options: {
                     livereload: true,
                 },
             },
             src: {
-                files: ['**/*.html', 'Gruntfile.js', 'scripts/**/*.js'],
+                files: ['**/*.html', 'Gruntfile.js', '/chat/**/*.js', '/js/**/*.js'],
             },
             options: {
                 livereload: true

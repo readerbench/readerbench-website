@@ -385,7 +385,7 @@ textarea.feedback-form {
 	height: 200px;
 	max-height: none;
 	resize: none;
-	background: url("/images/idea.png") no-repeat;
+	background: url("/chat/app/images/idea.png") no-repeat;
 	background-position: center center;
 }
 textarea.feedback-form:focus {
