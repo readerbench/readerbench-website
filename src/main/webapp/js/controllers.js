@@ -14,7 +14,7 @@ var AboutSections;
             .controller('HeaderController',
             ['$scope', '$window', function ($scope, $window) {
 
-                    $scope.hamburgerMenu = true;
+                    if(_isNotMobile) $scope.hamburgerMenu = true;
 
                     $scope.openMenu = function () {
                         $scope.hamburgerMenu = !$scope.hamburgerMenu;
