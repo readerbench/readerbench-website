@@ -1,0 +1,187 @@
+{
+    "app": {
+        "name": "Chatify"
+    },
+    "common": {
+        "return": "Return",
+        "coming_soon": "Coming soon ..."
+    },
+    "auth": {
+        "form": {
+            "login": {
+                "title": "Start chatting. It's free.",
+                "submit": "Log In",
+                "facebook": "Connect with Facebook",
+                "google": "Connect with Google",
+                "forgot": "Forgot your password?",
+                "signup": "Don't have an account? <span> Sign Up now!</span>",
+                "remember": "Remember me"
+            },
+            "signup": {
+                "title": "Sign up. It's free.",
+                "submit": "Sign Up",
+                "business": "Are you a business? <span> Get started here</span>",
+                "has_account": "Already have an account? <span>Sign In!</span>"
+            },
+            "forgot": {
+                "title": "Forgot your password?",
+                "submit": "Send resend password email",
+                "login": "Know your password? <span> Sign In. </span>"
+            },
+            "placeholder": {
+                "name": "Full Name",
+                "email": "Email",
+                "password": "Password"
+            }
+        }
+    },
+    "header": {
+        "tooltips": {
+            "home": "Dashboard",
+            "export": "Export Transcript"
+        },
+        "export": "Export Transcript",
+        "search": "Search",
+        "menu": {
+            "my_profile": "My Profile",
+            "change_language": "Change Language",
+            "bookmarks": "Starred messages",
+            "mentions": "Recent Mentions",
+            "feedback": "Feedback",
+            "logout": "Logout"
+        }
+    },
+    "sidebar": {
+        "btn": {
+            "open": "Open sidebar menu",
+            "close": "Close sidebar menu"
+        },
+        "dashboard": {
+            "title": "Dashboard"
+        },
+        "rooms": {
+            "title": "Rooms",
+            "add": "Create a room",
+            "delete": "Room was sucesfully deleted."
+        },
+        "friends": {
+            "title": "Friends",
+            "add": "Invite a friend"
+        },
+        "profile": {
+            "status": {
+                "online": "Online",
+                "busy": "Busy",
+                "invisible": "Invisible",
+                "offline": "Offline"
+            },
+            "change_photo": "Change photo"
+        }
+    },
+    "dashboard": {
+        "no_room": {
+            "title": "No chat room was created yet",
+            "add": "Create new chat room"
+        },
+        "rooms": {
+            "title": "Rooms",
+            "create": "Create a room",
+            "last_message": "Last message: {{ lastAccessed }}",
+            "no_messages": "No messages yet.",
+            "no_online_user": "No user is in the room.",
+            "online_user": "<strong> One </strong> online user.",
+            "online_users": "<strong> {{ online }} </strong> online users."
+        },
+        "friend": {
+            "title": "Friends",
+            "invite": "Invite a friend",
+            "hide": "Hide friend",
+            "call": "Call",
+            "video": "Start video call"
+        },
+        "bookmarks": {
+            "title": "Starred messages",
+            "blank": {
+                "title": "No messages were starred yet."
+            }
+        }
+    },
+    "chatroom": {
+        "room": {
+            "export": {
+                "title": "Choose format",
+                "export": "Export",
+                "xml": "XML",
+                "json": "JSON"
+            }
+        }
+    },
+    "room": {
+        "timestamp": {
+            "now": "Right now"
+        },
+        "message": {
+            "edit": "Edit",
+            "translate": "Translate",
+            "linked": "This is a reply to a previous message",
+            "reply": "Reply to this message"
+        },
+        "postbox": {
+            "placeholder": "Type your message",
+            "send": "Send"
+        }
+    },
+    "modals": {
+        "profile": {
+            "title": "My profile",
+            "placeholder": {
+                "name": "Name",
+                "textarea": "Bio"
+            },
+            "upload": "Upload photo",
+            "add": "Save changes",
+            "tooltips": {
+                "delete": "Remove this photo"
+            },
+            "alerts": {
+                "picture": {
+                    "add": "Profile image has been updated.",
+                    "remove": "Profile image has been removed."
+                }
+            },
+            "language": "Select language",
+            "country": "Select country"
+        },
+        "change_language": {
+            "title": "Change Language",
+            "en": "English",
+            "ro": "Română"
+        },
+        "invite_friend": {
+            "title": "Invite a friend",
+            "placeholder": {
+                "name": "Friend's name",
+                "email": "Friend's email"
+            },
+            "invite": "Invite friend"
+        },
+        "create_room": {
+            "title": "New chat room",
+            "placeholder": "Room's name",
+            "private": "Private",
+            "public": "Public",
+            "members": {
+                "add": "Invite members"
+            },
+            "add": "Create room"
+        },
+        "keyword": {
+            "title": "{{ keyword }}"
+        },
+        "feedback": {
+            "title": "Feedback",
+            "send": "Submit feedback",
+            "success": "Feedback has been succesfully sent."
+        }
+    }
+}

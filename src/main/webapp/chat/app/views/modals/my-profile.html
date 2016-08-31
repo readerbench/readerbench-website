@@ -1,0 +1,100 @@
+<div class="modal-header">
+    <button type="button" class="close close-modal" aria-hidden="true" ng-click="close();">&times;</button>
+    <h2 class="modal-title" translate="modals.profile.title"></h2>
+    <hr class="separator">
+</div>
+<div class="modal-body">
+    <div class="photo-section">
+        <div class="manage-photo">
+            <input
+                id="fileUpload"
+                type="file"
+                name="picture"
+                class="upload"
+                fileread="profile.fileUpload"
+            />
+                <label class="ease-transition" for="fileUpload">
+                    <div class="avatar lg">
+                        <img ng-src="{{User.user.picture}}" ng-if="User.user.picture" />
+                    </div>
+                    <span translate="modals.profile.upload"></span>
+                </label>
+        </div>
+        <a class="remove-photo"
+            ng-click="removePicture();"
+            tooltip="{{'modals.profile.tooltips.delete' | translate}}"
+            tooltip-placement="right"
+            >
+            <i class="icon-cross"
+                >
+            </i>
+        </a>
+    </div>
+    <hr class="small-separator separator">
+    <div class="profile-info">
+        <form>
+            <label>
+                <input
+                    type="text"
+                    class="form-control complete-profile"
+                    name="name"
+                    focus="name"
+                    ng-model="user.name"
+                    minlength="3"
+                    placeholder="{{'modals.profile.placeholder.name' | translate}}"
+                />
+            </label>
+            <label class="flex">
+                <div class="form-control select">
+                    <a>
+                        <span translate="modals.profile.language"></span>
+                    </a>
+                    <ul class="lang-options countries-list ease-transition">
+                        <li ng-repeat="(code, language) in languages"
+                            ng-class="{active: language === profile.language}"
+                        >
+                            <a class="flag {{code}}">{{ language }}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="form-control complete-profile select ease-transition">
+                    <a>
+                        <span translate="modals.profile.country"></span>
+                    </a>
+                    <ul class="countries-list lang-options">
+                        <li class="active">
+                            <a>Select country</a>
+                        </li>
+                        <li>
+                            <a class="flag fr">France</a>
+                        </li>
+                        <li>
+                            <a class="flag de">Germany</a>
+                        </li>
+                        <li>
+                            <a class="flag it">Italy</a>
+                        </li>
+                        <li>
+                            <a class="flag pt-br">Portugal</a>
+                        </li>
+                        <li>
+                            <a class="flag ro">Romania</a>
+                        </li>
+                        <li>
+                            <a class="flag es">Spain</a>
+                        </li>
+                        <li>
+                            <a class="flag en">United States</a>
+                        </li>
+                    </ul>
+                </div>
+            </label>
+            <textarea class="form-control" placeholder="{{'modals.profile.placeholder.textarea' | translate}}"></textarea>
+        </form>
+    </div>
+    <button
+        class="btn btn-success btn-block addbtn add-more"
+        translate="modals.profile.add"
+        ng-click="saveProfile();"
+    ></button>
+</div>

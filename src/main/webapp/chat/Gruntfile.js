@@ -86,7 +86,7 @@ module.exports = function (grunt) {
                     base: [
                         '<%= yeoman.app %>',
                         '.tmp',
-                        'app/bower_components/ui-bootstrap'
+                        './app/bower_components/ui-bootstrap'
                     ]
                 }
             },
@@ -359,6 +359,9 @@ module.exports = function (grunt) {
         if (target === 'dist') {
             return grunt.task.run(['build', 'connect:dist:keepalive']);
         }
+
+// return grunt.task.run(['build', 'connect:dist:keepalive']);
+
 
         grunt.task.run([
             'clean:server',

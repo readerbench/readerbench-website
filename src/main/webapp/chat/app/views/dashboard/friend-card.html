@@ -1,0 +1,56 @@
+<div class="wrap-card" ui-sref="main.chat.friend({friendId: user.id})">
+    <div class="close-button" ng-click="$event.stopPropagation();">
+        <i class="fa fa-eye-slash"
+            tooltip="{{'dashboard.friend.hide' | translate}}"
+            tooltip-placement="right"
+        >
+        </i>
+    </div>
+    <div class="thumbnail">
+        <div class="card-name">
+            <div class="avatar lg msg-avatar">
+                <img ng-src="{{user.picture}}" ng-if="user.picture" />
+            </div>
+            <a class="status-name">
+                <div class="st-{{user.online && user.status || 'offline'}}">
+                    <span class="circle"></span>
+                </div>
+                &nbsp;
+                <h3>{{user.name}}</h3>
+            </a>
+            <ul class="friend-options">
+                <li>
+                    <a 
+                        ng-click="Alert.warn('common.coming_soon'); $event.stopPropagation();"
+                        tooltip="{{'dashboard.friend.call' | translate}}"
+                        tooltip-placement="bottom"
+                        >
+                        <i class="fa fa-phone"></i>
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="Alert.warn('common.coming_soon'); $event.stopPropagation();"
+                        tooltip="{{'dashboard.friend.video' | translate}}"
+                        tooltip-placement="bottom"
+                        >
+                        <i class="fa fa-video-camera"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <hr class="separator">
+        <div class="card-details">
+            <p
+                ng-if="user.lastMessageAt"
+                translate-values="{lastAccessed: '{{ user.lastMessageAt | date:'MMM d, h:mm a'}}' }"
+                translate="dashboard.rooms.last_message"
+            >
+            </p>
+            <p
+                ng-if="!user.lastMessageAt"
+                translate="dashboard.rooms.no_messages"
+            >
+            </p>
+        </div>
+    </div>
+</div>
