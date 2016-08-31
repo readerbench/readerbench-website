@@ -85,6 +85,10 @@ section.section-hero.project-list .hero-content.courses-list{
 	display: table;
 	clear: both;
 	overflow: hidden;
+    text-align: center;
+}
+.bottom-buttons button {
+    background: transparent;
 }
 
 .right-buttons{
