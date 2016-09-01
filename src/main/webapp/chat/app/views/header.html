@@ -1,6 +1,7 @@
 <nav class="header navbar navbar-defaultr chatroom-header col-xs-9 col-md-10" role="navigation">
     <ul class="header-item room-info">
         <li ng-class="{active: showMenu.roomName}">
+            <div>
             <a
                 class="room"
                 ng-if="room.name"
@@ -9,6 +10,7 @@
                 <!-- <i class="fa fa-ellipsis-v"></i>&nbsp; -->
                 <span class="room-name"> {{room.name}} &nbsp;</span>
             </a>
+            </div>
             <div
                 class="menu-area menu-conversation ease-transition">
                 <i class="main-caret caret-up"></i>

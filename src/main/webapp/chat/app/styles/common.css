@@ -172,6 +172,7 @@ h2 {
 .header {
   margin-bottom: 0px;
   border-radius: 0;
+  text-align: right;
 }
 
 /* Remove the bottom border on the jumbotron for visual effect */

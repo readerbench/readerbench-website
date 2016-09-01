@@ -32,7 +32,8 @@
 .room-info {
   font-size: 1.8rem;
   font-weight: 600;
-  width: 30%;
+  width: 100%;
+  margin-left: auto;
 }
 
 .room-info li {
@@ -83,7 +84,7 @@
 }
 
 .nav-tools {
-  width: 75%;
+  width: 50px;
   text-align: right;
 }
 .nav-tools li {
@@ -104,6 +105,7 @@
   vertical-align: middle;
   font-weight: 400;
   font-size: 1.4rem;
+  width: 50px;
 }
 .menu-btn:hover {
   /* background: #f1f7fa; */
@@ -112,6 +114,7 @@
 }
 #menu-list .fa-caret-down {
   display: none;
+  width: 50px;
 }
 .menu-conversation a {
   line-height: normal!important;
@@ -136,7 +139,7 @@
 }
 .menu-conversation {
   top: 35px;
-  right: -165px;
+  right: -90px;
 }
 .menu-conversation .caret-up:before  {
    left: 25px;
