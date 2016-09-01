@@ -68,7 +68,8 @@ angular.module('models')
         if (this.channel) {
             Socket.ready.then(function () {
                 var model = self.channel.substr(1);
-                Socket.off(model);
+                Socket.off = model.removeListener;
+                // Socket.off(model);
             });
         }
     };
