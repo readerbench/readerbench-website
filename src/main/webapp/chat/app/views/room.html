@@ -1,0 +1,143 @@
+<div id="chatroom" class="col-xs-9 col-md-10">
+    <div id="conversation">
+        <div class="list-group col-xs-9 col-md-10">
+            <!-- <div id="history-date" class="divider-container">
+                <div class="divider"></div>
+                <h3 translate="room.timestamp.now"></h3>
+            </div> -->
+            <ul clss=" col-xs-9 col-md-10">
+                <li class="list-group-item col-xs-12 col-md-12"
+                    ng-class="{me: msgGroup.0.user === User.user.id}"
+                    scroll-if="$last"
+                    ng-repeat="($id, msgGroup) in Message.data[roomId]"
+                >
+                    <div class="header-msg col-xs-12 col-md-12">
+                        <div class="col-xs-3 col-md-2 avatar msg-avatar avatar1">
+                            <img ng-src="{{User.getById(msgGroup.0.user).picture}}" ng-if="User.getById(msgGroup.0.user).picture" />
+                        </div>
+                        <div class="col-xs-9 col-md-10 user-name">
+                            <div class="gen-info">
+                                <a class="user inline">
+                                    {{User.getById(msgGroup.0.user) | userName}}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="group-msg-txt col-xs-12 col-md-12">
+                        <li
+                            class="msg col-xs-12 col-md-12"
+                            ng-class="{highlight: isHighlight[message.id], editing: edit.id === message.id}"
+                            ng-repeat="message in msgGroup track by $index"
+                        >
+                            <div class="msg-container col-xs-10 col-md-10">
+                                <div class="left-info">
+                                    <div class="star-msg">
+                                        <i
+                                            class="fa fa-star"
+                                            ng-class="{active: Bookmark.data[message.id]}"
+                                            ng-click="Bookmark.toggle(User.user.id, message.id, roomId);">
+                                        </i>
+                                    </div>
+                                    <div class="reply-description msg-reference" ng-if="message.reply.messages.length" ng-click="highlight(message.reply.messages)">
+                                        <i
+                                            class="fa fa-reply"
+                                            tooltip="{{'room.message.linked' | translate}}"
+                                            tooltip-placement="bottom"
+                                        >
+                                        </i>
+                                    </div>
+                                </div>
+                                <div class="txt-msg col-xs-12 col-md-12">
+                                    <div class="editable-area"
+                                        contenteditable
+                                        focus="message"
+                                        ng-if="edit.id === message.id"
+                                        ng-model="message.editedMessage"
+                                        submit="updateMessage"
+                                        strip-br="true"
+                                        ng-blur="editMessage()"
+                                        required
+                                    >
+                                    </div>
+                                    <span ng-if="edit.id !== message.id"
+                                        ng-bind-html="message.message | findKeywords"
+                                    >
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="right-info col-xs-2 col-md-2">
+                                <a class="time col-xs-6 col-md-8" tooltip="{{message.createdAt | date:'mediumDate'}}" tooltip-placement="bottom">
+                                    <span ng-bind-html="message.createdAt | date:'shortTime'"></span>
+                                </a>
+                                <div
+                                    class="msg-options col-xs-3 col-md-2"
+                                >
+                                    <i class="fa fa-cog"></i>
+                                    <ul class="menu-options main-menu ease-transition">
+                                        <i class="main-caret right-caret"></i>
+                                        <li class="lang"><a translate="room.message.translate"></a>
+                                            <ul class="menu-options lang-options ease-transition">
+                                                <i class="main-caret right-caret"></i>
+                                                <li ng-repeat="language in languages track by $index">
+                                                    <a
+                                                        class="flag {{language.1}}"
+                                                        ng-click="translate(message, language.1);"
+                                                    >
+                                                        {{language.0}}
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="edit" ng-if="message.user === User.user.id">
+                                            <a
+                                                ng-click="editMessage(message)"
+                                                translate="room.message.edit"
+                                            ></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div
+                                    class="reply col-xs-3 col-md-2"
+                                    ng-class="{selected: msg.reply[message.id]}"
+                                    ng-click="msg.reply[message.id] = !msg.reply[message.id]"
+                                >
+                                    <i
+                                        class="fa fa-reply"
+                                        tooltip="{{'room.message.reply' | translate}}"
+                                        tooltip-placement="top"
+                                    ></i>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div id="postbox" class="panel col-xs-9 col-md-10">
+            <form role="form" name="msgForm" ng-submit="send();" novalidate>
+                <div class="form-group  col-xs-10 col-md-11 wrap-form">
+                    <input id="type-msg" class="form-control"
+                        name="posbox"
+                        focus="postbox"
+                        placeholder="{{ 'room.postbox.placeholder' | translate }}"
+                        ng-model="msg.message"
+                        minlength="1"
+                        autofocus>
+                    <div class="msg-options">
+                        <i class="fa fa-cog"></i>
+                        <ul class="menu-options lang-options">
+                            <i class="main-caret caret-down"></i>
+                            <li ng-repeat="language in languages track by $index">
+                                <a
+                                    class="flag {{language.1}}"
+                                    ng-click="translate(msg, language.1);"
+                                >{{language.0}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="btn btn-success submit-post col-xs-2 col-md-1" translate="room.postbox.send"></button>
+            </form>
+        </div>
+    </div>
+</div>

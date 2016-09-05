@@ -1,0 +1,67 @@
+<div class="container">
+    <div class="row wrap-auth" ng-class="{shake: errorSubmission}">
+        <div class="alert error moveDown" ng-show="auth.errorMsg">{{auth.errorMsg}}</div>
+        <div class="opacity"></div>
+        <form
+            class="form-signin mg-btm"
+            name="auth.form"
+            role="form"
+            novalidate
+            ng-submit="login()"
+        >
+            <h3 class="heading-desc" translate="auth.form.login.title"></h3>
+            <div class="main">
+                <input
+                    type="text"
+                    name="email"
+                    class="form-control"
+                    placeholder="{{ 'auth.form.placeholder.email' | translate }}"
+                    focus="email"
+                    ng-model="user.email"
+                    required
+                    ng-pattern="user.emailRegexp"
+                >
+                <input
+                    type="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="{{ 'auth.form.placeholder.password' | translate }}"
+                    focus="password"
+                    ng-model="user.password"
+                    required
+                    minlength="3"
+                >
+                <div class="help">
+                    <label>
+                        <input class="checkbox" type="checkbox" ng-model="user.rememberMe">
+                        <span translate="auth.form.login.remember"></span>
+                    </label>
+                    <a class="forgot" href="#auth/forgot" translate="auth.form.login.forgot"></a>
+                </div>
+                <!--
+                <span translate="auth.form.business.text"></span>
+                <a href="/auth/business" translate="auth.form.business.link"></a> -->
+                <span class="clearfix"></span>
+                <button type="submit" class="btn btn-large btn-success big-btn" translate="auth.form.login.submit"></button>
+            </div>
+            <div class="divider-container">
+                <div class="part-divider"></div>
+                <span class="center-span">or</span>
+                <div class="part-divider"></div>
+            </div>
+            <div class="social-box">
+                <a class="btn btn-primary social-login-btn social-facebook" href="#/auth/facebook">
+                    <i class="fa fa-facebook"></i>
+                    <span translate="auth.form.login.facebook"></span>
+                </a>
+                <a class="btn btn-primary social-login-btn social-google" href="#/auth/google">
+                    <i class="fa fa-google-plus"></i>
+                    <span translate="auth.form.login.google"></span>
+                </a>
+            </div>
+            <div class="login-footer">
+                <a class="auth-anchor" href="#auth/signup" translate="auth.form.login.signup"></a>
+            </div>
+      </form>
+    </div>
+</div>

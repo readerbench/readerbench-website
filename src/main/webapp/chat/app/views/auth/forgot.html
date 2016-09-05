@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row wrap-auth" ng-class="{shake: errorSubmission}">
+        <div class="alert error" ng-show="auth.errorMsg">{{auth.errorMsg}}</div>
+        <div class="opacity"></div>
+        <form
+            class="form-signin mg-btm"
+            name="auth.form"
+            role="form"
+            novalidate
+            ng-submit="login()"
+        >
+            <h3 class="heading-desc" translate="auth.form.forgot.title"></h3>
+            <div class="main">
+                <input
+                    type="text"
+                    name="email"
+                    class="form-control"
+                    placeholder="{{ 'auth.form.placeholder.email' | translate }}"
+                    autofocus
+                    focus="email"
+                    ng-model="user.email"
+                    required
+                    ng-pattern="user.emailRegexp"
+                >
+                <span class="clearfix"></span>
+                <button type="submit" class="btn btn-large btn-success big-btn" translate="auth.form.forgot.submit"></button>
+            </div>
+            <div class="login-footer">
+                <a class="auth-anchor" href="#auth/login" translate="auth.form.forgot.login"></a>
+            </div>
+      </form>
+    </div>
+</div>

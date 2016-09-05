@@ -1,0 +1,181 @@
+<!doctype html>
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css styles/vendor.css -->
+        <link rel="stylesheet" href="/chat/app/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/chat/app/bower_components/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="/chat/app/bower_components/ng-tags-input/ng-tags-input.css" />
+        <!-- endbuild -->
+        <!-- build:css(app) styles/main.css -->
+        <link rel="stylesheet" href="/chat/app/styles/main.css">
+        <link rel="stylesheet" href="/chat/app/styles/header.css">
+        <link rel="stylesheet" href="/chat/app/styles/sidebar.css">
+        <link rel="stylesheet" href="/chat/app/styles/chatroom.css">
+        <link rel="stylesheet" href="/chat/app/styles/dashboard.css">
+        <link rel="stylesheet" href="/chat/app/styles/postbox.css">
+        <link rel="stylesheet" href="/chat/app/styles/modals.css">
+        <link rel="stylesheet" href="/chat/app/styles/auth.css">
+        <link rel="stylesheet" href="/chat/app/styles/common.css">
+        <link rel="stylesheet" href="/chat/app/styles/fonts.css">
+        <!-- endbuild -->
+
+        <script src="/chat/app/scripts/before-start.js"></script>
+    </head>
+    <body ng-app="chat" ng-class="{auth: State.auth, bg: !State.auth}">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        <ui-alert></ui-alert>
+        <div ng-show="!State.loading">
+            <div class="main-view" ui-view="auth"></div>
+            <div class="main-view" ui-view="logout"></div>
+            <div ui-view="main"></div>
+        </div>
+
+        <div id="loader" ng-show="State.loading">
+            <div id="loading-img"></div>
+        </div>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+        <!--
+        <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-XXXXX-X');
+            ga('send', 'pageview');
+        </script>
+        -->
+        <!--[if lt IE 9]>
+        <script src="bower_components/es5-shim/es5-shim.js"></script>
+        <script src="bower_components/json3/lib/json3.min.js"></script>
+        <![endif]-->
+
+        <!-- build:js scripts/vendor.js -->
+        <!-- angular packages -->
+        <script src="/chat/app/bower_components/angular/angular.js"></script>
+        <script src="/chat/app/bower_components/angular-animate/angular-animate.js"></script>
+        <script src="/chat/app/bower_components/angular-sanitize/angular-sanitize.js"></script>
+
+        <script src="/chat/app/bower_components/angular-translate/angular-translate.js"></script>
+        <script src="/chat/app/bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+
+        <script src="/chat/app/bower_components/underscore/underscore.js"></script>
+        <script src="/chat/app/bower_components/jit/Jit/jit.js"></script>
+        <script src="/chat/app/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
+        <script src="/chat/app/scripts/lib/socket.io.js"></script>
+        <script src="/chat/app/bower_components/sails.io.js/sails.io.js"></script>
+
+        <!-- angular ui bootstrap packages -->
+        <script src="/chat/app/bower_components/ui-bootstrap/src/modal/modal.js"></script>
+        <script src="/chat/app/bower_components/ui-bootstrap/src/transition/transition.js"></script>
+        <script src="/chat/app/bower_components/ui-bootstrap/src/tooltip/tooltip.js"></script>
+        <script src="/chat/app/bower_components/ui-bootstrap/src/position/position.js"></script>
+        <script src="/chat/app/bower_components/ui-bootstrap/src/bindHtml/bindHtml.js"></script>
+        <!--<script src="/chat/app/bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="/chat/app/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>-->
+
+        <script src="/chat/app/bower_components/ng-tags-input/ng-tags-input.js"></script>
+        <script src="/chat/app/bower_components/angular-scroll/angular-scroll.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/config.js -->
+        <script src="/chat/app/config/config.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js({app}) scripts/scripts.js -->
+        <script src="/chat/app/scripts/app.js"></script>
+        <script src="/chat/app/scripts/urls.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/services.js -->
+        <script src="/chat/app/scripts/services/Auth.js"></script>
+        <script src="/chat/app/scripts/services/Alert.js"></script>
+        <script src="/chat/app/scripts/services/SessionManagement.js"></script>
+        <script src="/chat/app/scripts/services/exceptionHandler.js"></script>
+
+        <script src="/chat/app/scripts/services/stats/Mixpanel.js"></script>
+
+        <script src="/chat/app/scripts/services/Socket.js"></script>
+        <script src="/chat/app/scripts/services/util/Cookie.js"></script>
+        <script src="/chat/app/scripts/services/util/Util.js"></script>
+        <script src="/chat/app/scripts/services/util/OSBrowserDetection.js"></script>
+        <script src="/chat/app/scripts/services/util/Timers.js"></script>
+
+        <script src="/chat/app/scripts/services/Focus.js"></script>
+        <script src="/chat/app/scripts/services/Data.js"></script>
+        <script src="/chat/app/scripts/services/Data2.js"></script>
+        <script src="/chat/app/scripts/services/Language.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/models.js -->
+        <script src="/chat/app/scripts/models/model.js"></script>
+        <script src="/chat/app/scripts/models/user.js"></script>
+        <script src="/chat/app/scripts/models/room.js"></script>
+        <script src="/chat/app/scripts/models/message.js"></script>
+        <script src="/chat/app/scripts/models/bookmark.js"></script>
+        <script src="/chat/app/scripts/models/reply.js"></script>
+
+        <script src="/chat/app/scripts/models/feedback.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/modules.js -->
+        <script src="/chat/app/scripts/modules/templates.js"></script>
+        <script src="/chat/app/scripts/modules/modals.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/controllers.js -->
+        <script src="/chat/app/scripts/controllers/auth/auth.js"></script>
+        <script src="/chat/app/scripts/controllers/auth/login.js"></script>
+        <script src="/chat/app/scripts/controllers/auth/forgot.js"></script>
+        <script src="/chat/app/scripts/controllers/auth/signup.js"></script>
+        <script src="/chat/app/scripts/controllers/auth/logout.js"></script>
+        <script src="/chat/app/scripts/controllers/header.js"></script>
+        <script src="/chat/app/scripts/controllers/sidebar.js"></script>
+        <script src="/chat/app/scripts/controllers/dashboard.js"></script>
+        <script src="/chat/app/scripts/controllers/roomCtrl.js"></script>
+
+        <script src="/chat/app/scripts/controllers/modals/newRoom.js"></script>
+        <script src="/chat/app/scripts/controllers/modals/inviteFriend.js"></script>
+        <script src="/chat/app/scripts/controllers/modals/myProfile.js"></script>
+        <script src="/chat/app/scripts/controllers/modals/changeLanguage.js"></script>
+        <script src="/chat/app/scripts/controllers/modals/feedback.js"></script>
+        <script src="/chat/app/scripts/controllers/modals/keyword.js"></script>
+        <script src="/chat/app/scripts/controllers/modals/exportTranscript.js"></script>
+
+        <!-- Directives -->
+        <script src="/chat/app/scripts/directives/alert.js"></script>
+        <script src="/chat/app/scripts/directives/contenteditable.js"></script>
+        <script src="/chat/app/scripts/directives/scrollIf.js"></script>
+        <script src="/chat/app/scripts/directives/focus.js"></script>
+        <script src="/chat/app/scripts/directives/fileread.js"></script>
+        <script src="/chat/app/scripts/directives/scrollToDashboardSection.js"></script>
+
+        <!-- Filters -->
+        <script src="/chat/app/scripts/filters/findKeywords.js"></script>
+        <script src="/chat/app/scripts/filters/userName.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js scripts/resolvers.js -->
+        <!-- Resolvers -->
+        <script src="/chat/app/scripts/resolvers/auth.js"></script>
+        <script src="/chat/app/scripts/resolvers/dashboard.js"></script>
+        <script src="/chat/app/scripts/resolvers/room.js"></script>
+        <script src="/chat/app/scripts/resolvers/message.js"></script>
+        <script src="/chat/app/scripts/resolvers/bookmark.js"></script>
+        <script src="/chat/app/scripts/resolvers/friend.js"></script>
+        <script src="/chat/app/scripts/resolvers/translation.js"></script>
+        <!-- endbuild -->
+    </body>
+</html>

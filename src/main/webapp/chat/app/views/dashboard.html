@@ -1,0 +1,75 @@
+<div class="content col-xs-9 col-md-10">
+    <div class="wrap-dashboard">
+        <div id="rooms" class="box">
+            <h2 class="box-name">
+                <span translate="dashboard.rooms.title"></span>
+<!--                 <a ui-sref="modal({modal: 'new-room'})" ng-if="!room.name" class="add-more" role="button">
+                    <i class="fa fa-plus"></i>
+                    <span>Add</span>
+                </a> -->
+            </h2>
+            <div class="col-xs-12 col-sm-12 col-md-12 box-items" ng-if="Room.objects.length">
+                <div class="card col-xs-7 col-sm-5 col-md-4 col-lg-3" ng-repeat="room in Room.objects | filter:search track by $index">
+                    <div ng-include="'/chat/app/views/dashboard/room-card.html'"></div>
+                </div>
+            </div>
+            <div class="no-rooms" ng-if="!Room.objects.length" class="col-sm-6 col-md-12">
+                <h2 translate="dashboard.no_room.title"></h2>
+                <a ui-sref="modal({modal: 'new-room'})" class="add-more">
+                    <div class="wrap-btn">
+                        <i class="icon-plus"></i>
+                        <span translate="dashboard.rooms.create"></span>
+                    </div>
+                </a>
+            </div>
+            <hr class="separator">
+        </div>
+        <div id="friends" class="box">
+            <h2 class="box-name">
+                <span translate="dashboard.friend.title"></span>
+<!--                 <a ui-sref="modal({modal: 'new-friend'})" ng-if="!friend.name" class="add-more" role="button">
+                    <i class="fa fa-plus"></i>
+                    <span>Add</span>
+                </a> -->
+            </h2>
+            <div class="col-xs-12 col-md-12 box-items" ng-if="User.objects.length">
+                <div class="card col-xs-7 col-sm-5 col-md-4 col-lg-3" ng-if="user.id !== User.user.id" ng-repeat="user in User.objects | filter:search track by $index">
+                    <div ng-include="'/chat/app/views/dashboard/friend-card.html'"></div>
+                </div>
+
+                <div class="no-rooms" ng-if="User.objects.length <= 1" class="col-sm-6 col-md-12">
+                    <h2 translate="dashboard.no_room.title"></h2>
+                    <a ui-sref="modal({modal: 'invite-friend'})" class="add-more">
+                        <div class="wrap-btn">
+                            <i class="icon-plus"></i>
+                            <span translate="dashboard.friend.invite"></span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <hr class="separator" ng-if="Bookmark.objects.length">
+        </div>
+        <div id="bookmarks" class="box" ng-if="Bookmark.objects.length">
+            <h2 class="box-name">
+                <span translate="dashboard.bookmarks.title"></span>
+            </h2>
+            <ul class="col-xs-12 col-md-12 box-star" ng-if="Bookmark.objects.length">
+                <li class="msg-starred col-xs-12 col-md-12" ng-repeat="bookmark in Bookmark.objects">
+                    <div class="col-xs-3 col-md-2 inline-block gen-info msg-realtime">
+                        <i class="fa fa-star col-xs-2 col-md-1"></i>
+                        <a class="star-user col-xs-10 col-md-11">
+                            <span>{{User.getById(bookmark.message.user).name}}</span>
+                        </a>
+                    </div>
+                     <div class="txt-msg inline-block col-xs-9 col-md-10">
+                        <span>{{bookmark.message.message}}</span>
+                    </div>
+                    <a class="delete-msg">
+                        <i class="fa fa-trash-o"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div ui-view="dashboard.section"></div>
+    </div>
+</div>

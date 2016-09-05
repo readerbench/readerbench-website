@@ -1,0 +1,55 @@
+<div class="modal-header">
+    <button type="button" class="close close-modal" aria-hidden="true" ng-click="close();">&times;</button>
+    <h2 class="modal-title" translate="modals.create_room.title"></h2>
+    <hr class="separator">
+</div>
+<div class="modal-body">
+    <form
+        name="newRoom"
+        role="form"
+        novalidate
+        ng-submit="submit();"
+    >
+        <div class="form-group">
+            <input
+                type="text"
+                name="name"
+                class="form-control"
+                placeholder="{{ 'modals.create_room.placeholder' | translate }}"
+                focus="name"
+                ng-model="room.name"
+                required
+                minlength="3"
+            >
+        </div>
+
+        <ul class="list-unstyled col-xs-12 col-md-12 modal-list">
+            <li class="col-xs-6 col-md-6">
+                <input id="r1" type="radio" name="public" ng-model="room.isPrivate" value="private">
+                <label for="r1"> <span translate="modals.create_room.private"></span></label>
+            </li>
+            <li class="col-xs-6 col-md-6">
+                <input id="r2" type="radio" name="public" ng-model="room.isPrivate" value="public">
+                <label for="r2"> <span translate="modals.create_room.public"></span></label>
+            </li>
+        </ul>
+
+        <div class="wrap-autocompleter" ng-if="room.isPrivate === 'private'">
+            <tags-input
+                ng-model="room.friends"
+                replace-spaces-with-dashes="false"
+                placeholder="{{'modals.create_room.members.add' | translate}}"
+                min-length="1"
+                add-from-autocomplete-only="true"
+            >
+                <auto-complete
+                    source="friends($query)"
+                    min-length="1"
+                    debounce-delay="0"
+                ></auto-complete>
+            </tags-input>
+        </div>
+        <br>
+        <button class="btn btn-success btn-block addbtn add-more" translate="modals.create_room.add"></button>
+    </form>
+</div>

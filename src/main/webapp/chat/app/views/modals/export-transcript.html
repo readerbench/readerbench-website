@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <button type="button" class="close close-modal" aria-hidden="true" ng-click="close();">&times;</button>
+    <h2 class="modal-title" translate="chatroom.room.export.title"></h2>
+    <hr class="separator">
+</div>
+<div class="modal-body">
+    <ul class="list-unstyled col-xs-12 col-md-12 modal-list">
+        <li class="col-xs-6 col-md-6">
+            <input id="r1" type="radio" name="format" ng-model="form.format" value="xml">
+            <label for="r1"> <span translate="chatroom.room.export.xml"></span></label>
+        </li>
+        <li class="col-xs-6 col-md-6">
+            <input id="r2" type="radio" name="format" ng-model="form.format" value="json">
+            <label for="r2"> <span translate="chatroom.room.export.json"></span></label>
+        </li>
+    </ul>
+    <!--<button class="btn btn-primary" translate="chatroom.room.export.export" ng-click="export()"></button>-->
+    <a class="btn btn-primary addbtn add-more" translate="chatroom.room.export.export" ng-href="{{downloadTranscriptLink}}/?format={{form.format}}" target="_blank"></a>
+</div>
