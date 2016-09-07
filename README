@@ -1,37 +1,20 @@
-
-Pentru a instala site-ul:
+Comenzi de instalare:
 
 cd ../webapp
 npm install
-
 cd ../webapp/chat
 bower install
-npm install (sau se poate copia folderul npm_modules din /webapp)
-
+npm install
 cd ../webapp/chat/sails
 npm install
 
-Atentie:
-In momentul acesta ar trebui downloadata inca o dependinta (numele imi scapa).
-Pentru a face asta:
+Comenzi de start:
 
 cd ../webapp
-grunt watch (care este si comanda de pornire a site-ului)
+grunt connect
 
-Ar trebui sa apara o eroare spunand ca lipseste o dependinta… se copiaza numele si se instaleaza folosind:
-npm install XXX (trebuie copiat folderul npm_modules si suprascris cu cel din ../webapp/chat)
-
-Se ruleaza serverul Grunt (pentru schimbare port, se modifica in fisierul Gruntfile.js, din 9000 in orice port dorit).
-
-grunt watch
-
-Terminalul se lasa deschis si se deschide al terminal in care se va deschide serverul sails:
-cd ../webapp/chat/sails
-npm start
-
-In momentul acesta serverul ar trebui sa fie accesibil.
-
-Chat -> readerbench.com/chat/app
+Chat and WebVOWL routes:
+Chat -> readerbench.com/chat sau readerbench.com/chat/app
 WebVOWL -> readerbench.com/WebVOWL
 
 
