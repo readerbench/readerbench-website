@@ -12,6 +12,8 @@ Comenzi de start:
 
 cd ../webapp
 grunt connect
+cd ../webapp/chat/sails
+npm start (optiunea default aleasa ar fi 1, dar depinde de preferinte)
 
 Chat and WebVOWL routes:
 Chat -> readerbench.com/chat sau readerbench.com/chat/app
