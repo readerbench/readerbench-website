@@ -1,0 +1,77 @@
+module.exports = function(grunt) {
+    grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-express');
+    grunt.loadNpmTasks('grunt-contrib-clean');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-connect-rewrite');
+
+    var rewriteRulesSnippet = require('grunt-connect-rewrite/lib/utils').rewriteRequest;
+
+    grunt.renameTask('watch', 'delta');
+    grunt.initConfig({
+        express: {
+            devServer: {
+                options: {
+                    port: 9000,
+                    hostname: '0.0.0.0',
+                    serverreload: false,
+                    bases: '.',
+                    livereload: true
+                }
+            },
+            rules: [
+
+                    {from: '/docs/sentiment-analysis/manual', to: 'https://docs.google.com/document/d/1QLQ5tArdyrZurp_uCqg4wTsFRpzWsTybHQaeMYwYD5A/edit?usp=sharing', redirect:'permanent'},
+
+                    {from: '/docs/sentiment-analysis/sdd', to: 'https://docs.google.com/document/d/1zcSfpth0UP4qm9T8VkIJca7TqOvtQtWTrZ-FbnCENDQ/edit?usp=sharing', redirect:'permanent'},
+
+                    {from: '/docs/semantic-models/manual', to: 'https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.b1foaomg7if4', redirect:'permanent'},
+
+                    {from: '/docs/semantic-models/sdd', to: 'https://docs.google.com/document/d/1fMyOof5giKd9-BZt9i4ThXzi7hNp_fqFIa9U8BD3haQ/edit', redirect:'permanent'},
+                    
+                    {from: '/docs/essay-grading/manual', to: 'https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.typdl8bjnljw', redirect:'permanent'},
+
+                    {from: '/docs/essay-grading/sdd', to: 'https://docs.google.com/document/d/1r2l_qaewGmZP_yKwg6lVQHw4n5T1gMqQjUm46z1a-VY/edit', redirect:'permanent'},
+                   
+                    {from: '/docs/cscl/manual', to: 'https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.r5mzxbuhlnrd', redirect:'permanent'},
+
+                    {from: '/docs/cscl/sdd', to: 'https://docs.google.com/document/d/17JP49EtZXoZglRLklLeGnVLwBRT2hKsBuuf9PUFVbGs/edit', redirect:'permanent'},
+
+                    {from: '/docs/reading-strategies/manual', to: 'https://docs.google.com/document/d/1d_kT2V8_AOefrRv1gPTjYsvNOLWkapLSkXy93KgirrM/edit#heading=h.8waasfe8387d', redirect:'permanent'},
+
+                    {from: '/docs/reading-strategies/sdd', to: 'https://docs.google.com/document/d/1Q-BsAuWp2XmY1xmqursZuTbIyzeXoEAWs0m4mXDhhTc/edit', redirect:'permanent'}
+
+                    {from: '^/(home|demo|people|projects|publications|contact)$', to: '/index.html'},
+                    {from: '^/demo/(text-processing|semantic-annotation|self-explanation|cscl|cv-cover|cv|vcop)$', to: '/index.html'}
+
+            ]
+        },
+        delta: {
+            css: {
+                files: '**/*.css',
+                options: {
+                    livereload: true,
+                },
+            },
+            src: {
+                files: ['**/*.html', 'Gruntfile.js', '/chat/**/*.js', '/js/**/*.js'],
+            },
+            options: {
+                livereload: true
+            }
+        },
+        configureRewriteRules: {
+            options: {
+                rulesProvider: 'express.rules',
+            }
+        }
+    });
+    grunt.registerTask('watch', [ 'configureRewriteRules', 'express', 'delta' ]);
+
+
+    grunt.registerTask('default', ['watch']);
+
+};

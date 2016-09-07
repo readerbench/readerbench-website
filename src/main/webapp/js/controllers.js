@@ -14,7 +14,7 @@ var AboutSections;
             .controller('HeaderController',
             ['$scope', '$window', function ($scope, $window) {
 
-                    $scope.hamburgerMenu = true;
+                    if(_isNotMobile) $scope.hamburgerMenu = true;
 
                     $scope.openMenu = function () {
                         $scope.hamburgerMenu = !$scope.hamburgerMenu;
@@ -92,8 +92,11 @@ var AboutSections;
                     $scope.peopleListASU = PeopleASU;
                     $scope.peopleListGSU = PeopleGSU;
                 }])
-            .controller('DemoMenuController', ['$scope', function ($scope) {
+            .controller('DemoMenuController', ['$location', '$scope', function ($location, $scope) {
                     $scope.demoItems = DemoItems;
+                    $scope.getClass = function (path) {
+                        return ($location.path().substr(0, path.length) === path) ? 'active' : '';
+                    }
                 }])
             .controller('DemoController',
             ['$scope', '$http', '$sce', function ($scope, $http, $sce) {
