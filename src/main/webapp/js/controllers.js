@@ -1221,6 +1221,7 @@ var AboutSections;
                                                                                                         var data = {
                                                                                                             cvFile: $scope.formData.cv,
                                                                                                             keywords: $scope.formData.keywords,
+                                                                                                            ignore: $scope.formData.ignore,
                                                                                                             lang: $scope.formData.language.name,
                                                                                                             lsa: ServerSettings.configRoot + '/'
                                                                                                                     + $scope.formData.language.value + '/' + 'LSA' + '/'
