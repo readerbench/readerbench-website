@@ -7,13 +7,61 @@ ServerSettings = {
     configRoot: 'resources/config'
 };
 DemoItems = [
-    {name: 'Text processing', href: 'demo/text-processing'},
-    {name: 'Semantic annotation', href: 'demo/semantic-annotation'},
-    {name: 'Self explanation', href: 'demo/self-explanation'},
-    {name: 'CSCL', href: 'demo/cscl'},
-    //	{name:'CV & Cover letter', href:'demo/cv-cover'},
-    {name: 'CV', href: 'demo/cv'},
-    {name: 'VCoP', href: 'demo/vcop'}
+    {
+        name: 'Text processing',
+        href: 'demo/text-processing',
+        description: 'Text processing shows functionalities such as sentiment \n\
+analysis, textual complexity and concept map generation.',
+        image: '',
+        altText: 'Text processing with ReaderBench framework'
+    },
+    {
+        name: 'Semantic annotation',
+        href: 'demo/semantic-annotation',
+        description: 'Semantic annotation ensures a cohesion-centered, \n\
+in-depth representation of discourse, useful for mining keywords and \n\
+performing automated text categorization.',
+        image: '',
+        altText: 'Semantic annotation with ReaderBench framework'
+    },
+    {
+        name: 'Self explanation',
+        href: 'demo/self-explanation',
+        description: 'The automatically identified strategies within \n\
+ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
+elaboration.',
+        image: '',
+        altText: 'Self explanation with ReaderBench framework'
+    },
+    {
+        name: 'CSCL',
+        href: 'demo/cscl',
+        description: 'Starting from dialogism and a cohesion-based model of \n\
+discourse, this tool uses two computational models for assessing \n\
+participation and collaboration.',
+        image: '',
+        altText: 'CSCL conversation analysis with ReaderBench framework',
+    },
+    /*{
+        name:'CV & Cover letter',
+        href:'demo/cv-cover'
+    },*/
+    {
+        name: 'CV',
+        href: 'demo/cv',
+        description: 'Given a CV document, specific lexical and visual \n\
+analysis are performed.',
+        image: '',
+        altText: 'CV analysis with ReaderBench framework'
+    },
+    {
+        name: 'VCoP',
+        href: 'demo/vcop',
+        description: 'Given a community forum, specific analysis are performed.',
+        image: '',
+        altText: 'Virtual Communities of Practice analysis with ReaderBench \n\
+framework'
+    }
 ];
 DemoElements = {
     languages: [

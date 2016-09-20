@@ -27,6 +27,12 @@
 				templateUrl : 'templates/directives/carousel-section.html'
 			}
 		} ])
+        .directive('demoSection', [ function() {
+			return {
+				restrict : 'E',
+				templateUrl : 'templates/directives/demo-section.html'
+			}
+		} ])
 		.directive('peopleSection', [ function() {
 			return {
 				restrict : 'E',
