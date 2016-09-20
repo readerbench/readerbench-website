@@ -589,3 +589,45 @@ line.link {
 
 .top-buffer { margin-top:20px; }
 .pointer { cursor: pointer; }
+
+.results-sentiment a {
+    text-transform: uppercase;
+    display: inline-block;
+    position: relative;
+    font-weight: 700;
+    width: 100%;
+    margin: 0 0 10px;
+    padding: 14px 30px;
+    text-align: center;
+    line-height: 1em;
+    font-size: 12px;
+    color: #333;
+}
+
+/* TODO: add sentiment icons to sentiment results */
+.results-sentiment a.sentiment-scared { background: #fbfd00; }
+.results-sentiment a.sentiment-angry { background: #f30707; }
+.results-sentiment a.sentiment-sad { background: #6cb3fb; }
+.results-sentiment a.sentiment-happy { background: #38b616; }
+.results-sentiment a.sentiment-excited { background: #fdb900; }
+.results-sentiment a.sentiment-tender { background: #fba7f4; }
+
+/* Additional sentiment icons */
+.icon-confused:before {
+    content: "\e9f5";
+}
+.icon-angry:before {
+    content: "\e9ed";
+}
+.icon-sad:before {
+    content: "\e9e5";
+}
+.icon-happy:before {
+    content: "\e9df";
+}
+.icon-shocked:before {
+    content: "\e9f1";
+}
+.icon-heart:before {
+    content: "\e9da";
+}

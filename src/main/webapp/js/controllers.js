@@ -142,6 +142,19 @@ var AboutSections;
                     $scope.topics = null;
                     $scope.topicEdges = null;
                     $scope.search = null;
+                    
+                    // TODO: add sentiment icons to sentiment results
+                    var sentimentIconMap = {
+                        scared: 'confused',
+                        angry: 'angry',
+                        sad: 'sad',
+                        happy: 'happy',
+                        excited: 'shocked', 
+                        tender: 'heart'
+                    };
+                    $scope.getSentimentIcon = function(sentimentValence) {
+                        return sentimentIconMap[sentimentValence.content];
+                    };
 
                     $scope.buttonClick = function (req) {
 
