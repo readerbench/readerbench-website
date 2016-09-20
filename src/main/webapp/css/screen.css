@@ -918,25 +918,88 @@ header .action-bar .my-account .popup:after {
   -o-transition: all 0.5s ease;
 }
 
+/* Demo menu */
 .demo-menu nav ul {
+    display: inline-block;
     list-style-type: none;
+    font-size: 0;
     padding: 0;
-    display: table;
-    margin: 0 auto;
+    margin: 0;
 }
 .demo-menu nav ul li {
-	/* width:120px; */
-    display: inline-block;
-    margin-right: 25px;
-    text-align: center;
-    -webkit-transition: all 0.3s ease;
-    -moz-transition: all 0.3s ease;
-    transition: all 0.3s ease;
+	display: inline-block;
+    margin-right: 20px;
+}
+.demo-menu nav ul li:last-of-type {
+  margin: 0;
 }
 .demo-menu nav ul li a {
-	color: #43b9c7;
+    position: relative;
+    display: inline-block;
+}
+.demo-menu nav ul li a:before, .demo-menu nav ul li a:after {
+  position: absolute;
+  background: #43b9c7;
+  content: "";
+  height: 85%;
+  width: 1px;
+  -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  -moz-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+  transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.demo-menu nav ul li a:before {
+  top: 0;
+  left: 0;
+}
+.demo-menu nav ul li a:after {
+  bottom: 0;
+  right: 0;
+}
+.demo-menu nav ul li a span {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 10px 25px;
+    color: #43b9c7;
+    font-size: 12px;
+    line-height: 1em;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+.demo-menu nav ul li a span:before, .demo-menu nav ul li a span:after {
+    position: absolute;
+    background: #43b9c7;
+    content: "";
+    width: 85%;
+    height: 1px;
+    -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    -moz-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+    transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.demo-menu nav ul li a span:before {
+    top: 0;
+    left: 0;
+}
+.demo-menu nav ul li a span:after {
+    bottom: 0;
+    right: 0;
+}
+.demo-menu nav ul li a:not(.current):before, .demo-menu nav ul li a:not(.current):after {
+  opacity: 0;
+}
+.demo-menu nav ul li a:not(.current) span:before, .demo-menu nav ul li a:not(.current) span:after {
+  opacity: 0;
+}
+.demo-menu nav ul li a:hover:before, .demo-menu nav ul li a:hover:after {
+  height: 100%;
+  opacity: 1;
+}
+.demo-menu nav ul li a:hover span:before, .demo-menu nav ul li a:hover span:after {
+   width: 100%;
+  opacity: 1;
 }
 
+/* Main menu */
 .reader-menu nav ul {
     list-style-type: none;
     font-size: 0;
