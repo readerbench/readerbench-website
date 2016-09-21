@@ -199,6 +199,9 @@ var AboutSections;
                                                 if ($scope.sentiments.count == response.data.data.count) {
                                                     clearInterval(interval);
                                                     courseDescriptionToggle();
+                                                    var progressBars = jQuery('.results-sentiment > .lesson > div > div.sentiment.progress > div.progress-bar');
+                                                    animateProgressBar(progressBars);
+                                                    console.log(jQuery(progressBars[0]).css('width'));
                                                 }
                                             }, 1000);
                                         },

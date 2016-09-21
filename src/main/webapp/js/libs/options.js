@@ -168,6 +168,8 @@ courseDescriptionToggle = function (element) {
 						obj.find('.icon').addClass('visible');
 					}, 100 * (i + 1));
 				});
+                
+                animateProgressBar(lessonDescription.find('> .lesson > div > div.sentiment.progress > div.progress-bar'));
 			} else {
 				lessonDescription.velocity('slideUp', {duration: 170});
 
