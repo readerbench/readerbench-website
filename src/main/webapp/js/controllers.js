@@ -155,6 +155,26 @@ var AboutSections;
                     $scope.getSentimentIcon = function(sentimentValence) {
                         return sentimentIconMap[sentimentValence.content];
                     };
+                    $scope.changeGranularity = function($event, selector) {
+                        jQuery('.results-sentiment').find('ul.courses-filters > li > a').attr('class','');
+                        jQuery($event.currentTarget).attr('class','current');
+                        jQuery('.hideable').hide();
+                        jQuery('.lesson-description').show();
+                        switch(selector) {
+                            case 'document':
+                                jQuery('.document-encapsulator > .hideable').show();
+                                break;
+                            case 'paragraph':
+                                jQuery('.paragraph-encapsulator > .hideable').show();
+                                break;
+                            case 'sentence':
+                                jQuery('.sentence-encapsulator > .hideable').show();
+                                break;
+                            case 'word':
+                                jQuery('.word-encapsulator > .hideable').show();
+                                break;
+                        }
+                    };
 
                     $scope.buttonClick = function (req) {
 
@@ -187,7 +207,7 @@ var AboutSections;
                                         .get(buildServerPath(endpoint, params))
                                         .then(function (response) {
                                             $scope.loading = false;
-                                            if (response.data.success != true) {
+                                            if (response.data.success !== true) {
                                                 alert('Server error occured!');
                                                 return;
                                             }
@@ -196,23 +216,58 @@ var AboutSections;
 
                                             $scope.sentiments = response.data.data;
                                             var interval = setInterval(function () {
-                                                if ($scope.sentiments.count == response.data.data.count) {
+                                                if ($scope.sentiments.count === response.data.data.count) {
                                                     clearInterval(interval);
-                                                    courseDescriptionToggle();
-                                                    var progressBars = jQuery('.results-sentiment > .lesson > div > div.sentiment.progress > div.progress-bar');
-                                                    animateProgressBar(progressBars);
-                                                    console.log(jQuery(progressBars[0]).css('width'));
+                                                    //courseDescriptionToggle();
+                                                    animateProgressBar(jQuery('.results-sentiment div.progress-bar'));
+                                                    jQuery('.results-sentiment a').each(function() {
+                                                        jQuery(this)
+                                                                .attr('title', jQuery(this).parent().find(" > .tooltip-content").html())
+                                                                .tooltip('fixTitle').tooltip('show');
+                                                    });
+                                                    jQuery('.results-sentiment a').tooltip('hide');
+                                                    
+                                                    // compute document color
+                                                    var documentColorRGB = computeColors(response.data.data[0], 0.1);
+                                                    var documentColorHex = rgbToHex(
+                                                            documentColorRGB.r,
+                                                            documentColorRGB.g,
+                                                            documentColorRGB.b
+                                                    );
+                                                    jQuery('.results-sentiment #document-0 span.document').css('background-color', documentColorHex);
+                                                    
+                                                    // compute paragraphs' colors
+                                                    for (var i = 0; i < response.data.data[0].innerObjects.length; i++) {
+                                                        var paragraph = response.data.data[0].innerObjects[i];
+                                                        var paragraphColorRGB = computeColors(paragraph, 0.1);
+                                                        var paragraphColorHex = rgbToHex(
+                                                            paragraphColorRGB.r,
+                                                            paragraphColorRGB.g,
+                                                            paragraphColorRGB.b
+                                                        );
+                                                        jQuery('.results-sentiment #paragraph-' + i + ' span.paragraph').css('background-color', paragraphColorHex);
+                                                        for (var j = 0; j < paragraph.innerObjects.length; j++) {
+                                                            var sentence = paragraph.innerObjects[j];
+                                                            var sentenceColorRGB = computeColors(sentence, 0.1);
+                                                            var sentenceColorHex = rgbToHex(
+                                                                sentenceColorRGB.r,
+                                                                sentenceColorRGB.g,
+                                                                sentenceColorRGB.b
+                                                            );
+                                                            jQuery('.results-sentiment #paragraph-' + i + ' #sentence-' + j + ' span.sentence').css('background-color', sentenceColorHex);
+                                                        }
+                                                    }
                                                 }
                                             }, 1000);
                                         },
-                                                function (response) {
-                                                    $scope.loading = false;
-                                                    if (response.status == 0) {
-                                                        alert('Server error occured!');
-                                                    } else {
-                                                        alert(response.statusText);
-                                                    }
-                                                });
+                                        function (response) {
+                                            $scope.loading = false;
+                                            if (response.status === 0) {
+                                                alert('Server error occured!');
+                                            } else {
+                                                alert(response.statusText);
+                                            }
+                                        });
                                 break;
 
                             case 'TEXTUAL_COMPLEXITY':

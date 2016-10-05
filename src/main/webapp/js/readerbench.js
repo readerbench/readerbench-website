@@ -638,15 +638,82 @@ var _isNotMobile = (function() {
 
 var animateProgressBar = function(el) {
     el.show();
-    console.log(el);
-    console.log(jQuery(el[0]));
-    console.log(jQuery(el[0]).width());
+    //console.log(el);
+    //console.log(jQuery(el[0]));
+    //console.log(jQuery(el[0]).width());
     jQuery(el).width("0");
-    console.log(jQuery(el[0]).width());
+    //console.log(jQuery(el[0]).width());
     jQuery(el).width(
         function() {
             return jQuery(this).attr("aria-valuenow") + "%";
         }
     );
-    console.log(jQuery(el[0]).width());
+    //console.log(jQuery(el[0]).width());
+};
+
+/*jQuery(document).ready(function($) {
+    $(document).tooltip({
+        animation: false,
+        placement: "right",
+        selector: "a[rel=tooltip]",
+        content: function () {
+            return jQuery(this).prop('title');
+        }
+    });
+});*/
+
+var rgbToHex = function(r, g, b) {
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+};
+    
+var hexToRgb = function(hex) {
+    // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
+    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    hex = hex.replace(shorthandRegex, function(m, r, g, b) {
+        return r + r + g + g + b + b;
+    });
+
+    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return result ? {
+        r: parseInt(result[1], 16),
+        g: parseInt(result[2], 16),
+        b: parseInt(result[3], 16)
+    } : null;
+};
+
+var sentimentColors = {
+    scared:     hexToRgb('#fbfd00'),
+    angry:      hexToRgb('#f30707'),
+    sad:        hexToRgb('#6cb3fb'),
+    happy:      hexToRgb('#38b616'),
+    excited:    hexToRgb('#fdb900'),
+    tender:     hexToRgb('#fba7f4')
+};
+
+var computeColors = function(element, threshold) {
+    var sumSentiments = {
+        r: 0,
+        g: 0,
+        b: 0
+    };
+    
+    var sumPercentage = 0;
+    //for (var valence in element.valences)
+    for (var i = 0; i < element.valences.length; i++)
+    {
+        var valence = element.valences[i];
+        if (valence.score >= threshold)
+        {
+            sumSentiments.r += valence.score * sentimentColors[valence.content].r;
+            sumSentiments.g += valence.score * sentimentColors[valence.content].g;
+            sumSentiments.b += valence.score * sentimentColors[valence.content].b;
+            sumPercentage += valence.score;
+        }
+    }
+    
+    sumSentiments.r = Math.round(sumSentiments.r / sumPercentage);
+    sumSentiments.g = Math.round(sumSentiments.g / sumPercentage);
+    sumSentiments.b = Math.round(sumSentiments.b / sumPercentage);
+    
+    return sumSentiments;
 };

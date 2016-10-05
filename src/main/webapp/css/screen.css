@@ -5271,6 +5271,9 @@ footer .copyrights p a:hover {
     color: #fff;
     background: #43b9c7
 }
+.course-description-list .lesson span.body {
+    display: block;
+}
 .course-description-list .lesson .body {
     position: relative;
     min-height: 50px;
