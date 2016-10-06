@@ -699,21 +699,28 @@ var computeColors = function(element, threshold) {
     
     var sumPercentage = 0;
     //for (var valence in element.valences)
-    for (var i = 0; i < element.valences.length; i++)
-    {
-        var valence = element.valences[i];
-        if (valence.score >= threshold)
+    if(typeof element.valences !== 'undefined') {
+        for (var i = 0; i < element.valences.length; i++)
         {
-            sumSentiments.r += valence.score * sentimentColors[valence.content].r;
-            sumSentiments.g += valence.score * sentimentColors[valence.content].g;
-            sumSentiments.b += valence.score * sentimentColors[valence.content].b;
-            sumPercentage += valence.score;
+            var valence = element.valences[i];
+            if (valence.score >= threshold)
+            {
+                sumSentiments.r += valence.score * sentimentColors[valence.content].r;
+                sumSentiments.g += valence.score * sentimentColors[valence.content].g;
+                sumSentiments.b += valence.score * sentimentColors[valence.content].b;
+                sumPercentage += valence.score;
+            }
         }
+        
+        sumSentiments.r = Math.round(sumSentiments.r / sumPercentage);
+        sumSentiments.g = Math.round(sumSentiments.g / sumPercentage);
+        sumSentiments.b = Math.round(sumSentiments.b / sumPercentage);
     }
-    
-    sumSentiments.r = Math.round(sumSentiments.r / sumPercentage);
-    sumSentiments.g = Math.round(sumSentiments.g / sumPercentage);
-    sumSentiments.b = Math.round(sumSentiments.b / sumPercentage);
+    else {
+        sumSentiments.r = 0;
+        sumSentiments.g = 0;
+        sumSentiments.b = 0;
+    } 
     
     return sumSentiments;
 };

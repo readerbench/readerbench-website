@@ -649,6 +649,9 @@ line.link {
     margin-bottom: 15px;
     margin-top: 5px;
 }
+.results-sentiment .body {
+    white-space: pre-line;
+}
 
 /* TODO: add sentiment icons to sentiment results */
 .sentiment-progress .sentiment-scared .progress-bar     { background-color: #fbfd00; }

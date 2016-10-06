@@ -256,15 +256,17 @@ var AboutSections;
                                                             );
                                                             jQuery('.results-sentiment #paragraph-' + i + ' #sentence-' + j + ' span.sentence').css('background-color', sentenceColorHex);
                                                             
-                                                            for (var k = 0; k < sentence.innerObjects.length; k++) {
-                                                                var word = sentence.innerObjects[k];
-                                                                var wordColorRGB = computeColors(word, 0.1);
-                                                                var wordColorHex = rgbToHex(
-                                                                    wordColorRGB.r,
-                                                                    wordColorRGB.g,
-                                                                    wordColorRGB.b
-                                                                );
-                                                                jQuery('.results-sentiment #paragraph-' + i + ' #sentence-' + j + ' #word-' + k + ' span.word').css('background-color', wordColorHex);
+                                                            if (typeof sentence.innerObjects !== 'undefined') {
+                                                                for (var k = 0; k < sentence.innerObjects.length; k++) {
+                                                                    var word = sentence.innerObjects[k];
+                                                                    var wordColorRGB = computeColors(word, 0.1);
+                                                                    var wordColorHex = rgbToHex(
+                                                                        wordColorRGB.r,
+                                                                        wordColorRGB.g,
+                                                                        wordColorRGB.b
+                                                                    );
+                                                                    jQuery('.results-sentiment #paragraph-' + i + ' #sentence-' + j + ' #word-' + k + ' span.word').css('background-color', wordColorHex);
+                                                                }
                                                             }
                                                         }
                                                     }
