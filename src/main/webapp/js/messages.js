@@ -12,7 +12,7 @@ DemoItems = [
         href: 'demo/text-processing',
         description: 'Text processing shows functionalities such as sentiment \n\
 analysis, textual complexity and concept map generation.',
-        image: '',
+        image: 'images/demo_text_processing.png',
         altText: 'Text processing with ReaderBench framework'
     },
     {
@@ -21,7 +21,7 @@ analysis, textual complexity and concept map generation.',
         description: 'Semantic annotation ensures a cohesion-centered, \n\
 in-depth representation of discourse, useful for mining keywords and \n\
 performing automated text categorization.',
-        image: '',
+        image: 'images/demo_semantic_annotation.png',
         altText: 'Semantic annotation with ReaderBench framework'
     },
     {
@@ -30,7 +30,7 @@ performing automated text categorization.',
         description: 'The automatically identified strategies within \n\
 ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
 elaboration.',
-        image: '',
+        image: 'images/demo_self_explanation.png',
         altText: 'Self explanation with ReaderBench framework'
     },
     {
@@ -39,7 +39,7 @@ elaboration.',
         description: 'Starting from dialogism and a cohesion-based model of \n\
 discourse, this tool uses two computational models for assessing \n\
 participation and collaboration.',
-        image: '',
+        image: 'images/demo_cscl.png',
         altText: 'CSCL conversation analysis with ReaderBench framework',
     },
     /*{
@@ -51,14 +51,14 @@ participation and collaboration.',
         href: 'demo/cv',
         description: 'Given a CV document, specific lexical and visual \n\
 analysis are performed.',
-        image: '',
+        image: 'images/demo_cv.png',
         altText: 'CV analysis with ReaderBench framework'
     },
     {
         name: 'VCoP',
         href: 'demo/vcop',
         description: 'Given a community forum, specific analysis are performed.',
-        image: '',
+        image: 'images/demo_vcop.png',
         altText: 'Virtual Communities of Practice analysis with ReaderBench \n\
 framework'
     }
@@ -73,7 +73,7 @@ DemoElements = {
         {id: '1', name: 'Yes', value: true},
         {id: '2', name: 'No', value: false}
     ],
-    defaultPosTaggingOption: {id: '2', name: 'No', value: false},
+    defaultPosTaggingOption: {id: '1', name: 'Yes', value: true},
     dialogismOptions: [
         {id: '1', name: 'Yes', value: true},
         {id: '2', name: 'No', value: false}

@@ -372,7 +372,7 @@ var AboutSections;
 
                                                     $scope.loading = false;
 
-                                                    if (response.data.success != true) {
+                                                    if (response.data.success !== true) {
                                                         alert('Server error occured!');
                                                         return;
                                                     }
@@ -383,7 +383,7 @@ var AboutSections;
                                                     $scope.topicEdges = response.data.data.links;
                                                     var interval = setInterval(
                                                             function () {
-                                                                if ($scope.topicEdges.count == response.data.data.links.count) {
+                                                                if ($scope.topicEdges.count === response.data.data.links.count) {
                                                                     clearInterval(interval);
                                                                     d3jsForTopics(
                                                                             response.data.data,

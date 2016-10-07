@@ -283,7 +283,6 @@ var d3jsLineGraph = function(values, element, xLabel, yLabel) {
 }
 
 var d3jsMultipleLinesGraph = function(values, element, xLabel, yLabel) {
-	F
 	var lineFunc = d3.svg.line().x(function(d) {
 		return xRange(d.x);
 	}).y(function(d) {
