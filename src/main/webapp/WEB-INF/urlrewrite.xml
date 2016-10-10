@@ -20,7 +20,7 @@
     
     <rule>
     	<note>General rule for pages</note>
-	  	<from>^/(home|demo|people|projects|publications|contact)$</from>
+	  	<from>^/(home|demo|people|projects|publications|contact|map-builder)$</from>
 	  	<to>/index.html</to>
 	</rule>
 	

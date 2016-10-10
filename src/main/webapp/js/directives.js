@@ -57,6 +57,12 @@
 				templateUrl : 'templates/directives/contact-section.html'
 			}
 		} ])
+        .directive('mapbuilderSection', [ function() {
+			return {
+				restrict : 'E',
+				templateUrl : 'templates/directives/mapbuilder-section.html'
+			}
+		} ])
 		.directive('actionBox', [ function() {
 			return {
 				restrict : 'E',

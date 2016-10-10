@@ -51,6 +51,9 @@
 				.when("/publications", {
 					templateUrl: 'templates/publications.html'
 				})
+                .when("/map-builder", {
+					templateUrl: 'templates/map-builder.html'
+				})
 				.otherwise({
 					redirectTo: "/"
 				});

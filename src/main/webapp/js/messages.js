@@ -453,5 +453,9 @@ DemoTexts = {
     },
     contact: {
         title: 'Contact Us'
+    },
+    // Map Builder Controller
+    mapBuilder: {
+        title: 'Concept Map Builder'
     }
 };

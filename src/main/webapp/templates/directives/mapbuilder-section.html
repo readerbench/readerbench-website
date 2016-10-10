@@ -1,0 +1,55 @@
+<div class="container" ng-controller="MapBuilderController">
+    <div class="section-header">
+        <h1>{{title}}</h1>
+    </div>
+    <div class="content-wrapper">
+        <div class="form-group demo-wrapper">
+            <div class="input">
+                <div class="row">
+                    <div class="col-xs-3 col-md-3">
+                        <label for="comment">JSON data <span class="required">*</span></label>
+                    </div>
+                    <div class="col-xs-9 col-md-9">
+                        <textarea class="form-control" rows="20" id="comment" ng-model="formData.text"></textarea>
+                    </div>
+                </div>
+                <div class="row top-buffer" ng-if="!loading">
+                    <div class="col-xs-12 col-md-12">
+                        <div class="bottom-buttons" ng-if="!loading">
+                            <button class="btn theme-btn-1" ng-click="buttonClick()"><span class="button">Build Concept Map</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="results">
+                <div class="row" ng-if="loading">
+                    <div class="col-xs-12 col-md-12">
+                        <img src="img/loading.gif" alt="Loading..." />
+                    </div>
+                </div>	
+                <div ng-if="showResults === true">                            
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-12">
+                            <h4>Concept Map</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-3 col-lg-3">
+                            <ul class="course-description-list">
+                                <li class="lesson" ng-repeat="topic in topics| limitTo:25">
+                                    <div class="heading">
+                                        <span class="lesson-nr no-select">{{topic.value}}</span>
+                                    </div>
+                                    <div class="body">
+                                        <p>{{topic.name}}</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-9 col-lg-9" id="conceptMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

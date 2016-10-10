@@ -16,6 +16,7 @@ var buildServerPath = function(endpoint, params) {
 }
 
 var d3jsForTopics = function(graph, element, enableFisheye) {
+    jQuery(element).html('');
 
 	var width = 690, height = 600;
 
@@ -121,6 +122,7 @@ var d3jsForTopics = function(graph, element, enableFisheye) {
 }
 
 var d3jsForTopicsForvCop = function(graph, element, enableFisheye) {
+    jQuery(element).html('');
 
 	var width = 800, height = 1000;
 
@@ -231,6 +233,7 @@ var d3jsForTopicsForvCop = function(graph, element, enableFisheye) {
 
 // values = node values; element = html element
 var d3jsLineGraph = function(values, element, xLabel, yLabel) {
+    jQuery(element).html('');
 
 	var lineFunc = d3.svg.line().x(function(d) {
 		return xRange(d.x);
@@ -283,6 +286,7 @@ var d3jsLineGraph = function(values, element, xLabel, yLabel) {
 }
 
 var d3jsMultipleLinesGraph = function(values, element, xLabel, yLabel) {
+    jQuery(element).html('');
 	var lineFunc = d3.svg.line().x(function(d) {
 		return xRange(d.x);
 	}).y(function(d) {
@@ -371,6 +375,7 @@ var htmlEncode = function(mystring) {
 
 var d3jsForTopicsForvCopTimeFrame = function(nodes, links, element,
 		enableFisheye) {
+    jQuery(element).html('');
 
 	var width = 800, height = 1000;
 
@@ -472,6 +477,7 @@ var d3jsForTopicsForvCopTimeFrame = function(nodes, links, element,
 }
 
 var d3jsForTopicsForvCoPSubcommunities = function(graph, element, enableFisheye) {
+    jQuery(element).html('');
 
 	var width = 690, height = 600;
 
