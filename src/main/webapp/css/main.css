@@ -680,3 +680,14 @@ line.link {
 .icon-heart:before {
     content: "\e9da";
 }
+
+.btn.theme-btn-1 {
+    background: transparent;
+}
+.cv-preview {
+    color: #333;
+}
+.cv-preview p {
+    margin-bottom: 10px;
+    text-indent: 50px;
+}

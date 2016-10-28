@@ -6,7 +6,7 @@ var AboutSections;
 
 (function () {
     angular
-            .module('controllers', ['services', 'ngFileUpload'])
+            .module('controllers', ['services', 'ngFileUpload', 'ngSanitize'])
             .controller('AppController', ['$location', function ($location) {
                     var vm = this; // Use 'controller as' syntax.
                 }])
@@ -1362,13 +1362,15 @@ var AboutSections;
                                                                                                                                 params), data)
                                                                                                                 .then(
                                                                                                                         function (response) {
-
+                                                                                                                            
                                                                                                                             $scope.loading = false;
 
-                                                                                                                            if (response.data.success != true) {
+                                                                                                                            if (response.data.success !== true) {
                                                                                                                                 alert('Server error occured!');
                                                                                                                                 return;
                                                                                                                             }
+                                                                                                                            
+                                                                                                                            $scope.text = '<p>' + response.data.data.text.replace(/\n/g, "</p><p>") + '</p>';
 
                                                                                                                             // build concept map
                                                                                                                             $scope.showConceptMap = true;
@@ -1376,7 +1378,7 @@ var AboutSections;
                                                                                                                             $scope.topicEdges = response.data.data.concepts.links;
                                                                                                                             var intervalCvTopics = setInterval(
                                                                                                                                     function () {
-                                                                                                                                        if ($scope.topicEdges.count == response.data.data.concepts.links.count) {
+                                                                                                                                        if ($scope.topicEdges.count === response.data.data.concepts.links.count) {
                                                                                                                                             clearInterval(intervalCvTopics);
                                                                                                                                             d3jsForTopicsForvCop(
                                                                                                                                                     response.data.data.concepts,
@@ -1391,7 +1393,7 @@ var AboutSections;
                                                                                                                             $scope.complexity = response.data.data.textualComplexity;
                                                                                                                             var intervalComplexity = setInterval(
                                                                                                                                     function () {
-                                                                                                                                        if ($scope.complexity.count == response.data.data.textualComplexity.count) {
+                                                                                                                                        if ($scope.complexity.count === response.data.data.textualComplexity.count) {
                                                                                                                                             clearInterval(intervalComplexity);
                                                                                                                                             courseDescriptionToggle('#textual-complexity');
                                                                                                                                         }
@@ -1416,7 +1418,7 @@ var AboutSections;
                                                                                                                             $scope.liwcEmotions = response.data.data.liwcEmotions;
                                                                                                                             var intervalLiwc = setInterval(
                                                                                                                                     function () {
-                                                                                                                                        if ($scope.liwcEmotions.count == response.data.data.liwcEmotions.count) {
+                                                                                                                                        if ($scope.liwcEmotions.count === response.data.data.liwcEmotions.count) {
                                                                                                                                             clearInterval(intervalLiwc);
                                                                                                                                             courseDescriptionToggle('#liwc-sentiments');
                                                                                                                                         }
