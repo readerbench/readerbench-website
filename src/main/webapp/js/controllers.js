@@ -1370,7 +1370,8 @@ var AboutSections;
                                                                                                                                 return;
                                                                                                                             }
                                                                                                                             
-                                                                                                                            $scope.text = '<p>' + response.data.data.text.replace(/\n/g, "</p><p>") + '</p>';
+                                                                                                                            if (typeof response.data.data.text !== 'undefined')
+                                                                                                                                $scope.text = '<p>' + response.data.data.text.replace(/\n/g, "</p><p>") + '</p>';
 
                                                                                                                             // build concept map
                                                                                                                             $scope.showConceptMap = true;

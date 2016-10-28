@@ -141,7 +141,7 @@
                                 <svg id="participantEvolution" width="100%" height="300"></svg>
                             </div>
                         </div>  -->
-                        <div ng-if="showStats" class="row top-buffer">
+                        <div ng-if="showStats && text != ''" class="row top-buffer">
                             <div class="col-xs col-md-12">
                                 <h5>Text preview</h5>
                                 <div class="cv-preview"><div ng-bind-html="text"></div></div>
