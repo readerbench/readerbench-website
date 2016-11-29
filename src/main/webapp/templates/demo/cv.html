@@ -14,6 +14,16 @@
             </div>
             <div class="content-wrapper">
                 <div class="form-group demo-wrapper">
+                    <div class="feedback">
+                        <div class="alert alert-danger" role="alert" ng-if="cvErrorMsg || errorFiles || errors">
+                            <p ng-if="cvErrorMsg">{{cvErrorMsg}}</p>
+                            <p ng-if="errorFiles"><i ng-show="errorFiles">File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 25MB</i></p>
+                            <p class="lesson" ng-repeat="error in errors">{{error}}</p>
+                        </div>
+                        <div class="alert alert-warning" role="alert" ng-if="warnings">
+                            <p class="lesson" ng-repeat="warning in warnings">{{warning}}</p>
+                        </div>
+                    </div>
                     <div class="input">
                         <div class="row">
                             <div class="col-xs-3 col-md-3">
@@ -21,18 +31,16 @@
                             </div>
                             <div class="col-xs-7 col-md-7">
                                 <button class="btn theme-btn-1" id="cv_file" type="file" ngf-select="uploadFile('CV', $file, $invalidFiles, 'cvFile', 'cvErrFile', 'cvErrorMsg')"
-                                        accept="application/pdf" ngf-max-height="1000" ngf-max-size="10MB"><span class="button">Select File</span></button>
+                                        accept="application/pdf" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles"><span class="button">Select File</span></button>
                                 File:
-                                <small>{{cvFile.name}} {{cvErrFile.name}} {{cvErrFile.$error}} {{cvErrFile.$errorParam}}
+                                <small>{{cvFile.name}} {{cvErrFile.name}} <span ng-if="cvErrFile.$error">({{cvErrFile.$error}} {{cvErrFile.$errorParam}})</span>
                                     <span class="progress" ng-show="cvFile.progress >= 0">
                                         <div style="width:{{cvFile.progress}}%" ng-bind="cvFile.progress + '%'"></div>
                                     </span>
                                 </small>     
-                                {{cvErrorMsg}}
                                 <input type="hidden" ng-model="formData.cv" />
                             </div>
                         </div>
-
                         <div class="row top-buffer">
                             <div class="col-xs-3 col-md-3">
                                 <label for="keywords">Specific keywords <span class="required">*</span><br /><smalL>(use comma as delimiter)</smalL></label>
@@ -41,7 +49,6 @@
                                 <textarea id="keywords" class="form-control" ng-model="formData.keywords" rows="4"></textarea>
                             </div>
                         </div>
-
                         <div class="row top-buffer">
                             <div class="col-xs-3 col-md-3">
                                 <label for="keywords">Words to ignore<br /><small>(use comma as delimiter)</small></label>
@@ -122,7 +129,7 @@
                         <div class="row top-buffer" ng-if="!loading">
                             <div class="col-xs-12 col-md-12">
                                 <div class="bottom-buttons">
-                                    <button class="btn theme-btn-1" ng-click="buttonClick('CV_COVER')"><span class="button">Process</span></button>
+                                    <button id="submit-button" class="btn theme-btn-1" ng-click="buttonClick('CV_COVER')" disabled><span class="button">Process</span></button>
                                 </div>
                             </div>
                         </div>        
@@ -147,7 +154,7 @@
                                 <div class="cv-preview"><div ng-bind-html="text"></div></div>
                             </div>
                         </div>
-                        
+
                         <div ng-if="showStats" class="row top-buffer">
                             <div class="col-xs-12 col-md-6">
                                 <h5>CV overview</h5>
@@ -248,7 +255,7 @@
                             <div class="col-xs-12 col-md-3">
                                 <h4>Concept Map</h4>
                                 <ul class="course-description-list">
-                                    <li class="lesson" ng-repeat="topic in topics| limitTo:25">
+                                    <li class="lesson" ng-repeat="topic in topics">
                                         <div class="heading">
                                             <span class="lesson-nr no-select">{{topic.value}}</span>
                                         </div>
