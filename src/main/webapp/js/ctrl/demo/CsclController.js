@@ -1,11 +1,15 @@
 "use strict";
 
 angular.module('controllers').controller('DemoCsclController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function ($scope, $http, $sce, Upload, $timeout) {
-
+    $scope.fileUploaded = false;
+    jQuery('#submit-button').prop("disabled", true);
     var params = {};
     var endpoint = 'fileUpload';
     $scope.uploadFile = function (file, errFiles, f,
         errFile, errorMsg) {
+        $scope.fileUploaded = false;
+        $scope.errors = null;
+        $scope.warnings = null;
         $scope[f] = file;
         $scope[errFile] = errFiles && errFiles[0];
         if (file) {
@@ -21,7 +25,11 @@ angular.module('controllers').controller('DemoCsclController', ['$scope', '$http
                 .then(
                 function (response) {
                     $timeout(function () {
-                        file.result = response.data;
+                        if (response.data.data.errors.length > 0) $scope.errors = response.data.data.errors;
+                        if (response.data.data.warnings.length > 0) $scope.warnings = response.data.data.warnings;
+                        file.result = response.data.data.name;
+                        $scope.fileUploaded = true;
+                        jQuery('#submit-button').prop("disabled", false);
                         $scope.formData.csclFile = file.result;
                     });
                 },

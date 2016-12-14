@@ -10,19 +10,28 @@
                 <div class="section-header">
                     <h1>{{title}}</h1>
                 </div>
-				<demo-menu></demo-menu>
-			</div>
+                <demo-menu></demo-menu>
+            </div>
             <div class="content-wrapper">
                 <div class="form-group demo-wrapper">
+                    <div class="feedback">
+                        <div class="alert alert-danger" role="alert" ng-if="csclErrorMsg || errorFiles || errors">
+                            <p ng-if="csclErrorMsg">{{csclErrorMsg}}</p>
+                            <p ng-if="errorFiles"><i ng-show="errorFiles">File too large {{errorFiles[0].size / 1000000|number:1}}MB: max 25MB</i></p>
+                            <p class="lesson" ng-repeat="error in errors">{{error}}</p>
+                        </div>
+                        <div class="alert alert-warning" role="alert" ng-if="warnings">
+                            <p class="lesson" ng-repeat="warning in warnings">{{warning}}</p>
+                        </div>
+                    </div>
                     <div class="input">
-
                         <div class="row">
                             <div class="col-xs-3 col-md-3">
                                 <label for="file">CSCL file <span class="required">*</span><br /><small>(only XML files allowed)</small></label>
                             </div>
                             <div class="col-xs-4 col-md-4">
                                 <button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
-                                        accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="10MB">
+                                        accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles">
                                     Select File</button>
                                 File:
                                 <small>{{csclFile.name}} {{csclErrFile.name}} {{csclErrFile.$error}} {{csclErrFile.$errorParam}}
