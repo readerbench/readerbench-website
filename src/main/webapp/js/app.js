@@ -1,7 +1,9 @@
-	"use strict";
+"use strict";
+var app;
 
 (function(){
-	angular.module('readerbench', ['ngRoute', 'controllers', 'directives', 'filters'])
+    app = angular.module('readerbench', ['ngRoute', 'controllers', 'directives', 'filters']);
+	app
 		.config(['$routeProvider', '$locationProvider', '$httpProvider',
 		         function($routeProvider, $locationProvider, $httpProvider){
 			

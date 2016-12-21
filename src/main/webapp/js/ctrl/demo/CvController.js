@@ -1,6 +1,7 @@
 "use strict";
 
-angular.module('controllers').controller('DemoCvController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function ($scope, $http, $sce, Upload, $timeout) {
+angular.module('controllers')
+    .controller('DemoCvController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function ($scope, $http, $sce, Upload, $timeout) {
     $scope.fileUploaded = false;
     jQuery('#submit-button').prop("disabled", true);
     var params = {};
@@ -156,6 +157,9 @@ angular.module('controllers').controller('DemoCvController', ['$scope', '$http',
                         $scope.contentWords = response.data.data.contentWords;
                         $scope.colors = response.data.data.colors;
                         $scope.images = response.data.data.images;
+                        $scope.boldCharsCoverage = response.data.data.boldCharsCoverage;
+                        $scope.italicCharsCoverage = response.data.data.italicCharsCoverage;
+                        $scope.boldItalicCharsCoverage = response.data.data.boldItalicCharsCoverage;
 
                         $scope.showWords = true;
                         $scope.positiveWords = response.data.data.positiveWords;
