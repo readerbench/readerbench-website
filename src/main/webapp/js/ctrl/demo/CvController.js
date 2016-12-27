@@ -89,6 +89,8 @@ angular.module('controllers')
     $scope.buttonClick = function (req) {
         if ($scope.fileUploaded === false) return;
         $scope.showConceptMap = false;
+        $scope.showText = false;
+        $scope.showProcessedText = false;
         var endpoint;
         switch (req) {
             case 'CV_COVER':
@@ -121,6 +123,8 @@ angular.module('controllers')
 
                         if (typeof response.data.data.text !== 'undefined')
                             $scope.text = '<p>' + response.data.data.text.replace(/\n/g, "</p><p>") + '</p>';
+                        if (typeof response.data.data.processedText !== 'undefined')
+                            $scope.processedText = '<p>' + response.data.data.processedText.replace(/\n/g, "</p><p>") + '</p>';
 
                         // build concept map
                         $scope.showConceptMap = true;

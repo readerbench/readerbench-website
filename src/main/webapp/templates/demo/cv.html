@@ -150,8 +150,23 @@
                         </div>  -->
                         <div ng-if="showStats && text != ''" class="row top-buffer">
                             <div class="col-xs col-md-12">
-                                <h5>Text preview</h5>
-                                <div class="cv-preview"><div ng-bind-html="text"></div></div>
+                                <h5>Parsed text - <a href="javascript:void(0);" ng-click="showText=!showText"><span ng-show="!showText">Show</span><span ng-show="showText">Hide</span></a></h5>
+                                <div class="cv-preview" ng-show="showText">
+                                    <p class="alert alert-info" role="alert"><small>The parsed text represents the extracted text from the PDF document.</small></p>
+                                    <div ng-bind-html="text"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div ng-if="showStats && processedText != ''" class="row top-buffer">
+                            <div class="col-xs col-md-12">
+                                <h5>Processed text - <a href="javascript:void(0);" ng-click="showProcessedText=!showProcessedText"><span ng-show="!showProcessedText">Show</span><span ng-show="showProcessedText">Hide</span></a></h5>
+                                <div class="cv-preview" ng-show="showProcessedText">
+                                    <p class="alert alert-info" role="alert"><small>
+                                            The processed text represents the processed text which is being used for analysis. 
+                                            The processed text contains only existing words which are lemmatized.</small></p>
+                                    <div ng-bind-html="processedText"></div>
+                                </div>
                             </div>
                         </div>
 
