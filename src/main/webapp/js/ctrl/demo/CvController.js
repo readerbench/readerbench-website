@@ -88,6 +88,10 @@ angular.module('controllers')
 
     $scope.buttonClick = function (req) {
         if ($scope.fileUploaded === false) return;
+        
+        $scope.errors = null;
+        $scope.warnings = null;
+        
         $scope.showConceptMap = false;
         $scope.showText = false;
         $scope.showProcessedText = false;
@@ -120,6 +124,11 @@ angular.module('controllers')
                             alert('Server error occured!');
                             return;
                         }
+                        
+                        if (response.data.data.errors.length > 0) $scope.errors = response.data.data.errors;
+                        if (response.data.data.warnings.length > 0) $scope.warnings = response.data.data.warnings;
+                        
+                        $scope.socialNetworksLinksFound = response.data.data.socialNetworksLinksFound;
 
                         if (typeof response.data.data.text !== 'undefined')
                             $scope.text = '<p>' + response.data.data.text.replace(/\n/g, "</p><p>") + '</p>';
