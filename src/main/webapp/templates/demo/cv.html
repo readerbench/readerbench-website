@@ -257,6 +257,22 @@
                                 </ul>
                             </div>
                         </div>
+                        
+                        <div ng-if="showStats" class="row top-buffer">
+                            <div class="col-xs-12 col-md-12">
+                                <h5>Social Network Accounts</h5>
+                                <ul class="course-description-list">
+                                    <li class="lesson" ng-repeat="(socialNetwork, socialNetworkLink) in socialNetworksLinksFound">
+                                        <div class="heading">
+                                            <span class="lesson-nr no-select">{{socialNetwork}}</span>
+                                        </div>
+                                        <div class="body">
+                                            <p><a href="{{socialNetworkLink}}">{{socialNetworkLink}}</a></p>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
                         <div ng-if="showSemanticRelevance" class="row top-buffer">
                             <div class="col-xs-12 col-md-12">
