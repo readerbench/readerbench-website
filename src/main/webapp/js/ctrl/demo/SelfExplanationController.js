@@ -16,15 +16,17 @@ angular.module('controllers').controller('DemoSelfExplanationController', ['$sco
         'formData.language',
         function () {
             $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+            $scope.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
             $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+            $scope.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         });
 
     $scope.formData = {
         text: DemoTexts.selfExplanation.text,
         explanation: DemoTexts.selfExplanation.explanation,
         language: DemoTexts.selfExplanation.language,
-        lsa: DemoElements.defaultMetricOptions.lsa.French,
-        lda: DemoElements.defaultMetricOptions.lda.French,
+        lsa: DemoElements.defaultMetricOptions.lsa.FR,
+        lda: DemoElements.defaultMetricOptions.lda.FR,
         posTagging: DemoElements.defaultPosTaggingOption,
         dialogism: DemoElements.defaultDialogismOption
     };

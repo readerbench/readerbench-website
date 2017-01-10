@@ -60,7 +60,9 @@ angular.module('controllers').controller('DemoSemanticAnnotationController', ['$
         'formData.language',
         function () {
             $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+            $scope.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
             $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+            $scope.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         });
 
     // Semantic Annotation Form Data
@@ -68,8 +70,8 @@ angular.module('controllers').controller('DemoSemanticAnnotationController', ['$
         abstract: DemoTexts.semanticAnnotation.abstractText,
         keywords: DemoTexts.semanticAnnotation.keywords,
         language: DemoElements.defaultLanguage,
-        lsa: DemoElements.defaultMetricOptions.lsa.English,
-        lda: DemoElements.defaultMetricOptions.lda.English,
+        lsa: DemoElements.defaultMetricOptions.lsa.EN,
+        lda: DemoElements.defaultMetricOptions.lda.EN,
         posTagging: DemoElements.defaultPosTaggingOption,
         dialogism: DemoElements.defaultDialogismOption,
         threshold: DemoElements.defaultSemanticSimilarityThreshold

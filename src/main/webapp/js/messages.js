@@ -122,17 +122,16 @@ DemoElements = {
     },
     defaultMetricOptions: {
         lsa: {
-            English: {id: '1', name: 'TASA', value: 'TASA'},
-            French: {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
-            Italian: {id: '1', name: '', value: ''},
-            Spanish: {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'}
+            EN: {id: '1', name: 'TASA', value: 'TASA'},
+            FR: {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
+            IT: {id: '1', name: '', value: ''},
+            ES: {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'}
         },
         lda: {
-            English: {id: '1', name: 'TASA', value: 'TASA'},
-            French: {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
-            Italian: {id: '1', name: 'Paisa', value: 'Paisa'},
-            esSpanish: {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'}
-
+            EN: {id: '1', name: 'TASA', value: 'TASA'},
+            FR: {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
+            IT: {id: '1', name: 'Paisa', value: 'Paisa'},
+            ES: {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'}
         }
     },
     vcopCommunityOptions: [
