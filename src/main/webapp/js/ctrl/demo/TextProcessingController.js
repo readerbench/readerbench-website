@@ -14,9 +14,9 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
 
     $scope.$watch('formData.language', function () {
         $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
-        $scope.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
+        $scope.formData.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
-        $scope.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
+        $scope.formData.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
     });
 
     // Text Processing Form Data

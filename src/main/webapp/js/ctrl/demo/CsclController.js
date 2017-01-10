@@ -64,9 +64,9 @@ angular.module('controllers').controller('DemoCsclController', ['$scope', '$http
         'formData.language',
         function () {
             $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
-            $scope.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
+            $scope.formData.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
             $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
-            $scope.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
+            $scope.formData.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         });
 
     $scope.sampleFileUrl = DemoTexts.csclProcessing.sampleFileUrl;
