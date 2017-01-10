@@ -14,15 +14,17 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
 
     $scope.$watch('formData.language', function () {
         $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+        $scope.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+        $scope.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
     });
 
     // Text Processing Form Data
     $scope.formData = {
         text: DemoTexts.textProcessing.text,
         language: DemoElements.defaultLanguage,
-        lsa: DemoElements.defaultMetricOptions.lsa.English,
-        lda: DemoElements.defaultMetricOptions.lda.English,
+        lsa: DemoElements.defaultMetricOptions.lsa.EN,
+        lda: DemoElements.defaultMetricOptions.lda.EN,
         posTagging: DemoElements.defaultPosTaggingOption,
         dialogism: DemoElements.defaultDialogismOption,
         threshold: DemoElements.defaultSemanticSimilarityThreshold

@@ -63,13 +63,15 @@ angular.module('controllers').controller('DemoCvcoverController', ['$scope', '$h
         'formData.language',
         function () {
             $scope.lsaOptions = DemoElements.metricOptions.lsa[$scope.formData.language.value];
+            $scope.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
             $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
+            $scope.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         });
 
     $scope.formData = {
         language: DemoTexts.cvCover.language,
-        lsa: DemoElements.defaultMetricOptions.lsa.French,
-        lda: DemoElements.defaultMetricOptions.lda.French,
+        lsa: DemoElements.defaultMetricOptions.lsa.FR,
+        lda: DemoElements.defaultMetricOptions.lda.FR,
         posTagging: DemoElements.defaultPosTaggingOption,
         dialogism: DemoElements.defaultDialogismOption,
         threshold: DemoElements.defaultSemanticSimilarityThreshold
