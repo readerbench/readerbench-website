@@ -300,6 +300,60 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
 
                     });
                 break;
+                
+            case 'ADVANCED_CONCEPT_MAP':
+
+                endpoint = 'topicsAdvanced';
+
+                var params = {
+                    text: encodeURIComponent(
+                        $scope.formData.text)
+                        .replace(/%0D/g, "%0A"),
+                    lang: $scope.formData.language.name,
+                    lsa: ServerSettings.configRoot + '/'
+                    + $scope.formData.language.value + '/' + 'LSA' + '/'
+                    + $scope.formData.lsa.value,
+                    lda: ServerSettings.configRoot + '/'
+                    + $scope.formData.language.value + '/' + 'LDA' + '/'
+                    + $scope.formData.lda.value,
+                    postagging: $scope.formData.posTagging.value,
+                    dialogism: $scope.formData.dialogism.value,
+                    threshold: $scope.formData.threshold
+                }
+
+                $http
+                    .post(
+                    buildServerPath(
+                        endpoint,
+                        params))
+                    .then(
+                    function (response) {
+
+                        $scope.loading = false;
+
+                        if (response.data.success !== true) {
+                            alert('Server error occured!');
+                            return;
+                        }
+
+                        $scope.showResults = 'ADVANCED_CONCEPT_MAP';
+
+                        $scope.topics = response.data.data.nodes;
+                        $scope.topicEdges = response.data.data.links;
+
+                    },
+                    function (response) {
+
+                        $scope.loading = false;
+
+                        if (response.status == 0) {
+                            alert('Server error occured!');
+                        } else {
+                            alert(response.statusText);
+                        }
+
+                    });
+                break;
 
             case 'SEMANTIC_SEARCH':
 

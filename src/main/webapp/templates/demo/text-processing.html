@@ -107,6 +107,7 @@
                                     <button class="btn theme-btn-1" ng-click="buttonClick('SENTIMENT_ANALYSIS')"><span class="button">Sentiment Analysis</span></button>
                                     <button class="btn theme-btn-1" ng-click="buttonClick('TEXTUAL_COMPLEXITY')"><span class="button">Textual Complexity</span></button>
                                     <button class="btn theme-btn-1" ng-click="buttonClick('CONCEPT_MAP')"><span class="button">Concept Map</span></button>
+                                    <button class="btn theme-btn-1" ng-click="buttonClick('ADVANCED_CONCEPT_MAP')"><span class="button">Advanced Concept Map</span></button>
                                     <button class="btn theme-btn-1" ng-click="buttonClick('SEMANTIC_SEARCH')"><span class="button">Semantic Search</span></button>
                                 </div>
                             </div>
@@ -228,45 +229,96 @@
                         </div>
 
                         <div ng-if="showResults == 'TEXTUAL_COMPLEXITY'">
-                            <div class="col-xs-12 col-md-12">
-                                <h4>Textual complexity</h4>
-                                <ul class="course-description-list">
-                                    <li class="lesson" ng-repeat="complex in complexity">
-                                        <div class="heading">
-                                            <span class="lesson-nr no-select">{{complex.content}}</span>
-                                        </div>
-                                        <div class="body">&nbsp;</div>
-                                        <ul class="lesson-description" style="display: none;">
-                                            <li ng-repeat="complexEntry in complex.valences">
-                                                <div class="heading">
-                                                    <!-- <i class="icon icon-divider visible"></i> -->
-                                                    <span class="lesson-nr no-select">{{complexEntry.score}}</span>
-                                                </div>
-                                                <div class="body">
-                                                    <p>{{complexEntry.content}}</p>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <h4>Textual complexity</h4>
+                                    <ul class="course-description-list">
+                                        <li class="lesson" ng-repeat="complex in complexity">
+                                            <div class="heading">
+                                                <span class="lesson-nr no-select">{{complex.content}}</span>
+                                            </div>
+                                            <div class="body">&nbsp;</div>
+                                            <ul class="lesson-description" style="display: none;">
+                                                <li ng-repeat="complexEntry in complex.valences">
+                                                    <div class="heading">
+                                                        <!-- <i class="icon icon-divider visible"></i> -->
+                                                        <span class="lesson-nr no-select">{{complexEntry.score}}</span>
+                                                    </div>
+                                                    <div class="body">
+                                                        <p>{{complexEntry.content}}</p>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
 
                         <div ng-if="showResults == 'CONCEPT_MAP'">
-                            <div class="col-xs-12 col-md-3">
-                                <h4>Concept Map</h4>
-                                <ul class="course-description-list">
-                                    <li class="lesson" ng-repeat="topic in topics| limitTo:25">
-                                        <div class="heading">
-                                            <span class="lesson-nr no-select">{{topic.value}}</span>
-                                        </div>
-                                        <div class="body">
-                                            <p>{{topic.name}}</p>
-                                        </div>
-                                    </li>
-                                </ul>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-3">
+                                    <h4>Concept Map</h4>
+                                    <ul class="course-description-list">
+                                        <li class="lesson" ng-repeat="topic in topics| limitTo:25">
+                                            <div class="heading">
+                                                <span class="lesson-nr no-select">{{topic.value}}</span>
+                                            </div>
+                                            <div class="body">
+                                                <p>{{topic.name}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-md-9" id="conceptMap">
+                                </div>
                             </div>
-                            <div class="col-xs-12 col-md-9" id="conceptMap">
+                        </div>
+
+                        <div ng-if="showResults == 'ADVANCED_CONCEPT_MAP'">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <h4>Concept Map</h4>
+                                    <table class="cscl-indices browse-selections">
+                                        <tbody>
+                                            <tr ng-repeat="topic in topics| limitTo:25">
+                                                <td>{{topic.name}}</td>
+                                                <td>{{topic.lemma}}</td>
+                                                <td>{{topic.value}}</td>
+                                                <td>{{topic.tf}}</td>
+                                                <td>{{topic.idf}}</td>
+                                                <td>{{topic.semanticSimilarities[0].score}}</td>
+                                                <td>{{topic.semanticSimilarities[1].score}}</td>
+                                                <td>{{topic.semanticSimilarities[2].score}}</td>
+                                                <td>{{topic.averageDistanceToHypernymTreeRoot}}</td>
+                                                <td>{{topic.maxDistanceToHypernymTreeRoot}}</td>
+                                                <td>{{topic.polysemyCount}}</td>
+                                            </tr>
+                                        </tbody>
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Word</th>
+                                                <th rowspan="2">Lemma</th>
+                                                <th rowspan="2">Relevance</th>
+                                                <th rowspan="2">TF</th>
+                                                <th rowspan="2">IDF</th>
+                                                <th colspan="3">Similarity</th>
+                                                <th rowspan="2">Avg. Distance to Root</th>
+                                                <th rowspan="2">Max. Distance to Root</th>
+                                                <th rowspan="2">Polysemy Count</th>
+                                            </tr>
+                                            <tr>
+                                                <th>LSA</th>
+                                                <th>LDA</th>
+                                                <th>Word2Vec</th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12" id="conceptMap">
+                                </div>
                             </div>
                         </div>
 
