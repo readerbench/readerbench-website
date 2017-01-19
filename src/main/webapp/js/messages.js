@@ -83,31 +83,35 @@ DemoElements = {
         lsa: {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
-                {id: '2', name: 'TASA_LAK', value: 'TASA_LAK'},
-                {id: '3', name: '', value: ''}
+                {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
+                {id: '3', name: 'ENeA', value: 'ENEA_625'},
+                {id: '4', name: 'ENeA & TASA', value: 'ENEA_625_TASA'},
+                {id: '5', name: '', value: ''}
             ],
             FR: [
-                {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
-                {id: '2', name: 'Text_Enfants', value: 'Text_Enfants'},
+                {id: '1', name: 'Le Monde', value: 'Le_Monde'},
+                {id: '2', name: 'Text Enfants', value: 'Text_Enfants'},
                 {id: '3', name: '', value: ''}
             ],
             IT: [
                 {id: '1', name: '', value: ''}
             ],
             ES: [
-                {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'},
+                {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'},
                 {id: '2', name: '', value: ''}
             ]
         },
         lda: {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
-                {id: '2', name: 'TASA_LAK', value: 'TASA_LAK'},
-                {id: '3', name: '', value: ''}
+                {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
+                {id: '3', name: 'ENeA', value: 'ENEA_625'},
+                {id: '4', name: 'ENeA & TASA', value: 'ENEA_625_TASA'},
+                {id: '5', name: '', value: ''}
             ],
             FR: [
-                {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
-                {id: '2', name: 'Text_Enfants', value: 'Text_Enfants'},
+                {id: '1', name: 'Le Monde', value: 'Le_Monde'},
+                {id: '2', name: 'Text Enfants', value: 'Text_Enfants'},
                 {id: '3', name: '', value: ''}
             ],
             IT: [
@@ -115,7 +119,19 @@ DemoElements = {
                 {id: '2', name: '', value: ''}
             ],
             ES: [
-                {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'},
+                {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'},
+                {id: '2', name: '', value: ''}
+            ]
+        },
+        word2Vec: {
+            EN: [
+                {id: '1', name: 'TASA', value: 'TASA'},
+                {id: '2', name: 'ENEA', value: 'ENEA_625'},
+                {id: '2', name: 'ENEA & TASA', value: 'ENEA_625_TASA'},
+                {id: '3', name: '', value: ''}
+            ],
+            FR: [
+                {id: '1', name: 'Le Monde', value: 'Le_Monde'},
                 {id: '2', name: '', value: ''}
             ]
         }
@@ -123,15 +139,19 @@ DemoElements = {
     defaultMetricOptions: {
         lsa: {
             EN: {id: '1', name: 'TASA', value: 'TASA'},
-            FR: {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
+            FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'},
             IT: {id: '1', name: '', value: ''},
-            ES: {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'}
+            ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         lda: {
             EN: {id: '1', name: 'TASA', value: 'TASA'},
-            FR: {id: '1', name: 'Le_Monde', value: 'Le_Monde'},
+            FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'},
             IT: {id: '1', name: 'Paisa', value: 'Paisa'},
-            ES: {id: '1', name: 'Jose_Antonio', value: 'Jose_Antonio'}
+            ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
+        },
+        word2Vec: {
+            EN: {id: '1', name: 'TASA', value: 'TASA'},
+            FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'}
         }
     },
     vcopCommunityOptions: [
