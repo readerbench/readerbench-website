@@ -17,6 +17,8 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
         $scope.formData.lsa = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
         $scope.ldaOptions = DemoElements.metricOptions.lda[$scope.formData.language.value];
         $scope.formData.lda = DemoElements.defaultMetricOptions.lsa[$scope.formData.language.value];
+        $scope.word2VecOptions = DemoElements.metricOptions.word2Vec[$scope.formData.language.value];
+        $scope.formData.word2Vec = DemoElements.defaultMetricOptions.word2Vec[$scope.formData.language.value];
     });
 
     // Text Processing Form Data
@@ -25,6 +27,7 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
         language: DemoElements.defaultLanguage,
         lsa: DemoElements.defaultMetricOptions.lsa.EN,
         lda: DemoElements.defaultMetricOptions.lda.EN,
+        word2Vec: DemoElements.defaultMetricOptions.word2Vec.EN,
         posTagging: DemoElements.defaultPosTaggingOption,
         dialogism: DemoElements.defaultDialogismOption,
         threshold: DemoElements.defaultSemanticSimilarityThreshold
@@ -315,6 +318,9 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                     + $scope.formData.lsa.value,
                     lda: ServerSettings.configRoot + '/'
                     + $scope.formData.language.value + '/' + 'LDA' + '/'
+                    + $scope.formData.lda.value,
+                    word2vec: ServerSettings.configRoot + '/'
+                    + $scope.formData.language.value + '/' + 'word2vec' + '/'
                     + $scope.formData.lda.value,
                     postagging: $scope.formData.posTagging.value,
                     dialogism: $scope.formData.dialogism.value,

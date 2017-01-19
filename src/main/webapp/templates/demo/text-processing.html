@@ -66,6 +66,17 @@
                                 </div>
                             </div>
                         </div>
+                        
+                        <div class="row top-buffer" ng-if="advanced">
+                            <div class="col-xs-3 col-md-3">
+                                <label for="self_word2vec">Word2Vec corpus <span class="required">*</span></label>
+                            </div>
+                            <div class="col-xs-7 col-md-7">
+                                <div class="input-group">
+                                    <select class="form-control" ng-model="formData.word2Vec" ng-options="option.name for option in word2VecOptions track by option.id"></select>
+                                </div>
+                            </div>
+                        </div>
 
                         <div class="row top-buffer" ng-if="advanced">
                             <div class="col-xs-3 col-md-3">
@@ -282,7 +293,6 @@
                                     <table class="cscl-indices browse-selections">
                                         <tbody>
                                             <tr ng-repeat="topic in topics| limitTo:25">
-                                                <td>{{topic.name}}</td>
                                                 <td>{{topic.lemma}}</td>
                                                 <td>{{topic.value}}</td>
                                                 <td>{{topic.tf}}</td>
@@ -297,12 +307,11 @@
                                         </tbody>
                                         <thead>
                                             <tr>
-                                                <th rowspan="2">Word</th>
-                                                <th rowspan="2">Lemma</th>
+                                                <th rowspan="2">Word Lemma</th>
                                                 <th rowspan="2">Relevance</th>
                                                 <th rowspan="2">TF</th>
                                                 <th rowspan="2">IDF</th>
-                                                <th colspan="3">Similarity</th>
+                                                <th colspan="3" style="text-align: center;">Similarity</th>
                                                 <th rowspan="2">Avg. Distance to Root</th>
                                                 <th rowspan="2">Max. Distance to Root</th>
                                                 <th rowspan="2">Polysemy Count</th>
