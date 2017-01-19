@@ -294,6 +294,7 @@
                                         <tbody>
                                             <tr ng-repeat="topic in topics| limitTo:25">
                                                 <td>{{topic.lemma}}</td>
+                                                <td>{{topic.pos}}</td>
                                                 <td>{{topic.value}}</td>
                                                 <td>{{topic.tf}}</td>
                                                 <td>{{topic.idf}}</td>
@@ -308,6 +309,7 @@
                                         <thead>
                                             <tr>
                                                 <th rowspan="2">Word Lemma</th>
+                                                <th rowspan="2">POS</th>
                                                 <th rowspan="2">Relevance</th>
                                                 <th rowspan="2">TF</th>
                                                 <th rowspan="2">IDF</th>
