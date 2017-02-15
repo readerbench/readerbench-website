@@ -150,8 +150,6 @@ DemoElements = {
             ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         word2Vec: {
-            EN: {id: '1', name: 'TASA', value: 'TASA'},
-            FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'}
         }
     },
     vcopCommunityOptions: [
