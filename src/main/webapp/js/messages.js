@@ -84,9 +84,8 @@ DemoElements = {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: 'ENeA', value: 'ENEA_625'},
-                {id: '4', name: 'ENeA & TASA', value: 'ENEA_625_TASA'},
-                {id: '5', name: '', value: ''}
+                {id: '3', name: 'ENeA', value: 'ENEA'},
+                {id: '4', name: '', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
@@ -105,9 +104,8 @@ DemoElements = {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: 'ENeA', value: 'ENEA_625'},
-                {id: '4', name: 'ENeA & TASA', value: 'ENEA_625_TASA'},
-                {id: '5', name: '', value: ''}
+                {id: '3', name: 'ENeA', value: 'ENEA'},
+                {id: '4', name: '', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
@@ -126,8 +124,7 @@ DemoElements = {
         word2Vec: {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
-                {id: '2', name: 'ENEA', value: 'ENEA_625'},
-                {id: '2', name: 'ENEA & TASA', value: 'ENEA_625_TASA'},
+                {id: '2', name: 'ENEA', value: 'ENEA'},
                 {id: '3', name: '', value: ''}
             ],
             FR: [
@@ -150,6 +147,8 @@ DemoElements = {
             ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         word2Vec: {
+            EN: "",
+            FR: ""
         }
     },
     vcopCommunityOptions: [
