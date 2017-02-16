@@ -242,7 +242,7 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
 
             case 'CONCEPT_MAP':
 
-                endpoint = 'getTopics';
+                endpoint = 'topics';
 
                 var params = {
                     text: encodeURIComponent(
@@ -255,16 +255,16 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                     lda: ServerSettings.configRoot + '/'
                     + $scope.formData.language.value + '/' + 'LDA' + '/'
                     + $scope.formData.lda.value,
+                    word2vec: ($scope.formData.word2Vec) ? (ServerSettings.configRoot + '/'
+                    + $scope.formData.language.value + '/' + 'LDA' + '/'
+                    + $scope.formData.word2Vec.value) : '',
                     postagging: $scope.formData.posTagging.value,
                     dialogism: $scope.formData.dialogism.value,
                     threshold: $scope.formData.threshold
-                }
+                };
 
                 $http
-                    .get(
-                    buildServerPath(
-                        endpoint,
-                        params))
+                    .post(buildServerPath(endpoint), params)
                     .then(
                     function (response) {
 
@@ -319,19 +319,16 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                     lda: ServerSettings.configRoot + '/'
                     + $scope.formData.language.value + '/' + 'LDA' + '/'
                     + $scope.formData.lda.value,
-                    word2vec: ServerSettings.configRoot + '/'
+                    word2vec: ($scope.formData.word2Vec) ? (ServerSettings.configRoot + '/'
                     + $scope.formData.language.value + '/' + 'word2vec' + '/'
-                    + $scope.formData.lda.value,
+                    + $scope.formData.word2Vec.value) : '',
                     postagging: $scope.formData.posTagging.value,
                     dialogism: $scope.formData.dialogism.value,
                     threshold: $scope.formData.threshold
-                }
+                };
 
                 $http
-                    .post(
-                    buildServerPath(
-                        endpoint,
-                        params))
+                    .post(buildServerPath(endpoint), params)
                     .then(
                     function (response) {
 

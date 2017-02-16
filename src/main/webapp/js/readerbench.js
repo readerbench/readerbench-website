@@ -4,7 +4,7 @@ var buildServerPath = function(endpoint, params) {
 			+ ServerSettings.delim + ServerSettings.ip + ':'
 			+ ServerSettings.port + ServerSettings.delim + endpoint;
 
-    if (Object.keys(params).length > 0) {
+    if (params && Object.keys(params).length > 0) {
         serverUrl += '?';
         Object.keys(params).forEach(function(key, index) {
             serverUrl += key + '=' + params[key] + '&';
