@@ -73,6 +73,9 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                 break;
         }
     };
+    $scope.showConnections = function(node) {
+        node.showConnections = !node.showConnections;
+    };
 
     $scope.buttonClick = function (req) {
 
@@ -80,7 +83,7 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
         $scope.showResults = 'NONE';
 
         var endpoint;
-
+        
         switch (req) {
 
             case 'SENTIMENT_ANALYSIS':
@@ -342,8 +345,17 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                         $scope.showResults = 'ADVANCED_CONCEPT_MAP';
 
                         $scope.topics = response.data.data.nodes;
+                        for (var i = 0; i < $scope.topics.length; i++) {
+                            $scope.topics[i].showConnections = false;
+                        }
                         $scope.topicEdges = response.data.data.links;
-
+//                        for (var i = 0; i < $scope.topicEdges.length; i++) {
+//                            if ($scope.topicEdges[i].score > .9) {
+//                                $scope.topicEdges[i].score = 1;
+//                            } else {
+//                                $scope.topicEdges[i].score = (1 - $scope.topicEdges[i].score) * 10;
+//                            }
+//                        }
                     },
                     function (response) {
 

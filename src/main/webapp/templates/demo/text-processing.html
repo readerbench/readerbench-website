@@ -292,9 +292,12 @@
                                     <h4>Concept Map</h4>
                                     <table class="cscl-indices browse-selections">
                                         <tbody>
-                                            <tr ng-repeat="topic in topics| limitTo:25">
+                                            <tr ng-repeat="topic in topics"><!--  | limitTo:25-->
                                                 <td>{{topic.lemma}}</td>
                                                 <td>{{topic.pos}}</td>
+                                                <td>{{topic.noOcc}}</td>
+                                                <td>{{topic.noLinks}}</td>
+                                                <td>{{topic.degree}}</td>
                                                 <td>{{topic.value}}</td>
                                                 <td>{{topic.tf}}</td>
                                                 <td>{{topic.idf}}</td>
@@ -304,19 +307,38 @@
                                                 <td>{{topic.averageDistanceToHypernymTreeRoot}}</td>
                                                 <td>{{topic.maxDistanceToHypernymTreeRoot}}</td>
                                                 <td>{{topic.polysemyCount}}</td>
+                                                <td>
+                                                    <table>
+                                                        <tbody>
+                                                            <tr>
+<!--                                                                <td>
+                                                                    <a ng-if="topic.showConnections == false" href="javascript:void(0);" onclick="showConnections(topic)">Show connections</a>
+                                                                    <a ng-if="topic.showConnections == true" href="javascript:void(0);" onclick="showConnections(topic)">Hide connections</a>
+                                                                </td>-->
+                                                                <td ng-repeat="edge in topicEdges" ng-if="edge.source == topic.id"><!--  ng-if="topic.showConnections == true" -->
+                                                                    ({{topics[edge.target].lemma}} {{topics[edge.target].pos}}, {{edge.score}})
+                                                                </td> 
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
                                             </tr>
                                         </tbody>
                                         <thead>
                                             <tr>
                                                 <th rowspan="2">Word Lemma</th>
                                                 <th rowspan="2">POS</th>
+                                                <th rowspan="2">#</th>
+                                                <th rowspan="2">Links</th>
+                                                <th rowspan="2">Degree</th>
                                                 <th rowspan="2">Relevance</th>
                                                 <th rowspan="2">TF</th>
                                                 <th rowspan="2">IDF</th>
                                                 <th colspan="3" style="text-align: center;">Similarity</th>
-                                                <th rowspan="2">Avg. Distance to Root</th>
-                                                <th rowspan="2">Max. Distance to Root</th>
+                                                <th rowspan="2">Avg. Dist. to Root</th>
+                                                <th rowspan="2">Max. Dist. to Root</th>
                                                 <th rowspan="2">Polysemy Count</th>
+                                                <th rowspan="2">Related words</th>
                                             </tr>
                                             <tr>
                                                 <th>LSA</th>

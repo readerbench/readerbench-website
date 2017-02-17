@@ -1,8 +1,0 @@
-node_modules
-dist
-.tmp
-.sass-cache
-app/bower_components/*
-!app/bower_components/ui-bootstrap/
-!app/bower_components/ui-bootstrap/*
-app/images/profile
