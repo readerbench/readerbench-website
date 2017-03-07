@@ -15,7 +15,7 @@ var buildServerPath = function(endpoint, params) {
 
 }
 
-var d3jsForTopics = function(graph, element, enableFisheye) {
+var d3jsForTopics = function(graph, element, enableFisheye, limit = 0) {
     jQuery(element).html('');
 
 	var width = 690, height = 600;
@@ -34,14 +34,23 @@ var d3jsForTopics = function(graph, element, enableFisheye) {
 			"height", height);
 
 	var max = 0;
+    if (limit !== 0) graph.nodes = graph.nodes.slice(0, limit);
 	graph.nodes.forEach(function(link, index, list) {
 		if (link.value > max)
 			max = link.value;
 	});
 
+    if (limit !== 0) {
+        var newLinks = [];
+        graph.links.forEach(function(link, index, list) {
+            if (link.source < limit && link.target < limit) newLinks[newLinks.length] = link;
+        });
+        graph.links = newLinks;
+    }
+    
 	graph.links.forEach(function(link, index, list) {
 		if (typeof graph.nodes[link.source] === 'undefined') {
-			console.log('undefined source', link);
+            console.log('undefined source', link);
 		}
 		if (typeof graph.nodes[link.target] === 'undefined') {
 			console.log('undefined target', link);
@@ -49,7 +58,11 @@ var d3jsForTopics = function(graph, element, enableFisheye) {
 	});
 
 	force.nodes(graph.nodes).links(graph.links).linkDistance(function(link) {
-		return link.score * 25;
+        if (link.score > .9) {
+            return 1 * 10;
+        } else {
+            return (1 - link.score) * 10 * 10;
+        }
 	}).start();
 
 	var link = svg.selectAll(".link").data(graph.links).enter().append("line")
@@ -68,7 +81,7 @@ var d3jsForTopics = function(graph, element, enableFisheye) {
 
 	node.append("text").attr("dx", 12).attr("dy", ".35em").style("fill",
 			"#333333").style("stroke", "none").text(function(d) {
-		return d.name;
+		return d.lemma;
 	});
 
 	force.on("tick", function() {
@@ -178,7 +191,7 @@ var d3jsForTopicsForvCop = function(graph, element, enableFisheye) {
 
 	node.append("text").attr("dx", 12).attr("dy", ".35em").style("fill",
 			"#333333").style("stroke", "none").text(function(d) {
-		return d.name;
+		return d.lemma;
 	});
 
 	force.on("tick", function() {
@@ -423,7 +436,7 @@ var d3jsForTopicsForvCopTimeFrame = function(nodes, links, element,
 
 	node.append("text").attr("dx", 12).attr("dy", ".35em").style("fill",
 			"#333333").style("stroke", "none").text(function(d) {
-		return d.name;
+		return d.lemma;
 	});
 
 	force.on("tick", function() {
@@ -536,7 +549,7 @@ var d3jsForTopicsForvCoPSubcommunities = function(graph, element, enableFisheye)
 
 	node.append("text").attr("dx", 12).attr("dy", ".35em").style("fill",
 			"#333333").style("stroke", "none").text(function(d) {
-		return d.name;
+		return d.lemma;
 	});
 
 	force.on("tick", function() {
@@ -606,17 +619,17 @@ var try1 = function(graph, element) {
 
 	// define the nodes
 	var node = svg.selectAll(".node").data(graph.nodes).enter().append("g")
-			.attr("class", "node").call(force.drag);
+		.attr("class", "node").call(force.drag);
 
 	// add the nodes
 	node.append("circle").attr("r", 5).style("stroke-width", "1px").style(
-			"fill", function(d) {
-				return color(d.group);
-			});
+        "fill", function(d) {
+            return color(d.group);
+    });
 
 	// add the text
 	node.append("text").attr("x", 12).attr("dy", ".35em").text(function(d) {
-		return d.name;
+		return d.lemma;
 	});
 
 	// add the curvy lines
@@ -687,12 +700,12 @@ var hexToRgb = function(hex) {
 };
 
 var sentimentColors = {
-    scared:     hexToRgb('#fbfd00'),
-    angry:      hexToRgb('#f30707'),
-    sad:        hexToRgb('#6cb3fb'),
-    happy:      hexToRgb('#38b616'),
-    excited:    hexToRgb('#fdb900'),
-    tender:     hexToRgb('#fba7f4')
+    'scared':     hexToRgb('#fbfd00'),
+    'angry':      hexToRgb('#f30707'),
+    'sad':        hexToRgb('#6cb3fb'),
+    'happy':      hexToRgb('#38b616'),
+    'excited':    hexToRgb('#fdb900'),
+    'tender':     hexToRgb('#fba7f4')
 };
 
 var computeColors = function(element, threshold) {
@@ -710,9 +723,9 @@ var computeColors = function(element, threshold) {
             var valence = element.valences[i];
             if (valence.score >= threshold)
             {
-                sumSentiments.r += valence.score * sentimentColors[valence.content].r;
-                sumSentiments.g += valence.score * sentimentColors[valence.content].g;
-                sumSentiments.b += valence.score * sentimentColors[valence.content].b;
+                sumSentiments.r += valence.score * sentimentColors[valence.valence].r;
+                sumSentiments.g += valence.score * sentimentColors[valence.valence].g;
+                sumSentiments.b += valence.score * sentimentColors[valence.valence].b;
                 sumPercentage += valence.score;
             }
         }
@@ -729,3 +742,40 @@ var computeColors = function(element, threshold) {
     
     return sumSentiments;
 };
+
+var uploadFile = function (scope, fileModel, file, errFiles, f, errFile, errorMsg) {
+    scope.fileUploaded = false;
+    scope.errors = null;
+    scope.warnings = null;
+    scope[f] = file;
+    scope[errFile] = errFiles && errFiles[0];
+    if (file) {
+        file.upload = Upload.upload({
+            url: buildServerPath(endpoint, params),
+            data: {
+                file: file
+            }
+        });
+
+        file.upload.then(
+            function (response) {
+                $timeout(function () {
+                    if (response.data.data.errors.length > 0) scope.errors = response.data.data.errors;
+                    if (response.data.data.warnings.length > 0) scope.warnings = response.data.data.warnings;
+                    file.result = response.data.data.name;
+                    scope.fileUploaded = true;
+                    jQuery('#submit-button').prop("disabled", false);
+                    scope.formData[fileModel] = file.result;
+                });
+            },
+            function (response) {
+                if (response.status > 0) {
+                    scope[errorMsg] = response.status + ': ' + response.data;
+                }
+            },
+            function (evt) {
+                file.progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+            }
+        );
+    }
+}

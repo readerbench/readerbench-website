@@ -30,9 +30,8 @@
                                 <label for="file">CSCL file <span class="required">*</span><br /><small>(only XML files allowed)</small></label>
                             </div>
                             <div class="col-xs-4 col-md-4">
-                                <button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
-                                        accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles">
-                                    Select File</button>
+                                <button id="file" class="btn theme-btn-1" type="file" ngf-select="uploadFile($file, $invalidFiles, 'csclFile', 'csclErrFile', 'csclErrorMsg')"
+                                        accept="application/xml,text/xml" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles"><span class="button">Select File</span></button>
                                 File:
                                 <small>{{csclFile.name}} {{csclErrFile.name}} {{csclErrFile.$error}} {{csclErrFile.$errorParam}}
                                     <span class="progress" ng-show="csclFile.progress >= 0">
@@ -126,7 +125,7 @@
                         <div class="row top-buffer" ng-if="!loading">
                             <div class="col-xs-12 col-md-12">
                                 <div class="bottom-buttons">
-                                    <button class="filter-button" ng-click="buttonClick('CSCL')">Process</button>
+                                    <button class="btn theme-btn-1" ng-click="buttonClick()"><span class="button">Process</span></button>
                                 </div>
                             </div>
                         </div>        

@@ -30,9 +30,8 @@
                                 <label for="file">Publication file <span class="required">*</span><br /><small>(only PDF files allowed)</small></label>
                             </div>
                             <div class="col-xs-7 col-md-7">
-                                <button id="file" class="filter-button" type="file" ngf-select="uploadFile($file, $invalidFiles, 'file', 'errFile', 'errorMsg')"
-                                        accept="application/pdf" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles">
-                                    Select File</button>
+                                <button id="file" class="btn theme-btn-1" type="file" ngf-select="uploadFile($file, $invalidFiles, 'file', 'errFile', 'errorMsg')"
+                                        accept="application/pdf" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles"><span class="button">Select File</span></button>
                                 File:
                                 <small>{{file.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
                                     <span class="progress" ng-show="file.progress >= 0">
@@ -80,17 +79,6 @@
                                     <span ng-if="advanced">&#x25B2; Hide</span>
                                     advanced options
                                 </a>
-                            </div>
-                        </div>
-
-                        <div class="row top-buffer" ng-if="advanced">
-                            <div class="col-xs-3 col-md-3">
-                                <label for="self_pos_tagging">Part of Speech tagging <span class="required">*</span></label>
-                            </div>
-                            <div class="col-xs-7 col-md-7">
-                                <div class="input-group">
-                                    <select class="form-control" ng-model="formData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
-                                </div>
                             </div>
                         </div>
 
@@ -152,11 +140,10 @@
                         <div class="row top-buffer" ng-if="!loading">
                             <div class="col-xs-12 col-md-12">
                                 <div class="bottom-buttons">
-                                    <button class="filter-button" ng-click="buttonClick('SEMANTIC_ANNOTATION')">Process</button>
+                                    <button class="btn theme-btn-1" ng-click="buttonClick()"><span class="button">Process</span></button>
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div id="results">
 
@@ -250,11 +237,11 @@
 
                         <div ng-if="showConcept" class="row">
                             <div class="col-xs-12 col-md-3">
-                                <h4>Concept Map</h4>
+                                <h4>Keywords Map</h4>
                                 <ul class="course-description-list">
-                                    <li class="lesson" ng-repeat="topic in topics| limitTo:25">
+                                    <li class="lesson" ng-repeat="topic in topics | limitTo:25">
                                         <div class="heading">
-                                            <span class="lesson-nr no-select">{{topic.value}}</span>
+                                            <span class="lesson-nr no-select">{{topic.value | number:3}}</span>
                                         </div>
                                         <div class="body">
                                             <p>{{topic.name}}</p>

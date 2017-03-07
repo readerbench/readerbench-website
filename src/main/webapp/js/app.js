@@ -4,18 +4,16 @@ var app;
 (function(){
     app = angular.module('readerbench', ['ngRoute', 'controllers', 'directives', 'filters']);
 	app
-		.config(['$routeProvider', '$locationProvider', '$httpProvider',
-		         function($routeProvider, $locationProvider, $httpProvider){
+		.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
 			
-			 $httpProvider.defaults.headers.common = {};
-			 $httpProvider.defaults.headers.post = {};
-			 $httpProvider.defaults.headers.put = {};
-			 $httpProvider.defaults.headers.patch = {};
+            $httpProvider.defaults.headers.common = {};
+            $httpProvider.defaults.headers.post = {};
+            $httpProvider.defaults.headers.put = {};
+            $httpProvider.defaults.headers.patch = {};
 
 			$routeProvider
 				.when("/", {
-					templateUrl: 'templates/home.html',
-					controller: "HomeController"
+					templateUrl: 'templates/home.html'
 				})
 				.when("/demo", {
 					templateUrl: 'templates/demo.html'

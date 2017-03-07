@@ -3,7 +3,7 @@
 angular.module('controllers').controller('DemoCvcoverController', ['$scope', '$http', '$sce', 'Upload', '$timeout', function ($scope, $http, $sce, Upload, $timeout) {
 
     var params = {};
-    var endpoint = 'fileUpload';
+    var endpoint = 'file-upload';
     $scope.uploadFile = function (type, file,
         errFiles, f, errFile, errorMsg) {
         $scope[f] = file;

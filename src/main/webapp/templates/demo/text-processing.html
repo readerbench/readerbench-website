@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-xs-7 col-md-7">
                                 <div class="input-group">
-                                    <select class="form-control" ng-model="formData.word2Vec" ng-options="option.name for option in word2VecOptions track by option.id"></select>
+                                    <select class="form-control" ng-model="formData.word2vec" ng-options="option.name for option in word2VecOptions track by option.id"></select>
                                 </div>
                             </div>
                         </div>
@@ -113,12 +113,10 @@
 
                         <div class="row top-buffer" ng-if="!loading">
                             <div class="col-xs-12 col-md-12">
-
                                 <div class="bottom-buttons" ng-if="!loading">
                                     <button class="btn theme-btn-1" ng-click="buttonClick('SENTIMENT_ANALYSIS')"><span class="button">Sentiment Analysis</span></button>
                                     <button class="btn theme-btn-1" ng-click="buttonClick('TEXTUAL_COMPLEXITY')"><span class="button">Textual Complexity</span></button>
-                                    <button class="btn theme-btn-1" ng-click="buttonClick('CONCEPT_MAP')"><span class="button">Concept Map</span></button>
-                                    <button class="btn theme-btn-1" ng-click="buttonClick('ADVANCED_CONCEPT_MAP')"><span class="button">Detailed Topic Mining</span></button>
+                                    <button class="btn theme-btn-1" ng-click="buttonClick('KEYWORDS')"><span class="button">Keywords</span></button>
                                     <button class="btn theme-btn-1" ng-click="buttonClick('SEMANTIC_SEARCH')"><span class="button">Semantic Search</span></button>
                                 </div>
                             </div>
@@ -126,13 +124,11 @@
 
                     </div>
                     <div id="results">
-
                         <div class="row" ng-if="loading">
                             <div class="col-xs-12 col-md-12">
                                 <img src="img/loading.gif" alt="Loading..." />
                             </div>
                         </div>	
-
                         <div ng-if="showResults == 'SENTIMENT_ANALYSIS'" class="results-sentiment">                            
                             <div class="row">
                                 <div class="col-xs-12 col-md-12 col-lg-12">
@@ -147,16 +143,16 @@
                                                 <div class="container">
                                                     <ul class="courses-filters">
                                                         <li>
-                                                            <a class="current" href="#" data-target="grid-all" ng-click="changeGranularity($event, 'document');"><span>Document view</span></a>
+                                                            <a class="current" href="#" data-target="grid-all" ng-click="changeSentimentGranularity($event, 'document');"><span>Document view</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-target="grid-online" ng-click="changeGranularity($event, 'paragraph');"><span>Paragraph view</span></a>
+                                                            <a href="#" data-target="grid-online" ng-click="changeSentimentGranularity($event, 'paragraph');"><span>Paragraph view</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-target="grid-offline" ng-click="changeGranularity($event, 'sentence');"><span>Sentence view</span></a>
+                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'sentence');"><span>Sentence view</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-target="grid-offline" ng-click="changeGranularity($event, 'word');"><span>Word view</span></a>
+                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'word');"><span>Word view</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -168,13 +164,13 @@
                             <div class="row">
                                 <div class="col-xs-12 col-md-12">
                                     <div id="senti">
-                                        <span class="document-encapsulator" ng-repeat="sentiment in sentiments" id="document-{{$index}}">
+                                        <span class="document-encapsulator" id="document">
                                             <span class="hideable">
-                                                <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body document">{{sentiment.text}}</span></a>
+                                                <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body document">{{text}}</span></a>
                                                 <span class="tooltip-content" style="display: none;">
-                                                    <div class='sentiment-progress' ng-repeat='sentimentValence in sentiment.valences'>
-                                                        <div class='valence'>{{sentimentValence.content}} <i class='val'>{{sentimentValence.score}}</i></div>
-                                                        <div class='progress sentiment sentiment-{{sentimentValence.content}}'>
+                                                    <div class='sentiment-progress' ng-repeat='sentimentValence in sentiments'>
+                                                        <div class='valence'>{{sentimentValence.valence}} <i class='val'>{{sentimentValence.score}}</i></div>
+                                                        <div class='progress sentiment sentiment-{{sentimentValence.valence}}'>
                                                             <div class='progress-bar' role='progressbar' aria-valuenow='{{sentimentValence.score * 100}}'
                                                                  aria-valuemin='0' aria-valuemax='100'>
                                                             </div>
@@ -183,13 +179,13 @@
                                                 </span>
                                             </span>
                                             <span class="lesson-description">
-                                                <span class="paragraph-encapsulator" ng-repeat="innerObject in sentiment.innerObjects" id="paragraph-{{$index}}">
+                                                <span class="paragraph-encapsulator" ng-repeat="child in children" id="paragraph-{{$index}}">
                                                     <span class="hideable" style="display: none;">
-                                                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body paragraph">{{innerObject.text}}</span></a>
+                                                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body paragraph">{{child.text}}</span></a>
                                                         <span class="tooltip-content" style="display: none;">
-                                                            <div class="sentiment-progress" ng-repeat="sentimentValence in innerObject.valences">
-                                                                <div class="valence">{{sentimentValence.content}} <i class="val">{{sentimentValence.score}}</i></div>
-                                                                <div class="progress sentiment sentiment-{{sentimentValence.content}}">
+                                                            <div class="sentiment-progress" ng-repeat="sentimentValence in child.valences">
+                                                                <div class="valence">{{sentimentValence.valence}} <i class="val">{{sentimentValence.score}}</i></div>
+                                                                <div class="progress sentiment sentiment-{{sentimentValence.valence}}">
                                                                     <div class="progress-bar" role="progressbar" aria-valuenow="{{sentimentValence.score * 100}}"
                                                                          aria-valuemin="0" aria-valuemax="100">
                                                                     </div>
@@ -198,13 +194,13 @@
                                                         </span>
                                                     </span>
                                                     <span class="lesson-description">
-                                                        <span class="sentence-encapsulator" ng-repeat="innerObject2 in innerObject.innerObjects" id="sentence-{{$index}}">
+                                                        <span class="sentence-encapsulator" ng-repeat="child2 in child.children" id="sentence-{{$index}}">
                                                             <span class="hideable" style="display: none;">
-                                                                <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body sentence">{{innerObject2.text}}</span></a>
-                                                                <span class="tooltip-content" style="display: none;" ng-if="innerObject2.valences">
-                                                                    <div class="sentiment-progress" ng-repeat="sentimentValence in innerObject2.valences">
-                                                                        <div class="valence">{{sentimentValence.content}} <i class="val">{{sentimentValence.score}}</i></div>
-                                                                        <div class="progress sentiment sentiment-{{sentimentValence.content}}">
+                                                                <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body sentence">{{child2.text}}</span></a>
+                                                                <span class="tooltip-content" style="display: none;" ng-if="child2.valences">
+                                                                    <div class="sentiment-progress" ng-repeat="sentimentValence in child2.valences">
+                                                                        <div class="valence">{{sentimentValence.valence}} <i class="val">{{sentimentValence.score}}</i></div>
+                                                                        <div class="progress sentiment sentiment-{{sentimentValence.valence}}">
                                                                             <div class="progress-bar" role="progressbar" aria-valuenow="{{sentimentValence.score * 100}}"
                                                                                  aria-valuemin="0" aria-valuemax="100">
                                                                             </div>
@@ -213,13 +209,13 @@
                                                                 </span>
                                                             </span>
                                                             <span class="lesson-description">
-                                                                <span class="word-encapsulator" ng-repeat="innerObject3 in innerObject2.innerObjects" id="word-{{$index}}">
+                                                                <span class="word-encapsulator" ng-repeat="child3 in child2.children" id="word-{{$index}}">
                                                                     <span class="hideable" style="display: none;">
-                                                                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body word">{{innerObject3.text}}</span></a>
-                                                                        <span class="tooltip-content" style="display: none;" ng-if="innerObject3.valences">
-                                                                            <div class="sentiment-progress" ng-repeat="sentimentValence in innerObject3.valences">
-                                                                                <div class="valence">{{sentimentValence.content}} <i class="val">{{sentimentValence.score}}</i></div>
-                                                                                <div class="progress sentiment sentiment-{{sentimentValence.content}}">
+                                                                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false" rel="tooltip"><span class="body word">{{child3.text}}</span></a>
+                                                                        <span class="tooltip-content" style="display: none;" ng-if="child3.valences">
+                                                                            <div class="sentiment-progress" ng-repeat="sentimentValence in child3.valences">
+                                                                                <div class="valence">{{sentimentValence.valence}} <i class="val">{{sentimentValence.score}}</i></div>
+                                                                                <div class="progress sentiment sentiment-{{sentimentValence.valence}}">
                                                                                     <div class="progress-bar" role="progressbar" aria-valuenow="{{sentimentValence.score * 100}}"
                                                                                          aria-valuemin="0" aria-valuemax="100">
                                                                                     </div>
@@ -238,7 +234,6 @@
                                 </div>
                             </div>
                         </div>
-
                         <div ng-if="showResults == 'TEXTUAL_COMPLEXITY'">
                             <div class="row">
                                 <div class="col-xs-12 col-md-12">
@@ -246,17 +241,17 @@
                                     <ul class="course-description-list">
                                         <li class="lesson" ng-repeat="complex in complexity">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{complex.content}}</span>
+                                                <span class="lesson-nr no-select">{{complex.category}}</span>
                                             </div>
                                             <div class="body">&nbsp;</div>
                                             <ul class="lesson-description" style="display: none;">
                                                 <li ng-repeat="complexEntry in complex.valences">
                                                     <div class="heading">
                                                         <!-- <i class="icon icon-divider visible"></i> -->
-                                                        <span class="lesson-nr no-select">{{complexEntry.score}}</span>
+                                                        <span class="lesson-nr no-select">{{complexEntry.value | number:3}}</span>
                                                     </div>
                                                     <div class="body">
-                                                        <p>{{complexEntry.content}}</p>
+                                                        <p>{{complexEntry.index}}</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -265,68 +260,49 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div ng-if="showResults == 'CONCEPT_MAP'">
-                            <div class="row">
-                                <div class="col-xs-12 col-md-3">
-                                    <h4>Concept Map</h4>
-                                    <ul class="course-description-list">
-                                        <li class="lesson" ng-repeat="topic in topics| limitTo:25">
-                                            <div class="heading">
-                                                <span class="lesson-nr no-select">{{topic.value}}</span>
-                                            </div>
-                                            <div class="body">
-                                                <p>{{topic.name}}</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-xs-12 col-md-9" id="conceptMap">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div ng-if="showResults == 'ADVANCED_CONCEPT_MAP'">
+                        <div ng-if="showResults == 'KEYWORDS'">
                             <div class="row">
                                 <div class="col-xs-12 col-md-12">
                                     <h4>Concept Map</h4>
                                     <table class="cscl-indices browse-selections">
                                         <tbody>
-                                            <tr ng-repeat="topic in topics"><!--  | limitTo:25-->
+                                            <tr ng-repeat="topic in topics | limitTo:25">
+                                                <td>{{topic.name}}</td>
                                                 <td>{{topic.lemma}}</td>
                                                 <td>{{topic.pos}}</td>
                                                 <td>{{topic.noOcc}}</td>
                                                 <td>{{topic.noLinks}}</td>
-                                                <td>{{topic.degree}}</td>
-                                                <td>{{topic.value}}</td>
-                                                <td>{{topic.tf}}</td>
-                                                <td>{{topic.idf}}</td>
-                                                <td>{{topic.semanticSimilarities[0].score}}</td>
-                                                <td>{{topic.semanticSimilarities[1].score}}</td>
-                                                <td>{{topic.semanticSimilarities[2].score}}</td>
+                                                <td>{{topic.degree | number:3}}</td>
+                                                <td>{{topic.value | number:3}}</td>
+                                                <td>{{topic.tf | number:3}}</td>
+                                                <td>{{topic.idf | number:3}}</td>
+                                                <td>{{topic.semanticSimilarities[0].score | number:3}}</td>
+                                                <td>{{topic.semanticSimilarities[1].score | number:3}}</td>
+                                                <td>{{topic.semanticSimilarities[2].score | number:3}}</td>
                                                 <td>{{topic.averageDistanceToHypernymTreeRoot}}</td>
                                                 <td>{{topic.maxDistanceToHypernymTreeRoot}}</td>
                                                 <td>{{topic.polysemyCount}}</td>
-                                                <td>
+<!--                                                <td>
                                                     <table>
                                                         <tbody>
                                                             <tr>
-<!--                                                                <td>
-                                                                    <a ng-if="topic.showConnections == false" href="javascript:void(0);" onclick="showConnections(topic)">Show connections</a>
-                                                                    <a ng-if="topic.showConnections == true" href="javascript:void(0);" onclick="showConnections(topic)">Hide connections</a>
-                                                                </td>-->
-                                                                <td ng-repeat="edge in topicEdges" ng-if="edge.source == topic.id"><!--  ng-if="topic.showConnections == true" -->
+                                                                <td>
+                                                                    <a ng-if="topic.showConnections == false" href="javascript:void(0);" onclick="toggleConnections(topic)">Show connections</a>
+                                                                    <a ng-if="topic.showConnections == true" href="javascript:void(0);" onclick="toggleConnections(topic)">Hide connections</a>
+                                                                </td>
+                                                                <td ng-repeat="edge in topicEdges" ng-if="edge.source == topic.id | limitTo:50">  ng-if="topic.showConnections == true" 
                                                                     ({{topics[edge.target].lemma}} {{topics[edge.target].pos}}, {{edge.score}})
                                                                 </td> 
                                                             </tr>
                                                         </tbody>
                                                     </table>
-                                                </td>
+                                                </td>-->
                                             </tr>
                                         </tbody>
                                         <thead>
                                             <tr>
-                                                <th rowspan="2">Word Lemma</th>
+                                                <th rowspan="2">Word</th>
+                                                <th rowspan="2">Lemma</th>
                                                 <th rowspan="2">POS</th>
                                                 <th rowspan="2">#</th>
                                                 <th rowspan="2">Links</th>
@@ -338,7 +314,7 @@
                                                 <th rowspan="2">Avg. Dist. to Root</th>
                                                 <th rowspan="2">Max. Dist. to Root</th>
                                                 <th rowspan="2">Polysemy Count</th>
-                                                <th rowspan="2">Related words</th>
+<!--                                                <th rowspan="2">Related words</th>-->
                                             </tr>
                                             <tr>
                                                 <th>LSA</th>
@@ -349,8 +325,20 @@
                                     </table>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-xs-12 col-md-12" id="conceptMap">
+                            <div class="row top-buffer">
+                                <div class="col-xs-12 col-md-3">
+                                    <ul class="course-description-list">
+                                        <li class="lesson" ng-repeat="topic in topics | limitTo:25">
+                                            <div class="heading">
+                                                <span class="lesson-nr no-select">{{topic.value | number:3}}</span>
+                                            </div>
+                                            <div class="body">
+                                                <p>{{topic.lemma}}</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-md-9" id="conceptMap">
                                 </div>
                             </div>
                         </div>

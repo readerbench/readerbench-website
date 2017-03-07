@@ -3,8 +3,7 @@ ServerSettings = {
     protocol: 'http',
     ip: window.location.hostname,
     port: '8080',
-    resourceRoot: 'resources/in/',
-    configRoot: 'resources/config'
+    resourceRoot: 'resources/in/'
 };
 DemoItems = [
     {
@@ -84,8 +83,7 @@ DemoElements = {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: 'ENeA', value: 'ENEA'},
-                {id: '4', name: '', value: ''}
+                {id: '3', name: '', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
@@ -104,8 +102,7 @@ DemoElements = {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: 'ENeA', value: 'ENEA'},
-                {id: '4', name: '', value: ''}
+                {id: '3', name: '', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
@@ -124,8 +121,7 @@ DemoElements = {
         word2Vec: {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
-                {id: '2', name: 'ENEA', value: 'ENEA'},
-                {id: '3', name: '', value: ''}
+                {id: '2', name: '', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},

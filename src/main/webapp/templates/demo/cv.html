@@ -129,7 +129,7 @@
                         <div class="row top-buffer" ng-if="!loading">
                             <div class="col-xs-12 col-md-12">
                                 <div class="bottom-buttons">
-                                    <button id="submit-button" class="btn theme-btn-1" ng-click="buttonClick('CV_COVER')" disabled><span class="button">Process</span></button>
+                                    <button id="submit-button" class="btn theme-btn-1" ng-click="buttonClick()" disabled><span class="button">Process</span></button>
                                 </div>
                             </div>
                         </div>        
@@ -312,10 +312,10 @@
                                 <ul class="course-description-list">
                                     <li class="lesson" ng-repeat="topic in topics">
                                         <div class="heading">
-                                            <span class="lesson-nr no-select">{{topic.value}}</span>
+                                            <span class="lesson-nr no-select">{{topic.value | number:3}}</span>
                                         </div>
                                         <div class="body">
-                                            <p>{{topic.name}}</p>
+                                            <p>{{topic.lemma}}</p>
                                         </div>
                                     </li>
                                 </ul>
@@ -380,17 +380,17 @@
                                 <ul class="course-description-list" id="textual-complexity">
                                     <li class="lesson" ng-repeat="complex in complexity">
                                         <div class="heading">
-                                            <span class="lesson-nr no-select">{{complex.content}}</span>
+                                            <span class="lesson-nr no-select">{{complex.category}}</span>
                                         </div>
                                         <div class="body">&nbsp;</div>
                                         <ul class="lesson-description" style="display: none;">
                                             <li ng-repeat="complexEntry in complex.valences">
                                                 <div class="heading">
                                                     <!-- <i class="icon icon-divider visible"></i> -->
-                                                    <span class="lesson-nr no-select">{{complexEntry.score}}</span>
+                                                    <span class="lesson-nr no-select">{{complexEntry.value}}</span>
                                                 </div>
                                                 <div class="body">
-                                                    <p>{{complexEntry.content}}</p>
+                                                    <p>{{complexEntry.index}}</p>
                                                 </div>
                                             </li>
                                         </ul>
