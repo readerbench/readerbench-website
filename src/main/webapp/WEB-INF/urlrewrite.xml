@@ -34,7 +34,7 @@
     <rule>
 		<note>Official documentation for the API</note>
         <from>/docs/api</from>       
-        <to type="redirect">https://docs.google.com/document/d/1NvAD71TGvVCDdQUfPf18oTih-JpQb26xYnjY69lQhVg/edit#heading=h.3sjru4n1sqi4</to>
+        <to type="redirect">https://docs.google.com/document/d/1NvAD71TGvVCDdQUfPf18oTih-JpQb26xYnjY69lQhVg/edit</to>
     </rule>
 	
 	<!-- Sentiment analysis -->
