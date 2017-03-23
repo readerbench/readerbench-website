@@ -361,6 +361,30 @@ PeopleGSU = [
         linkedin: 'https://www.linkedin.com/in/scott-crossley-1bb07b5b',
         scholarlink: 'https://scholar.google.com/citations?user=PDzqXW4AAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/c/Crossley:Scott_A='
+    },
+    {
+        name: 'Stephen Skalicky',
+        picture: 'img/male.jpg'
+        area: 'Applied Linguistics',
+        linkedin: 'https://www.linkedin.com/in/stephen-skalicky-9009a9107/',
+        scholarlink: 'https://scholar.google.com/citations?user=vXuyDG4AAAAJ&hl=en',
+        dblplink: ''
+    },
+    {
+        name: 'William Michael Lake',
+        picture: 'img/male.jpg',
+        area: 'Applied Linguistics',
+        linkedin: '',
+        scholarlink: '',
+        dblplink: ''
+    },
+    {
+        name: 'Rurik Lol Tywoniw',
+        picture: 'img/male.jpg',
+        area: 'Applied Linguistics',
+        linkedin: 'https://www.linkedin.com/in/rurik-tywoniw-38b642a7/',
+        scholarlink: '',
+        dblplink: ''
     }];
 Projects = [
     {
