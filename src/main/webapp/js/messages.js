@@ -364,7 +364,7 @@ PeopleGSU = [
     },
     {
         name: 'Stephen Skalicky',
-        picture: 'img/male.jpg'
+        picture: 'img/male.jpg',
         area: 'Applied Linguistics',
         linkedin: 'https://www.linkedin.com/in/stephen-skalicky-9009a9107/',
         scholarlink: 'https://scholar.google.com/citations?user=vXuyDG4AAAAJ&hl=en',
