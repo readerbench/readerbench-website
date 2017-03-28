@@ -162,7 +162,7 @@
                                     <ul class="course-description-list">
                                         <li class="lesson" ng-repeat="keyword in keywords">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{keyword.relevance}}</span>
+                                                <span class="lesson-nr no-select">{{keyword.relevance | number:3}}</span>
                                             </div>
                                             <div class="body">
                                                 <p>{{keyword.name}} ({{keyword.noOccurences}} occurences)</p>
@@ -175,7 +175,7 @@
                                     <ul class="course-description-list">
                                         <li class="lesson">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{abstractDocumentSimilarity}}</span>
+                                                <span class="lesson-nr no-select">{{abstractDocumentSimilarity | number:3}}</span>
                                             </div>
                                             <div class="body">
                                                 <p>(Abstract, document) similarity</p>
@@ -183,7 +183,7 @@
                                         </li>
                                         <li class="lesson">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{keywordsAbstractCoverage}}</span>
+                                                <span class="lesson-nr no-select">{{keywordsAbstractCoverage | number:3}}</span>
                                             </div>
                                             <div class="body">
                                                 <p>(Keywords, abstract) coverage</p>
@@ -191,7 +191,7 @@
                                         </li>
                                         <li class="lesson">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{keywordsDocumentCoverage}}</span>
+                                                <span class="lesson-nr no-select">{{keywordsDocumentCoverage | number:3}}</span>
                                             </div>
                                             <div class="body">
                                                 <p>(Keywords, document) coverage</p>
@@ -209,9 +209,9 @@
                                 <div class="col-xs-12 col-md-6">
                                     <h5>ACM Classification</h5>
                                     <ul class="course-description-list">
-                                        <li class="lesson" ng-repeat="category in categories| filter:{ type: 1 }">
+                                        <li class="lesson" ng-repeat="category in categories | filter:{ type: 1 }">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{category.relevance}}</span>
+                                                <span class="lesson-nr no-select">{{category.relevance | number:3}}</span>
                                             </div>
                                             <div class="body">
                                                 <p>{{category.name}}</p>
@@ -222,9 +222,9 @@
                                 <div class="col-xs-12 col-md-6">
                                     <h5>Serious Games Classification</h5>
                                     <ul class="course-description-list">
-                                        <li class="lesson" ng-repeat="category in categories| filter:{ type: 2 }">
+                                        <li class="lesson" ng-repeat="category in categories | filter:{ type: 2 }">
                                             <div class="heading">
-                                                <span class="lesson-nr no-select">{{category.relevance}}</span>
+                                                <span class="lesson-nr no-select">{{category.relevance | number:3}}</span>
                                             </div>
                                             <div class="body">
                                                 <p>{{category.name}}</p>

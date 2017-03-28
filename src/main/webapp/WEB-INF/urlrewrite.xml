@@ -30,6 +30,13 @@
 	  	<to>/index.html</to>
 	</rule>
     
+    <!-- Developers Newsletter -->
+    <rule>
+		<note>ReaderBench Developers Newsletter subscribe</note>
+        <from>/dev/subscribe</from>       
+        <to type="redirect">http://eepurl.com/cHOM_H</to>
+    </rule>
+    
     <!-- API Documentation -->
     <rule>
 		<note>Official documentation for the API</note>
