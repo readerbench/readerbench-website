@@ -1,16 +1,16 @@
 
 [
   {
-    "description": "",
+    "description": "Capturing the Writing Process: Keystroke Logging in a Writing Tutor. Paper presented at the ST&D, Kassel, Germany.",
     "year": "2016",
-    "category": "",
-    "type": "Conference Proceedings",
-    "authors": "",
+    "category": "Keystroke",
+    "type": "Conference Paper",
+    "authors": "Allen, L. K., Jacovina, M., Dascalu, M., Roscoe, R., Kent, K., Likens, A., & McNamara, D. S.",
     "link": ""
   },
 
   {
-    "description": "Classifying Written Texts through Rhythmic Features",
+    "description": "Classifying Written Texts through Rhythmic Features. In 15th Int. Conf. on Artificial Intelligence: Methodology, Rhythmic Features and Applications (AIMSA 2016) (pp. 121--129). Varna, Bulgaria: Springer.",
     "year": "2016",
     "category": "Textual Complexity",
     "type": "Conference Proceedings",
@@ -19,12 +19,165 @@
   },
 
   {
-    "description": "Newcomer Integration in Online Knowledge Communities: Exploring the Role of Dialogic Textual Complexity. In 12th Int. Conf. on Learning Sciences (ICLS 2016) (pp. 914--917). Singapore: International Society of the Learning Sciences (ISLS).",
-    "year": "2016",
-    "category": "CSCL",
-    "type": "Conference Proceedings",
-    "authors": "Nistor, N., Dascalu, M., & Trausan-Matu, S.",
-    "link": "https://owncloud.readerbench.com/index.php/s/rBZGjsRZ6olVxGc"
+  	"description": "The Rhetorical Nature of Rhythm. In 15th Int. Conf. on Networking in Education and Research (RoEduNet) (pp. 48--53). Bucharest, Romania: IEEE.",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Balint, M., Dascalu, M., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Document Cohesion Flow: Striving towards Coherence. In 38th Annual Meeting of the Cognitive Science Society (pp. 764--769). Philadelphia, PA: Cognitive Science Society.",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Crossley, S. A., Dascalu, M., Trausan-Matu, S., Allen, L., & McNamara, D. S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Modeling Comprehension Processes via Automated Analyses of Dialogism. Paper presented at the ST&D, Kassel, Germany.",
+  	"year": "2016",
+  	"category": "CSCL",
+  	"type": "Conference Paper",
+  	"authors": "Dascalu, M., Allen, L. K., McNamara, D. S., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "What Makes your Writing Style Unique? Significant Differences Between Two Famous Romanian Orators. In N.-T. Nguyen, Y. Manolopoulos, L. Iliadis & B. Trawinski (Eds.), 8th Int. Conf. on Computational Collective Intelligence (ICCCI 2016) (pp. 143--152). Halkidiki, Greece: Springer.",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Dascalu, M., Gîfu, D., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Predicting Academic Performance Based on Students' Blog and Microblog Posts. In 11th European Conference on Technology Enhanced Learning (EC-TEL 2016) (pp. 370--376). Lyon, France: Springer.",
+  	"year": "2016",
+  	"category": "General",
+  	"type": "Conference Proceedings",
+  	"authors": "Dascalu, M., Popescu, E., Becheru, A., Crossley, S. A., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Time Evolution of Writing Styles in Romanian Language. In 28th Int. Conf. on Tools with Artificial Intelligence (ICTAI 2016) (pp. 1048--1054). San Jose, CA: IEEE.",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Gifu, D., Dascalu, M., Trausan-Matu, S., & Allen, L.K.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Evaluating the Resilience of the Bottom-up Extraction Method used to Benchmark the Smartness of University Campuses. In IEEE International Smart Cities Conference (ISC2) (pp. 1--5). Trento, Italy: IEEE.",
+  	"year": "2016",
+  	"category": "Smart City",
+  	"type": "Conference Proceedings",
+  	"authors": "Giovannella, C., Andone, D., Dascalu, M., Popescu, E., Rehm, M., & Mealha, O.",
+  	"link": ""
+  },
+
+  {
+  	"description": "ReaderBench goes Online: A Comprehension-Centered Framework for Educational Purposes. In A. Iftene & J. Vanderdonckt (Eds.), Romanian Conference on Human-Computer Interaction (RoCHI 2016) (pp. 95--102). Iasi, Romania: MATRIX ROM.",
+  	"year": "2016",
+  	"category": "CSCL",
+  	"type": "Conference Proceedings",
+  	"authors": "Gutu, G., Dascalu, M., Trausan-Matu, S., & Dessus, P.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Extracting Patterns from Educational Traces via Clustering and Associated Quality Metrics. In 15th Int. Conf. on Artificial Intelligence: Methodology, Systems, and Applications (AIMSA 2016) (pp. 109--118). Varna, Bulgaria: Springer.",
+  	"year": "2016",
+  	"category": "CSCL",
+  	"type": "Conference Proceedings",
+  	"authors": "Mihaescu, M. C., Tanasie, A. V., Dascalu, M., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Newcomer Integration in Online Knowledge Communities: Exploring the Role of Dialogic Textual Complexity. In 12th Int. Conf. on Learning Sciences (ICLS 2016) (pp. 914--917). Singapore: International Society of the Learning Sciences (ISLS).",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Nistor, N., Dascalu, M., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Finding the Needle in a Haystack: Who are the most Central Authors within a Domain? In K. Verbert, M. Sharples & T. Klobucar (Eds.), 11th European Conference on Technology Enhanced Learning (EC-TEL 2016) (pp. 632--635). Lyon, France: Springer.",
+  	"year": "2016",
+  	"category": "Learning Analytics",
+  	"type": "Conference Proceedings",
+  	"authors": "Paraschiv, I. C., Dascalu, M., McNamara, D. S., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Predicting Student Performance and Differences in Learning Styles based on Textual Complexity Indices applied on Blog and Microblog Posts – A Preliminary Study. In 16th IEEE Int. Conf. on Advanced Learning Technologies (ICALT 2016) (pp. 184--188). Austin, Texas: IEEE.",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Popescu, E., Dascalu, M., Becheru, A., Crossley, S. A., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Proiectarea algoritmilor. O abordare practică. Bucharest, Romania: Editura Politehnica Press.",
+  	"year": "2016",
+  	"category": "General",
+  	"type": "Book",
+  	"authors": "Rebedea, T., Dascalu, M., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Expressing Sentiments in Game Reviews. In 17th Int. Conf. on Artificial Intelligence: Methodology, Systems, and Applications (AIMSA 2016) (pp. 352--355). Varna, Bulgaria: Springer.",
+  	"year": "2016",
+  	"category": "Sentiment Analysis",
+  	"type": "Conference Proceedings",
+  	"authors": "Secui, A., Sirbu, M. D., Dascalu, M., Crossley, S. A., Ruseti, S., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Extracting Gamers' Opinions from Reviews. In 18th International Symposium on Symbolic and Numeric Algorithms for Scientific Computing (SYNASC 2016) (pp. 227--232). Timisoara, Romania: IEEE.",
+  	"year": "2016",
+  	"category": "Opinion Mining",
+  	"type": "Conference Proceedings",
+  	"authors": "Sirbu, M. D., Secui, A., Dascalu, M., Crossley, S. A., Ruseti, S., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Combining Taxonomies using Word2vec. In DocEng 2016 (pp. 131--134). Vienna, Austria: ACM.",
+  	"year": "2016",
+  	"category": "Textual Complexity",
+  	"type": "Conference Proceedings",
+  	"authors": "Swoboda, T., Hemmje, M., Dascalu, M., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Building a Semantic Recommendation Engine for News Feeds based on Emerging Topics from Tweets. In 15th Int. Conf. on Networking in Education and Research (RoEduNet) (pp. 54--58). Bucharest, Romania: IEEE.",
+  	"year": "2016",
+  	"category": "Topic Extraction",
+  	"type": "Conference Proceedings",
+  	"authors": "Tabara, M., Dascalu, M., & Trausan-Matu, S.",
+  	"link": ""
+  },
+
+  {
+  	"description": "Software Components for Serious Game Development. In T. Connolly & L. Boyle (Eds.), 10th European Conf. on Games Based Learning (pp. 765--772). Paisley, Scotland: Reading UK.",
+  	"year": "2016",
+  	"category": "CSCL",
+  	"type": "Conference Proceedings",
+  	"authors": "Westera, Wim, van der Vegt, W., Bahreini, K., Dascalu, M., & van Lankveld, G.",
+  	"link": ""
   },
   
   {
