@@ -30,6 +30,20 @@
 	  	<to>/index.html</to>
 	</rule>
     
+    <!-- ReaderBench Install Instructions -->
+    <rule>
+         <note>ReaderBench Install Instructions</note>
+         <from>/docs/install</from>
+         <to type="redirect">https://docs.google.com/document/d/1o1yUnocg0bmy-x7sGu8dVLi62HVuapySD5wfSOFy4UM/edit</to>
+    </rule>
+    
+    <!-- ownCloud Deployment Link -->
+    <rule>
+         <note>ReaderBench Deployment Link</note>
+         <from>/deployment</from>
+         <to type="redirect">https://owncloud.readerbench.com/index.php/s/w33mnCcpH1Bp1zs</to>
+    </rule>
+    
     <!-- Developers Newsletter -->
     <rule>
 		<note>ReaderBench Developers Newsletter subscribe</note>
