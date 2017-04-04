@@ -390,7 +390,7 @@ Projects = [
     {
         title: 'RAGE',
         link: 'http://rageproject.eu/',
-        description: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE â€“ Realising an Applied Gaming Eco-system,  is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.',
+        description: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE - Realising an Applied Gaming Eco-system, is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.',
         category: 'Horizon 2020',
         image: 'images/rage_logo.png',
         imageDescription: 'Delivering access to advanced gaming technology resources and state-of-the-art knowledge to develop Applied Games easier, faster and more cost-effectively'
@@ -401,7 +401,7 @@ Projects = [
         description: 'The outcomes of the LTfLL project are prototypes of next-generation services built on advanced research on the application of language technologies in education. Their exploitation to a consumer market requires some further development (on usability, transferability to other domains and other learning environments, etc.).The target groups (as targeted people) of the LTfLL outcomes can be grouped in three: Researchers and developers, Content service providers and End-users of the LTfLL services. The LTfLL project is partially supported/co-funded by the European Union under the Information and Communication Technologies (ICT) theme of the 7th Framework Programme for R&D (FP7-ICT-2007-1-4.1)',
         category: 'Information and Communication Technologies',
         image: 'images/ltfll-logo3.png',
-        imageDescription: 'Finding new innovative ways to tackle this newest challenge is one of the ambitions of the â€˜Language Technologies for Lifelong Learningâ€™ project (LTfLL). Its two baseline objectives are: (a) helping people learn, and, (b) helping tutors/teachers to support learners.'
+        imageDescription: 'Finding new innovative ways to tackle this newest challenge is one of the ambitions of the Language Technologies for Lifelong Learning project (LTfLL). Its two baseline objectives are: (a) helping people learn, and, (b) helping tutors/teachers to support learners.'
     }];
 AboutSections = [
     {
@@ -433,7 +433,7 @@ DemoTexts = {
                 + 'such environments, one needs to address the problem of how achieve believable '
                 + 'lievable and empathic characters that act autonomously. Inspired by the '
                 + 'work of traditional character animators, this paper proposes an architectural '
-                + 'model to build autonomous characters where the agentâ€™s reasoning '
+                + 'model to build autonomous characters where the agent\'s reasoning '
                 + 'and behaviour is influenced by its emotional state and personality. We '
                 + 'performed a small case evaluation in order to determine if the characters '
                 + 'evoked empathic reactions in the users with positive results.',
