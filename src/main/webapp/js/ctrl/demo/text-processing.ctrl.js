@@ -86,7 +86,7 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
             'language': $scope.formData.language.name,
             'lsa': ($scope.formData.lsa) ? ($scope.formData.lsa.value) : '',
             'lda': ($scope.formData.lda) ? ($scope.formData.lda.value) : '',
-            'w2v': ($scope.formData.word2Vec) ? ($scope.formData.word2Vec.value) : '',
+            'w2v': ($scope.formData.word2vec) ? ($scope.formData.word2vec.value) : '',
             'pos-tagging': $scope.formData.posTagging.value,
             'dialogism': $scope.formData.dialogism.value
         };
