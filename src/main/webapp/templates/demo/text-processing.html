@@ -143,16 +143,16 @@
                                                 <div class="container">
                                                     <ul class="courses-filters">
                                                         <li>
-                                                            <a class="current" href="#" data-target="grid-all" ng-click="changeSentimentGranularity($event, 'document');"><span>Document view</span></a>
+                                                            <a class="current" href="#" data-target="grid-all" ng-click="changeSentimentGranularity($event, 'document', false);"><span>Document view</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-target="grid-online" ng-click="changeSentimentGranularity($event, 'paragraph');"><span>Paragraph view</span></a>
+                                                            <a href="#" data-target="grid-online" ng-click="changeSentimentGranularity($event, 'paragraph', true);"><span>Paragraph view</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'sentence');"><span>Sentence view</span></a>
+                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'sentence', true);"><span>Sentence view</span></a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'word');"><span>Word view</span></a>
+                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'word', true);"><span>Word view</span></a>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -227,6 +227,7 @@
                                                             </span>
                                                         </span>
                                                     </span>
+                                                    <span class="paragraph-delimiter" style="display: none;"><br /></span>
                                                 </span>
                                             </span>
                                         </span>

@@ -53,11 +53,14 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
     $scope.getSentimentIcon = function (sentimentValence) {
         return sentimentIconMap[sentimentValence.valence];
     };
-    $scope.changeSentimentGranularity = function ($event, selector) {
+    $scope.changeSentimentGranularity = function ($event, selector, paragraphDelimiter) {
+        jQuery('.paragraph-delimiter').hide();
         jQuery('.results-sentiment').find('ul.courses-filters > li > a').attr('class', '');
         jQuery($event.currentTarget).attr('class', 'current');
         jQuery('.hideable').hide();
         jQuery('.lesson-description').show();
+        console.log(paragraphDelimiter);
+        if(paragraphDelimiter === true) jQuery('.paragraph-delimiter').show();
         switch (selector) {
             case 'document':
                 jQuery('.document-encapsulator > .hideable').show();
