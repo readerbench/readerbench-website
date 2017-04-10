@@ -103,7 +103,7 @@ var d3jsForTopics = function(graph, element, enableFisheye, limit = 0) {
 
 	var fisheye = d3.fisheye.circular().radius(200);
 
-	if (enableFisheye == true) {
+	if (enableFisheye === true) {
 		svg.on("mousemove", function() {
 			fisheye.focus(d3.mouse(this));
 
@@ -132,7 +132,7 @@ var d3jsForTopics = function(graph, element, enableFisheye, limit = 0) {
 			});
 		});
 	}
-}
+};
 
 var d3jsForTopicsForvCop = function(graph, element, enableFisheye) {
     jQuery(element).html('');
@@ -656,29 +656,13 @@ var _isNotMobile = (function() {
 
 var animateProgressBar = function(el) {
     el.show();
-    //console.log(el);
-    //console.log(jQuery(el[0]));
-    //console.log(jQuery(el[0]).width());
     jQuery(el).width("0");
-    //console.log(jQuery(el[0]).width());
     jQuery(el).width(
         function() {
             return jQuery(this).attr("aria-valuenow") + "%";
         }
     );
-    //console.log(jQuery(el[0]).width());
 };
-
-/*jQuery(document).ready(function($) {
-    $(document).tooltip({
-        animation: false,
-        placement: "right",
-        selector: "a[rel=tooltip]",
-        content: function () {
-            return jQuery(this).prop('title');
-        }
-    });
-});*/
 
 var rgbToHex = function(r, g, b) {
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);

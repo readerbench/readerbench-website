@@ -76,10 +76,6 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                 break;
         }
     };
-    $scope.toggleConnections = function(node) {
-        node.showConnections = !node.showConnections;
-    };
-    
     var buildCommonParams = function(){
         var params = {
             'text': encodeURIComponent($scope.formData.text).replace(/%0D/g, "%0A"),
@@ -214,16 +210,17 @@ angular.module('controllers').controller('DemoTextProcessingController', ['$scop
                             $scope.topics[i].showConnections = false;
                         }
                         $scope.topicEdges = response.data.data.links;
+                        console.log($scope.topicEdges);
                         var interval = setInterval(function () {
                             if ($scope.topicEdges.count === response.data.data.links.count) {
                                 clearInterval(interval);
                                 d3jsForTopics(
                                     response.data.data,
                                     "#conceptMap",
-                                    false,
-                                    25);
+                                    false);
                             }
                         }, 1000);
+                        
                     },
                     function (response) {
                         $scope.loading = false;
