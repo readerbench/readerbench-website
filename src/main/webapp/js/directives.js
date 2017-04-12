@@ -27,10 +27,22 @@
 				templateUrl : 'templates/directives/carousel-section.html'
 			}
 		} ])
+        .directive('demoTextProcessingSection', [ function() {
+			return {
+				restrict : 'E',
+				templateUrl : 'templates/directives/demo/text-processing-section.html'
+			}
+		} ])
         .directive('demoSection', [ function() {
 			return {
 				restrict : 'E',
-				templateUrl : 'templates/directives/demo-section.html'
+				templateUrl : 'templates/directives/demo/section.html'
+			}
+		} ])
+        .directive('demoCommonInputFields', [ function() {
+			return {
+				restrict : 'E',
+				templateUrl : 'templates/directives/demo/common-input-fields.html'
 			}
 		} ])
 		.directive('peopleSection', [ function() {
@@ -78,10 +90,16 @@
 				}
 			}
 		} ])
+        .directive('demoTextProcessingMenu', [ function() {
+			return {
+				restrict : 'E',
+				templateUrl : 'templates/directives/demo/text-processing-menu.html'
+			}
+		} ])
 		.directive('demoMenu', [ function() {
 			return {
 				restrict : 'E',
-				templateUrl : 'templates/directives/demo-menu.html'
+				templateUrl : 'templates/directives/demo/menu.html'
 			}
 		} ]);
 })();

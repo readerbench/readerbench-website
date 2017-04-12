@@ -1,0 +1,143 @@
+<div class="page-wrapper" ng-controller="DemoSentimentAnalysisController">
+    <search-box></search-box>
+    <div id="page">
+        <reader-header></reader-header>
+        <div class="content-wrapper">
+            <carousel-section></carousel-section>
+            <div class="container">
+                <div class="section-header">
+                    <h1>{{title}}</h1>
+                </div>
+                <demo-menu></demo-menu>
+            </div>
+            <div class="content-wrapper">
+                <div class="form-group demo-wrapper">
+                    <div class="input">
+                        <demo-common-input-fields></demo-common-input-fields>
+                        <div class="row top-buffer" ng-if="!loading">
+                            <div class="col-xs-12 col-md-12">
+                                <div class="bottom-buttons" ng-if="!loading">
+                                    <button class="btn theme-btn-1" ng-click="process()"><span class="button">Process</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="results">
+                        <div class="row" ng-if="loading">
+                            <div class="col-xs-12 col-md-12">
+                                <img src="img/loading.gif" alt="Loading..." />
+                            </div>
+                        </div>	
+                        <div ng-if="showResults === true" class="results-sentiment">                            
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h4>Sentiment analysis</h4>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <section class="section-courses">
+                                        <h5>Granularity</h5>
+                                        <div class="filters-box">
+                                            <div class="box-heading">
+                                                <div class="container">
+                                                    <ul class="courses-filters">
+                                                        <li>
+                                                            <a class="current" href="#" data-target="grid-all" ng-click="changeSentimentGranularity($event, 'document', false);"><span>Document view</span></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" data-target="grid-online" ng-click="changeSentimentGranularity($event, 'paragraph', true);"><span>Paragraph view</span></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'sentence', true);"><span>Sentence view</span></a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" data-target="grid-offline" ng-click="changeSentimentGranularity($event, 'word', true);"><span>Word view</span></a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </section>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <div id="senti">
+                                        <span class="document-encapsulator" id="document">
+                                            <span class="hideable">
+                                                <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false"><span class="body document">{{text}}</span></a>
+                                                <span class="tooltip-content" style="display: none;">
+                                                    <div class='sentiment-progress' ng-repeat='sentimentValence in sentiments'>
+                                                        <div class='valence'>{{sentimentValence.valence}} <i class='val'>{{sentimentValence.score * 100| number:0}}&#37;</i></div>
+                                                        <div class='progress sentiment sentiment-{{sentimentValence.valence}}'>
+                                                            <div class='progress-bar' role='progressbar' aria-valuenow='{{sentimentValence.score * 100}}'
+                                                                 aria-valuemin='0' aria-valuemax='100'>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </span>
+                                            </span>
+                                            <span class="lesson-description">
+                                                <span class="paragraph-encapsulator" ng-repeat="child in children" id="paragraph-{{$index}}">
+                                                    <span class="hideable" style="display: none;">
+                                                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false"><span class="body paragraph">{{child.text}}</span></a>
+                                                        <span class="tooltip-content" style="display: none;">
+                                                            <div class="sentiment-progress" ng-repeat="sentimentValence in child.valences">
+                                                                <div class="valence">{{sentimentValence.valence}} <i class="val">{{sentimentValence.score * 100| number:0}}&#37;</i></div>
+                                                                <div class="progress sentiment sentiment-{{sentimentValence.valence}}">
+                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{sentimentValence.score * 100}}"
+                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </span>
+                                                    </span>
+                                                    <span class="lesson-description">
+                                                        <span class="sentence-encapsulator" ng-repeat="child2 in child.children" id="sentence-{{$index}}">
+                                                            <span class="hideable" style="display: none;">
+                                                                <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false"><span class="body sentence">{{child2.text}}</span></a>
+                                                                <span class="tooltip-content" style="display: none;" ng-if="child2.valences">
+                                                                    <div class="sentiment-progress" ng-repeat="sentimentValence in child2.valences">
+                                                                        <div class="valence">{{sentimentValence.valence}} <i class="val">{{sentimentValence.score * 100| number:0}}&#37;</i></div>
+                                                                        <div class="progress sentiment sentiment-{{sentimentValence.valence}}">
+                                                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{sentimentValence.score * 100}}"
+                                                                                 aria-valuemin="0" aria-valuemax="100">
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </span>
+                                                            </span>
+                                                            <span class="lesson-description">
+                                                                <span class="word-encapsulator" ng-repeat="child3 in child2.children" id="word-{{$index}}">
+                                                                    <span class="hideable" style="display: none;">
+                                                                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false"><span class="body word">{{child3.text}}</span></a>
+                                                                        <span class="tooltip-content" style="display: none;" ng-if="child3.valences">
+                                                                            <div class="sentiment-progress" ng-repeat="sentimentValence in child3.valences">
+                                                                                <div class="valence">{{sentimentValence.valence}} <i class="val">{{sentimentValence.score * 100| number:0}}&#37;</i></div>
+                                                                                <div class="progress sentiment sentiment-{{sentimentValence.valence}}">
+                                                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{sentimentValence.score * 100}}"
+                                                                                         aria-valuemin="0" aria-valuemax="100">
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </span>
+                                                        </span>
+                                                    </span>
+                                                    <span class="paragraph-delimiter" style="display: none;"><br /></span>
+                                                </span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

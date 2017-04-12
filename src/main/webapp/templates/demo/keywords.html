@@ -1,0 +1,132 @@
+<div class="page-wrapper" ng-controller="DemoKeywordsController">
+    <search-box></search-box>
+    <div id="page">
+        <reader-header></reader-header>
+        <div class="content-wrapper">
+            <carousel-section></carousel-section>
+            <div class="container">
+                <div class="section-header">
+                    <h1>{{title}}</h1>
+                </div>
+                <demo-menu></demo-menu>
+            </div>
+            <div class="content-wrapper">
+                <div class="form-group demo-wrapper">
+                    <div class="input">
+                        <demo-common-input-fields></demo-common-input-fields>
+                        <div class="row top-buffer" ng-if="advanced">
+                            <div class="col-xs-12 col-md-3 col-lg-3">
+                                <label for="input_threshold">Semantic similarity threshold for concept map <span class="required">*</span></label>
+                            </div>
+                            <div class="col-xs-12 col-md-9 col-lg-9">
+                                <div class="input-group">
+                                    <input id="input_threshold" type="number" step="0.1" min="0.0" max="0.9" class="form-control" ng-model="formData.threshold" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row top-buffer" ng-if="!loading">
+                            <div class="col-xs-12 col-md-12">
+                                <div class="bottom-buttons" ng-if="!loading">
+                                    <button class="btn theme-btn-1" ng-click="process()"><span class="button">Process</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="results">
+                        <div class="row" ng-if="loading">
+                            <div class="col-xs-12 col-md-12">
+                                <img src="img/loading.gif" alt="Loading..." />
+                            </div>
+                        </div>	
+                        <div ng-if="showResults === true">
+                            <div class="row">
+                                <div class="col-xs-12 col-md-12">
+                                    <h4>Top Concepts</h4>
+                                    <table class="cscl-indices browse-selections">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Word</th>
+                                                <th rowspan="2">Lemma</th>
+                                                <th rowspan="2">POS</th>
+                                                <th rowspan="2">#</th>
+                                                <th rowspan="2">Links</th>
+                                                <th rowspan="2">Degree</th>
+                                                <th rowspan="2">Relevance</th>
+                                                <th rowspan="2">TF</th>
+                                                <th rowspan="2">IDF</th>
+                                                <th colspan="3" style="text-align: center;">Similarity</th>
+                                                <th rowspan="2">Avg. Dist. to Root</th>
+                                                <th rowspan="2">Max. Dist. to Root</th>
+                                                <th rowspan="2">Polysemy Count</th>
+                                                <th rowspan="2">Related words</th>
+                                            </tr>
+                                            <tr>
+                                                <th>LSA</th>
+                                                <th>LDA</th>
+                                                <th>Word2Vec</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr ng-repeat="topic in topics| limitTo:25">
+                                                <td>{{topic.name}}</td>
+                                                <td>{{topic.lemma}}</td>
+                                                <td>{{topic.pos}}</td>
+                                                <td>{{topic.noOcc}}</td>
+                                                <td>{{topic.noLinks}}</td>
+                                                <td>{{topic.degree| number:3}}</td>
+                                                <td>{{topic.value| number:3}}</td>
+                                                <td>{{topic.tf| number:3}}</td>
+                                                <td>{{topic.idf| number:3}}</td>
+                                                <td>{{topic.semanticSimilarities[0].score| number:3}}</td>
+                                                <td>{{topic.semanticSimilarities[1].score| number:3}}</td>
+                                                <td>{{topic.semanticSimilarities[2].score| number:3}}</td>
+                                                <td>{{topic.averageDistanceToHypernymTreeRoot}}</td>
+                                                <td>{{topic.maxDistanceToHypernymTreeRoot}}</td>
+                                                <td>{{topic.polysemyCount}}</td>
+                                                <td>
+                                                    <table>
+                                                        <tbody>
+                                                            <a ng-click="topic.showConnections = !topic.showConnections" class="pointer">
+                                                                <small>
+                                                                    <span ng-if="!topic.showConnections">&#x25BC; Show</span>
+                                                                    <span ng-if="topic.showConnections">&#x25B2; Hide</span>
+                                                                    related words
+                                                                </small>
+                                                            </a>
+                                                            <ul ng-if="topic.showConnections">
+                                                                <li ng-repeat="edge in topicEdges" ng-if="edge.source.id === topic.id">
+                                                                    {{topics[edge.target.id].lemma}} ({{topics[edge.target.id].pos}}) - {{edge.score | number:3}}
+                                                                </li>
+                                                            </ul>
+                                                        </tbody>
+                                                </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row top-buffer">
+                                <div class="col-xs-12 col-md-3">
+                                    <h4>Concept Map</h4>
+                                    <ul class="course-description-list">
+                                        <li class="lesson" ng-repeat="topic in topics| limitTo:25">
+                                            <div class="heading">
+                                                <span class="lesson-nr no-select">{{topic.value| number:3}}</span>
+                                            </div>
+                                            <div class="body">
+                                                <p>{{topic.lemma}} ({{topic.pos}})</p>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 col-md-9" id="conceptMap">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

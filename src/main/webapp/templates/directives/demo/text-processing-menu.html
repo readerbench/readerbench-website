@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="col-xs-12 col-md-12 demo-menu" ng-controller="DemoTextProcessingMenuController"><!-- .col-sm-12 .col-lg-12 -->
+        <nav>
+            <ul>
+                <li ng-repeat="item in demoTextProcessingItems"><a ng-class="getClass('/{{item.href}}')" ng-href="{{item.href}}"><span>{{item.name}}</span></a></li>
+            </ul>
+        </nav>
+    </div>
+</div>

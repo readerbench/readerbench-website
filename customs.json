@@ -1,9 +1,14 @@
 {
     "elements": {
+        "demo-common-section": {},
         "carousel-section": {},
         "search-box": {},
         "demo-menu": {},
-        "reader-header": {}
+        "people-section": {},
+        "demo-common-input-fields": {},
+        "demo-text-processing-section": {},
+        "reader-header": {},
+        "demo-section": {}
     },
     "attributes": {}
 }

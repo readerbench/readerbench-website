@@ -1,0 +1,77 @@
+<div class="row">
+    <div class="col-xs-12 col-md-3 col-lg-12">
+        <label for="input_text">Text to process <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-12">
+        <textarea id="input_text" class="form-control" rows="12" ng-model="formData.text"></textarea>
+    </div>
+</div>
+<div class="row top-buffer">
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <label for="input_language">Language <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-9">
+        <div class="input-group col-lg-2">
+            <select id="input_language" class="form-control" ng-model="formData.language" ng-options="option.name for option in languages track by option.id"></select>
+        </div>
+    </div>
+</div>
+<div class="row top-buffer">
+    <div class="col-xs-12 col-md-12">
+        <a ng-click="advanced = !advanced" class="pointer">
+            <span ng-if="!advanced">&#x25BC; Show</span>
+            <span ng-if="advanced">&#x25B2; Hide</span>
+            advanced options
+        </a>
+    </div>
+</div>
+<div class="row top-buffer" ng-if="advanced">
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <label for="input_lsa">LSA corpus <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-9">
+        <div class="input-group col-lg-2">
+            <select id="input_lsa" class="form-control" ng-model="formData.lsa" ng-options="option.name for option in lsaOptions track by option.id"></select>
+        </div>
+    </div>
+</div>
+<div class="row top-buffer" ng-if="advanced">
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <label for="input_lda">LDA corpus <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-9">
+        <div class="input-group col-lg-2">
+            <select id="input_lda" class="form-control" ng-model="formData.lda" ng-options="option.name for option in ldaOptions track by option.id"></select>
+        </div>
+    </div>
+</div>
+<div class="row top-buffer" ng-if="advanced">
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <label for="input_word2vec">Word2Vec corpus <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-9">
+        <div class="input-group col-lg-2">
+            <select id="input_word2vec" class="form-control" ng-model="formData.word2vec" ng-options="option.name for option in word2VecOptions track by option.id"></select>
+        </div>
+    </div>
+</div>
+<div class="row top-buffer" ng-if="advanced">
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <label for="input_pos_tagging">Part of speech tagging <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-9">
+        <div class="input-group col-lg-2">
+            <select id="input_pos_tagging" class="form-control" ng-model="formData.posTagging" ng-options="option.name for option in posTaggingOptions track by option.id"></select>
+        </div>
+    </div>
+</div>
+<div class="row top-buffer" ng-if="advanced">
+    <div class="col-xs-12 col-md-3 col-lg-3">
+        <label for="input_dialogism">Compute dialogism <span class="required">*</span></label>
+    </div>
+    <div class="col-xs-12 col-md-9 col-lg-9">
+        <div class="input-group col-lg-2">
+            <select id="input_dialogism" class="form-control" ng-model="formData.dialogism" ng-options="option.name for option in dialogismOptions track by option.id"></select>
+        </div>
+    </div>
+</div>

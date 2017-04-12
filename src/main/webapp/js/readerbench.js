@@ -1,19 +1,30 @@
-var buildServerPath = function(endpoint, params) {
+/* global ServerSettings, encodeURIComponent */
 
+var buildServerPath = function(endpoint, params) {
 	var serverUrl = ServerSettings.protocol + ':' + ServerSettings.delim
 			+ ServerSettings.delim + ServerSettings.ip + ':'
 			+ ServerSettings.port + ServerSettings.delim + endpoint;
-
     if (params && Object.keys(params).length > 0) {
         serverUrl += '?';
         Object.keys(params).forEach(function(key, index) {
             serverUrl += key + '=' + params[key] + '&';
         });
     }
-
 	return serverUrl;
-
 }
+
+var buildCommonParams = function(formData){
+    var params = {
+        'text': encodeURIComponent(formData.text).replace(/%0D/g, "%0A"),
+        'language': formData.language.name,
+        'lsa': (formData.lsa) ? (formData.lsa.value) : '',
+        'lda': (formData.lda) ? (formData.lda.value) : '',
+        'w2v': (formData.word2vec) ? (formData.word2vec.value) : '',
+        'pos-tagging': formData.posTagging.value,
+        'dialogism': formData.dialogism.value
+    };
+    return params;
+};
 
 var d3jsForTopics = function(graph, element, enableFisheye, limit = 0) {
     jQuery(element).html('');

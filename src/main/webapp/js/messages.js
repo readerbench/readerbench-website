@@ -5,15 +5,37 @@ ServerSettings = {
     port: '8080',
     resourceRoot: 'resources/in/'
 };
-DemoItems = [
+DemoTextProcessingItems = [
     {
-        name: 'Text processing',
-        href: 'demo/text-processing',
-        description: 'Text processing shows functionalities such as sentiment \n\
-analysis, textual complexity and concept map generation.',
-        image: 'images/demo_text_processing.png',
-        altText: 'Text processing with ReaderBench framework'
+        name: 'Sentiment Analysis',
+        href: 'demo/sentiment-analysis',
+        description: 'Sentiment Analysis',
+        image: 'images/demo_sentiment_analysis.png',
+        altText: 'Sentiment Analysis with ReaderBench framework'
     },
+    {
+        name: 'Textual Complexity',
+        href: 'demo/textual-complexity',
+        description: 'Classic Textual Complexity formulas.',
+        image: 'images/demo_textual_complexity.png',
+        altText: 'Textual Complexity with ReaderBench framework'
+    },
+    {
+        name: 'Keywords',
+        href: 'demo/keywords',
+        description: 'Keywords',
+        image: 'images/demo_keywords.png',
+        altText: 'Keywords extraction with ReaderBench framework'
+    },
+    {
+        name: 'Semantic Search',
+        href: 'demo/semantic-search',
+        description: 'Semantic Search',
+        image: 'images/demo_semantic_search.png',
+        altText: 'Semantic Search with ReaderBench framework'
+    }
+];
+DemoItems = [   
     {
         name: 'Semantic annotation',
         href: 'demo/semantic-annotation',
@@ -62,6 +84,7 @@ analysis are performed.',
 framework'
     }
 ];
+DemoItems = DemoTextProcessingItems.concat(DemoItems);
 DemoElements = {
     languages: [
         {id: '1', name: 'English', value: 'EN'},
@@ -83,49 +106,49 @@ DemoElements = {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: '', value: ''}
+                {id: '3', name: 'None', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
                 {id: '2', name: 'Text Enfants', value: 'Text_Enfants'},
-                {id: '3', name: '', value: ''}
+                {id: '3', name: 'None', value: ''}
             ],
             IT: [
-                {id: '1', name: '', value: ''}
+                {id: '1', name: 'None', value: ''}
             ],
             ES: [
                 {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'},
-                {id: '2', name: '', value: ''}
+                {id: '2', name: 'None', value: ''}
             ]
         },
         lda: {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: '', value: ''}
+                {id: '3', name: 'None', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
                 {id: '2', name: 'Text Enfants', value: 'Text_Enfants'},
-                {id: '3', name: '', value: ''}
+                {id: '3', name: 'None', value: ''}
             ],
             IT: [
                 {id: '1', name: 'Paisa', value: 'Paisa'},
-                {id: '2', name: '', value: ''}
+                {id: '2', name: 'None', value: ''}
             ],
             ES: [
                 {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'},
-                {id: '2', name: '', value: ''}
+                {id: '2', name: 'None', value: ''}
             ]
         },
         word2Vec: {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
-                {id: '2', name: '', value: ''}
+                {id: '2', name: 'None', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
-                {id: '2', name: '', value: ''}
+                {id: '2', name: 'None', value: ''}
             ]
         }
     },
@@ -133,7 +156,7 @@ DemoElements = {
         lsa: {
             EN: {id: '1', name: 'TASA', value: 'TASA'},
             FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'},
-            IT: {id: '1', name: '', value: ''},
+            IT: {id: '1', name: 'None', value: ''},
             ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         lda: {
@@ -143,8 +166,8 @@ DemoElements = {
             ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         word2Vec: {
-            EN: "",
-            FR: ""
+            EN: {id: '2', name: 'None', value: ''},
+            FR: {id: '2', name: 'None', value: ''}
         }
     },
     vcopCommunityOptions: [
@@ -415,13 +438,32 @@ AboutSections = [
 DemoTexts = {
     // Text Processing
     textProcessing: {
-        title: 'Text Processing',
+        title: 'Text Processing'
+    },
+    // Common fields
+    common: {
         text: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE – Realising an Applied Gaming Eco-system,  is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.'
                 + String.fromCharCode(13)
                 + 'The EU based industry for non-leisure games – Applied Games – is an emerging business with multiple uses in industry, education, health and the public administration sectors. As such, it is still fragmented and needs critical mass to compete globally. Nevertheless its growth potential is widely recognised and even suggested to exceed the growth potential of the leisure games market.'
                 + String.fromCharCode(13)
-                + 'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by gaming companies integrated in the RAGE consortium. These companies will be creating games that will be empirically validated in real world pilots in different application scenarios representing different markets and target groups for the Applied Games industry.',
+                + 'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by gaming companies integrated in the RAGE consortium. These companies will be creating games that will be empirically validated in real world pilots in different application scenarios representing different markets and target groups for the Applied Games industry.'
+    },
+    // Sentiment Analysis
+    sentimentAnalysis: {
+        title: 'Sentiment Analysis'
+    },
+    // Textual Complexity
+    textualComplexity: {
+        title: 'Textual Complexity'
+    },
+    // Keywords
+    keywords: {
+        title: 'Keywords',
         conceptMapTitle: 'Concept Map'
+    },
+    // Semantic Search
+    semanticSearch: {
+        title: 'Semantic Search'
     },
     // Semantic Annotation
     semanticAnnotation: {

@@ -21,7 +21,19 @@ var app;
 					.when("/demo/text-processing", {
 						templateUrl: 'templates/demo/text-processing.html'
 					})
-					.when("/demo/semantic-annotation", {
+                    .when("/demo/sentiment-analysis", {
+						templateUrl: 'templates/demo/sentiment-analysis.html'
+					})
+                    .when("/demo/textual-complexity", {
+						templateUrl: 'templates/demo/textual-complexity.html'
+					})
+					.when("/demo/keywords", {
+						templateUrl: 'templates/demo/keywords.html'
+					})
+                    .when("/demo/semantic-search", {
+						templateUrl: 'templates/demo/semantic-search.html'
+					})
+                    .when("/demo/semantic-annotation", {
 						templateUrl: 'templates/demo/semantic-annotation.html'
 					})
 					.when("/demo/self-explanation", {
