@@ -1,8 +1,8 @@
 <div class="row">
-    <div class="col-xs-12 col-md-12 demo-menu" ng-controller="DemoMenuController"><!-- .col-sm-12 .col-lg-12 -->
+    <div class="demo-menu" ng-controller="DemoMenuController"><!-- .col-sm-12 .col-lg-12 -->
         <nav>
-            <ul>
-                <li ng-repeat="item in demoItems"><a ng-class="getClass('/{{item.href}}')" ng-href="{{item.href}}"><span>{{item.name}}</span></a></li>
+            <ul class="nav" style="display: table;">
+                <li style="width: auto; display:table-cell;" ng-repeat="item in demoItems"><a ng-class="getClass('/{{item.href}}')" ng-href="{{item.href}}"><span>{{item.name}}</span></a></li>
             </ul>
         </nav>
     </div>

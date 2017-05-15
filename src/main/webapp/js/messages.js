@@ -88,7 +88,9 @@ DemoItems = DemoTextProcessingItems.concat(DemoItems);
 DemoElements = {
     languages: [
         {id: '1', name: 'English', value: 'EN'},
-        {id: '2', name: 'French', value: 'FR'}
+        {id: '2', name: 'French', value: 'FR'},
+        {id: '3', name: 'Romanian', value: 'RO'},
+        {id: '4', name: 'Dutch', value: 'NL'}
     ],
     defaultLanguage: {id: '1', name: 'English', value: 'EN'},
     posTaggingOptions: [
@@ -113,6 +115,13 @@ DemoElements = {
                 {id: '2', name: 'Text Enfants', value: 'Text_Enfants'},
                 {id: '3', name: 'None', value: ''}
             ],
+            RO: [
+                {id: '1', name: 'Books RO', value: 'books_ro'},
+                {id: '2', name: 'None', value: ''}
+            ],
+            NL: [
+                {id: '1', name: 'None', value: ''}
+            ],
             IT: [
                 {id: '1', name: 'None', value: ''}
             ],
@@ -132,6 +141,14 @@ DemoElements = {
                 {id: '2', name: 'Text Enfants', value: 'Text_Enfants'},
                 {id: '3', name: 'None', value: ''}
             ],
+            RO: [
+                {id: '1', name: 'Books RO', value: 'books_ro'},
+                {id: '2', name: 'None', value: ''}
+            ],
+            NL: [
+                {id: '1', name: 'Euro Parlamentean', value: 'Euro_Parlamentean'},
+                {id: '2', name: 'None', value: ''}
+            ],
             IT: [
                 {id: '1', name: 'Paisa', value: 'Paisa'},
                 {id: '2', name: 'None', value: ''}
@@ -149,6 +166,12 @@ DemoElements = {
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
                 {id: '2', name: 'None', value: ''}
+            ],
+            RO: [
+                {id: '1', name: 'None', value: ''}
+            ],
+            NL: [
+                {id: '1', name: 'None', value: ''}
             ]
         }
     },
@@ -156,18 +179,24 @@ DemoElements = {
         lsa: {
             EN: {id: '1', name: 'TASA', value: 'TASA'},
             FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'},
+            RO: {id: '1', name: 'Books RO', value: 'books_ro'},
+            NL: {id: '1', name: 'None', value: ''},
             IT: {id: '1', name: 'None', value: ''},
             ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         lda: {
             EN: {id: '1', name: 'TASA', value: 'TASA'},
             FR: {id: '1', name: 'Le Monde', value: 'Le_Monde'},
+            RO: {id: '1', name: 'Books RO', value: 'books_ro'},
+            NL: {id: '1', name: 'Euro Parlamentean', value: 'Euro_Parlamentean'},
             IT: {id: '1', name: 'Paisa', value: 'Paisa'},
             ES: {id: '1', name: 'Jose Antonio', value: 'Jose_Antonio'}
         },
         word2Vec: {
             EN: {id: '2', name: 'None', value: ''},
-            FR: {id: '2', name: 'None', value: ''}
+            FR: {id: '2', name: 'None', value: ''},
+            RO: {id: '1', name: 'None', value: ''},
+            NL: {id: '1', name: 'None', value: ''}
         }
     },
     vcopCommunityOptions: [

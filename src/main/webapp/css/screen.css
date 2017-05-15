@@ -920,18 +920,20 @@ header .action-bar .my-account .popup:after {
 
 /* Demo menu */
 .demo-menu nav ul {
-    display: inline-block;
+    display: table;
+    width: 100%;
     list-style-type: none;
     font-size: 0;
     padding: 0;
     margin: 0;
 }
 .demo-menu nav ul li {
-	display: inline-block;
-    margin-right: 20px;
+    display: table-cell;
+    float: none;
+    text-align: center;
 }
 .demo-menu nav ul li:last-of-type {
-  margin: 0;
+    margin: 0;
 }
 .demo-menu nav ul li a {
     position: relative;
@@ -997,6 +999,17 @@ header .action-bar .my-account .popup:after {
 .demo-menu nav ul li a:hover span:before, .demo-menu nav ul li a:hover span:after {
    width: 100%;
   opacity: 1;
+}
+
+@media (max-width: 1149px) {
+.demo-menu {
+        width: 70%;
+        margin: 3% auto;
+    }
+.demo-menu nav ul li{
+        width: 100%;
+        display: block !important;
+    }
 }
 
 /* Main menu */

@@ -32,7 +32,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="results">
+                    <div id="results" class="keywords-result">
                         <div class="row" ng-if="loading">
                             <div class="col-xs-12 col-md-12">
                                 <img src="img/loading.gif" alt="Loading..." />
@@ -41,14 +41,14 @@
                         <div ng-if="showResults === true">
                             <div class="row">
                                 <div class="col-xs-12 col-md-12">
-                                    <h4>Top Concepts</h4>
-                                    <table class="cscl-indices browse-selections">
+                                    <h4>Keywords</h4>
+                                    <table class="browse-selections">
                                         <thead>
                                             <tr>
-                                                <th rowspan="2">Word</th>
-                                                <th rowspan="2">Lemma</th>
+                                                <th rowspan="2">Word(s)</th>
+                                                <th rowspan="2">Lemma(s)</th>
                                                 <th rowspan="2">POS</th>
-                                                <th rowspan="2">#</th>
+                                                <th rowspan="2">Occ</th>
                                                 <th rowspan="2">Links</th>
                                                 <th rowspan="2">Degree</th>
                                                 <th rowspan="2">Relevance</th>
@@ -58,7 +58,7 @@
                                                 <th rowspan="2">Avg. Dist. to Root</th>
                                                 <th rowspan="2">Max. Dist. to Root</th>
                                                 <th rowspan="2">Polysemy Count</th>
-                                                <th rowspan="2">Related words</th>
+                                                <th rowspan="2" class="related-words">Related words</th>
                                             </tr>
                                             <tr>
                                                 <th>LSA</th>
@@ -71,35 +71,31 @@
                                                 <td>{{topic.name}}</td>
                                                 <td>{{topic.lemma}}</td>
                                                 <td>{{topic.pos}}</td>
-                                                <td>{{topic.noOcc}}</td>
-                                                <td>{{topic.noLinks}}</td>
-                                                <td>{{topic.degree| number:3}}</td>
-                                                <td>{{topic.value| number:3}}</td>
-                                                <td>{{topic.tf| number:3}}</td>
-                                                <td>{{topic.idf| number:3}}</td>
-                                                <td>{{topic.semanticSimilarities[0].score| number:3}}</td>
-                                                <td>{{topic.semanticSimilarities[1].score| number:3}}</td>
-                                                <td>{{topic.semanticSimilarities[2].score| number:3}}</td>
-                                                <td>{{topic.averageDistanceToHypernymTreeRoot}}</td>
-                                                <td>{{topic.maxDistanceToHypernymTreeRoot}}</td>
-                                                <td>{{topic.polysemyCount}}</td>
+                                                <td class="right">{{topic.noOcc}}</td>
+                                                <td class="right">{{topic.noLinks}}</td>
+                                                <td class="right">{{topic.degree| number:3}}</td>
+                                                <td class="right">{{topic.value| number:3}}</td>
+                                                <td class="right">{{topic.tf| number:3}}</td>
+                                                <td class="right">{{topic.idf| number:3}}</td>
+                                                <td class="right">{{topic.semanticSimilarities[0].score| number:3}}</td>
+                                                <td class="right">{{topic.semanticSimilarities[1].score| number:3}}</td>
+                                                <td class="right">{{topic.semanticSimilarities[2].score| number:3}}</td>
+                                                <td class="right">{{topic.averageDistanceToHypernymTreeRoot}}</td>
+                                                <td class="right">{{topic.maxDistanceToHypernymTreeRoot}}</td>
+                                                <td class="right">{{topic.polysemyCount}}</td>
                                                 <td>
-                                                    <table>
-                                                        <tbody>
-                                                            <a ng-click="topic.showConnections = !topic.showConnections" class="pointer">
-                                                                <small>
-                                                                    <span ng-if="!topic.showConnections">&#x25BC; Show</span>
-                                                                    <span ng-if="topic.showConnections">&#x25B2; Hide</span>
-                                                                    related words
-                                                                </small>
-                                                            </a>
-                                                            <ul ng-if="topic.showConnections">
-                                                                <li ng-repeat="edge in topicEdges" ng-if="edge.source.id === topic.id">
-                                                                    {{topics[edge.target.id].lemma}} ({{topics[edge.target.id].pos}}) - {{edge.score | number:3}}
-                                                                </li>
-                                                            </ul>
-                                                        </tbody>
-                                                </table>
+                                                    <a ng-click="topic.showConnections = !topic.showConnections" class="pointer">
+                                                        <small>
+                                                            <span ng-if="!topic.showConnections">&#x25BC; Show</span>
+                                                            <span ng-if="topic.showConnections">&#x25B2; Hide</span>
+                                                            related words
+                                                        </small>
+                                                    </a>
+                                                    <ul ng-if="topic.showConnections">
+                                                        <li ng-repeat="edge in topicEdges" ng-if="edge.source.id === topic.id">
+                                                            {{topics[edge.target.id].lemma}} ({{topics[edge.target.id].pos}}) - {{edge.score | number:3}}
+                                                        </li>
+                                                    </ul>
                                                 </td>
                                             </tr>
                                         </tbody>
