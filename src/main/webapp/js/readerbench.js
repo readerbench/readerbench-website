@@ -1,12 +1,12 @@
 /* global ServerSettings, encodeURIComponent */
 
 var buildServerPath = function(endpoint, params) {
-	buildServerPathWithPort(endpoint, params, ServerSettings.port);
-}
+	return buildServerPathWithPort(endpoint, params, ServerSettings.port);
+};
 
 var buildMailServerPath = function(endpoint, params) {
-	buildServerPathWithPort(endpoint, params, ServerSettings.mailPort);
-}
+	return buildServerPathWithPort(endpoint, params, ServerSettings.mailPort);
+};
 
 var buildServerPathWithPort =  function(endpoint, params, port) {
     var serverUrl = ServerSettings.protocol + ':' + ServerSettings.delim
@@ -19,7 +19,7 @@ var buildServerPathWithPort =  function(endpoint, params, port) {
         });
     }
 	return serverUrl;
-}
+};
 
 var buildCommonParams = function(formData){
     var params = {
