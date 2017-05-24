@@ -3,78 +3,60 @@
         <h1>Contact us</h1>
     </div>
 </div>
-<section class="section-contact">
-    <section class="section-contact">
-        <div class="contact-info-wrapper">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-md-offset-3 col-sm-12">
-                        <form class="contact-form">
-                            <div class="content-wrapper" ng-controller="ContactController">
-
-                                <label for="name">
-                                    <input id="name" type="text" class="form-input js-input" ng-model="formData.name" />
-                                    <span>Your name <span class="required">*</span></span>
-                                </label>
-
-                                <label for="email">
-                                    <input id="email" type="text" class="form-input js-input" ng-model="formData.email" />
-                                    <span>Your e-mail <span class="required">*</span></span>
-                                </label>
-
-                                <label for="subject">
-                                    <input id="subject" type="text" class="form-input js-input" ng-model="formData.subject" />
-                                    <span>Subject <span class="required">*</span></span>
-                                </label>
-
-                                <label for="message">
-                                    <textarea id="message" class="form-input js-input" ng-model="formData.message"></textarea>
-                                    <span>Message <span class="required">*</span></span>
-                                </label>
-
-
-                                <button class="btn theme-btn-1">
-                                    <span class="button" ng-click="sendMessage()">Send message</span>
-                                </button>
-
-                                <div id="results">
-                                    <div class="row" ng-if="loading">
-                                        <div class="col-xs-12 col-md-12">
-                                            <img src="img/loading.gif" alt="Loading..." />
-                                        </div>
-                                    </div>
-                                    <div ng-if="showResponse">
-                                        <div ng-if="showSuccess" class="row top-buffer alert alert-success">{{message}}</div>
-                                        <div ng-if="showError" class="row top-buffer alert alert-danger">
-                                            {{message}}</div>
-                                    </div>
+<section class="section-contact" ng-controller="ContactController">
+    <div class="contact-info-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
+                    <div id="results">
+                        <div ng-if="showResponse">
+                            <div ng-if="showSuccess" class="row top-buffer alert alert-success">{{message}}</div>
+                            <div ng-if="showError" class="row top-buffer alert alert-danger">{{message}}</div>
+                        </div>
+                    </div>
+                    <form class="contact-form">
+                        <div class="content-wrapper">
+                            <label for="name">
+                                <input id="name" type="text" class="form-input js-input" ng-model="formData.name" />
+                                <span>Your name <span class="required">*</span></span>
+                            </label>
+                            <label for="email">
+                                <input id="email" type="text" class="form-input js-input" ng-model="formData.email" />
+                                <span>Your e-mail <span class="required">*</span></span>
+                            </label>
+                            <label for="subject">
+                                <input id="subject" type="text" class="form-input js-input" ng-model="formData.subject" />
+                                <span>Subject <span class="required">*</span></span>
+                            </label>
+                            <label for="message">
+                                <textarea id="message" class="form-input js-input" ng-model="formData.message"></textarea>
+                                <span>Message <span class="required">*</span></span>
+                            </label>
+                            <button class="btn theme-btn-1" ng-if="!loading">
+                                <span class="button" ng-click="sendMessage()">Send message</span>
+                            </button>
+                            <div class="row" ng-if="loading">
+                                <div class="col-xs-12 col-md-12">
+                                    <img src="img/loading.gif" alt="Loading..." />
                                 </div>
                             </div>
-                        </form>
-                    </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="row row-fit">
-            <!--<div class="col-sm-4">
-                <div class="contact-info-block">
-                    <div class="block-meta">
-                        <h4>&nbsp;</h4>
-                        <p>+09 202 02 020</p>
-                    </div>
-                </div>
-            </div>-->
-            <div class="col-sm-6">
-                <div class="contact-info-block has-icon"></div>
-            </div>
-            <div class="col-sm-6">
-                <div class="contact-info-block">
-                    <div class="block-meta">
-                        <h4>Email contact</h4>
-                        <p><a href="#">contact@readerbench.com</a></p>
-                    </div>
+    </div>
+    <div class="row row-fit">
+        <div class="col-sm-6">
+            <div class="contact-info-block has-icon"></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="contact-info-block">
+                <div class="block-meta">
+                    <h4>E-mail contact</h4>
+                    <p><a href="#">contact@readerbench.com</a></p>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 </section>

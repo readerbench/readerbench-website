@@ -256,16 +256,16 @@ img.size-large {
 }
 .contact-form label {
     position: relative;
-    margin: 0 0 10px;
+    margin: 0 0 20px;
     overflow: hidden;
     display: block;
     width: 100%
 }
 .contact-form label .form-input {
     position: relative;
-    padding: 10px;
+    padding: 5px 10px 5px 10px;
     z-index: 2;
-    color: #fff;
+    color: #555;
     width: 100%;
     font-size: 14px;
     font-weight: 400;
@@ -282,7 +282,8 @@ img.size-large {
 .contact-form label .form-input:focus,
 .contact-form label .form-input.has-value {
     outline: none;
-    border-color: transparent
+    border-color: transparent;
+    color: #fff;
 }
 .contact-form label .form-input:focus+span:after,
 .contact-form label .form-input.has-value+span:after {
@@ -292,7 +293,7 @@ img.size-large {
 }
 .contact-form label span {
     display: inline-block;
-    padding: 8px 0 0 10px;
+    padding: 2px 0 0 10px;
     color: #c9c9c9;
     font-size: 14px;
     font-weight: 400;

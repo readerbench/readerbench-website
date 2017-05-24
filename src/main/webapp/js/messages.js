@@ -3,6 +3,7 @@ ServerSettings = {
     protocol: 'http',
     ip: window.location.hostname,
     port: '8080',
+    mailPort: '9001',
     resourceRoot: 'resources/in/'
 };
 DemoTextProcessingItems = [
