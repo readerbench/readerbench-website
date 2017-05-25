@@ -123,6 +123,29 @@
 					</div>
 				</div>
 			</div>
+            <div class="people-container">
+				<div class="header">
+					<div class="sign-picture-wrapper">
+						<div class="sign-picture">
+                            <h3>Former team members</h3>
+						</div>
+					</div>
+				</div>
+				<div class="people-list-wrapper">
+					<div class="people-list" ng-repeat="people in peopleListPrevious">
+						<div class="people-name">
+							<span>{{people.name}}</span>
+						</div>
+						<div class="people-social">
+							<ul class="social-block">
+								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
+								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
+								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </section>

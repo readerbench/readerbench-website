@@ -272,7 +272,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
     height: auto;
     display: table;
     margin: 0 auto;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .people-container .header{
@@ -296,6 +296,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
     margin: 0 auto;
     display: table;
     padding: 20px;
+    text-align: center;
 }
 
 .sign-description-wrapper{

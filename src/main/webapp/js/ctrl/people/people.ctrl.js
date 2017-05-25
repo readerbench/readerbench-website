@@ -6,4 +6,5 @@ angular.module('controllers').controller('PeopleController', ['$scope', function
     $scope.peopleListLMU = PeopleLMU;
     $scope.peopleListASU = PeopleASU;
     $scope.peopleListGSU = PeopleGSU;
-}])
+    $scope.peopleListPrevious = PeoplePrevious;
+}]);

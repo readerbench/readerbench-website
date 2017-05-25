@@ -309,11 +309,11 @@ PeopleUPB = [
         dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Trausan=Matu:Stefan'
     },
     {
-        name: 'Marius-Gabriel Gutu',
+        name: 'Gabriel Gutu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: '',
-        scholarlink: '',
+        linkedin: 'https://ro.linkedin.com/in/gabrielgutu/',
+        scholarlink: 'https://scholar.google.ro/citations?user=-pGqq7QAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius'
     },
     {
@@ -333,29 +333,30 @@ PeopleUPB = [
         dblplink: 'http://dblp1.uni-trier.de/pers/hd/p/Paraschiv:Ionut_Cristian'
     },
     {
-        name: 'Lucia Larise Stavarache',
-        picture: 'img/female.jpg',
-        area: 'Software Development',
-        linkedin: '',
-        scholarlink: 'https://scholar.google.com/citations?user=do49nJAAAAAJ&hl=en',
-        dblplink: 'http://dblp1.uni-trier.de/pers/hd/s/Stavarache:Larise_Lucia'
-    },
-    {
-        name: 'Adrian Sandu',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/adrian-bogdan-sandu-87a84a6a',
-        scholarlink: '',
-        dblplink: ''
-    },
-    {
         name: 'Traian Rebedea',
         picture: 'img/male.jpg',
         area: 'Software Development',
         linkedin: 'https://ro.linkedin.com/in/trebedea',
         scholarlink: 'https://scholar.google.com/citations?user=7NxaE1MAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Rebedea:Traian'
-    }];
+    },
+    {
+        name: 'Remus Mazilu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: '',
+        scholarlink: '',
+        dblplink: ''
+    },
+    {
+        name: 'Dragos Corlatescu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: '',
+        scholarlink: '',
+        dblplink: ''
+    }
+];
 PeopleLSE = [
     {
         name: 'Philippe Dessus',
@@ -436,6 +437,23 @@ PeopleGSU = [
         picture: 'img/male.jpg',
         area: 'Applied Linguistics',
         linkedin: 'https://www.linkedin.com/in/rurik-tywoniw-38b642a7/',
+        scholarlink: '',
+        dblplink: ''
+    }];
+PeoplePrevious = [
+    {
+        name: 'Lucia Larise Stavarache',
+        picture: 'img/female.jpg',
+        area: 'Software Development',
+        linkedin: '',
+        scholarlink: 'https://scholar.google.com/citations?user=do49nJAAAAAJ&hl=en',
+        dblplink: 'http://dblp1.uni-trier.de/pers/hd/s/Stavarache:Larise_Lucia'
+    },
+    {
+        name: 'Adrian Sandu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://ro.linkedin.com/in/adrian-bogdan-sandu-87a84a6a',
         scholarlink: '',
         dblplink: ''
     }];
