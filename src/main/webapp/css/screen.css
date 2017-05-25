@@ -920,47 +920,34 @@ header .action-bar .my-account .popup:after {
 }
 
 /* Demo menu */
-.demo-menu nav ul {
-    display: table;
-    width: 100%;
-    list-style-type: none;
-    font-size: 0;
-    padding: 0;
-    margin: 0;
-}
-.demo-menu nav ul li {
-    display: table-cell;
-    float: none;
+.demo-menu div {
     text-align: center;
+    margin: 3px 0;
 }
-.demo-menu nav ul li:last-of-type {
-    margin: 0;
-}
-.demo-menu nav ul li a {
+.demo-menu div a {
     position: relative;
-    display: inline-block;
+    display: block;
 }
-.demo-menu nav ul li a:before, .demo-menu nav ul li a:after {
+.demo-menu div a:before, .demo-menu div a:after {
   position: absolute;
   background: #43b9c7;
   content: "";
-  height: 85%;
+  height: 100%;
   width: 1px;
   -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   -moz-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
   transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.demo-menu nav ul li a:before {
+.demo-menu div a:before {
   top: 0;
   left: 0;
 }
-.demo-menu nav ul li a:after {
+.demo-menu div a:after {
   bottom: 0;
   right: 0;
 }
-.demo-menu nav ul li a span {
-    vertical-align: middle;
-    display: inline-block;
+.demo-menu div a span {
+    display: block;
     padding: 10px 25px;
     color: #43b9c7;
     font-size: 12px;
@@ -969,48 +956,37 @@ header .action-bar .my-account .popup:after {
     letter-spacing: 0.2em;
     text-transform: uppercase;
 }
-.demo-menu nav ul li a span:before, .demo-menu nav ul li a span:after {
+.demo-menu div a span:before, .demo-menu div a span:after {
     position: absolute;
     background: #43b9c7;
     content: "";
-    width: 85%;
+    width: 100%;
     height: 1px;
     -webkit-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     -moz-transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
     transition: all 0.4s cubic-bezier(0.77, 0, 0.175, 1);
 }
-.demo-menu nav ul li a span:before {
+.demo-menu div a span:before {
     top: 0;
     left: 0;
 }
-.demo-menu nav ul li a span:after {
+.demo-menu div a span:after {
     bottom: 0;
     right: 0;
 }
-.demo-menu nav ul li a:not(.current):before, .demo-menu nav ul li a:not(.current):after {
+.demo-menu div a:not(.current):before, .demo-menu div a:not(.current):after {
   opacity: 0;
 }
-.demo-menu nav ul li a:not(.current) span:before, .demo-menu nav ul li a:not(.current) span:after {
+.demo-menu div a:not(.current) span:before, .demo-menu div a:not(.current) span:after {
   opacity: 0;
 }
-.demo-menu nav ul li a:hover:before, .demo-menu nav ul li a:hover:after {
+.demo-menu div a:hover:before, .demo-menu div a:hover:after {
   height: 100%;
   opacity: 1;
 }
-.demo-menu nav ul li a:hover span:before, .demo-menu nav ul li a:hover span:after {
-   width: 100%;
+.demo-menu div a:hover span:before, .demo-menu div a:hover span:after {
+  width: 100%;
   opacity: 1;
-}
-
-@media (max-width: 1149px) {
-.demo-menu {
-        width: 70%;
-        margin: 3% auto;
-    }
-.demo-menu nav ul li{
-        width: 100%;
-        display: block !important;
-    }
 }
 
 /* Main menu */
