@@ -26,7 +26,8 @@
 	
 	<rule>
 		<note>Rule for demo subsections</note>
-	 	<from>^/demo/(text-processing|sentiment-analysis|textual-complexity|keywords|semantic-search|semantic-annotation|self-explanation|cscl|cv-cover|cv|vcop)$</from>
+	 	<from>^/demo/(text-processing|sentiment-analysis|textual-complexity|keywords|semantic-annotation|self-explanation|cscl|cv-cover|cv|vcop)$</from>
+<!--        |semantic-search-->
 	  	<to>/index.html</to>
 	</rule>
     

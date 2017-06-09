@@ -27,14 +27,14 @@ DemoTextProcessingItems = [
         description: 'Keywords',
         image: 'images/demo_keywords.png',
         altText: 'Keywords extraction with ReaderBench framework'
-    },
-    {
-        name: 'Semantic Search',
-        href: 'demo/semantic-search',
-        description: 'Semantic Search',
-        image: 'images/demo_semantic_search.png',
-        altText: 'Semantic Search with ReaderBench framework'
-    }
+    }//,
+//    {
+//        name: 'Semantic Search',
+//        href: 'demo/semantic-search',
+//        description: 'Semantic Search',
+//        image: 'images/demo_semantic_search.png',
+//        altText: 'Semantic Search with ReaderBench framework'
+//    }
 ];
 DemoItems = [   
     {

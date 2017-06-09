@@ -18,7 +18,7 @@ angular.module('controllers').controller('DemoSemanticSearchController', ['$scop
         var endpoint = 'semantic-search';
         var params = {
             text: encodeURIComponent($scope.formData.text).replace(/%0D/g, "%0A"),
-            path: 'LAK_corpus/parsed-documents'
+            path: 'LAK_corpus/parsed-documents2'
         };
         $http
             .post(buildServerPath(endpoint), params)
