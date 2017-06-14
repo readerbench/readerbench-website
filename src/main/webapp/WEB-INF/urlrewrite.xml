@@ -26,8 +26,8 @@
 	
 	<rule>
 		<note>Rule for demo subsections</note>
-	 	<from>^/demo/(text-processing|sentiment-analysis|textual-complexity|keywords|semantic-annotation|self-explanation|cscl|cv-cover|cv|vcop)$</from>
-<!--        |semantic-search-->
+	 	<from>^/demo/(text-processing|sentiment-analysis|textual-complexity|keywords|semantic-annotation|self-explanation|cscl|cv-cover|cv)$</from>
+<!--        |semantic-search|vcop-->
 	  	<to>/index.html</to>
 	</rule>
     
@@ -35,7 +35,7 @@
     <rule>
          <note>ReaderBench Install Instructions</note>
          <from>/docs/install</from>
-         <to type="redirect">https://docs.google.com/document/d/1o1yUnocg0bmy-x7sGu8dVLi62HVuapySD5wfSOFy4UM/edit</to>
+         <to type="redirect" last="true">https://docs.google.com/document/d/1o1yUnocg0bmy-x7sGu8dVLi62HVuapySD5wfSOFy4UM/edit</to>
     </rule>
     
     <!-- ownCloud Deployment Link -->

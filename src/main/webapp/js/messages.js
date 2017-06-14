@@ -75,15 +75,15 @@ participation and collaboration.',
 analysis are performed.',
         image: 'images/demo_cv.png',
         altText: 'CV analysis with ReaderBench framework'
-    },
-    {
-        name: 'VCoP',
-        href: 'demo/vcop',
-        description: 'Given a community forum, specific analysis are performed.',
-        image: 'images/demo_vcop.png',
-        altText: 'Virtual Communities of Practice analysis with ReaderBench \n\
-framework'
-    }
+    }//,
+//    {
+//        name: 'VCoP',
+//        href: 'demo/vcop',
+//        description: 'Given a community forum, specific analysis are performed.',
+//        image: 'images/demo_vcop.png',
+//        altText: 'Virtual Communities of Practice analysis with ReaderBench \n\
+//framework'
+//    }
 ];
 DemoItems = DemoTextProcessingItems.concat(DemoItems);
 DemoElements = {

@@ -30,9 +30,9 @@ var app;
 					.when("/demo/keywords", {
 						templateUrl: 'templates/demo/keywords.html'
 					})
-                    .when("/demo/semantic-search", {
-						templateUrl: 'templates/demo/semantic-search.html'
-					})
+//                    .when("/demo/semantic-search", {
+//						templateUrl: 'templates/demo/semantic-search.html'
+//					})
                     .when("/demo/semantic-annotation", {
 						templateUrl: 'templates/demo/semantic-annotation.html'
 					})
@@ -48,9 +48,9 @@ var app;
 					.when("/demo/cv", {
 						templateUrl: 'templates/demo/cv.html'
 					})
-					.when("/demo/vcop", {
-						templateUrl: 'templates/demo/vcop.html'
-					})
+//					.when("/demo/vcop", {
+//						templateUrl: 'templates/demo/vcop.html'
+//					})
 				.when("/contact", {
 					templateUrl: 'templates/contact.html'
 				})
