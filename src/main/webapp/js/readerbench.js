@@ -782,3 +782,7 @@ var uploadFile = function (scope, fileModel, file, errFiles, f, errFile, errorMs
         );
     }
 }
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}

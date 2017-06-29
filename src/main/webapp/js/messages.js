@@ -109,7 +109,8 @@ DemoElements = {
             EN: [
                 {id: '1', name: 'TASA', value: 'TASA'},
                 {id: '2', name: 'TASA & LAK', value: 'TASA_LAK'},
-                {id: '3', name: 'None', value: ''}
+                {id: '3', name: 'SciRef', value: 'SciRef'},
+                {id: '4', name: 'None', value: ''}
             ],
             FR: [
                 {id: '1', name: 'Le Monde', value: 'Le_Monde'},
@@ -212,7 +213,7 @@ DemoElements = {
     defaulttextualComplexityOptions: {id: '2', name: 'No', value: false},
     defaultMonthIncrement: 0,
     defaultDayIncrement: 7,
-    defaultSemanticSimilarityThreshold: 0.3
+    defaultSemanticSimilarityThreshold: 0.5
 };
 NavBarItems = [{
         name: 'Home',

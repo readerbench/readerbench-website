@@ -228,7 +228,7 @@
                                 <ul class="course-description-list">
                                     <li class="lesson" ng-repeat="topic in topics| limitTo:25">
                                         <div class="heading">
-                                            <span class="lesson-nr no-select">{{topic.value}}</span>
+                                            <span class="lesson-nr no-select">{{topic.value| number:3}}</span>
                                         </div>
                                         <div class="body">
                                             <p>{{topic.name}}</p>

@@ -52,7 +52,6 @@ angular.module('controllers').controller('DemoKeywordsController', ['$scope', '$
                     $scope.topics[i].showConnections = false;
                 }
                 $scope.topicEdges = response.data.data.links;
-                console.log($scope.topicEdges);
                 var interval = setInterval(function () {
                     if ($scope.topicEdges.count === response.data.data.links.count) {
                         clearInterval(interval);

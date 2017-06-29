@@ -27,7 +27,7 @@ angular.module('controllers').controller('DemoCsclController', ['$scope', '$http
                         file.result = response.data.data.name;
                         $scope.fileUploaded = true;
                         jQuery('#submit-button').prop("disabled", false);
-                        $scope.formData.file = file.result;
+                        $scope.formData.csclFile = file.result;
                     });
                 },
                 function (response) {
@@ -60,7 +60,7 @@ angular.module('controllers').controller('DemoCsclController', ['$scope', '$http
         'language': DemoElements.defaultLanguage,
         'lsa': DemoElements.defaultMetricOptions.lsa.EN,
         'lda': DemoElements.defaultMetricOptions.lda.EN,
-        'pos-tagging': DemoElements.defaultPosTaggingOption,
+        'posTagging': DemoElements.defaultPosTaggingOption,
         'dialogism': DemoElements.defaultDialogismOption,
         'threshold': DemoElements.defaultSemanticSimilarityThreshold
     };
@@ -96,7 +96,12 @@ angular.module('controllers').controller('DemoCsclController', ['$scope', '$http
             .then(function (response) {
                 $scope.loading = false;
                 if (response.data.success !== true) {
-                    alert('Server error occured!');
+                    if (!isEmpty(response.data.errorMsg)) {
+                        alert(response.data.errorMsg);
+                    }
+                    else {
+                        alert('Server error occured!');   
+                    }
                     return;
                 }
 
