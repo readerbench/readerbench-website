@@ -483,7 +483,8 @@ AboutSections = [
     {
         title: "ReaderBench's Purpose",
         description: 'Designed as support for both tutors and students, our implemented system, ReaderBench, can be best described as an educational learning helper tool to enhance the quality of the learning process. ReaderBench is a fully functional framework that enhances learning using various techniques such as textual complexity assessment, voice modeling for CSCL discourse analysis, topics modeling using Latent Semantic Analysis and Latent Dirichlet Allocation, and virtual communities of practice analysis.Our system was developed building upon indices provided in renowned systems such as E-rater, iSTART, and Coh-Metrix. However, ReaderBench provides an integration of these systems. ReaderBench includes multi-lingual comprehensioncentered analyses focused on semantics, cohesion and dialogism. For tutors, ReaderBench provides (a) the evaluation of reading material\'s textual complexity, (b) the measurement of social collaboration within a group endeavors, and (c) the evaluation of learners\' summaries and self-explanations. For learners, ReaderBench provides (a) the improvement of learning capabilities through the use of reading strategies, and (b) the evaluation of students\' comprehension levels and performance with respect to other students. ReaderBench maps directly onto classroom education, combining individual learning methods with Computer Supported Collaborative Learning (CSCL) techniques.'
-    }];
+    }
+];
 DemoTexts = {
     // Text Processing
     textProcessing: {
