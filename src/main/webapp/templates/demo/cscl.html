@@ -226,12 +226,12 @@
                             <div class="col-xs-12 col-md-3">
                                 <h4>Concept Map</h4>
                                 <ul class="course-description-list">
-                                    <li class="lesson" ng-repeat="topic in topics| limitTo:25">
+                                    <li class="lesson" ng-repeat="topic in topics| limitTo:20">
                                         <div class="heading">
                                             <span class="lesson-nr no-select">{{topic.value| number:3}}</span>
                                         </div>
                                         <div class="body">
-                                            <p>{{topic.name}}</p>
+                                            <p>{{topic.lemma}} ({{topic.pos}})</p>
                                         </div>
                                     </li>
                                 </ul>

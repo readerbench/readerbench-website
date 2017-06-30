@@ -112,12 +112,13 @@ angular.module('controllers').controller('DemoCsclController', ['$scope', '$http
                 var interval = setInterval(function () {
                     if ($scope.topicEdges.count === response.data.data.concepts.links.count) {
                         clearInterval(interval);
-                        d3jsForTopics(response.data.data.concepts, "#conceptMap", false);
+                        d3jsForTopics(response.data.data.concepts, "#conceptMap", false, 20);
                     }
                 }, 1000);
 
                 // build participant interaction concept map
-                $scope.showParticipantInteractionMap = true;
+                // disabled for the moment
+                $scope.showParticipantInteractionMap = false;
                 $scope.participants = response.data.data.participantInteraction.nodes;
                 $scope.participantEdges = response.data.data.participantInteraction.links;
                 var intervalParticipantInteraction = setInterval(function () {
