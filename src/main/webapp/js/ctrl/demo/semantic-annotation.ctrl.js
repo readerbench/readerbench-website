@@ -108,7 +108,7 @@ angular.module('controllers').controller('DemoSemanticAnnotationController', ['$
             .then(function (response) {
                 $scope.loading = false;
                 if (response.data.success !== true) {
-                    alert('Server error occured!');
+                    alert(response.data.errorMsg);
                     return;
                 }
                 $scope.showConcept = true;
