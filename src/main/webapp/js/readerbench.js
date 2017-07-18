@@ -712,6 +712,7 @@ var sentimentColors = {
 };
 
 var computeColors = function(element, threshold) {
+    console.log(element);
     var sumSentiments = {
         r: 0,
         g: 0,
