@@ -51,17 +51,35 @@ angular.module('controllers').controller('DemoKeywordsController', ['$scope', '$
                 for (var i = 0; i < $scope.topics.length; i++) {
                     $scope.topics[i].showConnections = false;
                 }
+                // in the concept map draw only simple words, not bigrams
                 $scope.topicEdges = response.data.data.links;
+                $scope.conceptMap = {
+                    nodes: [],
+                    links: []
+                };
+                var keptNodes = [];
+                var newIds = [];
+                for (var i = 0; i < response.data.data.nodes.length; i++) {
+                    if (response.data.data.nodes[i].pos.length <= 2) {
+                        newIds[response.data.data.nodes[i].id] = $scope.conceptMap.nodes.length;
+                        $scope.conceptMap.nodes[$scope.conceptMap.nodes.length] = response.data.data.nodes[i];
+                        keptNodes[keptNodes.length] = response.data.data.nodes[i].id;
+                    };
+                };
+                for (var i = 0; i < response.data.data.links.length; i++) {
+                    if ((keptNodes.indexOf(response.data.data.links[i].source) !== -1) && (keptNodes.indexOf(response.data.data.links[i].target) !== -1)) {
+                        var localLink = response.data.data.links[i];
+                        localLink.source = newIds[localLink.source];
+                        localLink.target = newIds[localLink.target];
+                        $scope.conceptMap.links[$scope.conceptMap.links.length] = localLink;                        
+                    }
+                }
                 var interval = setInterval(function () {
                     if ($scope.topicEdges.count === response.data.data.links.count) {
                         clearInterval(interval);
-                        d3jsForTopics(
-                            response.data.data,
-                            "#conceptMap",
-                            false);
+                        d3jsForTopics($scope.conceptMap, "#conceptMap", false);
                     }
                 }, 1000);
-
             },
             function (response) {
                 $scope.loading = false;

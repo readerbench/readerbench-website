@@ -220,7 +220,7 @@ DemoElements = {
     defaulttextualComplexityOptions: {id: '2', name: 'No', value: false},
     defaultMonthIncrement: 0,
     defaultDayIncrement: 7,
-    defaultSemanticSimilarityThreshold: 0.5
+    defaultSemanticSimilarityThreshold: 0.3
 };
 NavBarItems = [{
         name: 'Home',

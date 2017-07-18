@@ -93,7 +93,7 @@
                                                     </a>
                                                     <ul ng-if="topic.showConnections">
                                                         <li ng-repeat="edge in topicEdges" ng-if="edge.source.id === topic.id">
-                                                            {{topics[edge.target.id].lemma}} ({{topics[edge.target.id].pos}}) - {{edge.score | number:3}}
+                                                            {{topics[edge.target.id].lemma}} ({{topics[edge.target.id].pos}}) - {{edge.score| number:3}}
                                                         </li>
                                                     </ul>
                                                 </td>
@@ -103,21 +103,7 @@
                                 </div>
                             </div>
                             <div class="row top-buffer">
-                                <div class="col-xs-12 col-md-3">
-                                    <h4>Concept Map</h4>
-                                    <ul class="course-description-list">
-                                        <li class="lesson" ng-repeat="topic in topics| limitTo:25">
-                                            <div class="heading">
-                                                <span class="lesson-nr no-select">{{topic.value| number:3}}</span>
-                                            </div>
-                                            <div class="body">
-                                                <p>{{topic.lemma}} ({{topic.pos}})</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="col-xs-12 col-md-9" id="conceptMap">
-                                </div>
+                                <div class="col-xs-12 col-md-12 col-lg-12" id="conceptMap"></div>
                             </div>
                         </div>
                     </div>
