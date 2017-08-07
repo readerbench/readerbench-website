@@ -17,7 +17,7 @@ angular.module('controllers').controller('DemoKeywordsController', ['$scope', '$
         $scope.word2VecOptions = DemoElements.metricOptions.word2Vec[$scope.formData.language.value];
         $scope.formData.word2Vec = DemoElements.defaultMetricOptions.word2Vec[$scope.formData.language.value];
     });
-
+    
     $scope.formData = {
         'text': DemoTexts.common.text,
         'language': DemoElements.defaultLanguage,
@@ -26,7 +26,8 @@ angular.module('controllers').controller('DemoKeywordsController', ['$scope', '$
         'word2vec': DemoElements.defaultMetricOptions.word2Vec.EN,
         'posTagging': DemoElements.defaultPosTaggingOption,
         'dialogism': DemoElements.defaultDialogismOption,
-        'threshold': DemoElements.defaultSemanticSimilarityThreshold
+        'threshold': DemoElements.defaultSemanticSimilarityThreshold,
+        'bigrams': DemoElements.defaultBigrams
     };
 
     $scope.loading = false;
@@ -38,6 +39,7 @@ angular.module('controllers').controller('DemoKeywordsController', ['$scope', '$
         $scope.showResults = false;
         var params = buildCommonParams($scope.formData);
         params['threshold'] = $scope.formData.threshold;
+        params['bigrams'] = $scope.formData.bigrams;
         $http
             .post(buildServerPath('keywords'), params)
             .then(function (response) {

@@ -24,6 +24,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row top-buffer">
+                            <div class="col-xs-12 col-md-12 col-lg-12">
+                                <input id="input_bigrams" type="checkbox" class="form-control" ng-model="formData.bigrams" />
+                                <label for="input_bigrams">Include bigrams</label>
+                            </div>
+                        </div>
                         <div class="row top-buffer" ng-if="!loading">
                             <div class="col-xs-12 col-md-12">
                                 <div class="bottom-buttons" ng-if="!loading">
@@ -103,6 +109,9 @@
                                 </div>
                             </div>
                             <div class="row top-buffer">
+                                <div class="col-xs-12 col-md-12 col-lg-12">
+                                    <h4>Concept Map</h4>
+                                </div>
                                 <div class="col-xs-12 col-md-12 col-lg-12" id="conceptMap"></div>
                             </div>
                         </div>

@@ -104,6 +104,7 @@ DemoElements = {
         {id: '2', name: 'No', value: false}
     ],
     defaultDialogismOption: {id: '2', name: 'No', value: false},
+    defaultBigrams: true,
     metricOptions: {
         lsa: {
             EN: [

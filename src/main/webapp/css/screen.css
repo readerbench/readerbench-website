@@ -5780,3 +5780,12 @@ footer .copyrights p a:hover {
 .cscl-indices td.value {
 	text-align: right;
 }
+
+input[type=checkbox].form-control {
+    width: 14px;
+    height: 14px;
+    float: left;
+    border: 0;
+    padding: 0;
+    margin: 6px 6px 0 0;
+}
