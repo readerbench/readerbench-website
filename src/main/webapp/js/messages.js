@@ -75,7 +75,7 @@ participation and collaboration.',
 analysis are performed.',
         image: 'images/demo_cv.png',
         altText: 'CV analysis with ReaderBench framework'
-    }//,
+    },
 //    {
 //        name: 'VCoP',
 //        href: 'demo/vcop',
@@ -84,6 +84,22 @@ analysis are performed.',
 //        altText: 'Virtual Communities of Practice analysis with ReaderBench \n\
 //framework'
 //    }
+    {
+        name: 'LAK Corpus',
+        href: 'http://readerbench.com:3000/lak',
+        description: 'LAK Corpus',
+        image: 'images/demo_lak.png',
+        altText: 'LAK Corpus',
+        target: '_blank'
+    },
+    {
+        name: 'CI Model',
+        href: 'http://readerbench.com:3000/cm',
+        description: 'CI Model',
+        image: 'images/demo_cm.png',
+        altText: 'CI Model',
+        target: '_blank'
+    }
 ];
 DemoItems = DemoTextProcessingItems.concat(DemoItems);
 DemoElements = {
