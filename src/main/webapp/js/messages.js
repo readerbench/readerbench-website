@@ -93,11 +93,11 @@ analysis are performed.',
         target: '_blank'
     },
     {
-        name: 'CI Model',
-        href: 'http://readerbench.com:3000/cm',
-        description: 'CI Model',
-        image: 'images/demo_cm.png',
-        altText: 'CI Model',
+        name: 'Online Communities',
+        href: 'http://readerbench.com:3000/community',
+        description: 'Online Communities',
+        image: 'images/demo_communities.png',
+        altText: 'Online Communities',
         target: '_blank'
     }
 ];
