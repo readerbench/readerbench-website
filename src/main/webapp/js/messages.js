@@ -403,7 +403,7 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/dorinela-sirbu-b3810494',
         scholarlink: '',
-        dblplink: ''
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/s/Sirbu:Maria=Dorinela'
     },
     {
         name: 'Iulia Pasov',
