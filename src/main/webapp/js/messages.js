@@ -424,7 +424,7 @@ PeopleUPB = [
         scholarlink: '',
         dblplink: '',
         researchgate: ''
-    },
+    }
 ];
 PeopleLSE = [
     {
