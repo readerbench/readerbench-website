@@ -340,7 +340,7 @@ PeopleUPB = [
         picture: 'img/male.jpg',
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/gabrielgutu',
-        scholarlink: 'https://scholar.google.ro/citations?user=-pGqq7QAAAAJ&hl=en',
+        scholarlink: 'https://scholar.google.com/citations?user=-pGqq7QAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius',
         researchgate: 'https://www.researchgate.net/profile/Gabriel_Gutu'
     },
@@ -433,7 +433,8 @@ PeopleLSE = [
         area: 'Educational Sciences',
         linkedin: '',
         scholarlink: 'https://scholar.google.com/citations?user=I-RoP1cAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/d/Dessus:Philippe'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/d/Dessus:Philippe',
+        researchgate: 'https://www.researchgate.net/profile/Philippe_Dessus'
     },
     {
         name: 'Maryse Bianco',
@@ -441,7 +442,8 @@ PeopleLSE = [
         area: 'Educational Sciences',
         linkedin: '',
         scholarlink: 'https://scholar.google.com/citations?user=jFYNe4UAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/b/Bianco:Maryse'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/b/Bianco:Maryse',
+        researchgate: 'https://www.researchgate.net/profile/Maryse_Bianco'
     },
     {
         name: 'Aurelie Nardy',
@@ -449,7 +451,8 @@ PeopleLSE = [
         area: 'Educational Sciences',
         linkedin: '',
         scholarlink: 'https://scholar.google.com/citations?user=6LYAdBIAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/n/Nardy:Aur=eacute=lie'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/n/Nardy:Aur=eacute=lie',
+        researchgate: 'https://www.researchgate.net/profile/Aurelie_Nardy'
     }];
 PeopleLMU = [{
         name: 'Nicolae Nistor',
@@ -467,15 +470,17 @@ PeopleASU = [
         area: 'Cognitive Psychology',
         linkedin: '',
         scholarlink: 'https://scholar.google.com/citations?user=NOxLJQUAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/m/McNamara:Danielle_S='
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/m/McNamara:Danielle_S=',
+        researchgate: 'https://www.researchgate.net/profile/Danielle_Mcnamara'
     },
     {
         name: 'Laura V. Allen',
         picture: 'img/female.jpg',
         area: 'Cognitive Psychology',
         linkedin: '',
-        scholarlink: '',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/a/Allen:Laura'
+        scholarlink: 'https://scholar.google.com/citations?user=8QxiFAwAAAAJ&hl=ro',
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/a/Allen:Laura',
+        researchgate: 'https://www.researchgate.net/profile/Laura_Allen8'
     }];
 PeopleGSU = [
     {
@@ -484,7 +489,8 @@ PeopleGSU = [
         area: 'Computational Linguistics',
         linkedin: 'https://www.linkedin.com/in/scott-crossley-1bb07b5b',
         scholarlink: 'https://scholar.google.com/citations?user=PDzqXW4AAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/c/Crossley:Scott_A='
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/c/Crossley:Scott_A=',
+        researchgate: 'https://www.researchgate.net/profile/Scott_Crossley'
     },
     {
         name: 'Stephen Skalicky',
@@ -492,7 +498,8 @@ PeopleGSU = [
         area: 'Applied Linguistics',
         linkedin: 'https://www.linkedin.com/in/stephen-skalicky-9009a9107/',
         scholarlink: 'https://scholar.google.com/citations?user=vXuyDG4AAAAJ&hl=en',
-        dblplink: ''
+        dblplink: '',
+        researchgate: 'https://www.researchgate.net/profile/Stephen_Skalicky'
     },
     {
         name: 'William Michael Lake',
@@ -500,7 +507,8 @@ PeopleGSU = [
         area: 'Applied Linguistics',
         linkedin: '',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: 'https://www.researchgate.net/profile/William_Lake2'
     },
     {
         name: 'Rurik Lol Tywoniw',
@@ -508,7 +516,8 @@ PeopleGSU = [
         area: 'Applied Linguistics',
         linkedin: 'https://www.linkedin.com/in/rurik-tywoniw-38b642a7/',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: ''
     }];
 PeoplePrevious = [
     {
@@ -517,15 +526,17 @@ PeoplePrevious = [
         area: 'Software Development',
         linkedin: '',
         scholarlink: 'https://scholar.google.com/citations?user=do49nJAAAAAJ&hl=en',
-        dblplink: 'http://dblp1.uni-trier.de/pers/hd/s/Stavarache:Larise_Lucia'
+        dblplink: 'http://dblp1.uni-trier.de/pers/hd/s/Stavarache:Larise_Lucia',
+        researchgate: 'https://www.researchgate.net/profile/Lucia_Stavarache'
     },
     {
         name: 'Adrian Sandu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/adrian-bogdan-sandu-87a84a6a',
+        linkedin: 'https://www.linkedin.com/in/adrian-bogdan-sandu-87a84a6a',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: ''
     }];
 Projects = [
     {
