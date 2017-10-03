@@ -372,24 +372,6 @@ PeopleUPB = [
         researchgate: 'https://www.researchgate.net/profile/Traian_Rebedea'
     },
     {
-        name: 'Remus Mazilu',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: 'https://www.linkedin.com/in/remus-mazilu-84135aa3',
-        scholarlink: '',
-        dblplink: '',
-        researchgate: ''
-    },
-    {
-        name: 'Dragos Corlatescu',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: 'https://www.linkedin.com/in/dragos-corlatescu-0b815a78',
-        scholarlink: '',
-        dblplink: '',
-        researchgate: ''
-    },
-    {
         name: 'Irina Toma',
         picture: 'img/male.jpg',
         area: 'Software Development',
@@ -424,7 +406,25 @@ PeopleUPB = [
         scholarlink: '',
         dblplink: '',
         researchgate: 'https://www.researchgate.net/profile/Iulia_Pasov'
-    }
+    },
+    {
+        name: 'Remus Mazilu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/remus-mazilu-84135aa3',
+        scholarlink: '',
+        dblplink: '',
+        researchgate: ''
+    },
+    {
+        name: 'Dragos Corlatescu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/dragos-corlatescu-0b815a78',
+        scholarlink: '',
+        dblplink: '',
+        researchgate: ''
+    },
 ];
 PeopleLSE = [
     {
