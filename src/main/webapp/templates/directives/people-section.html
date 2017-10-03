@@ -22,9 +22,22 @@
 						</div>
 						<div class="people-social">
 							<ul class="social-block">
-								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
-								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
-								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li>
+                                    <a ng-if="people.dblplink" title="dblp profile of {{people.name}}" ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a>
+                                    <a ng-if="!people.dblplink" disabled="disabled"><i class="fa fa-eraser inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.scholarlink" title="Google Scholar profile of {{people.name}}" ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                    <a ng-if="!people.scholarlink" disabled="disabled"><i class="fa fa-graduation-cap inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.linkedin" title="LinkedIn profile of {{people.name}}" ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a ng-if="!people.linkedin" disabled="disabled"><i class="fa fa-linkedin inactive"></i></a>
+                                </li>
+                                <li>
+                                    <a ng-if="people.researchgate" title="ResearchGate profile of {{people.name}}" ng-href="{{people.researchgate}}" target="_blank"><i class="fa fa-file-text-o"></i></a>
+                                    <a ng-if="!people.researchgate" disabled="disabled"><i class="fa fa-file-text inactive"></i></a>
+                                </li>
 							</ul>
 						</div>
 					</div>
@@ -45,9 +58,22 @@
 						</div>
 						<div class="people-social">
 							<ul class="social-block">
-								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
-								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
-								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li>
+                                    <a ng-if="people.dblplink" title="dblp profile of {{people.name}}" ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a>
+                                    <a ng-if="!people.dblplink" disabled="disabled"><i class="fa fa-eraser inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.scholarlink" title="Google Scholar profile of {{people.name}}" ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                    <a ng-if="!people.scholarlink" disabled="disabled"><i class="fa fa-graduation-cap inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.linkedin" title="LinkedIn profile of {{people.name}}" ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a ng-if="!people.linkedin" disabled="disabled"><i class="fa fa-linkedin inactive"></i></a>
+                                </li>
+                                <li>
+                                    <a ng-if="people.researchgate" title="ResearchGate profile of {{people.name}}" ng-href="{{people.researchgate}}" target="_blank"><i class="fa fa-file-text-o"></i></a>
+                                    <a ng-if="!people.researchgate" disabled="disabled"><i class="fa fa-file-text inactive"></i></a>
+                                </li>
 							</ul>
 						</div>
 					</div>
@@ -69,9 +95,22 @@
 						</div>
 						<div class="people-social">
 							<ul class="social-block">
-								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
-								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
-								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li>
+                                    <a ng-if="people.dblplink" title="dblp profile of {{people.name}}" ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a>
+                                    <a ng-if="!people.dblplink" disabled="disabled"><i class="fa fa-eraser inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.scholarlink" title="Google Scholar profile of {{people.name}}" ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                    <a ng-if="!people.scholarlink" disabled="disabled"><i class="fa fa-graduation-cap inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.linkedin" title="LinkedIn profile of {{people.name}}" ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a ng-if="!people.linkedin" disabled="disabled"><i class="fa fa-linkedin inactive"></i></a>
+                                </li>
+                                <li>
+                                    <a ng-if="people.researchgate" title="ResearchGate profile of {{people.name}}" ng-href="{{people.researchgate}}" target="_blank"><i class="fa fa-file-text-o"></i></a>
+                                    <a ng-if="!people.researchgate" disabled="disabled"><i class="fa fa-file-text inactive"></i></a>
+                                </li>
 							</ul>
 						</div>
 					</div>
@@ -92,9 +131,22 @@
 						</div>
 						<div class="people-social">
 							<ul class="social-block">
-								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
-								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
-								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li>
+                                    <a ng-if="people.dblplink" title="dblp profile of {{people.name}}" ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a>
+                                    <a ng-if="!people.dblplink" disabled="disabled"><i class="fa fa-eraser inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.scholarlink" title="Google Scholar profile of {{people.name}}" ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                    <a ng-if="!people.scholarlink" disabled="disabled"><i class="fa fa-graduation-cap inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.linkedin" title="LinkedIn profile of {{people.name}}" ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a ng-if="!people.linkedin" disabled="disabled"><i class="fa fa-linkedin inactive"></i></a>
+                                </li>
+                                <li>
+                                    <a ng-if="people.researchgate" title="ResearchGate profile of {{people.name}}" ng-href="{{people.researchgate}}" target="_blank"><i class="fa fa-file-text-o"></i></a>
+                                    <a ng-if="!people.researchgate" disabled="disabled"><i class="fa fa-file-text inactive"></i></a>
+                                </li>
 							</ul>
 						</div>
 					</div>
@@ -115,9 +167,22 @@
 						</div>
 						<div class="people-social">
 							<ul class="social-block">
-								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
-								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
-								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li>
+                                    <a ng-if="people.dblplink" title="dblp profile of {{people.name}}" ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a>
+                                    <a ng-if="!people.dblplink" disabled="disabled"><i class="fa fa-eraser inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.scholarlink" title="Google Scholar profile of {{people.name}}" ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                    <a ng-if="!people.scholarlink" disabled="disabled"><i class="fa fa-graduation-cap inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.linkedin" title="LinkedIn profile of {{people.name}}" ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a ng-if="!people.linkedin" disabled="disabled"><i class="fa fa-linkedin inactive"></i></a>
+                                </li>
+                                <li>
+                                    <a ng-if="people.researchgate" title="ResearchGate profile of {{people.name}}" ng-href="{{people.researchgate}}" target="_blank"><i class="fa fa-file-text-o"></i></a>
+                                    <a ng-if="!people.researchgate" disabled="disabled"><i class="fa fa-file-text inactive"></i></a>
+                                </li>
 							</ul>
 						</div>
 					</div>
@@ -138,9 +203,22 @@
 						</div>
 						<div class="people-social">
 							<ul class="social-block">
-								<li><a ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a></li>
-								<li><a ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a></li>
-								<li><a ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+								<li>
+                                    <a ng-if="people.dblplink" title="dblp profile of {{people.name}}" ng-href="{{people.dblplink}}" target="_blank"><i class="fa fa-eraser"></i></a>
+                                    <a ng-if="!people.dblplink" disabled="disabled"><i class="fa fa-eraser inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.scholarlink" title="Google Scholar profile of {{people.name}}" ng-href="{{people.scholarlink}}" target="_blank"><i class="fa fa-graduation-cap"></i></a>
+                                    <a ng-if="!people.scholarlink" disabled="disabled"><i class="fa fa-graduation-cap inactive"></i></a>
+                                </li>
+								<li>
+                                    <a ng-if="people.linkedin" title="LinkedIn profile of {{people.name}}" ng-href="{{people.linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a>
+                                    <a ng-if="!people.linkedin" disabled="disabled"><i class="fa fa-linkedin inactive"></i></a>
+                                </li>
+                                <li>
+                                    <a ng-if="people.researchgate" title="ResearchGate profile of {{people.name}}" ng-href="{{people.researchgate}}" target="_blank"><i class="fa fa-file-text-o"></i></a>
+                                    <a ng-if="!people.researchgate" disabled="disabled"><i class="fa fa-file-text inactive"></i></a>
+                                </li>
 							</ul>
 						</div>
 					</div>

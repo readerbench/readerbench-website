@@ -323,7 +323,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/mihai-dascalu-8a57ab10a',
         scholarlink: 'https://scholar.google.com/citations?user=3L9yY8UAAAAJ&hl=en',
-        dblplink: 'http://dblp1.uni-trier.de/pers/hd/d/Dascalu:Mihai'
+        dblplink: 'http://dblp1.uni-trier.de/pers/hd/d/Dascalu:Mihai',
+        researchgate: 'https://www.researchgate.net/profile/Mihai_Dascalu'
     },
     {
         name: 'Stefan Trausan-Matu',
@@ -331,7 +332,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/stefan-trausan-matu-9296707',
         scholarlink: 'https://scholar.google.com/citations?user=p_KpBToAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Trausan=Matu:Stefan'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Trausan=Matu:Stefan',
+        researchgate: 'https://www.researchgate.net/profile/Stefan_Trausan-Matu'
     },
     {
         name: 'Gabriel Gutu',
@@ -339,7 +341,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/gabrielgutu',
         scholarlink: 'https://scholar.google.ro/citations?user=-pGqq7QAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius',
+        researchgate: 'https://www.researchgate.net/profile/Gabriel_Gutu'
     },
     {
         name: 'Stefan Ruseti',
@@ -347,7 +350,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/stefan-ruseti-97a011a1',
         scholarlink: 'https://scholar.google.com/citations?user=aEyJTykAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Ruseti:Stefan'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Ruseti:Stefan',
+        researchgate: 'https://www.researchgate.net/profile/Stefan_Ruseti'
     },
     {
         name: 'Ionut Paraschiv',
@@ -355,7 +359,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/ionutcristianparaschiv',
         scholarlink: '',
-        dblplink: 'http://dblp1.uni-trier.de/pers/hd/p/Paraschiv:Ionut_Cristian'
+        dblplink: 'http://dblp1.uni-trier.de/pers/hd/p/Paraschiv:Ionut_Cristian',
+        researchgate: ''
     },
     {
         name: 'Traian Rebedea',
@@ -363,7 +368,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/trebedea',
         scholarlink: 'https://scholar.google.com/citations?user=7NxaE1MAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Rebedea:Traian'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Rebedea:Traian',
+        researchgate: 'https://www.researchgate.net/profile/Traian_Rebedea'
     },
     {
         name: 'Remus Mazilu',
@@ -371,7 +377,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/remus-mazilu-84135aa3',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: ''
     },
     {
         name: 'Dragos Corlatescu',
@@ -379,7 +386,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/dragos-corlatescu-0b815a78',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: ''
     },
     {
         name: 'Irina Toma',
@@ -387,7 +395,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: '',
         scholarlink: '',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Toma:Irina'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Toma:Irina',
+        researchgate: ''
     },
     {
         name: 'Marilena Panaite',
@@ -395,7 +404,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: '',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: ''
     },
     {
         name: 'Dorinela Sirbu',
@@ -403,7 +413,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/dorinela-sirbu-b3810494',
         scholarlink: '',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/s/Sirbu:Maria=Dorinela'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/s/Sirbu:Maria=Dorinela',
+        researchgate: 'https://www.researchgate.net/profile/Dorinela_Sirbu',
     },
     {
         name: 'Iulia Pasov',
@@ -411,7 +422,8 @@ PeopleUPB = [
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/iulia-pasov',
         scholarlink: '',
-        dblplink: ''
+        dblplink: '',
+        researchgate: 'https://www.researchgate.net/profile/Iulia_Pasov'
     }
 ];
 PeopleLSE = [
@@ -445,7 +457,8 @@ PeopleLMU = [{
         area: 'Psychology',
         linkedin: '',
         scholarlink: 'https://scholar.google.com/citations?user=cNVq5HUAAAAJ&hl=en',
-        dblplink: 'http://dblp.uni-trier.de/pers/hd/n/Nistor:Nicolae'
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/n/Nistor:Nicolae',
+        researchgate: ''
     }];
 PeopleASU = [
     {

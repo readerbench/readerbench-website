@@ -349,7 +349,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 }
 
 .people-name{
-    width: 80%;
+    width: 76%;
     height: 100%;
     float: left;
 }
@@ -367,7 +367,7 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
 }
 
 .people-social{
-    width:20%;
+    width:24%;
     height: 100%;
     float: left;
 }
@@ -382,12 +382,13 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
     line-height: 50px;
 }
 .people-social .social-block li {
-    display: inline-block
+    display: inline-block;
 }
 .people-social .social-block li i {
     color: #fff;
     font-size: 17px;
     padding: 0 13px;
+    margin: 0 0.5px;
     height: 40px;
     background: #43b9c7;
     line-height: 40px;
@@ -396,6 +397,11 @@ a.slider-component.second-row.btn.theme-btn-1.demo-button-menu span.button{
     -webkit-transition: all 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     -moz-transition: all 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53);
     transition: all 0.15s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+}
+.people-social .social-block li i.inactive {
+    pointer-events: none;
+    background: #eee;
+    cursor: default;
 }
 .people-social .social-block li i:hover {
     background: #4bc9d8
