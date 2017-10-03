@@ -321,7 +321,7 @@ PeopleUPB = [
         name: 'Mihai Dascalu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/mihai-dascalu-8a57ab10a',
+        linkedin: 'https://www.linkedin.com/in/mihai-dascalu-8a57ab10a',
         scholarlink: 'https://scholar.google.com/citations?user=3L9yY8UAAAAJ&hl=en',
         dblplink: 'http://dblp1.uni-trier.de/pers/hd/d/Dascalu:Mihai'
     },
@@ -329,7 +329,7 @@ PeopleUPB = [
         name: 'Stefan Trausan-Matu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/stefan-trausan-matu-9296707',
+        linkedin: 'https://www.linkedin.com/in/stefan-trausan-matu-9296707',
         scholarlink: 'https://scholar.google.com/citations?user=p_KpBToAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Trausan=Matu:Stefan'
     },
@@ -337,7 +337,7 @@ PeopleUPB = [
         name: 'Gabriel Gutu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/gabrielgutu/',
+        linkedin: 'https://www.linkedin.com/in/gabrielgutu',
         scholarlink: 'https://scholar.google.ro/citations?user=-pGqq7QAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius'
     },
@@ -345,7 +345,7 @@ PeopleUPB = [
         name: 'Stefan Ruseti',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/stefan-ruseti-97a011a1',
+        linkedin: 'https://www.linkedin.com/in/stefan-ruseti-97a011a1',
         scholarlink: 'https://scholar.google.com/citations?user=aEyJTykAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Ruseti:Stefan'
     },
@@ -353,7 +353,7 @@ PeopleUPB = [
         name: 'Ionut Paraschiv',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/ionut-paraschiv-9aa6875',
+        linkedin: 'https://www.linkedin.com/in/ionutcristianparaschiv',
         scholarlink: '',
         dblplink: 'http://dblp1.uni-trier.de/pers/hd/p/Paraschiv:Ionut_Cristian'
     },
@@ -361,7 +361,7 @@ PeopleUPB = [
         name: 'Traian Rebedea',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://ro.linkedin.com/in/trebedea',
+        linkedin: 'https://www.linkedin.com/in/trebedea',
         scholarlink: 'https://scholar.google.com/citations?user=7NxaE1MAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/r/Rebedea:Traian'
     },
@@ -369,7 +369,7 @@ PeopleUPB = [
         name: 'Remus Mazilu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: '',
+        linkedin: 'https://www.linkedin.com/in/remus-mazilu-84135aa3',
         scholarlink: '',
         dblplink: ''
     },
@@ -377,7 +377,39 @@ PeopleUPB = [
         name: 'Dragos Corlatescu',
         picture: 'img/male.jpg',
         area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/dragos-corlatescu-0b815a78',
+        scholarlink: '',
+        dblplink: ''
+    },
+    {
+        name: 'Irina Toma',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
         linkedin: '',
+        scholarlink: '',
+        dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Toma:Irina'
+    },
+    {
+        name: 'Marilena Panaite',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: '',
+        scholarlink: '',
+        dblplink: ''
+    },
+    {
+        name: 'Dorinela Sirbu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/dorinela-sirbu-b3810494',
+        scholarlink: '',
+        dblplink: ''
+    },
+    {
+        name: 'Iulia Pasov',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/iulia-pasov',
         scholarlink: '',
         dblplink: ''
     }
