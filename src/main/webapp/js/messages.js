@@ -375,8 +375,8 @@ PeopleUPB = [
         name: 'Irina Toma',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: '',
-        scholarlink: '',
+        linkedin: 'https://www.linkedin.com/in/irina-toma-b51146151/',
+        scholarlink: 'https://scholar.google.com/citations?user=tJ8GnRUAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Toma:Irina',
         researchgate: ''
     },
