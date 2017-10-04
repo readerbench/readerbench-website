@@ -394,7 +394,7 @@ PeopleUPB = [
         picture: 'img/male.jpg',
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/dorinela-sirbu-b3810494',
-        scholarlink: '',
+        scholarlink: 'https://scholar.google.ro/citations?user=Rk2yrnUAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/s/Sirbu:Maria=Dorinela',
         researchgate: 'https://www.researchgate.net/profile/Dorinela_Sirbu',
     },
@@ -403,7 +403,7 @@ PeopleUPB = [
         picture: 'img/male.jpg',
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/iulia-pasov',
-        scholarlink: '',
+        scholarlink: 'https://scholar.google.com/citations?user=gaFXrrMAAAAJ&hl=en',
         dblplink: '',
         researchgate: 'https://www.researchgate.net/profile/Iulia_Pasov'
     },
