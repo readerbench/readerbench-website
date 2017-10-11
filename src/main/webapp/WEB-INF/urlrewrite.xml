@@ -38,6 +38,20 @@
          <to type="redirect" last="true">https://ec.europa.eu/futurium/en/best-early-stage-innovation/gaming-solutions-creation-modernised-skilled-workforce</to>
     </rule>
     
+    <!-- ReaderBench Wiki -->
+    <rule>
+         <note>ReaderBench Wiki</note>
+         <from>/wiki</from>
+         <to type="redirect" last="true">https://git.readerbench.com/ReaderBench/ReaderBench/wikis/home</to>
+    </rule>
+    
+    <!-- ReaderBench Wiki Install & Run -->
+    <rule>
+         <note>ReaderBench Wiki Install & Run</note>
+         <from>/wiki/install</from>
+         <to type="redirect" last="true">https://git.readerbench.com/ReaderBench/ReaderBench/wikis/how-to/How%20to%20install%20and%20run%20readerbench</to>
+    </rule>
+    
     <!-- ReaderBench Install Instructions -->
     <rule>
          <note>ReaderBench Install Instructions</note>
