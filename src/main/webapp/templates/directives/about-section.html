@@ -6,13 +6,48 @@
             <h1>About</h1>
         </div>
         <div class="row">
-            <div class="col-xs-12 col-md-12 about-section-header">
+            <div class="col-xs-12 col-md-12">
                 <div class="course-preview design about-header">
                     <div class="course-wrapper">
-                        <a href="" class="description" ng-repeat="aboutSection in aboutSections">
-                            <h4 class="title">{{aboutSection.title}}</h4>
-                            <p>{{aboutSection.description}}</p>
-                        </a>
+                        <div class="description">
+                            <h4 class="title">{{aboutSections[0].title}}</h4>
+                            <p>{{aboutSections[0].description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="course-preview design">
+                    <div class="course-wrapper">
+                        <h5 class="title">Links</h5>
+                        <ul>
+                            <li><a href="http://readerbench.com/wiki/install">ReaderBench Documentation</a></li>
+                            <li><a href="http://git.readerbench.com/ReaderBench/ReaderBench">ReaderBench Open-Source Code Repository</a></li>
+                            <li><a href="http://readerbench.com/deployment">ReaderBench Deployment versions</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="course-preview design about-header">
+                    <div class="course-wrapper">
+                        <div class="description">
+                            <h4 class="title">{{aboutSections[1].title}}</h4>
+                            <p>{{aboutSections[1].description}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+                <div class="course-preview design about-header">
+                    <div class="course-wrapper">
                         <img src="images/readerbench_diagram.jpg" alt="ReaderBench diagram" />
                         <video width="800" height="600" style="margin: 0 auto; display: block;" controls>
                             <source src="videos/rage_bundle.mp4" type="video/mp4">
@@ -21,59 +56,45 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-12 col-md-12 about-section-header">
-                <div class="course-preview design about-header">
-                    <div class="course-wrapper">
-                        <h4 class="title">Links</h4>
-                        <ul>
-                            <li><a href="http://git.readerbench.com/ReaderBench/ReaderBench/wikis/home">ReaderBench Documentation</a></li>
-                            <li><a href="http://git.readerbench.com/ReaderBench/ReaderBench">ReaderBench Open-Source Code Repository</a></li>
-                            <li><a href="http://readerbench.com/deployment">ReaderBench Deployable versions</a></li>
-                        </ul>
+            <div class="row">
+                <div class="col-xs-6 col-md-3 x-small">
+                    <div class="simple-service">
+                        <a href="demo" class="description">
+                            <i class="icon icon-mouse"></i>
+                            <h4 class="title">Demonstration</h4>
+                            <p>ReaderBench live demonstration of the application</p>
+                        </a>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-3 x-small">
-                <div class="simple-service">
-                    <a href="demo" class="description">
-                        <i class="icon icon-mouse"></i>
-                        <h4 class="title">Demonstration</h4>
-                        <p>ReaderBench live demonstration of the application</p>
-                    </a>
-                </div>
-            </div>
 
-            <div class="col-xs-6 col-md-3 x-small">
-                <div class="simple-service">
-                    <a href="people" class="description">
-                        <i class="icon icon-user"></i>
-                        <h4 class="title">People</h4>
-                        <p>People who got involved in the ReaderBench application creation</p>
-                    </a>
+                <div class="col-xs-6 col-md-3 x-small">
+                    <div class="simple-service">
+                        <a href="people" class="description">
+                            <i class="icon icon-user"></i>
+                            <h4 class="title">People</h4>
+                            <p>People who got involved in the ReaderBench application creation</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-xs-6 col-md-3 x-small">
-                <div class="simple-service">
-                    <a href="projects" class="description">
-                        <i class="icon icon-book-open"></i>
-                        <h4 class="title">Projects</h4>
-                        <p>Other projects done by the people of ReaderBench</p>
-                    </a>
+                <div class="col-xs-6 col-md-3 x-small">
+                    <div class="simple-service">
+                        <a href="projects" class="description">
+                            <i class="icon icon-book-open"></i>
+                            <h4 class="title">Projects</h4>
+                            <p>Other projects done by the people of ReaderBench</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
-            <div class="col-xs-6 col-md-3 x-small">
-                <div class="simple-service">
-                    <a href="publications" class="description">
-                        <i class="icon icon-info"></i>
-                        <h4 class="title">Publications</h4>
-                        <p>Publications that are done by the people of ReaderBench</p>
-                    </a>
+                <div class="col-xs-6 col-md-3 x-small">
+                    <div class="simple-service">
+                        <a href="publications" class="description">
+                            <i class="icon icon-info"></i>
+                            <h4 class="title">Publications</h4>
+                            <p>Publications that are done by the people of ReaderBench</p>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

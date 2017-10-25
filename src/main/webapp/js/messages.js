@@ -557,7 +557,7 @@ Projects = [
     }];
 AboutSections = [
     {
-        title: 'ReaderBench',
+        title: 'ReaderBench - an Open-Source Framework',
         description: 'ReaderBench is an automated software framework designed to support both students and tutors by making use of text mining techniques, advanced natural language processing, and social network analysis tools. ReaderBench is centered on comprehension prediction and assessment based on a cohesion-based.representation of the discourse applied on different sources (e.g., textual materials, behavior tracks, metacognitive explanations, Computer Supported Collaborative Learning - CSCL - conversations). Therefore, ReaderBench can act as a Personal Learning Environment (PLE) which incorporates both individual and collaborative assessments. Besides the a priori evaluation of textual materials\' complexity presented to learners, our system supports the identification of reading strategies evident within the learners\' self-explanations or summaries. Moreover, ReaderBench integrates a dedicated cohesion-based module to assess participation and collaboration in CSCL conversations.'
     },
     {
