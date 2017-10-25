@@ -210,25 +210,21 @@ a.slider-component.second-row.btn.theme-btn-1 .button{
     height: 100px;
 }
 
-.about-section-header{
-    height: 100%;
-    margin:0 auto 50px auto;
-}
-
 .about-header{
     width: 100%;
     height:auto;
     margin:0 auto;
+    margin-top: 25px;
 }
 
-.course-preview.design.about-header a.description h4.title{
+.course-preview.design.about-header div.description h4.title{
     margin: 25px;
 }
-.course-preview.design.about-header a.description h4.title:first-child{
+.course-preview.design.about-header div.description h4.title:first-child{
     margin-top: 0;
 }
 
-.course-preview.design.about-header a.description{
+.course-preview.design.about-header div.description{
     color: #43b9c7;
     font-size: 16px;
     margin: 0 0 16px;
@@ -237,6 +233,7 @@ a.slider-component.second-row.btn.theme-btn-1 .button{
     letter-spacing: 0.06em;
     cursor: default;
     text-align: justify;
+    padding: 0;
 }
 
 .course-preview.design.about-header .description p{
