@@ -2,9 +2,10 @@ ServerSettings = {
     delim: '/',
     protocol: 'http',
     ip: window.location.hostname,
-    port: '8080',
+    port: '80',
     mailPort: '9001',
-    resourceRoot: 'resources/in/'
+    resourceRoot: 'resources/in/',
+    path: 'api'
 };
 DemoTextProcessingItems = [
     {
