@@ -9,7 +9,7 @@ var buildMailServerPath = function(endpoint, params) {
 };
 
 var buildServerPathWithPort =  function(endpoint, params, port) {
-    var serverUrl = ServerSettings.protocol + ':' + ServerSettings.delim
+    var serverUrl = ServerSettings.protocol + ':' + ServerSettings.delim + ServerSettings.delim
 			+ ServerSettings.ip + ':'
 			+ port + ServerSettings.delim
             + ServerSettings.path + ServerSettings.delim + 
