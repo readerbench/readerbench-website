@@ -3,9 +3,20 @@ var app;
 
 (function(){
     app = angular.module('readerbench', ['ngRoute', 'controllers', 'directives', 'filters']);
+    app.factory('rbInterceptor', ['$q','$location', function($q, $location) {
+        return {
+            request: function(config) {
+                config.headers = config.headers || {};
+                config.headers['Accept'] = 'application/json';
+                config.headers['Content-Type'] = 'application/json';
+                return config;
+            }
+        };
+    }]);
 	app
 		.config(['$routeProvider', '$locationProvider', '$httpProvider', function($routeProvider, $locationProvider, $httpProvider){
 			
+            $httpProvider.interceptors.push('rbInterceptor');
             $httpProvider.defaults.headers.common = {};
             $httpProvider.defaults.headers.post = {};
             $httpProvider.defaults.headers.put = {};

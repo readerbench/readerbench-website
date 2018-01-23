@@ -1,7 +1,6 @@
 /* global ServerSettings, encodeURIComponent */
 
 var buildServerPath = function(endpoint, params) {
-    console.log('test');
 	return buildServerPathWithPort(endpoint, params, ServerSettings.port);
 };
 
@@ -10,9 +9,8 @@ var buildMailServerPath = function(endpoint, params) {
 };
 
 var buildServerPathWithPort =  function(endpoint, params, port) {
-    console.log(ServerSettings);
     var serverUrl = ServerSettings.protocol + ':' + ServerSettings.delim
-			+ ServerSettings.delim + ServerSettings.ip + ':'
+			+ ServerSettings.ip + ':'
 			+ port + ServerSettings.delim
             + ServerSettings.path + ServerSettings.delim + 
             endpoint;

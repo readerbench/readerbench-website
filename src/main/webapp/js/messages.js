@@ -28,14 +28,7 @@ DemoTextProcessingItems = [
         description: 'Keywords',
         image: 'images/demo_keywords.png',
         altText: 'Keywords extraction with ReaderBench framework'
-    }//,
-//    {
-//        name: 'Semantic Search',
-//        href: 'demo/semantic-search',
-//        description: 'Semantic Search',
-//        image: 'images/demo_semantic_search.png',
-//        altText: 'Semantic Search with ReaderBench framework'
-//    }
+    }
 ];
 DemoItems = [   
     {
@@ -65,10 +58,6 @@ participation and collaboration.',
         image: 'images/demo_cscl.png',
         altText: 'CSCL conversation analysis with ReaderBench framework',
     },
-    /*{
-        name:'CV & Cover letter',
-        href:'demo/cv-cover'
-    },*/
     {
         name: 'CV',
         href: 'demo/cv',
@@ -77,14 +66,6 @@ analysis are performed.',
         image: 'images/demo_cv.png',
         altText: 'CV analysis with ReaderBench framework'
     },
-//    {
-//        name: 'VCoP',
-//        href: 'demo/vcop',
-//        description: 'Given a community forum, specific analysis are performed.',
-//        image: 'images/demo_vcop.png',
-//        altText: 'Virtual Communities of Practice analysis with ReaderBench \n\
-//framework'
-//    }
     {
         name: 'LAK Corpus',
         href: 'http://readerbench.com:3000/lak',
