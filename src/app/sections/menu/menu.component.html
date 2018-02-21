@@ -1,0 +1,9 @@
+<div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 reader-menu">
+  <nav [ngClass]="{'open': hamburgerMenu, 'fade': !hamburgerMenu}" [hidden]="!hamburgerMenu">
+    <ul>
+      <li *ngFor="let item of items">
+        <a href="{{item.href}}">{{item.name}}</a>
+      </li>
+    </ul>
+  </nav>
+</div>

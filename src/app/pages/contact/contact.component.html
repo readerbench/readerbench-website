@@ -1,0 +1,83 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper people">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="section-header">
+            <h1>Contact us</h1>
+          </div>
+        </div>
+        <section class="section-contact" ng-controller="ContactController">
+          <div class="contact-info-wrapper">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-6 col-md-offset-3 col-sm-12">
+                  <div id="results">
+                    <div *ngIf="showResponse">
+                      <div *ngIf="showSuccess" class="row top-buffer alert alert-success">{{message}}</div>
+                      <div *ngIf="showError" class="row top-buffer alert alert-danger">{{message}}</div>
+                    </div>
+                  </div>
+                  <form class="contact-form">
+                    <div class="content-wrapper">
+                      <label for="name">
+                        <input id="name" type="text" class="form-input js-input" [(ngModel)]="formData.name" name="name" />
+                        <span>Your name
+                          <span class="required">*</span>
+                        </span>
+                      </label>
+                      <label for="email">
+                        <input id="email" type="text" class="form-input js-input" [(ngModel)]="formData.email" name="email" />
+                        <span>Your e-mail
+                          <span class="required">*</span>
+                        </span>
+                      </label>
+                      <label for="subject">
+                        <input id="subject" type="text" class="form-input js-input" [(ngModel)]="formData.subject" name="subject" />
+                        <span>Subject
+                          <span class="required">*</span>
+                        </span>
+                      </label>
+                      <label for="message">
+                        <textarea id="message" class="form-input js-input" [(ngModel)]="formData.message" name="message"></textarea>
+                        <span>Message
+                          <span class="required">*</span>
+                        </span>
+                      </label>
+                      <button class="btn theme-btn-1" *ngIf="!loading">
+                        <span class="button" (click)="sendMessage()">Send message</span>
+                      </button>
+                      <div class="row" *ngIf="loading">
+                        <div class="col-xs-12 col-md-12">
+                          <img src="assets/img/loading.gif" alt="Loading..." />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row row-fit">
+            <div class="col-sm-6">
+              <div class="contact-info-block has-icon"></div>
+            </div>
+            <div class="col-sm-6">
+              <div class="contact-info-block">
+                <div class="block-meta">
+                  <h4>E-mail contact</h4>
+                  <p>
+                    <a href="#">contact@readerbench.com</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

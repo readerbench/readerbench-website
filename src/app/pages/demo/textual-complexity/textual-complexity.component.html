@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-header">
+            <h1>Textual Complexity</h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="form-group">
+            <div class="input">
+              <div class="row">
+                <div class="row">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <label for="input_text">Text
+                      <span class="required">*</span>
+                    </label>
+                  </div>
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
+                  </div>
+                </div>
+              </div>
+              <app-demo-common-fields [formData]="formData"></app-demo-common-fields>
+              <div class="row top-buffer" *ngIf="!loading">
+                <div class="col-xs-12 col-md-12">
+                  <div class="bottom-buttons" *ngIf="!loading">
+                    <button class="btn theme-btn-1" (click)="process()">
+                      <span class="button">Process</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="results">
+              <div class="row" *ngIf="loading">
+                <div class="col-xs-12 col-md-12">
+                  <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+                </div>
+              </div>
+              <div *ngIf="showResults === true">
+                <div class="row">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h4>Textual Complexity</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <ul class="course-description-list">
+                      <li class="lesson" *ngFor="let indicesCategory of response.data.complexityIndices">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{indicesCategory.category}}</span>
+                        </div>
+                        <div class="body">&nbsp;</div>
+                        <ul class="lesson-description">
+                          <li *ngFor="let complexityIndex of indicesCategory.valences">
+                            <div class="heading">
+                              <span class="lesson-nr no-select">{{complexityIndex.value | number : '1.3-3' }}</span>
+                            </div>
+                            <div class="body">
+                              <p>{{complexityIndex.index}}</p>
+                            </div>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

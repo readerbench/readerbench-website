@@ -1,0 +1,73 @@
+<div class="row top-buffer">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_language">Language
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_language" class="form-control" [(ngModel)]="formData.language">
+      <option *ngFor="let option of languages" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer">
+  <div class="col-xs-12 col-md-12">
+    <a (click)="toggleAdvanced()" class="pointer">
+      <span *ngIf="!advanced">&#x25BC; Show</span>
+      <span *ngIf="advanced">&#x25B2; Hide</span>
+      advanced options
+    </a>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_lsa">LSA corpus
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_lsa" class="form-control" [(ngModel)]="formData.lsa">
+      <option *ngFor="let option of lsaOptions" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_lda">LDA corpus
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_lda" class="form-control" [(ngModel)]="formData.lda">
+      <option *ngFor="let option of ldaOptions" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_word2vec">Word2Vec corpus
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_word2vec" class="form-control" [(ngModel)]="formData.word2vec">
+      <option *ngFor="let option of word2vecOptions" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_pos_tagging" [checked]="formData['pos-tagging']" (change)="formData['pos-tagging'] = !formData['pos-tagging']"  />
+    <label for="input_pos_tagging">Part of speech tagging
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_dialogism" [checked]="formData['dialogism']" (change)="formData['dialogism'] = !formData['dialogism']"  />
+    <label for="input_dialogism">Compute dialogism
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>

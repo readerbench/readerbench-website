@@ -1,0 +1,210 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-header">
+            <h1>CV Analysis</h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="form-group">
+            <div class="input">
+              <!-- <div class="row">
+                <div class="col-xs-3 col-md-3">
+                  <label for="file">Publication file
+                    <span class="required">*</span>
+                    <br />
+                    <small>(only PDF files allowed)</small>
+                  </label>
+                </div>
+                <div class="col-xs-7 col-md-7">
+                  <button id="file" class="btn theme-btn-1" type="file" ngf-select="uploadFile($file, $invalidFiles, 'file', 'errFile', 'errorMsg')"
+                    accept="application/pdf" ngf-max-height="1000" ngf-max-size="25MB" ngf-model-invalid="errorFiles">
+                    <span class="button">Select File</span>
+                  </button>
+                  File:
+                  <small>{{file.name}} {{errFile.name}} {{errFile.$error}} {{errFile.$errorParam}}
+                    <span class="progress" ng-show="file.progress >= 0">
+                      <div style="width:{{file.progress}}%" ng-bind="file.progress + '%'"></div>
+                    </span>
+                  </small>
+                  {{errorMsg}}
+                  <input type="hidden" ng-model="formData.file" />
+                </div>
+              </div> -->
+              <div class="row top-buffer">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <label for="keywords">Specific keywords
+                    <span class="required">*</span>
+                    <br />
+                    <smalL>(use comma as delimiter)</smalL>
+                  </label>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <textarea id="keywords" class="form-control" [(ngModel)]="formData.keywords" rows="4"></textarea>
+                </div>
+              </div>
+              <div class="row top-buffer">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <label for="keywords">Words to ignore
+                    <br />
+                    <small>(use comma as delimiter)</small>
+                  </label>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <textarea id="ignore" class="form-control" [(ngModel)]="formData.ignore" rows="2"></textarea>
+                </div>
+              </div>
+              <app-demo-common-fields [formData]="formData" (advancedEmitter)="advancedEmitter($event)"></app-demo-common-fields>
+              <div class="row top-buffer" *ngIf="advanced">
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <label for="input_threshold">Semantic similarity threshold for concept map
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <div class="input-group">
+                    <input id="input_threshold" type="number" step="0.1" min="0.0" max="0.9" class="form-control" [(ngModel)]="formData.threshold"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div class="row top-buffer" *ngIf="!loading">
+                <div class="col-xs-12 col-md-12">
+                  <div class="bottom-buttons" *ngIf="!loading">
+                    <button class="btn theme-btn-1" (click)="process()">
+                      <span class="button">Process</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="results">
+              <div class="row" *ngIf="loading">
+                <div class="col-xs-12 col-md-12">
+                  <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+                </div>
+              </div>
+              <div *ngIf="showResults === true">
+
+              </div>
+              <div *ngIf="showSemanticRelevance" class="row">
+                <!--  && tabSemanticAnnotation == 'SEMANTIC_RELEVANCE' -->
+                <div class="col-xs-12 col-md-12">
+                  <h4>Description &amp; keywords relevance</h4>
+                  <div class="col-xs-12 col-md-6">
+                    <h5>Keyword overlap</h5>
+                    <ul class="course-description-list">
+                      <li class="lesson" ng-repeat="keyword in keywords">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{keyword.relevance | number:3}}</span>
+                        </div>
+                        <div class="body">
+                          <p>{{keyword.name}} ({{keyword.noOccurences}} occurences)</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <h5>Relevance</h5>
+                    <ul class="course-description-list">
+                      <li class="lesson">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{abstractDocumentSimilarity | number:3}}</span>
+                        </div>
+                        <div class="body">
+                          <p>(Abstract, document) similarity</p>
+                        </div>
+                      </li>
+                      <li class="lesson">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{keywordsAbstractCoverage | number:3}}</span>
+                        </div>
+                        <div class="body">
+                          <p>(Keywords, abstract) coverage</p>
+                        </div>
+                      </li>
+                      <li class="lesson">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{keywordsDocumentCoverage | number:3}}</span>
+                        </div>
+                        <div class="body">
+                          <p>(Keywords, document) coverage</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Semantic Annotation => Categorisation -->
+              <div *ngIf="showSemanticCategories" class="row">
+                <!--  && tabSemanticAnnotation == 'SEMANTIC_CATEGORIES' -->
+                <div class="col-xs-12 col-md-12">
+                  <h4>Categorisation</h4>
+                  <div class="col-xs-12 col-md-6">
+                    <h5>ACM Classification</h5>
+                    <ul class="course-description-list">
+                      <li class="lesson" *ngFor="let category of categories">
+                        <!-- | filter:{ type: 1 } -->
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{category.relevance | number:3}}</span>
+                        </div>
+                        <div class="body">
+                          <p>{{category.name}}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-12 col-md-6">
+                    <h5>Serious Games Classification</h5>
+                    <ul class="course-description-list">
+                      <li class="lesson" *ngFor="let category of categories">
+                        <!--  | filter:{ type: 2 } -->
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{category.relevance | number:3}}</span>
+                        </div>
+                        <div class="body">
+                          <p>{{category.name}}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div *ngIf="showConcept" class="row">
+                <div class="col-xs-12 col-md-3">
+                  <h4>Keywords Map</h4>
+                  <ul class="course-description-list">
+                    <li class="lesson" *ngFor="let topic of topics">
+                      <!-- | limitTo:25 -->
+                      <div class="heading">
+                        <span class="lesson-nr no-select">{{topic.value | number:3}}</span>
+                      </div>
+                      <div class="body">
+                        <p>{{topic.lemma}}</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="col-xs-12 col-md-9" id="conceptMap">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

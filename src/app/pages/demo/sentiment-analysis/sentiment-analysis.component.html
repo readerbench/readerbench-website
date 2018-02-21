@@ -1,0 +1,110 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-header">
+            <h1>Sentiment Analysis</h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="form-group">
+            <div class="input">
+              <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <label for="input_text">Text
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
+                </div>
+              </div>
+              <app-demo-common-fields [formData]="formData"></app-demo-common-fields>
+              <div class="row top-buffer">
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <label for="input_granularity">Granularity
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <select id="input_granularity" class="form-control" [(ngModel)]="formData.granularity">
+                    <option *ngFor="let option of granularities" [ngValue]="option">{{option.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row top-buffer" *ngIf="!loading">
+                <div class="col-xs-12 col-md-12">
+                  <div class="bottom-buttons" *ngIf="!loading">
+                    <button class="btn theme-btn-1" (click)="process()">
+                      <span class="button">Process</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="results">
+              <div class="row" *ngIf="loading">
+                <div class="col-xs-12 col-md-12">
+                  <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+                </div>
+              </div>
+              <div *ngIf="showResults === true" class="results-sentiment">
+                <div class="row">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h4>Sentiment analysis</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 col-md-12">
+                    <!-- <div id="senti">
+                      <span *ngFor="let element of data" id="text-{{$index}}">
+                        <a title="Loading sentiment valences..." data-html="true" data-placement="right" data-animation="false">
+                          <span class="body">{{element.text}}</span>
+                        </a>
+                        <span class="tooltip-content" style="display: none;">
+                          <div class="sentiment-progress" *ngFor="let sentiment of element.valences">
+                            <div class="valence">{{sentiment.valence}}
+                              <i class="val">{{sentiment.score * 100| number:0}}&#37;</i>
+                            </div>
+                            <div class="progress sentiment sentiment-{{sentiment.valence}}">
+                              <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="sentiment.score * 100" [attr.aria-valuemin]="0" [attr.aria-valuemax]="100"></div>
+                            </div>
+                          </div>
+                        </span>
+                      </span>
+                    </div> -->
+                    <div id="sentiment-list">
+                      <ul>
+                        <li *ngFor="let element of response.data">
+                          {{element.text}}
+                          <ul>
+                            <li *ngFor="let sentiment of element.valences">
+                              <div class="progress sentiment-{{sentiment.valence}}">
+                                <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="sentiment.score * 100" [attr.aria-valuemin]="0" [attr.aria-valuemax]="100" [ngStyle]="{'width': sentiment.score * 100 + '%', 'background-color': getSentimentColor(sentiment.valence)}">
+                                  {{sentiment.valence}}: {{sentiment.score * 100 | number:0}}&#37;
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
