@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
@@ -40,3 +41,19 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+=======
+/bin/
+.idea
+*.iml
+.classpath
+.settings
+/target
+.DS_Store
+
+# npm and lite-server specific files
+bs-config.json
+package.json
+node_modules
+npm-debug.log
+src/main/resources/log4j.properties
+>>>>>>> ecb69e3d221f471125e199cf9fa86f394ceab4d2
