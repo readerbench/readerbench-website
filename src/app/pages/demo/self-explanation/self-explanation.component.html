@@ -38,7 +38,7 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.explanation" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" [language]="language"></app-demo-common-fields>
               <div class="row top-buffer" *ngIf="!loading">
                 <div class="col-xs-12 col-md-12">
                   <div class="bottom-buttons" *ngIf="!loading">
@@ -56,29 +56,24 @@
                 </div>
               </div>
               <div *ngIf="showResults === true">
-                <div class="row">
-                  <div class="col-xs-12 col-md-12 col-lg-12">
-                    <h4>Textual Complexity</h4>
+                <div class="row" *ngIf="showReadingStrategies">
+                  <div class="col-xs-12 col-md-12">
+                    <h4>Reading Strategies</h4>
+                    <div [innerHTML]="selfExplanationColored"></div>
                   </div>
                 </div>
                 <div class="row">
-                  <div *ngIf="showReadingStrategies">
-                    <div class="col-xs-12 col-md-12">
-                      <h4>Reading Strategies</h4>
-                      <!-- <div ng-bind-html="selfExplanationColored"></div> -->
-                    </div>
-                    <div class="col-xs-12 col-md-12">
-                      <ul class="course-description-list">
-                        <li class="lesson" *ngFor="let strategy of strategies">
-                          <div class="heading">
-                            <span class="lesson-nr no-select">{{strategy.score}}</span>
-                          </div>
-                          <div class="body">
-                            <p>{{strategy.name}}</p>
-                          </div>
-                        </li>
-                      </ul>
-                    </div>
+                  <div class="col-xs-12 col-md-12">
+                    <ul class="course-description-list">
+                      <li class="lesson" *ngFor="let strategy of strategies">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{strategy.score}}</span>
+                        </div>
+                        <div class="body">
+                          <p>{{strategy.name}}</p>
+                        </div>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>

@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { DefaultInputData } from '../../demo.component.data';
+import { Language } from '../../languages.data';
 
 @Component({
   selector: 'app-demo-common-fields',
@@ -9,6 +10,7 @@ import { DefaultInputData } from '../../demo.component.data';
 export class DemoCommonFieldsComponent implements OnInit {
 
   @Input() formData: {};
+  @Input() language: Language = Language.EN;
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
   
@@ -24,9 +26,9 @@ export class DemoCommonFieldsComponent implements OnInit {
   ngOnInit() {
     this.advanced = false;
     this.languages = DefaultInputData.languages;
-    this.lsaOptions = DefaultInputData.metricOptions.lsa.EN;
-    this.ldaOptions = DefaultInputData.metricOptions.lda.EN;
-    this.word2vecOptions = DefaultInputData.metricOptions.word2vec.EN;
+    this.lsaOptions = DefaultInputData.metricOptions.lsa[this.language];
+    this.ldaOptions = DefaultInputData.metricOptions.lda[this.language];
+    this.word2vecOptions = DefaultInputData.metricOptions.word2vec[this.language];
     this.posTaggingOptions = DefaultInputData.posTaggingOptions;
     this.dialogismOptions = DefaultInputData.dialogismOptions;
   }

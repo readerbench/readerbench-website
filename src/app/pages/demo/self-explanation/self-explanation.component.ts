@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { SelfExplanationData } from './self-explanation.data';
+import { Language } from '../languages.data';
+import { ReaderbenchService } from '../../../readerbench.service';
 
 @Component({
   selector: 'app-self-explanation',
   templateUrl: './self-explanation.component.html',
   styleUrls: ['./self-explanation.component.css'],
-  providers: [ApiRequestService]
+  providers: [ApiRequestService, ReaderbenchService]
 })
 export class SelfExplanationComponent implements OnInit {
 
@@ -15,14 +17,21 @@ export class SelfExplanationComponent implements OnInit {
   advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  language: Language;
+
+  showReadingStrategies: boolean;
+  selfExplanationColored: any;
+  strategies: any;
 
   response: any;
 
-  constructor(private apiRequestService: ApiRequestService) {
+  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderbenchService) {
     this.apiRequestService.setEndpoint('self-explanation');
   }
 
   ngOnInit() {
+    this.language = Language.FR;
+
     this.formData = {
       'text': SelfExplanationData.defaultText,
       'explanation': SelfExplanationData.defaultExplanation,
@@ -34,12 +43,13 @@ export class SelfExplanationComponent implements OnInit {
       'dialogism': DefaultInputData.defaultDialogismOption()
     };
     this.loading = false;
-    this.showResults = false;   
+    this.showResults = false;
   }
 
   process() {
     this.loading = true;
     this.showResults = false;
+    this.showReadingStrategies = false;
 
     var data = {
       'text': this.formData['text'],
@@ -61,6 +71,18 @@ export class SelfExplanationComponent implements OnInit {
         alert('Server error occured!');
         return;
       }
+
+      this.showReadingStrategies = true;
+      this.selfExplanationColored = response.data.selfExplanationColored;
+      this.strategies = response.data.strategies;
+      var aux = this.strategies;
+      var readerbenchService = this.readerbenchService;
+      var interval = setInterval(function () {
+        if (aux.count === response.data.strategies.count) {
+          clearInterval(interval);
+          readerbenchService.courseDescriptionToggle();
+        }
+      }, 1000);
 
       this.showResults = true;
     });

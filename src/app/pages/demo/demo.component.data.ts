@@ -9,22 +9,22 @@ export var DefaultInputData = {
         {
             id: '1',
             name: 'English',
-            value: 'EN'
+            value: 'English'
         },
         {
             id: '2',
             name: 'French',
-            value: 'FR'
+            value: 'French'
         },
         {
             id: '3',
             name: 'Romanian',
-            value: 'RO'
+            value: 'Romanian'
         },
         {
             id: '4',
             name: 'Dutch',
-            value: 'NL'
+            value: 'Dutch'
         }
     ],
     defaultLanguage: function () {
@@ -264,7 +264,7 @@ export var DefaultInputData = {
                 return DefaultInputData.metricOptions.lda.EN[0];
             },
             FR: function () {
-                return DefaultInputData.metricOptions.lsa.FR[0];
+                return DefaultInputData.metricOptions.lda.FR[0];
             },
             RO: {
                 id: '1',

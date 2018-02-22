@@ -153,7 +153,6 @@ export class SentimentAnalysisComponent implements OnInit {
         }
       }
 
-      console.log(sumPercentage);
       sumSentiments.r = Math.round(sumSentiments.r / sumPercentage);
       sumSentiments.g = Math.round(sumSentiments.g / sumPercentage);
       sumSentiments.b = Math.round(sumSentiments.b / sumPercentage);
