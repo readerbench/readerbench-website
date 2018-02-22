@@ -24,9 +24,6 @@ section.section-hero.project-list .hero-content.courses-list{
   padding-right:0;
 }
 .call-to-action-box{
-  background: url('../img/call-to-action-bg.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
   width:100%;
   height:100%;
 }
