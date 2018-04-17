@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiRequestService } from '../api-request.service';
 import { DefaultInputData } from '../demo.component.data';
+import { CsclData } from './cscl.data';
 
 @Component({
   selector: 'app-cscl',
@@ -14,6 +15,7 @@ export class CsclComponent implements OnInit {
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  language: any;
 
   response: any;
 
@@ -22,12 +24,11 @@ export class CsclComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.language = CsclData.defaultLanguage.value;
 
+    this.loadSemanticModels();
     this.formData = {
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.EN(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.EN(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.EN(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold
@@ -36,6 +37,12 @@ export class CsclComponent implements OnInit {
     this.loading = false;
     this.showResults = false;  
 
+  }
+
+  loadSemanticModels() {
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
   }
 
   advancedEmitter($event) {
