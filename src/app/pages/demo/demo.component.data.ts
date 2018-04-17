@@ -25,6 +25,11 @@ export var DefaultInputData = {
             id: '4',
             name: 'Dutch',
             value: 'Dutch'
+        },
+        {
+            id: '5',
+            name: 'Spanish',
+            value: 'Spanish'
         }
     ],
     defaultLanguage: function () {
@@ -47,65 +52,22 @@ export var DefaultInputData = {
     defaultBigrams: false,
     metricOptions: {
         lsa: {
-            EN: [{
+            German: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            English: [{
                 id: '1',
                 name: 'TASA',
                 value: 'TASA'
             },
             {
                 id: '2',
-                name: 'TASA & LAK',
-                value: 'TASA_LAK'
-            },
-            {
-                id: '3',
-                name: 'SciRef',
-                value: 'SciRef'
-            },
-            {
-                id: '4',
-                name: 'None',
-                value: ''
-            }
-            ],
-            FR: [{
-                id: '1',
-                name: 'Le Monde',
-                value: 'Le_Monde'
-            },
-            {
-                id: '2',
-                name: 'Text Enfants',
-                value: 'Text_Enfants'
-            },
-            {
-                id: '3',
-                name: 'None',
-                value: ''
-            }
-            ],
-            RO: [{
-                id: '1',
-                name: 'Books RO',
-                value: 'books_ro'
-            },
-            {
-                id: '2',
-                name: 'None',
-                value: ''
-            }
-            ],
-            NL: [{
-                id: '1',
                 name: 'None',
                 value: ''
             }],
-            IT: [{
-                id: '1',
-                name: 'None',
-                value: ''
-            }],
-            ES: [{
+            Spanish: [{
                 id: '1',
                 name: 'Jose Antonio',
                 value: 'Jose_Antonio'
@@ -114,76 +76,60 @@ export var DefaultInputData = {
                 id: '2',
                 name: 'None',
                 value: ''
-            }
-            ]
+            }],
+            French: [{
+                id: '1',
+                name: 'Le Monde',
+                value: 'Le_Monde'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
+            }],
+            Italian: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            Latin: [{
+                id: '1',
+                name: 'Latin Letters',
+                value: 'Letters'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
+            }],
+            Dutch: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            Romanian: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }]
         },
         lda: {
-            EN: [{
+            German: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            English: [{
                 id: '1',
                 name: 'TASA',
                 value: 'TASA'
             },
             {
                 id: '2',
-                name: 'TASA & LAK',
-                value: 'TASA_LAK'
-            },
-            {
-                id: '3',
                 name: 'None',
                 value: ''
-            }
-            ],
-            FR: [{
-                id: '1',
-                name: 'Le Monde',
-                value: 'Le_Monde'
-            },
-            {
-                id: '2',
-                name: 'Text Enfants',
-                value: 'Text_Enfants'
-            },
-            {
-                id: '3',
-                name: 'None',
-                value: ''
-            }
-            ],
-            RO: [{
-                id: '1',
-                name: 'Books RO',
-                value: 'books_ro'
-            },
-            {
-                id: '2',
-                name: 'None',
-                value: ''
-            }
-            ],
-            NL: [{
-                id: '1',
-                name: 'Euro Parlamentean',
-                value: 'Euro_Parlamentean'
-            },
-            {
-                id: '2',
-                name: 'None',
-                value: ''
-            }
-            ],
-            IT: [{
-                id: '1',
-                name: 'Paisa',
-                value: 'Paisa'
-            },
-            {
-                id: '2',
-                name: 'None',
-                value: ''
-            }
-            ],
-            ES: [{
+            }],
+            Spanish: [{
                 id: '1',
                 name: 'Jose Antonio',
                 value: 'Jose_Antonio'
@@ -192,22 +138,8 @@ export var DefaultInputData = {
                 id: '2',
                 name: 'None',
                 value: ''
-            }
-            ]
-        },
-        word2vec: {
-            EN: [{
-                id: '1',
-                name: 'TASA',
-                value: 'TASA'
-            },
-            {
-                id: '2',
-                name: 'None',
-                value: ''
-            }
-            ],
-            FR: [{
+            }],
+            French: [{
                 id: '1',
                 name: 'Le Monde',
                 value: 'Le_Monde'
@@ -216,14 +148,86 @@ export var DefaultInputData = {
                 id: '2',
                 name: 'None',
                 value: ''
-            }
-            ],
-            RO: [{
+            }],
+            Italian: [{
                 id: '1',
                 name: 'None',
                 value: ''
             }],
-            NL: [{
+            Latin: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            Dutch: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }
+            ],
+            Romanian: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }]
+        },
+        word2vec: {
+            German: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            English: [{
+                id: '1',
+                name: 'TASA',
+                value: 'TASA'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
+            }],
+            Spanish: [{
+                id: '1',
+                name: 'Jose Antonio',
+                value: 'Jose_Antonio'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
+            }],
+            French: [{
+                id: '1',
+                name: 'Le Monde',
+                value: 'Le_Monde'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
+            }],
+            Italian: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            Latin: [{
+                id: '1',
+                name: 'None',
+                value: ''
+            }],
+            Dutch: [{
+                id: '1',
+                name: 'INL',
+                value: 'INL'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
+            }],
+            Romanian: [{
                 id: '1',
                 name: 'None',
                 value: ''
@@ -232,77 +236,81 @@ export var DefaultInputData = {
     },
     defaultMetricOptions: {
         lsa: {
-            EN: function () {
-                return DefaultInputData.metricOptions.lsa.EN[0];
+            German: function() {
+                return DefaultInputData.metricOptions.lsa.German[0];
             },
-            FR: function () {
-                return DefaultInputData.metricOptions.lsa.FR[0];
+            English: function () {
+                return DefaultInputData.metricOptions.lsa.English[0];
             },
-            RO: {
-                id: '1',
-                name: 'Books RO',
-                value: 'books_ro'
+            Spanish: function() {
+                return DefaultInputData.metricOptions.lsa.Spanish[0];
             },
-            NL: {
-                id: '1',
-                name: 'None',
-                value: ''
+            French: function () {
+                return DefaultInputData.metricOptions.lsa.French[0];
             },
-            IT: {
-                id: '1',
-                name: 'None',
-                value: ''
+            Italian: function() {
+                return DefaultInputData.metricOptions.lsa.Italian[0];
             },
-            ES: {
-                id: '1',
-                name: 'Jose Antonio',
-                value: 'Jose_Antonio'
+            Latin: function() {
+                return DefaultInputData.metricOptions.lsa.Latin[0];
+            },
+            Dutch: function() {
+                return DefaultInputData.metricOptions.lsa.Dutch[0];
+            },
+            Romanian: function() {
+                return DefaultInputData.metricOptions.lsa.Romanian[0];
             }
         },
         lda: {
-            EN: function () {
-                return DefaultInputData.metricOptions.lda.EN[0];
+            German: function() {
+                return DefaultInputData.metricOptions.lda.German[0];
             },
-            FR: function () {
-                return DefaultInputData.metricOptions.lda.FR[0];
+            English: function () {
+                return DefaultInputData.metricOptions.lda.English[0];
             },
-            RO: {
-                id: '1',
-                name: 'Books RO',
-                value: 'books_ro'
+            Spanish: function() {
+                return DefaultInputData.metricOptions.lda.Spanish[0];
             },
-            NL: {
-                id: '1',
-                name: 'Euro Parlamentean',
-                value: 'Euro_Parlamentean'
+            French: function () {
+                return DefaultInputData.metricOptions.lda.French[0];
             },
-            IT: {
-                id: '1',
-                name: 'Paisa',
-                value: 'Paisa'
+            Italian: function() {
+                return DefaultInputData.metricOptions.lda.Italian[0];
             },
-            ES: {
-                id: '1',
-                name: 'Jose Antonio',
-                value: 'Jose_Antonio'
+            Latin: function() {
+                return DefaultInputData.metricOptions.lda.Latin[0];
+            },
+            Dutch: function() {
+                return DefaultInputData.metricOptions.lda.Dutch[0];
+            },
+            Romanian: function() {
+                return DefaultInputData.metricOptions.lda.Romanian[0];
             }
         },
         word2vec: {
-            EN: function () {
-                return DefaultInputData.metricOptions.word2vec.EN[1];
+            German: function() {
+                return DefaultInputData.metricOptions.word2vec.German[0];
             },
-            FR: function () {
-                return DefaultInputData.metricOptions.word2vec.FR[1];
+            English: function () {
+                return DefaultInputData.metricOptions.word2vec.English[0];
             },
-            RO: {
-                id: '1',
-                name: 'None',
-                value: ''
+            Spanish: function() {
+                return DefaultInputData.metricOptions.word2vec.Spanish[0];
             },
-            NL: {
-                id: '1',
-                name: 'None',
-                value: ''
+            French: function () {
+                return DefaultInputData.metricOptions.word2vec.French[0];
+            },
+            Italian: function() {
+                return DefaultInputData.metricOptions.word2vec.Italian[0];
+            },
+            Latin: function() {
+                return DefaultInputData.metricOptions.word2vec.Latin[0];
+            },
+            Dutch: function() {
+                return DefaultInputData.metricOptions.word2vec.Dutch[0];
+            },
+            Romanian: function() {
+                return DefaultInputData.metricOptions.word2vec.Romanian[0];
             }
         }
     }

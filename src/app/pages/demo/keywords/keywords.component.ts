@@ -4,6 +4,7 @@ import { ApiRequestService } from '../api-request.service';
 import { ReaderbenchService } from '../../../readerbench.service';
 import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { DemoCommonFieldsComponent } from '../sections/common-fields/common-fields.component';
+import { Language } from '../languages.data';
 
 @Component({
   selector: 'app-keywords',
@@ -17,6 +18,7 @@ export class KeywordsComponent implements OnInit {
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  language: Language;
 
   response: any;
 
@@ -30,13 +32,14 @@ export class KeywordsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.language = Language.English;
 
     this.formData = {
       'text': DefaultInputData.text,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.EN(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.EN(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.EN(),
+      'lsa': DefaultInputData.defaultMetricOptions.lsa.English(),
+      'lda': DefaultInputData.defaultMetricOptions.lda.English(),
+      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.English(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold,
@@ -50,6 +53,13 @@ export class KeywordsComponent implements OnInit {
 
   advancedEmitter($event) {
     this.advanced = $event;
+  }
+
+  languageEmitter($event) {
+    this.language = $event;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
   }
 
   process() {

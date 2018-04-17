@@ -1,5 +1,10 @@
 export enum Language {
-    EN = 'EN',
-    FR = 'FR',
-    RO = 'RO'
+    German = 'German',
+    English = 'English',
+    Spanish = 'Spanish',
+    French = 'French',
+    Italian = 'Italian',
+    Latin = 'Latin',
+    Dutch = 'Dutch',
+    Romanian = 'Romanian'
 }

@@ -18,7 +18,7 @@ export var PeopleUPB = [
         researchgate: 'https://www.researchgate.net/profile/Stefan_Trausan-Matu'
     },
     {
-        name: 'Gabriel Gutu',
+        name: 'Gabriel Gutu-Robu',
         picture: 'img/male.jpg',
         area: 'Software Development',
         linkedin: 'https://www.linkedin.com/in/gabrielgutu',
