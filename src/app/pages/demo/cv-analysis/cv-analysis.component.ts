@@ -15,6 +15,7 @@ export class CvAnalysisComponent implements OnInit {
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  language: any;
 
   response: any;
 
@@ -23,14 +24,13 @@ export class CvAnalysisComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.language = CvAnalysisData.defaultLanguage.value;
 
+    this.loadSemanticModels();
     this.formData = {
       'keywords': CvAnalysisData.keywords,
       'ignore': CvAnalysisData.ignore,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.EN(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.EN(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.EN(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold
@@ -39,6 +39,12 @@ export class CvAnalysisComponent implements OnInit {
     this.loading = false;
     this.showResults = false;  
 
+  }
+
+  loadSemanticModels() {
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
   }
 
   advancedEmitter($event) {
