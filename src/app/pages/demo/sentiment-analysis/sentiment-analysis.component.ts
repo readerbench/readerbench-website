@@ -4,6 +4,7 @@ import { SentimentAnalysisData } from './sentiment-analysis.data';
 import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { DemoCommonFieldsComponent } from '../sections/common-fields/common-fields.component';
+import { Language } from '../languages.data';
 
 interface Granularity {
   id: string,
@@ -20,53 +21,69 @@ interface Granularity {
 
 export class SentimentAnalysisComponent implements OnInit {
 
+  componentTitle: string;
   formData = {};
   advanced: boolean;
   loading: boolean;
   showResults: boolean;
-
+  languages: any;
+  language: any;
   granularities: any;
-
   response: any;
-
-  sentimentColorsHex: any = {
-    'scared'  : '#fbfd00',
-    'angry'   : '#f30707',
-    'sad'     : '#6cb3fb',
-    'happy'   : '#38b616',
-    'excited' : '#fdb900',
-    'tender'  : '#fba7f4'
-  };
-
-  sentimentColors: any = {
-    'scared'  : this.hexToRgb('#fbfd00'),
-    'angry'   : this.hexToRgb('#f30707'),
-    'sad'     : this.hexToRgb('#6cb3fb'),
-    'happy'   : this.hexToRgb('#38b616'),
-    'excited' : this.hexToRgb('#fdb900'),
-    'tender'  : this.hexToRgb('#fba7f4')
-  };
+  sentimentColorsHex: any;
+  sentimentColors: any;
 
   constructor(private apiRequestService: ApiRequestService) {
     this.apiRequestService.setEndpoint('sentiment-analysis');
   }
 
   ngOnInit() {
+    this.componentTitle = SentimentAnalysisData.componentTitle;
+    this.initSentimentColors();
+    this.languages = SentimentAnalysisData.languages;
+    this.language = SentimentAnalysisData.defaultLanguage().value;
     this.granularities = SentimentAnalysisData.granularities;
 
     this.formData = {
       'text': DefaultInputData.text,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.EN(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.EN(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.EN(),
+      'lsa': DefaultInputData.defaultMetricOptions.lsa[this.language](),
+      'lda': DefaultInputData.defaultMetricOptions.lda[this.language](),
+      'word2vec': DefaultInputData.defaultMetricOptions.word2vec[this.language](),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'granularity': SentimentAnalysisData.defaultGranularity(),
     };
     this.advanced = false;
     this.loading = false;
-    this.showResults = false;    
+    this.showResults = false;
+  }
+
+  initSentimentColors() {
+    this.sentimentColorsHex = {
+      'scared'  : '#fbfd00',
+      'angry'   : '#f30707',
+      'sad'     : '#6cb3fb',
+      'happy'   : '#38b616',
+      'excited' : '#fdb900',
+      'tender'  : '#fba7f4'
+    };
+
+    this.sentimentColors = {
+      'scared'  : this.hexToRgb(this.sentimentColorsHex['scared']),
+      'angry'   : this.hexToRgb(this.sentimentColorsHex['angry']),
+      'sad'     : this.hexToRgb(this.sentimentColorsHex['sad']),
+      'happy'   : this.hexToRgb(this.sentimentColorsHex['happy']),
+      'excited' : this.hexToRgb(this.sentimentColorsHex['excited']),
+      'tender'  : this.hexToRgb(this.sentimentColorsHex['tender'])
+    };
+  }
+
+  languageEmitter($event) {
+    this.language = $event;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
   }
 
   process() {
@@ -95,25 +112,6 @@ export class SentimentAnalysisComponent implements OnInit {
       }
 
       this.showResults = true;
-      // var sentiments;
-      // var interval = setInterval(function () {
-      //   if (sentiments.count === response.data[0].valences.length) {
-      //     clearInterval(interval);
-      //     this.animateProgressBar(jQuery('.results-sentiment div.progress-bar'));
-      //     jQuery('.results-sentiment a').each(function () {
-      //       jQuery(this)
-      //         .attr('title', jQuery(this).parent().find(" > .tooltip-content").html())
-      //         .tooltip('fixTitle').tooltip('show');              
-      //     });
-      //     jQuery('.results-sentiment a').tooltip('hide');
-      //     for (var i = 0; i < response.data.data.length; i++) {
-      //       var rgb = computeColors(response.data.data[i], 0.1);
-      //       var hex = rgbToHex(rgb.r, rgb.g, rgb.b);
-      //       jQuery('.results-sentiment #text-' + i + ' span.body').css('background-color', hex);
-      //     }
-      //   }
-      // }, 1000);
-
     });
   }
 
@@ -132,7 +130,7 @@ export class SentimentAnalysisComponent implements OnInit {
   }
 
   computeColors(valences, threshold) {
-  
+
     var sumSentiments = {
       r: 0,
       g: 0,
@@ -140,8 +138,6 @@ export class SentimentAnalysisComponent implements OnInit {
     };
 
     var sumPercentage = 0;
-    //for (var valence in element.valences)
-    console.log(valences);
     if (typeof valences !== 'undefined') {
       for (var i = 0; i < valences.length; i++) {
         var valence = valences[i];
@@ -163,7 +159,6 @@ export class SentimentAnalysisComponent implements OnInit {
       sumSentiments.b = 0;
     }
 
-    console.log(sumSentiments);
     return sumSentiments;
   }
 
@@ -184,11 +179,6 @@ export class SentimentAnalysisComponent implements OnInit {
       g: parseInt(result[2], 16),
       b: parseInt(result[3], 16)
     } : null;
-  }
-
-  log(x) {
-    console.log(x);
-    return x;
   }
 
 }

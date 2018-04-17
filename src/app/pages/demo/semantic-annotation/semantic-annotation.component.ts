@@ -28,9 +28,9 @@ export class SemanticAnnotationComponent implements OnInit {
       'abstract': SemanticAnnotationData.abstractText,
       'keywords': SemanticAnnotationData.keywords,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.EN(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.EN(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.EN(),
+      'lsa': DefaultInputData.defaultMetricOptions.lsa.English(),
+      'lda': DefaultInputData.defaultMetricOptions.lda.English(),
+      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.English(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold

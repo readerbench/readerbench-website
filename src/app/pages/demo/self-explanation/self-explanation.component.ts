@@ -17,7 +17,7 @@ export class SelfExplanationComponent implements OnInit {
   advanced: boolean;
   loading: boolean;
   showResults: boolean;
-  language: Language;
+  language: any;
 
   showReadingStrategies: boolean;
   selfExplanationColored: any;
@@ -30,15 +30,15 @@ export class SelfExplanationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.language = Language.FR;
+    this.language = SelfExplanationData.defaultLanguage.value;
 
     this.formData = {
       'text': SelfExplanationData.defaultText,
       'explanation': SelfExplanationData.defaultExplanation,
       'language': SelfExplanationData.defaultLanguage,
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.FR(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.FR(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.FR(),
+      'lsa': DefaultInputData.defaultMetricOptions.lsa[this.language](),
+      'lda': DefaultInputData.defaultMetricOptions.lda[this.language](),
+      'word2vec': DefaultInputData.defaultMetricOptions.word2vec[this.language](),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption()
     };

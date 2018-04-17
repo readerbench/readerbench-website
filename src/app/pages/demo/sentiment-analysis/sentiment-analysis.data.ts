@@ -1,5 +1,7 @@
+import { DefaultInputData } from "../demo.component.data";
+
 export var SentimentAnalysisData = {
-    'title': 'Sentiment Analysis',
+    'componentTitle': 'Sentiment Analysis',
     'granularities': [
         {
             id: '1',
@@ -23,6 +25,36 @@ export var SentimentAnalysisData = {
         }
     ],
     'defaultGranularity': function() {
-        return SentimentAnalysisData['granularities'][2]
+        return SentimentAnalysisData['granularities'][2];
+    },
+    'languages': [
+        {
+            id: '1',
+            name: 'English',
+            value: 'English'
+        },
+        {
+            id: '2',
+            name: 'French',
+            value: 'French'
+        },
+        {
+            id: '3',
+            name: 'Romanian',
+            value: 'Romanian'
+        },
+        {
+            id: '4',
+            name: 'Dutch',
+            value: 'Dutch'
+        },
+        {
+            id: '5',
+            name: 'Spanish',
+            value: 'Spanish'
+        }
+    ],
+    'defaultLanguage': function() {
+        return SentimentAnalysisData['languages'][2];
     }
 };

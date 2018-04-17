@@ -4,6 +4,7 @@ import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { DemoComponent } from '../demo.component';
 import { ReaderbenchService } from '../../../readerbench.service';
+import { Language } from '../languages.data';
 
 @Component({
   selector: 'app-demo-textual-complexity',
@@ -18,6 +19,7 @@ export class TextualComplexityComponent implements OnInit {
   advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  language: Language;
 
   response: any;
 
@@ -30,9 +32,9 @@ export class TextualComplexityComponent implements OnInit {
     this.formData = {
       'text': DefaultInputData.text,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.EN(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.EN(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.EN(),
+      'lsa': DefaultInputData.defaultMetricOptions.lsa.English(),
+      'lda': DefaultInputData.defaultMetricOptions.lda.English(),
+      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.English(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
     };
@@ -40,6 +42,13 @@ export class TextualComplexityComponent implements OnInit {
     this.loading = false;
     this.showResults = false;
 
+  }
+
+  languageEmitter($event) {
+    this.language = $event;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
   }
 
   process() {
