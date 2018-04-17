@@ -28,7 +28,7 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" (languageEmitter)="onChangeLanguage($event)"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer">
                 <div class="col-xs-6 col-md-4 col-lg-3">
                   <label for="input_granularity">Granularity

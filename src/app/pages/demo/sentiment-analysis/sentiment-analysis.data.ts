@@ -31,30 +31,28 @@ export var SentimentAnalysisData = {
         {
             id: '1',
             name: 'English',
-            value: 'English'
+            value: 'en'
         },
         {
             id: '2',
             name: 'French',
-            value: 'French'
+            value: 'fr'
         },
         {
             id: '3',
             name: 'Romanian',
-            value: 'Romanian'
+            value: 'ro'
         },
         {
             id: '4',
             name: 'Dutch',
-            value: 'Dutch'
+            value: 'nl'
         },
         {
             id: '5',
             name: 'Spanish',
-            value: 'Spanish'
+            value: 'es'
         }
     ],
-    'defaultLanguage': function() {
-        return SentimentAnalysisData['languages'][2];
-    }
+    'defaultLanguage': DefaultInputData.languages[0] // en
 };

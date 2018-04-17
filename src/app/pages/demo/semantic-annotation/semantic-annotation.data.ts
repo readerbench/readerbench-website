@@ -13,5 +13,8 @@ export var SemanticAnnotationData = {
         + 'and behaviour is influenced by its emotional state and personality. We '
         + 'performed a small case evaluation in order to determine if the characters '
         + 'evoked empathic reactions in the users with positive results.',
-    'keywords': 'interactive virtual environment, emotional characters, empathic reactions'
+    'keywords': 'interactive virtual environment, emotional characters, empathic reactions',
+    'defaultLanguage': function() {
+        return DefaultInputData.languages[0] // en
+    }
 };

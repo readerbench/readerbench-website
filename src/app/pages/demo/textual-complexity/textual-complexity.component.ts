@@ -4,6 +4,7 @@ import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { DemoComponent } from '../demo.component';
 import { ReaderbenchService } from '../../../readerbench.service';
+import { TextualComplexityData } from './textual-complexity.data';
 import { Language } from '../languages.data';
 
 @Component({
@@ -16,10 +17,10 @@ import { Language } from '../languages.data';
 export class TextualComplexityComponent implements OnInit {
 
   formData = {};
-  advanced: boolean;
+  @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
-  language: Language;
+  language: any;
 
   response: any;
 
@@ -29,26 +30,36 @@ export class TextualComplexityComponent implements OnInit {
 
   ngOnInit() {
 
+    this.language = TextualComplexityData.defaultLanguage();
+
     this.formData = {
       'text': DefaultInputData.text,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.English(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.English(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.English(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
     };
+    this.loadSemanticModels();
+
     this.advanced = false;
     this.loading = false;
     this.showResults = false;
 
   }
 
+  loadSemanticModels() {
+    var languageValue = this.language.value;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
+  }
+
+  advancedEmitter($event) {
+    this.advanced = $event;
+  }
+
   languageEmitter($event) {
     this.language = $event;
-    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
-    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
-    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
+    this.loadSemanticModels();
   }
 
   process() {

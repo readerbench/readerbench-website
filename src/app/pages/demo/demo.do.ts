@@ -1,5 +1,5 @@
 import { ReaderbenchService } from "../../readerbench.service";
-import _ = require("underscore");
+import * as _ from 'underscore';
 
 var rbUtils: ReaderbenchService = new ReaderbenchService();
 

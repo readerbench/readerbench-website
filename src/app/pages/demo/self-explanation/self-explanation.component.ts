@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { SelfExplanationData } from './self-explanation.data';
@@ -14,7 +14,7 @@ import { ReaderbenchService } from '../../../readerbench.service';
 export class SelfExplanationComponent implements OnInit {
 
   formData = {};
-  advanced: boolean;
+  @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
   language: any;
@@ -30,20 +30,34 @@ export class SelfExplanationComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.language = SelfExplanationData.defaultLanguage.value;
+    this.language = SelfExplanationData.defaultLanguage;
 
     this.formData = {
       'text': SelfExplanationData.defaultText,
       'explanation': SelfExplanationData.defaultExplanation,
       'language': SelfExplanationData.defaultLanguage,
-      'lsa': DefaultInputData.defaultMetricOptions.lsa[this.language](),
-      'lda': DefaultInputData.defaultMetricOptions.lda[this.language](),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec[this.language](),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption()
     };
+    this.loadSemanticModels();
     this.loading = false;
     this.showResults = false;
+  }
+
+  loadSemanticModels() {
+    var languageValue = this.language.value;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
+  }
+
+  advancedEmitter($event) {
+    this.advanced = $event;
+  }
+
+  languageEmitter($event) {
+    this.language = $event;
+    this.loadSemanticModels();
   }
 
   process() {

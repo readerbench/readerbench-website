@@ -15,6 +15,7 @@ export class SemanticAnnotationComponent implements OnInit {
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  language: any;
 
   response: any;
 
@@ -23,22 +24,27 @@ export class SemanticAnnotationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.language = SemanticAnnotationData.defaultLanguage();
 
     this.formData = {
       'abstract': SemanticAnnotationData.abstractText,
       'keywords': SemanticAnnotationData.keywords,
       'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa.English(),
-      'lda': DefaultInputData.defaultMetricOptions.lda.English(),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec.English(),
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold
     };
+    this.loadSemanticModels();
 
     this.loading = false;
     this.showResults = false;  
 
+  }
+
+  loadSemanticModels() {
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language.value]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language.value]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language.value]();
   }
 
   advancedEmitter($event) {

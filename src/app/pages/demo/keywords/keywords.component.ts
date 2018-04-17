@@ -33,9 +33,8 @@ export class KeywordsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.language = KeywordsData.defaultLanguage.value;
+    this.language = KeywordsData.defaultLanguage;
 
-    this.loadSemanticModels();
     this.formData = {
       'text': DefaultInputData.text,
       'language': DefaultInputData.defaultLanguage(),
@@ -44,15 +43,17 @@ export class KeywordsComponent implements OnInit {
       'threshold': DefaultInputData.semanticSimilarityThreshold,
       'bigrams': DefaultInputData.defaultBigrams
     };
+    this.loadSemanticModels();
     
     this.loading = false;
     this.showResults = false;
   }
 
   loadSemanticModels() {
-    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
-    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
-    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
+    var languageValue = this.language.value;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
   }  
 
   advancedEmitter($event) {

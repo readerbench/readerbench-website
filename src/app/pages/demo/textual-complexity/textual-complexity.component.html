@@ -30,7 +30,7 @@
                   </div>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer" *ngIf="!loading">
                 <div class="col-xs-12 col-md-12">
                   <div class="bottom-buttons" *ngIf="!loading">

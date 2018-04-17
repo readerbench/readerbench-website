@@ -10,7 +10,7 @@ import { Language } from '../../languages.data';
 export class DemoCommonFieldsComponent implements OnInit {
 
   @Input() formData: {};
-  @Input() language: Language = Language.English;
+  @Input() language: any;
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
   @Output() languageEmitter = new EventEmitter<any>();
@@ -27,19 +27,22 @@ export class DemoCommonFieldsComponent implements OnInit {
   ngOnInit() {
     this.advanced = false;
     this.languages = DefaultInputData.languages;
+    this.language = this.formData['language'];
     this.posTaggingOptions = DefaultInputData.posTaggingOptions;
     this.dialogismOptions = DefaultInputData.dialogismOptions;
-    this.loadSemanticModelsOptions();
+    this.loadSemanticModelsOptions();    
   }
 
   loadSemanticModelsOptions() {
-    this.lsaOptions = DefaultInputData.metricOptions.lsa[this.language];
-    this.ldaOptions = DefaultInputData.metricOptions.lda[this.language];
-    this.word2vecOptions = DefaultInputData.metricOptions.word2vec[this.language];
+    var languageValue = this.language.value;
+    this.lsaOptions = DefaultInputData.metricOptions.lsa[languageValue];
+    this.ldaOptions = DefaultInputData.metricOptions.lda[languageValue];
+    this.word2vecOptions = DefaultInputData.metricOptions.word2vec[languageValue];
+    
   }
 
   onChangeLanguage($newLanguage) {
-    this.language = $newLanguage.value;
+    this.language = $newLanguage;
     this.loadSemanticModelsOptions();
     this.languageEmitter.emit(this.language);
   }

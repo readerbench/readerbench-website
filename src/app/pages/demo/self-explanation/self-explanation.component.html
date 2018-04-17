@@ -38,7 +38,7 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.explanation" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" [language]="language"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" [language]="language" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer" *ngIf="!loading">
                 <div class="col-xs-12 col-md-12">
                   <div class="bottom-buttons" *ngIf="!loading">

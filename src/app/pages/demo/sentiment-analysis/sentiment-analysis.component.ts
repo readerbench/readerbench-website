@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DemoMenuComponent } from '../sections/menu/menu.component';
 import { SentimentAnalysisData } from './sentiment-analysis.data';
 import { DefaultInputData } from '../demo.component.data';
@@ -23,7 +23,7 @@ export class SentimentAnalysisComponent implements OnInit {
 
   componentTitle: string;
   formData = {};
-  advanced: boolean;
+  @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
   languages: any;
@@ -41,22 +41,37 @@ export class SentimentAnalysisComponent implements OnInit {
     this.componentTitle = SentimentAnalysisData.componentTitle;
     this.initSentimentColors();
     this.languages = SentimentAnalysisData.languages;
-    this.language = SentimentAnalysisData.defaultLanguage().value;
+    this.language = SentimentAnalysisData.defaultLanguage;
     this.granularities = SentimentAnalysisData.granularities;
 
     this.formData = {
       'text': DefaultInputData.text,
-      'language': DefaultInputData.defaultLanguage(),
-      'lsa': DefaultInputData.defaultMetricOptions.lsa[this.language](),
-      'lda': DefaultInputData.defaultMetricOptions.lda[this.language](),
-      'word2vec': DefaultInputData.defaultMetricOptions.word2vec[this.language](),
+      'language': this.language,
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'granularity': SentimentAnalysisData.defaultGranularity(),
     };
+    this.loadSemanticModels();
+
     this.advanced = false;
     this.loading = false;
     this.showResults = false;
+  }
+
+  loadSemanticModels() {
+    var languageValue = this.language.value;
+    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
+    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
+    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
+  }
+
+  advancedEmitter($event) {
+    this.advanced = $event;
+  }
+
+  languageEmitter($event) {
+    this.language = $event;
+    this.loadSemanticModels();
   }
 
   initSentimentColors() {
@@ -77,13 +92,6 @@ export class SentimentAnalysisComponent implements OnInit {
       'excited' : this.hexToRgb(this.sentimentColorsHex['excited']),
       'tender'  : this.hexToRgb(this.sentimentColorsHex['tender'])
     };
-  }
-
-  languageEmitter($event) {
-    this.language = $event;
-    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[this.language]();
-    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[this.language]();
-    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[this.language]();
   }
 
   process() {
