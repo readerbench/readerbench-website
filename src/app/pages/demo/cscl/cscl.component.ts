@@ -26,6 +26,7 @@ export class CsclComponent implements OnInit {
   ngOnInit() {
     this.language = CsclData.defaultLanguage.value;
 
+    // force git update
     this.loadSemanticModels();
     this.formData = {
       'language': DefaultInputData.defaultLanguage(),
