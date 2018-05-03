@@ -76,6 +76,10 @@ const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: '.well-known/',
+    component: HomeComponent,
   }
 ];
 

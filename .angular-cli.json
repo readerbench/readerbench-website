@@ -9,7 +9,7 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        ".well-known/",
+        ".well-known",
         "favicon.ico"
       ],
       "index": "index.html",
