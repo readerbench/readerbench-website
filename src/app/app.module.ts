@@ -24,6 +24,7 @@ import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
+import { CIModelComponent } from './pages/demo/cm/CIModel.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -37,43 +38,55 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
+import { CIModelModule } from "./pages/demo/cm/CIModel.module";
+import { AppContext } from './pages/demo/cm/AppContext';
+import { RbHttp } from './pages/demo/cm/http/RbHttp';
+import { IRbHttp } from './pages/demo/cm/http/IRbHttp';
+import { IToaster } from './pages/demo/cm/toaster/IToaster';
+import { Toaster } from './pages/demo/cm/toaster/Toaster';
+
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    MenuComponent,
-    HomeComponent,
-    CarouselComponent,
-    AboutComponent,
-    BrowseComponent,
-    DemoComponent,
-    DemoMenuComponent,
-    SentimentAnalysisComponent,
-    TextualComplexityComponent,    
-    KeywordsComponent,
-    SemanticAnnotationComponent,
-    SelfExplanationComponent,
-    CsclComponent,
-    CvAnalysisComponent,
-    LakComponent,
-    CommunityComponent,
-    DemoServicesComponent,
-    DemoCommonFieldsComponent,
-    PeopleComponent,
-    ProjectsComponent,
-    PublicationsComponent,
-    ContactComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpModule,
-    KeywordsModule,
-    ReaderBenchCommonModule
-  ],
-  exports: [KeywordsComponent],  
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        MenuComponent,
+        HomeComponent,
+        CarouselComponent,
+        AboutComponent,
+        BrowseComponent,
+        DemoComponent,
+        DemoMenuComponent,
+        SentimentAnalysisComponent,
+        TextualComplexityComponent,
+        KeywordsComponent,
+        SemanticAnnotationComponent,
+        SelfExplanationComponent,
+        CsclComponent,
+        CvAnalysisComponent,
+        LakComponent,
+        CommunityComponent,
+        DemoServicesComponent,
+        DemoCommonFieldsComponent,
+        PeopleComponent,
+        ProjectsComponent,
+        PublicationsComponent,
+        ContactComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpModule,
+        KeywordsModule,
+        ReaderBenchCommonModule,
+        CIModelModule
+    ],
+    exports: [KeywordsComponent],
+    providers: [
+        AppContext,
+        { provide: IRbHttp, useClass: RbHttp },
+        { provide: IToaster, useClass: Toaster },
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

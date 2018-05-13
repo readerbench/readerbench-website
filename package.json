@@ -39,7 +39,8 @@
     "select2": "^4.0.6-rc.1",
     "toastr": "^2.1.4",
     "underscore": "^1.8.3",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+    "vis": "^4.21.0"
   },
   "devDependencies": {
     "@angular/cli": "^1.6.1",

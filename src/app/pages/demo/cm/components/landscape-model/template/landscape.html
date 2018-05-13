@@ -1,0 +1,9 @@
+<div class="dropdown-container">
+    <label for="style"> Change Style:
+        <select id="style" (change)="updateLandscape($event)" [(ngModel)]="selectedStyle.style">
+            <option *ngFor="let style of styles" [value]="style">{{style}}</option>
+        </select>
+    </label>
+</div>
+
+<div id="landscape"></div>

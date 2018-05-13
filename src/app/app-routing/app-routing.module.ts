@@ -15,6 +15,7 @@ import { PeopleComponent } from '../pages/people/people.component';
 import { ProjectsComponent } from '../pages/projects/projects.component';
 import { PublicationsComponent } from '../pages/publications/publications.component';
 import { ContactComponent } from '../pages/contact/contact.component';
+import { CIModelComponent } from '../pages/demo/cm/CIModel.component';
 
 const routes: Routes = [
   {
@@ -72,6 +73,10 @@ const routes: Routes = [
   {
     path: 'demo/community',
     component: CommunityComponent,
+  },
+  {
+    path: 'demo/cm',
+    component: CIModelComponent,
   },
   {
     path: '',

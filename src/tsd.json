@@ -1,0 +1,18 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "typings",
+  "bundle": "typings/tsd.d.ts",
+  "installed": {
+    "es6-shim/es6-shim.d.ts": {
+      "commit": "1b21ed5d2ed3afb3b2be9a3ef8b17ae2a52a4c27"
+    },
+    "underscore/underscore.d.ts": {
+      "commit": "1b21ed5d2ed3afb3b2be9a3ef8b17ae2a52a4c27"
+    },
+    "d3/d3.d.ts": {
+      "commit": "79e0ea4b4311c9c9cb589d0e1ffb553c2c053ed8"
+    }
+  }
+}
