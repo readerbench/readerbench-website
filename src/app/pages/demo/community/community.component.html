@@ -1,3 +1,97 @@
-<p>
-  community works!
-</p>
+<div class="community-container">
+  <div class="section-header">
+      <h1>Online Communities</h1>
+  </div>
+  <div class="row"><div class="col-xs-12">&nbsp;</div></div>
+<div class="row top-buffer dropdowns-left">
+          <div class="col-xs-1">&nbsp;</div>
+          <div class="col-xs-1">
+              <label for="self_language" class="dropdown-label">Category: </label>
+          </div>
+          <div class="col-xs-2">
+              <div class="input-group">
+                  <select class="form-control dropdown-community" [ngModel]="selectedCategory" (ngModelChange)="selectedCategory=$event">
+                      <option *ngFor="let option of categories" [ngValue]="option" data-toggle="tooltip" title="{{option.description}}" >{{ option.name }}</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-xs-1">
+              <label for="self_language" class="dropdown-label">Community: </label>
+          </div>
+          <div class="col-xs-2">
+              <div class="input-group">
+                  <select *ngIf="selectedCategory" class="form-control dropdown-community" [ngModel]="selectedCommunity" (ngModelChange)="selectedCommunity=$event">
+                      <option *ngFor="let option of selectedCategory.communities" [ngValue]="option" data-toggle="tooltip" title="{{option.description}}">{{ option.name }}</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-xs-1">
+              <label for="self_language" class="dropdown-label">Type view: </label>
+          </div>
+          <div class="col-xs-2">
+              <div class="input-group">
+                  <select class="form-control dropdown-community" [ngModel]="selectedViewType" (ngModelChange)="selectedViewType=$event">
+                      <option *ngFor="let option of viewTypes" [ngValue]="option">{{ option.name }}</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-xs-1">
+              <div class="bottom-buttons">
+                  <button class="filter-button execute-button" (click)="generateParticipantsGraph(selectedCommunity.name)">Execute</button>
+              </div>
+          </div>  
+          <div class="col-xs-1">&nbsp;</div>
+          <div class="col-xs-1">&nbsp;</div>
+          
+  </div>
+  <div style="text-align: center;" *ngIf="isLoadingGraph == true">
+      <div class="row"><div class="col-xs-12">&nbsp;</div></div>
+      <i class="fa fa-spinner fa-pulse fa-3x fa-fw" style="color: rgb(102,198,211);"></i>
+      <span class="sr-only">Loading...</span>
+  </div>
+  <div class="row slideshow-container">
+      <div class="col-md-12">
+      <!-- <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+          <slide *ngFor="let subcommunity of subcommunities"
+                  [active]=false>
+              <div class="carousel-caption">
+                  <div class="row test">
+                      <div class="col-xs-2"></div>
+                      <div class="col-xs-1" *ngIf="subcommunity.week > 0">
+                          <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">Week {{subcommunity.week}}</h4>
+                      </div>
+                      <div class="col-xs-2" *ngIf="subcommunity.week == 0">
+                         <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">The entire period</h4>
+                      </div>
+                      <div class="col-xs-3" style="text-align: center;">
+                          <p style="color: black; margin-top: -5px; text-align: center; font-size: 14px;">( {{subcommunity.startDate | date}} - {{subcommunity.endDate | date}} )</p>
+                      </div>
+                      <div class="col-xs-4"></div>
+                  </div>
+                  
+              </div>
+              
+              <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
+              <div *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1">
+                  <hierarchical-edge-bundling [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
+              </div>
+
+              <div *ngIf="subcommunity.edgeBundling.length == 0">
+                  <p style="color: black;"><b>No participants for this week</b></p>
+              </div>
+              
+
+              <div class="row"><div class="col-xs-2">&nbsp;</div></div>
+              <div class="row"><div class="col-xs-2">&nbsp;</div></div>
+              <div class="row">
+              <div class="col-xs-12">
+                  <participant-view *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></participant-view>
+              </div>
+          </div>
+          
+          </slide>
+      
+      </carousel> -->
+      </div>
+  </div> 
+</div>
