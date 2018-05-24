@@ -34,7 +34,7 @@ export var DemoMenuItemsData = [
 //         href: 'demo/self-explanation',
 //         description: 'The automatically identified strategies within \n\
 // ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
-// elaboration.',
+// elaboration.', 
 //         image: 'assets/images/demo_self_explanation.png',
 //         altText: 'Self explanation with ReaderBench framework'
 //     },
