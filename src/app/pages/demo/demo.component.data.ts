@@ -246,7 +246,7 @@ export var DefaultInputData = {
                 return DefaultInputData.metricOptions.lsa.es[0];
             },
             'fr': function () {
-                return DefaultInputData.metricOptions.lsa.fr[0];
+                return DefaultInputData.metricOptions.lsa.fr[1];
             },
             'it': function() {
                 return DefaultInputData.metricOptions.lsa.it[0];
