@@ -1,5 +1,13 @@
 export var Projects = [
     {
+        title: 'ENeA SEA',
+        link: 'https://www.enea-sea.eu/',
+        description: 'ENeA SEA develops innovative e-learning for practicing doctors in the field of early nutrition in Southeast Asia. EU, Thai and Malaysian partners comprised of universities/institutions and professional organizations in nutrition are jointly developing science-based education, tailored to the needs of the Southeast Asian region. The goal of the project is to offer the latest recommendations for everyday practice and maximise outreach to the wider healthcare community.',
+        category: 'Erasmus+ Capacity-Building',
+        image: 'assets/images/enea_logo.jpg',
+        imageDescription: 'Innovative e-learning for practicing doctors in the field of early nutrition in Southeast Asia'
+    },
+    {
         title: 'RAGE',
         link: 'http://rageproject.eu/',
         description: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE - Realising an Applied Gaming Eco-system, is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.',
