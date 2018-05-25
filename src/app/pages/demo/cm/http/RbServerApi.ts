@@ -35,7 +35,7 @@ RbServerApiUrl[RbServerApi.TopicsAdvanced] = "__TODO__";
 
 export class ServerApiBuilder {
     // TODO: to be changed!
-    public static ApiRoot = "http://localhost:8080/api/";
+    public static ApiRoot = "http://readerbench.com/api/";
 
     constructor(private _thServerApi: RbServerApi) {
     }
