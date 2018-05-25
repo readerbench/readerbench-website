@@ -4,7 +4,7 @@ export var Projects = [
         link: '#',
         description: 'User-centered project designing software and services modules for the use of robots in an interconnected digital society that enables companies to develop complex, intelligent and performing products and services for these users as well as society as a whole.',
         category: 'Information and Communication Technologies',
-        image: 'assets/images/robin_picture.jpg.jpg',
+        image: 'assets/images/robin_picture.jpg',
         imageDescription: 'Use of robots in an interconnected digital society'
     },
     {
