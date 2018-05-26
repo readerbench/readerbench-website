@@ -24,7 +24,10 @@ import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
-import { CIModelComponent } from './pages/demo/cm/CIModel.component';
+import { CIModelComponent } from './pages/demo/comprehension-model/CIModel.component';
+import { CIScoresTableComponent } from './pages/demo/common/components/scores-table/CIScoresTableComponent';
+import { LandscapeModelComponent } from './pages/demo/common/components/landscape-model/LandscapeModelComponent';
+import { LoadingComponent } from './pages/demo/common/components/loading/LoadingComponent';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -38,12 +41,12 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
 
-import { CIModelModule } from "./pages/demo/cm/CIModel.module";
-import { AppContext } from './pages/demo/cm/AppContext';
-import { RbHttp } from './pages/demo/cm/http/RbHttp';
-import { IRbHttp } from './pages/demo/cm/http/IRbHttp';
-import { IToaster } from './pages/demo/cm/toaster/IToaster';
-import { Toaster } from './pages/demo/cm/toaster/Toaster';
+import { CIModelModule } from "./pages/demo/comprehension-model/CIModel.module";
+import { SharedPipesModule } from "./pages/demo/common/pipes/SharedPipesModule";
+
+import { AppContext } from './pages/demo/common/AppContext';
+import { IToaster } from './pages/demo/common/toaster/IToaster';
+import { Toaster } from './pages/demo/common/toaster/Toaster';
 
 @NgModule({
     declarations: [
@@ -70,7 +73,11 @@ import { Toaster } from './pages/demo/cm/toaster/Toaster';
         PeopleComponent,
         ProjectsComponent,
         PublicationsComponent,
-        ContactComponent
+        ContactComponent,
+        CIModelComponent,
+        CIScoresTableComponent,
+        LandscapeModelComponent,
+        LoadingComponent
     ],
     imports: [
         BrowserModule,
@@ -79,12 +86,12 @@ import { Toaster } from './pages/demo/cm/toaster/Toaster';
         HttpModule,
         KeywordsModule,
         ReaderBenchCommonModule,
-        CIModelModule
+        CIModelModule,
+        SharedPipesModule
     ],
-    exports: [KeywordsComponent],
+    exports: [KeywordsComponent, CIModelComponent, CIScoresTableComponent, LandscapeModelComponent, LoadingComponent],
     providers: [
         AppContext,
-        { provide: IRbHttp, useClass: RbHttp },
         { provide: IToaster, useClass: Toaster },
     ],
     bootstrap: [AppComponent]

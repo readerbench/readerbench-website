@@ -1,4 +1,4 @@
-import { BaseDO } from "../../base-objects/BaseDO";
+import { BaseDO } from "../base-objects/BaseDO";
 
 export class WordActivationDO extends BaseDO {
     score: number;

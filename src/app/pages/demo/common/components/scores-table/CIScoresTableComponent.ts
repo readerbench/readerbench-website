@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CMResultDO } from "../../service/data-objects/CMResultDO";
-import { CMWordDO } from "../../service/data-objects/CMWordDO";
+import { CMResultDO } from "../../data-objects/CMResultDO";
+import { CMWordDO } from "../../data-objects/CMWordDO";
 
 @Component({
     selector: 'ci-scores-table',

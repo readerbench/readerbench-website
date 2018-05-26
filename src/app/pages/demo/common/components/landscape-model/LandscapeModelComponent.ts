@@ -75,9 +75,9 @@ export class LandscapeModelComponent implements OnInit {
         // landscape options
         let options = {
             width: '1200px',
-            height: '1140px',
+            height: '1100px',
             style: this.selectedStyle.style,
-            axisColor: '#2c7a83',
+            axisColor: '#779396', //'#35a4b1',
             xBarWidth: xBarWidth,
             yBarWidth: xBarWidth,
             yValueLabel: this.getWordLabels.bind(this),
@@ -99,6 +99,10 @@ export class LandscapeModelComponent implements OnInit {
                 fill: '#ffffff',
                 stroke: 'lightgray',
                 strokeWidth: 1
+            },
+            dataColor:{
+                fill: '#aae7ef',
+                stroke: '#43b9c7' 
             },
             cameraPosition: {
                 vertical: 1.2,

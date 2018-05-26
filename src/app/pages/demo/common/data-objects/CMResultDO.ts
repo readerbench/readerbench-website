@@ -1,4 +1,4 @@
-import { BaseDO } from "../../base-objects/BaseDO";
+import { BaseDO } from "../base-objects/BaseDO";
 import { WordActivationDO } from "./WordActivationDO";
 import { CMSentenceDO } from "./CMSentenceDO";
 import { CMWordDO } from "./CMWordDO";

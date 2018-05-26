@@ -1,31 +1,28 @@
-import { Component, OnInit } from '@angular/core';
-import { CIModelService } from "./service/CIModelService";
-import { CMResultDO } from "./service/data-objects/CMResultDO";
+import { Component, OnInit, Input } from '@angular/core';
+import { CMResultDO } from "../common/data-objects/CMResultDO";
 import { CIModelTab, CIModelTabType } from "./utils/CIModelTab";
-import { AppContext } from "./AppContext";
-import { WordDO } from "./components/word-hitmap/data-objects/WordDO";
+import { AppContext } from "../common/AppContext";
+import { WordDO } from "../common/components/word-hitmap/data-objects/WordDO";
+
+import { DefaultInputData } from '../demo.component.data';
+import { Language } from '../languages.data';
+
+import { ApiResponseModel } from '../api-response.model';
+import { ApiRequestService } from '../api-request.service';
 
 import * as _ from 'underscore';
 
-// @Component({
-//     selector: 'app-comprehension-model',
-//     templateUrl: './comprehension-model.component.html',
-//     styleUrls: ['./comprehension-model.component.css']
-// })
-// export class ComprehensionModelComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit() {
-//   }
-
-// }
+interface CiModelParams {
+    text: string;
+    minActivationThreshold: number;
+    maxSemanticExpand: number;
+}
 
 @Component({
     selector: 'ci-model',
-    providers: [CIModelService],
     templateUrl: './CIModel.component.html',
-    styleUrls: ['./CIModel.component.css']
+    styleUrls: ['./CIModel.component.css'],
+    providers: [ApiRequestService],
 })
 
 export class CIModelComponent {
@@ -41,8 +38,9 @@ export class CIModelComponent {
     private tabs: CIModelTab[] = [];
     private selectedTab: CIModelTab;
 
-    constructor(private ciModelService: CIModelService,
-        private appContext: AppContext) { }
+    constructor(private apiRequestService: ApiRequestService, private appContext: AppContext) {
+        this.apiRequestService.setEndpoint('ci-model/analyzer');
+    }
 
     private get incorrectSearchText(): boolean {
         return !_.isString(this.searchText) || _.isEmpty(this.searchText) ||
@@ -66,14 +64,21 @@ export class CIModelComponent {
         }
         if (this.isLoading) { return; }
         this.isLoading = true;
-        this.ciModelService.getWords({
+
+        var process = this.apiRequestService.process({
             text: this.searchText,
             minActivationThreshold: this.minActivationThreshold,
             maxSemanticExpand: this.maxSemanticExpand
-        }).subscribe((result: CMResultDO) => {
-            this.cmResult = result;
-            this.buildTabs(result);
+        });
+
+        process.subscribe((result: ApiResponseModel) => {
+            var cmResult = new CMResultDO();
+            cmResult.buildFromObject(result.data);
+            this.cmResult = cmResult;
+
+            this.buildTabs(cmResult);
             this.isLoading = false;
+
         }, (err: any) => {
             this.isLoading = false;
         });

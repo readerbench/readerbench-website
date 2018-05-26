@@ -721,3 +721,8 @@ line.link {
   margin-left: 20px;
   line-height: normal;
 }
+
+.ci-model-loading {
+    margin-left: 50%;
+    margin-top: 25px;
+}

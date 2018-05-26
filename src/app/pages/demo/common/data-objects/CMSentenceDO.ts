@@ -1,21 +1,22 @@
-import { BaseDO } from "../../base-objects/BaseDO";
+import { BaseDO } from "../base-objects/BaseDO";
 import { WordActivationDO } from "./WordActivationDO";
-import { TwoModeGraphDO } from "../../components/two-mode-graph/data-objects/TwoModeGraphDO";
+import { TwoModeGraph } from "@reader-bench/common";
 
 export class CMSentenceDO extends BaseDO {
     index: number;
     text: string;
-    graph: TwoModeGraphDO;
-
+    graph: TwoModeGraph;
 
     protected getPrimitivePropertyKeys(): string[] {
         return ["index", "text"];
     }
 
-    public buildFromObject(object: Object) {
+    public buildFromObject(object: Object): TwoModeGraph {
         super.buildFromObject(object);
 
-        this.graph = new TwoModeGraphDO();
+        this.graph = new TwoModeGraph();
         this.graph.buildFromObject(this.getObjectPropertyEnsureUndefined(object, "graph"));
+
+        return this.graph;
     }
 }

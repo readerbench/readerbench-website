@@ -15,7 +15,7 @@ import { PeopleComponent } from '../pages/people/people.component';
 import { ProjectsComponent } from '../pages/projects/projects.component';
 import { PublicationsComponent } from '../pages/publications/publications.component';
 import { ContactComponent } from '../pages/contact/contact.component';
-import { CIModelComponent } from '../pages/demo/cm/CIModel.component';
+import { CIModelComponent } from '../pages/demo/comprehension-model/CIModel.component';
 
 const routes: Routes = [
   {
@@ -75,7 +75,7 @@ const routes: Routes = [
     component: CommunityComponent,
   },
   {
-    path: 'demo/cm',
+    path: 'demo/comprehension-model',
     component: CIModelComponent,
   },
   {

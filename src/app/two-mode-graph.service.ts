@@ -15,5 +15,4 @@ export class TwoModeGraphService {
     this.graph.buildFromObject(graph);
     return Observable.of(this.graph);
   }
-
 }

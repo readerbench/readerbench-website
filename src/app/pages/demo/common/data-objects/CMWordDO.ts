@@ -1,4 +1,4 @@
-import { BaseDO } from "../../base-objects/BaseDO";
+import { BaseDO } from "../base-objects/BaseDO";
 import { WordActivationDO } from "./WordActivationDO";
 
 export class CMWordDO extends BaseDO {

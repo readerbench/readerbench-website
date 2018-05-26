@@ -1,4 +1,4 @@
-import { CMSentenceDO } from "../service/data-objects/CMSentenceDO";
+import { CMSentenceDO } from "../../common/data-objects/CMSentenceDO";
 
 export enum CIModelTabType {
     Sentence,

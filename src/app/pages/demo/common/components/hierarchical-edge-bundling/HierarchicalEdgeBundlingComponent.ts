@@ -1,6 +1,5 @@
 import { Component, AfterViewInit, Input, Inject, ElementRef, OnInit } from '@angular/core';
 import { HierarchicalEdgeBundlingDO } from '../hierarchical-edge-bundling/data-objects/HierarchicalEdgeBundlingDO';
-import { AppContext, RbServerApi, RbError } from '../../AppContext';
 import * as d3 from "d3";
 import * as d3Hierarchy from "d3-hierarchy";
 import * as d3Shape from "d3-shape";
