@@ -29,15 +29,15 @@ export var DemoMenuItemsData = [
 //         image: 'assets/images/demo_semantic_annotation.png',
 //         altText: 'Semantic annotation with ReaderBench framework'
 //     },
-    {
-        name: 'Self Explanation',
-        href: 'demo/self-explanation',
-        description: 'The automatically identified strategies within \n\
-ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
-elaboration.',
-        image: 'assets/images/demo_self_explanation.png',
-        altText: 'Self explanation with ReaderBench framework'
-    },
+//     {
+//         name: 'Self Explanation',
+//         href: 'demo/self-explanation',
+//         description: 'The automatically identified strategies within \n\
+// ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
+// elaboration.', 
+//         image: 'assets/images/demo_self_explanation.png',
+//         altText: 'Self explanation with ReaderBench framework'
+//     },
 //     {
 //         name: 'CSCL',
 //         href: 'demo/cscl',
