@@ -1,3 +1,16 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+      </div>
 <div class="community-container">
   <div class="section-header">
       <h1>Online Communities</h1>
@@ -51,9 +64,9 @@
   </div>
   <div class="row slideshow-container">
       <div class="col-md-12">
-      <!-- <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
-          <slide *ngFor="let subcommunity of subcommunities"
-                  [active]=false>
+       <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+          <slide *ngFor="let subcommunity of subcommunities" [active]=false>
+          <!--<div *ngFor="let subcommunity of subcommunities">-->
               <div class="carousel-caption">
                   <div class="row test">
                       <div class="col-xs-2"></div>
@@ -72,26 +85,26 @@
               </div>
               
               <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
-              <div *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1">
-                  <hierarchical-edge-bundling [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
-              </div>
+              <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
 
               <div *ngIf="subcommunity.edgeBundling.length == 0">
                   <p style="color: black;"><b>No participants for this week</b></p>
               </div>
               
-
               <div class="row"><div class="col-xs-2">&nbsp;</div></div>
               <div class="row"><div class="col-xs-2">&nbsp;</div></div>
               <div class="row">
-              <div class="col-xs-12">
-                  <participant-view *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></participant-view>
+                <div class="col-xs-12">
+                   <app-participant *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></app-participant>
+                </div>
               </div>
-          </div>
           
+          <!-- </div> -->
           </slide>
-      
-      </carousel> -->
+      </carousel>
       </div>
   </div> 
+</div>
+</div>
+</div>
 </div>

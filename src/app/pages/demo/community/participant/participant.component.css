@@ -1,0 +1,31 @@
+.participant-container {
+    padding: 85px;
+}
+
+.participants-title {
+    font-size: 15px;
+    color: black;
+    font: bold;
+}
+
+.participants-table-header {
+    font-size: 12px;
+    color: rgb(67,185,199);
+    text-align: center;
+    font: bold;
+}
+
+.participants-table-header > tr > th {
+    text-align: center;
+}
+
+.participants-table-header > tr > th > input {
+    height: 25px;
+    font-size: 10px;
+}
+
+.participants-table-body {
+    font-size: 12px;
+    color: black;
+    text-align: center;
+}

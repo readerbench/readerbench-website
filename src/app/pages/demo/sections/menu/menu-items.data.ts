@@ -62,11 +62,11 @@ export var DemoMenuItemsData = [
     //     image: 'assets/images/demo_lak.png',
     //     altText: 'LAK Corpus'
     // },
-    // {
-    //     name: 'Online Communities',
-    //     href: 'demo/community',
-    //     description: 'Online Communities',
-    //     image: 'assets/images/demo_communities.png',
-    //     altText: 'Online Communities'
-    // }
+    {
+        name: 'Online Communities',
+        href: 'demo/community',
+        description: 'Online Communities',
+        image: 'assets/images/demo_communities.png',
+        altText: 'Online Communities'
+    }
 ];

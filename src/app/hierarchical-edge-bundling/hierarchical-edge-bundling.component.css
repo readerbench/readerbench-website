@@ -1,0 +1,58 @@
+:host /deep/ .node {
+  font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  fill: #bbb;
+}
+
+:host /deep/ .node-central {
+  font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  fill: #1E90FF;
+}
+
+:host /deep/ .node-active {
+  font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  fill: #228B22;
+}
+
+:host /deep/ .node-peripheric {
+  font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
+  fill: #FF8C00;
+}
+
+:host /deep/ .node:hover {
+  fill: #000;
+}
+
+:host /deep/ .link {
+  stroke: steelblue;
+  stroke-opacity: 0.4;
+  fill: none;
+  pointer-events: none;
+}
+
+:host /deep/ .node:hover,
+:host /deep/ .node--source,
+:host /deep/ .node--target {
+  font-weight: 700;
+}
+
+:host /deep/ .node--source {
+  fill: #00008B;
+}
+
+:host /deep/ .node--target {
+  fill: #d62728;
+}
+
+:host /deep/ .link--source,
+:host /deep/ .link--target {
+  stroke-opacity: 1;
+  stroke-width: 2px;
+}
+
+:host /deep/ .link--source {
+  stroke: #d62728;
+}
+
+:host /deep/ .link--target {
+  stroke: #00008B;
+}

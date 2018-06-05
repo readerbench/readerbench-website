@@ -1,0 +1,27 @@
+.community-container {
+    margin-left: 35px;
+}
+
+.dropdown-community {
+    width: 200px !important;
+    font-size: 12px;
+    font-weight: bold;
+    height: 30px !important;
+} 
+
+.section-header {
+    margin: 50px 0 0px !important;
+}
+
+.execute-button {
+    width: 90px !important;
+    height: 30px;
+    text-align: center;
+    line-height: 30px; 
+    margin: 0px 0px 0px 0px !important;
+    font-size: 12px !important;
+}
+
+.dropdown-label {
+    color: rgb(102,198,211);
+}

@@ -24,6 +24,9 @@ import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
+import { ParticipantComponent } from './pages/demo/community/participant/participant.component';
+import { CommunityCarouselComponent } from './pages/demo/community/carousel/community-carousel.component';
+import { SlideComponent } from './pages/demo/community/slide/slide.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -36,6 +39,7 @@ import { PeopleComponent } from './pages/people/people.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/hierarchical-edge-bundling.component';
 
 @NgModule({
   declarations: [
@@ -62,7 +66,11 @@ import { ContactComponent } from './pages/contact/contact.component';
     PeopleComponent,
     ProjectsComponent,
     PublicationsComponent,
-    ContactComponent
+    ContactComponent,
+    ParticipantComponent,
+    CommunityCarouselComponent,
+    SlideComponent,
+    HierarchicalEdgeBundlingComponent
   ],
   imports: [
     BrowserModule,

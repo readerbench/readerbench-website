@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { TwoModeGraph, TwoModeGraphNode, TwoModeGraphEdge } from '@reader-bench/common';
 import { ApiRequestService } from '../api-request.service';
+import { ParticipantComponent } from './participant/participant.component';
 
 interface Community {
   communityName: string,
@@ -67,16 +68,16 @@ export class CommunityComponent implements OnInit {
   directedGraph: Array<any> = [];
   edgeBundling: Array<any> = [];
 
-  constructor(private apiRequestService: ApiRequestService, private twoModeGraphService: TwoModeGraphService) { }
+  constructor(private apiRequestService: ApiRequestService, private twoModeGraphService: TwoModeGraphService) {  }
 
   ngOnInit() {
-    this.isLoadingGraph = false;
     this.apiRequestService.setEndpoint('community/communities');
+    this.isLoadingGraph = false;
     var data = { };
     var process = this.apiRequestService.process(data);
     process.subscribe((categories: any) => {
       //console.log(categories);
-      this.categories = categories;
+      this.categories = categories.data;
 
       if (this.categories.length > 0) {
         this.selectedCategory = this.categories[0];
@@ -102,9 +103,12 @@ export class CommunityComponent implements OnInit {
     var data = {
       communityName: community
     };
+    //console.log(data);
+    /*
     var process = this.apiRequestService.process(data);
     process.subscribe((participants: any) => {
       this.directedGraph = participants;
+      //console.log(participants);
       this.apiRequestService.setEndpoint('community/participants/edgeBundling');
       var data = {
         communityName: community
@@ -133,7 +137,38 @@ export class CommunityComponent implements OnInit {
         //console.log(this.subcommunities);
         this.isLoadingGraph = false;
       });
-    });
+    });*/
+
+    this.directedGraph = this.mockData.directedGraph;
+    //console.log(participants);
+    //this.apiRequestService.setEndpoint('community/participants/edgeBundling');
+    //var data = {
+    //  communityName: community
+    //}
+    //process.subscribe((participants: any) => {
+    this.edgeBundling = this.mockData.edgeBundling;
+
+    console.log(this.directedGraph);
+    console.log(this.edgeBundling);
+    for (var i = 0; i < this.directedGraph.length; i++) {
+      if (this.edgeBundling[i].data.length > 0) {
+        var graphSubcommunity = new TwoModeGraph();
+        graphSubcommunity = this.parseGraphData(this.directedGraph[i]);
+        //console.log(this.edgeBundling[i].data);
+        //for (var j = 0; j < this.edgeBundling.length; j++) {
+        //if(this.edgeBundling[j].week === this.directedGraph[i].week) {
+        this.subcommunities.push({
+          week: this.directedGraph[i].week,
+          graph: graphSubcommunity,
+          edgeBundling: this.edgeBundling[i].data,
+          startDate: new Date(this.directedGraph[i].startDate),
+          endDate: new Date(this.directedGraph[i].endDate)
+        });
+         // }
+      }
+    }
+    //console.log(this.subcommunities);
+    this.isLoadingGraph = false;
   }
 
   private parseGraphData(inGraph): TwoModeGraph {
@@ -164,4 +199,105 @@ export class CommunityComponent implements OnInit {
     return graph;
   }
 
+  private mockData = {
+    directedGraph:[
+      {
+        week:0,
+        startDate:0,
+        endDate:1,
+        nodes:[
+          {
+            id:1,
+            name:"A",
+            group:1
+          },
+          {
+            id:2,
+            name:"B",
+            group:2
+          },
+        ],
+        links:[
+          {
+            score:13,
+            source:1,
+            target:2
+          }
+        ]
+      },
+
+      {
+        week:1,
+        startDate:0,
+        endDate:1,
+        nodes:[
+          {
+            id:1,
+            name:"A",
+            group:1
+          },
+          {
+            id:2,
+            name:"B",
+            group:2
+          },
+        ],
+        links:[
+          {
+            score:13,
+            source:1,
+            target:2
+          }
+        ]
+      }
+    ],
+    edgeBundling:[
+      {
+        data:[{
+          name: "A",
+          imports: ["C"],
+          size:1,
+          group:"PERIPHERAL"
+        }, {
+          name: "C",
+          imports: ["B"],
+          size:2,
+          group:"CENTRAL"
+        }, {
+          name: "B",
+          imports: ["D"],
+          size:5,
+          group:"ACTIVE"
+        }, {
+          name: "D",
+          imports: ["C"],
+          size:3,
+          group:"ACTIVE"
+        }]
+      },
+      {
+        data:[{
+          name: "A",
+          imports: ["C", "D"],
+          size:1,
+          group:"CENTRAL"
+        }, {
+          name: "C",
+          imports: ["B", "D"],
+          size:2,
+          group:"CENTRAL"
+        }, {
+          name: "B",
+          imports: ["D"],
+          size:5,
+          group:"ACTIVE"
+        }, {
+          name: "D",
+          imports: ["C"],
+          size:3,
+          group:"PERIPHERAL"
+        }]
+      },
+    ]
+  }
 }

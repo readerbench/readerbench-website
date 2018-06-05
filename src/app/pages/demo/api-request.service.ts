@@ -12,8 +12,8 @@ export class ApiRequestService {
 
     constructor(private http: Http) { }
 
-    // private url = '//localhost:8080/api/';
-    private url = '//readerbench.com/api/';
+    private url = '//localhost:8080/api/';
+    //private url = '//readerbench.com/api/';
     private endpoint: string;
 
     public setEndpoint(endpoint) {
@@ -29,8 +29,9 @@ export class ApiRequestService {
         let options = new RequestOptions({ headers: headers });
 
         return this.http.post(this.url + this.endpoint, body, options)
-            .map((res: Response) => res.json())
-            .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
+            .do(value => console.log(value))
+            .map((res: Response) =>  res.json())
+            .catch((error: any) => {console.log(error); return Observable.throw(error.json().error || 'Server error');});
     }
 
 }

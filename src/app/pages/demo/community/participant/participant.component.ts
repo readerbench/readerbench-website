@@ -5,20 +5,21 @@ import { ParticipantService } from './participant.service';
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
-  styleUrls: ['./participant.component.css']
+  styleUrls: ['./participant.component.css'],
+  providers: [ParticipantService]
 })
 export class ParticipantComponent implements OnInit {
 
   participants: ParticipantDO[];
-  private _communityName: string;
-  private _week: number;
+  @Input() communityName: string;
+  @Input() week: number;
   biggerThan: number = 7;
   smallerThan: number = 5;
   showName: boolean = false;
   // columns: string[] = ["Name", "Nickname", "Contributions", "Cumulated contribution scores",
   //                     "Cumulated social KB scores", "Degree of inter-animation", "In-degree centrality", "Out-degree centrality"];
   filter: ParticipantDO = new ParticipantDO();
-
+/*
   public get communityName(): string {
     return this._communityName;
   }
@@ -33,12 +34,13 @@ export class ParticipantComponent implements OnInit {
   @Input()
   public set week(week: number) {
     this._week = week;
-  }
+  }*/
 
   constructor(private _participantService: ParticipantService) { }
 
   ngOnInit() {
-    this._participantService.getParticipantsStats(this._communityName, this._week).subscribe((participantList: ParticipantDO[]) => {
+    //this._participantService.getParticipantsStats(this._communityName, this._week).subscribe((participantList: ParticipantDO[]) => {
+    this._participantService.getParticipantsStats(this.communityName, this.week).subscribe((participantList: ParticipantDO[]) => {
       this.participants = [];
       this.participants = participantList;
     });

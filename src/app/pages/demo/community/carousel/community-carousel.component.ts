@@ -29,9 +29,10 @@ export enum Direction {UNKNOWN, NEXT, PREV}
     </div>
     <div class="carousel-inner"><ng-content></ng-content></div>
 </div>
-`
+`,
+  styleUrls: ['./carousel.component.css'],
 })
-export class CarouselComponent implements OnDestroy {
+export class CommunityCarouselComponent implements OnDestroy {
   @Input() public noWrap: boolean;
   @Input() public noPause: boolean;
   @Input() public noTransition: boolean;
