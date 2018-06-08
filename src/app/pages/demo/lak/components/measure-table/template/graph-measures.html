@@ -1,0 +1,24 @@
+<div class="col-xs-12 col-md-12">
+    <table class="cscl-indices" width="100%">
+        <thead>
+            <tr class="entry">
+                <td class="participant">Name</td>
+                <td class="participant">Betwenness</td>
+                <td class="participant">Eccentricity</td>
+                <td class="participant">Closeness</td>
+                <td class="participant">Degree</td>
+                <td class="participant" *ngIf="showNoReferences">Number Of References</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let measure of measureList">
+                <td> <a href="{{measure.uri}}" target="_blank"> {{measure.name}} </a></td>
+                <td> {{measure.betwenness}} </td>
+                <td> {{measure.eccentricity}} </td>
+                <td> {{measure.closeness}} </td>
+                <td> {{measure.degree}} </td>
+                <td *ngIf="showNoReferences"> {{measure.noOfReferences}} </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

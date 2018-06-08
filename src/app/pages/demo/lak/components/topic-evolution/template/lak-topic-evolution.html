@@ -1,0 +1,8 @@
+<loading-component [isLoading]="isLoading"></loading-component>
+<span *ngIf="!isLoading">
+    <div class="row top-buffer">
+        <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <word-hitmap [multiplyValueBy100]="false" [labelList]="yearList" [wordList]="wordList"></word-hitmap>
+        </div>
+    </div>
+</span>

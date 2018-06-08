@@ -1,3 +1,43 @@
-<p>
-  lak works!
-</p>
+<div class="container">
+    <div class="section-header">
+        <h1>LAK Corpus</h1>
+    </div>
+    <div class="row">
+        <div class="col-xs-10 demo-menu col-xs-offset-1">
+            <nav>
+                <ul>
+                    <li>
+                        <a class="btn" [ngClass]="{'current': isGraphPage()}" (click)="goToGraphPage()"><span>GRAPHS</span></a>
+                    </li>
+                    <li>
+                        <a class="btn" [ngClass]="{'current': isAuthorsPage()}" (click)="goToAuthorsPage()"><span>AUTHORS</span></a>
+                    </li>
+                    <li>
+                        <a class="btn" [ngClass]="{'current': isArticlesPage()}" (click)="goToArticlesPage()"><span>ARTICLES</span></a>
+                    </li>
+                    <li>
+                        <a class="btn" [ngClass]="{'current': isTopicsPage()}" (click)="goToTopicsPage()"><span>TOPICS</span></a>
+                    </li>
+                    <li>
+                        <a class="btn" [ngClass]="{'current': isTopicEvolutionPage()}" (click)="goToTopicEvolutionPage()"><span>TOPIC EVOLUTION</span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="row" [hidden]="!isGraphPage()">
+        <article-author-graph></article-author-graph>
+    </div>
+    <div class="row" *ngIf="isAuthorsPage()">
+        <graph-measures [measureList]="authorMeasureList"></graph-measures>
+    </div>
+    <div class="row" *ngIf="isArticlesPage()">
+        <graph-measures [measureList]="articleMeasureList" [showNoReferences]="true"></graph-measures>
+    </div>
+    <div class="row" *ngIf="isTopicsPage()">
+        <lak-topics-component></lak-topics-component>
+    </div>
+    <div class="row" *ngIf="isTopicEvolutionPage()">
+        <lak-topic-evolution></lak-topic-evolution>
+    </div>
+</div>

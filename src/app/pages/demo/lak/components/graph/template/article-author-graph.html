@@ -1,0 +1,88 @@
+<div class="col-xs-12">
+    <loading-component [isLoading]="isLoading"></loading-component>
+    <div class="content-wrapper" [hidden]="isLoading">
+        <div class="demo-wrapper">
+            <div class="row top-buffer">
+                <div class="col-md-3 col-xs-12">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <label for="self_language">Author/Article</label>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <search-input-text 
+                                    [placeholder]="'Insert Article or Author'" 
+                                    (onItemSelected)="didSelectNode($event)"
+                                    (onItemDeselected)="didDeselectNode()">
+                                </search-input-text>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="self_language">No Authors</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="No Authors" [(ngModel)]="noAuthors" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <label for="self_language">No Articles</label>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div class="input-group">
+                                        <input type="number" class="form-control" placeholder="No Articles" [(ngModel)]="noArticles" />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row top-buffer">
+                        <div class="col-xs-12">
+                            <label for="self_language">Filters </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <select class="form-control" [ngModel]="selectedViewOption" (ngModelChange)="selectedViewOption=$event">
+                                    <option *ngFor="let option of viewOptions" [ngValue]="option">{{ option.displayName }}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row top-buffer">
+                        <div class="col-xs-12">
+                            <label for="self_language">Search </label>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="input-group">
+                                <textarea class="form-control" [(ngModel)]="searchText"></textarea>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row top-buffer">
+                        <div class="col-xs-12 col-md-12">
+                            <div class="bottom-buttons">
+                                <button class="filter-button" [disabled]="!selectedNode" (click)="processSelectedNode()">Process</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 col-xs-12">
+                    <loading-component [isLoading]="isLoadingGraph"></loading-component>
+                    <div *ngIf="!isLoadingGraph">
+                        <div class="col-xs-12 col-md-12">
+                            <two-mode-graph [graph]="graph"></two-mode-graph>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
