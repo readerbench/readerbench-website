@@ -71,6 +71,7 @@ export class CommunityComponent implements OnInit {
   constructor(private apiRequestService: ApiRequestService, private twoModeGraphService: TwoModeGraphService) {  }
 
   ngOnInit() {
+    document.getElementById("defaultOpen").click();
     this.apiRequestService.setEndpoint('community/communities');
     this.isLoadingGraph = false;
     var data = { };
@@ -148,8 +149,9 @@ export class CommunityComponent implements OnInit {
     //process.subscribe((participants: any) => {
     this.edgeBundling = this.mockData.edgeBundling;
 
-    console.log(this.directedGraph);
-    console.log(this.edgeBundling);
+    //TODO: request communityData for the participant-evolution component
+    //console.log(this.directedGraph);
+    //console.log(this.edgeBundling);
     for (var i = 0; i < this.directedGraph.length; i++) {
       if (this.edgeBundling[i].data.length > 0) {
         var graphSubcommunity = new TwoModeGraph();
@@ -198,6 +200,27 @@ export class CommunityComponent implements OnInit {
     });
     return graph;
   }
+
+  private openTab(tabName) {
+    // Declare all variables
+    var i, tabcontent, tablinks;
+
+    // Get all elements with class="tabcontent" and hide them
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Get all elements with class="tablinks" and remove the class "active"
+    //tablinks = document.getElementsByClassName("tablinks");
+    //for (i = 0; i < tablinks.length; i++) {
+    //    tablinks[i].className = tablinks[i].className.replace(" active", "");
+    //}
+
+    // Show the current tab, and add an "active" class to the button that opened the tab
+    document.getElementById(tabName).style.display = "block";
+    //evt.currentTarget.className += " active";
+}
 
   private mockData = {
     directedGraph:[

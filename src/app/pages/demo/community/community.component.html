@@ -64,44 +64,65 @@
   </div>
   <div class="row slideshow-container">
       <div class="col-md-12">
-       <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
-          <slide *ngFor="let subcommunity of subcommunities" [active]=false>
-          <!--<div *ngFor="let subcommunity of subcommunities">-->
-              <div class="carousel-caption">
-                  <div class="row test">
-                      <div class="col-xs-2"></div>
-                      <div class="col-xs-1" *ngIf="subcommunity.week > 0">
-                          <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">Week {{subcommunity.week}}</h4>
-                      </div>
-                      <div class="col-xs-2" *ngIf="subcommunity.week == 0">
-                         <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">The entire period</h4>
-                      </div>
-                      <div class="col-xs-3" style="text-align: center;">
-                          <p style="color: black; margin-top: -5px; text-align: center; font-size: 14px;">( {{subcommunity.startDate | date}} - {{subcommunity.endDate | date}} )</p>
-                      </div>
-                      <div class="col-xs-4"></div>
-                  </div>
-                  
-              </div>
-              
-              <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
-              <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
-
-              <div *ngIf="subcommunity.edgeBundling.length == 0">
-                  <p style="color: black;"><b>No participants for this week</b></p>
-              </div>
-              
-              <div class="row"><div class="col-xs-2">&nbsp;</div></div>
-              <div class="row"><div class="col-xs-2">&nbsp;</div></div>
-              <div class="row">
-                <div class="col-xs-12">
-                   <app-participant *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></app-participant>
+        <!-- Tab links -->
+        <div class="tab">
+          <button class="tablinks" (click)="openTab('Community')" id="defaultOpen">Community</button>
+          <button class="tablinks" (click)="openTab('Participants')">Participants</button>
+          <button class="tablinks" (click)="openTab('Keywords')">Keywords</button>
+          <button class="tablinks" (click)="openTab('Overview')">Overview</button>
+        </div>
+        <div class="row"><div class="col-xs-2">&nbsp;</div></div>
+        <div class="row"><div class="col-xs-2">&nbsp;</div></div>
+        <div id="Community" class="tabcontent">
+          <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+            <slide *ngFor="let subcommunity of subcommunities" [active]=false>
+            <!--<div *ngFor="let subcommunity of subcommunities">-->
+                <div class="carousel-caption">
+                    <div class="row test">
+                        <div class="col-xs-2"></div>
+                        <div class="col-xs-1" *ngIf="subcommunity.week > 0">
+                            <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">Week {{subcommunity.week}}</h4>
+                        </div>
+                        <div class="col-xs-2" *ngIf="subcommunity.week == 0">
+                           <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">The entire period</h4>
+                        </div>
+                        <div class="col-xs-3" style="text-align: center;">
+                            <p style="color: black; margin-top: -5px; text-align: center; font-size: 14px;">( {{subcommunity.startDate | date}} - {{subcommunity.endDate | date}} )</p>
+                        </div>
+                        <div class="col-xs-4"></div>
+                    </div>
+                    
                 </div>
-              </div>
+                
+                <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
+                <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
+
+                <div *ngIf="subcommunity.edgeBundling.length == 0">
+                    <p style="color: black;"><b>No participants for this week</b></p>
+                </div>
+            <!-- </div> -->
+            </slide>
+          </carousel>
+        </div>
+
+        <div id="Participants" class="tabcontent">
+          <div class="row">
+            <div class="col-xs-12">
+              <app-participant-evolution [communityData]="communityData"></app-participant-evolution>
+              <!-- <div *ngFor="let subcommunity of subcommunities">
+                 <app-participant *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></app-participant>
+               </div> -->
+            </div>
+          </div>
+        </div>
+
+        <div id="Keywords" class="tabcontent">
+          <app-keywords-heatmap></app-keywords-heatmap>
+        </div>
+
+        <div id="Overview" class="tabcontent">
           
-          <!-- </div> -->
-          </slide>
-      </carousel>
+        </div>
       </div>
   </div> 
 </div>
