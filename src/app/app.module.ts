@@ -25,8 +25,10 @@ import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.compon
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
 import { ParticipantComponent } from './pages/demo/community/participant/participant.component';
+import { ParticipantEvolutionComponent } from './pages/demo/community/participant/participant-evolution/participant-evolution.component';
 import { CommunityCarouselComponent } from './pages/demo/community/carousel/community-carousel.component';
 import { SlideComponent } from './pages/demo/community/slide/slide.component';
+import { KeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -68,9 +70,11 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
     PublicationsComponent,
     ContactComponent,
     ParticipantComponent,
+    ParticipantEvolutionComponent,
     CommunityCarouselComponent,
     SlideComponent,
-    HierarchicalEdgeBundlingComponent
+    HierarchicalEdgeBundlingComponent,
+    KeywordsHeatmapComponent
   ],
   imports: [
     BrowserModule,
