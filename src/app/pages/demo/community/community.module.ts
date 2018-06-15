@@ -6,6 +6,7 @@ import { CommunityCarouselComponent } from './carousel/community-carousel.compon
 import { SlideComponent } from './slide/slide.component';
 import { ParticipantEvolutionComponent } from './participant/participant-evolution/participant-evolution.component';
 import { KeywordsHeatmapComponent } from './keywords-heatmap/keywords-heatmap.component';
+import { ClusteredForceLayoutComponent } from './clustered-force-layout/clustered-force-layout.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { KeywordsHeatmapComponent } from './keywords-heatmap/keywords-heatmap.co
   	CommunityCarouselComponent,
   	SlideComponent,
   	ParticipantEvolutionComponent,
-  	KeywordsHeatmapComponent
+  	KeywordsHeatmapComponent,
+  	ClusteredForceLayoutComponent
   ],
   imports: [
     CommonModule, 

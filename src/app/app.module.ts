@@ -29,6 +29,7 @@ import { ParticipantEvolutionComponent } from './pages/demo/community/participan
 import { CommunityCarouselComponent } from './pages/demo/community/carousel/community-carousel.component';
 import { SlideComponent } from './pages/demo/community/slide/slide.component';
 import { KeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
+import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -74,7 +75,8 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
     CommunityCarouselComponent,
     SlideComponent,
     HierarchicalEdgeBundlingComponent,
-    KeywordsHeatmapComponent
+    KeywordsHeatmapComponent,
+    ClusteredForceLayoutComponent
   ],
   imports: [
     BrowserModule,
