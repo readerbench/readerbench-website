@@ -49,6 +49,10 @@ export class CommunityComponent implements OnInit {
     { id: 0, name: "Force-Directed Graph" },
     { id: 1, name: "Hierarchical Edge Bundling" }
   ];
+  overviewTypes: ViewType[] = [
+    { id: 0, name: "Clustered Force Layout" },
+    { id: 1, name: "Multi-level Edge Bundling" }
+  ];
 
   nodeTypes = {
     '1': 'CENTRAL',
@@ -56,6 +60,7 @@ export class CommunityComponent implements OnInit {
     '3': 'PERIPHERAL'
   }
   selectedViewType: ViewType;
+  selectedOverviewType: ViewType;
   selectedCategory: Category;
 
   selectedWeek: number = 0;
@@ -93,6 +98,7 @@ export class CommunityComponent implements OnInit {
       // });
     });
     this.selectedViewType = this.viewTypes[0];
+    this.selectedOverviewType = this.overviewTypes[0];
   }
   
   generateParticipantsGraph(community: string) {

@@ -7,6 +7,7 @@ import { SlideComponent } from './slide/slide.component';
 import { ParticipantEvolutionComponent } from './participant/participant-evolution/participant-evolution.component';
 import { KeywordsHeatmapComponent } from './keywords-heatmap/keywords-heatmap.component';
 import { ClusteredForceLayoutComponent } from './clustered-force-layout/clustered-force-layout.component';
+import { MultiLevelEdgeBundlingComponent } from './multi-level-edge-bundling/multi-level-edge-bundling.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ClusteredForceLayoutComponent } from './clustered-force-layout/clustere
   	SlideComponent,
   	ParticipantEvolutionComponent,
   	KeywordsHeatmapComponent,
-  	ClusteredForceLayoutComponent
+  	ClusteredForceLayoutComponent,
+  	MultiLevelEdgeBundlingComponent
   ],
   imports: [
     CommonModule, 

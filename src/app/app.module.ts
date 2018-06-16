@@ -30,6 +30,8 @@ import { CommunityCarouselComponent } from './pages/demo/community/carousel/comm
 import { SlideComponent } from './pages/demo/community/slide/slide.component';
 import { KeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
 import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
+import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-level-edge-bundling/multi-level-edge-bundling.component';
+
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -76,7 +78,8 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
     SlideComponent,
     HierarchicalEdgeBundlingComponent,
     KeywordsHeatmapComponent,
-    ClusteredForceLayoutComponent
+    ClusteredForceLayoutComponent,
+    MultiLevelEdgeBundlingComponent
   ],
   imports: [
     BrowserModule,

@@ -39,16 +39,6 @@
               </div>
           </div>
           <div class="col-xs-1">
-              <label for="self_language" class="dropdown-label">Type view: </label>
-          </div>
-          <div class="col-xs-2">
-              <div class="input-group">
-                  <select class="form-control dropdown-community" [ngModel]="selectedViewType" (ngModelChange)="selectedViewType=$event">
-                      <option *ngFor="let option of viewTypes" [ngValue]="option">{{ option.name }}</option>
-                  </select>
-              </div>
-          </div>
-          <div class="col-xs-1">
               <div class="bottom-buttons">
                   <button class="filter-button execute-button" (click)="generateParticipantsGraph(selectedCommunity.name)">Execute</button>
               </div>
@@ -74,35 +64,49 @@
         <div class="row"><div class="col-xs-2">&nbsp;</div></div>
         <div class="row"><div class="col-xs-2">&nbsp;</div></div>
         <div id="Community" class="tabcontent">
-          <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
-            <slide *ngFor="let subcommunity of subcommunities" [active]=false>
-            <!--<div *ngFor="let subcommunity of subcommunities">-->
-                <div class="carousel-caption">
-                    <div class="row test">
-                        <div class="col-xs-2"></div>
-                        <div class="col-xs-1" *ngIf="subcommunity.week > 0">
-                            <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">Week {{subcommunity.week}}</h4>
-                        </div>
-                        <div class="col-xs-2" *ngIf="subcommunity.week == 0">
-                           <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">The entire period</h4>
-                        </div>
-                        <div class="col-xs-3" style="text-align: center;">
-                            <p style="color: black; margin-top: -5px; text-align: center; font-size: 14px;">( {{subcommunity.startDate | date}} - {{subcommunity.endDate | date}} )</p>
-                        </div>
-                        <div class="col-xs-4"></div>
-                    </div>
-                    
+          <div class="row">
+            <div class="col-xs-1">
+                <label for="self_language" class="dropdown-label">View type: </label>
+            </div>
+            <div class="col-xs-2">
+                <div class="input-group">
+                    <select class="form-control dropdown-community" [ngModel]="selectedViewType" (ngModelChange)="selectedViewType=$event">
+                        <option *ngFor="let option of viewTypes" [ngValue]="option">{{ option.name }}</option>
+                    </select>
                 </div>
-                
-                <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
-                <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
+            </div>
+          </div>
+          <div class="row">
+            <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+              <slide *ngFor="let subcommunity of subcommunities" [active]=false>
+              <!--<div *ngFor="let subcommunity of subcommunities">-->
+                  <div class="carousel-caption">
+                      <div class="row test">
+                          <div class="col-xs-2"></div>
+                          <div class="col-xs-1" *ngIf="subcommunity.week > 0">
+                              <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">Week {{subcommunity.week}}</h4>
+                          </div>
+                          <div class="col-xs-2" *ngIf="subcommunity.week == 0">
+                             <h4 style="background-color: transparent;color: rgb(31,119,180); margin-top: 0px;">The entire period</h4>
+                          </div>
+                          <div class="col-xs-3" style="text-align: center;">
+                              <p style="color: black; margin-top: -5px; text-align: center; font-size: 14px;">( {{subcommunity.startDate | date}} - {{subcommunity.endDate | date}} )</p>
+                          </div>
+                          <div class="col-xs-4"></div>
+                      </div>
+                      
+                  </div>
+                  
+                  <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
+                  <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
 
-                <div *ngIf="subcommunity.edgeBundling.length == 0">
-                    <p style="color: black;"><b>No participants for this week</b></p>
-                </div>
-            <!-- </div> -->
-            </slide>
-          </carousel>
+                  <div *ngIf="subcommunity.edgeBundling.length == 0">
+                      <p style="color: black;"><b>No participants for this week</b></p>
+                  </div>
+              <!-- </div> -->
+              </slide>
+            </carousel>
+          </div>
         </div>
 
         <div id="Participants" class="tabcontent">
@@ -121,7 +125,20 @@
         </div>
 
         <div id="Overview" class="tabcontent">
-          <app-clustered-force-layout></app-clustered-force-layout>
+          <div class="row">
+            <div class="col-xs-1">
+                <label for="self_language" class="dropdown-label">View type: </label>
+            </div>
+            <div class="col-xs-2">
+                <div class="input-group">
+                    <select class="form-control dropdown-community" [ngModel]="selectedOverviewType" (ngModelChange)="selectedOverviewType=$event">
+                        <option *ngFor="let option of overviewTypes" [ngValue]="option">{{ option.name }}</option>
+                    </select>
+                </div>
+            </div>
+          </div>
+          <app-clustered-force-layout [hidden]="selectedOverviewType.id != 0"></app-clustered-force-layout>
+          <app-multi-level-edge-bundling [hidden]="selectedOverviewType.id != 1"></app-multi-level-edge-bundling>
         </div>
       </div>
   </div> 
