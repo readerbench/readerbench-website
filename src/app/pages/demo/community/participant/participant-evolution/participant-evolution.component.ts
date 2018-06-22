@@ -27,8 +27,8 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
       var dates = [];
       for (var i = 0; i < participantObjects.data.length; i++) {
         var part = participantObjects.data[i];
-        if (ps.indexOf(part["participantNickname"]) === -1) {
-          ps.push(part["participantNickname"]);
+        if (ps.indexOf(part["participantName"]) === -1) {
+          ps.push(part["participantName"]);
         }
         if (dates.indexOf(part["startDate"]) === -1) {
           dates.push(part["startDate"]);
@@ -46,7 +46,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
       for (var i = 0; i < participantObjects.data.length; i++) {
         var part = participantObjects.data[i];
         item = this.communityData.find(item => item.date == part["startDate"]);
-        item.data[part["participantNickname"]] = part["Contrib"];
+        item.data[part["participantName"]] = part["Contrib"];
       }
       this.communityData = this.communityData.slice(1).map(function (d) {
           return {
