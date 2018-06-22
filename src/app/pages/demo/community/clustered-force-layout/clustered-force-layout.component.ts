@@ -1,34 +1,35 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, AfterViewInit, Input } from '@angular/core';
 import * as d3 from "d3";
 
 @Component({
   selector: 'app-clustered-force-layout',
-  templateUrl: './clustered-force-layout.component.html',
+  template: ``,
   styleUrls: ['./clustered-force-layout.component.css']
 })
 
-export class ClusteredForceLayoutComponent implements OnInit {
-	@Input() communityData: any[] = [];
+export class ClusteredForceLayoutComponent implements AfterViewInit {
+	@Input() data: Array<any> = [];
+  @Input() week: number;
 
   constructor() { }
 
-  ngOnInit() {/*
-  	var colNames = "text,size,group\n" + this.mockData;
-  	var data = d3.csv.parse(colNames);
-	  data.forEach(function(d) {
-	    d.size = +d.size;
-	  });*/
-  	this.generateLayout(this.communityData.sort((a, b) => a.group - b.group));
-	  //console.log(this.communityData);
+  ngAfterViewInit() {
+  	this.generateLayout(this.data.sort((a, b) => a.group !== b.group ? a.group - b.group : b.size - a.size));
+	  //console.log(this.data);
   }
 
   private generateLayout(data) {
-		var width = 960,
-		    height = 500,
+		var width = 1260,
+		    height = 800,
 		    padding = 1.5, // separation between same-color nodes
 		    clusterPadding = 6, // separation between different-color nodes
 		    maxRadius = 12;
-
+		var maxSize = 0;
+		for (var i in this.data) {
+			if (this.data[i].size > maxSize) {
+				maxSize = this.data[i].size;
+			}
+		}
 		var color = d3.scale.ordinal()
 		      .range(["#1E90FF", "#228B22", "#FF8C00"]);
 
@@ -66,15 +67,14 @@ export class ClusteredForceLayoutComponent implements OnInit {
 		    .on("tick", tick)
 		    .start();
 
-		var svg = d3.select("#clustered_layout").append("svg")
+    var elementId = "#clustered-representation" + this.week;
+    var svg = d3.select(elementId).append("svg")
 		    .attr("width", width)
 		    .attr("height", height);
-
 
 		var node = svg.selectAll("circle")
 		    .data(nodes)
 		    .enter().append("g").call(force.drag);
-
 
 		node.append("circle")
 		    .style("fill", function (d) {
@@ -82,22 +82,21 @@ export class ClusteredForceLayoutComponent implements OnInit {
 		    })
 		    .attr("r", function(d){return d.radius})
 		    
-
 		node.append("text")
 		      .attr("dy", ".3em")
 		      .style("text-anchor", "middle")
 		      .text(function(d) { return d.text.substring(0, d.radius / 3); });
-
+    var week = this.week;
 		function create_nodes(data, node_counter, group_counter) {
 		  var i = cs.indexOf(data[node_counter].group),
 		      r = data[node_counter].size,
 		      d = {
 		        cluster: i,
 		        upper_cluster: i - 1 > 0 ? i - 1 : 0,
-		        radius: data[node_counter].size * 0.1,
+		        radius: data[node_counter].size * height / maxSize * 0.25,
 		        text: data[node_counter].text,
-		        x: Math.cos(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 100 + width / 2 + Math.random(),
-		        y: Math.sin(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 100 + height / 2 + Math.random()
+		        x: Math.cos(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 300 + width / 2 + Math.random(),
+		        y: Math.sin(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 300 + height / 2 + Math.random()
 		      };
 		  if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
 		  return d;

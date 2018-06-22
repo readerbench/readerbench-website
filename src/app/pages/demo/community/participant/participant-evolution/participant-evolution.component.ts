@@ -48,7 +48,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
         item = this.communityData.find(item => item.date == part["startDate"]);
         item.data[part["participantNickname"]] = part["Contrib"];
       }
-      this.communityData = this.communityData.map(function (d) {
+      this.communityData = this.communityData.slice(1).map(function (d) {
           return {
             //date: d3.time.format('%Y-%m-%d').parse(d.date),
             date: new Date(d.date),

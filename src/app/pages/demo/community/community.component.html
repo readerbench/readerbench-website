@@ -99,7 +99,7 @@
                   
                   <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0" [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
                   <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling" [week]="subcommunity.week"></hierarchical-edge-bundling>
-
+                  <app-clustered-force-layout *ngIf="subcommunity.clustered.length > 0" id="clustered-representation{{subcommunity.week}}" [hidden]="selectedViewType.id != 2" [data]="subcommunity.clustered" [week]="subcommunity.week"></app-clustered-force-layout>
                   <div *ngIf="subcommunity.edgeBundling.length == 0">
                       <p style="color: black;"><b>No participants for this week</b></p>
                   </div>
@@ -139,8 +139,7 @@
                 </div>
             </div>
           </div>
-          <app-clustered-force-layout *ngIf="clusteredDone" [hidden]="selectedOverviewType.id != 0" [communityData]="clusteredData"></app-clustered-force-layout>
-          <app-multi-level-edge-bundling [hidden]="selectedOverviewType.id != 1"></app-multi-level-edge-bundling>
+          <app-multi-level-edge-bundling [hidden]="selectedOverviewType.id != 0"></app-multi-level-edge-bundling>
         </div>
       </div>
   </div> 

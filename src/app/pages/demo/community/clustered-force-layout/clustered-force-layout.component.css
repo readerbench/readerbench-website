@@ -1,4 +1,4 @@
-circle {
+:host /deep/ circle {
     stroke: #565352;
     stroke-width: 1;
 }

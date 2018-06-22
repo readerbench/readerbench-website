@@ -21,7 +21,7 @@ interface Category {
 }
 
 interface Subcommunity {
-  week: string, graph: TwoModeGraph, edgeBundling: any, startDate: Date, endDate: Date
+  week: string, graph: TwoModeGraph, edgeBundling: any, clustered: any, startDate: Date, endDate: Date
 }
 
 @Component({
@@ -47,11 +47,11 @@ export class CommunityComponent implements OnInit {
   participantsCommunity: Community;
   viewTypes: ViewType[] = [
     { id: 0, name: "Force-Directed Graph" },
-    { id: 1, name: "Hierarchical Edge Bundling" }
+    { id: 1, name: "Hierarchical Edge Bundling" },
+    { id: 2, name: "Clustered Force Layout" }
   ];
   overviewTypes: ViewType[] = [
-    { id: 0, name: "Clustered Force Layout" },
-    { id: 1, name: "Multi-level Edge Bundling" }
+    { id: 0, name: "Multi-level Edge Bundling" }
   ];
 
   nodeTypes = {
@@ -68,8 +68,6 @@ export class CommunityComponent implements OnInit {
   subcommunities: Array<Subcommunity> = [];
   isLoadingGraph: boolean = false;
 
-  clusteredDone: boolean = false;
-  clusteredData: any[] = [];
   graph: TwoModeGraph;
 
   directedGraph: Array<any> = [];
@@ -98,7 +96,6 @@ export class CommunityComponent implements OnInit {
   
   generateParticipantsGraph(community: string) {
     this.isLoadingGraph = true;
-    this.clusteredDone = false;
     this.participantsCommunity = this.selectedCommunity;
     this.subcommunities = [];
 
@@ -107,16 +104,25 @@ export class CommunityComponent implements OnInit {
       name: community
     };
     this.apiRequestService.process(data).subscribe((participants: any) => {
-      this.directedGraph = participants.data;
+      this.directedGraph = participants.data.sort((a, b) => a.week - b.week);
       this.apiRequestService.setEndpoint('community/participants/edgeBundling');
       var data = {
         name: community
       }
       this.apiRequestService.process(data).subscribe((participants: any) => {
-        this.edgeBundling = participants.data;
+        this.edgeBundling = participants.data.sort((a, b) => a.week - b.week);
         //console.log(this.directedGraph);
         //console.log(this.edgeBundling);
         for (var i = 0; i < this.directedGraph.length; i++) {
+          var clusteredData = [];
+          for (var j = 0; j < this.directedGraph[i].nodes.length; j++) {
+            let node = this.directedGraph[i].nodes[j];
+            clusteredData.push({
+              "text":node.name,
+              "size":node.value,
+              "group":node.group
+            });
+          }
           if (this.edgeBundling[i]["data"].length > 0) {
             var graphSubcommunity = new TwoModeGraph();
             graphSubcommunity = this.parseGraphData(this.directedGraph[i]);
@@ -124,20 +130,12 @@ export class CommunityComponent implements OnInit {
               week: this.directedGraph[i].week,
               graph: graphSubcommunity,
               edgeBundling: this.edgeBundling[i].data,
+              clustered: clusteredData,
               startDate: new Date(this.directedGraph[i].startDate),
               endDate: new Date(this.directedGraph[i].endDate)
             });
           }
         }
-        for (var i = 0; i < this.directedGraph[0].nodes.length; i++) {
-          let node = this.directedGraph[0].nodes[i];
-          this.clusteredData.push({
-            "text":node.name,
-            "size":node.value,
-            "group":node.group
-          });
-        }
-        this.clusteredDone = true;
         this.isLoadingGraph = false;
       });
     });
