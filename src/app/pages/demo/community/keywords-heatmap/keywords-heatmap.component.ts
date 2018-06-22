@@ -19,13 +19,18 @@ export class KeywordsHeatmapComponent implements OnInit {
 		var keywords = Object.keys(data),
 				nWeeks = Object.values(data)[0].length,
         weeks = Array.from(Array(nWeeks).keys()),
-        margin = { top: 30, right: 0, bottom: 100, left: 100 },
-        width = 1440 - margin.left - margin.right,
-        gridSize = Math.floor(width / (3 * (weeks.length > keywords.length ? weeks.length : keywords.length))),
-        height = (keywords.length + 7) * gridSize - margin.top - margin.bottom,
+        margin = {
+        	top: keywords.reduce((prev, curr) => prev.length > curr.length ? prev : curr, "").length * 10,
+        	right: 0,
+        	bottom: 100,
+        	left: 100
+        },
+        height = 560 - margin.top - margin.bottom,
+        gridSize = Math.floor(height / (1.5 * weeks.length)),
+        width = (keywords.length + 7) * gridSize - margin.left - margin.right,
         legendElementWidth = gridSize*2,
         buckets = 9,
-        colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"]; // alternatively colorbrewer.YlGnBu[9]
+        colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
     
     var expandedData = [];
     var keyword_idx = 1;
@@ -46,38 +51,38 @@ export class KeywordsHeatmapComponent implements OnInit {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    var keywordLabels = svg.selectAll(".keywordLabel")
-        .data(keywords)
+    var weekLabels = svg.selectAll(".weekLabel")
+        .data(weeks)
         .enter().append("text")
           .text(function (d) { return d; })
           .attr("x", 0)
           .attr("y", function (d, i) { return i * gridSize; })
           .style("text-anchor", "end")
           .attr("transform", "translate(-6," + gridSize / 1.5 + ")")
-          .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "keywordLabel mono axis axis-workweek" : "keywordLabel mono axis"); });
+          .attr("class", function (d, i) { return ((i >= 0 && i <= 4) ? "weekLabel mono axis axis-workweek" : "weekLabel mono axis"); });
 
-    var weekLabels = svg.selectAll(".weekLabel")
-        .data(weeks)
+    var keywordLabels = svg.selectAll(".keywordLabel")
+        .data(keywords)
         .enter().append("text")
           .text(function(d) { return d; })
-          .attr("x", function(d, i) { return i * gridSize; })
-          .attr("y", 0)
-          .style("text-anchor", "middle")
-          .attr("transform", "translate(" + gridSize / 2 + ", -6)")
-          .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "weekLabel mono axis axis-worktime" : "weekLabel mono axis"); });
+          .attr("x", 0.2 * gridSize)
+          .attr("y", function(d, i) { return i * gridSize + gridSize / 2; })
+          .style("text-anchor", "start")
+          .attr("transform", " rotate(270)")
+          .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "keywordLabel mono axis axis-worktime" : "keywordLabel mono axis"); });
 
     var colorScale = d3.scale.quantile()
           .domain([0, buckets - 1, d3.max(expandedData, function (d) { return d.value; })])
           .range(colors);
 
     var cards = svg.selectAll(".week")
-        .data(expandedData, function(d) {return d.keyword+':'+d.week;});
+        .data(expandedData, function(d) {return d.week+':'+d.keyword;});
 
     cards.append("title");
 
     cards.enter().append("rect")
-        .attr("x", function(d) { return (d.week - 1) * gridSize; })
-        .attr("y", function(d) { return (d.keyword - 1) * gridSize; })
+        .attr("x", function(d) { return (d.keyword - 1) * gridSize; })
+        .attr("y", function(d) { return (d.week - 1) * gridSize; })
         .attr("rx", 4)
         .attr("ry", 4)
         .attr("class", "week bordered")
@@ -136,7 +141,7 @@ export class KeywordsHeatmapComponent implements OnInit {
   		"keyword16": [0, 1, 4, 3, 3, 5, 12, 5],
   		"keyword17": [3, 5, 3, 7, 3, 5, 4, 3],
   		"keyword18": [0, 1, 0, 14, 3, 17, 4, 3],
-  		"keyword19": [3, 5, 4, 3, 0, 1, 0, 14],
+  		"superlongkeyword": [3, 5, 4, 3, 0, 1, 0, 14],
   	},
   ];
 }

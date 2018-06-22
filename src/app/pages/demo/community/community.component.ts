@@ -68,6 +68,8 @@ export class CommunityComponent implements OnInit {
   subcommunities: Array<Subcommunity> = [];
   isLoadingGraph: boolean = false;
 
+  clusteredDone: boolean = false;
+  clusteredData: any[] = [];
   graph: TwoModeGraph;
 
   directedGraph: Array<any> = [];
@@ -79,23 +81,16 @@ export class CommunityComponent implements OnInit {
     document.getElementById("defaultOpen").click();
     this.apiRequestService.setEndpoint('community/communities');
     this.isLoadingGraph = false;
-    var data = { };
-    var process = this.apiRequestService.process(data);
+    var data = null;
+    var process = this.apiRequestService.get();
     process.subscribe((categories: any) => {
-      //console.log(categories);
       this.categories = categories.data;
 
       if (this.categories.length > 0) {
         this.selectedCategory = this.categories[0];
         this.selectedCommunity = this.categories[0].communities[0];
-        // if( this.selectedCategory &&  this.selectedCategory.communities.length > 0) {
-        //      this.selectedCommunity = this.selectedCategory.communities[0];
-        // }
 
       }
-      // communities.forEach((value: string, key: Array<Community>) => {
-      //     console.log("hello");
-      // });
     });
     this.selectedViewType = this.viewTypes[0];
     this.selectedOverviewType = this.overviewTypes[0];
@@ -103,35 +98,28 @@ export class CommunityComponent implements OnInit {
   
   generateParticipantsGraph(community: string) {
     this.isLoadingGraph = true;
+    this.clusteredDone = false;
     this.participantsCommunity = this.selectedCommunity;
     this.subcommunities = [];
 
     this.apiRequestService.setEndpoint('community/participants/directedGraph');
     var data = {
-      communityName: community
+      name: community
     };
-    //console.log(data);
-    /*
-    var process = this.apiRequestService.process(data);
-    process.subscribe((participants: any) => {
-      this.directedGraph = participants;
-      //console.log(participants);
+    this.apiRequestService.process(data).subscribe((participants: any) => {
+      this.directedGraph = participants.data;
       this.apiRequestService.setEndpoint('community/participants/edgeBundling');
       var data = {
-        communityName: community
+        name: community
       }
-      process.subscribe((participants: any) => {
-        this.edgeBundling = participants;
-
-        console.log(this.directedGraph);
-        console.log(this.edgeBundling);
+      this.apiRequestService.process(data).subscribe((participants: any) => {
+        this.edgeBundling = participants.data;
+        //console.log(this.directedGraph);
+        //console.log(this.edgeBundling);
         for (var i = 0; i < this.directedGraph.length; i++) {
-          if (this.edgeBundling[i].data.length > 0) {
+          if (this.edgeBundling[i]["data"].length > 0) {
             var graphSubcommunity = new TwoModeGraph();
             graphSubcommunity = this.parseGraphData(this.directedGraph[i]);
-            //console.log(this.edgeBundling[i].data);
-            //for (var j = 0; j < this.edgeBundling.length; j++) {
-            // if(this.edgeBundling[j].week === this.directedGraph[i].week) {
             this.subcommunities.push({
               week: this.directedGraph[i].week,
               graph: graphSubcommunity,
@@ -141,42 +129,18 @@ export class CommunityComponent implements OnInit {
             });
           }
         }
-        //console.log(this.subcommunities);
+        for (var i = 0; i < this.directedGraph[0].nodes.length; i++) {
+          let node = this.directedGraph[0].nodes[i];
+          this.clusteredData.push({
+            "text":node.name,
+            "size":node.value,
+            "group":node.group
+          });
+        }
+        this.clusteredDone = true;
         this.isLoadingGraph = false;
       });
-    });*/
-
-    this.directedGraph = this.mockData.directedGraph;
-    //console.log(participants);
-    //this.apiRequestService.setEndpoint('community/participants/edgeBundling');
-    //var data = {
-    //  communityName: community
-    //}
-    //process.subscribe((participants: any) => {
-    this.edgeBundling = this.mockData.edgeBundling;
-
-    //TODO: request communityData for the participant-evolution component
-    //console.log(this.directedGraph);
-    //console.log(this.edgeBundling);
-    for (var i = 0; i < this.directedGraph.length; i++) {
-      if (this.edgeBundling[i].data.length > 0) {
-        var graphSubcommunity = new TwoModeGraph();
-        graphSubcommunity = this.parseGraphData(this.directedGraph[i]);
-        //console.log(this.edgeBundling[i].data);
-        //for (var j = 0; j < this.edgeBundling.length; j++) {
-        //if(this.edgeBundling[j].week === this.directedGraph[i].week) {
-        this.subcommunities.push({
-          week: this.directedGraph[i].week,
-          graph: graphSubcommunity,
-          edgeBundling: this.edgeBundling[i].data,
-          startDate: new Date(this.directedGraph[i].startDate),
-          endDate: new Date(this.directedGraph[i].endDate)
-        });
-         // }
-      }
-    }
-    //console.log(this.subcommunities);
-    this.isLoadingGraph = false;
+    });
   }
 
   private parseGraphData(inGraph): TwoModeGraph {

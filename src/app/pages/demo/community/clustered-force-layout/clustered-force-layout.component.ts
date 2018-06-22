@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as d3 from "d3";
 
 @Component({
@@ -8,17 +8,18 @@ import * as d3 from "d3";
 })
 
 export class ClusteredForceLayoutComponent implements OnInit {
+	@Input() communityData: any[] = [];
 
   constructor() { }
 
-  ngOnInit() {
-  	//var colNames = "text,size,group\n" + text;
+  ngOnInit() {/*
   	var colNames = "text,size,group\n" + this.mockData;
   	var data = d3.csv.parse(colNames);
 	  data.forEach(function(d) {
 	    d.size = +d.size;
-	  });
-  	this.generateLayout(data);
+	  });*/
+  	this.generateLayout(this.communityData.sort((a, b) => a.group - b.group));
+	  //console.log(this.communityData);
   }
 
   private generateLayout(data) {
@@ -93,7 +94,7 @@ export class ClusteredForceLayoutComponent implements OnInit {
 		      d = {
 		        cluster: i,
 		        upper_cluster: i - 1 > 0 ? i - 1 : 0,
-		        radius: data[node_counter].size * 2,
+		        radius: data[node_counter].size * 0.1,
 		        text: data[node_counter].text,
 		        x: Math.cos(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 100 + width / 2 + Math.random(),
 		        y: Math.sin(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 100 + height / 2 + Math.random()

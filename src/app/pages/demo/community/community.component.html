@@ -112,10 +112,12 @@
         <div id="Participants" class="tabcontent">
           <div class="row">
             <div class="col-xs-12">
-              <app-participant-evolution [communityData]="communityData"></app-participant-evolution>
-              <!-- <div *ngFor="let subcommunity of subcommunities">
-                 <app-participant *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></app-participant>
-               </div> -->
+              <app-participant-evolution *ngIf="participantsCommunity" [communityName]="selectedCommunity.name"></app-participant-evolution>
+              <carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
+                <slide *ngFor="let subcommunity of subcommunities">
+                  <app-participant *ngIf="participantsCommunity" [communityName]="selectedCommunity.name" [week]="subcommunity.week"></app-participant>
+                </slide>
+              </carousel>
             </div>
           </div>
         </div>
@@ -137,7 +139,7 @@
                 </div>
             </div>
           </div>
-          <app-clustered-force-layout [hidden]="selectedOverviewType.id != 0"></app-clustered-force-layout>
+          <app-clustered-force-layout *ngIf="clusteredDone" [hidden]="selectedOverviewType.id != 0" [communityData]="clusteredData"></app-clustered-force-layout>
           <app-multi-level-edge-bundling [hidden]="selectedOverviewType.id != 1"></app-multi-level-edge-bundling>
         </div>
       </div>

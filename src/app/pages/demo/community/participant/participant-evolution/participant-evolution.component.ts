@@ -1,71 +1,65 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
+import { ApiRequestService } from '../../../api-request.service';
 import * as d3 from "d3";
 
 @Component({
   selector: 'app-participant-evolution',
   templateUrl: 'participant-evolution.component.html',
-  styleUrls: ['./participant-evolution.component.css']
+  styleUrls: ['./participant-evolution.component.css'],
+  providers: [ApiRequestService]
 })
 export class ParticipantEvolutionComponent implements AfterViewInit {
 
-	@Input() communityData: any[] = [];
+	@Input() communityName: string;
+  communityData: any[] = [];
 	participants: any[] = [];
 	selectedParticipants: any[] = [];
 
-  constructor() { }
+  constructor(private apiRequestService: ApiRequestService) { }
 
   ngAfterViewInit() {
-  	/*var parseDate  = d3.time.format('%Y-%m-%d').parse;
-		d3.json("./data.json", function (error, rawData) {
-		  if (error) {
-		    console.error(error);
-		    return;
-		  }
+    this.apiRequestService.setEndpoint('community/participants');
+    var process = this.apiRequestService.process({
+        name: this.communityName,
+    });
+    process.subscribe(participantObjects => {
+      var ps = [];
+      var dates = [];
+      for (var i = 0; i < participantObjects.data.length; i++) {
+        var part = participantObjects.data[i];
+        if (ps.indexOf(part["participantNickname"]) === -1) {
+          ps.push(part["participantNickname"]);
+        }
+        if (dates.indexOf(part["startDate"]) === -1) {
+          dates.push(part["startDate"]);
+        }
+      }
+      for (var d in dates.sort()) {
+        var item = { date: dates[d], data: {} };
+        for (var p in ps) {
+          item.data[ps[p]] = 0;
+        }
+        this.communityData.push(item);
+      }
+      //console.log(dates);
+      //console.log(ps);
+      for (var i = 0; i < participantObjects.data.length; i++) {
+        var part = participantObjects.data[i];
+        item = this.communityData.find(item => item.date == part["startDate"]);
+        item.data[part["participantNickname"]] = part["Contrib"];
+      }
+      this.communityData = this.communityData.map(function (d) {
+          return {
+            //date: d3.time.format('%Y-%m-%d').parse(d.date),
+            date: new Date(d.date),
+            data: d.data
+          };
+        });
 
-		  var data = rawData.map(function (d) {
-		    return {
-		      date:  parseDate(d.date),
-		      Ion: d.Ion / 1000,
-		      Maria: d.Maria / 1000,
-		      Ana: d.Ana / 1000,
-		      Cristi: d.Cristi / 1000,
-		      Andreea: d.Andreea / 1000
-		    };
-		  });
-
-		  d3.json("./markers.json", function (error, markerData) {
-		    if (error) {
-		      console.error(error);
-		      return;
-		    }
-
-		    var markers = markerData.map(function (marker) {
-		      return {
-		        date: parseDate(marker.date),
-		        type: marker.type,
-		        version: marker.version
-		      };
-		    });
-
-		    this.makeChart(data, markers);
-		  });
-		});*/
-
-		this.communityData = this.mockData.map(function (d) {
-		    return {
-		      date:  d3.time.format('%Y-%m-%d').parse(d.date),
-		      data: d.data
-		    };
-		  });
-
-		this.participants = Object.keys(this.communityData[0].data);
-		this.makeChart(this.communityData, this.selectedParticipants);/*, this.mockMarkers.map(function (marker) {
-		      return {
-		        date: d3.time.format('%Y-%m-%d').parse(marker.date),
-		        type: marker.type,
-		        version: marker.version
-		      };
-	    }));*/
+      //this.participants = Object.keys(this.communityData[0].data);
+      this.participants = ps;
+      this.makeChart(this.communityData, this.selectedParticipants);    
+    });
   }
 
   onSelect(participant) {
@@ -164,56 +158,10 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 	  }
 	}
 
-	private addMarker(marker, svg, chartHeight, x) {
-	  var radius = 32,
-	      xPos = x(marker.date) - radius - 3,
-	      yPosStart = chartHeight - radius - 3,
-	      yPosEnd = (marker.type === 'Client' ? 80 : 160) + radius - 3;
-
-	  var markerG = svg.append('g')
-	    .attr('class', 'marker '+marker.type.toLowerCase())
-	    .attr('transform', 'translate(' + xPos + ', ' + yPosStart + ')')
-	    .attr('opacity', 0);
-
-	  markerG.transition()
-	    .duration(1000)
-	    .attr('transform', 'translate(' + xPos + ', ' + yPosEnd + ')')
-	    .attr('opacity', 1);
-
-	  markerG.append('path')
-	    .attr('d', 'M' + radius + ',' + (chartHeight-yPosStart) + 'L' + radius + ',' + (chartHeight-yPosStart))
-	    .transition()
-	      .duration(1000)
-	      .attr('d', 'M' + radius + ',' + (chartHeight-yPosEnd) + 'L' + radius + ',' + (radius*2));
-
-	  markerG.append('circle')
-	    .attr('class', 'marker-bg')
-	    .attr('cx', radius)
-	    .attr('cy', radius)
-	    .attr('r', radius);
-
-	  markerG.append('text')
-	    .attr('x', radius)
-	    .attr('y', radius*0.9)
-	    .text(marker.type);
-
-	  markerG.append('text')
-	    .attr('x', radius)
-	    .attr('y', radius*1.5)
-	    .text(marker.version);
-	}
-
 	private startTransitions(svg, chartWidth, chartHeight, rectClip, x) {
 	  rectClip.transition()
-	    .duration(2500)
+	    .duration(2000)
 	    .attr('width', chartWidth);
-		/*
-	  markers.forEach(function (marker, i) {
-	    setTimeout(function () {
-	      () => this.addMarker(marker, svg, chartHeight, x);
-	    }, 1000 + 500*i);
-	  });
-	  */
 	}
 
 	private makeChart(data, keys) {
@@ -223,9 +171,9 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 	      margin = { top: 20, right: 20, bottom: 40, left: 40 },
 	      chartWidth  = svgWidth  - margin.left - margin.right,
 	      chartHeight = svgHeight - margin.top  - margin.bottom;
-    console.log(keys);
+    //console.log(keys);
     var dataAccesors = keys.map((k:any) => ((d:any) => d[k]));
-    console.log(dataAccesors);
+    //console.log(dataAccesors);
 	  var x = d3.time.scale().range([0, chartWidth])
 	            .domain(d3.extent(data, (d:any) => d.date)),
 	      y = d3.scale.linear().range([chartHeight, 0])

@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ParticipantDO } from './participant.do';
-import { ParticipantService } from './participant.service';
+import { ApiRequestService } from '../../api-request.service';
 
 @Component({
   selector: 'app-participant',
   templateUrl: './participant.component.html',
   styleUrls: ['./participant.component.css'],
-  providers: [ParticipantService]
+  providers: [ApiRequestService]
 })
 export class ParticipantComponent implements OnInit {
 
@@ -19,31 +19,47 @@ export class ParticipantComponent implements OnInit {
   // columns: string[] = ["Name", "Nickname", "Contributions", "Cumulated contribution scores",
   //                     "Cumulated social KB scores", "Degree of inter-animation", "In-degree centrality", "Out-degree centrality"];
   filter: ParticipantDO = new ParticipantDO();
-/*
-  public get communityName(): string {
-    return this._communityName;
-  }
-  @Input()
-  public set communityName(communityName: string) {
-    this._communityName = communityName;
-  }
 
-  public get week(): number {
-    return this._week;
-  }
-  @Input()
-  public set week(week: number) {
-    this._week = week;
-  }*/
-
-  constructor(private _participantService: ParticipantService) { }
+  constructor(private apiRequestService: ApiRequestService) { }
 
   ngOnInit() {
-    //this._participantService.getParticipantsStats(this._communityName, this._week).subscribe((participantList: ParticipantDO[]) => {
-    this._participantService.getParticipantsStats(this.communityName, this.week).subscribe((participantList: ParticipantDO[]) => {
-      this.participants = [];
-      this.participants = participantList;
+    this.apiRequestService.setEndpoint('community/participants');
+    var process = this.apiRequestService.process({
+        name: this.communityName,
     });
+    process.subscribe(participantObjects => {
+        var participantList: ParticipantDO[] = [];
+        for (var i = 0; i < participantObjects.data.length; i++) {
+           if (participantObjects.data[i]["week"] == this.week) {
+             var participant = new ParticipantDO();
+             participant.buildFromObject(participantObjects.data[i]);
+             participantList.push(participant);
+           }
+        }
+       this.participants = participantList;
+    });
+    //this.participants = this._participantService.getParticipantsStats(this.communityName, this.week);
   }
   
+  private mockData = [
+    {
+    "NN": 53.0,
+    "Scr": 57.759,
+    "week": 1,
+    "endDate": 1377862964000,
+    "VB": 33.0,
+    "participantNickname": "Member 1",
+    "Contrib": 5.0,
+    "OutDegree": 87.801,
+    "communityName": "Online Math Course",
+    "InterAnim": 79.135,
+    "participantName": "117670883",
+    "InDegree": 43.178,
+    "SocialKB": 30.042,
+    "startDate": 1377258164000,
+    "group": "CENTRAL"
+    }, 
+    {}, 
+    {}
+  ];
 }

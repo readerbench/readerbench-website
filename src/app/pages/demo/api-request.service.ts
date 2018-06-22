@@ -21,7 +21,6 @@ export class ApiRequestService {
     }
 
     process(body: Object): Observable<ApiResponseModel> {
-        let bodyString = JSON.stringify(body);
         let headers = new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/json'
@@ -34,4 +33,10 @@ export class ApiRequestService {
             .catch((error: any) => {console.log(error); return Observable.throw(error.json().error || 'Server error');});
     }
 
+    get(): Observable<ApiResponseModel> {
+        return this.http.get(this.url + this.endpoint)
+            .do(value => console.log(value))
+            .map((res: Response) =>  res.json())
+            .catch((error: any) => {console.log(error); return Observable.throw(error.json().error || 'Server error');});
+    }
 }

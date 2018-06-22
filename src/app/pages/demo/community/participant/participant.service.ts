@@ -4,30 +4,32 @@ import 'rxjs/add/operator/map';
 import { ParticipantDO } from './participant.do';
 import { ReaderbenchService } from '../../../../readerbench.service';
 import { ApiRequestService } from '../../api-request.service';
-// import _ = require('underscore');
 
 @Injectable()
 export class ParticipantService {
-    private _participantList: ParticipantDO[] = [];
+    //private static _participantLists: Map<number, ParticipantDO[]> = null;
 
     constructor(private apiRequestService: ApiRequestService) { }
 
-    public getParticipantsStats(communityName: string, week: number): Observable<ParticipantDO[]> {
-        this.apiRequestService.setEndpoint('community/participants');
-        var process = this.apiRequestService.process({
-            communityName: communityName,
-            week: week
-        });
-        process.subscribe(participantObjects => {
-            var participantList: ParticipantDO[] = [];
-        //     _.forEach(participantObjects, (participant: Object) => {
-        //        var p = new ParticipantDO();
-        //        p.buildFromObject(participant);
-        //        participantList.push(p);
-        //    });
-           this._participantList = participantList;
-           return participantList;
-        });
-        return null;
+    public getParticipantsStats(communityName: string, week: number): ParticipantDO[] {
+        //if (ParticipantService._participantLists == null) {
+            this.apiRequestService.setEndpoint('community/participants');
+            var process = this.apiRequestService.process({
+                name: communityName,
+            });
+            process.subscribe(participantObjects => {
+                var participantList: ParticipantDO[] = [];
+                for (var p in participantObjects.data) {
+                   var participant = new ParticipantDO();
+                   participant.buildFromObject(p);
+                   participantList.push(participant);
+                }
+               //ParticipantService._participantLists = participantLists;
+               //return participantLists[week];
+               return participantList;
+            });
+            return null;
+        //}
+        //return Observable.from(ParticipantService._participantLists[week]);
     }
 }

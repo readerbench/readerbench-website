@@ -24,6 +24,9 @@
     font-size: 10px !important;
     font-weight: bold;
 }
+:host /deep/ .carousel {
+    margin:30px;
+}
 
 :host /deep/ .carousel-control > .glyphicon-chevron-left, .carousel-control > .glyphicon-chevron-right {
     margin-top: 0px !important;
