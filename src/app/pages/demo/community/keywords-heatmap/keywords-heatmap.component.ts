@@ -20,7 +20,7 @@ export class KeywordsHeatmapComponent implements OnInit {
       name: this.communityName
     };
     this.apiRequestService.process(data).subscribe((keywords: any) => {
-	  	this.buildHeatmap(keywords.data);
+	  	this.buildHeatmap(keywords[0].data);
 	  });
   }
 
