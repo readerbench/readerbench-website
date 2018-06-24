@@ -25,7 +25,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		    clusterPadding = 6, // separation between different-color nodes
 		    maxRadius = 12;
 		var maxSize = 0;
-		for (var i in this.data) {
+		for (let i in this.data) {
 			if (this.data[i].size > maxSize) {
 				maxSize = this.data[i].size;
 			}
@@ -50,7 +50,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		var nodes = [];
 		var group_counter = 0;
 		var prev_group = 0;
-		for (var i = 0; i<n; i++, group_counter++){
+		for (let i = 0; i < n; i++, group_counter++){
 		    let d = create_nodes(data,i,group_counter);
 		    nodes.push(d);
 		    if (d.cluster !== prev_group) {
@@ -58,7 +58,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		        prev_group = d.cluster;
 		    }
 		}
-
+		console.log(clusters);
 		var force = d3.layout.force()
 		    .nodes(nodes)
 		    .size([width, height])
@@ -98,7 +98,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		        x: Math.cos(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 300 + width / 2 + Math.random(),
 		        y: Math.sin(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 300 + height / 2 + Math.random()
 		      };
-		  if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
+		  if (!clusters[i]) clusters[i] = d;
 		  return d;
 		};
 
