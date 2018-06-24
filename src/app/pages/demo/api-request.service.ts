@@ -12,8 +12,7 @@ export class ApiRequestService {
 
     constructor(private http: Http) { }
 
-    private url = '//localhost:8080/api/';
-    //private url = '//readerbench.com/api/';
+    private url = '//readerbench.com/api/';
     private endpoint: string;
 
     public setEndpoint(endpoint) {
