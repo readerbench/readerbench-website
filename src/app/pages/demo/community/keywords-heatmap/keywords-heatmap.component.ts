@@ -1,18 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ApiRequestService } from '../../api-request.service';
 import * as d3 from "d3";
 
 @Component({
   selector: 'app-keywords-heatmap',
   templateUrl: './keywords-heatmap.component.html',
-  styleUrls: ['./keywords-heatmap.component.css']
+  styleUrls: ['./keywords-heatmap.component.css'],
+  providers: [ApiRequestService]
 })
 export class KeywordsHeatmapComponent implements OnInit {
+	@Input() communityName: string;
 
-  constructor() { }
+  constructor(private apiRequestService: ApiRequestService) { }
 
   ngOnInit() {
-  	var data = this.mockData[0];
-  	this.buildHeatmap(data);
+  	//var data = this.mockData[0];
+  	this.apiRequestService.setEndpoint('community/keywords');
+    var data = {
+      name: this.communityName
+    };
+    this.apiRequestService.process(data).subscribe((keywords: any) => {
+	  	this.buildHeatmap(keywords);
+	  });
   }
 
   private buildHeatmap(data: {[s: string]: number[];}) {
