@@ -20,7 +20,8 @@ export class KeywordsHeatmapComponent implements OnInit {
       name: this.communityName
     };
     this.apiRequestService.process(data).subscribe((keywords: any) => {
-	  	this.buildHeatmap(keywords[0].data);
+    	console.log(keywords.data[0]);
+	  	this.buildHeatmap(keywords.data[0].data);
 	  });
   }
 
@@ -34,7 +35,7 @@ export class KeywordsHeatmapComponent implements OnInit {
         	bottom: 100,
         	left: 100
         },
-        height = 560 - margin.top - margin.bottom,
+        height = 700 - margin.top - margin.bottom,
         gridSize = Math.floor(height / (1.5 * weeks.length)),
         width = (keywords.length + 7) * gridSize - margin.left - margin.right,
         legendElementWidth = gridSize*2,

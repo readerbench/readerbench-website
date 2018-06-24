@@ -25,11 +25,14 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     process.subscribe(participantObjects => {
       var ps = [];
       var dates = [];
-      for (var i = 0; i < participantObjects.data.length; i++) {
-        var part = participantObjects.data[i];
-        if (ps.indexOf(part["participantName"]) === -1) {
-          ps.push(part["participantName"]);
+      var entirePeriod = participantObjects.data.filter(item => item["week"] == 0).sort((a, b) => b["Contrib"] - a["Contrib"]);
+      for (let i in entirePeriod) {
+        if (ps.indexOf(entirePeriod[i]["participantName"]) === -1) {
+          ps.push(entirePeriod[i]["participantName"]);
         }
+      }
+      for (let i = 0; i < participantObjects.data.length; i++) {
+        var part = participantObjects.data[i];
         if (dates.indexOf(part["startDate"]) === -1) {
           dates.push(part["startDate"]);
         }
@@ -112,7 +115,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 
 	  var legend = svg.append('g')
 	    .attr('class', 'legend')
-	    .attr('transform', 'translate(' + (chartWidth - legendWidth) + ', 0)');
+	    .attr('transform', 'translate(' + (chartWidth - legendWidth + 300) + ', 0)');
 
 	  legend.append('rect')
 	    .attr('class', 'legend-bg')
@@ -166,10 +169,10 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 
 	private makeChart(data, keys) {
 		d3.select("#participant_evolution_graph").remove();
-	  var svgWidth  = 960,
+	  var svgWidth  = 1260,
 	      svgHeight = 500,
 	      margin = { top: 20, right: 20, bottom: 40, left: 40 },
-	      chartWidth  = svgWidth  - margin.left - margin.right,
+	      chartWidth  = svgWidth  - margin.left - margin.right - 300,
 	      chartHeight = svgHeight - margin.top  - margin.bottom;
     //console.log(keys);
     var dataAccesors = keys.map((k:any) => ((d:any) => d[k]));
