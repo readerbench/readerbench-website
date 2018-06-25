@@ -15,18 +15,19 @@ export class ApiRequestService {
     // private url = '//localhost:8080/api/';
     private url = '//readerbench.com/api/';
     private endpoint: string;
+    private headers: Headers;
 
     public setEndpoint(endpoint) {
         this.endpoint = endpoint;
     }
 
+    public setHeaders(headers) {
+        this.headers = headers;
+    }
+
     process(body: Object): Observable<ApiResponseModel> {
         let bodyString = JSON.stringify(body);
-        let headers = new Headers({
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        });
-        let options = new RequestOptions({ headers: headers });
+        let options = new RequestOptions({ headers: this.headers });
 
         return this.http.post(this.url + this.endpoint, body, options)
             .map((res: Response) => res.json())
