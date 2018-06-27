@@ -81,7 +81,7 @@ export class KeywordsHeatmapComponent implements OnInit {
           .attr("transform", " rotate(270)")
           .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "keywordLabel mono axis axis-worktime" : "keywordLabel mono axis"); });
 
-    var colorScale = d3.scale.quantile()
+    var colorScale = d3.scaleQuantile<string>()
           .domain([0, buckets - 1, d3.max(expandedData, function (d) { return d.value; })])
           .range(colors);
 
@@ -107,26 +107,26 @@ export class KeywordsHeatmapComponent implements OnInit {
     
     cards.exit().remove();
 
-    var legend = svg.selectAll(".legend")
-        .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+    // var legend = svg.selectAll(".legend")
+    //     .data([0].concat(colorScale.quantiles()), function(d) { return d; });
 
-    legend.enter().append("g")
-        .attr("class", "legend");
+    // legend.enter().append("g")
+    //     .attr("class", "legend");
 
-    legend.append("rect")
-      .attr("x", function(d, i) { return legendElementWidth * i; })
-      .attr("y", height)
-      .attr("width", legendElementWidth)
-      .attr("height", gridSize / 2)
-      .style("fill", function(d, i) { return colors[i]; });
+    // legend.append("rect")
+    //   .attr("x", function(d, i) { return legendElementWidth * i; })
+    //   .attr("y", height)
+    //   .attr("width", legendElementWidth)
+    //   .attr("height", gridSize / 2)
+    //   .style("fill", function(d, i) { return colors[i]; });
 
-    legend.append("text")
-      .attr("class", "mono")
-      .text(function(d) { return "≥ " + Math.round(d); })
-      .attr("x", function(d, i) { return legendElementWidth * i; })
-      .attr("y", height + gridSize);
+    // legend.append("text")
+    //   .attr("class", "mono")
+    //   .text(function(d) { return "≥ " + Math.round(d); })
+    //   .attr("x", function(d, i) { return legendElementWidth * i; })
+    //   .attr("y", height + gridSize);
 
-    legend.exit().remove();
+    // legend.exit().remove();
   }
 
 

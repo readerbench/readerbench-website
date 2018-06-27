@@ -140,10 +140,11 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 	private drawPaths(svg, data, x, y, keys) {
 		var lines = {};
 		for (let idx in keys) {
-		  lines[keys[idx]] = d3.svg.line()
-		    .interpolate('basis')
-		    .x(function (d) { return x(d.date) || 1; })
-		    .y(function (d) { return y(d.data[keys[idx]]); });
+      lines[keys[idx]] = d3.line()
+        .curve(d3.curveBasis)
+		    // .x(function (d) { return x(d) || 1; })
+        // .y(function (d) { return y(d.data[keys[idx]]); })
+        ;
 	  }
 
 	  svg.datum(data);
@@ -177,15 +178,17 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     //console.log(keys);
     var dataAccesors = keys.map((k:any) => ((d:any) => d[k]));
     //console.log(dataAccesors);
-	  var x = d3.time.scale().range([0, chartWidth])
-	            .domain(d3.extent(data, (d:any) => d.date)),
-	      y = d3.scale.linear().range([chartHeight, 0])
-	            .domain([0, d3.max(dataAccesors.map(da => d3.max(data.map((d: any) => d.data), da)))]);
+	  var x = d3.scaleTime().range([0, chartWidth])
+              // .domain(d3.extent(data, (d:any) => d.date))
+              ,
+	      y = d3.scaleLinear().range([chartHeight, 0])
+              // .domain([0, d3.max(dataAccesors.map(da => d3.max(data.map((d: any) => d.data), da)))])
+              ;
 
-	  var xAxis = d3.svg.axis().scale(x).orient('bottom')
-	                .innerTickSize(-chartHeight).outerTickSize(0).tickPadding(10),
-	      yAxis = d3.svg.axis().scale(y).orient('left')
-	                .innerTickSize(-chartWidth).outerTickSize(0).tickPadding(10);
+	  var xAxis = d3.axisBottom(x)
+	                .tickSizeInner(-chartHeight).tickSizeOuter(0).tickPadding(10),
+	      yAxis = d3.axisLeft(y)
+	                .tickSizeInner(-chartWidth).tickSizeOuter(0).tickPadding(10);
 
 	  var svg = d3.select('app-participant-evolution').append('svg')
 	  	.attr("id","participant_evolution_graph")
