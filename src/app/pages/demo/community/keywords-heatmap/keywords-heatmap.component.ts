@@ -20,7 +20,6 @@ export class KeywordsHeatmapComponent implements OnInit {
       name: this.communityName
     };
     this.apiRequestService.process(data).subscribe((keywords: any) => {
-    	console.log(keywords.data[0]);
 	  	this.buildHeatmap(keywords.data[0].data);
 	  });
   }
@@ -36,12 +35,12 @@ export class KeywordsHeatmapComponent implements OnInit {
         	left: 100
         },
         height = 700 - margin.top - margin.bottom,
-        gridSize = Math.floor(height / (1.5 * weeks.length)),
+        gridSize = Math.floor(height / (1.5 * weeks.length)) > 50 ? 50 : Math.floor(height / (1.5 * weeks.length)),
         width = (keywords.length + 7) * gridSize - margin.left - margin.right,
         legendElementWidth = gridSize*2,
         buckets = 9,
         colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
-    
+
     var expandedData = [];
     var keyword_idx = 1;
     for (let keyword in data) {
@@ -104,7 +103,7 @@ export class KeywordsHeatmapComponent implements OnInit {
         .style("fill", function(d) { return colorScale(d.value); });
 
     cards.select("title").text(function(d) { return d.value; });
-    
+
     cards.exit().remove();
 
     var legend = svg.selectAll(".legend")

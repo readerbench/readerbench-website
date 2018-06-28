@@ -26,8 +26,9 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		    maxRadius = 12;
 		var maxSize = 0;
 		for (let i in this.data) {
-			if (this.data[i].size > maxSize) {
-				maxSize = this.data[i].size;
+			let size = Math.log(this.data[i].size);
+			if (size > maxSize) {
+				maxSize = size;
 			}
 		}
 		var color = d3.scale.ordinal()
@@ -52,11 +53,13 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		var prev_group = 0;
 		for (let i = 0; i < n; i++, group_counter++){
 		    let d = create_nodes(data,i,group_counter);
-		    nodes.push(d);
-		    if (d.cluster !== prev_group) {
-		        group_counter = 0;
-		        prev_group = d.cluster;
-		    }
+		    if (d) {
+		    	nodes.push(d);
+			    if (d.cluster !== prev_group) {
+			        group_counter = 0;
+			        prev_group = d.cluster;
+			    }
+			  }
 		}
 		console.log(clusters);
 		var force = d3.layout.force()
@@ -81,7 +84,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		    return color(d.cluster);
 		    })
 		    .attr("r", function(d){return d.radius})
-		    
+
 		node.append("text")
 		      .attr("dy", ".3em")
 		      .style("text-anchor", "middle")
@@ -93,11 +96,12 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		      d = {
 		        cluster: i,
 		        upper_cluster: i - 1 > 0 ? i - 1 : 0,
-		        radius: data[node_counter].size * height / maxSize * 0.25,
+		        radius: (Math.log(data[node_counter].size * height / 2) - maxSize) * 12,// * 0.25,
 		        text: data[node_counter].text,
 		        x: Math.cos(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 300 + width / 2 + Math.random(),
 		        y: Math.sin(group_counter / cluster_count[i] * 2 * Math.PI) * (i + 1) * 300 + height / 2 + Math.random()
 		      };
+      if (d.radius < 0) return null;
 		  if (!clusters[i]) clusters[i] = d;
 		  return d;
 		};
