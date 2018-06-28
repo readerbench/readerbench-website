@@ -12,7 +12,7 @@
         </div>
         <div class="container">
           <div class="section-header">
-            <h1>{{$componentTitle}}</h1>
+            <h1>{{componentTitle}}</h1>
           </div>
         </div>
         <div class="container">
@@ -28,7 +28,7 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" [languages]="languages" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer">
                 <div class="col-xs-6 col-md-4 col-lg-3">
                   <label for="input_granularity">Granularity
@@ -70,11 +70,16 @@
                         <li *ngFor="let element of response.data">
                           {{element.text}}
                           <ul>
-                            <li *ngFor="let sentiment of element.valences">
+                            <li *ngFor="let sentiment of element.valences; let index = index" [class.first]="index == 0">
+                              <span class="legend">{{sentiment.valence}}</span>
                               <div class="progress sentiment-{{sentiment.valence}}">
-                                <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="sentiment.score * 100" [attr.aria-valuemin]="0" [attr.aria-valuemax]="100" [ngStyle]="{'width': sentiment.score * 100 + '%', 'background-color': getSentimentColor(sentiment.valence)}">
-                                  {{sentiment.valence}}: {{sentiment.score * 100 | number:0}}&#37;
+                                <div *ngIf="index == 0" class="progress-bar valence" role="progressbar" [attr.aria-valuenow]="sentiment.score" [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue" [ngStyle]="{'width': (sentiment.score * 100 / (sentiment.maxValue - sentiment.maxValue)) + '%', 'background-color': getSentimentColor(sentiment.valence)}">
+                                  <span class="value">
+                                    {{sentiment.score | number}}
+                                  </span>
                                 </div>
+                                <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%" [class.negative]="sentiment.score == -1" [attr.aria-valuenow]="(sentiment.score == -1) ? -sentiment.score : 0" [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>
+                                <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%" [class.positive]="sentiment.score == 1" [attr.aria-valuenow]="(sentiment.score == 1) ? sentiment.score : 0" [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>
                               </div>
                             </li>
                           </ul>
