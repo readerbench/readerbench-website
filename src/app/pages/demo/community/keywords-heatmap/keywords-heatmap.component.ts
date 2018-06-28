@@ -41,7 +41,7 @@ export class KeywordsHeatmapComponent implements OnInit {
         legendElementWidth = gridSize*2,
         buckets = 9,
         colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
-    
+
     var expandedData = [];
     var keyword_idx = 1;
     for (let keyword in data) {
@@ -81,7 +81,7 @@ export class KeywordsHeatmapComponent implements OnInit {
           .attr("transform", " rotate(270)")
           .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "keywordLabel mono axis axis-worktime" : "keywordLabel mono axis"); });
 
-    var colorScale = d3.scaleQuantile<string>()
+    var colorScale = d3.scale.quantile()
           .domain([0, buckets - 1, d3.max(expandedData, function (d) { return d.value; })])
           .range(colors);
 
@@ -104,29 +104,29 @@ export class KeywordsHeatmapComponent implements OnInit {
         .style("fill", function(d) { return colorScale(d.value); });
 
     cards.select("title").text(function(d) { return d.value; });
-    
+
     cards.exit().remove();
 
-    // var legend = svg.selectAll(".legend")
-    //     .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+    var legend = svg.selectAll(".legend")
+        .data([0].concat(colorScale.quantiles()), function(d) { return d; });
 
-    // legend.enter().append("g")
-    //     .attr("class", "legend");
+    legend.enter().append("g")
+        .attr("class", "legend");
 
-    // legend.append("rect")
-    //   .attr("x", function(d, i) { return legendElementWidth * i; })
-    //   .attr("y", height)
-    //   .attr("width", legendElementWidth)
-    //   .attr("height", gridSize / 2)
-    //   .style("fill", function(d, i) { return colors[i]; });
+    legend.append("rect")
+      .attr("x", function(d, i) { return legendElementWidth * i; })
+      .attr("y", height)
+      .attr("width", legendElementWidth)
+      .attr("height", gridSize / 2)
+      .style("fill", function(d, i) { return colors[i]; });
 
-    // legend.append("text")
-    //   .attr("class", "mono")
-    //   .text(function(d) { return "≥ " + Math.round(d); })
-    //   .attr("x", function(d, i) { return legendElementWidth * i; })
-    //   .attr("y", height + gridSize);
+    legend.append("text")
+      .attr("class", "mono")
+      .text(function(d) { return "≥ " + Math.round(d); })
+      .attr("x", function(d, i) { return legendElementWidth * i; })
+      .attr("y", height + gridSize);
 
-    // legend.exit().remove();
+    legend.exit().remove();
   }
 
 

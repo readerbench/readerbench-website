@@ -30,7 +30,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 				maxSize = this.data[i].size;
 			}
 		}
-		var color = d3.scaleOrdinal()
+		var color = d3.scale.ordinal()
 		      .range(["#1E90FF", "#228B22", "#FF8C00"]);
 
 		//unique cluster/group id's
@@ -59,16 +59,13 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		    }
 		}
 		console.log(clusters);
-		var force = d3.forceSimulation()
+		var force = d3.layout.force()
 		    .nodes(nodes)
-			.on("tick", function tick() {
-				node.each(upper_cluster(10 * this.alpha() * this.alpha()))
-					.each(collide(.5))
-				.attr("transform", function (d) {
-					var k = "translate(" + d.x + "," + d.y + ")";
-					return k;
-				})
-			});
+		    .size([width, height])
+		    .gravity(.02)
+		    .charge(0)
+		    .on("tick", tick)
+		    .start();
 
     var elementId = "#clustered-representation" + this.week;
     var svg = d3.select(elementId).append("svg")
@@ -77,14 +74,14 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 
 		var node = svg.selectAll("circle")
 		    .data(nodes)
-		    .enter().append("g");//.call(force.drag);
+		    .enter().append("g").call(force.drag);
 
 		node.append("circle")
-		    // .style("fill", function (d) {
-		    // return color(d.cluster);
-		    // })
+		    .style("fill", function (d) {
+		    return color(d.cluster);
+		    })
 		    .attr("r", function(d){return d.radius})
-		    
+
 		node.append("text")
 		      .attr("dy", ".3em")
 		      .style("text-anchor", "middle")
@@ -104,7 +101,17 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		  if (!clusters[i]) clusters[i] = d;
 		  return d;
 		};
-		
+
+		function tick(e) {
+		    node.each(upper_cluster(10 * e.alpha * e.alpha))
+		        .each(collide(.5))
+		    .attr("transform", function (d) {
+		        var k = "translate(" + d.x + "," + d.y + ")";
+		        return k;
+		    })
+
+		}
+
 		// Move d to be adjacent to the cluster node.
 		function cluster(alpha) {
 		    return function (d) {
@@ -168,7 +175,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		}
 		// Resolves collisions between d and all other circles.
 		function collide(alpha) {
-		    var quadtree = d3.quadtree(nodes);
+		    var quadtree = d3.geom.quadtree(nodes);
 		    return function (d) {
 		        var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
 		            nx1 = d.x - r,
@@ -176,18 +183,18 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		            ny1 = d.y - r,
 		            ny2 = d.y + r;
 		        quadtree.visit(function (quad, x1, y1, x2, y2) {
-		            if (quad && (quad !== d)) {
-		                // var x = d.x - quad.point.x,
-		                //     y = d.y - quad.point.y,
-		                //     l = Math.sqrt(x * x + y * y),
-		                //     r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
-		                // if (l < r) {
-		                //     l = (l - r) / l * alpha;
-		                //     d.x -= x *= l;
-		                //     d.y -= y *= l;
-		                //     quad.point.x += x;
-		                //     quad.point.y += y;
-		                // }
+		            if (quad.point && (quad.point !== d)) {
+		                var x = d.x - quad.point.x,
+		                    y = d.y - quad.point.y,
+		                    l = Math.sqrt(x * x + y * y),
+		                    r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
+		                if (l < r) {
+		                    l = (l - r) / l * alpha;
+		                    d.x -= x *= l;
+		                    d.y -= y *= l;
+		                    quad.point.x += x;
+		                    quad.point.y += y;
+		                }
 		            }
 		            return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
 		        });

@@ -61,7 +61,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 
       //this.participants = Object.keys(this.communityData[0].data);
       this.participants = ps;
-      this.makeChart(this.communityData, this.selectedParticipants);    
+      this.makeChart(this.communityData, this.selectedParticipants);
     });
   }
 
@@ -140,11 +140,10 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 	private drawPaths(svg, data, x, y, keys) {
 		var lines = {};
 		for (let idx in keys) {
-      lines[keys[idx]] = d3.line()
-        .curve(d3.curveBasis)
-		    // .x(function (d) { return x(d) || 1; })
-        // .y(function (d) { return y(d.data[keys[idx]]); })
-        ;
+		  lines[keys[idx]] = d3.svg.line()
+		    .interpolate('basis')
+		    .x(function (d) { return x(d.date) || 1; })
+		    .y(function (d) { return y(d.data[keys[idx]]); });
 	  }
 
 	  svg.datum(data);
@@ -178,17 +177,15 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     //console.log(keys);
     var dataAccesors = keys.map((k:any) => ((d:any) => d[k]));
     //console.log(dataAccesors);
-	  var x = d3.scaleTime().range([0, chartWidth])
-              // .domain(d3.extent(data, (d:any) => d.date))
-              ,
-	      y = d3.scaleLinear().range([chartHeight, 0])
-              // .domain([0, d3.max(dataAccesors.map(da => d3.max(data.map((d: any) => d.data), da)))])
-              ;
+	  var x = d3.time.scale().range([0, chartWidth])
+	            .domain(d3.extent(data, (d:any) => d.date)),
+	      y = d3.scale.linear().range([chartHeight, 0])
+	            .domain([0, d3.max(dataAccesors.map(da => d3.max(data.map((d: any) => d.data), da)))]);
 
-	  var xAxis = d3.axisBottom(x)
-	                .tickSizeInner(-chartHeight).tickSizeOuter(0).tickPadding(10),
-	      yAxis = d3.axisLeft(y)
-	                .tickSizeInner(-chartWidth).tickSizeOuter(0).tickPadding(10);
+	  var xAxis = d3.svg.axis().scale(x).orient('bottom')
+	                .innerTickSize(-chartHeight).outerTickSize(0).tickPadding(10),
+	      yAxis = d3.svg.axis().scale(y).orient('left')
+	                .innerTickSize(-chartWidth).outerTickSize(0).tickPadding(10);
 
 	  var svg = d3.select('app-participant-evolution').append('svg')
 	  	.attr("id","participant_evolution_graph")
@@ -216,7 +213,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 6756,
     "Ana": 7819,
     "Cristi": 9284,
-    "Andreea": 13835  
+    "Andreea": 13835
   }
   },
   {
@@ -225,7 +222,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 5584,
     "Ana": 6554,
     "Cristi": 8016,
-    "Andreea": 12765  
+    "Andreea": 12765
   }
   },
   {
@@ -234,7 +231,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 5419,
     "Ana": 6332,
     "Cristi": 7754,
-    "Andreea": 12236  
+    "Andreea": 12236
   }
   },
   {
@@ -243,7 +240,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 4414,
     "Ana": 5191,
     "Cristi": 6491,
-    "Andreea": 10325  
+    "Andreea": 10325
   }
   },
   {
@@ -252,7 +249,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 5134,
     "Ana": 6069,
     "Cristi": 7501,
-    "Andreea": 11685  
+    "Andreea": 11685
   }
   },
   {
@@ -261,7 +258,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 5508,
     "Ana": 6879,
     "Cristi": 9221,
-    "Andreea": 17239  
+    "Andreea": 17239
   }
   },
   {
@@ -270,7 +267,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3019,
     "Ana": 4119,
     "Cristi": 5656,
-    "Andreea": 8851  
+    "Andreea": 8851
   }
   },
   {
@@ -279,7 +276,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3386,
     "Ana": 4473,
     "Cristi": 5915,
-    "Andreea": 10580  
+    "Andreea": 10580
   }
   },
   {
@@ -288,7 +285,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3202,
     "Ana": 4233,
     "Cristi": 5559,
-    "Andreea": 8930  
+    "Andreea": 8930
   }
   },
   {
@@ -297,7 +294,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3195,
     "Ana": 4304,
     "Cristi": 5482,
-    "Andreea": 9189  
+    "Andreea": 9189
   }
   },
   {
@@ -306,7 +303,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3929,
     "Ana": 5326,
     "Cristi": 7077,
-    "Andreea": 11648  
+    "Andreea": 11648
   }
   },
   {
@@ -315,7 +312,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3662,
     "Ana": 4849,
     "Cristi": 6194,
-    "Andreea": 10078  
+    "Andreea": 10078
   }
   },
   {
@@ -324,7 +321,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3075,
     "Ana": 4068,
     "Cristi": 5259,
-    "Andreea": 9789  
+    "Andreea": 9789
   }
   },
   {
@@ -333,7 +330,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3891,
     "Ana": 5262,
     "Cristi": 6924,
-    "Andreea": 11612  
+    "Andreea": 11612
   }
   },
   {
@@ -342,7 +339,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3190,
     "Ana": 4388,
     "Cristi": 5822,
-    "Andreea": 9433  
+    "Andreea": 9433
   }
   },
   {
@@ -351,7 +348,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3756,
     "Ana": 4775,
     "Cristi": 6158,
-    "Andreea": 9999  
+    "Andreea": 9999
   }
   },
   {
@@ -360,7 +357,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3561,
     "Ana": 4753,
     "Cristi": 6124,
-    "Andreea": 9807  
+    "Andreea": 9807
   }
   },
   {
@@ -369,7 +366,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3576,
     "Ana": 4818,
     "Cristi": 6344,
-    "Andreea": 10235  
+    "Andreea": 10235
   }
   },
   {
@@ -378,7 +375,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3792,
     "Ana": 5073,
     "Cristi": 6772,
-    "Andreea": 11338  
+    "Andreea": 11338
   }
   },
   {
@@ -387,7 +384,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3801,
     "Ana": 5073,
     "Cristi": 6688,
-    "Andreea": 12394  
+    "Andreea": 12394
   }
   },
   {
@@ -396,7 +393,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3253,
     "Ana": 4282,
     "Cristi": 5563,
-    "Andreea": 9167  
+    "Andreea": 9167
   }
   },
   {
@@ -405,7 +402,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3047,
     "Ana": 3950,
     "Cristi": 5006,
-    "Andreea": 7948  
+    "Andreea": 7948
   }
   },
   {
@@ -414,7 +411,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3755,
     "Ana": 5173,
     "Cristi": 7243,
-    "Andreea": 12338  
+    "Andreea": 12338
   }
   },
   {
@@ -423,7 +420,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3404,
     "Ana": 4529,
     "Cristi": 5970,
-    "Andreea": 9897  
+    "Andreea": 9897
   }
   },
   {
@@ -432,7 +429,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2612,
     "Ana": 3394,
     "Cristi": 4279,
-    "Andreea": 7104  
+    "Andreea": 7104
   }
   },
   {
@@ -441,7 +438,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3958,
     "Ana": 5505,
     "Cristi": 7642,
-    "Andreea": 12707  
+    "Andreea": 12707
   }
   },
   {
@@ -450,7 +447,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 3366,
     "Ana": 4526,
     "Cristi": 6086,
-    "Andreea": 9930  
+    "Andreea": 9930
   }
   },
   {
@@ -459,7 +456,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2344,
     "Ana": 3256,
     "Cristi": 4215,
-    "Andreea": 6673  
+    "Andreea": 6673
   }
   },
   {
@@ -468,7 +465,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2239,
     "Ana": 3033,
     "Cristi": 4111,
-    "Andreea": 7601  
+    "Andreea": 7601
   }
   },
   {
@@ -477,7 +474,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2432,
     "Ana": 3417,
     "Cristi": 4710,
-    "Andreea": 8798  
+    "Andreea": 8798
   }
   },
   {
@@ -486,7 +483,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2020,
     "Ana": 2768,
     "Cristi": 3889,
-    "Andreea": 7744  
+    "Andreea": 7744
   }
   },
   {
@@ -495,7 +492,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 1655,
     "Ana": 2218,
     "Cristi": 3167,
-    "Andreea": 6018  
+    "Andreea": 6018
   }
   },
   {
@@ -504,7 +501,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2069,
     "Ana": 2738,
     "Cristi": 3938,
-    "Andreea": 7574  
+    "Andreea": 7574
   }
   },
   {
@@ -513,7 +510,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 1510,
     "Ana": 1968,
     "Cristi": 2700,
-    "Andreea": 5215  
+    "Andreea": 5215
   }
   },
   {
@@ -522,7 +519,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2039,
     "Ana": 2657,
     "Cristi": 3646,
-    "Andreea": 7042  
+    "Andreea": 7042
   }
   },
   {
@@ -531,7 +528,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2106,
     "Ana": 2745,
     "Cristi": 3766,
-    "Andreea": 7273  
+    "Andreea": 7273
   }
   },
   {
@@ -540,7 +537,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 1288,
     "Ana": 1678,
     "Cristi": 2303,
-    "Andreea": 4448  
+    "Andreea": 4448
   }
   },
   {
@@ -549,7 +546,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
     "Maria": 2120,
     "Ana": 2763,
     "Cristi": 3791,
-    "Andreea": 7321  
+    "Andreea": 7321
   }
   },
   {
