@@ -21,8 +21,12 @@ export class KeywordsHeatmapComponent implements OnInit {
     };
     
     this.apiRequestService.process(data).subscribe((keywords: any) => {
+<<<<<<< HEAD
       console.log(keywords);
 	  	// this.buildHeatmap(keywords.data[0].data);
+=======
+	  	this.buildHeatmap(keywords.data[0].data);
+>>>>>>> b0820f45521855c1a98cf40d1b0311b3e5a45b09
 	  });
   }
 
@@ -37,12 +41,12 @@ export class KeywordsHeatmapComponent implements OnInit {
         	left: 100
         },
         height = 700 - margin.top - margin.bottom,
-        gridSize = Math.floor(height / (1.5 * weeks.length)),
+        gridSize = Math.floor(height / (1.5 * weeks.length)) > 50 ? 50 : Math.floor(height / (1.5 * weeks.length)),
         width = (keywords.length + 7) * gridSize - margin.left - margin.right,
         legendElementWidth = gridSize*2,
         buckets = 9,
         colors = ["#ffffd9","#edf8b1","#c7e9b4","#7fcdbb","#41b6c4","#1d91c0","#225ea8","#253494","#081d58"];
-    
+
     var expandedData = [];
     var keyword_idx = 1;
     for (let keyword in data) {
@@ -82,7 +86,7 @@ export class KeywordsHeatmapComponent implements OnInit {
           .attr("transform", " rotate(270)")
           .attr("class", function(d, i) { return ((i >= 7 && i <= 16) ? "keywordLabel mono axis axis-worktime" : "keywordLabel mono axis"); });
 
-    var colorScale = d3.scaleQuantile<string>()
+    var colorScale = d3.scale.quantile()
           .domain([0, buckets - 1, d3.max(expandedData, function (d) { return d.value; })])
           .range(colors);
 
@@ -105,28 +109,58 @@ export class KeywordsHeatmapComponent implements OnInit {
         .style("fill", function(d) { return colorScale(d.value); });
 
     cards.select("title").text(function(d) { return d.value; });
-    
+
     cards.exit().remove();
 
-    // var legend = svg.selectAll(".legend")
-    //     .data([0].concat(colorScale.quantiles()), function(d) { return d; });
+    var legend = svg.selectAll(".legend")
+        .data([0].concat(colorScale.quantiles()), function(d) { return d; });
 
-    // legend.enter().append("g")
-    //     .attr("class", "legend");
+    legend.enter().append("g")
+        .attr("class", "legend");
 
-    // legend.append("rect")
-    //   .attr("x", function(d, i) { return legendElementWidth * i; })
-    //   .attr("y", height)
-    //   .attr("width", legendElementWidth)
-    //   .attr("height", gridSize / 2)
-    //   .style("fill", function(d, i) { return colors[i]; });
+    legend.append("rect")
+      .attr("x", function(d, i) { return legendElementWidth * i; })
+      .attr("y", height)
+      .attr("width", legendElementWidth)
+      .attr("height", gridSize / 2)
+      .style("fill", function(d, i) { return colors[i]; });
 
-    // legend.append("text")
-    //   .attr("class", "mono")
-    //   .text(function(d) { return "≥ " + Math.round(d); })
-    //   .attr("x", function(d, i) { return legendElementWidth * i; })
-    //   .attr("y", height + gridSize);
+    legend.append("text")
+      .attr("class", "mono")
+      .text(function(d) { return "≥ " + Math.round(d); })
+      .attr("x", function(d, i) { return legendElementWidth * i; })
+      .attr("y", height + gridSize);
 
-    // legend.exit().remove();
+    legend.exit().remove();
   }
+<<<<<<< HEAD
 }
+=======
+
+
+  private mockData = [
+  	{
+  		"keyword0": [20, 0, 4, 3, 20, 0, 4, 3],
+  		"keyword1": [3, 5, 5, 0, 0, 1, 7, 3],
+  		"keyword2": [0, 1, 7, 3, 3, 5, 12, 5],
+  		"keyword3": [3, 5, 12, 5, 20, 0, 4, 3],
+  		"keyword4": [0, 8, 4, 3, 3, 5, 3, 7],
+  		"keyword5": [3, 17, 4, 3, 0, 1, 0, 14],
+  		"keyword6": [0, 1, 4, 3, 3, 5, 12, 5],
+  		"keyword7": [3, 5, 3, 7, 3, 5, 4, 3],
+  		"keyword8": [0, 1, 0, 14, 3, 17, 4, 3],
+  		"keyword9": [3, 5, 4, 3, 0, 1, 0, 14],
+  		"keyword10": [20, 0, 4, 3, 20, 0, 4, 3],
+  		"keyword11": [3, 5, 5, 0, 0, 1, 7, 3],
+  		"keyword12": [0, 1, 7, 3, 3, 5, 12, 5],
+  		"keyword13": [3, 5, 12, 5, 20, 0, 4, 3],
+  		"keyword14": [0, 8, 4, 3, 3, 5, 3, 7],
+  		"keyword15": [3, 17, 4, 3, 0, 1, 0, 14],
+  		"keyword16": [0, 1, 4, 3, 3, 5, 12, 5],
+  		"keyword17": [3, 5, 3, 7, 3, 5, 4, 3],
+  		"keyword18": [0, 1, 0, 14, 3, 17, 4, 3],
+  		"superlongkeyword": [3, 5, 4, 3, 0, 1, 0, 14],
+  	},
+  ];
+}
+>>>>>>> b0820f45521855c1a98cf40d1b0311b3e5a45b09
