@@ -16,10 +16,12 @@ import { Language } from '../languages.data';
 
 export class TextualComplexityComponent implements OnInit {
 
+  componentTitle: string;
   formData = {};
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  languages: any;
   language: any;
 
   response: any;
@@ -29,8 +31,9 @@ export class TextualComplexityComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.language = TextualComplexityData.defaultLanguage();
+    this.componentTitle = TextualComplexityData.componentTitle;
+    this.languages = TextualComplexityData.languages;
+    this.language = TextualComplexityData.defaultLanguage;
 
     this.formData = {
       'text': DefaultInputData.text,
@@ -95,9 +98,7 @@ export class TextualComplexityComponent implements OnInit {
         }
       }, 1000);
 
-
       this.showResults = true;
-
     });
   }
 

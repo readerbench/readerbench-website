@@ -47,6 +47,10 @@ export class ReaderbenchService {
     });
   }
 
+  objectKeys(object) {
+    return Object.keys(object);
+  }
+
   public isUndefinedOrNull(object: Object, parameterStack?: string): boolean {
     if (_.isUndefined(object) || _.isNull(object)) {
       return true;

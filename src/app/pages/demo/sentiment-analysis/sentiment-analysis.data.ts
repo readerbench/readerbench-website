@@ -28,31 +28,9 @@ export var SentimentAnalysisData = {
         return SentimentAnalysisData['granularities'][2];
     },
     'languages': [
-        {
-            id: '1',
-            name: 'English',
-            value: 'en'
-        },
-        {
-            id: '2',
-            name: 'French',
-            value: 'fr'
-        },
-        {
-            id: '3',
-            name: 'Romanian',
-            value: 'ro'
-        },
-        {
-            id: '4',
-            name: 'Dutch',
-            value: 'nl'
-        },
-        {
-            id: '5',
-            name: 'Spanish',
-            value: 'es'
-        }
+        DefaultInputData.languages[0],  // en
+        DefaultInputData.languages[1],  // fr
+        DefaultInputData.languages[3]   // nl
     ],
     'defaultLanguage': DefaultInputData.languages[0] // en
 };

@@ -62,7 +62,7 @@ const routes: Routes = [
     component: CsclComponent,
   },
   {
-    path: 'demo/cv',
+    path: 'demo/cv-analysis',
     component: CvAnalysisComponent,
   },
   {

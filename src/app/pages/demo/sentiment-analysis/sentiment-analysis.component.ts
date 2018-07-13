@@ -39,7 +39,7 @@ export class SentimentAnalysisComponent implements OnInit {
 
   ngOnInit() {
     this.componentTitle = SentimentAnalysisData.componentTitle;
-    this.initSentimentColors();
+    // this.initSentimentColors();
     this.languages = SentimentAnalysisData.languages;
     this.language = SentimentAnalysisData.defaultLanguage;
     this.granularities = SentimentAnalysisData.granularities;

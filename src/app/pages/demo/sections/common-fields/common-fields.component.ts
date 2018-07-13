@@ -11,11 +11,12 @@ export class DemoCommonFieldsComponent implements OnInit {
 
   @Input() formData: {};
   @Input() language: any;
+  @Input() languages: any;
+
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
   @Output() languageEmitter = new EventEmitter<any>();
   
-  languages: any;
   lsaOptions: any;
   ldaOptions: any;
   word2vecOptions: any;
@@ -26,8 +27,6 @@ export class DemoCommonFieldsComponent implements OnInit {
 
   ngOnInit() {
     this.advanced = false;
-    this.languages = DefaultInputData.languages;
-    this.language = this.formData['language'];
     this.posTaggingOptions = DefaultInputData.posTaggingOptions;
     this.dialogismOptions = DefaultInputData.dialogismOptions;
     this.loadSemanticModelsOptions();    
@@ -38,7 +37,6 @@ export class DemoCommonFieldsComponent implements OnInit {
     this.lsaOptions = DefaultInputData.metricOptions.lsa[languageValue];
     this.ldaOptions = DefaultInputData.metricOptions.lda[languageValue];
     this.word2vecOptions = DefaultInputData.metricOptions.word2vec[languageValue];
-    
   }
 
   onChangeLanguage($newLanguage) {

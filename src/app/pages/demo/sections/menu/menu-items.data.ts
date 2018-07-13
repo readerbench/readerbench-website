@@ -47,14 +47,14 @@ export var DemoMenuItemsData = [
 //         image: 'assets/images/demo_cscl.png',
 //         altText: 'CSCL conversation analysis with ReaderBench framework',
 //     },
-//     {
-//         name: 'CV',
-//         href: 'demo/cv',
-//         description: 'Given a CV document, specific lexical and visual \n\
-// analysis are performed.',
-//         image: 'assets/images/demo_cv.png',
-//         altText: 'CV analysis with ReaderBench framework'
-//     },
+    {
+        name: 'CV Analysis',
+        href: 'demo/cv-analysis',
+        description: 'Given a Curriculum Vitae, specific lexical and visual \n\
+analyses are performed.',
+        image: 'assets/images/demo_cv.png',
+        altText: 'Curriculum Vitae Analysis with the help of the ReaderBench framework'
+    },
     // {
     //     name: 'LAK Corpus',
     //     href: 'demo/lak',
