@@ -15,6 +15,7 @@ import { PeopleComponent } from '../pages/people/people.component';
 import { ProjectsComponent } from '../pages/projects/projects.component';
 import { PublicationsComponent } from '../pages/publications/publications.component';
 import { ContactComponent } from '../pages/contact/contact.component';
+import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
 
 const routes: Routes = [
   {
@@ -74,6 +75,10 @@ const routes: Routes = [
     component: CommunityComponent,
   },
   {
+    path: 'demo/amoc',
+    component: ComprehensionModelComponent,
+  },
+  {
     path: '',
     component: HomeComponent,
   }
@@ -89,5 +94,5 @@ const routes: Routes = [
   declarations: []
 })
 export class AppRoutingModule {
-  
+
 }

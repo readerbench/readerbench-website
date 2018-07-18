@@ -17,6 +17,8 @@ import { DemoComponent } from './pages/demo/demo.component';
 import { DemoMenuComponent } from './pages/demo/sections/menu/menu.component';
 import { SentimentAnalysisComponent } from './pages/demo/sentiment-analysis/sentiment-analysis.component';
 import { TextualComplexityComponent } from './pages/demo/textual-complexity/textual-complexity.component';
+import { ComprehensionModelComponent } from './pages/demo/comprehension-model/comprehension-model.component';
+import { CMScoresTableComponent } from './pages/demo/comprehension-model/scores-table/cm-scores-table.component';
 import { KeywordsComponent } from './pages/demo/keywords/keywords.component';
 import { SemanticAnnotationComponent } from './pages/demo/semantic-annotation/semantic-annotation.component';
 import { SelfExplanationComponent } from './pages/demo/self-explanation/self-explanation.component';
@@ -36,6 +38,7 @@ import { PeopleComponent } from './pages/people/people.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ApproximationPipe } from './pipes/approximation.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +52,9 @@ import { ContactComponent } from './pages/contact/contact.component';
     DemoComponent,
     DemoMenuComponent,
     SentimentAnalysisComponent,
-    TextualComplexityComponent,    
+    TextualComplexityComponent,
+    ComprehensionModelComponent,
+    CMScoresTableComponent,
     KeywordsComponent,
     SemanticAnnotationComponent,
     SelfExplanationComponent,
@@ -62,7 +67,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     PeopleComponent,
     ProjectsComponent,
     PublicationsComponent,
-    ContactComponent
+    ContactComponent,
+    ApproximationPipe,
   ],
   imports: [
     BrowserModule,
@@ -72,7 +78,7 @@ import { ContactComponent } from './pages/contact/contact.component';
     KeywordsModule,
     ReaderBenchCommonModule
   ],
-  exports: [KeywordsComponent],  
+  exports: [KeywordsComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
