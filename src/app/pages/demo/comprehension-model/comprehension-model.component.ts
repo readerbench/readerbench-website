@@ -77,7 +77,7 @@ export class ComprehensionModelComponent {
     const scTab = new CIModelTab('Scores Table', CIModelTabType.ScoresTable);
     tabs.push(scTab);
 
-    const lmTab = new CIModelTab('Landscape Model', CIModelTabType.LandscapeModel);
+    const lmTab = new CIModelTab('AMoC', CIModelTabType.LandscapeModel);
     tabs.push(lmTab);
 
     this.tabs = tabs;
