@@ -23,7 +23,7 @@
     "@angular/platform-browser": "^5.2.11",
     "@angular/platform-browser-dynamic": "^5.2.11",
     "@angular/router": "^5.2.11",
-    "@reader-bench/common": "^1.0.4",
+    "@reader-bench/common": "^1.1.0",
     "angular-in-memory-web-api": "^0.5.4",
     "bootstrap": "^3.3.7",
     "core-js": "^2.5.7",
@@ -47,6 +47,7 @@
     "select2": "^4.0.6-rc.1",
     "toastr": "^2.1.4",
     "underscore": "^1.9.1",
+    "vis": "^4.21.0",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

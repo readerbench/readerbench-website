@@ -69,4 +69,14 @@ analyses are performed.',
     //     image: 'assets/images/demo_communities.png',
     //     altText: 'Online Communities'
     // }
+        {
+        name: 'Comprehension Model',
+        href: 'demo/amoc',
+        description: 'The Automated Model of Comprehension (AMoC) uses an automated approach \n\
+          for simulating the ways in which learners read and conceptualize \n\
+          by considering both text-based information consisting of syntactic dependencies, \n\
+          as well as inferred concepts from semantic models.',
+        image: 'assets/images/demo_cm.png',
+        altText: 'Automated Model of Comprehension (AMoC)'
+    },
 ];

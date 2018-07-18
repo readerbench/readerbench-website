@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-12 col-md-12">
+    <a class="btn btn-xs" (click)="downloadCsv()">
+      <i class="fa fa-download" aria-hidden="true"></i> Download CSV
+    </a>
+    <table class="cscl-indices">
+      <thead>
+        <tr class="entry">
+          <td *ngFor="let header of headerList">
+            {{ header }}
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let word of wordList">
+          <td> {{word.value}} </td>
+          <td> {{word.type}} </td>
+          <ng-container *ngFor="let activation of word.activationList">
+            <td> {{ activation.score | approx }} </td>
+            <td> {{ activation.isActive }} </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
