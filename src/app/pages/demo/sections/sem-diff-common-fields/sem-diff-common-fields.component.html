@@ -1,0 +1,45 @@
+<div class="row top-buffer">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_language">Language
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_language" class="form-control" [(ngModel)]="formData.language" (ngModelChange)="onChangeLanguage($event)">
+      <option *ngFor="let option of languages" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer">
+  <div class="col-xs-12 col-md-12">
+    <a (click)="toggleAdvanced()" class="pointer">
+      <span *ngIf="!advanced">&#x25BC; Show</span>
+      <span *ngIf="advanced">&#x25B2; Hide</span>
+      advanced options
+    </a>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_lsa">Number of docs to return
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_number_of_docs" class="form-control" [(ngModel)]="formData.number_of_docs">
+      <option *ngFor="let option of number_of_docs" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_word2vec">Word2Vec corpus
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_word2vec" class="form-control" [(ngModel)]="formData.word2vec">
+      <option *ngFor="let option of word2vecOptions" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
