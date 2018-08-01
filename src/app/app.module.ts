@@ -26,9 +26,11 @@ import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
+import { SemDiffComponent } from './pages/demo/sem-diff/sem-diff.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
+import { DemoSemDiffCommonFieldsComponent } from './pages/demo/sections/sem-diff-common-fields/sem-diff-common-fields.component';
 
 import { ReaderBenchCommonModule } from '@reader-bench/common';
 import { KeywordsModule } from './pages/demo/keywords/keywords.module';
@@ -62,8 +64,10 @@ import { ApproximationPipe } from './pipes/approximation.pipe';
     CvAnalysisComponent,
     LakComponent,
     CommunityComponent,
+    SemDiffComponent,
     DemoServicesComponent,
     DemoCommonFieldsComponent,
+    DemoSemDiffCommonFieldsComponent,
     PeopleComponent,
     ProjectsComponent,
     PublicationsComponent,

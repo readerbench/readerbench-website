@@ -11,6 +11,7 @@ import { CsclComponent } from '../pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from '../pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from '../pages/demo/lak/lak.component';
 import { CommunityComponent } from '../pages/demo/community/community.component';
+import { SemDiffComponent } from '../pages/demo/sem-diff/sem-diff.component';
 import { PeopleComponent } from '../pages/people/people.component';
 import { ProjectsComponent } from '../pages/projects/projects.component';
 import { PublicationsComponent } from '../pages/publications/publications.component';
@@ -77,6 +78,10 @@ const routes: Routes = [
   {
     path: 'demo/amoc',
     component: ComprehensionModelComponent,
+  },
+  {
+    path: 'demo/sem-diff',
+    component: SemDiffComponent,
   },
   {
     path: '',
