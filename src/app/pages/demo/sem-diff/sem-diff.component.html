@@ -69,7 +69,7 @@
                             </div> -->
                             <div class="body corpus_diff_text">
                                 <p>
-                                  <mark *ngFor="let dataMark of data.corpus_diff_text_json" class="{{dataMark.color}}">
+                                  <mark *ngFor="let dataMark of data.diffTextDTO" class="{{dataMark.typeOfElement}}">
                                       {{dataMark.text}}
                                   </mark>
                                 </p>
