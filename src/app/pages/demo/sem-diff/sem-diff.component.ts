@@ -39,7 +39,7 @@ export class SemDiffComponent implements OnInit {
       'preposition' : true,
       'interjection' : true,
       'conjunction' : true,
-      'pronoun' : true
+      'pronoun' : false
     };
     this.loadSemModels();
     this.loading = false; 
