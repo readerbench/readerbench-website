@@ -313,5 +313,32 @@ export var DefaultInputData = {
                 return DefaultInputData.metricOptions.word2vec.ro[0];
             }
         }
-    }
+    },
+    number_of_docs: [
+        {
+            id: '1',
+            name: '4',
+            value: '4'
+        },
+        {
+            id: '2',
+            name: '5',
+            value: '5'
+        },
+        {
+            id: '3',
+            name: '6',
+            value: '6'
+        },
+        {
+            id: '4',
+            name: '7',
+            value: '7'
+        },
+        {
+            id: '5',
+            name: '8',
+            value: '8'
+        }
+    ]
 }

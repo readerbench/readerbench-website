@@ -1,0 +1,92 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-header">
+            <h1>Semantic Diff</h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="form-group">
+            <div class="input">
+              <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <label for="input_text">Text
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
+                </div>
+              </div>
+              <app-demo-sem-diff-common-fields [formData]="formData" [language]="language" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-sem-diff-common-fields>
+              <div class="row top-buffer" *ngIf="!loading">
+                <div class="col-xs-12 col-md-12">
+                  <div class="bottom-buttons" *ngIf="!loading">
+                    <button class="btn theme-btn-1" (click)="process()">
+                      <span class="button">Process</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="results">
+              <div class="row" *ngIf="loading">
+                <div class="col-xs-12 col-md-12">
+                  <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+                </div>
+              </div>
+              <div *ngIf="showResults === true">
+                <div id="diffThingy">
+                </div>
+                <div class="row">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <ul class="course-description-list">
+                      <li class="lesson">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">Results</span>
+                        </div>
+                        <div class="body">&nbsp;</div>
+                        <ul class="lesson-description visible" style="display: block;">
+                          <li *ngFor="let data of dataResponse">
+                            <div class="heading">
+                              <span class="lesson-nr no-select">{{data.cosine_similarity | number : '1.2-2' }}</span>
+                            </div>
+                            <div class="body">
+                              <p>{{data.text}}</p>
+                            </div>
+                            <!-- <div class="corpus_doc_name" style="display: none;">
+                              <p>{{data.corpus_doc_name}}</p>
+                            </div> -->
+                            <div class="body corpus_diff_text">
+                                <p>
+                                  <mark *ngFor="let dataMark of data.corpus_diff_text_json" class="{{dataMark.color}}">
+                                      {{dataMark.text}}
+                                  </mark>
+                                </p>
+                            </div>
+                            <hr class="bottom_border">
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                   </div>
+                </div>
+                <div id="message_saved" style="display:none"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
