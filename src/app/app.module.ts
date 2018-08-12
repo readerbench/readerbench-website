@@ -19,6 +19,7 @@ import { SentimentAnalysisComponent } from './pages/demo/sentiment-analysis/sent
 import { TextualComplexityComponent } from './pages/demo/textual-complexity/textual-complexity.component';
 import { ComprehensionModelComponent } from './pages/demo/comprehension-model/comprehension-model.component';
 import { CMScoresTableComponent } from './pages/demo/comprehension-model/scores-table/cm-scores-table.component';
+import { EdgeBundlingDiagramComponent } from './pages/demo/comprehension-model/edge-bundling-diagram/edge-bundling-diagram.component';
 import { KeywordsComponent } from './pages/demo/keywords/keywords.component';
 import { SemanticAnnotationComponent } from './pages/demo/semantic-annotation/semantic-annotation.component';
 import { SelfExplanationComponent } from './pages/demo/self-explanation/self-explanation.component';
@@ -39,47 +40,49 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ApproximationPipe } from './pipes/approximation.pipe';
+import { EdgeBundlingService } from './pages/demo/comprehension-model/service/edge-bundling.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    MenuComponent,
-    HomeComponent,
-    CarouselComponent,
-    AboutComponent,
-    BrowseComponent,
-    DemoComponent,
-    DemoMenuComponent,
-    SentimentAnalysisComponent,
-    TextualComplexityComponent,
-    ComprehensionModelComponent,
-    CMScoresTableComponent,
-    KeywordsComponent,
-    SemanticAnnotationComponent,
-    SelfExplanationComponent,
-    CsclComponent,
-    CvAnalysisComponent,
-    LakComponent,
-    CommunityComponent,
-    DemoServicesComponent,
-    DemoCommonFieldsComponent,
-    PeopleComponent,
-    ProjectsComponent,
-    PublicationsComponent,
-    ContactComponent,
-    ApproximationPipe,
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    AppRoutingModule,
-    HttpModule,
-    KeywordsModule,
-    ReaderBenchCommonModule
-  ],
-  exports: [KeywordsComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        HeaderComponent,
+        MenuComponent,
+        HomeComponent,
+        CarouselComponent,
+        AboutComponent,
+        BrowseComponent,
+        DemoComponent,
+        DemoMenuComponent,
+        SentimentAnalysisComponent,
+        TextualComplexityComponent,
+        ComprehensionModelComponent,
+        CMScoresTableComponent,
+        KeywordsComponent,
+        SemanticAnnotationComponent,
+        SelfExplanationComponent,
+        CsclComponent,
+        CvAnalysisComponent,
+        LakComponent,
+        CommunityComponent,
+        DemoServicesComponent,
+        DemoCommonFieldsComponent,
+        PeopleComponent,
+        ProjectsComponent,
+        PublicationsComponent,
+        ContactComponent,
+        ApproximationPipe,
+        EdgeBundlingDiagramComponent,
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        AppRoutingModule,
+        HttpModule,
+        KeywordsModule,
+        ReaderBenchCommonModule
+    ],
+    exports: [KeywordsComponent],
+    providers: [EdgeBundlingService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

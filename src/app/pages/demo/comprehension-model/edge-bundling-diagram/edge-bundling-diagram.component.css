@@ -1,0 +1,18 @@
+#vega-diagram {
+    display: inline-flex;
+    padding-top: 40px;
+}
+
+#vega-diagram .vega-bindings {
+    width: 240px;
+    padding-left: 50px;
+}
+.diagram-title {
+    font-size: 24px;
+}
+
+div {
+    margin-left: 40px;
+}
+
+
