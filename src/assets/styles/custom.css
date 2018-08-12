@@ -79,3 +79,10 @@ label.error {
     color: red;
     font-size: 10px;
 }
+.vega-bindings {
+    width: 240px;
+    padding-left: 50px;
+
+    right: 0px;
+    position: absolute;
+}

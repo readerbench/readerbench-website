@@ -3,9 +3,12 @@
     padding-top: 40px;
 }
 
-#vega-diagram .vega-bindings {
+.vega-bindings {
     width: 240px;
     padding-left: 50px;
+
+    right: 0px;
+    position: absolute;
 }
 .diagram-title {
     font-size: 24px;
