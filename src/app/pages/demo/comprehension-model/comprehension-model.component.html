@@ -91,7 +91,6 @@
                   </div>
                   <div class="col-xs-12">
                     <two-mode-graph [graph]="selectedTab.sentence.graph"></two-mode-graph>
-                    <edge-bundling-diagram [index]="selectedTabIndex"></edge-bundling-diagram>
                   </div>
                 </div>
               </div>
@@ -101,6 +100,9 @@
               </div>
               <div class="col-xs-12" *ngIf="selectedTab.isLandcapeModel()">
                 <landscape-model [wordList]="wordList"></landscape-model>
+              </div>
+              <div class="col-xs-12" *ngIf="selectedTab.isAMoCModel()">
+                <edge-bundling-diagram [index]="sentencesNumber"></edge-bundling-diagram>
               </div>
             </div>
           </div>

@@ -12,35 +12,51 @@ import { EBResult } from '../service/models/eb-result.model';
 })
 
 export class EdgeBundlingDiagramComponent implements OnInit {
-    @Input() index: any;
+    @Input() index: number;
+
+    public sentenceIndex: number;
+    public currentSentence: string = '';
+    public currentPhrase: string = '';
 
     constructor(private edgeBundlingService: EdgeBundlingService) { }
 
     ngOnInit() {
+        this.sentenceIndex = this.index;
+        this.displayDiagram();
+    }
+
+    public increaseIndex() {
+        this.sentenceIndex++;
+        this.displayDiagram();
+    }
+
+    public decreaseIndex() {
+        this.sentenceIndex--;
         this.displayDiagram();
     }
 
     private displayDiagram() {
         let view;
-
-        let data: EBResult = this.edgeBundlingService.getParsedData(this.index);
+        this.currentPhrase = this.edgeBundlingService.getCurrentPhrase(this.sentenceIndex);
+        this.currentSentence = this.edgeBundlingService.getCurrentSentence(this.sentenceIndex);
+        let data: EBResult = this.edgeBundlingService.getParsedData(this.sentenceIndex);
 
         let spec: vega.Spec = {
             "$schema": "https://vega.github.io/schema/vega/v3.json",
             "padding": 7,
-            // "width": 1100,
-            // "height": 1200,
-            "autosize": "pad",
+            "width": 1000,
+            "height": 750,
+            "autosize": "none",
             "signals": [
                 {
                     "name": "tension",
-                    "value": 0.85,
+                    "value": 0.60,
                     "bind": { "input": "range", "min": 0, "max": 1, "step": 0.01 }
                 },
                 {
                     "name": "radius",
-                    "value": 120,
-                    "bind": { "input": "range", "min": 20, "max": 600 }
+                    "value": 95,
+                    "bind": { "input": "range", "min": 20, "max": 120 }
                 },
                 {
                     "name": "extent",
@@ -54,7 +70,7 @@ export class EdgeBundlingDiagramComponent implements OnInit {
                 },
                 {
                     "name": "textSize",
-                    "value": 15,
+                    "value": 17,
                     "bind": { "input": "range", "min": 2, "max": 20, "step": 1 }
                 },
                 {
@@ -67,8 +83,8 @@ export class EdgeBundlingDiagramComponent implements OnInit {
                     "value": "tidy",
                     "bind": { "input": "radio", "options": ["tidy", "cluster"] }
                 },
-                { "name": "colorIn", "value": "#2171b5" },
-                { "name": "colorOut", "value": "#2171b5" },
+                { "name": "colorIn", "value": "#5f9ed0" },
+                { "name": "colorOut", "value": "#5f9ed0" },
                 { "name": "originX", "update": "width / 2" },
                 { "name": "originY", "update": "height / 2" },
                 {
@@ -156,18 +172,27 @@ export class EdgeBundlingDiagramComponent implements OnInit {
                                 "signal": "datum.leftside ? datum.angle - 180 : datum.angle"
                             },
                             "align": { "signal": "datum.leftside ? 'right' : 'left'" },
-                            "fontSize": { "signal": "textSize" },
+                            "fontSize": [
+                                { "signal": "textSize" },
+                            ],
                             "fontWeight": [
                                 { "test": "indata('selected', 'source', datum.id)", "value": "bold" },
                                 { "test": "indata('selected', 'target', datum.id)", "value": "bold" },
+                                { "test": "datum.bold === true", "value": "bold" },
                                 { "value": null }
                             ],
+                            // "fontStyle": [
+                            //     { "test": "datum.bold === true", "value": "italic" },
+                            //     { "value": null }
+                            // ],
                             "fill": [
-                                { "test": "datum.id === active", "value": "black" },
-                                { "test": "datum.active === false", "value": "#b3b3b3" },
+                                { "test": "datum.id === active && datum.type !== 0", "value": "6d6d6d" },
+                                { "test": "datum.active === false", "value": "#cccccc" },
                                 { "test": "datum.type === 0", "value": "white" },
-                                { "test": "datum.type === 1", "value": "#286b61" },
-                                { "test": "datum.type === 2", "value": "#b54224" },
+                                { "test": "datum.type === 1 && datum.bold === true", "value": "#005a9c" },
+                                { "test": "datum.type === 1", "value": "#3491d6" },
+                                { "test": "datum.type === 2 && datum.bold === true", "value": "#de4a4a" },
+                                { "test": "datum.type === 2", "value": "#f58a8a" },
                                 {
                                     "test": "indata('selected', 'source', datum.id)",
                                     "signal": "colorIn"
@@ -200,7 +225,7 @@ export class EdgeBundlingDiagramComponent implements OnInit {
                                     "stroke": [
                                         { "test": "parent.source === active", "signal": "colorOut" },
                                         { "test": "parent.target === active", "signal": "colorIn" },
-                                        { "value": "steelblue" }
+                                        { "value": "#8bcbf2" }
                                     ],
                                     "strokeOpacity": [
                                         {

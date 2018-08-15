@@ -1,21 +1,42 @@
 #vega-diagram {
     display: inline-flex;
-    padding-top: 40px;
+    padding-top: 10px;
 }
 
 .vega-bindings {
     width: 240px;
     padding-left: 50px;
-
     right: 0px;
     position: absolute;
 }
-.diagram-title {
-    font-size: 24px;
+
+.menu-container {
+    margin-left: 40%;
+    padding: 20px;
+    display: flex;
 }
 
-div {
-    margin-left: 40px;
+.phrase-container {
+    margin-top: 30px;
+    font-size: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #a7a5a5;
 }
 
+.icon-container{
+    font-size: 28px;
+    color: #43b9c7;
+    cursor: pointer;
+}
+
+.sentence-container {
+    font-size: 18px;
+    font-weight: 600;
+    color: #a7a5a5;
+}
+
+.bold {
+    font-weight: 600;
+}
 

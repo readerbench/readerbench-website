@@ -81,8 +81,17 @@ label.error {
 }
 .vega-bindings {
     width: 240px;
-    padding-left: 50px;
+    padding-left: 80px;
 
-    right: 0px;
+    right: -20px;
     position: absolute;
+}
+
+.vega-bind-radio {
+    display: block;
+}
+
+.vega-bind-radio > input {
+    margin-left: 8px;
+    margin-right: 8px;
 }

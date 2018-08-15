@@ -40,6 +40,18 @@ export class EdgeBundlingService {
         return this.data;
     }
 
+    public getCurrentSentence(index: number) {
+        return ' ' + this.sentenceList[index].text;
+    }
+
+    public getCurrentPhrase(index: number) {
+        let phrase: string = '';
+        for (let i = 0; i < index; i++) {
+            phrase += this.sentenceList[i].text + ' ';
+        };
+        return phrase;
+    }
+
     public getParsedData(index: number): EBResult {
         this.initialize();
 
@@ -54,7 +66,8 @@ export class EdgeBundlingService {
                     name: node.displayName,
                     parent: this.generateParentIdForNode(node, i),
                     active: node.active,
-                    type: node.type === "TextBased" ? 1 : 2
+                    type: node.type === "TextBased" ? 1 : 2,
+                    bold: i === index ? true : false
                 };
                 result.words.push(word);
             });

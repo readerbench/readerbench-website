@@ -27,6 +27,7 @@ export class ComprehensionModelComponent {
     private tabs: CIModelTab[] = [];
     private selectedTab: CIModelTab;
     public selectedTabIndex: number;
+    public sentencesNumber: number;
 
     constructor(private ciModelService: CIModelService,
         private edgeBundlingService: EdgeBundlingService) { }
@@ -61,6 +62,7 @@ export class ComprehensionModelComponent {
             this.cmResult = result;
             this.buildTabs(result);
             this.edgeBundlingService.setData(result);
+            this.sentencesNumber = result.sentenceList.length - 1;
             this.isLoading = false;
         }, (err: any) => {
             this.isLoading = false;
@@ -81,8 +83,11 @@ export class ComprehensionModelComponent {
         const scTab = new CIModelTab('Scores Table', CIModelTabType.ScoresTable);
         tabs.push(scTab);
 
-        const lmTab = new CIModelTab('AMoC', CIModelTabType.LandscapeModel);
+        const lmTab = new CIModelTab('Landscape', CIModelTabType.LandscapeModel);
         tabs.push(lmTab);
+
+        const amocTab = new CIModelTab('AMoC', CIModelTabType.AMoCModel);
+        tabs.push(amocTab);
 
         this.tabs = tabs;
 

@@ -1,3 +1,21 @@
-<div class="diagram-title">Edge Bundling Diagram</div>
+<div class="diagram-container">
+    <div class="phrase-container">
+        {{currentPhrase}}
+        <b>{{currentSentence}}</b>
+    </div>
 
-<div id="vega-diagram"> </div>
+    <div class="menu-container">
+        <span class="icon-container" (click)="decreaseIndex()" [hidden]="sentenceIndex === 0">
+            <i class="glyphicon glyphicon-menu-left"></i>
+        </span>
+
+        <div class="sentence-container"> Sentence {{sentenceIndex + 1}} </div>
+
+        <span class="icon-container" (click)="increaseIndex()" [hidden]="sentenceIndex === index">
+            <i class="glyphicon glyphicon-menu-right"></i>
+        </span>
+    </div>
+
+    <div id="vega-diagram"> </div>
+
+</div>
