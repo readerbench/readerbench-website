@@ -3,7 +3,7 @@ import { DemoMenuComponent } from '../sections/menu/menu.component';
 import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { DemoComponent } from '../demo.component';
-import { ReaderbenchService } from '../../../readerbench.service';
+import { ReaderBenchService } from '../../../readerbench.service';
 import { TextualComplexityData } from './textual-complexity.data';
 import { Language } from '../languages.data';
 
@@ -11,7 +11,7 @@ import { Language } from '../languages.data';
   selector: 'app-demo-textual-complexity',
   templateUrl: './textual-complexity.component.html',
   styleUrls: ['./textual-complexity.component.css'],
-  providers: [ApiRequestService, ReaderbenchService]
+  providers: [ApiRequestService, ReaderBenchService]
 })
 
 export class TextualComplexityComponent implements OnInit {
@@ -26,8 +26,8 @@ export class TextualComplexityComponent implements OnInit {
 
   response: any;
 
-  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderbenchService) {
-    this.apiRequestService.setEndpoint('textual-complexity');
+  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderBenchService) {
+    this.apiRequestService.setApiService(TextualComplexityData.serviceName);
   }
 
   ngOnInit() {
