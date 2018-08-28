@@ -64,13 +64,12 @@
                             <div class="body">
                               <p>{{data.text}}</p>
                             </div>
-                            <!-- <div class="corpus_doc_name" style="display: none;">
-                              <p>{{data.corpus_doc_name}}</p>
-                            </div> -->
+                            <!-- The diff text -->
                             <div class="body corpus_diff_text">
                                 <p>
                                   <mark *ngFor="let dataMark of data.diffTextDTO" class="{{dataMark.typeOfElement}}">
-                                      {{dataMark.text}}
+                                        {{dataMark.text}}
+                                        <span class="semantic_diff_tooltiptext tooltip-top">{{dataMark.explication}}</span>
                                   </mark>
                                 </p>
                             </div>
