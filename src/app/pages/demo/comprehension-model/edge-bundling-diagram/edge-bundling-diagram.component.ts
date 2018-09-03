@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import * as vega from 'vega';
 import { EdgeBundlingService } from '../service/edge-bundling.service';
 import { EBResult } from '../service/models/eb-result.model';
@@ -7,40 +7,31 @@ import { EBResult } from '../service/models/eb-result.model';
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'edge-bundling-diagram',
-    styleUrls: ['./edge-bundling-diagram.component.css'],
     templateUrl: './edge-bundling-diagram.component.html'
 })
 
-export class EdgeBundlingDiagramComponent implements OnInit {
+export class EdgeBundlingDiagramComponent implements OnInit, OnChanges {
     @Input() index: number;
+    @Input() viewId: number;
 
-    public sentenceIndex: number;
-    public currentSentence: string = '';
-    public currentPhrase: string = '';
+    private vegaView: vega.View;
 
     constructor(private edgeBundlingService: EdgeBundlingService) { }
 
     ngOnInit() {
-        this.sentenceIndex = this.index;
-        this.displayDiagram();
+        if (this.index > -1) {
+            this.displayDiagram();
+        }
     }
 
-    public increaseIndex() {
-        this.sentenceIndex++;
-        this.displayDiagram();
-    }
-
-    public decreaseIndex() {
-        this.sentenceIndex--;
-        this.displayDiagram();
+    ngOnChanges() {
+        if (this.index > -1) {
+            this.displayDiagram();
+        }
     }
 
     private displayDiagram() {
-        let view;
-        this.currentPhrase = this.edgeBundlingService.getCurrentPhrase(this.sentenceIndex);
-        this.currentSentence = this.edgeBundlingService.getCurrentSentence(this.sentenceIndex);
-        let data: EBResult = this.edgeBundlingService.getParsedData(this.sentenceIndex);
-
+        let data: EBResult = this.edgeBundlingService.getParsedData(this.index);
         let spec: vega.Spec = {
             "$schema": "https://vega.github.io/schema/vega/v3.json",
             "padding": 7,
@@ -223,8 +214,8 @@ export class EdgeBundlingDiagramComponent implements OnInit {
                                 },
                                 "update": {
                                     "stroke": [
-                                        { "test": "parent.source === active", "signal": "colorOut" },
-                                        { "test": "parent.target === active", "signal": "colorIn" },
+                                        { "test": "parent.type === 1 && (parent.source === active || parent.target === active)", "signal": "colorOut" },
+                                        { "test": "parent.type ===0 && (parent.source === active || parent.target === active)", "signal": "colorIn" },
                                         { "value": "#8bcbf2" }
                                     ],
                                     "strokeOpacity": [
@@ -260,12 +251,12 @@ export class EdgeBundlingDiagramComponent implements OnInit {
             //     }
             // ]
         };
-
-        view = new vega.View(vega.parse(spec))
+        setTimeout(() => {
+        this.vegaView = new vega.View(vega.parse(spec))
             .renderer('canvas')  // set renderer (canvas or svg)
-            .initialize('#vega-diagram') // initialize view within parent DOM container
+            .initialize('#vega-diagram' + this.viewId) // initialize view within parent DOM container
             .hover()             // enable hover encode set processing
             .run();
-
+        }, 100);
     }
 }

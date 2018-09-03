@@ -3,13 +3,14 @@ import { Component } from '@angular/core';
 import { CIModelService } from './service/ci-model.service';
 import { CMResult } from './service/data-objects/cm-result.do';
 import { CIModelTab, CIModelTabType } from './utils/ci-model-tab';
-import { Word } from '@reader-bench/common';
+import { Word, TwoModeGraph } from '@reader-bench/common';
 import { ApiRequestService } from '../api-request.service';
 import { EdgeBundlingService } from './service/edge-bundling.service';
 
 @Component({
     // tslint:disable-next-line:component-selector
     selector: 'comprehension-model',
+    styleUrls: ['./comprehension-model.component.css'],
     templateUrl: './comprehension-model.component.html',
     providers: [ApiRequestService, CIModelService]
 })
@@ -25,9 +26,18 @@ export class ComprehensionModelComponent {
     private _cmResult: CMResult;
     private wordList: Word[];
     private tabs: CIModelTab[] = [];
-    private selectedTab: CIModelTab;
+    public selectedTab: CIModelTab;
     public selectedTabIndex: number;
-    public sentencesNumber: number;
+
+    // Amoc Tab props
+    public sentenceIndex: number;
+    public maxSentenceIndex: number;
+    public previousSentence: string = '';
+    public currentSentence: string = '';
+    public currentPhrase: string = '';
+    public previousSentenceGraph: TwoModeGraph;
+    public currentSentenceGraph: TwoModeGraph;
+    public refresh: boolean = true;
 
     constructor(private ciModelService: CIModelService,
         private edgeBundlingService: EdgeBundlingService) { }
@@ -62,7 +72,8 @@ export class ComprehensionModelComponent {
             this.cmResult = result;
             this.buildTabs(result);
             this.edgeBundlingService.setData(result);
-            this.sentencesNumber = result.sentenceList.length - 1;
+            this.sentenceIndex = 0;
+            this.maxSentenceIndex = result.sentenceList.length - 1;
             this.isLoading = false;
         }, (err: any) => {
             this.isLoading = false;
@@ -97,11 +108,18 @@ export class ComprehensionModelComponent {
 
     private selectTab(tab: CIModelTab) {
         this.selectedTab = null;
+        this.previousSentenceGraph = null;
+        this.currentSentenceGraph = null;
         setTimeout(() => {
             this.tabs.forEach(currTab => { currTab.selected = false; })
             tab.selected = true;
             this.selectedTab = tab;
             this.selectedTabIndex = tab.sentence ? tab.sentence.index : 0;
+            if (tab.isAMoCModel()) {
+                this.sentenceIndex = 0;
+                this.getCurrentText(0);
+                this.currentSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex);
+            }
         }, 100);
     }
 
@@ -122,5 +140,47 @@ export class ComprehensionModelComponent {
             wordList.push(word);
         });
         this.wordList = wordList;
+    }
+
+    public increaseIndex() {
+        if (this.sentenceIndex + 1 <= this.maxSentenceIndex) {
+            this.refresh = false;
+            this.previousSentenceGraph = null;
+            this.currentSentenceGraph = null;
+            this.sentenceIndex++;
+            setTimeout(() => {
+                this.getCurrentText(this.sentenceIndex);
+                this.previousSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex - 1);
+                this.currentSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex);
+                this.refresh = true;
+            }, 100);
+        }
+    }
+
+    public decreaseIndex() {
+        if (this.sentenceIndex - 1 > -1) {
+            this.refresh = false;
+            this.previousSentenceGraph = null;
+            this.currentSentenceGraph = null;
+            this.sentenceIndex--;
+            setTimeout(() => {
+                this.getCurrentText(this.sentenceIndex);
+                this.previousSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex - 1);
+                this.currentSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex);
+                this.refresh = true;
+            }, 100);
+        }
+    }
+
+    private getCurrentText(index: number) {
+        if (index === 0) {
+            this.previousSentence = '';
+            this.currentPhrase = '';
+            this.currentSentence = this.edgeBundlingService.getCurrentSentence(index);
+        } else {
+            this.previousSentence = this.edgeBundlingService.getCurrentSentence(index - 1);
+            this.currentSentence = this.edgeBundlingService.getCurrentSentence(index);
+            this.currentPhrase = this.edgeBundlingService.getCurrentPhrase(index - 1);
+        }
     }
 }

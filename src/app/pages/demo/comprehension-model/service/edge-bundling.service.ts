@@ -4,7 +4,7 @@ import { CMSentence } from './data-objects/cm-sentence.do';
 import { EBWord } from './models/eb-word.model';
 import { EBEdge } from './models/eb-edge.model';
 import { EBResult } from './models/eb-result.model';
-import { TwoModeGraphNode } from '../../../../../../node_modules/@reader-bench/common';
+import { TwoModeGraphNode, TwoModeGraph } from '../../../../../../node_modules/@reader-bench/common';
 import * as cloneDeep from 'lodash/cloneDeep';
 
 @Injectable()
@@ -40,11 +40,19 @@ export class EdgeBundlingService {
         return this.data;
     }
 
-    public getCurrentSentence(index: number) {
+    public getSentenceGraph(index: number): TwoModeGraph {
+        if (index > -1) {
+            return this.data.sentenceList[index].graph;
+        } else {
+            return null
+        }
+    }
+
+    public getCurrentSentence(index: number): string {
         return ' ' + this.sentenceList[index].text;
     }
 
-    public getCurrentPhrase(index: number) {
+    public getCurrentPhrase(index: number): string {
         let phrase: string = '';
         for (let i = 0; i < index; i++) {
             phrase += this.sentenceList[i].text + ' ';
@@ -76,7 +84,8 @@ export class EdgeBundlingService {
         this.sentenceList[index].graph.edgeList.forEach(graphEdge => {
             let edge: EBEdge = {
                 source: result.words.find(x => x.name === graphEdge.sourceUri).id,
-                target: result.words.find(x => x.name === graphEdge.targetUri).id
+                target: result.words.find(x => x.name === graphEdge.targetUri).id,
+                type: graphEdge.edgeType == "SemanticDistance" ? 1 : 0
             };
             result.edges.push(edge);
         });
