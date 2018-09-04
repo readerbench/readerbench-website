@@ -1,19 +1,18 @@
-#vega-diagram {
-    display: inline-flex;
-    padding-top: 10px;
-}
-
-.vega-bindings {
-    width: 240px;
-    padding-left: 50px;
-    right: 0px;
-    position: absolute;
+.edge-bundling-graphs-container {
+    display: flex;
+    margin-left: -350px;
+    margin-right: -350px;
+    margin-top: 10px;
 }
 
 .menu-container {
-    margin-left: 40%;
+    margin-left: 50%;
     padding: 20px;
     display: flex;
+}
+
+.demo-menu {
+    margin-top: 15px;
 }
 
 .phrase-container {

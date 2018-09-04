@@ -35,8 +35,8 @@ export class EdgeBundlingDiagramComponent implements OnInit, OnChanges {
         let spec: vega.Spec = {
             "$schema": "https://vega.github.io/schema/vega/v3.json",
             "padding": 7,
-            "width": 1000,
-            "height": 750,
+            "width": 700,
+            "height": 650,
             "autosize": "none",
             "signals": [
                 {
@@ -75,7 +75,7 @@ export class EdgeBundlingDiagramComponent implements OnInit, OnChanges {
                     "bind": { "input": "radio", "options": ["tidy", "cluster"] }
                 },
                 { "name": "colorIn", "value": "#5f9ed0" },
-                { "name": "colorOut", "value": "#5f9ed0" },
+                { "name": "colorOut", "value": "#f58a8a" },
                 { "name": "originX", "update": "width / 2" },
                 { "name": "originY", "update": "height / 2" },
                 {

@@ -79,12 +79,26 @@ label.error {
     color: red;
     font-size: 10px;
 }
-.vega-bindings {
-    width: 240px;
-    padding-left: 80px;
 
-    right: -20px;
-    position: absolute;
+#vega-diagram1 {
+    display: inline-flex;
+    padding-top: 10px;
+}
+
+#vega-diagram0 {
+    display: inline-flex;
+    padding-top: 10px;
+}
+
+#network-graphs-container {
+    margin-top: 20px;
+    margin-left: -300px;
+    margin-right: -300px;
+} 
+
+.vega-bindings {
+    width: 105px;
+    padding-left: 20px;
 }
 
 .vega-bind-radio {

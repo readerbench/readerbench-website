@@ -29,7 +29,8 @@
                             <div class="col-xs-8">
                                 <textarea class="form-control" rows="5" [(ngModel)]="searchText" [ngClass]="{error: incorrectSearchText}">
                       </textarea>
-                                <label class="error" *ngIf="incorrectSearchText">Enter a text up to {{ maxSearchTextLength }} characters</label>
+                                <label class="error" *ngIf="incorrectSearchText">Enter a text up to {{ maxSearchTextLength
+                                    }} characters</label>
                             </div>
                         </div>
 
@@ -84,7 +85,7 @@
                             <div class="col-xs-12" *ngIf="selectedTab.isHitmap()">
                                 <word-hitmap [wordList]="wordList"></word-hitmap>
                             </div>
-                            <div class="col-xs-12" *ngIf="selectedTab.isSentence()">
+                            <!-- <div class="col-xs-12" *ngIf="selectedTab.isSentence()">
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <p> {{ selectedTab.sentence.text }} </p>
@@ -93,7 +94,7 @@
                                         <two-mode-graph [graph]="selectedTab.sentence.graph"></two-mode-graph>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                             <div class="col-xs-12" *ngIf="selectedTab.isScoresTable()">
                                 <br>
                                 <cm-scores-table [cmResult]="cmResult"></cm-scores-table>
@@ -116,12 +117,21 @@
                                         <i class="glyphicon glyphicon-menu-right"></i>
                                     </span>
                                 </div>
-
-                                <edge-bundling-diagram [index]="sentenceIndex - 1" [viewId]="0"></edge-bundling-diagram>
-                                <edge-bundling-diagram [index]="sentenceIndex" [viewId]="1"></edge-bundling-diagram>
-                                <div *ngIf="refresh">
-                                    <two-mode-graph [graph]="previousSentenceGraph" *ngIf="sentenceIndex > -1"></two-mode-graph>
-                                    <two-mode-graph [graph]="currentSentenceGraph"></two-mode-graph>
+                                <div class="row edge-bundling-graphs-container">
+                                    <div class="col-xs-6">
+                                        <edge-bundling-diagram [index]="sentenceIndex - 1" [viewId]="0"></edge-bundling-diagram>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <edge-bundling-diagram [index]="sentenceIndex" [viewId]="1"></edge-bundling-diagram>
+                                    </div>
+                                </div>
+                                <div id="network-graphs-container" class="row" *ngIf="refresh">
+                                    <div class="col-xs-6">
+                                        <two-mode-graph [graph]="previousSentenceGraph" *ngIf="sentenceIndex > -1"></two-mode-graph>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <two-mode-graph [graph]="currentSentenceGraph"></two-mode-graph>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -83,10 +83,16 @@ export class ComprehensionModelComponent {
     private buildTabs(result: CMResult) {
         const tabs: CIModelTab[] = [];
 
-        result.sentenceList.forEach((sentence, index) => {
-            const tab = new CIModelTab('Sentence ' + (index + 1), CIModelTabType.Sentence, sentence);
-            tabs.push(tab);
-        });
+        // result.sentenceList.forEach((sentence, index) => {
+        //     const tab = new CIModelTab('Sentence ' + (index + 1), CIModelTabType.Sentence, sentence);
+        //     tabs.push(tab);
+        // });
+        const amocTab = new CIModelTab('AMoC', CIModelTabType.AMoCModel);
+        tabs.push(amocTab);
+
+        const lmTab = new CIModelTab('Landscape View', CIModelTabType.LandscapeModel);
+        tabs.push(lmTab);
+
 
         const tab = new CIModelTab('Activation Map', CIModelTabType.Hitmap);
         tabs.push(tab);
@@ -94,16 +100,10 @@ export class ComprehensionModelComponent {
         const scTab = new CIModelTab('Scores Table', CIModelTabType.ScoresTable);
         tabs.push(scTab);
 
-        const lmTab = new CIModelTab('Landscape', CIModelTabType.LandscapeModel);
-        tabs.push(lmTab);
-
-        const amocTab = new CIModelTab('AMoC', CIModelTabType.AMoCModel);
-        tabs.push(amocTab);
-
         this.tabs = tabs;
 
-        // select the activation map tab by default
-        this.selectTab(tabs[tabs.length - 2]);
+        // select AMoC tab by default
+        this.selectTab(tabs[0]);
     }
 
     private selectTab(tab: CIModelTab) {
