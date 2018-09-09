@@ -72,7 +72,7 @@ export class ComprehensionModelComponent {
             this.cmResult = result;
             this.buildTabs(result);
             this.edgeBundlingService.setData(result);
-            this.sentenceIndex = 0;
+            this.sentenceIndex = 1;
             this.maxSentenceIndex = result.sentenceList.length - 1;
             this.isLoading = false;
         }, (err: any) => {
@@ -116,8 +116,9 @@ export class ComprehensionModelComponent {
             this.selectedTab = tab;
             this.selectedTabIndex = tab.sentence ? tab.sentence.index : 0;
             if (tab.isAMoCModel()) {
-                this.sentenceIndex = 0;
-                this.getCurrentText(0);
+                this.sentenceIndex = 1;
+                this.getCurrentText(1);
+                this.previousSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex - 1);
                 this.currentSentenceGraph = this.edgeBundlingService.getSentenceGraph(this.sentenceIndex);
             }
         }, 100);

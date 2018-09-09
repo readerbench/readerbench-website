@@ -91,10 +91,13 @@ label.error {
 }
 
 #network-graphs-container {
-    margin-top: 20px;
     margin-left: -300px;
     margin-right: -300px;
 } 
+
+.separator-border {
+    border-right: 2px solid #d4d4d4;
+}
 
 .vega-bindings {
     width: 105px;

@@ -6,9 +6,14 @@
 }
 
 .menu-container {
-    margin-left: 50%;
+    margin-left: 29%;
     padding: 20px;
     display: flex;
+}
+
+.span-padding {
+    padding-right: 50px;
+    padding-left: 50px;
 }
 
 .demo-menu {

@@ -105,20 +105,23 @@
                             <div class="col-xs-12" *ngIf="selectedTab.isAMoCModel()">
                                 <div class="phrase-container">
                                     {{currentPhrase}}
-                                    <b>{{previousSentence}}</b>
+                                    <i>{{previousSentence}}</i>
                                     <b>{{currentSentence}}</b>
                                 </div>
                                 <div class="menu-container">
-                                    <span class="icon-container" (click)="decreaseIndex()" [hidden]="sentenceIndex === 0">
+                                    <span class="icon-container" (click)="decreaseIndex()" [hidden]="sentenceIndex === 1">
                                         <i class="glyphicon glyphicon-menu-left"></i>
                                     </span>
-                                    <div class="sentence-container"> Sentence {{sentenceIndex + 1}} </div>
+                                    <div class="sentence-container">
+                                         <span class="span-padding"> Sentence {{sentenceIndex }} </span> 
+                                         <span class="span-padding"> Sentence {{sentenceIndex + 1}} </span>
+                                        </div>
                                     <span class="icon-container" (click)="increaseIndex()" [hidden]="sentenceIndex === maxSentenceIndex">
                                         <i class="glyphicon glyphicon-menu-right"></i>
                                     </span>
                                 </div>
                                 <div class="row edge-bundling-graphs-container">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-6 separator-border">
                                         <edge-bundling-diagram [index]="sentenceIndex - 1" [viewId]="0"></edge-bundling-diagram>
                                     </div>
                                     <div class="col-xs-6">
@@ -126,7 +129,7 @@
                                     </div>
                                 </div>
                                 <div id="network-graphs-container" class="row" *ngIf="refresh">
-                                    <div class="col-xs-6">
+                                    <div class="col-xs-6 separator-border">
                                         <two-mode-graph [graph]="previousSentenceGraph" *ngIf="sentenceIndex > -1"></two-mode-graph>
                                     </div>
                                     <div class="col-xs-6">
