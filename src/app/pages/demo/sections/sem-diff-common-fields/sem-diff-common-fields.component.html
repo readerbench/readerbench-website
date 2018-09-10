@@ -20,8 +20,40 @@
   </div>
 </div>
 <div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_preposition" [checked]="formData['preposition']" (change)="formData['preposition'] = !formData['preposition']"  />
+    <label for="input_preposition">Preposition
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_interjection" [checked]="formData['interjection']" (change)="formData['interjection'] = !formData['interjection']"  />
+    <label for="input_interjection">Interjection
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_conjunction" [checked]="formData['conjunction']" (change)="formData['conjunction'] = !formData['conjunction']"  />
+    <label for="input_conjunction">Conjuction
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_pronoun" [checked]="formData['pronoun']" (change)="formData['pronoun'] = !formData['pronoun']"  />
+    <label for="input_pronoun">Pronoun
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
   <div class="col-xs-6 col-md-4 col-lg-3">
-    <label for="input_lsa">Number of docs to return
+    <label for="input_number_of_docs">Number of docs to return
       <span class="required">*</span>
     </label>
   </div>

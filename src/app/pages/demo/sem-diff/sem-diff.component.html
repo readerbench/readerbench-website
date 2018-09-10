@@ -59,18 +59,17 @@
                         <ul class="lesson-description visible" style="display: block;">
                           <li *ngFor="let data of dataResponse">
                             <div class="heading">
-                              <span class="lesson-nr no-select">{{data.cosine_similarity | number : '1.2-2' }}</span>
+                              <span class="lesson-nr no-select">{{data.cosineSimilarity | number : '1.2-2' }}</span>
                             </div>
                             <div class="body">
                               <p>{{data.text}}</p>
                             </div>
-                            <!-- <div class="corpus_doc_name" style="display: none;">
-                              <p>{{data.corpus_doc_name}}</p>
-                            </div> -->
+                            <!-- The diff text -->
                             <div class="body corpus_diff_text">
                                 <p>
-                                  <mark *ngFor="let dataMark of data.corpus_diff_text_json" class="{{dataMark.color}}">
-                                      {{dataMark.text}}
+                                  <mark *ngFor="let dataMark of data.diffTextDTO" class="{{dataMark.typeOfElement}}">
+                                        {{dataMark.text}}
+                                        <span class="semantic_diff_tooltiptext tooltip-top">{{dataMark.explication}}</span>
                                   </mark>
                                 </p>
                             </div>

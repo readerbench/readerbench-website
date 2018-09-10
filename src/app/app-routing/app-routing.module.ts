@@ -80,7 +80,7 @@ const routes: Routes = [
     component: ComprehensionModelComponent,
   },
   {
-    path: 'demo/sem-diff',
+    path: 'demo/semantic-diff',
     component: SemDiffComponent,
   },
   {
