@@ -1,0 +1,46 @@
+.edge-bundling-graphs-container {
+    display: flex;
+    margin-left: -350px;
+    margin-right: -350px;
+    margin-top: 10px;
+}
+
+.menu-container {
+    margin-left: 29%;
+    padding: 20px;
+    display: flex;
+}
+
+.span-padding {
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.demo-menu {
+    margin-top: 15px;
+}
+
+.phrase-container {
+    margin-top: 30px;
+    font-size: 17px;
+    margin-left: 10px;
+    margin-right: 10px;
+    color: #a7a5a5;
+}
+
+.icon-container{
+    font-size: 28px;
+    color: #43b9c7;
+    cursor: pointer;
+}
+
+.sentence-container {
+    font-size: 18px;
+    font-weight: 600;
+    color: #a7a5a5;
+}
+
+.bold {
+    font-weight: 600;
+}
+
