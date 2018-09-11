@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { ContactService } from './contact.service';
+import { ApiRequestService } from '../demo/api-request.service';
+import { ContactData } from './contact.data';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
-  providers: [ContactService]
+  providers: [ApiRequestService]
 })
 export class ContactComponent implements OnInit {
 
@@ -18,8 +19,8 @@ export class ContactComponent implements OnInit {
   response: any;
   message: any;
 
-  constructor(private apiRequestService: ContactService) {
-    this.apiRequestService.setEndpoint('contact');
+  constructor(private apiRequestService: ApiRequestService) {
+    this.apiRequestService.setCommonService(ContactData.serviceName);
   }
 
   ngOnInit() {
