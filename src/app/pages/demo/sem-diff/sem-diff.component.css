@@ -1,0 +1,49 @@
+.course-description-list .lesson-description .heading:after{
+    border-right: 2px solid #43b9c7;
+    height: 100px;
+}
+
+.mark_green_color{
+    background-color:#66a56985;
+}
+.mark_red_color{
+    background-color:#e2a1ad85;
+}
+.mark_white_color{
+    background-color: inherit;
+}
+.mark_blue_color{
+    background-color:#b4cdf185;
+}
+.mark_blue_syn_color{
+    background-color:#b4cdf185;
+    text-decoration: underline;
+}
+.mark_white_syn_color{
+    background-color:inherit;
+    text-decoration: underline;
+}
+
+.mark_blue_color .semantic_diff_tooltiptext,
+.mark_blue_syn_color .semantic_diff_tooltiptext,
+.mark_fade_color .semantic_diff_tooltiptext,
+.mark_white_syn_color .semantic_diff_tooltiptext  {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.mark_blue_color:hover .semantic_diff_tooltiptext,
+.mark_blue_syn_color:hover .semantic_diff_tooltiptext,
+.mark_fade_color:hover .semantic_diff_tooltiptext,
+.mark_white_syn_color:hover .semantic_diff_tooltiptext{
+    visibility: visible;
+}
