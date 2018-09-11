@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 import { CMResult } from './data-objects/cm-result.do';
 import { ApiRequestService } from '../../api-request.service';
@@ -15,15 +15,17 @@ export interface CiModelParams {
 export class CIModelService {
 
   constructor(private apiRequestService: ApiRequestService) {
-    this.apiRequestService.setEndpoint('ci-model/analyzer');
+    this.apiRequestService.setApiService("ciModelAnalyzer");
   }
 
   public getWords(params: CiModelParams): Observable<CMResult> {
-    return this.apiRequestService.process(params)
-      .map((response: ApiResponseModel) => {
-        const cmResult = new CMResult();
-        cmResult.buildFromObject(response.data);
-        return cmResult;
-      });
+    var process = this.apiRequestService.process(params);
+    process.subscribe(response => {
+      const cmResult = new CMResult();
+      cmResult.buildFromObject(response.data);
+      return cmResult;
+    });
+    return null; // fix me
   }
+
 }

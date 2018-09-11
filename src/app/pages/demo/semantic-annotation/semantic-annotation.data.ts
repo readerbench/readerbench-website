@@ -1,6 +1,7 @@
 import { DefaultInputData } from "../demo.component.data";
 
 export var SemanticAnnotationData = {
+    'serviceName': 'semanticAnnotation',
     'title': 'Semantic Annotation',
     'abstractText': 'Interactive virtual environments (IVEs) are now seen as an '
         + 'engaging new way by which children learn experimental sciences and '

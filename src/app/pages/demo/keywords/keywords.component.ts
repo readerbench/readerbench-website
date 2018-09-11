@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
-import { ReaderbenchService } from '../../../readerbench.service';
+import { ReaderBenchService } from '../../../readerbench.service';
 import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { DemoCommonFieldsComponent } from '../sections/common-fields/common-fields.component';
 import { Language } from '../languages.data';
@@ -11,7 +11,7 @@ import { KeywordsData } from './keywords.data';
   selector: 'app-keywords',
   templateUrl: './keywords.component.html',
   styleUrls: ['./keywords.component.css'],
-  providers: [ApiRequestService, ReaderbenchService, TwoModeGraphService]
+  providers: [ApiRequestService, ReaderBenchService, TwoModeGraphService]
 })
 export class KeywordsComponent implements OnInit {
 
@@ -28,8 +28,8 @@ export class KeywordsComponent implements OnInit {
 
   value: any;
 
-  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderbenchService, private twoModeGraphService: TwoModeGraphService) {
-    this.apiRequestService.setEndpoint('keywords');
+  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
+    this.apiRequestService.setApiService(KeywordsData.serviceName);
   }
 
   ngOnInit() {

@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
+
 import { ParticipantDO } from './participant.do';
-import { ReaderbenchService } from '../../../../readerbench.service';
 import { ApiRequestService } from '../../api-request.service';
 // import _ = require('underscore');
 
@@ -13,7 +12,7 @@ export class ParticipantService {
     constructor(private apiRequestService: ApiRequestService) { }
 
     public getParticipantsStats(communityName: string, week: number): Observable<ParticipantDO[]> {
-        this.apiRequestService.setEndpoint('community/participants');
+        this.apiRequestService.setApiService("communityParticipants");
         var process = this.apiRequestService.process({
             communityName: communityName,
             week: week

@@ -20,13 +20,13 @@ export class CsclComponent implements OnInit {
   response: any;
 
   constructor(private apiRequestService: ApiRequestService) {
-    this.apiRequestService.setEndpoint('cscl-processing');
+    this.apiRequestService.setApiService(CsclData.serviceName);
+    
   }
 
   ngOnInit() {
     this.language = CsclData.defaultLanguage.value;
 
-    // force git update
     this.loadSemanticModels();
     this.formData = {
       'language': DefaultInputData.defaultLanguage(),

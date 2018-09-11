@@ -1,6 +1,7 @@
 import { DefaultInputData } from "../demo.component.data";
 
 export var SelfExplanationData = {
+    'serviceName': 'selfExplanation',
     'title': 'Self Explanation',
     'defaultText': 'Ce soir-là, la famille de Matilda dînait comme d\'habitude devant la télévision. Ils entendirent une voix forte venant du salon dire : « salut, salut, salut ».'
         + 'La mère devint toute blanche. Elle dit à son mari « il y a quelqu\'un dans la maison ». Ils arrêtèrent tous de manger. Ils étaient tous sur le qui-vive. La voix reprit « salut, salut, salut ». Le frère se mit à crier « ça recommence ! ». Matilda se leva et alla éteindre la télévision.'

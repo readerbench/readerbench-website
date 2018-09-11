@@ -20,7 +20,7 @@ export class SemanticAnnotationComponent implements OnInit {
   response: any;
 
   constructor(private apiRequestService: ApiRequestService) {
-    this.apiRequestService.setEndpoint('semantic-annotation');
+    this.apiRequestService.setApiService(SemanticAnnotationData.serviceName);
   }
 
   ngOnInit() {

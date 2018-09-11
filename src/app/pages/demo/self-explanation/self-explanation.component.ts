@@ -3,13 +3,13 @@ import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { SelfExplanationData } from './self-explanation.data';
 import { Language } from '../languages.data';
-import { ReaderbenchService } from '../../../readerbench.service';
+import { ReaderBenchService } from '../../../readerbench.service';
 
 @Component({
   selector: 'app-self-explanation',
   templateUrl: './self-explanation.component.html',
   styleUrls: ['./self-explanation.component.css'],
-  providers: [ApiRequestService, ReaderbenchService]
+  providers: [ApiRequestService, ReaderBenchService]
 })
 export class SelfExplanationComponent implements OnInit {
 
@@ -25,8 +25,8 @@ export class SelfExplanationComponent implements OnInit {
 
   response: any;
 
-  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderbenchService) {
-    this.apiRequestService.setEndpoint('self-explanation');
+  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderBenchService) {
+    this.apiRequestService.setApiService(SelfExplanationData.serviceName);
   }
 
   ngOnInit() {

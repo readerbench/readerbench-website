@@ -1,6 +1,7 @@
 import { DefaultInputData } from "../demo.component.data";
 
 export var SentimentAnalysisData = {
+    'serviceName': 'sentimentAnalysis',
     'componentTitle': 'Sentiment Analysis',
     'granularities': [
         {

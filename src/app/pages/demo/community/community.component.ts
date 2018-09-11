@@ -67,12 +67,13 @@ export class CommunityComponent implements OnInit {
   directedGraph: Array<any> = [];
   edgeBundling: Array<any> = [];
 
-  constructor(private apiRequestService: ApiRequestService, private twoModeGraphService: TwoModeGraphService) { }
+  constructor(private apiRequestService: ApiRequestService, private twoModeGraphService: TwoModeGraphService) {
+  }
 
   ngOnInit() {
     this.isLoadingGraph = false;
-    this.apiRequestService.setEndpoint('community/communities');
     var data = { };
+    this.apiRequestService.setApiService("community");
     var process = this.apiRequestService.process(data);
     process.subscribe((categories: any) => {
       //console.log(categories);
@@ -98,14 +99,14 @@ export class CommunityComponent implements OnInit {
     this.participantsCommunity = this.selectedCommunity;
     this.subcommunities = [];
 
-    this.apiRequestService.setEndpoint('community/participants/directedGraph');
+    this.apiRequestService.setApiService("communityDirectedGraph");
     var data = {
       communityName: community
     };
     var process = this.apiRequestService.process(data);
     process.subscribe((participants: any) => {
       this.directedGraph = participants;
-      this.apiRequestService.setEndpoint('community/participants/edgeBundling');
+      this.apiRequestService.setApiService("communityEdgeBundling");
       var data = {
         communityName: community
       }

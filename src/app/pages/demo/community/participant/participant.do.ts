@@ -1,4 +1,4 @@
-import { ReaderbenchService } from "../../../../readerbench.service";
+import { ReaderBenchService } from "../../../../readerbench.service";
 import { DemoDO } from "../../demo.do";
 
 export class ParticipantDO extends DemoDO {
@@ -18,7 +18,7 @@ export class ParticipantDO extends DemoDO {
 
     public buildFromObject(object: Object) {
 		super.buildFromObject(object);
-        var rbUtils = new ReaderbenchService();
+        var rbUtils = new ReaderBenchService();
         
         this.Scr = rbUtils.roundNumberToTwoDecimals(this.Scr);
         this.SocialKB = rbUtils.roundNumberToTwoDecimals(this.SocialKB);

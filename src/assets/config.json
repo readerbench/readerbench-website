@@ -1,0 +1,44 @@
+{
+  "apiServer": "//readerbench.com",
+  "apiPort": 80,
+  "apiPath": "/api",
+  
+  "mailServer": "//readerbench.com",
+  "mailPort": 9001,
+  "mailPath": "/",
+
+  "pathDelimiter": "/",
+
+  "apiEndpoints": {
+    "sentimentAnalysis": "sentiment-analysis",
+    "textualComplexity": "textual-complexity",
+    "keywords": "keywords",
+    "selfExplanation": "self-explanation",
+    "semanticAnnotation": "semantic-annotation",
+    "cvAnalysis": "cv-processing",
+    "csclProcessing": "cscl-processing",
+
+    "community": "community/communities",
+    "communityDirectedGraph": "community/participants/directedGraph",
+    "communityEdgeBundling": "community/participants/edgeBundling",
+
+    "communityParticipants": "community/participants",
+
+    "ciModelAnalyzer": "ci-model/analyzer"
+  },
+  "apiHeaders": {
+    "commonRequest": [{
+        "Accept": "application/json"
+      },
+      {
+        "Content-Type": "application/json"
+      }
+    ],
+    "uploadReqest": [
+    ]
+  },
+
+  "commonPath": {
+      "contact": "contact"
+  }
+}
