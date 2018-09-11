@@ -17,6 +17,7 @@ import { ProjectsComponent } from '../pages/projects/projects.component';
 import { PublicationsComponent } from '../pages/publications/publications.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
+import { SemanticDiffComponent } from '../pages/demo/semantic-diff/semantic-diff.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,10 @@ const routes: Routes = [
   {
     path: 'demo/sem-diff',
     component: SemDiffComponent,
+  },
+  {
+    path: 'demo/semantic-diff',
+    component: SemanticDiffComponent,
   },
   {
     path: '',

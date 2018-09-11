@@ -37,7 +37,7 @@ export class SemanticAnnotationComponent implements OnInit {
     this.loadSemanticModels();
 
     this.loading = false;
-    this.showResults = false;  
+    this.showResults = false;
 
   }
 

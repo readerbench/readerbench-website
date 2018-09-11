@@ -27,6 +27,7 @@ import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.compon
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
 import { SemDiffComponent } from './pages/demo/sem-diff/sem-diff.component';
+import { SemanticDiffComponent } from './pages/demo/semantic-diff/semantic-diff.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -73,6 +74,7 @@ import { ApproximationPipe } from './pipes/approximation.pipe';
     PublicationsComponent,
     ContactComponent,
     ApproximationPipe,
+    SemanticDiffComponent,
   ],
   imports: [
     BrowserModule,
