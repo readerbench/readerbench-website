@@ -1,7 +1,7 @@
-import { ReaderbenchService } from "../../readerbench.service";
+import { ReaderBenchService } from "../../readerbench.service";
 import * as _ from 'underscore';
 
-var rbUtils: ReaderbenchService = new ReaderbenchService();
+var rbUtils: ReaderBenchService = new ReaderBenchService();
 
 export abstract class DemoDO {
     protected abstract getPrimitivePropertyKeys(): string[];

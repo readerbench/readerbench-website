@@ -1,6 +1,7 @@
 import { DefaultInputData } from "../demo.component.data";
 
 export var SemDiffData = {
+    'serviceName': 'semantic-diff',
     'title': 'Semantic Diff',
     'defaultText': 'Robert Boulter is an English film , television and theatre actor .'
     + ' She had a guest @-@ starring role on the television series '

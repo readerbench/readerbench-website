@@ -2,13 +2,13 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DefaultInputData } from '../demo.component.data';
 import { ApiRequestService } from '../api-request.service';
 import { SemDiffData } from './sem-diff.data';
-import { ReaderbenchService } from '../../../readerbench.service';
+import { ReaderBenchService } from '../../../readerbench.service';
 
 @Component({
   selector: 'app-sem-diff',
   templateUrl: './sem-diff.component.html',
   styleUrls: ['./sem-diff.component.css'],
-  providers: [ApiRequestService, ReaderbenchService]
+  providers: [ApiRequestService, ReaderBenchService]
 })
 export class SemDiffComponent implements OnInit {
 
@@ -24,8 +24,8 @@ export class SemDiffComponent implements OnInit {
 
   response: any;
 
-  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderbenchService) {
-    this.apiRequestService.setEndpoint('semantic-diff');
+  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderBenchService) {
+    this.apiRequestService.setApiService(SemDiffData.serviceName);
   }
 
   ngOnInit() {

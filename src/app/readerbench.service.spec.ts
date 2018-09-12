@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ReaderbenchService } from './readerbench.service';
+import { ReaderBenchService } from './readerbench.service';
 
-describe('ReaderbenchService', () => {
+describe('ReaderBenchService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ReaderbenchService]
+      providers: [ReaderBenchService]
     });
   });
 
-  it('should be created', inject([ReaderbenchService], (service: ReaderbenchService) => {
+  it('should be created', inject([ReaderBenchService], (service: ReaderBenchService) => {
     expect(service).toBeTruthy();
   }));
 });

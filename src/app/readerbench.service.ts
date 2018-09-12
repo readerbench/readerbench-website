@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-// import * as d3 from './d3-custom';
 import * as d3 from 'd3';
 import * as _ from 'underscore';
 
