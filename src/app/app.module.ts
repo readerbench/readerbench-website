@@ -33,7 +33,6 @@ import { SemDiffComponent } from './pages/demo/sem-diff/sem-diff.component';
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
 import { DemoSemDiffCommonFieldsComponent } from './pages/demo/sections/sem-diff-common-fields/sem-diff-common-fields.component';
-
 import { ReaderBenchCommonModule } from '@reader-bench/common';
 import { KeywordsModule } from './pages/demo/keywords/keywords.module';
 
@@ -43,36 +42,45 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ApproximationPipe } from './pipes/approximation.pipe';
+
+import { ConfigService } from './config/config.service';
+import { ApiRequestService } from './pages/demo/api-request.service';
+import { ReaderBenchService } from './readerbench.service';
 import { EdgeBundlingService } from './pages/demo/comprehension-model/service/edge-bundling.service';
+import { ConfigComponent } from './config/config.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ConfigComponent,
     HeaderComponent,
     MenuComponent,
     HomeComponent,
     CarouselComponent,
     AboutComponent,
     BrowseComponent,
-    DemoComponent,
-    DemoMenuComponent,
-    SentimentAnalysisComponent,
-    TextualComplexityComponent,
-    ComprehensionModelComponent,
-    CMScoresTableComponent,
-    KeywordsComponent,
-    SemanticAnnotationComponent,
-    SelfExplanationComponent,
-    CsclComponent,
-    CvAnalysisComponent,
-    LakComponent,
-    CommunityComponent,
-    DemoServicesComponent,
-    DemoCommonFieldsComponent,
     PeopleComponent,
     ProjectsComponent,
     PublicationsComponent,
     ContactComponent,
+    DemoComponent,
+    DemoMenuComponent,
+    SentimentAnalysisComponent,
+    KeywordsComponent,
+    TextualComplexityComponent,
+    SemanticAnnotationComponent,
+    SelfExplanationComponent,
+    CsclComponent,
+    CvAnalysisComponent,
+    ComprehensionModelComponent,
+    CMScoresTableComponent,
+    EdgeBundlingDiagramComponent,
+    LakComponent,
+    CommunityComponent,
+    SemDiffComponent,
+    DemoServicesComponent,
+    DemoCommonFieldsComponent,
+    DemoSemDiffCommonFieldsComponent,
     ApproximationPipe,
   ],
   imports: [
@@ -84,8 +92,16 @@ import { EdgeBundlingService } from './pages/demo/comprehension-model/service/ed
     KeywordsModule,
     ReaderBenchCommonModule
   ],
-  exports: [KeywordsComponent],
-  providers: [],
-  bootstrap: [AppComponent]
+  exports: [
+    KeywordsComponent
+  ],
+  providers: [
+    ApiRequestService,
+    ConfigService,
+    ReaderBenchService
+  ],
+  bootstrap: [
+    AppComponent
+  ]
 })
 export class AppModule { }

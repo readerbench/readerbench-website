@@ -1,15 +1,15 @@
 import { Component, NgModule, OnInit, Input } from '@angular/core';
-import { ApiRequestService } from '../api-request.service';
 import { ReaderBenchService } from '../../../readerbench.service';
 import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { CvAnalysisData } from './cv-analysis.data';
 import { DefaultInputData } from '../demo.component.data';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-cv-analysis',
   templateUrl: './cv-analysis.component.html',
   styleUrls: ['./cv-analysis.component.css'],
-  providers: [ApiRequestService, ReaderBenchService, TwoModeGraphService]
+  providers: [ReaderBenchService, TwoModeGraphService]
 })
 export class CvAnalysisComponent implements OnInit {
 
@@ -34,8 +34,10 @@ export class CvAnalysisComponent implements OnInit {
   text: string;
   processedText: string;
   liwcEmotionsKeys: any;
-  
-  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
+
+  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
+    this.myApp.apiRequestService.setApiService(CvAnalysisData.uploadService);
+    this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
   }
 
   ngOnInit() {
@@ -88,10 +90,9 @@ export class CvAnalysisComponent implements OnInit {
   }
 
   uploadFile(file) {
-    this.apiRequestService.setHeaders(this.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
-    this.apiRequestService.setCommonService(CvAnalysisData.uploadService);
+    console.log(this.myApp.apiRequestService.getApiEndpoint());
 
-    var process = this.apiRequestService.upload(file);
+    var process = this.myApp.apiRequestService.upload(file);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -109,12 +110,12 @@ export class CvAnalysisComponent implements OnInit {
 
   process() {
     if (!this.cvFile) {
-      alert("Upload one CV file first!");
+      alert("Please upload the CV file first!");
       return;
     }
 
-    this.apiRequestService.setHeaders(this.apiRequestService.HEADERS_TYPE_COMMON_REQUEST);
-    this.apiRequestService.setApiService(CvAnalysisData.serviceName);
+    this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_COMMON_REQUEST);
+    this.myApp.apiRequestService.setApiService(CvAnalysisData.serviceName);
     this.loading = true;
     this.showResults = false;
 
@@ -131,7 +132,7 @@ export class CvAnalysisComponent implements OnInit {
       'threshold': this.formData['threshold']
     }
 
-    var process = this.apiRequestService.process(data);
+    var process = this.myApp.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -181,6 +182,19 @@ export class CvAnalysisComponent implements OnInit {
       }, 1000);
       this.liwcEmotionsKeys = this.readerbenchService.objectKeys(response.data.liwcEmotions);
       console.log(this.liwcEmotionsKeys);
+
+      this.myGraph = {
+        'nodeList': response.data.graph.nodeList,
+        'edgeList': response.data.graph.edgeList
+      };
+
+      this.twoModeGraphService.getGraph(this.myGraph).subscribe(
+        graph => { this.myGraph = graph; },
+        error => { this.error = error.message; },
+        () => {
+          // this.readerbenchService.d3jsForTopics(this.graph, "#conceptMap", false);
+        }
+      );
     });
   }
 

@@ -4,6 +4,7 @@ import { Config } from './config.interface';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry, tap } from 'rxjs/operators';
 import { ReaderBenchService } from '../readerbench.service';
+import config from '../../assets/config.json';
 
 @Injectable()
 export class ConfigService {
@@ -13,11 +14,12 @@ export class ConfigService {
     constructor(private http: HttpClient, private readerBenchService: ReaderBenchService) { }
 
     public getConfig() {
-        return this.http.get<Config>(this.configUrl)
-            .pipe(
-                retry(3), // retry a failed request up to 3 times
-                catchError(this.handleError) // then handle the error
-            );
+        return config;
+        // return this.http.get<Config>(this.configUrl)
+        //     .pipe(
+        //         retry(3), // retry a failed request up to 3 times
+        //         catchError(this.handleError) // then handle the error
+        //     );
     }
 
     public getConfigResponse(): Observable<HttpResponse<Config>> {

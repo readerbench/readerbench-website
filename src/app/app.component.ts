@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiRequestService } from './pages/demo/api-request.service';
 
 import { teslaThemes } from './scripts/app.options';
 
@@ -8,8 +9,12 @@ import { teslaThemes } from './scripts/app.options';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+
+  title = 'ReaderBench';
   
+  constructor(public apiRequestService: ApiRequestService) {
+  }
+
   ngOnInit() {
   }
 

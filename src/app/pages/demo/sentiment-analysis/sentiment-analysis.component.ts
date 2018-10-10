@@ -2,9 +2,9 @@ import { Component, OnInit, Input } from '@angular/core';
 import { DemoMenuComponent } from '../sections/menu/menu.component';
 import { SentimentAnalysisData } from './sentiment-analysis.data';
 import { DefaultInputData } from '../demo.component.data';
-import { ApiRequestService } from '../api-request.service';
 import { DemoCommonFieldsComponent } from '../sections/common-fields/common-fields.component';
 import { Language } from '../languages.data';
+import { AppComponent } from '../../../app.component';
 
 interface Granularity {
   id: string,
@@ -15,8 +15,7 @@ interface Granularity {
 @Component({
   selector: 'app-demo-sentiment-analysis',
   templateUrl: './sentiment-analysis.component.html',
-  styleUrls: ['./sentiment-analysis.component.css'],
-  providers: [ApiRequestService]
+  styleUrls: ['./sentiment-analysis.component.css']
 })
 
 export class SentimentAnalysisComponent implements OnInit {
@@ -31,8 +30,9 @@ export class SentimentAnalysisComponent implements OnInit {
   granularities: any;
   response: any;
 
-  constructor(private apiRequestService: ApiRequestService) {
-    this.apiRequestService.setApiService(SentimentAnalysisData.serviceName);
+  constructor(private myApp: AppComponent) {
+    this.myApp.apiRequestService.setApiService(SentimentAnalysisData.serviceName);
+    this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
   }
 
   ngOnInit() {
@@ -86,7 +86,7 @@ export class SentimentAnalysisComponent implements OnInit {
       'granularity': this.formData['granularity'].value,
     }
 
-    var process = this.apiRequestService.process(data);
+    var process = this.myApp.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;

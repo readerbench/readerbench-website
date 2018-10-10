@@ -19,23 +19,36 @@ export class ApiRequestService {
     public readonly HEADERS_TYPE_COMMON_REQUEST = 1;
     public readonly HEADERS_TYPE_FILE_UPLOAD = 2;
 
+    constructor(private http: HttpClient, private configService: ConfigService, private readerBenchService: ReaderBenchService) {
+        this.readConfig();
+    }
+
     private readConfig() {
-        this.configService.getConfig()
-            .subscribe(
-                (data: Config) => this.config = data, // success path
-                error => this.error = error // error path
-            );
+        this.config = this.configService.getConfig();
+        // this.configService.getConfig()
+        //     .subscribe(
+        //         (data: Config) => this.config = {
+        //             apiProtocol: data['apiProtocol'],
+        //             apiServer: data['apiServer'],
+        //             apiPort: data['apiPort'],
+        //             apiPath: data['apiPath'],
+        //             portDelimiter: data['portDelimiter'],
+        //             pathDelimiter: data['pathDelimiter'],
+        //             apiEndpoints: data['apiEndpoints'],
+        //             commonEndpoints: data['commonEndpoints'],
+        //             apiHeaders: data['apiHeaders']
+        //         },
+        //         error => this.error = error // error path
+        //     );
     }
 
     public getApiEndpoint(): string {
-        return this.config.apiServer + this.config.pathDelimiter +
-            this.config.apiPort + this.config.pathDelimiter +
+        return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
+            this.config.apiServer +
+            ((this.config.apiPort != 80) ? (this.config.portDelimiter +
+                this.config.apiPort) : '') +
+            this.config.pathDelimiter + this.config.apiPath + this.config.pathDelimiter +
             this.config.apiEndpoints[this.serviceName];
-    }
-
-    constructor(private http: HttpClient, private configService: ConfigService, private readerBenchService: ReaderBenchService) {
-        this.readConfig();
-        this.setHeaders(this.HEADERS_TYPE_COMMON_REQUEST);
     }
 
     public setApiService(serviceName: string) {
@@ -70,11 +83,15 @@ export class ApiRequestService {
         }
     }
 
+    public getHeaders() {
+        return this.headers;
+    }
+
     public upload(file) {
         var formData = new FormData();
         formData.append('file', file, file.name);
         return this.process(formData);
-      }
+    }
 
     public process(body: Object): Observable<ApiResponseModel> {
         if (this.serviceName == "") {
@@ -89,10 +106,11 @@ export class ApiRequestService {
             headers: this.headers
         }
 
+        console.log(this.getApiEndpoint());
         return this.http.post<ApiResponseModel>(this.getApiEndpoint(), body, httpOptions)
             .pipe(
                 tap( // Log the result or error
-                    data => console.log(data),
+                    data => data,
                     error => catchError(this.handleError) // then handle the error
                 )
             )

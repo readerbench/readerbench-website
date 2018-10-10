@@ -9,5 +9,5 @@ export var CvAnalysisData = {
         DefaultInputData.languages[1]
     ],
     'defaultLanguage': DefaultInputData.languages[1], // fr
-    'uploadService': 'file-upload'
+    'uploadService': 'fileUpload'
 };

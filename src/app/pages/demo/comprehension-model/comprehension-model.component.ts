@@ -6,6 +6,7 @@ import { CIModelTab, CIModelTabType } from './utils/ci-model-tab';
 import { Word, TwoModeGraph } from '@reader-bench/common';
 import { ApiRequestService } from '../api-request.service';
 import { EdgeBundlingService } from './service/edge-bundling.service';
+import { EdgeBundlingDiagramComponent } from './edge-bundling-diagram/edge-bundling-diagram.component';
 
 @Component({
     // tslint:disable-next-line:component-selector

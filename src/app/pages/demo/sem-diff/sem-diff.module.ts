@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SemDiffComponent } from './sem-diff.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [SemDiffComponent]
+  declarations: []
 })
 export class SemDiffModule { }

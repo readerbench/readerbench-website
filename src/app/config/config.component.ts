@@ -3,10 +3,9 @@ import { ConfigService } from './config.service';
 import { Config } from './config.interface';
 
 @Component({
-    // selector: 'app-demo-sentiment-analysis',
-    // templateUrl: './sentiment-analysis.component.html',
-    // styleUrls: ['./sentiment-analysis.component.css'],
-    // providers: [ApiRequestService]
+    selector: 'app-config',
+    templateUrl: './config.component.html',
+    styleUrls: ['./config.component.css']
 })
 
 export class ConfigComponent {
