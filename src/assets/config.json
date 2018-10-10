@@ -1,6 +1,6 @@
 {
   "apiProtocol": "http",
-  "apiServer": "localhost",
+  "apiServer": "readerbench.com",
   "apiPort": 8080,
   "apiPath": "api",
 
