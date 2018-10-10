@@ -1,7 +1,7 @@
 {
   "apiProtocol": "http",
   "apiServer": "readerbench.com",
-  "apiPort": 8080,
+  "apiPort": 80,
   "apiPath": "api",
 
   "mailServer": "readerbench.com",
