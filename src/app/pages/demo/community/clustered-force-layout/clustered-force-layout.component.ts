@@ -81,7 +81,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 
 		node.append("circle")
 		    .style("fill", function (d) {
-		    return color(d.cluster);
+		    return <string>color(d.cluster);
 		    })
 		    .attr("r", function(d){return d.radius})
 

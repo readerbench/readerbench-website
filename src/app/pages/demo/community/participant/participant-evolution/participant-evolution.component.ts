@@ -142,8 +142,8 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 		for (let idx in keys) {
 		  lines[keys[idx]] = d3.svg.line()
 		    .interpolate('basis')
-		    .x(function (d) { return x(d.date) || 1; })
-		    .y(function (d) { return y(d.data[keys[idx]]); });
+		    .x(function (d: any) { return x(d.date) || 1; })
+		    .y(function (d: any) { return y(d.data[keys[idx]]); });
 	  }
 
 	  svg.datum(data);
