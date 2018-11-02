@@ -19,6 +19,7 @@ export class KeywordsComponent implements OnInit {
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  languages: any;
   language: any;
 
   response: any;
@@ -33,6 +34,7 @@ export class KeywordsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.languages = KeywordsData.languages;
     this.language = KeywordsData.defaultLanguage;
 
     this.formData = {
