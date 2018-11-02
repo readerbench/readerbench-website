@@ -39,7 +39,7 @@ export class KeywordsComponent implements OnInit {
 
     this.formData = {
       'text': DefaultInputData.text,
-      'language': DefaultInputData.defaultLanguage(),
+      'language': this.language,
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
       'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold,
