@@ -6,6 +6,7 @@ import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { DemoCommonFieldsComponent } from '../sections/common-fields/common-fields.component';
 import { Language } from '../languages.data';
 import { KeywordsData } from './keywords.data';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-keywords',
@@ -29,8 +30,9 @@ export class KeywordsComponent implements OnInit {
 
   value: any;
 
-  constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
-    this.apiRequestService.setApiService(KeywordsData.serviceName);
+  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
+    this.myApp.apiRequestService.setApiService(KeywordsData.serviceName);
+    this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
   }
 
   ngOnInit() {
@@ -83,7 +85,7 @@ export class KeywordsComponent implements OnInit {
       'bigrams': this.formData['bigrams']
     }
 
-    var process = this.apiRequestService.process(data);
+    var process = this.myApp.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
