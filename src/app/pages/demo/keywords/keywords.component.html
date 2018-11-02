@@ -30,7 +30,7 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer" *ngIf="advanced">
                 <div class="col-xs-12 col-md-12 col-lg-12">
                   <input type="checkbox" id="input_bigrams" [checked]="formData['bigrams']" (change)="formData['bigrams'] = !formData['bigrams']"
