@@ -8,9 +8,9 @@ describe('SemanticAnnotationComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SemanticAnnotationComponent ]
+      declarations: [SemanticAnnotationComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
