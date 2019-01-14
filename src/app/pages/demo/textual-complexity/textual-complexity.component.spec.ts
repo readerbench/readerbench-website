@@ -8,9 +8,9 @@ describe('TextualComplexityComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TextualComplexityComponent ]
+      declarations: [TextualComplexityComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

@@ -1,6 +1,6 @@
-import { DefaultInputData } from "../demo.component.data";
+import { DefaultInputData } from '../demo.component.data';
 
-export var TextualComplexityData = {
+export let TextualComplexityData = {
     'serviceName': 'textualComplexity',
     'componentTitle': 'Textual Complexity',
     'languages': DefaultInputData.languages,

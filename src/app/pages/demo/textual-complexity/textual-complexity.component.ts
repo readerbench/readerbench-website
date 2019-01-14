@@ -50,7 +50,7 @@ export class TextualComplexityComponent implements OnInit {
   }
 
   loadSemanticModels() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
     this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
     this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
@@ -69,7 +69,7 @@ export class TextualComplexityComponent implements OnInit {
     this.loading = true;
     this.showResults = false;
 
-    var data = {
+    const data = {
       'text': this.formData['text'],
       'language': this.formData['language'].value,
       'lsa': this.formData['lsa'].value,
@@ -77,9 +77,9 @@ export class TextualComplexityComponent implements OnInit {
       'w2v': this.formData['word2vec'].value,
       'pos-tagging': this.formData['pos-tagging'],
       'dialogism': this.formData['dialogism']
-    }
+    };
 
-    var process = this.apiRequestService.process(data);
+    const process = this.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -89,9 +89,9 @@ export class TextualComplexityComponent implements OnInit {
         return;
       }
 
-      var aux = response.data.complexityIndices;
-      var readerbenchService = this.readerbenchService;
-      var interval = setInterval(function () {
+      const aux = response.data.complexityIndices;
+      const readerbenchService = this.readerbenchService;
+      const interval = setInterval(function () {
         if (aux.count === response.data.complexityIndices.count) {
           clearInterval(interval);
           readerbenchService.courseDescriptionToggle();
