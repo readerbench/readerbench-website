@@ -13,7 +13,7 @@ import { ReaderBenchService } from '../../../readerbench.service';
 })
 export class SelfExplanationComponent implements OnInit {
 
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;

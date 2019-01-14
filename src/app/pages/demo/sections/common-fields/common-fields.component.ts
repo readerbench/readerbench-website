@@ -9,7 +9,7 @@ import { Language } from '../../languages.data';
 })
 export class DemoCommonFieldsComponent implements OnInit {
 
-  @Input() formData: {};
+  @Input() formData: any;
   @Input() language: any;
   @Input() languages: any;
 

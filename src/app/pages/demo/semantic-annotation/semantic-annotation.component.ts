@@ -11,7 +11,7 @@ import { DefaultInputData } from '../demo.component.data';
 })
 export class SemanticAnnotationComponent implements OnInit {
 
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;

@@ -10,7 +10,7 @@ import { Language } from '../../languages.data';
 })
 export class DemoSemDiffCommonFieldsComponent implements OnInit {
 
-  @Input() formData: {};
+  @Input() formData: any;
   @Input() language: any;
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
