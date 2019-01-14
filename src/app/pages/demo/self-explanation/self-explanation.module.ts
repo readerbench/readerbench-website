@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SelfExplanationComponent } from './self-explanation.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [SelfExplanationComponent]
+  declarations: []
 })
 export class SelfExplanationModule { }
