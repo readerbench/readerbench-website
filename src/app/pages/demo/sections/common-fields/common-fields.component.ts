@@ -16,7 +16,7 @@ export class DemoCommonFieldsComponent implements OnInit {
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
   @Output() languageEmitter = new EventEmitter<any>();
-  
+
   lsaOptions: any;
   ldaOptions: any;
   word2vecOptions: any;
@@ -29,11 +29,11 @@ export class DemoCommonFieldsComponent implements OnInit {
     this.advanced = false;
     this.posTaggingOptions = DefaultInputData.posTaggingOptions;
     this.dialogismOptions = DefaultInputData.dialogismOptions;
-    this.loadSemanticModelsOptions();    
+    this.loadSemanticModelsOptions();
   }
 
   loadSemanticModelsOptions() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.lsaOptions = DefaultInputData.metricOptions.lsa[languageValue];
     this.ldaOptions = DefaultInputData.metricOptions.lda[languageValue];
     this.word2vecOptions = DefaultInputData.metricOptions.word2vec[languageValue];

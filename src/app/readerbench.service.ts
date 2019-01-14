@@ -7,25 +7,25 @@ export class ReaderBenchService {
 
   constructor() { }
 
-  public log( ... x: any[]) {
-    for(var i = 0; i < x.length; i++) { 
+  public log(...x: any[]) {
+    for (let i = 0; i < x.length; i++) {
       console.log(x);
     }
     return x;
   }
 
-  public logError( ... x: any[]) {
-    for(var i = 0; i < x.length; i++) { 
+  public logError(...x: any[]) {
+    for (let i = 0; i < x.length; i++) {
       console.error(x);
     }
     return x;
   }
 
   public courseDescriptionToggle(element = '.course-description-list'): void {
-    var courseDescription = jQuery(element);
-    var courseLessons = courseDescription.find('.lesson');
+    const courseDescription = jQuery(element);
+    const courseLessons = courseDescription.find('.lesson');
     courseLessons.each(function () {
-      var lesson = jQuery(this),
+      const lesson = jQuery(this),
         lessonDescription = lesson.find('> .lesson-description'),
         lessonDescriptionItems = lessonDescription.find('> li');
 
@@ -37,7 +37,7 @@ export class ReaderBenchService {
           lessonDescription.show();
 
           lessonDescriptionItems.each(function (i) {
-            var obj = jQuery(this);
+            const obj = jQuery(this);
             setTimeout(function () {
               obj.find('.icon').addClass('visible');
             }, 100 * (i + 1));
@@ -47,7 +47,7 @@ export class ReaderBenchService {
           lessonDescription.hide();
 
           lessonDescriptionItems.each(function (i) {
-            var obj = jQuery(this);
+            const obj = jQuery(this);
             obj.find('.icon').removeClass('visible');
           });
         }
@@ -64,10 +64,10 @@ export class ReaderBenchService {
       return true;
     }
     if (!_.isUndefined(parameterStack) && !_.isNull(parameterStack)) {
-      var currentObject = object;
-      var parameterStackArray: string[] = parameterStack.split(".");
-      for (var i = 0; i < parameterStackArray.length; i++) {
-        var param = parameterStackArray[i];
+      let currentObject = object;
+      const parameterStackArray: string[] = parameterStack.split('.');
+      for (let i = 0; i < parameterStackArray.length; i++) {
+        const param = parameterStackArray[i];
         currentObject = currentObject[param];
         if (_.isUndefined(currentObject) || _.isNull(currentObject)) {
           return true;
@@ -83,32 +83,37 @@ export class ReaderBenchService {
     }
     return Math.round(inputNumber * 100) / 100;
   }
-  
+
   public getObjectValueByPropertyStack(object: Object, parameterStack: string): any {
     if (this.isUndefinedOrNull(object, parameterStack)) {
       return null;
     }
-    var currentObject = object;
-    var parameterStackArray: string[] = parameterStack.split(".");
-    for (var i = 0; i < parameterStackArray.length; i++) {
-      var param = parameterStackArray[i];
+    let currentObject = object;
+    const parameterStackArray: string[] = parameterStack.split('.');
+    for (let i = 0; i < parameterStackArray.length; i++) {
+      const param = parameterStackArray[i];
       currentObject = currentObject[param];
     }
     return currentObject;
   }
 
+  componentToHex(c) {
+    const hex = c.toString(16);
+    return hex.length === 1 ? '0' + hex : hex;
+  }
+
   rgbToHex(r, g, b) {
-    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    return '#' + this.componentToHex(r) + this.componentToHex(g) + this.componentToHex(b);
   }
 
   hexToRgb(hex) {
     // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")
-    var shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
+    const shorthandRegex = /^#?([a-f\d])([a-f\d])([a-f\d])$/i;
     hex = hex.replace(shorthandRegex, function (m, r, g, b) {
       return r + r + g + g + b + b;
     });
 
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
     return result ? {
       r: parseInt(result[1], 16),
       g: parseInt(result[2], 16),
