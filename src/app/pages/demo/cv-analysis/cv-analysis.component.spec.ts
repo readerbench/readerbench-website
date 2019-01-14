@@ -8,9 +8,9 @@ describe('CvAnalysisComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CvAnalysisComponent ]
+      declarations: [CvAnalysisComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
