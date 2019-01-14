@@ -122,6 +122,11 @@ export let DefaultInputData = {
             }],
             'ro': [{
                 id: '1',
+                name: 'Read me',
+                value: 'ReadMe'
+            },
+            {
+                id: '2',
                 name: 'None',
                 value: ''
             }]
@@ -242,6 +247,11 @@ export let DefaultInputData = {
             }],
             'ro': [{
                 id: '1',
+                name: 'Read me',
+                value: 'ReadMe'
+            },
+            {
+                id: '2',
                 name: 'None',
                 value: ''
             }]
