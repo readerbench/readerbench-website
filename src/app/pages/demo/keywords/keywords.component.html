@@ -30,11 +30,11 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"
+                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer" *ngIf="advanced">
                 <div class="col-xs-12 col-md-12 col-lg-12">
-                  <input type="checkbox" id="input_bigrams" [checked]="formData['bigrams']" (change)="formData['bigrams'] = !formData['bigrams']"
-                  />
+                  <input type="checkbox" id="input_bigrams" [checked]="formData['bigrams']" (change)="formData['bigrams'] = !formData['bigrams']" />
                   <label for="input_bigrams">Include bigrams</label>
                 </div>
               </div>
@@ -46,8 +46,8 @@
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-3">
                   <div class="input-group">
-                    <input id="input_threshold" type="number" step="0.1" min="0.0" max="0.9" class="form-control" [(ngModel)]="formData.threshold"
-                    />
+                    <input id="input_threshold" type="number" step="0.1" min="0.0" max="0.9" class="form-control"
+                      [(ngModel)]="formData.threshold" />
                   </div>
                 </div>
               </div>
