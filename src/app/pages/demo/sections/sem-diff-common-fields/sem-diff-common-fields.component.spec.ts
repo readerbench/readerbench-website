@@ -8,9 +8,9 @@ describe('DemoSemDiffCommonFieldsComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DemoSemDiffCommonFieldsComponent ]
+      declarations: [DemoSemDiffCommonFieldsComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

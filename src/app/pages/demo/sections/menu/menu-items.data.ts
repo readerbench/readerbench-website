@@ -1,4 +1,4 @@
-export var DemoMenuItemsData = [
+export let DemoMenuItemsData = [
     {
         name: 'Sentiment Analysis',
         href: 'demo/sentiment-analysis',
@@ -20,33 +20,33 @@ export var DemoMenuItemsData = [
         image: 'assets/images/demo_keywords.png',
         altText: 'Keywords extraction with ReaderBench framework'
     },
-//     {
-//         name: 'Semantic Annotation',
-//         href: 'demo/semantic-annotation',
-//         description: 'Semantic annotation ensures a cohesion-centered, \n\
-// in-depth representation of discourse, useful for mining keywords and \n\
-// performing automated text categorization.',
-//         image: 'assets/images/demo_semantic_annotation.png',
-//         altText: 'Semantic annotation with ReaderBench framework'
-//     },
-//     {
-//         name: 'Self Explanation',
-//         href: 'demo/self-explanation',
-//         description: 'The automatically identified strategies within \n\
-// ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
-// elaboration.',
-//         image: 'assets/images/demo_self_explanation.png',
-//         altText: 'Self explanation with ReaderBench framework'
-//     },
-//     {
-//         name: 'CSCL',
-//         href: 'demo/cscl',
-//         description: 'Starting from dialogism and a cohesion-based model of \n\
-// discourse, this tool uses two computational models for assessing \n\
-// participation and collaboration.',
-//         image: 'assets/images/demo_cscl.png',
-//         altText: 'CSCL conversation analysis with ReaderBench framework',
-//     },
+    //     {
+    //         name: 'Semantic Annotation',
+    //         href: 'demo/semantic-annotation',
+    //         description: 'Semantic annotation ensures a cohesion-centered, \n\
+    // in-depth representation of discourse, useful for mining keywords and \n\
+    // performing automated text categorization.',
+    //         image: 'assets/images/demo_semantic_annotation.png',
+    //         altText: 'Semantic annotation with ReaderBench framework'
+    //     },
+    //     {
+    //         name: 'Self Explanation',
+    //         href: 'demo/self-explanation',
+    //         description: 'The automatically identified strategies within \n\
+    // ReaderBench comprise of monitoring, causality, bridging, paraphrase and \n\
+    // elaboration.',
+    //         image: 'assets/images/demo_self_explanation.png',
+    //         altText: 'Self explanation with ReaderBench framework'
+    //     },
+    //     {
+    //         name: 'CSCL',
+    //         href: 'demo/cscl',
+    //         description: 'Starting from dialogism and a cohesion-based model of \n\
+    // discourse, this tool uses two computational models for assessing \n\
+    // participation and collaboration.',
+    //         image: 'assets/images/demo_cscl.png',
+    //         altText: 'CSCL conversation analysis with ReaderBench framework',
+    //     },
     {
         name: 'CV Analysis',
         href: 'demo/cv-analysis',
@@ -69,7 +69,7 @@ analyses are performed.',
     //     image: 'assets/images/demo_communities.png',
     //     altText: 'Online Communities'
     // }
-        {
+    {
         name: 'AMoC',
         href: 'demo/amoc',
         description: 'The Automated Model of Comprehension (AMoC) uses an automated approach \n\
