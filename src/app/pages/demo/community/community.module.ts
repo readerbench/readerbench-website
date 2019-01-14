@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CommunityComponent } from './community.component';
 import { ParticipantComponent } from './participant/participant.component';
 import { CarouselComponent } from './carousel/carousel.component';
 import { SlideComponent } from './slide/slide.component';
@@ -9,6 +8,6 @@ import { SlideComponent } from './slide/slide.component';
   imports: [
     CommonModule
   ],
-  declarations: [CommunityComponent, ParticipantComponent, CarouselComponent, SlideComponent]
+  declarations: [ParticipantComponent, CarouselComponent, SlideComponent]
 })
 export class CommunityModule { }

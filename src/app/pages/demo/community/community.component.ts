@@ -4,23 +4,27 @@ import { TwoModeGraph, TwoModeGraphNode, TwoModeGraphEdge } from '@reader-bench/
 import { ApiRequestService } from '../api-request.service';
 
 interface Community {
-  communityName: string,
-  description: string
+  communityName: string;
+  description: string;
 }
 
 interface ViewType {
-  id: number,
-  name: string
+  id: number;
+  name: string;
 }
 
 interface Category {
-  name: string,
-  description: string,
+  name: string;
+  description: string;
   communities: Array<Community>;
 }
 
 interface Subcommunity {
-  week: string, graph: TwoModeGraph, edgeBundling: any, startDate: Date, endDate: Date
+  week: string;
+  graph: TwoModeGraph;
+  edgeBundling: any;
+  startDate: Date;
+  endDate: Date;
 }
 
 @Component({
@@ -31,11 +35,11 @@ interface Subcommunity {
 })
 export class CommunityComponent implements OnInit {
 
-  //The time to show the next photo
-  private NextPhotoInterval: number = 5000000000;
-  //Looping or not
-  private noLoopSlides: boolean = true;
-  //Photos
+  // Time to show the next photo
+  private NextPhotoInterval: Number = 5000000000;
+  // Looping or not
+  private noLoopSlides: Boolean = true;
+  // Photos
   private slides: Array<any> = [];
 
   private okbcCategory: Array<Community> = [];
@@ -45,22 +49,23 @@ export class CommunityComponent implements OnInit {
   selectedCommunity: Community;
   participantsCommunity: Community;
   viewTypes: ViewType[] = [
-    { id: 0, name: "Force-Directed Graph" },
-    { id: 1, name: "Hierarchical Edge Bundling" }
+    { id: 0, name: 'Force-Directed Graph' },
+    { id: 1, name: 'Hierarchical Edge Bundling' }
   ];
 
   nodeTypes = {
     '1': 'CENTRAL',
     '2': 'ACTIVE',
     '3': 'PERIPHERAL'
-  }
+  };
+
   selectedViewType: ViewType;
   selectedCategory: Category;
 
-  selectedWeek: number = 0;
+  selectedWeek: Number = 0;
 
   subcommunities: Array<Subcommunity> = [];
-  isLoadingGraph: boolean = false;
+  isLoadingGraph: Boolean = false;
 
   graph: TwoModeGraph;
 
@@ -72,11 +77,11 @@ export class CommunityComponent implements OnInit {
 
   ngOnInit() {
     this.isLoadingGraph = false;
-    var data = { };
-    this.apiRequestService.setApiService("community");
-    var process = this.apiRequestService.process(data);
+    const data = {};
+    this.apiRequestService.setApiService('community');
+    const process = this.apiRequestService.process(data);
     process.subscribe((categories: any) => {
-      //console.log(categories);
+      // console.log(categories);
       this.categories = categories;
 
       if (this.categories.length > 0) {
@@ -93,34 +98,31 @@ export class CommunityComponent implements OnInit {
     });
     this.selectedViewType = this.viewTypes[0];
   }
-  
+
   generateParticipantsGraph(community: string) {
     this.isLoadingGraph = true;
     this.participantsCommunity = this.selectedCommunity;
     this.subcommunities = [];
 
-    this.apiRequestService.setApiService("communityDirectedGraph");
-    var data = {
+    this.apiRequestService.setApiService('communityDirectedGraph');
+    const data = {
       communityName: community
     };
-    var process = this.apiRequestService.process(data);
+    const process = this.apiRequestService.process(data);
     process.subscribe((participants: any) => {
       this.directedGraph = participants;
-      this.apiRequestService.setApiService("communityEdgeBundling");
-      var data = {
-        communityName: community
-      }
-      process.subscribe((participants: any) => {
-        this.edgeBundling = participants;
+      this.apiRequestService.setApiService('communityEdgeBundling');
+      process.subscribe((auxParticipants: any) => {
+        this.edgeBundling = auxParticipants;
 
         console.log(this.directedGraph);
         console.log(this.edgeBundling);
-        for (var i = 0; i < this.directedGraph.length; i++) {
+        for (let i = 0; i < this.directedGraph.length; i++) {
           if (this.edgeBundling[i].data.length > 0) {
-            var graphSubcommunity = new TwoModeGraph();
+            let graphSubcommunity = new TwoModeGraph();
             graphSubcommunity = this.parseGraphData(this.directedGraph[i]);
-            //console.log(this.edgeBundling[i].data);
-            //for (var j = 0; j < this.edgeBundling.length; j++) {
+            // console.log(this.edgeBundling[i].data);
+            // for (var j = 0; j < this.edgeBundling.length; j++) {
             // if(this.edgeBundling[j].week === this.directedGraph[i].week) {
             this.subcommunities.push({
               week: this.directedGraph[i].week,
@@ -131,32 +133,32 @@ export class CommunityComponent implements OnInit {
             });
           }
         }
-        //console.log(this.subcommunities);
+        // console.log(this.subcommunities);
         this.isLoadingGraph = false;
       });
     });
   }
 
   private parseGraphData(inGraph): TwoModeGraph {
-    var graph = new TwoModeGraph();
+    const graph = new TwoModeGraph();
     inGraph.nodes.forEach((inNode) => {
-      var node = new TwoModeGraphNode();
+      const node = new TwoModeGraphNode();
       node.uri = inNode.id;
       node.displayName = inNode.name;
       if (inNode.group === 1) {
-        node.type = "CENTRAL";
+        node.type = 'CENTRAL';
       } else if (inNode.group === 2) {
-        node.type = "ACTIVE";
+        node.type = 'ACTIVE';
       } else {
-        node.type = "PERIPHERAL";
+        node.type = 'PERIPHERAL';
       }
 
       node.group = inNode.group;
       graph.nodeList.push(node);
     });
     inGraph.links.forEach((inLink) => {
-      var edge = new TwoModeGraphEdge();
-      edge.edgeType = "ParticipantInteraction";
+      const edge = new TwoModeGraphEdge();
+      edge.edgeType = 'ParticipantInteraction';
       edge.score = inLink.score;
       edge.sourceUri = inLink.source;
       edge.targetUri = inLink.target;
