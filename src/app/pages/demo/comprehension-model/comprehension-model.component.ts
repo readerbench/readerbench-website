@@ -8,8 +8,7 @@ import { ApiRequestService } from '../api-request.service';
 import { EdgeBundlingService } from './service/edge-bundling.service';
 
 @Component({
-    // tslint:disable-next-line:component-selector
-    selector: 'comprehension-model',
+    selector: 'app-comprehension-model',
     styleUrls: ['./comprehension-model.component.css'],
     templateUrl: './comprehension-model.component.html',
     providers: [ApiRequestService, CIModelService, EdgeBundlingService]
@@ -32,12 +31,12 @@ export class ComprehensionModelComponent {
     // Amoc Tab props
     public sentenceIndex: number;
     public maxSentenceIndex: number;
-    public previousSentence: string = '';
-    public currentSentence: string = '';
-    public currentPhrase: string = '';
+    public previousSentence = '';
+    public currentSentence = '';
+    public currentPhrase = '';
     public previousSentenceGraph: TwoModeGraph;
     public currentSentenceGraph: TwoModeGraph;
-    public refresh: boolean = true;
+    public refresh = true;
 
     constructor(private ciModelService: CIModelService,
         private edgeBundlingService: EdgeBundlingService) { }
@@ -111,7 +110,7 @@ export class ComprehensionModelComponent {
         this.previousSentenceGraph = null;
         this.currentSentenceGraph = null;
         setTimeout(() => {
-            this.tabs.forEach(currTab => { currTab.selected = false; })
+            this.tabs.forEach(currTab => { currTab.selected = false; });
             tab.selected = true;
             this.selectedTab = tab;
             this.selectedTabIndex = tab.sentence ? tab.sentence.index : 0;

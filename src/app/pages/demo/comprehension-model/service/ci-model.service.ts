@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { map } from "rxjs/operators";
+import { map } from 'rxjs/operators';
 
 import { CMResult } from './data-objects/cm-result.do';
 import { ApiRequestService } from '../../api-request.service';
@@ -18,11 +18,11 @@ export class CIModelService {
     private apiRequestService: ApiRequestService,
   ) {
     this.apiRequestService.setHeaders(this.apiRequestService.HEADERS_TYPE_COMMON_REQUEST);
-    this.apiRequestService.setApiService("ciModelAnalyzer");
+    this.apiRequestService.setApiService('ciModelAnalyzer');
   }
 
   public getWords(params: CiModelParams): Observable<CMResult> {
-    var process = this.apiRequestService.process(params);
+    const process = this.apiRequestService.process(params);
     return process
       .pipe(map(response => {
         const cmResult = new CMResult();

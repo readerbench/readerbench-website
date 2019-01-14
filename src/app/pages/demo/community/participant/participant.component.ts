@@ -12,9 +12,9 @@ export class ParticipantComponent implements OnInit {
   participants: ParticipantDO[];
   private _communityName: string;
   private _week: number;
-  biggerThan: number = 7;
-  smallerThan: number = 5;
-  showName: boolean = false;
+  biggerThan = 7;
+  smallerThan = 5;
+  showName = false;
   // columns: string[] = ["Name", "Nickname", "Contributions", "Cumulated contribution scores",
   //                     "Cumulated social KB scores", "Degree of inter-animation", "In-degree centrality", "Out-degree centrality"];
   filter: ParticipantDO = new ParticipantDO();
@@ -43,5 +43,5 @@ export class ParticipantComponent implements OnInit {
       this.participants = participantList;
     });
   }
-  
+
 }

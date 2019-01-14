@@ -1,91 +1,89 @@
 <div class="row">
-    <div class="page-wrapper">
-        <!-- <search-box></search-box> -->
-        <div id="page">
-            <app-header></app-header>
-            <div class="content-wrapper">
-                <app-carousel></app-carousel>
-                <div class="container">
-                    <div class="row top-buffer">
-                        <app-demo-menu></app-demo-menu>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="section-header">
-                        <h1>Automated Model of Comprehension (AMoC)</h1>
-                    </div>
-                </div>
-                <div class="container">
-                    <div class="row" *ngIf="isLoading">
-                        <div class="col-xs-12 col-md-12">
-                            <img src="../../../../assets/img/loading.gif" alt="Loading..." />
-                        </div>
-                    </div>
-                    <div *ngIf="!isLoading">
-                        <div class="row">
-                            <div class="col-xs-4">
-                                <label>Phrase </label>
-                            </div>
-                            <div class="col-xs-8">
-                                <textarea class="form-control" rows="5" [(ngModel)]="searchText" [ngClass]="{error: incorrectSearchText}">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-header">
+            <h1>Automated Model of Comprehension (AMoC)</h1>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row" *ngIf="isLoading">
+            <div class="col-xs-12 col-md-12">
+              <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+            </div>
+          </div>
+          <div *ngIf="!isLoading">
+            <div class="row">
+              <div class="col-xs-4">
+                <label>Phrase </label>
+              </div>
+              <div class="col-xs-8">
+                <textarea class="form-control" rows="5" [(ngModel)]="searchText" [ngClass]="{error: incorrectSearchText}">
                       </textarea>
-                                <label class="error" *ngIf="incorrectSearchText">Enter a text up to {{ maxSearchTextLength
-                                    }} characters</label>
-                            </div>
-                        </div>
+                <label class="error" *ngIf="incorrectSearchText">Enter a text up to {{ maxSearchTextLength
+                  }} characters</label>
+              </div>
+            </div>
 
-                        <div class="row top-buffer">
-                            <div class="col-xs-4">
-                                <label>Minimum Activation Threshold </label>
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="number" class="form-control" [(ngModel)]="minActivationThreshold" [ngClass]="{error: incorrectMinActivationThreshold}"
-                                />
-                                <label class="error" *ngIf="incorrectMinActivationThreshold">Enter a value from 0 to 1</label>
-                            </div>
-                        </div>
+            <div class="row top-buffer">
+              <div class="col-xs-4">
+                <label>Minimum Activation Threshold </label>
+              </div>
+              <div class="col-xs-4">
+                <input type="number" class="form-control" [(ngModel)]="minActivationThreshold" [ngClass]="{error: incorrectMinActivationThreshold}" />
+                <label class="error" *ngIf="incorrectMinActivationThreshold">Enter a value from 0 to 1</label>
+              </div>
+            </div>
 
-                        <div class="row top-buffer">
-                            <div class="col-xs-4">
-                                <label>Max number of semantically related concepts </label>
-                            </div>
-                            <div class="col-xs-4">
-                                <input type="number" class="form-control" [(ngModel)]="maxSemanticExpand" [ngClass]="{error: incorrectMaxSemanticExpand}"
-                                />
-                                <label class="error" *ngIf="incorrectMaxSemanticExpand">Enter a positive integer value</label>
-                            </div>
-                        </div>
+            <div class="row top-buffer">
+              <div class="col-xs-4">
+                <label>Max number of semantically related concepts </label>
+              </div>
+              <div class="col-xs-4">
+                <input type="number" class="form-control" [(ngModel)]="maxSemanticExpand" [ngClass]="{error: incorrectMaxSemanticExpand}" />
+                <label class="error" *ngIf="incorrectMaxSemanticExpand">Enter a positive integer value</label>
+              </div>
+            </div>
 
-                        <div class="row top-buffer">
-                            <div class="col-xs-12 col-md-12">
-                                <div class="bottom-buttons">
-                                    <button class="filter-button" (click)="runCiModel()">Run AMoC</button>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row top-buffer">
+              <div class="col-xs-12 col-md-12">
+                <div class="bottom-buttons">
+                  <button class="filter-button" (click)="runCiModel()">Run AMoC</button>
+                </div>
+              </div>
+            </div>
 
-                        <div class="row" *ngIf="!isLoading">
-                            <div class="col-xs-12 demo-menu">
-                                <nav>
-                                    <ul>
-                                        <li *ngFor="let tab of tabs">
-                                            <a class="btn" [ngClass]="{'current': tab.selected}" (click)="selectTab(tab)">
-                                                <span>
-                                                    {{ tab.title }}
-                                                </span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
+            <div class="row" *ngIf="!isLoading">
+              <div class="col-xs-12 demo-menu">
+                <nav>
+                  <ul>
+                    <li *ngFor="let tab of tabs">
+                      <a class="btn" [ngClass]="{'current': tab.selected}" (click)="selectTab(tab)">
+                        <span>
+                          {{ tab.title }}
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
 
 
-                        <div class="row" *ngIf="!isLoading && selectedTab">
-                            <div class="col-xs-12" *ngIf="selectedTab.isHitmap()">
-                                <word-hitmap [wordList]="wordList"></word-hitmap>
-                            </div>
-                            <!-- <div class="col-xs-12" *ngIf="selectedTab.isSentence()">
+            <div class="row" *ngIf="!isLoading && selectedTab">
+              <div class="col-xs-12" *ngIf="selectedTab.isHitmap()">
+                <word-hitmap [wordList]="wordList"></word-hitmap>
+              </div>
+              <!-- <div class="col-xs-12" *ngIf="selectedTab.isSentence()">
                                 <div class="row">
                                     <div class="col-xs-12">
                                         <p> {{ selectedTab.sentence.text }} </p>
@@ -95,52 +93,52 @@
                                     </div>
                                 </div>
                             </div> -->
-                            <div class="col-xs-12" *ngIf="selectedTab.isScoresTable()">
-                                <br>
-                                <cm-scores-table [cmResult]="cmResult"></cm-scores-table>
-                            </div>
-                            <div class="col-xs-12" *ngIf="selectedTab.isLandcapeModel()">
-                                <landscape-model [wordList]="wordList"></landscape-model>
-                            </div>
-                            <div class="col-xs-12" *ngIf="selectedTab.isAMoCModel()">
-                                <div class="phrase-container">
-                                    {{currentPhrase}}
-                                    <i>{{previousSentence}}</i>
-                                    <b>{{currentSentence}}</b>
-                                </div>
-                                <div class="menu-container">
-                                    <span class="icon-container" (click)="decreaseIndex()" [hidden]="sentenceIndex === 1">
-                                        <i class="glyphicon glyphicon-menu-left"></i>
-                                    </span>
-                                    <div class="sentence-container">
-                                         <span class="span-padding"> Sentence {{sentenceIndex }} </span> 
-                                         <span class="span-padding"> Sentence {{sentenceIndex + 1}} </span>
-                                        </div>
-                                    <span class="icon-container" (click)="increaseIndex()" [hidden]="sentenceIndex === maxSentenceIndex">
-                                        <i class="glyphicon glyphicon-menu-right"></i>
-                                    </span>
-                                </div>
-                                <div class="row edge-bundling-graphs-container">
-                                    <div class="col-xs-6 separator-border">
-                                        <edge-bundling-diagram [index]="sentenceIndex - 1" [viewId]="0"></edge-bundling-diagram>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <edge-bundling-diagram [index]="sentenceIndex" [viewId]="1"></edge-bundling-diagram>
-                                    </div>
-                                </div>
-                                <div id="network-graphs-container" class="row" *ngIf="refresh">
-                                    <div class="col-xs-6 separator-border">
-                                        <two-mode-graph [graph]="previousSentenceGraph" *ngIf="sentenceIndex > -1"></two-mode-graph>
-                                    </div>
-                                    <div class="col-xs-6">
-                                        <two-mode-graph [graph]="currentSentenceGraph"></two-mode-graph>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+              <div class="col-xs-12" *ngIf="selectedTab.isScoresTable()">
+                <br>
+                <cm-scores-table [cmResult]="cmResult"></cm-scores-table>
+              </div>
+              <div class="col-xs-12" *ngIf="selectedTab.isLandcapeModel()">
+                <landscape-model [wordList]="wordList"></landscape-model>
+              </div>
+              <div class="col-xs-12" *ngIf="selectedTab.isAMoCModel()">
+                <div class="phrase-container">
+                  {{currentPhrase}}
+                  <i>{{previousSentence}}</i>
+                  <b>{{currentSentence}}</b>
                 </div>
+                <div class="menu-container">
+                  <span class="icon-container" (click)="decreaseIndex()" [hidden]="sentenceIndex === 1">
+                    <i class="glyphicon glyphicon-menu-left"></i>
+                  </span>
+                  <div class="sentence-container">
+                    <span class="span-padding"> Sentence {{sentenceIndex }} </span>
+                    <span class="span-padding"> Sentence {{sentenceIndex + 1}} </span>
+                  </div>
+                  <span class="icon-container" (click)="increaseIndex()" [hidden]="sentenceIndex === maxSentenceIndex">
+                    <i class="glyphicon glyphicon-menu-right"></i>
+                  </span>
+                </div>
+                <div class="row edge-bundling-graphs-container">
+                  <div class="col-xs-6 separator-border">
+                    <edge-bundling-diagram [index]="sentenceIndex - 1" [viewId]="0"></edge-bundling-diagram>
+                  </div>
+                  <div class="col-xs-6">
+                    <edge-bundling-diagram [index]="sentenceIndex" [viewId]="1"></edge-bundling-diagram>
+                  </div>
+                </div>
+                <div id="network-graphs-container" class="row" *ngIf="refresh">
+                  <div class="col-xs-6 separator-border">
+                    <two-mode-graph [graph]="previousSentenceGraph" *ngIf="sentenceIndex > -1"></two-mode-graph>
+                  </div>
+                  <div class="col-xs-6">
+                    <two-mode-graph [graph]="currentSentenceGraph"></two-mode-graph>
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>

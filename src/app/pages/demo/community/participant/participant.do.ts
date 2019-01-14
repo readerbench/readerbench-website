@@ -1,5 +1,5 @@
-import { ReaderBenchService } from "../../../../readerbench.service";
-import { DemoDO } from "../../demo.do";
+import { ReaderBenchService } from '../../../../readerbench.service';
+import { DemoDO } from '../../demo.do';
 
 export class ParticipantDO extends DemoDO {
     participantName: string;
@@ -13,13 +13,13 @@ export class ParticipantDO extends DemoDO {
     group: string;
 
     protected getPrimitivePropertyKeys(): string[] {
-        return ["participantName", "participantNickname", "Contrib", "Scr", "SocialKB", "InterAnim", "InDegree", "OutDegree", "group"];
+        return ['participantName', 'participantNickname', 'Contrib', 'Scr', 'SocialKB', 'InterAnim', 'InDegree', 'OutDegree', 'group'];
     }
 
     public buildFromObject(object: Object) {
-		super.buildFromObject(object);
-        var rbUtils = new ReaderBenchService();
-        
+        super.buildFromObject(object);
+        const rbUtils = new ReaderBenchService();
+
         this.Scr = rbUtils.roundNumberToTwoDecimals(this.Scr);
         this.SocialKB = rbUtils.roundNumberToTwoDecimals(this.SocialKB);
         this.InterAnim = rbUtils.roundNumberToTwoDecimals(this.InterAnim);

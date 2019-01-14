@@ -33,7 +33,7 @@ export class EdgeBundlingService {
 
     private initialize() {
         this.finalId = this.rootParent.id + 1;
-        //this.sentenceWordList = [];
+        // this.sentenceWordList = [];
     }
 
     public getData() {
@@ -44,7 +44,7 @@ export class EdgeBundlingService {
         if (index > -1) {
             return this.data.sentenceList[index].graph;
         } else {
-            return null
+            return null;
         }
     }
 
@@ -53,28 +53,28 @@ export class EdgeBundlingService {
     }
 
     public getCurrentPhrase(index: number): string {
-        let phrase: string = '';
+        let phrase = '';
         for (let i = 0; i < index; i++) {
             phrase += this.sentenceList[i].text + ' ';
-        };
+        }
         return phrase;
     }
 
     public getParsedData(index: number): EBResult {
         this.initialize();
 
-        var result: EBResult = <EBResult>{ words: [], edges: [] };
+        const result: EBResult = <EBResult>{ words: [], edges: [] };
         result.words.push(this.rootParent);
         result.words = result.words.concat(this.generateParents(index));
 
         for (let i = 0; i <= index; i++) {
             this.sentenceWordList[i].forEach(node => {
-                let word: EBWord = {
+                const word: EBWord = {
                     id: this.finalId++,
                     name: node.displayName,
                     parent: this.generateParentIdForNode(node, i),
                     active: node.active,
-                    type: node.type === "TextBased" ? 1 : 2,
+                    type: node.type === 'TextBased' ? 1 : 2,
                     bold: i === index ? true : false
                 };
                 result.words.push(word);
@@ -82,10 +82,10 @@ export class EdgeBundlingService {
         }
 
         this.sentenceList[index].graph.edgeList.forEach(graphEdge => {
-            let edge: EBEdge = {
+            const edge: EBEdge = {
                 source: result.words.find(x => x.name === graphEdge.sourceUri).id,
                 target: result.words.find(x => x.name === graphEdge.targetUri).id,
-                type: graphEdge.edgeType == "SemanticDistance" ? 1 : 0
+                type: graphEdge.edgeType === 'SemanticDistance' ? 1 : 0
             };
             result.edges.push(edge);
         });
@@ -98,15 +98,15 @@ export class EdgeBundlingService {
     }
 
     private generateParents(index: number): EBWord[] {
-        var result: EBWord[] = [];
+        const result: EBWord[] = [];
         for (let i = 0; i <= index; i++) {
-            var sentence: EBWord = {
+            const sentence: EBWord = {
                 id: this.finalId++,
                 name: 'textBasedSentence' + i,
                 parent: 1,
                 type: 0
             };
-            var inferred: EBWord = {
+            const inferred: EBWord = {
                 id: this.finalId++,
                 name: 'inferredSentence' + i,
                 parent: sentence.id,
@@ -118,12 +118,12 @@ export class EdgeBundlingService {
     }
 
     private parseSentences() {
-        let count = this.data.sentenceList.length;
+        const count = this.data.sentenceList.length;
         this.sentenceWordList.push(this.data.sentenceList[0].graph.nodeList);
         let previousLength = this.sentenceWordList[0].length;
 
         for (let i = 1; i < count; i++) {
-            let tempArray = cloneDeep(this.data.sentenceList[i].graph.nodeList);
+            const tempArray = cloneDeep(this.data.sentenceList[i].graph.nodeList);
             tempArray.splice(0, previousLength);
             this.sentenceWordList.push(tempArray);
             previousLength = this.sentenceList[i].graph.nodeList.length;
