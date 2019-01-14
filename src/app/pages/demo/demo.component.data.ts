@@ -1,9 +1,22 @@
-export var DefaultInputData = {
-    text: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry into self-contained gaming assets (i.e. solutions showing economic value potential) that support game studios at developing applied games easier, faster and more cost-effectively. These assets will be available along with a large volume of high-quality knowledge resources through a self-sustainable Ecosystem, which is a social space that connects research, gaming industries, intermediaries, education providers, policy makers and end-users. RAGE – Realising an Applied Gaming Eco-system,  is a 48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework Programme for Research and Innovation, Horizon 2020.' +
+export let DefaultInputData = {
+    text: 'RAGE aims to develop, transform and enrich advanced technologies from the leisure games industry ' +
+        'into self-contained gaming assets (i.e. solutions showing economic value potential) that support game ' +
+        'studios at developing applied games easier, faster and more cost-effectively. These assets will be ' +
+        'available along with a large volume of high-quality knowledge resources through a self-sustainable ' +
+        'Ecosystem, which is a social space that connects research, gaming industries, intermediaries, ' +
+        'education providers, policy makers and end-users. RAGE – Realising an Applied Gaming Eco-system,  is a ' +
+        '48-months Technology and Know-How driven Research and Innovation project co-funded by EU Framework ' +
+        'Programme for Research and Innovation, Horizon 2020.' +
         String.fromCharCode(13) +
-        'The EU based industry for non-leisure games – Applied Games – is an emerging business with multiple uses in industry, education, health and the public administration sectors. As such, it is still fragmented and needs critical mass to compete globally. Nevertheless its growth potential is widely recognised and even suggested to exceed the growth potential of the leisure games market.' +
+        'The EU based industry for non-leisure games – Applied Games – is an emerging business with ' +
+        'multiple uses in industry, education, health and the public administration sectors. As such, it is ' +
+        'still fragmented and needs critical mass to compete globally. Nevertheless its growth potential is ' +
+        'widely recognised and even suggested to exceed the growth potential of the leisure games market.' +
         String.fromCharCode(13) +
-        'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by gaming companies integrated in the RAGE consortium. These companies will be creating games that will be empirically validated in real world pilots in different application scenarios representing different markets and target groups for the Applied Games industry.',
+        'The gaming technology assets gathered along the project lifecycle will be tested and evaluated by ' +
+        'gaming companies integrated in the RAGE consortium. These companies will be creating games that will ' +
+        'be empirically validated in real world pilots in different application scenarios representing ' +
+        'different markets and target groups for the Applied Games industry.',
     semanticSimilarityThreshold: 0.3,
     languages: [
         {
@@ -236,80 +249,80 @@ export var DefaultInputData = {
     },
     defaultMetricOptions: {
         lsa: {
-            'de': function() {
+            'de': function () {
                 return DefaultInputData.metricOptions.lsa.de[0];
             },
             'en': function () {
                 return DefaultInputData.metricOptions.lsa.en[0];
             },
-            'es': function() {
+            'es': function () {
                 return DefaultInputData.metricOptions.lsa.es[0];
             },
             'fr': function () {
                 return DefaultInputData.metricOptions.lsa.fr[0];
             },
-            'it': function() {
+            'it': function () {
                 return DefaultInputData.metricOptions.lsa.it[0];
             },
-            'la': function() {
+            'la': function () {
                 return DefaultInputData.metricOptions.lsa.la[0];
             },
-            'nl': function() {
+            'nl': function () {
                 return DefaultInputData.metricOptions.lsa.nl[0];
             },
-            'ro': function() {
+            'ro': function () {
                 return DefaultInputData.metricOptions.lsa.ro[0];
             }
         },
         lda: {
-            'de': function() {
+            'de': function () {
                 return DefaultInputData.metricOptions.lda.de[0];
             },
             'en': function () {
                 return DefaultInputData.metricOptions.lda.en[0];
             },
-            'es': function() {
+            'es': function () {
                 return DefaultInputData.metricOptions.lda.es[0];
             },
             'fr': function () {
                 return DefaultInputData.metricOptions.lda.fr[1];
             },
-            'it': function() {
+            'it': function () {
                 return DefaultInputData.metricOptions.lda.it[0];
             },
-            'la': function() {
+            'la': function () {
                 return DefaultInputData.metricOptions.lda.la[0];
             },
-            'nl': function() {
+            'nl': function () {
                 return DefaultInputData.metricOptions.lda.nl[0];
             },
-            'ro': function() {
+            'ro': function () {
                 return DefaultInputData.metricOptions.lda.ro[0];
             }
         },
         word2vec: {
-            'de': function() {
+            'de': function () {
                 return DefaultInputData.metricOptions.word2vec.de[0];
             },
             'en': function () {
                 return DefaultInputData.metricOptions.word2vec.en[0];
             },
-            'es': function() {
+            'es': function () {
                 return DefaultInputData.metricOptions.word2vec.es[0];
             },
             'fr': function () {
                 return DefaultInputData.metricOptions.word2vec.fr[0];
             },
-            'it': function() {
+            'it': function () {
                 return DefaultInputData.metricOptions.word2vec.it[0];
             },
-            'la': function() {
+            'la': function () {
                 return DefaultInputData.metricOptions.word2vec.la[0];
             },
-            'nl': function() {
+            'nl': function () {
                 return DefaultInputData.metricOptions.word2vec.nl[0];
             },
-            'ro': function() {
+            'ro': function () {
                 return DefaultInputData.metricOptions.word2vec.ro[0];
             }
         }
@@ -341,4 +354,4 @@ export var DefaultInputData = {
             value: '8'
         }
     ]
-}
+};

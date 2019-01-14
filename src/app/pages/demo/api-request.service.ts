@@ -14,8 +14,8 @@ export class ApiRequestService {
 
     private config: Config;
     private error: string;
-    private serviceName: string = "";
-    private headers: any = "";
+    private serviceName: string;
+    private headers: any;
     public readonly HEADERS_TYPE_COMMON_REQUEST = 1;
     public readonly HEADERS_TYPE_FILE_UPLOAD = 2;
 
@@ -45,7 +45,7 @@ export class ApiRequestService {
     public getApiEndpoint(): string {
         return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
             this.config.apiServer +
-            ((this.config.apiPort != 80) ? (this.config.portDelimiter +
+            ((this.config.apiPort !== 80) ? (this.config.portDelimiter +
                 this.config.apiPort) : '') +
             this.config.pathDelimiter + this.config.apiPath + this.config.pathDelimiter +
             this.config.apiEndpoints[this.serviceName];
@@ -88,23 +88,23 @@ export class ApiRequestService {
     }
 
     public upload(file) {
-        var formData = new FormData();
+        const formData = new FormData();
         formData.append('file', file, file.name);
         return this.process(formData);
     }
 
     public process(body: Object): Observable<ApiResponseModel> {
-        if (this.serviceName == "") {
+        if (this.serviceName === '') {
             this.readerBenchService.logError('The service name is not set!');
             return;
         }
-        if (this.headers == "") {
+        if (this.headers === '') {
             this.readerBenchService.logError('The service headers were not set!');
             return;
         }
-        let httpOptions = {
+        const httpOptions = {
             headers: this.headers
-        }
+        };
 
         console.log(this.getApiEndpoint());
         return this.http.post<ApiResponseModel>(this.getApiEndpoint(), body, httpOptions)
@@ -113,7 +113,7 @@ export class ApiRequestService {
                     data => data,
                     error => catchError(this.handleError) // then handle the error
                 )
-            )
+            );
     }
 
     public downloadFile(fileName) {
@@ -135,6 +135,6 @@ export class ApiRequestService {
         // return an observable with a user-facing error message
         return throwError(
             'Something bad happened; please try again later.');
-    };
+    }
 
 }

@@ -3,5 +3,5 @@ export class ApiResponseModel {
         public data: any,
         public success: boolean,
         public errorMsg: string
-    ) { };
+    ) { }
 }
