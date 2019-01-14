@@ -1,6 +1,6 @@
-import { DefaultInputData } from "../demo.component.data";
+import { DefaultInputData } from '../demo.component.data';
 
-export var KeywordsData = {
+export let KeywordsData = {
     'serviceName': 'keywords',
     'title': 'Keywords',
     'languages': [
