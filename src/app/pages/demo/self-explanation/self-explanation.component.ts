@@ -45,7 +45,7 @@ export class SelfExplanationComponent implements OnInit {
   }
 
   loadSemanticModels() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
     this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
     this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
@@ -65,7 +65,7 @@ export class SelfExplanationComponent implements OnInit {
     this.showResults = false;
     this.showReadingStrategies = false;
 
-    var data = {
+    const data = {
       'text': this.formData['text'],
       'explanation': this.formData['explanation'],
       'language': this.formData['language'].value,
@@ -74,9 +74,9 @@ export class SelfExplanationComponent implements OnInit {
       'w2v': this.formData['word2vec'].value,
       'pos-tagging': this.formData['pos-tagging'],
       'dialogism': this.formData['dialogism']
-    }
+    };
 
-    var process = this.apiRequestService.process(data);
+    const process = this.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -89,9 +89,9 @@ export class SelfExplanationComponent implements OnInit {
       this.showReadingStrategies = true;
       this.selfExplanationColored = response.data.selfExplanationColored;
       this.strategies = response.data.strategies;
-      var aux = this.strategies;
-      var readerbenchService = this.readerbenchService;
-      var interval = setInterval(function () {
+      const aux = this.strategies;
+      const readerbenchService = this.readerbenchService;
+      const interval = setInterval(function () {
         if (aux.count === response.data.strategies.count) {
           clearInterval(interval);
           readerbenchService.courseDescriptionToggle();
