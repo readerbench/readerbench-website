@@ -28,7 +28,8 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"
+                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
               <div class="row top-buffer">
                 <div class="col-xs-6 col-md-4 col-lg-3">
                   <label for="input_granularity">Granularity
@@ -78,8 +79,12 @@
                                     {{sentiment.score | number}}
                                   </span>
                                 </div> -->
-                                <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%" [class.negative]="sentiment.score == -1" [attr.aria-valuenow]="(sentiment.score == -1) ? -sentiment.score : 0" [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>
-                                <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%" [class.positive]="sentiment.score == 1" [attr.aria-valuenow]="(sentiment.score == 1) ? sentiment.score : 0" [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>
+                                <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%"
+                                  [class.negative]="sentiment.score == -1" [attr.aria-valuenow]="(sentiment.score == -1) ? -sentiment.score : 0"
+                                  [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>
+                                <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%"
+                                  [class.positive]="sentiment.score == 1" [attr.aria-valuenow]="(sentiment.score == 1) ? sentiment.score : 0"
+                                  [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>
                               </div>
                             </li>
                           </ul>
