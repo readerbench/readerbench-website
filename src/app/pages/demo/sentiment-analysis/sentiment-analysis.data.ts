@@ -1,6 +1,6 @@
-import { DefaultInputData } from "../demo.component.data";
+import { DefaultInputData } from '../demo.component.data';
 
-export var SentimentAnalysisData = {
+export let SentimentAnalysisData = {
     'serviceName': 'sentimentAnalysis',
     'componentTitle': 'Sentiment Analysis',
     'granularities': [
@@ -25,7 +25,7 @@ export var SentimentAnalysisData = {
             value: 4
         }
     ],
-    'defaultGranularity': function() {
+    'defaultGranularity': function () {
         return SentimentAnalysisData['granularities'][2];
     },
     'languages': [

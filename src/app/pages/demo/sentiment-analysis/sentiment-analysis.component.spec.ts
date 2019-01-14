@@ -8,9 +8,9 @@ describe('SentimentAnalysisComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SentimentAnalysisComponent ]
+      declarations: [SentimentAnalysisComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
