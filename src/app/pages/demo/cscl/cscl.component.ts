@@ -11,7 +11,7 @@ import { CsclData } from './cscl.data';
 })
 export class CsclComponent implements OnInit {
 
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
@@ -21,7 +21,7 @@ export class CsclComponent implements OnInit {
 
   constructor(private apiRequestService: ApiRequestService) {
     this.apiRequestService.setApiService(CsclData.serviceName);
-    
+
   }
 
   ngOnInit() {
@@ -36,7 +36,7 @@ export class CsclComponent implements OnInit {
     };
 
     this.loading = false;
-    this.showResults = false;  
+    this.showResults = false;
 
   }
 
@@ -54,7 +54,7 @@ export class CsclComponent implements OnInit {
     this.loading = true;
     this.showResults = false;
 
-    var data = {
+    const data = {
       'language': this.formData['language'].value,
       'lsa': this.formData['lsa'].value,
       'lda': this.formData['lda'].value,
@@ -62,9 +62,9 @@ export class CsclComponent implements OnInit {
       'pos-tagging': this.formData['pos-tagging'],
       'dialogism': this.formData['dialogism'],
       'threshold': this.formData['threshold']
-    }
+    };
 
-    var process = this.apiRequestService.process(data);
+    const process = this.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
