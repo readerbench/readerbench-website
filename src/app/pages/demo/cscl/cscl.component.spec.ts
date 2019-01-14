@@ -8,9 +8,9 @@ describe('CsclComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CsclComponent ]
+      declarations: [CsclComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
