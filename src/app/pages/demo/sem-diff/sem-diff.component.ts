@@ -34,15 +34,15 @@ export class SemDiffComponent implements OnInit {
 
     this.formData = {
       'text': SemDiffData.defaultText,
-      'number_of_docs' : SemDiffData.default_number_of_docs,
+      'number_of_docs': SemDiffData.default_number_of_docs,
       'language': SemDiffData.defaultLanguage,
-      'preposition' : true,
-      'interjection' : true,
-      'conjunction' : true,
-      'pronoun' : false
+      'preposition': true,
+      'interjection': true,
+      'conjunction': true,
+      'pronoun': false
     };
     this.loadSemModels();
-    this.loading = false; 
+    this.loading = false;
     this.showResults = false;
   }
 
@@ -64,18 +64,18 @@ export class SemDiffComponent implements OnInit {
     this.showResults = true;
     this.showReadingStrategies = false;
 
-    var data = {
+    const data = {
       'text': this.formData['text'],
       'language': this.formData['language'].value,
       'number_of_docs': parseInt(this.formData['number_of_docs'].value, 10),
       'w2v': this.formData['word2vec'].value,
-      'preposition' : this.formData['preposition'],
-      'interjection' : this.formData['interjection'],
-      'conjunction' : this.formData['conjunction'],
-      'pronoun' : this.formData['pronoun']
-    }
+      'preposition': this.formData['preposition'],
+      'interjection': this.formData['interjection'],
+      'conjunction': this.formData['conjunction'],
+      'pronoun': this.formData['pronoun']
+    };
 
-    var process = this.apiRequestService.process(data);
+    const process = this.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -87,8 +87,8 @@ export class SemDiffComponent implements OnInit {
 
       this.showReadingStrategies = true;
       this.dataResponse = response.data;
-      
-      var readerbenchService = this.readerbenchService;
+
+      const readerbenchService = this.readerbenchService;
       this.showResults = true;
     });
   }

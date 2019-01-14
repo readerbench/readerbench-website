@@ -8,17 +8,17 @@ describe('SemDiffComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SemDiffComponent ]
+      declarations: [SemDiffComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
     fixture = TestBed.createComponent(SemDiffComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges(); 
+    fixture.detectChanges();
   });
-  
+
 
   it('should create', () => {
     expect(component).toBeTruthy();

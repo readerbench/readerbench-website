@@ -28,7 +28,8 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-sem-diff-common-fields [formData]="formData" [language]="language" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-sem-diff-common-fields>
+              <app-demo-sem-diff-common-fields [formData]="formData" [language]="language" (advancedEmitter)="advancedEmitter($event)"
+                (languageEmitter)="languageEmitter($event)"></app-demo-sem-diff-common-fields>
               <div class="row top-buffer" *ngIf="!loading">
                 <div class="col-xs-12 col-md-12">
                   <div class="bottom-buttons" *ngIf="!loading">
@@ -66,19 +67,19 @@
                             </div>
                             <!-- The diff text -->
                             <div class="body corpus_diff_text">
-                                <p>
-                                  <mark *ngFor="let dataMark of data.diffTextDTO" class="{{dataMark.typeOfElement}}">
-                                        {{dataMark.text}}
-                                        <span class="semantic_diff_tooltiptext tooltip-top">{{dataMark.explication}}</span>
-                                  </mark>
-                                </p>
+                              <p>
+                                <mark *ngFor="let dataMark of data.diffTextDTO" class="{{dataMark.typeOfElement}}">
+                                  {{dataMark.text}}
+                                  <span class="semantic_diff_tooltiptext tooltip-top">{{dataMark.explication}}</span>
+                                </mark>
+                              </p>
                             </div>
                             <hr class="bottom_border">
                           </li>
                         </ul>
                       </li>
                     </ul>
-                   </div>
+                  </div>
                 </div>
                 <div id="message_saved" style="display:none"></div>
               </div>
