@@ -7,9 +7,9 @@ import { Language } from '../languages.data';
 import { AppComponent } from '../../../app.component';
 
 interface Granularity {
-  id: string,
-  name: string,
-  value: number
+  id: string;
+  name: string;
+  value: number;
 }
 
 @Component({
@@ -21,7 +21,7 @@ interface Granularity {
 export class SentimentAnalysisComponent implements OnInit {
 
   componentTitle: string;
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
@@ -56,7 +56,7 @@ export class SentimentAnalysisComponent implements OnInit {
   }
 
   loadSemanticModels() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
     this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
     this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
@@ -75,7 +75,7 @@ export class SentimentAnalysisComponent implements OnInit {
     this.loading = true;
     this.showResults = false;
 
-    var data = {
+    const data = {
       'text': this.formData['text'],
       'language': this.formData['language'].value,
       'lsa': this.formData['lsa'].value,
@@ -84,9 +84,9 @@ export class SentimentAnalysisComponent implements OnInit {
       'pos-tagging': this.formData['pos-tagging'],
       'dialogism': this.formData['dialogism'],
       'granularity': this.formData['granularity'].value,
-    }
+    };
 
-    var process = this.myApp.apiRequestService.process(data);
+    const process = this.myApp.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -105,7 +105,7 @@ export class SentimentAnalysisComponent implements OnInit {
     jQuery(element).width(0);
     jQuery(element).width(
       function () {
-        return jQuery(this).attr("aria-valuenow") + "%";
+        return jQuery(this).attr('aria-valuenow') + '%';
       }
     );
   }

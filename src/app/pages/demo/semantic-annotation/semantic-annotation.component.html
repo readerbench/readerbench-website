@@ -96,7 +96,7 @@
               <div *ngIf="showResults === true">
 
               </div>
-              <div *ngIf="showSemanticRelevance" class="row">
+              <div *ngIf="loading" class="row">
                 <!--  && tabSemanticAnnotation == 'SEMANTIC_RELEVANCE' -->
                 <div class="col-xs-12 col-md-12">
                   <h4>Description &amp; keywords relevance</h4>
@@ -146,7 +146,7 @@
               </div>
 
               <!-- Semantic Annotation => Categorisation -->
-              <div *ngIf="showSemanticCategories" class="row">
+              <div *ngIf="loading" class="row">
                 <!--  && tabSemanticAnnotation == 'SEMANTIC_CATEGORIES' -->
                 <div class="col-xs-12 col-md-12">
                   <h4>Categorisation</h4>
@@ -181,7 +181,7 @@
                 </div>
               </div>
 
-              <div *ngIf="showConcept" class="row">
+              <div *ngIf="loading" class="row">
                 <div class="col-xs-12 col-md-3">
                   <h4>Keywords Map</h4>
                   <ul class="course-description-list">

@@ -17,7 +17,7 @@ import { Language } from '../languages.data';
 export class TextualComplexityComponent implements OnInit {
 
   componentTitle: string;
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;

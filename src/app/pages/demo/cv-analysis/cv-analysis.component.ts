@@ -14,7 +14,7 @@ import { AppComponent } from '../../../app.component';
 export class CvAnalysisComponent implements OnInit {
 
   componentTitle: String;
-  formData = {};
+  formData: any;
 
   @Input() advanced: Boolean;
   loading: Boolean;

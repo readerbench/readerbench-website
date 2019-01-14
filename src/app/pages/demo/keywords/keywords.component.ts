@@ -16,7 +16,7 @@ import { AppComponent } from '../../../app.component';
 })
 export class KeywordsComponent implements OnInit {
 
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;

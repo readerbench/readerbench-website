@@ -12,7 +12,7 @@ import { ReaderBenchService } from '../../../readerbench.service';
 })
 export class SemDiffComponent implements OnInit {
 
-  formData = {};
+  formData: any;
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
