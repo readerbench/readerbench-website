@@ -30,7 +30,8 @@ export class KeywordsComponent implements OnInit {
 
   value: any;
 
-  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
+  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService,
+    private twoModeGraphService: TwoModeGraphService) {
     this.myApp.apiRequestService.setApiService(KeywordsData.serviceName);
     this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
   }
@@ -48,17 +49,17 @@ export class KeywordsComponent implements OnInit {
       'bigrams': DefaultInputData.defaultBigrams
     };
     this.loadSemanticModels();
-    
+
     this.loading = false;
     this.showResults = false;
   }
 
   loadSemanticModels() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
     this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
     this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
-  }  
+  }
 
   advancedEmitter($event) {
     this.advanced = $event;
@@ -73,7 +74,7 @@ export class KeywordsComponent implements OnInit {
     this.loading = true;
     this.showResults = false;
 
-    var data = {
+    const data = {
       'text': this.formData['text'],
       'language': this.formData['language'].value,
       'lsa': this.formData['lsa'].value,
@@ -83,9 +84,9 @@ export class KeywordsComponent implements OnInit {
       'dialogism': this.formData['dialogism'],
       'threshold': this.formData['threshold'],
       'bigrams': this.formData['bigrams']
-    }
+    };
 
-    var process = this.myApp.apiRequestService.process(data);
+    const process = this.myApp.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -104,7 +105,7 @@ export class KeywordsComponent implements OnInit {
         graph => { this.myGraph = graph; },
         error => { this.error = error.message; },
         () => {
-          
+
           // this.readerbenchService.d3jsForTopics(this.graph, "#conceptMap", false);
         }
       );
