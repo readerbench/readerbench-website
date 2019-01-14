@@ -37,7 +37,7 @@ export class SemanticAnnotationComponent implements OnInit {
     this.loadSemanticModels();
 
     this.loading = false;
-    this.showResults = false;  
+    this.showResults = false;
 
   }
 
@@ -55,7 +55,7 @@ export class SemanticAnnotationComponent implements OnInit {
     this.loading = true;
     this.showResults = false;
 
-    var data = {
+    const data = {
       'abstract': this.formData['abstract'],
       'keywords': this.formData['keywords'],
       'language': this.formData['language'].value,
@@ -65,9 +65,9 @@ export class SemanticAnnotationComponent implements OnInit {
       'pos-tagging': this.formData['pos-tagging'],
       'dialogism': this.formData['dialogism'],
       'threshold': this.formData['threshold']
-    }
+    };
 
-    var process = this.apiRequestService.process(data);
+    const process = this.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;

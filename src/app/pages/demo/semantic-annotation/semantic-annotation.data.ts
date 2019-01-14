@@ -1,6 +1,6 @@
-import { DefaultInputData } from "../demo.component.data";
+import { DefaultInputData } from '../demo.component.data';
 
-export var SemanticAnnotationData = {
+export let SemanticAnnotationData = {
     'serviceName': 'semanticAnnotation',
     'title': 'Semantic Annotation',
     'abstractText': 'Interactive virtual environments (IVEs) are now seen as an '
@@ -15,7 +15,7 @@ export var SemanticAnnotationData = {
         + 'performed a small case evaluation in order to determine if the characters '
         + 'evoked empathic reactions in the users with positive results.',
     'keywords': 'interactive virtual environment, emotional characters, empathic reactions',
-    'defaultLanguage': function() {
-        return DefaultInputData.languages[0] // en
+    'defaultLanguage': function () {
+        return DefaultInputData.languages[0]; // en
     }
 };
