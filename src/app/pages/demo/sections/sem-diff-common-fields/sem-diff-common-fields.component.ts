@@ -15,7 +15,7 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
   @Output() languageEmitter = new EventEmitter<any>();
-  
+
   languages: any;
   word2vecOptions: any;
   number_of_docs: any;
@@ -27,13 +27,13 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
     this.languages = SemDiffData.languages;
     this.language = this.formData['language'];
     this.number_of_docs = DefaultInputData.number_of_docs;
-    this.loadSemModelsOptions();    
+    this.loadSemModelsOptions();
   }
 
   loadSemModelsOptions() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.word2vecOptions = DefaultInputData.metricOptions.word2vec[languageValue];
-    
+
   }
 
   onChangeLanguage($newLanguage) {

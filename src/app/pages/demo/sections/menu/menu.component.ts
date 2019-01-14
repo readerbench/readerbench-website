@@ -22,6 +22,6 @@ export class DemoMenuComponent implements OnInit {
 
   getClass(path) {
     return (this.path === path) ? 'current' : '';
-  };
+  }
 
 }
