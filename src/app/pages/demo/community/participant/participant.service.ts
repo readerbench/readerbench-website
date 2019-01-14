@@ -12,20 +12,20 @@ export class ParticipantService {
     constructor(private apiRequestService: ApiRequestService) { }
 
     public getParticipantsStats(communityName: string, week: number): Observable<ParticipantDO[]> {
-        this.apiRequestService.setApiService("communityParticipants");
-        var process = this.apiRequestService.process({
+        this.apiRequestService.setApiService('communityParticipants');
+        const process = this.apiRequestService.process({
             communityName: communityName,
             week: week
         });
         process.subscribe(participantObjects => {
-            var participantList: ParticipantDO[] = [];
-        //     _.forEach(participantObjects, (participant: Object) => {
-        //        var p = new ParticipantDO();
-        //        p.buildFromObject(participant);
-        //        participantList.push(p);
-        //    });
-           this._participantList = participantList;
-           return participantList;
+            const participantList: ParticipantDO[] = [];
+            //     _.forEach(participantObjects, (participant: Object) => {
+            //        var p = new ParticipantDO();
+            //        p.buildFromObject(participant);
+            //        participantList.push(p);
+            //    });
+            this._participantList = participantList;
+            return participantList;
         });
         return null;
     }

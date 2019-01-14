@@ -41,7 +41,8 @@ export class CMScoresTableComponent implements OnInit {
       this.csvDataStr += '\n';
     });
   }
-  private downloadCsv() {
+
+  public downloadCsv() {
     const a = document.createElement('a');
     const mimeType = 'application/octet-stream';
     a.href = URL.createObjectURL(new Blob([this.csvDataStr], {
