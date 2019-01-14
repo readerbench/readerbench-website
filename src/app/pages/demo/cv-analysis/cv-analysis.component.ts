@@ -13,17 +13,17 @@ import { AppComponent } from '../../../app.component';
 })
 export class CvAnalysisComponent implements OnInit {
 
-  componentTitle: string;
+  componentTitle: String;
   formData = {};
 
-  @Input() advanced: boolean;
-  loading: boolean;
-  fileUploading: boolean = false;
-  fileUploaded: boolean = false;
-  showResults: boolean;
+  @Input() advanced: Boolean;
+  loading: Boolean;
+  fileUploading: Boolean = false;
+  fileUploaded: Boolean = false;
+  showResults: Boolean;
   languages: any;
   language: any;
-  cvFile: string | any = null;
+  cvFile: String | any = null;
 
   response: any;
   errors: any;
@@ -31,11 +31,12 @@ export class CvAnalysisComponent implements OnInit {
   myGraph: any;
   error: any;
   socialNetworksLinksFoundKeys: any;
-  text: string;
-  processedText: string;
+  text: String;
+  processedText: String;
   liwcEmotionsKeys: any;
 
-  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService, private twoModeGraphService: TwoModeGraphService) {
+  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService,
+    private twoModeGraphService: TwoModeGraphService) {
     this.myApp.apiRequestService.setApiService(CvAnalysisData.uploadService);
     this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
   }
@@ -61,7 +62,7 @@ export class CvAnalysisComponent implements OnInit {
   }
 
   loadSemanticModels() {
-    var languageValue = this.language.value;
+    const languageValue = this.language.value;
     this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
     this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
     this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
@@ -77,9 +78,9 @@ export class CvAnalysisComponent implements OnInit {
   }
 
   onFileChange(event) {
-    let reader = new FileReader();
+    const reader = new FileReader();
     if (event.target.files && event.target.files.length > 0) {
-      let file = event.target.files[0];
+      const file = event.target.files[0];
       reader.readAsDataURL(file);
       reader.onload = () => {
         // reader.result.split(',')[1]
@@ -92,7 +93,7 @@ export class CvAnalysisComponent implements OnInit {
   uploadFile(file) {
     console.log(this.myApp.apiRequestService.getApiEndpoint());
 
-    var process = this.myApp.apiRequestService.upload(file);
+    const process = this.myApp.apiRequestService.upload(file);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -110,7 +111,7 @@ export class CvAnalysisComponent implements OnInit {
 
   process() {
     if (!this.cvFile) {
-      alert("Please upload the CV file first!");
+      alert('Please upload the CV file first!');
       return;
     }
 
@@ -119,7 +120,7 @@ export class CvAnalysisComponent implements OnInit {
     this.loading = true;
     this.showResults = false;
 
-    var data = {
+    const data = {
       'cv-file': this.formData['cv-file'],
       'keywords': this.formData['keywords'],
       'ignore': this.formData['ignore'],
@@ -130,9 +131,9 @@ export class CvAnalysisComponent implements OnInit {
       'pos-tagging': this.formData['pos-tagging'],
       'dialogism': this.formData['dialogism'],
       'threshold': this.formData['threshold']
-    }
+    };
 
-    var process = this.myApp.apiRequestService.process(data);
+    const process = this.myApp.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
       this.loading = false;
@@ -143,16 +144,22 @@ export class CvAnalysisComponent implements OnInit {
       }
 
       this.showResults = true;
-      if (response.data.errors.length > 0) this.errors = response.data.errors;
-      if (response.data.warnings.length > 0) this.warnings = response.data.warnings;
+      if (response.data.errors.length > 0) {
+        this.errors = response.data.errors;
+      }
+      if (response.data.warnings.length > 0) {
+        this.warnings = response.data.warnings;
+      }
 
       this.socialNetworksLinksFoundKeys = this.readerbenchService.objectKeys(response.data.socialNetworksLinksFound);
       console.log(this.socialNetworksLinksFoundKeys);
 
-      if (typeof response.data.text !== 'undefined')
-        this.text = '<p>' + response.data.text.replace(/\n/g, "</p><p>") + '</p>';
-      if (typeof response.data.processedText !== 'undefined')
-        this.processedText = '<p>' + response.data.processedText.replace(/\n/g, "</p><p>") + '</p>';
+      if (typeof response.data.text !== 'undefined') {
+        this.text = '<p>' + response.data.text.replace(/\n/g, '</p><p>') + '</p>';
+      }
+      if (typeof response.data.processedText !== 'undefined') {
+        this.processedText = '<p>' + response.data.processedText.replace(/\n/g, '</p><p>') + '</p>';
+      }
 
       this.myGraph = {
         'nodeList': response.data.graph.nodeList,
@@ -165,9 +172,9 @@ export class CvAnalysisComponent implements OnInit {
         }
       );
 
-      var readerbenchService = this.readerbenchService;
-      var aux = response.data.textualComplexity;
-      var interval = setInterval(function () {
+      const readerbenchService = this.readerbenchService;
+      let aux = response.data.textualComplexity;
+      let interval = setInterval(function () {
         if (aux.count === response.data.textualComplexity.count) {
           clearInterval(interval);
           readerbenchService.courseDescriptionToggle('#textual-complexity');
