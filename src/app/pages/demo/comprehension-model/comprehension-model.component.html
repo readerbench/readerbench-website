@@ -55,6 +55,18 @@
             </div>
 
             <div class="row top-buffer">
+              <div class="col-xs-4">
+                <label>Semantic Model </label>
+              </div>
+              <div class="col-xs-4">
+                <select class="form-control" [(ngModel)]="semanticModel">
+                  <option [ngValue]="'tasa'">Knowledgeable (TASA)</option>
+                  <option [ngValue]="'coca'">Highly Knowledgeable (COCA)</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row top-buffer">
               <div class="col-xs-12 col-md-12">
                 <div class="bottom-buttons">
                   <button class="filter-button" (click)="runCiModel()">Run AMoC</button>

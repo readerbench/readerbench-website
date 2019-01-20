@@ -18,9 +18,10 @@ export class ComprehensionModelComponent {
     public isLoading: boolean;
 
     // tslint:disable-next-line:max-line-length
-    private searchText = 'A young knight rode through the forest. The knight was unfamiliar with the country. Suddenly, a dragon appeared. The dragon was kidnapping a beautiful princess. The knight wanted to free the princess. The knight wanted to marry the princess. The knight hurried after the dragon. They fought for life and death. Soon, the knight\'s armor was completely scorched. At last, the knight killed the dragon. The knight freed the princess. The princess was very thankful to the knight. She married the knight.';
-    private minActivationThreshold = 0.3;
-    private maxSemanticExpand = 5;
+    public searchText = 'A young knight rode through the forest. The knight was unfamiliar with the country. Suddenly, a dragon appeared. The dragon was kidnapping a beautiful princess. The knight wanted to free the princess. The knight wanted to marry the princess. The knight hurried after the dragon. They fought for life and death. Soon, the knight\'s armor was completely scorched. At last, the knight killed the dragon. The knight freed the princess. The princess was very thankful to the knight. She married the knight.';
+    public semanticModel = 'tasa';
+    public minActivationThreshold = 0.3;
+    public maxSemanticExpand = 5;
 
     private _cmResult: CMResult;
     private wordList: Word[];
@@ -65,6 +66,7 @@ export class ComprehensionModelComponent {
         this.isLoading = true;
         this.ciModelService.getWords({
             text: this.searchText,
+            semanticModel: this.semanticModel,
             minActivationThreshold: this.minActivationThreshold,
             maxSemanticExpand: this.maxSemanticExpand
         }).subscribe((result: CMResult) => {

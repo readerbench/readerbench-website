@@ -7,6 +7,7 @@ import { ApiRequestService } from '../../api-request.service';
 
 export interface CiModelParams {
   text: string;
+  semanticModel: string;
   minActivationThreshold: number;
   maxSemanticExpand: number;
 }
