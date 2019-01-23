@@ -11,19 +11,19 @@ import { teslaThemes } from './scripts/app.options';
 export class AppComponent {
 
   title = 'ReaderBench';
-  
+
   constructor(public apiRequestService: ApiRequestService) {
   }
 
   ngOnInit() {
   }
 
-  ngAfterViewInit(){
+  ngAfterViewInit() {
 
     // jQuery('body').addClass('dom-ready');
     teslaThemes.init();
 
-		setTimeout(function() {
+    setTimeout(function () {
       document.getElementsByTagName('body')[0].className += ' ' + 'dom-ready';
     }, 200);
 

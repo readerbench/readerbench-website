@@ -27,7 +27,8 @@
 
     "communityParticipants": "community/participants",
 
-    "ciModelAnalyzer": "ci-model/analyzer"
+    "ciModelAnalyzer": "ci-model/analyzer",
+    "keywordsHeatmap": "keywords-heatmap"
   },
   "apiHeaders": {
     "commonRequest": {

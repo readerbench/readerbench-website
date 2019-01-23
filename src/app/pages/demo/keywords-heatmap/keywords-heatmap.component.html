@@ -1,0 +1,91 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section-header">
+          <h1>{{title}}</h1>
+        </div>
+      </div>
+      <div class="container">
+        <div class="form-group">
+          <div class="input">
+            <div class="row top-buffer">
+              <div class="row">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <label for="input_text">Text
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
+                </div>
+              </div>
+              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"
+                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+              <div class="row top-buffer" *ngIf="advanced">
+                <div class="col-xs-12 col-md-12 col-lg-12">
+                  <input type="checkbox" id="input_bigrams" [checked]="formData['bigrams']" (change)="formData['bigrams'] = !formData['bigrams']" />
+                  <label for="input_bigrams">Include bigrams</label>
+                </div>
+              </div>
+              <div class="row top-buffer">
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <label for="input_granularity">Granularity
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <select id="input_granularity" class="form-control" [(ngModel)]="formData.granularity">
+                    <option *ngFor="let option of granularities" [ngValue]="option">{{option.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <!-- <div class="row top-buffer">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <input id="input_bigrams" type="checkbox" class="form-control" [(ngModel)]="formData.bigrams" />
+                    <label for="input_bigrams">Include bigrams</label>
+                  </div>
+                </div> -->
+              <div class="row top-buffer" *ngIf="!loading">
+                <div class="col-xs-12 col-md-12">
+                  <div class="bottom-buttons">
+                    <button class="btn theme-btn-1" (click)="process()">
+                      <span class="button">Process</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="results">
+              <div class="row" *ngIf="loading">
+                <div class="col-xs-12 col-md-12">
+                  <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+                </div>
+              </div>
+              <div *ngIf="showResults === true">
+                <div class="row top-buffer">
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <h4>Keywords Heatmap</h4>
+                  </div>
+                  <div class="col-xs-12 col-md-12 col-lg-12">
+                    <word-hitmap [wordList]="wordList"></word-hitmap>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

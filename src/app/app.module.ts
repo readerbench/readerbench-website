@@ -48,6 +48,7 @@ import { ApiRequestService } from './pages/demo/api-request.service';
 import { ReaderBenchService } from './readerbench.service';
 import { EdgeBundlingService } from './pages/demo/comprehension-model/service/edge-bundling.service';
 import { ConfigComponent } from './config/config.component';
+import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { ConfigComponent } from './config/config.component';
     DemoCommonFieldsComponent,
     DemoSemDiffCommonFieldsComponent,
     ApproximationPipe,
+    KeywordsHeatmapComponent
   ],
   imports: [
     BrowserModule,

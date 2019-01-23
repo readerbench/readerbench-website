@@ -17,6 +17,7 @@ import { ProjectsComponent } from '../pages/projects/projects.component';
 import { PublicationsComponent } from '../pages/publications/publications.component';
 import { ContactComponent } from '../pages/contact/contact.component';
 import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
+import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
 
 const routes: Routes = [
   {
@@ -82,6 +83,10 @@ const routes: Routes = [
   {
     path: 'demo/semantic-diff',
     component: SemDiffComponent,
+  },
+  {
+    path: 'demo/keywords-heatmap',
+    component: KeywordsHeatmapComponent,
   },
   {
     path: '',
