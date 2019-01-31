@@ -45,6 +45,7 @@ import { ProjectsComponent } from './pages/projects/projects.component';
 import { PublicationsComponent } from './pages/publications/publications.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/hierarchical-edge-bundling.component';
+import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,7 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
     DemoComponent,
     DemoMenuComponent,
     SentimentAnalysisComponent,
-    TextualComplexityComponent,    
+    TextualComplexityComponent,
     KeywordsComponent,
     SemanticAnnotationComponent,
     SelfExplanationComponent,
@@ -79,7 +80,8 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
     HierarchicalEdgeBundlingComponent,
     KeywordsHeatmapComponent,
     ClusteredForceLayoutComponent,
-    MultiLevelEdgeBundlingComponent
+    MultiLevelEdgeBundlingComponent,
+    ChordComponent
   ],
   imports: [
     BrowserModule,
@@ -89,7 +91,7 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
     KeywordsModule,
     ReaderBenchCommonModule
   ],
-  exports: [KeywordsComponent],  
+  exports: [KeywordsComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

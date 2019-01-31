@@ -13,7 +13,8 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 	@Input() communityName: string;
   communityData: any[] = [];
 	participants: any[] = [];
-	selectedParticipants: any[] = [];
+  selectedParticipants: any[] = [];
+  test: any[] = [];
 
   constructor(private apiRequestService: ApiRequestService) { }
 
@@ -67,9 +68,20 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 
   onSelect(participant) {
   	if (!this.selectedParticipants.find(x => x === participant)) {
-  		this.selectedParticipants.push(participant);
+      this.selectedParticipants.push(participant);
   		this.makeChart(this.communityData, this.selectedParticipants);
-  	}
+		}
+		
+    // console.log(this.communityData);
+    // this.selectedParticipants = ['density'];
+    // this.test = this.mockData.slice(1).map(function (d) {
+    //   return {
+    //     //date: d3.time.format('%Y-%m-%d').parse(d.date),
+    //     date: new Date(d.date),
+    //     data: d.data
+    //   };
+    // });
+    // this.makeChart(this.test, this.selectedParticipants);
   }
 
   removeParticipant(participant: string) {
@@ -81,7 +93,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
   }
 
 	private addAxesAndLegend(svg, xAxis, yAxis, margin, chartWidth, chartHeight, participants) {
-	  var legendWidth  = 200,
+	  var legendWidth  = 300,
 	      legendHeight = participants.length * 30 + 10;
 
 	  // clipping to make sure nothing appears behind legend
@@ -169,7 +181,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 
 	private makeChart(data, keys) {
 		d3.select("#participant_evolution_graph").remove();
-	  var svgWidth  = 1260,
+	  var svgWidth  = 1400,
 	      svgHeight = 500,
 	      margin = { top: 20, right: 20, bottom: 40, left: 40 },
 	      chartWidth  = svgWidth  - margin.left - margin.right - 300,
@@ -207,357 +219,24 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 	}
 
 	private mockData = [
-  {
-    "date": "2014-08-01","data": {
-    "Ion": 5350,
-    "Maria": 6756,
-    "Ana": 7819,
-    "Cristi": 9284,
-    "Andreea": 13835
-  }
-  },
-  {
-    "date": "2014-08-02","data": {
-    "Ion": 4439,
-    "Maria": 5584,
-    "Ana": 6554,
-    "Cristi": 8016,
-    "Andreea": 12765
-  }
-  },
-  {
-    "date": "2014-08-03","data": {
-    "Ion": 4247,
-    "Maria": 5419,
-    "Ana": 6332,
-    "Cristi": 7754,
-    "Andreea": 12236
-  }
-  },
-  {
-    "date": "2014-08-04","data": {
-    "Ion": 3293,
-    "Maria": 4414,
-    "Ana": 5191,
-    "Cristi": 6491,
-    "Andreea": 10325
-  }
-  },
-  {
-    "date": "2014-08-05","data": {
-    "Ion": 3942,
-    "Maria": 5134,
-    "Ana": 6069,
-    "Cristi": 7501,
-    "Andreea": 11685
-  }
-  },
-  {
-    "date": "2014-08-06","data": {
-    "Ion": 2744,
-    "Maria": 5508,
-    "Ana": 6879,
-    "Cristi": 9221,
-    "Andreea": 17239
-  }
-  },
-  {
-    "date": "2014-08-07","data": {
-    "Ion": 1807,
-    "Maria": 3019,
-    "Ana": 4119,
-    "Cristi": 5656,
-    "Andreea": 8851
-  }
-  },
-  {
-    "date": "2014-08-08","data": {
-    "Ion": 1855,
-    "Maria": 3386,
-    "Ana": 4473,
-    "Cristi": 5915,
-    "Andreea": 10580
-  }
-  },
-  {
-    "date": "2014-08-09","data": {
-    "Ion": 1830,
-    "Maria": 3202,
-    "Ana": 4233,
-    "Cristi": 5559,
-    "Andreea": 8930
-  }
-  },
-  {
-    "date": "2014-08-10","data": {
-    "Ion": 1828,
-    "Maria": 3195,
-    "Ana": 4304,
-    "Cristi": 5482,
-    "Andreea": 9189
-  }
-  },
-  {
-    "date": "2014-08-11","data": {
-    "Ion": 2246,
-    "Maria": 3929,
-    "Ana": 5326,
-    "Cristi": 7077,
-    "Andreea": 11648
-  }
-  },
-  {
-    "date": "2014-08-12","data": {
-    "Ion": 2051,
-    "Maria": 3662,
-    "Ana": 4849,
-    "Cristi": 6194,
-    "Andreea": 10078
-  }
-  },
-  {
-    "date": "2014-08-13","data": {
-    "Ion": 1700,
-    "Maria": 3075,
-    "Ana": 4068,
-    "Cristi": 5259,
-    "Andreea": 9789
-  }
-  },
-  {
-    "date": "2014-08-14","data": {
-    "Ion": 2161,
-    "Maria": 3891,
-    "Ana": 5262,
-    "Cristi": 6924,
-    "Andreea": 11612
-  }
-  },
-  {
-    "date": "2014-08-15","data": {
-    "Ion": 1765,
-    "Maria": 3190,
-    "Ana": 4388,
-    "Cristi": 5822,
-    "Andreea": 9433
-  }
-  },
-  {
-    "date": "2014-08-16","data": {
-    "Ion": 2036,
-    "Maria": 3756,
-    "Ana": 4775,
-    "Cristi": 6158,
-    "Andreea": 9999
-  }
-  },
-  {
-    "date": "2014-08-17","data": {
-    "Ion": 2079,
-    "Maria": 3561,
-    "Ana": 4753,
-    "Cristi": 6124,
-    "Andreea": 9807
-  }
-  },
-  {
-    "date": "2014-08-18","data": {
-    "Ion": 2108,
-    "Maria": 3576,
-    "Ana": 4818,
-    "Cristi": 6344,
-    "Andreea": 10235
-  }
-  },
-  {
-    "date": "2014-08-19","data": {
-    "Ion": 2143,
-    "Maria": 3792,
-    "Ana": 5073,
-    "Cristi": 6772,
-    "Andreea": 11338
-  }
-  },
-  {
-    "date": "2014-08-20","data": {
-    "Ion": 2086,
-    "Maria": 3801,
-    "Ana": 5073,
-    "Cristi": 6688,
-    "Andreea": 12394
-  }
-  },
-  {
-    "date": "2014-08-21","data": {
-    "Ion": 1767,
-    "Maria": 3253,
-    "Ana": 4282,
-    "Cristi": 5563,
-    "Andreea": 9167
-  }
-  },
-  {
-    "date": "2014-08-22","data": {
-    "Ion": 1756,
-    "Maria": 3047,
-    "Ana": 3950,
-    "Cristi": 5006,
-    "Andreea": 7948
-  }
-  },
-  {
-    "date": "2014-08-23","data": {
-    "Ion": 2123,
-    "Maria": 3755,
-    "Ana": 5173,
-    "Cristi": 7243,
-    "Andreea": 12338
-  }
-  },
-  {
-    "date": "2014-08-24","data": {
-    "Ion": 1967,
-    "Maria": 3404,
-    "Ana": 4529,
-    "Cristi": 5970,
-    "Andreea": 9897
-  }
-  },
-  {
-    "date": "2014-08-25","data": {
-    "Ion": 1537,
-    "Maria": 2612,
-    "Ana": 3394,
-    "Cristi": 4279,
-    "Andreea": 7104
-  }
-  },
-  {
-    "date": "2014-08-26","data": {
-    "Ion": 2182,
-    "Maria": 3958,
-    "Ana": 5505,
-    "Cristi": 7642,
-    "Andreea": 12707
-  }
-  },
-  {
-    "date": "2014-08-27","data": {
-    "Ion": 1932,
-    "Maria": 3366,
-    "Ana": 4526,
-    "Cristi": 6086,
-    "Andreea": 9930
-  }
-  },
-  {
-    "date": "2014-08-28","data": {
-    "Ion": 1268,
-    "Maria": 2344,
-    "Ana": 3256,
-    "Cristi": 4215,
-    "Andreea": 6673
-  }
-  },
-  {
-    "date": "2014-08-29","data": {
-    "Ion": 1225,
-    "Maria": 2239,
-    "Ana": 3033,
-    "Cristi": 4111,
-    "Andreea": 7601
-  }
-  },
-  {
-    "date": "2014-08-30","data": {
-    "Ion": 1393,
-    "Maria": 2432,
-    "Ana": 3417,
-    "Cristi": 4710,
-    "Andreea": 8798
-  }
-  },
-  {
-    "date": "2014-08-31","data": {
-    "Ion": 1175,
-    "Maria": 2020,
-    "Ana": 2768,
-    "Cristi": 3889,
-    "Andreea": 7744
-  }
-  },
-  {
-    "date": "2014-09-01","data": {
-    "Ion": 989,
-    "Maria": 1655,
-    "Ana": 2218,
-    "Cristi": 3167,
-    "Andreea": 6018
-  }
-  },
-  {
-    "date": "2014-09-02","data": {
-    "Ion": 1249,
-    "Maria": 2069,
-    "Ana": 2738,
-    "Cristi": 3938,
-    "Andreea": 7574
-  }
-  },
-  {
-    "date": "2014-09-03","data": {
-    "Ion": 936,
-    "Maria": 1510,
-    "Ana": 1968,
-    "Cristi": 2700,
-    "Andreea": 5215
-  }
-  },
-  {
-    "date": "2014-09-04","data": {
-    "Ion": 1264,
-    "Maria": 2039,
-    "Ana": 2657,
-    "Cristi": 3646,
-    "Andreea": 7042
-  }
-  },
-  {
-    "date": "2014-09-05","data": {
-    "Ion": 1305,
-    "Maria": 2106,
-    "Ana": 2745,
-    "Cristi": 3766,
-    "Andreea": 7273
-  }
-  },
-  {
-    "date": "2014-09-06","data": {
-    "Ion": 798,
-    "Maria": 1288,
-    "Ana": 1678,
-    "Cristi": 2303,
-    "Andreea": 4448
-  }
-  },
-  {
-    "date": "2014-09-07","data": {
-    "Ion": 1314,
-    "Maria": 2120,
-    "Ana": 2763,
-    "Cristi": 3791,
-    "Andreea": 7321
-  }
-  },
-  {
-    "date": "2014-09-08","data": {
-    "Ion": 1042,
-    "Maria": 1681,
-    "Ana": 2191,
-    "Cristi": 3007,
-    "Andreea": 5806
-  }
-  }
+  {"date": "2013-08-23","data": {"contributions":68, "density":0.19927536231884058, "participants":24}},
+  {"date": "2013-08-30","data": {"contributions":124, "density":0.1191919191919192, "participants":45}},
+  {"date": "2013-09-06","data": {"contributions":296, "density":0.08399452804377565, "participants":86}},
+  {"date": "2013-09-13","data": {"contributions":219, "density":0.0700152207001522, "participants":73}},
+  {"date": "2013-09-20","data": {"contributions":100, "density":0.15698924731182795, "participants":31}},
+  {"date":"2013-09-27", "data" : {"contributions":59, "density":0.3137254901960784, "participants":18}},
+  {"date":"2013-10-04", "data" : {"contributions":89, "density":0.19692307692307692, "participants":26}},
+  {"date":"2013-10-11", "data" : {"contributions":99, "density":0.18783068783068782, "participants":28}},
+  {"date":"2013-10-18", "data" : {"contributions":189, "density":0.15615615615615616, "participants":37}},
+  {"date":"2013-10-25", "data" : {"contributions":90, "density":0.2134387351778656, "participants":23}},
+  {"date":"2013-11-01", "data" : {"contributions":140, "density":0.15384615384615385, "participants":39}},
+  {"date":"2013-11-08", "data" : {"contributions":155, "density":0.1072463768115942, "participants":46}},
+  {"date":"2013-11-15", "data" : {"contributions":177, "density":0.09154437456324249, "participants":54}},
+  {"date":"2013-11-22", "data" : {"contributions":65, "density":0.16307692307692306, "participants":26}},
+  {"date":"2013-11-29", "data" : {"contributions":134, "density":0.07609427609427609, "participants":55}},
+  {"date":"2013-12-06", "data" : {"contributions":347, "density":0.06913367756741251, "participants":84}},
+  {"date":"2013-12-13", "data" : {"contributions":150, "density":0.08695652173913043, "participants":46}},
+  {"date":"2013-12-20", "data" : {"contributions":19, "density":0.2564102564102564, "participants":13}}
 ];
 
 }

@@ -5,17 +5,17 @@
 
 :host /deep/ .node-central {
   font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  fill: #1E90FF;
+  fill: #B42842;
 }
 
 :host /deep/ .node-active {
   font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  fill: #228B22;
+  fill: #000000;
 }
 
 :host /deep/ .node-peripheric {
   font: 300 11px "Helvetica Neue", Helvetica, Arial, sans-serif;
-  fill: #FF8C00;
+  fill: #A9A9A9;
 }
 
 :host /deep/ .node:hover {

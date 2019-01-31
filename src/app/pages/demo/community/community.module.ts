@@ -8,6 +8,7 @@ import { ParticipantEvolutionComponent } from './participant/participant-evoluti
 import { KeywordsHeatmapComponent } from './keywords-heatmap/keywords-heatmap.component';
 import { ClusteredForceLayoutComponent } from './clustered-force-layout/clustered-force-layout.component';
 import { MultiLevelEdgeBundlingComponent } from './multi-level-edge-bundling/multi-level-edge-bundling.component';
+import { ChordComponent } from './chord-diagram/chord-diagram';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MultiLevelEdgeBundlingComponent } from './multi-level-edge-bundling/mul
   	ParticipantEvolutionComponent,
   	KeywordsHeatmapComponent,
   	ClusteredForceLayoutComponent,
-  	MultiLevelEdgeBundlingComponent
+		MultiLevelEdgeBundlingComponent,
+		ChordComponent
   ],
   imports: [
     CommonModule, 

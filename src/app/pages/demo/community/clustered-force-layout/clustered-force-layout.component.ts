@@ -8,7 +8,7 @@ import * as d3 from "d3";
 })
 
 export class ClusteredForceLayoutComponent implements AfterViewInit {
-	@Input() data: Array<any> = [];
+  @Input() data: Array<any> = [];
   @Input() week: number;
 
   constructor() { }
@@ -32,7 +32,9 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 			}
 		}
 		var color = d3.scale.ordinal()
-		      .range(["#1E90FF", "#228B22", "#FF8C00"]);
+			  //.range(["#cc0000",  "#006600", "#e6e600"]);
+			 // .range(["#B42842", "#5a5a5c", "#c3c3c5"]);
+			 .range(["#B42842", "#A8A8A8", "#F0F0F0"]);
 
 		//unique cluster/group id's
 		var cs = [];
