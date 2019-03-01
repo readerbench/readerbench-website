@@ -8,10 +8,10 @@ export enum Direction {UNKNOWN, NEXT, PREV}
   template: `
 <div (mouseenter)="pause()" (mouseleave)="play()" class="carousel slide">
 
-    <a class="left carousel-control" (click)="prev()" [hidden]="!slides.length">
+    <a class="left carousel-control" (click)="prev()" [hidden]="true">
     <!--<span class="glyphicon glyphicon-chevron-left"></span>-->
     </a>
-    <a class="right carousel-control" (click)="next()" [hidden]="!slides.length">
+    <a class="right carousel-control" (click)="next()" [hidden]="true">
     <!--<span class="glyphicon glyphicon-chevron-right"></span>-->
     </a>
     <div class="row" style="margin-top: -30px; text-align: center;">
@@ -20,7 +20,8 @@ export enum Direction {UNKNOWN, NEXT, PREV}
             <ul class="pagination pagination-slider" [hidden]="slides.length <= 1">
                 <!--<li ><a aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>-->
                 <li *ngFor="let slidez of slides; let i=index"  [class.active]="slidez.active === true" (click)="select(slidez)">
-                    <a>{{i}}</a>
+                    <a *ngIf="i==0">THE ENTIRE PERIOD</a>
+                    <a *ngIf="i!=0">WEEK {{i}}</a>
                 </li>
                 <!--<li> <a  aria-label="Next"><span aria-hidden="true">&raquo;</span></a></li>-->
             </ul>
@@ -29,9 +30,10 @@ export enum Direction {UNKNOWN, NEXT, PREV}
     </div>
     <div class="carousel-inner"><ng-content></ng-content></div>
 </div>
-`
+`,
+  styleUrls: ['./carousel.component.css'],
 })
-export class CarouselComponent implements OnDestroy {
+export class CommunityCarouselComponent implements OnDestroy {
   @Input() public noWrap: boolean;
   @Input() public noPause: boolean;
   @Input() public noTransition: boolean;

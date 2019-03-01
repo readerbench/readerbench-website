@@ -12,7 +12,7 @@
         </div>
         <div class="container">
           <div class="section-header">
-            <h1>{{componentTitle}}</h1>
+            <h1>{{$componentTitle}}</h1>
           </div>
         </div>
         <div class="container">
@@ -71,14 +71,8 @@
                         <li *ngFor="let element of response.data">
                           {{element.text}}
                           <ul>
-                            <li *ngFor="let sentiment of element.valences; let index = index" [class.first]="index == 0">
-                              <span class="legend">{{sentiment.valence}}</span>
+                            <li *ngFor="let sentiment of element.valences">
                               <div class="progress sentiment-{{sentiment.valence}}">
-                                <!-- <div *ngIf="index == 0" class="progress-bar valence" role="progressbar" [attr.aria-valuenow]="sentiment.score" [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue" [ngStyle]="{'width': (sentiment.score * 100 / (sentiment.maxValue - sentiment.maxValue)) + '%', 'background-color': getSentimentColor(sentiment.valence)}">
-                                  <span class="value">
-                                    {{sentiment.score | number}}
-                                  </span>
-                                </div> -->
                                 <div *ngIf="index != 0" class="progress-bar neutral" role="progressbar" style="width: 50%"
                                   [class.negative]="sentiment.score == -1" [attr.aria-valuenow]="(sentiment.score == -1) ? -sentiment.score : 0"
                                   [attr.aria-valuemin]="sentiment.minValue" [attr.aria-valuemax]="sentiment.maxValue"></div>

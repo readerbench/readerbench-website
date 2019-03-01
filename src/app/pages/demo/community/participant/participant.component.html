@@ -1,3 +1,72 @@
-<p>
-  participant works!
-</p>
+<div class="participant-container">
+    <div class="row participants-title">
+        <div class="col-xs-2">
+           <strong> Participants' statistics </strong>
+        </div>
+        <div class="col-xs-8"></div>
+        <div class="col-xs-2">
+            <div class="checkbox">
+                <!--<label><input type="radio" name="showName">Show name</label>-->
+                <input [(ngModel)]="showName" type="checkbox"/>Show name
+            </div>
+        </div>
+    </div>
+    <div class="row"><div class="col-xs-2">&nbsp;</div></div>
+    <div class="row">
+        <table class="table table-hover">
+            <thead class="participants-table-header">
+                <tr>
+                    <th [hidden]="!showName">
+                        <p>Name</p>
+                        <input type="text" class="form-control" name="participantName" [(ngModel)]="filter.participantName" placeholder="Name">
+                    </th>
+                    <th [hidden]="showName">
+                        <p>Nickname</p>
+                        <!--<input  class="form-control" type="text" #searchFilter (keyup)="0"/>-->
+                        <input type="text" class="form-control" name="participantNickname" [(ngModel)]="filter.participantNickname" placeholder="Nickname">
+                    </th>
+                    <th>
+                        <p>Contributions</p>
+                        <input type="number" class="form-control" name="Contrib" [(ngModel)]="filter.Contrib" placeholder="Contributions">
+                    </th>
+                    <th>
+                        <p>Cumulated contribution scores</p>
+                        <input type="number" class="form-control" name="Scr" [(ngModel)]="filter.Scr" placeholder="Score">
+                    </th>
+                    <th>
+                        <p>Cumulated social KB scores</p>
+                        <input type="number" class="form-control" name="SocialKB" [(ngModel)]="filter.SocialKB" placeholder="SocialKB">
+                    </th>
+                    <th>
+                        <p>Degree of inter-animation</p>
+                        <input type="number" class="form-control" name="InterAnim" [(ngModel)]="filter.InterAnim" placeholder="InterAnim">
+                    </th>
+                    <th>
+                        <p>In-degree centrality</p>
+                        <input type="number" class="form-control" name="InDegree" [(ngModel)]="filter.InDegree" placeholder="In-degree">
+                    </th>
+                    <th>
+                        <p>Out-degree centrality</p>
+                       <input type="number" class="form-control" name="OutDegree" [(ngModel)]="filter.OutDegree" placeholder="Out-degree">
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="participants-table-body">
+                <!--<tr *ngFor="let participant of participants | participantfilter:filter" [ngClass]="{'alert alert-success': participant.group == 'ACTIVE', -->
+                <tr *ngFor="let participant of participants" [ngClass]="{'alert alert-success': participant.group == 'ACTIVE', 
+                    'alert alert-info': participant.group == 'CENTRAL',
+                    'alert alert-warning': participant.group == 'PERIPHERAL',
+                    'alert alert-danger': participant.group == ''}">
+                    <td [hidden]="!showName">{{ participant.participantName }}</td>
+                    <td [hidden]="showName">{{ participant.participantNickname }}</td>
+                    <td>{{ participant.Contrib }}</td>
+                    <td>{{ participant.Scr }}</td>
+                    <td>{{ participant.SocialKB }}</td>
+                    <td>{{ participant.InterAnim }}</td>
+                    <td>{{ participant.InDegree }}</td>
+                    <td>{{ participant.OutDegree }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

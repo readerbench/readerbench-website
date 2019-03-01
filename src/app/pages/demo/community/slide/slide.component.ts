@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy, Input, HostBinding } from '@angular/core';
 
-import { CarouselComponent, Direction } from '../carousel/carousel.component';
+import { CommunityCarouselComponent, Direction } from '../carousel/community-carousel.component';
 
 @Component({
     selector: 'app-slide',
@@ -21,7 +21,7 @@ export class SlideComponent implements OnInit, OnDestroy {
     @HostBinding('class.carousel-item')
     private addClass = true;
 
-    constructor(private carousel: CarouselComponent) {
+    constructor(private carousel: CommunityCarouselComponent) {
     }
 
     public ngOnInit() {
