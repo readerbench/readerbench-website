@@ -15,7 +15,7 @@ export class KeywordsHeatmapComponent implements OnInit {
   constructor(private apiRequestService: ApiRequestService) { }
 
   ngOnInit() {
-  	this.apiRequestService.setEndpoint('community/keywords');
+  	this.apiRequestService.setApiService('communityKeywords');
     var data = {
       name: this.communityName
     };
