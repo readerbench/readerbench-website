@@ -594,7 +594,7 @@ export class CommunityComponent implements OnInit {
 
     this.apiRequestService.setApiService('communityDirectedGraph');
     const data = {
-      communityName: community
+      name: community
     };
     const process = this.apiRequestService.process(data);
     process.subscribe((participants: any) => {

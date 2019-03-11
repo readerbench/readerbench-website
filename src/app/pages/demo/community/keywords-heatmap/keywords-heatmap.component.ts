@@ -1,14 +1,14 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiRequestService } from '../../api-request.service';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 @Component({
-  selector: 'app-keywords-heatmap',
+  selector: 'app-community-keywords-heatmap',
   templateUrl: './keywords-heatmap.component.html',
   styleUrls: ['./keywords-heatmap.component.css'],
   providers: [ApiRequestService]
 })
-export class KeywordsHeatmapComponent implements OnInit {
+export class CommunityKeywordsHeatmapComponent implements OnInit {
 
   @Input() communityName: string;
 

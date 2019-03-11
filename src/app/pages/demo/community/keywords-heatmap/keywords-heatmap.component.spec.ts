@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { KeywordsHeatmapComponent } from './keywords-heatmap.component';
+import { CommunityKeywordsHeatmapComponent } from './keywords-heatmap.component';
 
 describe('KeywordsHeatmapComponent', () => {
-  let component: KeywordsHeatmapComponent;
-  let fixture: ComponentFixture<KeywordsHeatmapComponent>;
+  let component: CommunityKeywordsHeatmapComponent;
+  let fixture: ComponentFixture<CommunityKeywordsHeatmapComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [KeywordsHeatmapComponent]
+      declarations: [CommunityKeywordsHeatmapComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KeywordsHeatmapComponent);
+    fixture = TestBed.createComponent(CommunityKeywordsHeatmapComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

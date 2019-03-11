@@ -4,7 +4,7 @@ import { SlideComponent } from '../slide/slide.component';
 export enum Direction {UNKNOWN, NEXT, PREV}
 
 @Component({
-  selector: 'app-carousel',
+  selector: 'app-community-carousel',
   template: `
 <div (mouseenter)="pause()" (mouseleave)="play()" class="carousel slide">
 

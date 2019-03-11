@@ -33,7 +33,7 @@ import { ParticipantComponent } from './pages/demo/community/participant/partici
 import { ParticipantEvolutionComponent } from './pages/demo/community/participant/participant-evolution/participant-evolution.component';
 import { CommunityCarouselComponent } from './pages/demo/community/carousel/community-carousel.component';
 import { SlideComponent } from './pages/demo/community/slide/slide.component';
-import { KeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
+import { CommunityKeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
 import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
 import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-level-edge-bundling/multi-level-edge-bundling.component';
 
@@ -58,6 +58,7 @@ import { EdgeBundlingService } from './pages/demo/comprehension-model/service/ed
 import { ConfigComponent } from './config/config.component';
 import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/hierarchical-edge-bundling.component';
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
+import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagr
     DemoCommonFieldsComponent,
     DemoSemDiffCommonFieldsComponent,
     ApproximationPipe,
+    CommunityKeywordsHeatmapComponent,
     KeywordsHeatmapComponent,
     PeopleComponent,
     ProjectsComponent,

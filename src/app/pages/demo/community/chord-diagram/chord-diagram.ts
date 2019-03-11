@@ -142,11 +142,11 @@ export class ChordComponent implements AfterViewInit {
     }
 
     function displayCS() {
-      let chart = cschart().Bheight(460);
+      let chart = (cschart() as any).Bheight(460);
       d3.select('#chart1').call(chart);
-      chart = barchart().mname('volume').margin(320).MValue('TURNOVER');
+      chart = (barchart() as any).mname('volume').margin(320).MValue('TURNOVER');
       d3.select('#chart1').datum(genData).call(chart);
-      chart = barchart().mname('sigma').margin(400).MValue('VOLATILITY');
+      chart = (barchart() as any).mname('sigma').margin(400).MValue('VOLATILITY');
       d3.select('#chart1').datum(genData).call(chart);
       hoverAll();
     }
@@ -243,20 +243,26 @@ export class ChordComponent implements AfterViewInit {
             .attr('width', fillwidth);
         });
       } // barrender
-      barrender.mname = function (value) {
-        if (!arguments.length) return mname;
+      (barrender as any).mname = function (value) {
+        if (!arguments.length) {
+          return mname;
+        }
         mname = value;
         return barrender;
       };
 
-      barrender.margin = function (value) {
-        if (!arguments.length) return margin.top;
+      (barrender as any).margin = function (value) {
+        if (!arguments.length) {
+          return margin.top;
+        }
         margin.top = value;
         return barrender;
       };
 
-      barrender.MValue = function (value) {
-        if (!arguments.length) return MValue;
+      (barrender as any).MValue = function (value) {
+        if (!arguments.length) {
+          return MValue;
+        }
         MValue = value;
         return barrender;
       };
@@ -305,7 +311,7 @@ export class ChordComponent implements AfterViewInit {
           var delta = Math.round((barwidth - candlewidth) / 2);
 
           d3.select(this).select('svg').remove();
-          var svg = d3.select(this).append('svg')
+          const svg = d3.select(this).append('svg')
             .attr('width', width + margin.left + margin.right)
             .attr('height', Bheight + margin.top + margin.bottom)
             .append('g')
@@ -376,8 +382,10 @@ export class ChordComponent implements AfterViewInit {
         });
       } // csrender
 
-      csrender.Bheight = function (value) {
-        if (!arguments.length) return Bheight;
+      (csrender as any).Bheight = function (value) {
+        if (!arguments.length) {
+          return Bheight;
+        }
         Bheight = value;
         return csrender;
       };
@@ -397,22 +405,27 @@ export class ChordComponent implements AfterViewInit {
     }
 
     function timeCompare(date, interval) {
-      if (interval == 'week') { var durfn = d3.time.monday(date); }
-      else if (interval == 'month') { var durfn = d3.time.month(date); }
-      else { var durfn = d3.time.day(date); }
+      let durfn: any;
+      if (interval === 'week') {
+        durfn = d3.time.monday(date);
+      } else if (interval === 'month') {
+        durfn = d3.time.month(date);
+      } else {
+        durfn = d3.time.day(date);
+      }
       return durfn;
     }
 
     function dataCompress(data, interval) {
-      var compressedData = d3.nest()
+      const compressedData = (d3.nest() as any)
         .key(function (d: any) { return timeCompare(d.TIMESTAMP, interval); })
         .rollup(function (v) {
           return {
-            TIMESTAMP: timeCompare(d3.values(v).pop().TIMESTAMP, interval),
-            OPEN: d3.values(v).shift().OPEN,
+            TIMESTAMP: timeCompare((d3.values(v).pop() as any).TIMESTAMP, interval),
+            OPEN: (d3.values(v).shift() as any).OPEN,
             LOW: d3.min(v, function (d: any) { return d.LOW; }),
             HIGH: d3.max(v, function (d: any) { return d.HIGH; }),
-            CLOSE: d3.values(v).pop().CLOSE,
+            CLOSE: (d3.values(v).pop() as any).CLOSE,
             TURNOVER: d3.mean(v, function (d: any) { return d.TURNOVER; }),
             VOLATILITY: d3.mean(v, function (d: any) { return d.VOLATILITY; })
           };
