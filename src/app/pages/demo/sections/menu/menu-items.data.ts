@@ -79,4 +79,11 @@ analyses are performed.',
         image: 'assets/images/demo_cm.png',
         altText: 'Automated Model of Comprehension (AMoC)'
     },
+    {
+        name: 'Online Communities',
+        href: 'demo/community',
+        description: 'Online Communities',
+        image: 'assets/images/demo_communities.png',
+        altText: 'Online Communities'
+    }
 ];

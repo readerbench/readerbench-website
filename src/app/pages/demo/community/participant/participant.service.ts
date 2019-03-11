@@ -3,11 +3,9 @@ import { Observable } from 'rxjs';
 
 import { ParticipantDO } from './participant.do';
 import { ApiRequestService } from '../../api-request.service';
-// import _ = require('underscore');
 
 @Injectable()
 export class ParticipantService {
-    private _participantList: ParticipantDO[] = [];
 
     constructor(private apiRequestService: ApiRequestService) { }
 
@@ -19,14 +17,16 @@ export class ParticipantService {
         });
         process.subscribe(participantObjects => {
             const participantList: ParticipantDO[] = [];
-            //     _.forEach(participantObjects, (participant: Object) => {
-            //        var p = new ParticipantDO();
-            //        p.buildFromObject(participant);
-            //        participantList.push(p);
-            //    });
-            this._participantList = participantList;
+            for (const p in participantObjects.data) {
+                if (true) {
+                    const participant = new ParticipantDO();
+                    participant.buildFromObject(p);
+                    participantList.push(participant);
+                }
+            }
             return participantList;
         });
         return null;
     }
+
 }

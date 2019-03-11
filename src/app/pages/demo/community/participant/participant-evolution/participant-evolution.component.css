@@ -1,0 +1,56 @@
+:host /deep/ svg {
+  font: 14px 'Open Sans';
+}
+
+:host /deep/ .axis path,
+:host /deep/ .axis line {
+  fill: none;
+  stroke: #000;
+  shape-rendering: crispEdges;
+}
+
+:host /deep/ .axis text {
+  fill: #000;
+}
+
+:host /deep/ .axis .tick line {
+  stroke: rgba(0, 0, 0, 0.1);
+}
+
+:host /deep/ .line {
+  fill: none;
+  stroke-width: 3;
+}
+
+:host /deep/ .legend .legend-bg {
+  fill: rgba(0, 0, 0, 0.3);
+  stroke: rgba(0, 0, 0, 0.3);
+}
+
+:host /deep/ .marker.client .marker-bg,
+:host /deep/ .marker.client path {
+  fill: rgba(255, 127, 0, 0.8);
+  stroke: rgba(255, 127, 0, 0.8);
+  stroke-width: 3;
+}
+
+:host /deep/ .marker.server .marker-bg,
+:host /deep/ .marker.server path {
+  fill: rgba(0, 153, 51, 0.8);
+  stroke: rgba(0, 153, 51, 0.8);
+  stroke-width: 3;
+}
+
+:host /deep/ .marker path {
+  fill: none;
+}
+
+:host /deep/ .legend text,
+:host /deep/ .marker text {
+  fill: #fff;
+  font-weight: bold;
+}
+
+:host /deep/ .marker text {
+  text-anchor: middle;
+}

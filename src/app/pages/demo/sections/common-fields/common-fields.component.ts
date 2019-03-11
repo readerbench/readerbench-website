@@ -16,7 +16,6 @@ export class DemoCommonFieldsComponent implements OnInit {
   @Output() advanced: boolean;
   @Output() advancedEmitter = new EventEmitter<any>();
   @Output() languageEmitter = new EventEmitter<any>();
-
   lsaOptions: any;
   ldaOptions: any;
   word2vecOptions: any;
