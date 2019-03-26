@@ -27,7 +27,8 @@
                 <label>Phrase </label>
               </div>
               <div class="col-xs-8">
-                <textarea class="form-control" rows="5" [(ngModel)]="searchText" [ngClass]="{error: incorrectSearchText}">
+                <textarea class="form-control" rows="5" [(ngModel)]="searchText"
+                  [ngClass]="{error: incorrectSearchText}">
                       </textarea>
                 <label class="error" *ngIf="incorrectSearchText">Enter a text up to {{ maxSearchTextLength
                   }} characters</label>
@@ -39,8 +40,20 @@
                 <label>Minimum Activation Threshold </label>
               </div>
               <div class="col-xs-4">
-                <input type="number" class="form-control" [(ngModel)]="minActivationThreshold" [ngClass]="{error: incorrectMinActivationThreshold}" />
+                <input type="number" class="form-control" [(ngModel)]="minActivationThreshold"
+                  [ngClass]="{error: incorrectMinActivationThreshold}" />
                 <label class="error" *ngIf="incorrectMinActivationThreshold">Enter a value from 0 to 1</label>
+              </div>
+            </div>
+
+            <div class="row top-buffer">
+              <div class="col-xs-4">
+                <label>Max number of active concepts per sentence </label>
+              </div>
+              <div class="col-xs-4">
+                <input type="number" class="form-control" [(ngModel)]="maxActiveConcepts"
+                  [ngClass]="{error: incorrectMaxActiveConcepts}" />
+                <label class="error" *ngIf="incorrectMaxActiveConcepts">Enter a positive integer value</label>
               </div>
             </div>
 
@@ -49,7 +62,8 @@
                 <label>Max number of semantically related concepts </label>
               </div>
               <div class="col-xs-4">
-                <input type="number" class="form-control" [(ngModel)]="maxSemanticExpand" [ngClass]="{error: incorrectMaxSemanticExpand}" />
+                <input type="number" class="form-control" [(ngModel)]="maxSemanticExpand"
+                  [ngClass]="{error: incorrectMaxSemanticExpand}" />
                 <label class="error" *ngIf="incorrectMaxSemanticExpand">Enter a positive integer value</label>
               </div>
             </div>
