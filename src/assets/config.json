@@ -26,6 +26,7 @@
     "communityEdgeBundling": "community/participants/edgeBundling",
 
     "communityParticipants": "community/participants",
+      "communityKeywords": "community/keywords",
 
     "ciModelAnalyzer": "ci-model/analyzer",
     "keywordsHeatmap": "keywords-heatmap"

@@ -103,7 +103,7 @@ export class CommunityKeywordsHeatmapComponent implements OnInit {
         .style("fill", colors[0]);
 
     cards.transition().duration(1000)
-        .style("fill", function(d) { return <string>colorScale(d.value); });
+        .style("fill", function(d: any) { return <string>colorScale(d.value); });
 
     cards.select("title").text(function(d) { return d.value; });
 
