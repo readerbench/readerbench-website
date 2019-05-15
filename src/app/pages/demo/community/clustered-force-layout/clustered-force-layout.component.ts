@@ -15,7 +15,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 
   ngAfterViewInit() {
   	this.generateLayout(this.data.sort((a, b) => a.group !== b.group ? a.group - b.group : b.size - a.size));
-	  //console.log(this.data);
+	console.log(this.data);
   }
 
   private generateLayout(data) {

@@ -3,6 +3,8 @@ import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { TwoModeGraph, TwoModeGraphNode, TwoModeGraphEdge } from '@reader-bench/common';
 import { ApiRequestService } from '../api-request.service';
 import { ParticipantComponent } from './participant/participant.component';
+import { CarouselComponent } from '../../home/sections/carousel/carousel.component';
+import { CommunityCarouselComponent } from './carousel/community-carousel.component';
 
 interface Community {
   communityName: string;
@@ -33,7 +35,7 @@ interface Subcommunity {
   selector: 'app-community',
   templateUrl: './community.component.html',
   styleUrls: ['./community.component.css'],
-  providers: [ApiRequestService, TwoModeGraphService]
+  providers: [ApiRequestService, TwoModeGraphService, CommunityCarouselComponent]
 })
 export class CommunityComponent implements OnInit {
 
@@ -538,8 +540,7 @@ export class CommunityComponent implements OnInit {
   viewTypes: ViewType[] = [
     { id: 0, name: 'Force-Directed Graph' },
     { id: 1, name: 'Hierarchical Edge Bundling' },
-    { id: 2, name: 'Clustered Force Layout' },
-    { id: 3, name: 'Chord Diagram' }
+    { id: 2, name: 'Clustered Force Layout' }
   ];
   overviewTypes: ViewType[] = [
     { id: 0, name: 'Multi-level Edge Bundling' }
@@ -593,62 +594,48 @@ export class CommunityComponent implements OnInit {
     this.subcommunities = [];
 
     this.apiRequestService.setApiService('communityDirectedGraph');
-    const data = {
+    var data = {
       name: community
     };
-    const process = this.apiRequestService.process(data);
-    process.subscribe((participants: any) => {
-      this.directedGraph = participants;
+    this.apiRequestService.process(data).subscribe((participants: any) => {
+      this.directedGraph = participants.data.sort((a, b) => a.week - b.week);
       this.apiRequestService.setApiService('communityEdgeBundling');
-      process.subscribe((auxParticipants: any) => {
-        this.edgeBundling = auxParticipants;
-        for (let i = 0; i < this.directedGraph.length; i++) {
-          if (this.edgeBundling[i].data.length > 0) {
-            let graphSubcommunity = new TwoModeGraph();
+      var data = {
+        name: community
+      }
+      this.apiRequestService.process(data).subscribe((participants: any) => {
+        this.edgeBundling = participants.data.sort((a, b) => a.week - b.week);
+        //console.log(this.directedGraph);
+        //console.log(this.edgeBundling);
+        for (var i = 0; i < this.directedGraph.length; i++) {
+          var clusteredData = [];
+          for (var j = 0; j < this.directedGraph[i].nodes.length; j++) {
+            let node = this.directedGraph[i].nodes[j];
+            clusteredData.push({
+              "text":node.name,
+              "size":node.value,
+              "group":node.group
+            });
+          }
+          if (this.edgeBundling[i]["data"].length > 0) {
+            var graphSubcommunity = new TwoModeGraph();
             graphSubcommunity = this.parseGraphData(this.directedGraph[i]);
-            this.apiRequestService.setApiService('communityParticipantsDirectedGraph');
-            const data1 = {
-              name: community
-            };
-            this.apiRequestService.process(data1).subscribe((participants1: any) => {
-              this.directedGraph = participants1.data.sort((a, b) => a.week - b.week);
-              this.apiRequestService.setApiService('communityEdgeBundling');
-              const data2 = {
-                name: community
-              };
-              this.apiRequestService.process(data2).subscribe((participants2: any) => {
-                this.edgeBundling = participants2.data.sort((a, b) => a.week - b.week);
-                for (let i1 = 0; i1 < this.directedGraph.length; i1++) {
-                  const clusteredData = [];
-                  for (let j = 0; j < this.directedGraph[i1].nodes.length; j++) {
-                    const node = this.directedGraph[i1].nodes[j];
-                    clusteredData.push({
-                      'text': node.name,
-                      'size': node.value,
-                      'group': node.group
-                    });
-                  }
-                  if (this.edgeBundling[i]['data'].length > 0) {
-                    let graphSubcommunity1 = new TwoModeGraph();
-                    graphSubcommunity1 = this.parseGraphData(this.directedGraph[i]);
-                    this.subcommunities.push({
-                      week: this.directedGraph[i].week,
-                      graph: graphSubcommunity1,
-                      edgeBundling: this.edgeBundling[i].data,
-                      clustered: clusteredData,
-                      startDate: new Date(this.directedGraph[i].startDate),
-                      endDate: new Date(this.directedGraph[i].endDate)
-                    });
-                  }
-                }
-                this.isLoadingGraph = false;
-              });
+            this.subcommunities.push({
+              week: this.directedGraph[i].week,
+              graph: graphSubcommunity,
+              edgeBundling: this.edgeBundling[i].data,
+              clustered: clusteredData,
+              startDate: new Date(this.directedGraph[i].startDate),
+              endDate: new Date(this.directedGraph[i].endDate)
             });
           }
         }
+        this.isLoadingGraph = false;
       });
     });
+    console.log(this.subcommunities);
   }
+
 
   private parseGraphData(inGraph): TwoModeGraph {
     const graph = new TwoModeGraph();

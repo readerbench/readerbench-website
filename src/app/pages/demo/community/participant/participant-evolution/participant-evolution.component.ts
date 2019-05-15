@@ -41,6 +41,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		this.apiRequestService.setApiService('communityParticipants');
+		console.log(this.communityName);
 		const process = this.apiRequestService.process({
 			name: this.communityName,
 		});
@@ -83,6 +84,7 @@ export class ParticipantEvolutionComponent implements AfterViewInit {
 			});
 
 			this.participants = ps;
+			console.log(this.participants);
 			this.makeChart(this.communityData, this.selectedParticipants);
 		});
 	}

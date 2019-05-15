@@ -92,7 +92,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <app-carousel [attr.interval]="NextPhotoInterval" [attr.noWrap]="noLoopSlides">
+                                <app-community-carousel [attr.interval]="NextPhotoInterval" [attr.noWrap]="noLoopSlides">
                                     <app-slide *ngFor="let subcommunity of subcommunities" [attr.active]=false>
                                         <!--<div *ngFor="let subcommunity of subcommunities">-->
                                         <div class="carousel-caption">
@@ -114,11 +114,13 @@
                                                 </div>
                                                 <div class="col-xs-4"></div>
                                             </div>
-
                                         </div>
+                                        
 
                                         <two-mode-graph *ngIf="subcommunity.graph.nodeList.length > 0" [hidden]="selectedViewType.id != 0"
                                             [graph]="subcommunity.graph" class="two-mode-graph-class"></two-mode-graph>
+                                        <!--</div>-->
+
                                         <hierarchical-edge-bundling *ngIf="subcommunity.edgeBundling.length > 0" id="graph-representation{{subcommunity.week}}"
                                             [hidden]="selectedViewType.id != 1" [data]="subcommunity.edgeBundling"
                                             [week]="subcommunity.week"></hierarchical-edge-bundling>
@@ -128,33 +130,34 @@
                                         <div *ngIf="subcommunity.edgeBundling.length == 0">
                                             <p style="color: black;"><b>No participants for this week</b></p>
                                         </div>
+
                                         <!-- </div> -->
                                     </app-slide>
-                                    <chord-component *ngIf="selectedViewType !== undefined && selectedViewType.id === 3" [hidden]="selectedViewType.id !== 3"
-                                        [data]="chordMookData"></chord-component>
-                                </app-carousel>
+                                    <!--<chord-component *ngIf="selectedViewType !== undefined && selectedViewType.id === 3" [hidden]="selectedViewType.id !== 3"
+                                        [data]="chordMookData"></chord-component>-->
+                                </app-community-carousel>
                             </div>
                         </div>
 
                         <div id="Participants" class="tabcontent">
                             <div class="row">
                                 <div class="col-xs-12">
-                                    <app-participant-evolution *ngIf="participantsCommunity" [attr.communityName]="selectedCommunity.name"></app-participant-evolution>
-                                    <app-carousel [attr.interval]="NextPhotoInterval" [attr.noWrap]="noLoopSlides">
+                                    <app-participant-evolution *ngIf="participantsCommunity" [communityName]="selectedCommunity.name"></app-participant-evolution>
+                                    <app-community-carousel [interval]="NextPhotoInterval" [noWrap]="noLoopSlides">
                                         <app-slide *ngFor="let subcommunity of subcommunities">
-                                            <app-participant *ngIf="participantsCommunity" [attr.communityName]="selectedCommunity.name"
+                                            <app-participant *ngIf="participantsCommunity" [communityName]="selectedCommunity.name"
                                                 [week]="subcommunity.week"></app-participant>
                                         </app-slide>
-                                    </app-carousel>
+                                    </app-community-carousel>
                                 </div>
                             </div>
                         </div>
 
                         <div id="Keywords" class="tabcontent">
-                            <app-keywords-heatmap *ngIf="participantsCommunity" [attr.communityName]="selectedCommunity.name"></app-keywords-heatmap>
+                            <app-community-keywords-heatmap *ngIf="participantsCommunity" [communityName]="selectedCommunity.name"></app-community-keywords-heatmap>
                         </div>
 
-                        <div id="Overview" class="tabcontent">
+                        <!--<div id="Overview" class="tabcontent">
                             <div class="row">
                                 <div class="col-xs-1">
                                     <label for="self_language" class="dropdown-label">View type: </label>
@@ -170,7 +173,7 @@
                                 </div>
                             </div>
                             <app-multi-level-edge-bundling [hidden]="selectedOverviewType !== undefined && selectedOverviewType.id != 0"></app-multi-level-edge-bundling>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

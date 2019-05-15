@@ -9,6 +9,7 @@ export interface CiModelParams {
   text: string;
   semanticModel: string;
   minActivationThreshold: number;
+  maxActiveConcepts: number;
   maxSemanticExpand: number;
 }
 
