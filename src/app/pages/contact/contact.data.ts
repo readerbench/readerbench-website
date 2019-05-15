@@ -1,4 +1,4 @@
-export var ContactData = {
+export let ContactData = {
     'serviceName': 'contact',
     'componentTitle': 'Contact'
 };

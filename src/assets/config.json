@@ -39,7 +39,7 @@
     }
   },
 
-  "commonPath": {
+  "commonEndpoints": {
     "contact": "contact"
   }
 }
