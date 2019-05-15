@@ -58,7 +58,7 @@ export class ContactComponent implements OnInit {
         return;
       }
 
-      this.message = response.data.mailgun.message;
+      this.message = response.data.message;
       this.showSuccess = true;
     });
   };
