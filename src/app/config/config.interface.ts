@@ -11,4 +11,8 @@ export interface Config {
     apiHeaders: any;
 
     commonEndpoints: any;
+
+    mailServer: string;
+    mailPort: number;
+    mailPath: string;
 }

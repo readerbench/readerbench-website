@@ -5,8 +5,8 @@
   "apiPath": "api",
 
   "mailServer": "readerbench.com",
-  "mailPort": 9001,
-  "mailPath": "/",
+  "mailPort": 80,
+  "mailPath": "mail",
 
   "portDelimiter": ":",
   "pathDelimiter": "/",

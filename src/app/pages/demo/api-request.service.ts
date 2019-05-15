@@ -45,12 +45,24 @@ export class ApiRequestService {
     }
 
     public getApiEndpoint(): string {
+        if (this.config.apiEndpoints[this.serviceName] === undefined) {
+            return this.getMailServerEndpoint();
+        }
         return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
             this.config.apiServer +
             ((this.config.apiPort !== 80) ? (this.config.portDelimiter +
                 this.config.apiPort) : '') +
             this.config.pathDelimiter + this.config.apiPath + this.config.pathDelimiter +
             this.config.apiEndpoints[this.serviceName];
+    }
+
+    public getMailServerEndpoint(): string {
+        return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
+            this.config.mailServer +
+            ((this.config.mailPort !== 80) ? (this.config.portDelimiter +
+                this.config.mailPort) : '') +
+            this.config.pathDelimiter + this.config.mailPath + this.config.pathDelimiter +
+            this.config.commonEndpoints[this.serviceName];
     }
 
     public setApiService(serviceName: string) {
