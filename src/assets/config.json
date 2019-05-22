@@ -13,7 +13,7 @@
 
   "apiEndpoints": {
     "sentimentAnalysis": "sentiment-analysis",
-    "textualComplexity": "textual-complexity",
+    "textualComplexity": "v2/textual-complexity",
     "keywords": "keywords",
     "selfExplanation": "self-explanation",
     "semanticAnnotation": "semantic-annotation",
@@ -28,7 +28,7 @@
     "communityParticipants": "community/participants",
       "communityKeywords": "community/keywords",
 
-    "ciModelAnalyzer": "ci-model/analyzer",
+    "ciModelAnalyzer": "v2/amoc",
     "keywordsHeatmap": "keywords-heatmap"
   },
   "apiHeaders": {
