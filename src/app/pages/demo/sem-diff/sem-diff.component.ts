@@ -13,37 +13,58 @@ import { ReaderbenchService } from '../../../readerbench.service';
 export class SemDiffComponent implements OnInit {
 
   formData = {};
+  modalData = {};
   @Input() advanced: boolean;
   loading: boolean;
   showResults: boolean;
+  modalDlg:boolean;
   language: any;
   number_of_docs: any;
 
   showReadingStrategies: boolean;
   dataResponse: any;
+  advancedModal: boolean;
+  showResultsModal: boolean;
+  dataResponseModal: any;
+  loadingModal: boolean;
+  responseModal: any;
 
   response: any;
 
   constructor(private apiRequestService: ApiRequestService, private readerbenchService: ReaderbenchService) {
-    this.apiRequestService.setEndpoint('semantic-diff');
+    this.apiRequestService.setEndpoint('semantic-diff'); // It changes when it process the Process button, or the Modal Button
   }
 
   ngOnInit() {
     this.language = SemDiffData.defaultLanguage;
     this.number_of_docs = SemDiffData.default_number_of_docs;
+    this.advancedModal = false;
 
     this.formData = {
       'text': SemDiffData.defaultText,
       'number_of_docs' : SemDiffData.default_number_of_docs,
+      'test_documents' : SemDiffData.test_documents[0],
+      'test_search_corpus_offline' : SemDiffData.test_search_corpus_offline[0],
       'language': SemDiffData.defaultLanguage,
       'preposition' : true,
       'interjection' : true,
       'conjunction' : true,
-      'pronoun' : false
+      'pronoun' : false,
+      'ner' : false
     };
+    this.modalData = {
+      'modalText1': SemDiffData.modalText1,
+      'modalText2': SemDiffData.modalText2,
+      'preposition' : true,
+      'interjection' : true,
+      'conjunction' : true,
+      'pronoun' : false,
+      'ner' : false
+    }
     this.loadSemModels();
     this.loading = false; 
     this.showResults = false;
+    this.modalDlg = false;
   }
 
   loadSemModels() {
@@ -69,12 +90,15 @@ export class SemDiffComponent implements OnInit {
       'language': this.formData['language'].value,
       'number_of_docs': parseInt(this.formData['number_of_docs'].value, 10),
       'w2v': this.formData['word2vec'].value,
+      'test_documents' :  parseInt(this.formData['test_documents'].value, 10),
+      'test_search_corpus_offline' : this.formData['test_search_corpus_offline'].value,
       'preposition' : this.formData['preposition'],
       'interjection' : this.formData['interjection'],
       'conjunction' : this.formData['conjunction'],
-      'pronoun' : this.formData['pronoun']
+      'pronoun' : this.formData['pronoun'],
+      'ner' : this.formData['ner']
     }
-
+    this.apiRequestService.setEndpoint('semantic-diff');
     var process = this.apiRequestService.process(data);
     process.subscribe(response => {
       this.response = response;
@@ -92,5 +116,53 @@ export class SemDiffComponent implements OnInit {
       this.showResults = true;
     });
   }
+ 
+  openDlg(){
+    this.modalDlg = true;
+  }
+  modalButtonClose(){
+    this.modalDlg = false;
+  }
+  modalButtonOK(){  
+    this.showResultsModal = true;
+    this.loadingModal = true;
+    var data = {
+      'modalText1': this.modalData['modalText1'],
+      'modalText2': this.modalData['modalText2'],
+      'w2v': this.formData['word2vec'].value,
+      'preposition' : this.modalData['preposition'],
+      'interjection' : this.modalData['interjection'],
+      'conjunction' : this.modalData['conjunction'],
+      'pronoun' : this.modalData['pronoun'],
+      'ner' : this.modalData['ner']
+    }
 
+    this.apiRequestService.setEndpoint('semantic-diff-test-diff-module');
+    var process = this.apiRequestService.process(data);
+    process.subscribe(response => {
+      this.responseModal = response;
+      this.loadingModal = false;
+      
+      if (response.success !== true) {
+        alert('Server error occured!');
+        return;
+      }
+      this.dataResponseModal = response.data;
+      this.showResultsModal = true;
+    });
+
+  }
+
+  toggleAdvancedModal() {
+    this.advancedModal = !this.advancedModal;
+  }
+  processPutText1() {
+      this.formData['text'] = SemDiffData.defaultText1
+  }
+  processPutText2() {
+      this.formData['text'] = SemDiffData.defaultText2;
+  }
+  processPutText3() {
+      this.formData['text'] = SemDiffData.defaultText;
+  }
 }

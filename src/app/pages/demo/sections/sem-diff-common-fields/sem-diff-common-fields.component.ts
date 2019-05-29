@@ -19,6 +19,9 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
   languages: any;
   word2vecOptions: any;
   number_of_docs: any;
+  test: any;
+  test_documents: any;
+  test_search_corpus_offline: any;
 
   constructor() { }
 
@@ -26,6 +29,9 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
     this.advanced = false;
     this.languages = SemDiffData.languages;
     this.language = this.formData['language'];
+    this.test = SemDiffData.test;
+    this.test_documents = SemDiffData.test_documents;
+    this.test_search_corpus_offline = SemDiffData.test_search_corpus_offline;
     this.number_of_docs = DefaultInputData.number_of_docs;
     this.loadSemModelsOptions();    
   }
@@ -46,5 +52,4 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
     this.advanced = !this.advanced;
     this.advancedEmitter.emit(this.advanced);
   }
-
 }

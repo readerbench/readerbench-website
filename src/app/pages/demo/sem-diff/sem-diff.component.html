@@ -24,8 +24,36 @@
                     <span class="required">*</span>
                   </label>
                 </div>
-                <div class="col-xs-12 col-md-12 col-lg-12">
+                <div class="col-xs-10 col-md-10 col-lg-10">
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
+                </div>
+                <div class="col-xs-2 col-md-2">
+                  <div class="bottom-buttons">
+                    <button class="btn theme-btn-1" (click)="openDlg()">
+                      <span class="button">Test Diff</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-xs-2 col-md-2">
+                  <div class="bottom-buttons">
+                    <button class="btn theme-btn-1" id="putText1" (click)="processPutText1()">
+                      <span class="button">Put Text 1</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-xs-2 col-md-2">
+                  <div class="bottom-buttons">
+                    <button class="btn theme-btn-1" id="putText2" (click)="processPutText2()">
+                      <span class="button">Put Text 2</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-xs-2 col-md-2">
+                  <div class="bottom-buttons">
+                    <button class="btn theme-btn-1" id="putText3" (click)="processPutText3()">
+                      <span class="button">Put Text 3</span>
+                    </button>
+                  </div>
                 </div>
               </div>
               <app-demo-sem-diff-common-fields [formData]="formData" [language]="language" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-sem-diff-common-fields>
@@ -86,6 +114,131 @@
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="modalDlg === true">
+  <div id="modalDiffTest" class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" (click)="modalButtonClose()">&times;</button>
+          <h3 class="modal-title">Sunt un modal</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-6 col-md-6 col-lg-6">
+            <label for="input_text_DiffTest1">Text 1
+              <span class="required">*</span>
+            </label>
+          </div>
+          <div class="col-xs-6 col-md-6 col-lg-6">
+            <label for="input_text_DiffTest2">Text 2
+              <span class="required">*</span>
+            </label>
+          </div>
+          <div class="col-xs-6 col-md-6 col-lg-6">
+            <textarea id="input_text_DiffTest1" class="form-control" [(ngModel)]="modalData.modalText1" rows="5"></textarea>
+          </div>
+          <div class="col-xs-6 col-md-6 col-lg-6">
+            <textarea id="input_text_DiffTest2" class="form-control" [(ngModel)]="modalData.modalText2" rows="5"></textarea>
+          </div>
+        </div> 
+        <div class="row top-buffer">
+          <div class="col-xs-12 col-md-12">
+            <a (click)="toggleAdvancedModal()" class="pointer">
+              <span *ngIf="!advancedModal">&#x25BC; Show</span>
+              <span *ngIf="advancedModal">&#x25B2; Hide</span>
+              advanced options
+            </a>
+          </div>
+        </div>
+        <div class="row top-buffer" *ngIf="advancedModal">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <input type="checkbox" id="input_DiffTest_preposition" [checked]="modalData['preposition']" (change)="modalData['preposition'] = !modalData['preposition']"  />
+            <label for="input_DiffTest_preposition">Preposition
+              <span class="required">*</span>
+            </label>
+          </div>
+        </div>
+        <div class="row top-buffer" *ngIf="advancedModal">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <input type="checkbox" id="input_DiffTest_interjection" [checked]="modalData['interjection']" (change)="modalData['interjection'] = !modalData['interjection']"  />
+            <label for="input_DiffTest_interjection">Interjection
+              <span class="required">*</span>
+            </label>
+          </div>
+        </div>
+        <div class="row top-buffer" *ngIf="advancedModal">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <input type="checkbox" id="input_DiffTest_conjunction" [checked]="modalData['conjunction']" (change)="modalData['conjunction'] = !modalData['conjunction']"  />
+            <label for="input_DiffTest_conjunction">Conjuction
+              <span class="required">*</span>
+            </label>
+          </div>
+        </div>
+        <div class="row top-buffer" *ngIf="advancedModal">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <input type="checkbox" id="input_DiffTest_pronoun" [checked]="modalData['pronoun']" (change)="modalData['pronoun'] = !modalData['pronoun']"  />
+            <label for="input_DiffTest_pronoun">Pronoun
+              <span class="required">*</span>
+            </label>
+          </div>
+        </div>
+        <div class="row top-buffer" *ngIf="advancedModal">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <input type="checkbox" id="input_DiffTest_ner" [checked]="modalData['ner']" (change)="modalData['ner'] = !modalData['ner']"  />
+            <label for="input_DiffTest_ner">Named Entity Recognition
+              <span class="required">*</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      
+      <div id="resultsModal">
+        <div *ngIf="showResultsModal === true">
+          <div id="diffThingyModal">
+          </div>
+          <div class="row">
+            <div class="col-xs-12 col-md-12 col-lg-12">
+              <ul class="course-description-list">
+                <li class="lesson">
+                  <div class="heading">
+                    <span class="lesson-nr no-select">Results</span>
+                  </div>
+                  <div class="body">&nbsp;</div>
+                  <ul class="lesson-description visible" style="display: block;">
+                    <li>
+                      <div class="body">
+                        <p>{{dataResponseModal.modalText1}}</p>
+                      </div>
+                      <!-- The diff text -->
+                      <div class="body corpus_diff_text">
+                          <p>
+                            <mark *ngFor="let dataMark of dataResponseModal.diffTextDTO" class="{{dataMark.typeOfElement}}">
+                                  {{dataMark.text}}
+                                  <span class="semantic_diff_tooltiptext tooltip-top">{{dataMark.explication}}</span>
+                            </mark>
+                          </p>
+                      </div>
+                      <hr class="bottom_border">
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div class="modal-footer">
+        <div class="row top-buffer" *ngIf="!loadingModal">
+            <div class="col-xs-12 col-md-12">
+              <div class="bottom-buttons" *ngIf="!loadingModal">
+                <button class="btn theme-btn-1" (click)="modalButtonOK()">
+                  <span class="button">Process Diff</span>
+                </button>
+              </div>
+            </div>
+          </div>
     </div>
   </div>
 </div>

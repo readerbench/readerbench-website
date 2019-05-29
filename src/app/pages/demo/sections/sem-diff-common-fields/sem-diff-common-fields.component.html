@@ -52,6 +52,14 @@
   </div>
 </div>
 <div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_ner" [checked]="formData['ner']" (change)="formData['ner'] = !formData['ner']"  />
+    <label for="input_ner">Named Entity Recognition
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
   <div class="col-xs-6 col-md-4 col-lg-3">
     <label for="input_number_of_docs">Number of docs to return
       <span class="required">*</span>
@@ -75,3 +83,29 @@
     </select>
   </div>
 </div>
+<ng-template [ngIf]="!formData.test">
+  <div class="row top-buffer" *ngIf="advanced">
+    <div class="col-xs-6 col-md-4 col-lg-3">
+      <label for="input_test_documents">Test documents offline
+        <span class="required">*</span>
+      </label>
+    </div>
+    <div class="col-xs-6 col-md-4 col-lg-3">
+      <select id="input_test_documents" class="form-control" [(ngModel)]="formData.test_documents">
+        <option *ngFor="let option of test_documents" [ngValue]="option">{{option.name}}</option>
+      </select>
+    </div>
+  </div>
+  <div class="row top-buffer" *ngIf="advanced">
+    <div class="col-xs-6 col-md-4 col-lg-3">
+      <label for="input_test_search_corpus_offline">Test corpus offline
+        <span class="required">*</span>
+      </label>
+    </div>
+    <div class="col-xs-6 col-md-4 col-lg-3">
+      <select id="input_test_search_corpus_offline" class="form-control" [(ngModel)]="formData.test_search_corpus_offline">
+        <option *ngFor="let option of test_search_corpus_offline" [ngValue]="option">{{option.name}}</option>
+      </select>
+    </div>
+  </div>
+</ng-template>
