@@ -2,9 +2,7 @@ import { DefaultInputData } from "../demo.component.data";
 
 export var SemDiffData = {
     'title': 'Semantic Diff',
-    'defaultText': 'Two days after he was sworn in as Prime Minister , '
-    + ' the Wall Street Crash of 1929 occurred , marking the beginning of '
-    + ' the Great Depression and subsequent Great Depression in Australia .',
+    'defaultText': 'Endemic types are most likely to develop on islands because they are isolated',
 
     'defaultText1': 'While serving with that unit , he gained a reputation '
     + 'for making quick tactical decisions and taking advantage of enemy confusion.',
@@ -26,36 +24,41 @@ export var SemDiffData = {
     'test_documents' :  [
         {
             id: '1',
-            name: '500',
+            name: '100',
             value: '100'
         },
         {
             id: '2',
+            name: '500',
+            value: '500'
+        },
+        {
+            id: '3',
             name: '1000',
             value: '1000'
         },
         {
-            id: '3',
+            id: '4',
             name: '5000',
             value: '5000'
         },
         {
-            id: '4',
+            id: '5',
             name: '10000',
             value: '10000'
         },
         {
-            id: '5',
+            id: '6',
             name: '50000',
             value: '50000'
         },
         {
-            id: '6',
+            id: '7',
             name: '100000',
             value: '100000'
         },
         {
-            id: '7',
+            id: '8',
             name: '132000',
             value: '132000'
         }

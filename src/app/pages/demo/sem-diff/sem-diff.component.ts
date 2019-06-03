@@ -82,7 +82,7 @@ export class SemDiffComponent implements OnInit {
 
   process() {
     this.loading = true;
-    this.showResults = true;
+    this.showResults = false;
     this.showReadingStrategies = false;
 
     var data = {
@@ -92,6 +92,7 @@ export class SemDiffComponent implements OnInit {
       'w2v': this.formData['word2vec'].value,
       'test_documents' :  parseInt(this.formData['test_documents'].value, 10),
       'test_search_corpus_offline' : this.formData['test_search_corpus_offline'].value,
+      'test_precision_mode':false,
       'preposition' : this.formData['preposition'],
       'interjection' : this.formData['interjection'],
       'conjunction' : this.formData['conjunction'],
@@ -124,7 +125,7 @@ export class SemDiffComponent implements OnInit {
     this.modalDlg = false;
   }
   modalButtonOK(){  
-    this.showResultsModal = true;
+    this.showResultsModal = false;
     this.loadingModal = true;
     var data = {
       'modalText1': this.modalData['modalText1'],
@@ -156,8 +157,42 @@ export class SemDiffComponent implements OnInit {
   toggleAdvancedModal() {
     this.advancedModal = !this.advancedModal;
   }
-  processPutText1() {
-      this.formData['text'] = SemDiffData.defaultText1
+  precisionTestMode() {
+    this.loading = true;
+    this.showResults = false;
+    this.showReadingStrategies = false;
+
+    var data = {
+    'text': this.formData['text'],
+    'language': this.formData['language'].value,
+    'number_of_docs': parseInt(this.formData['number_of_docs'].value, 10),
+    'w2v': this.formData['word2vec'].value,
+    'test_documents' :  parseInt(this.formData['test_documents'].value, 10),
+    'test_search_corpus_offline' : this.formData['test_search_corpus_offline'].value,
+    'test_precision_mode':true,
+    'preposition' : this.formData['preposition'],
+    'interjection' : this.formData['interjection'],
+    'conjunction' : this.formData['conjunction'],
+    'pronoun' : this.formData['pronoun'],
+    'ner' : this.formData['ner']
+  }
+  this.apiRequestService.setEndpoint('semantic-diff');
+  var process = this.apiRequestService.process(data);
+  process.subscribe(response => {
+    this.response = response;
+    this.loading = false;
+
+    if (response.success !== true) {
+      alert('Server error occured!');
+      return;
+    }
+
+    this.showReadingStrategies = true;
+    this.dataResponse = response.data;
+    
+    var readerbenchService = this.readerbenchService;
+    this.showResults = true;
+  });
   }
   processPutText2() {
       this.formData['text'] = SemDiffData.defaultText2;

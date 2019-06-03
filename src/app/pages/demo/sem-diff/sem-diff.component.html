@@ -36,8 +36,8 @@
                 </div>
                 <div class="col-xs-2 col-md-2">
                   <div class="bottom-buttons">
-                    <button class="btn theme-btn-1" id="putText1" (click)="processPutText1()">
-                      <span class="button">Put Text 1</span>
+                    <button class="btn theme-btn-1" id="putText1" (click)="precisionTestMode()">
+                      <span class="button">Precision Mode</span>
                     </button>
                   </div>
                 </div>
@@ -86,8 +86,14 @@
                         <div class="body">&nbsp;</div>
                         <ul class="lesson-description visible" style="display: block;">
                           <li *ngFor="let data of dataResponse">
+                              <div class="body">
+                                <p>Timpul de procesare este: {{data.timeToProcess}} secunde</p>
+                              </div>
                             <div class="heading">
                               <span class="lesson-nr no-select">{{data.cosineSimilarity | number : '1.2-2' }}</span>
+                            </div>
+                            <div class="body">
+                              <p>{{data.originalText}}</p>
                             </div>
                             <div class="body">
                               <p>{{data.text}}</p>
@@ -122,7 +128,7 @@
   <div id="modalDiffTest" class="modal-content">
       <div class="modal-header">
           <button type="button" class="close" (click)="modalButtonClose()">&times;</button>
-          <h3 class="modal-title">Sunt un modal</h3>
+          <h3 class="modal-title">Verifica modulul Diff</h3>
       </div>
       <div class="modal-body">
         <div class="row">
@@ -208,6 +214,9 @@
                   <div class="body">&nbsp;</div>
                   <ul class="lesson-description visible" style="display: block;">
                     <li>
+                        <div class="body">
+                          <p>Timpul de procesare este: {{dataResponseModal.timeToProcess}} secunde</p>
+                        </div>
                       <div class="body">
                         <p>{{dataResponseModal.modalText1}}</p>
                       </div>
