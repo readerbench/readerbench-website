@@ -22,7 +22,7 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
   test: any;
   test_documents: any;
   test_search_corpus_offline: any;
-
+  window_size:any
   constructor() { }
 
   ngOnInit() {
@@ -32,8 +32,9 @@ export class DemoSemDiffCommonFieldsComponent implements OnInit {
     this.test = SemDiffData.test;
     this.test_documents = SemDiffData.test_documents;
     this.test_search_corpus_offline = SemDiffData.test_search_corpus_offline;
+    this.window_size = SemDiffData.window_size;
     this.number_of_docs = DefaultInputData.number_of_docs;
-    this.loadSemModelsOptions();    
+    this.loadSemModelsOptions();  
   }
 
   loadSemModelsOptions() {

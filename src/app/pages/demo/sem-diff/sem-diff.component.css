@@ -6,8 +6,16 @@
 .mark_green_color{
     background-color:#66a56985;
 }
+.mark_green_color_ignored{
+    background-color:#66a56985;
+    text-decoration: underline;
+}
 .mark_red_color{
     background-color:#e2a1ad85;
+}
+.mark_red_color_ignored{
+    background-color:#e2a1ad85;
+    text-decoration: underline;
 }
 .mark_white_color{
     background-color: inherit;
@@ -25,6 +33,8 @@
 }
 
 .mark_blue_color .semantic_diff_tooltiptext,
+.mark_green_color_ignored .semantic_diff_tooltiptext,
+.mark_red_color_ignored .semantic_diff_tooltiptext,
 .mark_blue_syn_color .semantic_diff_tooltiptext,
 .mark_fade_color .semantic_diff_tooltiptext,
 .mark_white_syn_color .semantic_diff_tooltiptext  {
@@ -42,6 +52,8 @@
 }
 
 .mark_blue_color:hover .semantic_diff_tooltiptext,
+.mark_green_color_ignored:hover .semantic_diff_tooltiptext,
+.mark_red_color_ignored:hover .semantic_diff_tooltiptext,
 .mark_blue_syn_color:hover .semantic_diff_tooltiptext,
 .mark_fade_color:hover .semantic_diff_tooltiptext,
 .mark_white_syn_color:hover .semantic_diff_tooltiptext{
@@ -60,4 +72,5 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    overflow-y: auto;
   }

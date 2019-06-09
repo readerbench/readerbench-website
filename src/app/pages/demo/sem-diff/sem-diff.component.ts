@@ -26,6 +26,7 @@ export class SemDiffComponent implements OnInit {
   advancedModal: boolean;
   showResultsModal: boolean;
   dataResponseModal: any;
+  window_sizeModal: any;
   loadingModal: boolean;
   responseModal: any;
 
@@ -39,28 +40,34 @@ export class SemDiffComponent implements OnInit {
     this.language = SemDiffData.defaultLanguage;
     this.number_of_docs = SemDiffData.default_number_of_docs;
     this.advancedModal = false;
-
+    this.window_sizeModal = SemDiffData.window_size;
     this.formData = {
       'text': SemDiffData.defaultText,
       'number_of_docs' : SemDiffData.default_number_of_docs,
       'test_documents' : SemDiffData.test_documents[0],
+      'window_size' : SemDiffData.window_size[0],
       'test_search_corpus_offline' : SemDiffData.test_search_corpus_offline[0],
       'language': SemDiffData.defaultLanguage,
       'preposition' : true,
       'interjection' : true,
       'conjunction' : true,
-      'pronoun' : false,
-      'ner' : false
+      'pronoun' : true,
+      'verbose' : true,
+      'ner' : true
     };
     this.modalData = {
       'modalText1': SemDiffData.modalText1,
       'modalText2': SemDiffData.modalText2,
+      'window_size' : SemDiffData.window_size[0],
       'preposition' : true,
       'interjection' : true,
+      'verbose' : true,
       'conjunction' : true,
-      'pronoun' : false,
-      'ner' : false
-    }
+      'pronoun' : true,
+      'ner' : true
+    };
+    console.log(this.modalData);
+    console.log(this.formData);
     this.loadSemModels();
     this.loading = false; 
     this.showResults = false;
@@ -91,9 +98,11 @@ export class SemDiffComponent implements OnInit {
       'number_of_docs': parseInt(this.formData['number_of_docs'].value, 10),
       'w2v': this.formData['word2vec'].value,
       'test_documents' :  parseInt(this.formData['test_documents'].value, 10),
+      'window_size' :  parseInt(this.formData['window_size'].value, 10),
       'test_search_corpus_offline' : this.formData['test_search_corpus_offline'].value,
       'test_precision_mode':false,
       'preposition' : this.formData['preposition'],
+      'verbose' : this.formData['verbose'],
       'interjection' : this.formData['interjection'],
       'conjunction' : this.formData['conjunction'],
       'pronoun' : this.formData['pronoun'],
@@ -133,6 +142,8 @@ export class SemDiffComponent implements OnInit {
       'w2v': this.formData['word2vec'].value,
       'preposition' : this.modalData['preposition'],
       'interjection' : this.modalData['interjection'],
+      'verbose' : this.modalData['verbose'],
+      'window_size' :  parseInt(this.modalData['window_size'].value, 10),
       'conjunction' : this.modalData['conjunction'],
       'pronoun' : this.modalData['pronoun'],
       'ner' : this.modalData['ner']
@@ -168,9 +179,11 @@ export class SemDiffComponent implements OnInit {
     'number_of_docs': parseInt(this.formData['number_of_docs'].value, 10),
     'w2v': this.formData['word2vec'].value,
     'test_documents' :  parseInt(this.formData['test_documents'].value, 10),
+    'window_size' :  parseInt(this.formData['window_size'].value, 10),
     'test_search_corpus_offline' : this.formData['test_search_corpus_offline'].value,
     'test_precision_mode':true,
     'preposition' : this.formData['preposition'],
+    'verbose' : this.formData['verbose'],
     'interjection' : this.formData['interjection'],
     'conjunction' : this.formData['conjunction'],
     'pronoun' : this.formData['pronoun'],

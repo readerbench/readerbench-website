@@ -41,20 +41,6 @@
                     </button>
                   </div>
                 </div>
-                <div class="col-xs-2 col-md-2">
-                  <div class="bottom-buttons">
-                    <button class="btn theme-btn-1" id="putText2" (click)="processPutText2()">
-                      <span class="button">Put Text 2</span>
-                    </button>
-                  </div>
-                </div>
-                <div class="col-xs-2 col-md-2">
-                  <div class="bottom-buttons">
-                    <button class="btn theme-btn-1" id="putText3" (click)="processPutText3()">
-                      <span class="button">Put Text 3</span>
-                    </button>
-                  </div>
-                </div>
               </div>
               <app-demo-sem-diff-common-fields [formData]="formData" [language]="language" (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-sem-diff-common-fields>
               <div class="row top-buffer" *ngIf="!loading">
@@ -198,8 +184,28 @@
             </label>
           </div>
         </div>
+        <div class="row top-buffer" *ngIf="advancedModal">
+          <div class="col-xs-12 col-md-12 col-lg-12">
+            <input type="checkbox" id="input_DiffTest_verbose" [checked]="modalData['verbose']" (change)="modalData['verbose'] = !modalData['verbose']"  />
+            <label for="input_DiffTest_verbose">Verbose
+              <span class="required">*</span>
+            </label>
+          </div>
+        </div>
       </div>
-      
+      <div class="row top-buffer" *ngIf="advancedModal">
+        <div class="col-xs-2 col-md-2 col-lg-2">
+            <label for="input_DiffTest_window_size">Window size
+              <span class="required">*</span>
+            </label>
+          </div>
+          <div class="col-xs-3 col-md-3 col-lg-3">
+          <select id="input_DiffTest_window_size" class="form-control" [(ngModel)]="modalData.window_size">
+            <option *ngFor="let option of window_sizeModal" [ngValue]="option">{{option.name}}</option>
+          </select>
+        </div>
+      </div>
+       
       <div id="resultsModal">
         <div *ngIf="showResultsModal === true">
           <div id="diffThingyModal">
@@ -217,9 +223,12 @@
                         <div class="body">
                           <p>Timpul de procesare este: {{dataResponseModal.timeToProcess}} secunde</p>
                         </div>
-                      <div class="body">
-                        <p>{{dataResponseModal.modalText1}}</p>
-                      </div>
+                        <div class="body">
+                          <p>{{dataResponseModal.modalText1}}</p>
+                        </div>
+                        <div class="body">
+                          <p>{{dataResponseModal.modalText2}}</p>
+                        </div>
                       <!-- The diff text -->
                       <div class="body corpus_diff_text">
                           <p>

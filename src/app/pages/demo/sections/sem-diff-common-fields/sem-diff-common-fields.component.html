@@ -60,6 +60,14 @@
   </div>
 </div>
 <div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-12 col-md-12 col-lg-12">
+    <input type="checkbox" id="input_verbose" [checked]="formData['verbose']" (change)="formData['verbose'] = !formData['verbose']"  />
+    <label for="input_verbose">Verbose
+      <span class="required">*</span>
+    </label>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
   <div class="col-xs-6 col-md-4 col-lg-3">
     <label for="input_number_of_docs">Number of docs to return
       <span class="required">*</span>
@@ -80,6 +88,18 @@
   <div class="col-xs-6 col-md-4 col-lg-3">
     <select id="input_word2vec" class="form-control" [(ngModel)]="formData.word2vec">
       <option *ngFor="let option of word2vecOptions" [ngValue]="option">{{option.name}}</option>
+    </select>
+  </div>
+</div>
+<div class="row top-buffer" *ngIf="advanced">
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <label for="input_window_size">Window size
+      <span class="required">*</span>
+    </label>
+  </div>
+  <div class="col-xs-6 col-md-4 col-lg-3">
+    <select id="input_window_size" class="form-control" [(ngModel)]="formData.window_size">
+      <option *ngFor="let option of window_size" [ngValue]="option">{{option.name}}</option>
     </select>
   </div>
 </div>
