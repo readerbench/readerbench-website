@@ -70,6 +70,7 @@
                           <span class="lesson-nr no-select">Results</span>
                         </div>
                         <div class="body">&nbsp;</div>
+                        <p>Baza de date este: {{!!dataResponse[0].isDatabaseOnline ? "online" : "offline"}}</p>
                         <ul class="lesson-description visible" style="display: block;">
                           <li *ngFor="let data of dataResponse">
                               <div class="body">
