@@ -82,12 +82,16 @@ export class EdgeBundlingService {
         }
 
         this.sentenceList[index].graph.edgeList.forEach(graphEdge => {
-            const edge: EBEdge = {
-                source: result.words.find(x => x.name === graphEdge.sourceUri).id,
-                target: result.words.find(x => x.name === graphEdge.targetUri).id,
-                type: graphEdge.edgeType === 'SemanticDistance' ? 1 : 0
-            };
-            result.edges.push(edge);
+            const source = result.words.find(x => x.name === graphEdge.sourceUri);
+            const target = result.words.find(x => x.name === graphEdge.targetUri);
+            if (source && target) {
+                const edge: EBEdge = {
+                    source: source.id,
+                    target: target.id,
+                    type: graphEdge.edgeType === 'SemanticDistance' ? 1 : 0
+                };
+                result.edges.push(edge);
+            }
         });
 
         return result;
