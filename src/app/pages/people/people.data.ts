@@ -90,15 +90,6 @@ export var PeopleUPB = [
         researchgate: 'https://www.researchgate.net/profile/Iulia_Pasov'
     },
     {
-        name: 'Remus Mazilu',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: 'https://www.linkedin.com/in/remus-mazilu-84135aa3',
-        scholarlink: '',
-        dblplink: '',
-        researchgate: ''
-    },
-    {
         name: 'Dragos Corlatescu',
         picture: 'img/male.jpg',
         area: 'Software Development',
@@ -202,6 +193,15 @@ export var PeopleGSU = [
         researchgate: ''
     }];
 export var PeoplePrevious = [
+    {
+        name: 'Remus Mazilu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/remus-mazilu-84135aa3',
+        scholarlink: '',
+        dblplink: '',
+        researchgate: ''
+    },
     {
         name: 'Lucia Larise Stavarache',
         picture: 'img/female.jpg',
