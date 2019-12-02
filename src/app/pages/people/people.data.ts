@@ -97,7 +97,16 @@ export var PeopleUPB = [
         scholarlink: '',
         dblplink: '',
         researchgate: ''
-    }
+    },
+    {
+        name: 'Teodor Mihai Cotet',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/cotet-teodor-00530b107',
+        scholarlink: '',
+        dblplink: '',
+        researchgate: ''
+    },
 ];
 export var PeopleLSE = [
     {
