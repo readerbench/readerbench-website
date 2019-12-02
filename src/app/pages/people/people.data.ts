@@ -84,10 +84,10 @@ export const PeopleUPB = [
         name: 'Maria-Dorinela Dascalu',
         picture: 'img/male.jpg',
         area: 'Software Development',
-        linkedin: 'https://www.linkedin.com/in/dorinela-sirbu-b3810494',
+        linkedin: 'https://www.linkedin.com/in/dorinela-dascalu-b3810494',
         scholarlink: 'https://scholar.google.ro/citations?user=Rk2yrnUAAAAJ&hl=en',
         dblplink: 'http://dblp.uni-trier.de/pers/hd/s/Sirbu:Maria=Dorinela',
-        researchgate: 'https://www.researchgate.net/profile/Dorinela_Sirbu',
+        researchgate: 'https://www.researchgate.net/profile/Dorinela_Dascalu',
     },
     {
         name: 'Marilena Panaite',
