@@ -18,6 +18,7 @@ import { PublicationsComponent } from '../pages/publications/publications.compon
 import { ContactComponent } from '../pages/contact/contact.component';
 import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
 import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
+import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 
 const routes: Routes = [
   {
@@ -87,6 +88,10 @@ const routes: Routes = [
   {
     path: 'demo/keywords-heatmap',
     component: KeywordsHeatmapComponent,
+  },
+  {
+    path: 'demo/curriculum-recommendation',
+    component: CurriculumRecommendationComponent,
   },
   {
     path: '',

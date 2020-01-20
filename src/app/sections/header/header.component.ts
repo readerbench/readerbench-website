@@ -17,14 +17,13 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     if (this.mobileDetectService.mobile()) {
       this.hamburgerMenu = false;
-    }
-    else {
+    } else {
       this.hamburgerMenu = true;
     }
   }
 
   openMenu() {
     this.hamburgerMenu = !this.hamburgerMenu;
-  };
+  }
 
 }

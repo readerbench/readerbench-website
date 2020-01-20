@@ -85,5 +85,12 @@ analyses are performed.',
         description: 'Online Communities',
         image: 'assets/images/demo_communities.png',
         altText: 'Online Communities'
+    },
+    {
+        name: 'Curriculum Recommendation',
+        href: 'demo/curriculum-recommendation',
+        description: 'Curriculum Recommendation',
+        image: 'assets/images/demo_curriculum.png',
+        altText: 'Curriculum Recommendation'
     }
 ];
