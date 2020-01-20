@@ -11,6 +11,7 @@ import { HeaderComponent } from './../header/header.component';
 export class MenuComponent implements OnInit {
 
   @Input() hamburgerMenu: boolean;
+  @Input() desktopMenu: boolean;
   items: MenuItemInterface[] = [];
 
   constructor() { }

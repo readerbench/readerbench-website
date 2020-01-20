@@ -59,6 +59,7 @@ import { ConfigComponent } from './config/config.component';
 import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/hierarchical-edge-bundling.component';
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
+import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +78,7 @@ import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords
     DemoComponent,
     DemoMenuComponent,
     SentimentAnalysisComponent,
+    CurriculumRecommendationComponent,
     TextualComplexityComponent,
     KeywordsComponent,
     TextualComplexityComponent,
