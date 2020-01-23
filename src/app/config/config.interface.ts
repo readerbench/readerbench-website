@@ -3,6 +3,7 @@ export interface Config {
     apiServer: string;
     apiPort: number;
     apiPath: string;
+    testServerPath: string;
 
     portDelimiter: string;
     pathDelimiter: string;

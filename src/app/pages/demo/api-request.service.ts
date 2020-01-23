@@ -1,13 +1,13 @@
-import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, retry, tap } from 'rxjs/operators';
+import {Injectable} from '@angular/core';
+import {Http, Response, Headers, RequestOptions} from '@angular/http';
+import {HttpClientModule, HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
+import {catchError, retry, tap} from 'rxjs/operators';
 
-import { ApiResponseModel } from './api-response.model';
-import { ConfigService } from '../../config/config.service';
-import { ReaderBenchService } from '../../readerbench.service';
-import { Config } from '../../config/config.interface';
+import {ApiResponseModel} from './api-response.model';
+import {ConfigService} from '../../config/config.service';
+import {ReaderBenchService} from '../../readerbench.service';
+import {Config} from '../../config/config.interface';
 
 @Injectable()
 export class ApiRequestService {
@@ -48,6 +48,14 @@ export class ApiRequestService {
         if (this.config.apiEndpoints[this.serviceName] === undefined) {
             return this.getMailServerEndpoint();
         }
+
+        if (this.serviceName === 'curriculumRecommendation') {
+            return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
+                this.config.testServerPath +
+                this.config.pathDelimiter + this.config.apiPath + this.config.pathDelimiter +
+                this.config.apiEndpoints[this.serviceName];
+        }
+
         return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
             this.config.apiServer +
             ((this.config.apiPort !== 80) ? (this.config.portDelimiter +

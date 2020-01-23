@@ -1,7 +1,7 @@
 <div class="container">
   <div class="ajax-target">
     <div class="row">
-      <div class="col-xs-12 col-md-6 col-lg-4" [class.first]="index%3 === 0" *ngFor="let item of items; let index= index;">
+      <div class="col-xs-12 col-md-6 col-lg-4" [class.last]="last" *ngFor="let item of items; let last= last;">
         <div class="single-course grid-course">
           <div class="course-thumbnail">
             <a href="{{item.href}}" class="cover-info">

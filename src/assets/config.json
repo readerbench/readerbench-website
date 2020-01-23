@@ -3,6 +3,7 @@
   "apiServer": "readerbench.com",
   "apiPort": 80,
   "apiPath": "api",
+  "testServerPath": "141.85.232.91:8080",
 
   "mailServer": "readerbench.com",
   "mailPort": 80,
@@ -13,6 +14,7 @@
 
   "apiEndpoints": {
     "sentimentAnalysis": "sentiment-analysis",
+    "curriculumRecommendation": "mass-customisation",
     "textualComplexity": "v2/textual-complexity",
     "keywords": "keywords",
     "selfExplanation": "self-explanation",
