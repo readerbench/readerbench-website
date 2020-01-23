@@ -1,3 +1,105 @@
-#sentiment-list ul {
+#curriculum-list ul {
   list-style-type: none;
+}
+
+.form-check-label {
+    margin-left: 5px;
+}
+
+.child {
+    margin-left: 10px;
+}
+
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.inner-list {
+    margin-left: 10px;
+}
+
+.no-lessons {
+    font-size: 18px;
+    color: #43b9c7;
+    font-weight: bold;
+}
+
+ol > li {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+ol > li > div {
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.form-row > div:last-child {
+    margin-bottom: 20px;
+}
+
+.input-search-group {
+    display: flex;
+}
+
+.filter-button {
+    margin: 0;
+    height: 34px;
+    line-height: 0;
+}
+
+.wrapper-autocomplete {
+    position: absolute;
+    top: 33px;
+    border: 1px solid;
+    border-radius: 4px;
+    z-index: 10;
+    background: white;
+    left: 0;
+    right: 0;
+    margin: 0 15px;
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+.item-autocomplete {
+    padding: 6px 12px;
+}
+
+.item-autocomplete:hover {
+    cursor: pointer;
+    background-color: #f8f8f8;
+}
+
+.tagcloud >* {
+    color: #fff;
+    padding: 8px 15px;
+    background: #43b9c7;
+    font-size: 10px;
+    line-height: 1em;
+    font-weight: 400;
+    border-radius: 4px;
+    letter-spacing: 0.14em;
+    margin: 0 10px 10px 0;
+    display: inline-block;
+    text-transform: uppercase;
+    -webkit-transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    -moz-transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+    transition: all 0.2s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.tagcloud > div > span {
+    margin-left: 10px;
+}
+
+.tagcloud > div:hover {
+    opacity: 0.8;
+    cursor: pointer
+}
+
+.center {
+    display: flex;
+    justify-content: center;
 }

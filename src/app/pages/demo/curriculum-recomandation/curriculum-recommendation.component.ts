@@ -1,116 +1,238 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { DemoMenuComponent } from '../sections/menu/menu.component';
-import { CurriculumRecommendationData } from './curriculum-recommendation.data';
-import { DefaultInputData } from '../demo.component.data';
-import { DemoCommonFieldsComponent } from '../sections/common-fields/common-fields.component';
-import { Language } from '../languages.data';
-import { AppComponent } from '../../../app.component';
+import {Component, OnInit, Input} from '@angular/core';
+import {DemoMenuComponent} from '../sections/menu/menu.component';
+import {CurriculumRecommendationData} from './curriculum-recommendation.data';
+import {DefaultInputData} from '../demo.component.data';
+import {DemoCommonFieldsComponent} from '../sections/common-fields/common-fields.component';
+import {Language} from '../languages.data';
+import {AppComponent} from '../../../app.component';
+import {CurriculumRecommendationModel} from './curriculum-recommendation.model';
 
 interface Granularity {
-  id: string;
-  name: string;
-  value: number;
+    id: string;
+    name: string;
+    value: number;
 }
 
 @Component({
-  selector: 'app-demo-curriculum-recommendation',
-  templateUrl: './curriculum-recommendation.component.html',
-  styleUrls: ['./curriculum-recommendation.component.css']
+    selector: 'app-demo-curriculum-recommendation',
+    templateUrl: './curriculum-recommendation.component.html',
+    styleUrls: ['./curriculum-recommendation.component.css']
 })
 
 export class CurriculumRecommendationComponent implements OnInit {
 
-  componentTitle: string;
-  formData: any;
-  @Input() advanced: boolean;
-  loading: boolean;
-  showResults: boolean;
-  languages: any;
-  language: any;
-  granularities: any;
-  response: any;
+    componentTitle: string;
+    formData: any;
+    textValue: any;
+    inputKeyword: any;
+    @Input() advanced: boolean;
+    loading: boolean;
+    show: boolean;
+    showResults: boolean;
+    languages: any;
+    language: any;
+    expertise: any;
+    themes: any;
+    keywords: any;
+    selectedExpertise: any = [];
+    filteredKeywords: any = [];
+    selectedKeywords: any = [];
+    topicsFormat: any = {};
+    topics: any = [];
+    selectedThemes: any = [];
+    lessons: any = [];
 
-  constructor(private myApp: AppComponent) {
-    this.myApp.apiRequestService.setApiService(CurriculumRecommendationData.serviceName);
-    this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
-  }
+    constructor(private myApp: AppComponent) {
+        this.myApp.apiRequestService.setApiService(CurriculumRecommendationData.serviceName);
+        this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
+    }
 
-  ngOnInit() {
-    this.componentTitle = CurriculumRecommendationData.componentTitle;
-    this.languages = CurriculumRecommendationData.languages;
-    this.language = CurriculumRecommendationData.defaultLanguage;
-    this.granularities = CurriculumRecommendationData.granularities;
+    ngOnInit() {
+        this.componentTitle = CurriculumRecommendationData.componentTitle;
+        this.languages = CurriculumRecommendationData.languages;
+        this.language = CurriculumRecommendationData.defaultLanguage;
+        this.expertise = Object.assign([], CurriculumRecommendationData.expertise);
+        this.keywords = Object.assign([], CurriculumRecommendationData.keywords);
+        this.themes = Object.assign([], CurriculumRecommendationData.themes);
+        this.textValue = CurriculumRecommendationData.defaultText;
+        this.advanced = false;
+        this.loading = false;
+        this.showResults = false;
+    }
 
-    this.formData = {
-      'text': DefaultInputData.text,
-      'language': this.language,
-      'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
-      'dialogism': DefaultInputData.defaultDialogismOption(),
-      'granularity': CurriculumRecommendationData.defaultGranularity(),
-    };
-    this.loadSemanticModels();
+    process() {
+        this.expertise.forEach(
+            (exp) => {
+                if (exp.checked) {
+                    this.selectedExpertise.push(exp.value);
+                }
+            }
+        );
 
-    this.advanced = false;
-    this.loading = false;
-    this.showResults = false;
-  }
+        this.themes.forEach(
+            (thm) => {
+                if (thm.checked) {
+                    this.selectedThemes.push(thm.value);
+                }
+            }
+        );
 
-  loadSemanticModels() {
-    const languageValue = this.language.value;
-    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
-    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
-    this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
-  }
+        this.selectedKeywords.forEach(
+            (kywd) => {
+                const tempKey = kywd.split('-');
+                if (tempKey[1]) {
+                    if (this.topicsFormat[tempKey[0].trim()]) {
+                        this.topicsFormat[tempKey[0].trim()].push(tempKey[1].trim());
+                    } else {
+                        this.topicsFormat[tempKey[0].trim()] = [tempKey[1].trim()];
+                    }
+                } else {
+                    this.keywords.forEach(
+                        (key) => {
+                            if (key.value === tempKey[0].trim()) {
+                                this.topicsFormat[tempKey[0].trim()] = [...key.children];
+                            }
+                        }
+                    );
+                }
+            }
+        );
 
-  advancedEmitter($event) {
-    this.advanced = $event;
-  }
+        Object.keys(this.topicsFormat).forEach(
+            (key) => {
+                this.topics.push({[key]: this.topicsFormat[key]});
+            }
+        );
 
-  languageEmitter($event) {
-    this.language = $event;
-    this.loadSemanticModels();
-  }
+        if (this.selectedExpertise.length === 0) {
+            alert('Please add expertise!');
+            return false;
+        }
 
-  process() {
-    this.loading = true;
-    this.showResults = false;
+        if (this.selectedKeywords.length === 0) {
+            alert('Please add some keywords!');
+            return false;
+        }
 
-    const data = {
-      'text': this.formData['text'],
-      'language': this.formData['language'].value,
-      'lsa': this.formData['lsa'].value,
-      'lda': this.formData['lda'].value,
-      'w2v': this.formData['word2vec'].value,
-      'pos-tagging': this.formData['pos-tagging'],
-      'dialogism': this.formData['dialogism'],
-      'granularity': this.formData['granularity'].value,
-    };
+        this.loading = true;
+        this.showResults = false;
 
-    const process = this.myApp.apiRequestService.process(data);
-    process.subscribe(response => {
-      this.response = response;
-      this.loading = false;
+        const data = {
+            'cme': false,
+            'expertise': this.selectedExpertise,
+            'text': this.textValue,
+            'themes': this.selectedThemes,
+            'topics': this.topics,
+        };
 
-      if (response.success !== true) {
-        alert('Server error occured!');
-        return;
-      }
 
-      this.showResults = true;
-    },
-        error => {
-            alert('An error has occured!');
-        });
-  }
+        this.myApp.apiRequestService.process(data).subscribe((response) => {
+                this.lessons = response.data.lessons;
+                this.loading = false;
 
-  animateProgressBar(element) {
-    element.show();
-    jQuery(element).width(0);
-    jQuery(element).width(
-      function () {
-        return jQuery(this).attr('aria-valuenow') + '%';
-      }
-    );
-  }
+                if (response.success !== true) {
+                    alert('Server error occured!');
+                    return;
+                }
+
+                this.showResults = true;
+            },
+            error => {
+                alert('An error has occured!');
+            });
+    }
+
+    check(expert, first) {
+        expert.checked = !expert.checked;
+        if (first) {
+            this.expertise.forEach(
+                (chld) => {
+                    if (expert.checked && chld.isChild) {
+                        chld.checked = true;
+                    } else if (chld.isChild) {
+                        chld.checked = false;
+                    }
+
+                }
+            );
+        }
+    }
+
+    searchKeyword() {
+        const tempString = this.inputKeyword.split(' ');
+        this.show = true;
+
+        if (tempString.length > 1 && tempString[tempString.length - 1] !== '') {
+            tempString.forEach(
+                (temp) => {
+                    if (temp) {
+                        this.filterKeywords(this.filteredKeywords, temp, true);
+                    }
+                }
+            );
+        } else {
+            this.filteredKeywords = [];
+            this.filterKeywords(this.keywords, tempString[0], false);
+        }
+
+    }
+
+    filterKeywords(keywords, stringFilter, multipleWords) {
+        if (multipleWords) {
+            this.filteredKeywords = keywords.filter(el => el.toLowerCase().includes(stringFilter.toLowerCase()));
+        } else {
+            keywords.forEach(
+                (keywordSection) => {
+                    let tempValue = [];
+                    if (keywordSection.value.toLowerCase().includes(stringFilter.toLowerCase())) {
+                        tempValue.push(keywordSection.value);
+                        keywordSection.children.forEach(
+                            (childKey) => {
+                                tempValue.push(keywordSection.value + ' - ' + childKey);
+                            }
+                        );
+                    } else {
+                        tempValue = keywordSection.children.reduce((accum, el) => {
+                            if (el.toLowerCase().includes(stringFilter.toLowerCase())) {
+                                return [...accum, keywordSection.value + ' - ' + el];
+                            }
+                            return [...accum];
+                        }, []);
+                    }
+
+                    this.filteredKeywords = [...this.filteredKeywords, ...tempValue];
+                }
+            );
+        }
+    }
+
+    addKeyword() {
+        if (this.inputKeyword) {
+            this.selectedKeywords.push(this.inputKeyword);
+            this.filteredKeywords = [];
+            this.inputKeyword = '';
+        }
+    }
+
+    addItem(result) {
+        this.inputKeyword = result;
+        this.show = false;
+        this.filteredKeywords = [];
+    }
+
+    removeKeyword(index) {
+        this.selectedKeywords.splice(index, 1);
+    }
+
+
+    animateProgressBar(element) {
+        element.show();
+        jQuery(element).width(0);
+        jQuery(element).width(
+            function () {
+                return jQuery(this).attr('aria-valuenow') + '%';
+            }
+        );
+    }
 
 }
