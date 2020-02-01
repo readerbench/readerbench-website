@@ -316,7 +316,7 @@ export class ChordComponent implements AfterViewInit {
           svg.append('g')
             .attr('class', 'axis xaxis')
             .attr('transform', 'translate(0,' + height + ')')
-            .call(xAxis.tickSize(0));
+            .call(xAxis.tickSizeOuter(0));
 
           svg.append('g')
             .attr('class', 'axis yaxis')
@@ -326,9 +326,9 @@ export class ChordComponent implements AfterViewInit {
           svg.append('g')
             .attr('class', 'axis grid')
             .attr('transform', 'translate(' + width + ',0)')
-            .call(yAxis.tickSize(width));
+            .call(yAxis.tickSize(width).tickSizeOuter(0));
 
-          var bands = svg.selectAll('.bands')
+          const bands = svg.selectAll('.bands')
             .data([genData])
             .enter().append('g')
             .attr('class', 'bands');
