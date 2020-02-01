@@ -1,5 +1,5 @@
 import { Component, AfterViewInit, Input } from '@angular/core';
-import * as d3 from "d3";
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-clustered-force-layout',
@@ -31,7 +31,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 				maxSize = size;
 			}
 		}
-		var color = d3.scale.ordinal()
+		var color = d3.scaleOrdinal()
 			  //.range(["#cc0000",  "#006600", "#e6e600"]);
 			 // .range(["#B42842", "#5a5a5c", "#c3c3c5"]);
 			 .range(["#B42842", "#A8A8A8", "#F0F0F0"]);
@@ -64,13 +64,16 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 			  }
 		}
 		console.log(clusters);
-		var force = d3.layout.force()
-		    .nodes(nodes)
-		    .size([width, height])
-		    .gravity(.02)
-		    .charge(0)
-		    .on("tick", tick)
-		    .start();
+		const force = d3.forceSimulation()
+			.nodes(nodes)
+			.force('gravity', d3.forceManyBody())
+			.force('charge', d3.forceManyBody());
+		// var force = d3.layout.force()
+		//     .nodes(nodes)
+		//     .size([width, height])
+		//     .gravity(.02)
+		//     .charge(0)
+		//     .on("tick", tick);
 
     var elementId = "#clustered-representation" + this.week;
     var svg = d3.select(elementId).append("svg")
@@ -79,7 +82,7 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 
 		var node = svg.selectAll("circle")
 		    .data(nodes)
-		    .enter().append("g").call(force.drag);
+		    .enter().append("g").call(d3.drag());
 
 		node.append("circle")
 		    .style("fill", function (d) {
@@ -107,15 +110,14 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		  if (!clusters[i]) clusters[i] = d;
 		  return d;
 		};
-
+		
 		function tick(e) {
 		    node.each(upper_cluster(10 * e.alpha * e.alpha))
 		        .each(collide(.5))
-		    .attr("transform", function (d) {
-		        var k = "translate(" + d.x + "," + d.y + ")";
+		    .attr('transform', function (d) {
+		        var k = 'translate(' + d.x + ',' + d.y + ')';
 		        return k;
-		    })
-
+		    });
 		}
 
 		// Move d to be adjacent to the cluster node.
@@ -181,14 +183,14 @@ export class ClusteredForceLayoutComponent implements AfterViewInit {
 		}
 		// Resolves collisions between d and all other circles.
 		function collide(alpha) {
-		    var quadtree = d3.geom.quadtree(nodes);
+		    const quadtree = d3.quadtree(nodes);
 		    return function (d) {
 		        var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
 		            nx1 = d.x - r,
 		            nx2 = d.x + r,
 		            ny1 = d.y - r,
 		            ny2 = d.y + r;
-		        quadtree.visit(function (quad, x1, y1, x2, y2) {
+		        quadtree.visit(function (quad: any, x1, y1, x2, y2) {
 		            if (quad.point && (quad.point !== d)) {
 		                var x = d.x - quad.point.x,
 		                    y = d.y - quad.point.y,
