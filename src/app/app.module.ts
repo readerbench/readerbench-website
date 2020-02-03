@@ -60,6 +60,7 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 
 @NgModule({
   declarations: [
@@ -109,7 +110,8 @@ import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recoman
     HierarchicalEdgeBundlingComponent,
     ClusteredForceLayoutComponent,
     MultiLevelEdgeBundlingComponent,
-    ChordComponent
+    ChordComponent,
+    DocumentAnalysisComponent
   ],
   imports: [
     BrowserModule,
