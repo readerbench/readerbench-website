@@ -15,6 +15,29 @@
     font-weight: bold;
 }
 
+.accordion-section-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #43b9c7;
+}
+
+::ng-deep .card-body {
+    margin-left: 10px;
+}
+
+::ng-deep .btn.btn-link.collapsed {
+    background-color: #43b9c7;
+    border-radius: 4px;
+}
+
+::ng-deep .btn.btn-link.collapsed span {
+    color: #ffffff;
+}
+
+::ng-deep .btn.btn-link.collapsed:hover {
+    text-decoration: none;
+}
+
 .inner-list {
     margin-left: 10px;
 }

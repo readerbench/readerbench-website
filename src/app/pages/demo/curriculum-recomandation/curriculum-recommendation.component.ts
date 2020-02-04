@@ -41,6 +41,11 @@ export class CurriculumRecommendationComponent implements OnInit {
     topics: any = [];
     selectedThemes: any = [];
     lessons: any = [];
+    recommended: any = [];
+    preRequisite: any = [];
+    postRequisite: any = [];
+    preRequisiteLessons: any = [];
+    postRequisiteLessons: any = [];
 
     constructor(private myApp: AppComponent) {
         this.myApp.apiRequestService.setApiService(CurriculumRecommendationData.serviceName);
@@ -127,14 +132,42 @@ export class CurriculumRecommendationComponent implements OnInit {
 
 
         this.myApp.apiRequestService.process(data).subscribe((response) => {
-                this.lessons = response.data.lessons;
-                this.loading = false;
-
                 if (response.success !== true) {
-                    alert('Server error occured!');
+                    alert(response.errorMsg);
+                    this.loading = false;
+                    this.showResults = false;
                     return;
                 }
 
+                this.lessons = response.data.lessons;
+
+                response.data.recommended.forEach(
+                    (rec) => {
+                        this.recommended = [...this.recommended, ...this.lessons.filter(el => el.id === rec)];
+                    }
+                );
+
+
+                this.recommended.forEach(
+                    (element) => {
+                        this.preRequisite = [...this.preRequisite, ...element.prerequisites];
+                        this.postRequisite = [...this.postRequisite, ...element.postrequisites];
+                    }
+                );
+
+                this.preRequisite.forEach(
+                    (pre) => {
+                        this.preRequisiteLessons = [...this.preRequisiteLessons, ...this.lessons.filter(el => el.id === pre)];
+                    }
+                );
+
+                this.postRequisite.forEach(
+                    (post) => {
+                        this.postRequisiteLessons = [...this.postRequisiteLessons, ...this.lessons.filter(el => el.id === post)];
+                    }
+                );
+
+                this.loading = false;
                 this.showResults = true;
             },
             error => {
@@ -222,6 +255,11 @@ export class CurriculumRecommendationComponent implements OnInit {
 
     removeKeyword(index) {
         this.selectedKeywords.splice(index, 1);
+    }
+
+    newSearch() {
+        this.lessons = [];
+        this.showResults = false;
     }
 
 
