@@ -60,6 +60,7 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import {NgbAccordion, NgbAccordionModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -118,7 +119,8 @@ import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recoman
     AppRoutingModule,
     HttpModule,
     KeywordsModule,
-    ReaderBenchCommonModule
+    ReaderBenchCommonModule,
+      NgbAccordionModule
   ],
   exports: [
     KeywordsComponent
