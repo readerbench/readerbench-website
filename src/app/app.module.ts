@@ -27,7 +27,6 @@ import { SelfExplanationComponent } from './pages/demo/self-explanation/self-exp
 import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
-import { CommunityComponent } from './pages/demo/community/community.component';
 import { SemDiffComponent } from './pages/demo/sem-diff/sem-diff.component';
 import { ParticipantComponent } from './pages/demo/community/participant/participant.component';
 import { ParticipantEvolutionComponent } from './pages/demo/community/participant/participant-evolution/participant-evolution.component';
@@ -92,7 +91,6 @@ import { Ng5SliderModule } from 'ng5-slider';
     CMScoresTableComponent,
     EdgeBundlingDiagramComponent,
     LakComponent,
-    CommunityComponent,
     SemDiffComponent,
     DemoServicesComponent,
     DemoCommonFieldsComponent,
