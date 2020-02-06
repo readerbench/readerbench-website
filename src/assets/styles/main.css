@@ -831,3 +831,69 @@ shape-rendering: crispEdges;
 }
 
 
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+.connection1 {
+  stroke: red;
+  stroke-width: 2;
+}
+.connection2 {
+  stroke: green;
+  stroke-width: 2;
+}
+
+.connection3 {
+  stroke: orange;
+  stroke-width: 2;
+}
+.connection4 {
+  stroke: purple;
+  stroke-width: 2;
+}
+.pathMouseover {
+	stroke: lightsteelblue;
+	stroke-width: 3;
+}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;			
+    width: 100px;					
+    height: 28px;					
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;			
+}
+
+div.tooltipValue {	
+    position: fixed;			
+    text-align: center;			
+    /* width: 200px;					
+    height: 20px;					 */
+    padding: 2px;				
+    font: 12px sans-serif;		
+    background: lightsteelblue;	
+    border: 0px;		
+    border-radius: 8px;			
+    pointer-events: none;
+	z-index:9999;
+}
+
+

@@ -61,6 +61,7 @@ import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagr
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
+import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
   declarations: [
@@ -120,7 +121,8 @@ import { DocumentAnalysisComponent } from './pages/demo/document-analysis/docume
     AppRoutingModule,
     HttpModule,
     KeywordsModule,
-    ReaderBenchCommonModule
+    ReaderBenchCommonModule,
+    Ng5SliderModule
   ],
   exports: [
     KeywordsComponent

@@ -1,43 +1,69 @@
-<div class="row">
-    <div class="page-wrapper">
-      <!-- <search-box></search-box> -->
-      <div id="page">
-        <app-header></app-header>
-        <div class="content-wrapper">
-          <app-carousel></app-carousel>
-          <div class="container">
-            <div class="row top-buffer">
-              <app-demo-menu></app-demo-menu>
+
+<div>
+    <app-header></app-header>
+    <div class="content-wrapper">
+      <app-carousel></app-carousel>
+      <div class="container">
+        <div class="row top-buffer">
+          <app-demo-menu></app-demo-menu>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section-header">
+          <h1>Document Analysis</h1>
+        </div>
+      </div>
+     
+      <div class="container inputs-container">
+        <div class="row">
+            <div class="col-xs-2">
+              <label>Language</label>
+              <select class="form-control" [ngModel]="selectedLanguage"
+                  (ngModelChange)="selectedLanguage=$event">
+                  <option *ngFor="let language of languages" [ngValue]="language"
+                      data-toggle="tooltip" title="{{language.description}}">{{ language.description }}</option>
+              </select>
             </div>
-          </div>
-          <div class="container">
-            <div class="section-header">
-              <h1>Document Analysis</h1>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <label>Text</label>
+              <textarea id="input_text_document" class="form-control" rows="10" [(ngModel)]="textInput"></textarea>
             </div>
+        </div>
+        <div class="row process-button">
+            <div class="col-xs-1">
+              <button class="filter-button" (click)="showGraph()" >Process</button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+              <label>LEXICAL_OVERLAP: ARGUMENT_OVERLAP</label>
+              <ng5-slider [(value)]="sliderValueArgument" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button> 
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label>LEXICAL_OVERLAP: CONTENT_OVERLAP</label>
+            <ng5-slider [(value)]="sliderValueContent" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button> 
           </div>
-          <div class="container">
-              <div class="row">
-                  <div class="col-xs-2">
-                    <label>Text</label>
-                  </div>
-                  <div class="col-xs-6">
-                    <textarea id="input_text_document" class="form-control" rows="10"></textarea>
-                  </div>
-                  <div class="col-xs-2">
-                      <label>Language</label>
-                  </div>
-                  <div class="col-xs-2">
-                    <select class="form-control" [(ngModel)]="language">
-                        <option [ngValue]="'english'">English</option>
-                    </select>
-                  </div>
-              </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label>LEXICAL_OVERLAP: TOPIC_OVERLAP</label>
+            <ng5-slider [(value)]="sliderValueTopic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button> 
           </div>
-          <div class="container-documents-analysis">
-            
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label>SEMANTIC: WORD2VEC</label>
+            <ng5-slider [(value)]="sliderValueSemantic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
           </div>
+        </div>
+
+        <div class="container-documents-analysis">
         </div>
       </div>
     </div>
-  </div>
-  
+</div>

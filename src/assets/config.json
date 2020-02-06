@@ -1,7 +1,7 @@
 {
   "apiProtocol": "http",
-  "apiServer": "readerbench.com",
-  "apiPort": 80,
+  "apiServer": "141.85.232.72",
+  "apiPort": 6006,
   "apiPath": "api",
   "testServerPath": "141.85.232.91:8080",
 
@@ -31,7 +31,8 @@
       "communityKeywords": "community/keywords",
 
     "ciModelAnalyzer": "v2/amoc",
-    "keywordsHeatmap": "keywords-heatmap"
+    "keywordsHeatmap": "keywords-heatmap",
+    "cna-graph": "v1/cna-graph"
   },
   "apiHeaders": {
     "commonRequest": {
