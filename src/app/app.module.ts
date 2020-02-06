@@ -50,6 +50,7 @@ import { ReaderBenchService } from './readerbench.service';
 import { ConfigComponent } from './config/config.component';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
 
 @NgModule({
@@ -92,6 +93,7 @@ import { Ng5SliderModule } from 'ng5-slider';
     ProjectsComponent,
     PublicationsComponent,
     ContactComponent,
+    DocumentAnalysisComponent
   ],
   imports: [
     BrowserModule,
