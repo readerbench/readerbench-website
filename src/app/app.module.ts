@@ -28,7 +28,12 @@ import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { SemDiffComponent } from './pages/demo/sem-diff/sem-diff.component';
+import { ParticipantEvolutionComponent } from './pages/demo/community/participant/participant-evolution/participant-evolution.component';
+import { CommunityCarouselComponent } from './pages/demo/community/carousel/community-carousel.component';
+import { SlideComponent } from './pages/demo/community/slide/slide.component';
 import { CommunityKeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
+import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
+import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-level-edge-bundling/multi-level-edge-bundling.component';
 
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
@@ -47,7 +52,10 @@ import { ApproximationPipe } from './pipes/approximation.pipe';
 import { ConfigService } from './config/config.service';
 import { ApiRequestService } from './pages/demo/api-request.service';
 import { ReaderBenchService } from './readerbench.service';
+import { EdgeBundlingService } from './pages/demo/comprehension-model/service/edge-bundling.service';
 import { ConfigComponent } from './config/config.component';
+import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/hierarchical-edge-bundling.component';
+import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
@@ -93,6 +101,13 @@ import { Ng5SliderModule } from 'ng5-slider';
     ProjectsComponent,
     PublicationsComponent,
     ContactComponent,
+    ParticipantEvolutionComponent,
+    CommunityCarouselComponent,
+    SlideComponent,
+    HierarchicalEdgeBundlingComponent,
+    ClusteredForceLayoutComponent,
+    MultiLevelEdgeBundlingComponent,
+    ChordComponent,
     DocumentAnalysisComponent
   ],
   imports: [
