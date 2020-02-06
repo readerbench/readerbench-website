@@ -29,7 +29,6 @@ import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.compon
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { SemDiffComponent } from './pages/demo/sem-diff/sem-diff.component';
 import { ParticipantEvolutionComponent } from './pages/demo/community/participant/participant-evolution/participant-evolution.component';
-import { CommunityCarouselComponent } from './pages/demo/community/carousel/community-carousel.component';
 import { SlideComponent } from './pages/demo/community/slide/slide.component';
 import { CommunityKeywordsHeatmapComponent } from './pages/demo/community/keywords-heatmap/keywords-heatmap.component';
 import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
@@ -102,7 +101,6 @@ import { Ng5SliderModule } from 'ng5-slider';
     PublicationsComponent,
     ContactComponent,
     ParticipantEvolutionComponent,
-    CommunityCarouselComponent,
     SlideComponent,
     HierarchicalEdgeBundlingComponent,
     ClusteredForceLayoutComponent,
