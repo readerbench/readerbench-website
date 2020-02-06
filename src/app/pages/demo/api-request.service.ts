@@ -12,7 +12,6 @@ import {Config} from '../../config/config.interface';
 @Injectable()
 export class ApiRequestService {
 
-    private url = '141.85.232.72:6006/api/';
     private endpoint: string;
     private config: Config;
     private error: string;

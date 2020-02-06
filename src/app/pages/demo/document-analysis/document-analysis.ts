@@ -60,8 +60,8 @@ export class DocumentAnalysisComponent implements OnInit{
           var topicOverlapConnections = [];
           var semanticLsaConnections = [];
 
-          Object.keys(response.edges).forEach(key => {
-            let value = response.edges[key];
+          Object.keys(response.data.edges).forEach(key => {
+            let value = response.data.edges[key];
             if (key === 'LEXICAL_OVERLAP: ARGUMENT_OVERLAP') {
               argumentOverlapConnections = value;
             } else if (key === 'LEXICAL_OVERLAP: CONTENT_OVERLAP') {
