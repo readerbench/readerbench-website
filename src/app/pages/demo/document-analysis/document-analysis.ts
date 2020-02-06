@@ -361,7 +361,8 @@ createEdges(semanticLsaConnections, _this.sliderValueSemantic, 'connection4'); /
       d._children = null;
     }
 
-    update(d, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections);
+    update(d, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections, 
+      sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic);
   }
 }
     }
