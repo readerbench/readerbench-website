@@ -43,6 +43,11 @@ export let DefaultInputData = {
             id: '5',
             name: 'Spanish',
             value: 'es'
+        },
+        {
+            id: '6',
+            name: 'Russian',
+            value: 'ru'
         }
     ],
     defaultLanguage: function () {
@@ -129,6 +134,11 @@ export let DefaultInputData = {
                 id: '2',
                 name: 'None',
                 value: ''
+            }],
+            'ru': [{
+                id: '2',
+                name: 'None',
+                value: ''
             }]
         },
         lda: {
@@ -185,6 +195,11 @@ export let DefaultInputData = {
             ],
             'ro': [{
                 id: '1',
+                name: 'None',
+                value: ''
+            }],
+            'ru': [{
+                id: '2',
                 name: 'None',
                 value: ''
             }]
@@ -254,6 +269,16 @@ export let DefaultInputData = {
                 id: '2',
                 name: 'None',
                 value: ''
+            }],
+            'ru': [{
+                id: '1',
+                name: 'RNC Wikipedia',
+                value: 'RNC_Wikipedia'
+            },
+            {
+                id: '2',
+                name: 'None',
+                value: ''
             }]
         }
     },
@@ -282,6 +307,9 @@ export let DefaultInputData = {
             },
             'ro': function () {
                 return DefaultInputData.metricOptions.lsa.ro[0];
+            },
+            'ru': function () {
+                return DefaultInputData.metricOptions.lsa.ru[0];
             }
         },
         lda: {
@@ -308,6 +336,9 @@ export let DefaultInputData = {
             },
             'ro': function () {
                 return DefaultInputData.metricOptions.lda.ro[0];
+            },
+            'ru': function () {
+                return DefaultInputData.metricOptions.lda.ru[0];
             }
         },
         word2vec: {
@@ -334,6 +365,9 @@ export let DefaultInputData = {
             },
             'ro': function () {
                 return DefaultInputData.metricOptions.word2vec.ro[0];
+            },
+            'ru': function () {
+                return DefaultInputData.metricOptions.word2vec.ru[0];
             }
         }
     },
