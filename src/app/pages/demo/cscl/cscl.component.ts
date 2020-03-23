@@ -4,6 +4,7 @@ import { DefaultInputData } from '../demo.component.data';
 import { CsclData } from './cscl.data';
 import { isNil } from 'lodash';
 import { TwoModeGraphService } from '../../../two-mode-graph.service';
+import { ReaderBenchService } from '../../../readerbench.service';
 @Component({
   selector: 'app-cscl',
   templateUrl: './cscl.component.html',
@@ -26,7 +27,7 @@ export class CsclComponent implements OnInit {
   uploadedFileName: string;
   topics: any;
   topicEdges: any;
-  participants: any;
+  participant: any;
   participantEdges: any;
   participantEvolution: any;
   collaborationSocialKBNodes: any;
@@ -36,9 +37,12 @@ export class CsclComponent implements OnInit {
   conceptMap: any;
   error: string;
 
+  participantInteractionGraph: any;
+
   constructor(
     private apiRequestService: ApiRequestService,
     private twoModeGraphService: TwoModeGraphService,
+    private readerbenchService: ReaderBenchService
   ) {
   }
 
@@ -123,16 +127,17 @@ export class CsclComponent implements OnInit {
         }
       );
 
-      // build participant interaction concept map
-      // disabled for the moment
-      this.participants = response.data.participantInteractionGraph.nodeList;
-      this.participantEdges = response.data.participantInteractionGraph.edgeList;
-      const intervalParticipantInteraction = setInterval(function () {
-        if (_this.participantEdges.count === response.data.participantInteractionGraph.edgeList.count) {
-          clearInterval(intervalParticipantInteraction);
-          // d3jsForTopics(response.data.participantInteraction, "#participantInteractionMap", false);
-        }
-      }, 1000);
+      // participant interaction graph
+      this.participantInteractionGraph = {
+        'nodeList': response.data.participantInteractionGraph.nodeList,
+        'edgeList': response.data.participantInteractionGraph.edgeList
+      };
+
+      this.twoModeGraphService.getGraph(this.participantInteractionGraph).subscribe(
+        graph => { this.participantInteractionGraph = graph; },
+        error => { this.error = error.message; },
+        () => { }
+      );
 
       // build participant evolution graph
       this.participantEvolution = response.data.participantEvolution;
