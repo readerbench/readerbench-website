@@ -72,9 +72,10 @@
                     </li>
                   </ul>
                 </div>
-                <div class="col-xs-12 col-md-9">
+                <!-- <div class="col-xs-12 col-md-9">
                   <two-mode-graph [graph]="participantInteractionGraph"></two-mode-graph>
-                </div>
+                </div> -->
+                <div class="col-xs-12 col-md-9" id="participantInteractionMap"></div> -->
 
                 <div class="col-xs-12 col-md-12">
                   <h4>CSCL Indices</h4>
@@ -141,7 +142,7 @@
                 <div class="col-xs-12 col-md-3">
                   <h4>Concept Map</h4>
                   <ul class="course-description-list">
-                    <li class="lesson" *ngFor="let topic of conceptMap.nodeList">
+                    <li class="lesson" *ngFor="let topic of topics">
                       <div class="heading">
                         <span class="lesson-nr no-select">{{topic.degree | number}}</span>
                       </div>

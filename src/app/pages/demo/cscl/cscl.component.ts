@@ -27,7 +27,7 @@ export class CsclComponent implements OnInit {
   uploadedFileName: string;
   topics: any;
   topicEdges: any;
-  participant: any;
+  participants: any;
   participantEdges: any;
   participantEvolution: any;
   collaborationSocialKBNodes: any;
@@ -115,12 +115,12 @@ export class CsclComponent implements OnInit {
       this.showResults = true;
       // build concept map
       this.topics = response.data.conceptMap.nodeList;
-      this.conceptMap = {
+      const conceptGraph = {
         nodeList: response.data.conceptMap.nodeList,
         edgeList: response.data.conceptMap.edgeList,
       };
 
-      this.twoModeGraphService.getGraph(this.conceptMap).subscribe(
+      this.twoModeGraphService.getGraph(conceptGraph).subscribe(
         graph => { this.conceptMap = graph; },
         error => { this.error = error.message; },
         () => {
@@ -128,23 +128,46 @@ export class CsclComponent implements OnInit {
       );
 
       // participant interaction graph
-      this.participantInteractionGraph = {
-        'nodeList': response.data.participantInteractionGraph.nodeList,
-        'edgeList': response.data.participantInteractionGraph.edgeList
-      };
+      // this.participantInteractionGraph = {
+      //   'nodeList': response.data.participantInteractionGraph.nodeList,
+      //   'edgeList': response.data.participantInteractionGraph.edgeList
+      // };
 
-      this.twoModeGraphService.getGraph(this.participantInteractionGraph).subscribe(
-        graph => { this.participantInteractionGraph = graph; },
-        error => { this.error = error.message; },
-        () => { }
-      );
+      // this.twoModeGraphService.getGraph(this.participantInteractionGraph).subscribe(
+      //   graph => { this.participantInteractionGraph = graph; },
+      //   error => { this.error = error.message; },
+      //   () => { }
+      // );
+
+      this.participants = response.data.participantInteractionGraph.nodeList;
+      this.participantEdges = response.data.participantInteractionGraph.edgeList;
+      const intervalParticipantInteraction = setInterval(function () {
+        if (_this.participantEdges.count === response.data.participantInteractionGraph.edgeList.count) {
+          clearInterval(intervalParticipantInteraction);
+          const participantInteractionGraph = {
+            'nodes': response.data.participantInteractionGraph.nodeList,
+            'links': response.data.participantInteractionGraph.edgeList
+          };
+          console.log('parti');
+          console.log(participantInteractionGraph);
+          _this.readerbenchService.d3jsForTopics(
+            participantInteractionGraph,
+            '#participantInteractionMap',
+            false
+          );
+        }
+      }, 1000);
 
       // build participant evolution graph
       this.participantEvolution = response.data.participantEvolution;
       const intervalParticipantEvolution = setInterval(function () {
         if (_this.participantEvolution.count === response.data.participantEvolution.count) {
           clearInterval(intervalParticipantEvolution);
-          // d3jsMultipleLinesGraph(response.data.participantEvolution, "#participantEvolution", "Contribution ID", "value");
+          _this.readerbenchService.d3jsMultipleLinesGraph(
+            response.data.participantEvolution,
+            '#participantEvolution',
+            'Contribution ID',
+            'value');
         }
       }, 1000);
 
@@ -153,7 +176,12 @@ export class CsclComponent implements OnInit {
       const intervalCollaborationSocialKB = setInterval(function () {
         if (_this.collaborationSocialKBNodes.count === response.data.socialKB.count) {
           clearInterval(intervalCollaborationSocialKB);
-          // d3jsLineGraph(response.data.socialKB, "#collaborationSocialKB", "Contribution ID", "Social KB value");
+          _this.readerbenchService.d3jsLineGraph(
+            response.data.socialKB,
+            '#collaborationSocialKB',
+            'Contribution ID',
+            'Social KB value'
+          );
         }
       }, 1000);
 
@@ -162,7 +190,12 @@ export class CsclComponent implements OnInit {
       const intervalCollaborationVoiceOverlap = setInterval(function () {
         if (_this.voiceOverlapNodes.count === response.data.voiceOverlap.count) {
           clearInterval(intervalCollaborationVoiceOverlap);
-          // d3jsLineGraph(response.data.voiceOverlap, "#collaborationVoiceOverlap", "Contribution ID", "Voice PMI");
+          _this.readerbenchService.d3jsLineGraph(
+            response.data.voiceOverlap,
+            '#collaborationVoiceOverlap',
+            'Contribution ID',
+            'Voice PMI'
+          );
         }
       }, 1000);
 
