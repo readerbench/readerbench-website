@@ -148,8 +148,6 @@ export class CsclComponent implements OnInit {
             'nodes': response.data.participantInteractionGraph.nodeList,
             'links': response.data.participantInteractionGraph.edgeList
           };
-          console.log('parti');
-          console.log(participantInteractionGraph);
           _this.readerbenchService.d3jsForTopics(
             participantInteractionGraph,
             '#participantInteractionMap',
