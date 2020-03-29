@@ -1,0 +1,20 @@
+<div class="row multi-doc-component">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+                <ui-switch [(ngModel)]="toggleLevel" 
+                            [checked]="toggleLevel"
+                            color="white" 
+                            switchColor="#43B9C7"  
+                            checkedLabel="Sentence" 
+                            uncheckedLabel="Pharagraph" 
+                            checkedTextColor="#43B9C7" 
+                            uncheckedTextColor="#43B9C7"
+                            (change)="onChangeLevel($event)">
+                </ui-switch>
+        </div>
+        
+    </div>
+
+    <div class="col-xs-12 multi-document-cohesion-grid-content-svg"></div>
+</div>  

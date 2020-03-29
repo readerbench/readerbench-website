@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -62,6 +63,7 @@ import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
+import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
 
 @NgModule({
   declarations: [
@@ -112,7 +114,8 @@ import { Ng5SliderModule } from 'ng5-slider';
     ClusteredForceLayoutComponent,
     MultiLevelEdgeBundlingComponent,
     ChordComponent,
-    DocumentAnalysisComponent
+    DocumentAnalysisComponent,
+    MultiDocumentCohesionGridComponent
   ],
   imports: [
     BrowserModule,
@@ -122,7 +125,8 @@ import { Ng5SliderModule } from 'ng5-slider';
     HttpModule,
     KeywordsModule,
     ReaderBenchCommonModule,
-    Ng5SliderModule
+    Ng5SliderModule,
+    UiSwitchModule
   ],
   exports: [
     KeywordsComponent

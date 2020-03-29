@@ -13,7 +13,7 @@
           <h1>Document Analysis</h1>
         </div>
       </div>
-     
+
       <div class="container inputs-container">
         <div class="row">
             <div class="col-xs-2">
@@ -28,31 +28,49 @@
         <div class="row">
             <div class="col-xs-12">
               <label>Text</label>
-              <textarea id="input_text_document" class="form-control" rows="10" [(ngModel)]="textInput"></textarea>
+              <textarea id="input_text_document_1" class="form-control" rows="10" [(ngModel)]="textInput1"></textarea>
             </div>
         </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <label>Text</label>
+            <textarea id="input_text_document_2" class="form-control" rows="10" [(ngModel)]="textInput2"></textarea>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12">
+              <label>Text</label>
+              <textarea id="input_text_document_3" class="form-control" rows="10" [(ngModel)]="textInput3"></textarea>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-12">
+                <label>Text</label>
+                <textarea id="input_text_document_4" class="form-control" rows="10" [(ngModel)]="textInput4"></textarea>
+              </div>
+            </div>
         <div class="row process-button">
             <div class="col-xs-1">
               <button class="filter-button" (click)="showGraph()" >Process</button>
             </div>
         </div>
 
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-xs-6">
               <label>LEXICAL_OVERLAP: ARGUMENT_OVERLAP</label>
-              <ng5-slider [(value)]="sliderValueArgument" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button> 
+              <ng5-slider [(value)]="sliderValueArgument" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
             </div>
-        </div>
+        </div> -->
         <div class="row">
           <div class="col-xs-6">
             <label>LEXICAL_OVERLAP: CONTENT_OVERLAP</label>
-            <ng5-slider [(value)]="sliderValueContent" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button> 
+            <ng5-slider [(value)]="sliderValueContent" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
             <label>LEXICAL_OVERLAP: TOPIC_OVERLAP</label>
-            <ng5-slider [(value)]="sliderValueTopic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button> 
+            <ng5-slider [(value)]="sliderValueTopic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
           </div>
         </div>
         <div class="row">
@@ -61,9 +79,38 @@
             <ng5-slider [(value)]="sliderValueSemantic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
           </div>
         </div>
-
-        <div class="container-documents-analysis">
-        </div>
       </div>
     </div>
+
+    <div class="row slideshow-container tabs-document-analysis-container">
+        <div class="col-md-12">
+            <!-- Tab links -->
+            <div class="tab">
+                <button class="tablinks" (click)="openTab('Multi-Doc overview')" id="defaultOpenDocAnalysisTab">Multi-Doc overview</button>
+                <button class="tablinks" (click)="openTab('Multi-Doc paragraph/sentence relations')">Multi-Document Cohesion Grid</button>
+            </div>
+
+            <!-- Multi-Doc overview tab -->
+            <div id="Multi-Doc overview" class="row tabcontent-document-analysis">
+                <div class="row">
+                    <div class="col-xs-12 edges-legend-container"></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 container-documents-analysis"></div>
+                </div>
+            </div>
+
+            <!-- Multi-Doc paragraph/sentence relations tab -->
+            <div id="Multi-Doc paragraph/sentence relations" class="row tabcontent-document-analysis">
+              <multi-document-cohesion-grid [documentsetdata]="documentTreeData"
+                                            [thresholdargument]="sliderValueArgument"
+                                            [thresholdcontent]="sliderValueContent"
+                                            [thresholdtopic]="sliderValueTopic"
+                                            [thresholdsemantic]="sliderValueSemantic">
+              </multi-document-cohesion-grid>
+            </div>
+
+        </div>
+    </div>
+
 </div>

@@ -8,3 +8,37 @@
 .inputs-container {
   margin-bottom: 30px;
 }
+.tabs-document-analysis-container{
+  padding: 11px 0px 100px 63px
+}
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  color: #43B9C7;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button:active {
+  background-color: #43B9C7;
+  color: white;
+}
+.tooltip-weight {
+  color: white !important;
+}
+
+.ng5-slider .ng5-slider-pointer {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
+    top: -14px;
+    background-color: #43B9C7;
+    z-index: 3;
+    border-radius: 16px;
+}
