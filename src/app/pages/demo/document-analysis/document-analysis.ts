@@ -85,7 +85,7 @@ export class DocumentAnalysisComponent implements OnInit{
    }
 
   ngOnInit() {
-    document.getElementById('defaultOpenDocAnalysisTab').click();
+    document.getElementById('button-Multi-Doc overview').click();
     this.selectedLanguage = this.languages[0];
   }
 
@@ -622,7 +622,12 @@ createEdges(corefConnections, null, 'connection5', 'Co-reference Link'); //COREF
     tabcontent = document.getElementsByClassName('tabcontent-document-analysis');
     for (let i = 0; i < tabcontent.length; i++) {
       tabcontent[i].style.display = 'none';
+      //document.getElementById("button-" + tabcontent[i].id).style.color = '#43b9c7';
+      document.getElementById("button-" + tabcontent[i].id).style.fontWeight = 'normal';
     }
     document.getElementById(tabName).style.display = 'block';
+    //document.getElementById("button-" + tabName).style.color = 'red';
+    document.getElementById("button-" + tabName).style.fontWeight = 'bold';
+
   }
 }
