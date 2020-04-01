@@ -8,7 +8,7 @@ import * as d3 from 'd3';
     templateUrl: './multi-document-cohesion-grid.html',
     providers: [ApiRequestService]
 })
-export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges{
+export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
     @Input() documentsetdata: any;
     @Input() thresholdargument: number;
     @Input() thresholdcontent: number;
@@ -16,7 +16,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges{
     @Input() thresholdsemantic: number;
 
     level: string;
-    toggleLevel: Boolean = false; //Paragraph = false; Sentence = true
+    toggleLevel: Boolean; //Paragraph = false; Sentence = true
 
     //nodesColors = d3.scaleLinear().domain([1,10]).range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
     //nodesColors = d3.scaleSequential().domain([1,100]).interpolator(d3.interpolateViridis);
@@ -24,6 +24,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges{
     constructor(private apiRequestService: ApiRequestService) {}
 
     ngOnInit() {
+        this.toggleLevel = false;
         if (this.documentsetdata) {
             this.generateCohesionGrid(this.documentsetdata);
         }
@@ -35,7 +36,8 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges{
         }
     }
 
-    onChangeLevel(event) {
+    onValueChange(value: boolean) {
+        this.toggleLevel = value;
         if (this.documentsetdata) {
             this.generateCohesionGrid(this.documentsetdata);
         }
@@ -47,7 +49,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges{
 
     private generateCohesionGrid(treeData) {
         this.clearData();
-        
+
         var width = 2000, height=3000;
         // declares a tree layout and assigns the size
         var treemap = d3.tree().size([height, width]);

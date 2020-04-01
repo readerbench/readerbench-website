@@ -74,11 +74,14 @@ export class DocumentAnalysisComponent implements OnInit{
   private texts = [];
   private documentTreeData = null;
 
-  // private treeData: [];
-  // private argumentOverlapConnections: [];
-  // private contentOverlapConnections: [];
-  // private topicOverlapConnections: [];
-  // private semanticLsaConnections: [];
+  private nameToNode = {};
+
+  private treeDataCopy = null;
+  private argumentOverlapConnections = [];
+  private contentOverlapConnections = [];
+  private topicOverlapConnections = [];
+  private semanticLsaConnections = [];
+  private corefConnections = [];
 
   constructor(private apiRequestService: ApiRequestService) {
 
@@ -112,15 +115,14 @@ export class DocumentAnalysisComponent implements OnInit{
     if (this.textInput2 !== "") {this.texts.push({"text": this.textInput2});}
     if (this.textInput3 !== "") {this.texts.push({"text": this.textInput3});}
     if (this.textInput4 !== "") {this.texts.push({"text": this.textInput4});}
-    this.getProcessedData(this.texts, this.selectedLanguage.id, svg);
-   //this.getProcessedData(this.textInput1, this.selectedLanguage.id, svg, 2);
 
-   this.addLegend();
+    this.getProcessedData(this.texts, this.selectedLanguage.id, svg);
+    this.addLegend();
 
   }
 
   private getProcessedData(texts, language, svg) {
-    var _this = this;
+
     this.apiRequestService.setApiService('cna-graph');
       const process = this.apiRequestService.process({
           texts: texts,
@@ -130,34 +132,27 @@ export class DocumentAnalysisComponent implements OnInit{
       process.subscribe(response => {
           this.documentTreeData = [];
           this.documentTreeData = response.data;
-          var treeData = response.data;
+          this.treeDataCopy = response.data;
 
-          var argumentOverlapConnections = [];
-          var contentOverlapConnections = [];
-          var topicOverlapConnections = [];
-          var semanticLsaConnections = [];
-          var corefConnections = [];
-
-          Object.keys(treeData.edges).forEach(key => {
-            let value = treeData.edges[key];
-            if (key === 'LEXICAL_OVERLAP: ARGUMENT_OVERLAP') {
-              argumentOverlapConnections = value;
-            } else if (key === 'LEXICAL_OVERLAP: CONTENT_OVERLAP') {
-              contentOverlapConnections = value;
-            } else if (key === 'LEXICAL_OVERLAP: TOPIC_OVERLAP') {
-              topicOverlapConnections = value;
-            } else if (key === 'SEMANTIC: WORD2VEC(coca)') {
-              semanticLsaConnections = value;
-            } else if (key === 'COREF') {
-              corefConnections = value;
-            }
+          Object.keys(this.treeDataCopy.edges).forEach(key => {
+              let value = this.treeDataCopy.edges[key];
+              if (key === 'LEXICAL_OVERLAP: ARGUMENT_OVERLAP') {
+                  this.argumentOverlapConnections = value;
+              } else if (key === 'LEXICAL_OVERLAP: CONTENT_OVERLAP') {
+                  this.contentOverlapConnections = value;
+              } else if (key === 'LEXICAL_OVERLAP: TOPIC_OVERLAP') {
+                  this.topicOverlapConnections = value;
+              } else if (key === 'SEMANTIC: WORD2VEC(coca)') {
+                  this.semanticLsaConnections = value;
+              } else if (key === 'COREF') {
+                  this.corefConnections = value;
+              }
           });
 
-          this.displayDiagram(treeData, svg, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-            corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
+          this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
+              this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
           // return response.data;
       });
-    return null;
   }
 
   private addLegend() {
@@ -183,439 +178,438 @@ export class DocumentAnalysisComponent implements OnInit{
   private displayDiagram(treeData, svg, argumentOverlapConnections, contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
     corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
     var _this = this;
-// Set the dimensions and margins of the diagram
-var margin = {top: 20, right: 90, bottom: 30, left: 90},
-    width = 3000 - margin.left - margin.right,
-    height = 1500 - margin.top - margin.bottom;
+    // Set the dimensions and margins of the diagram
+    var margin = {top: 20, right: 90, bottom: 30, left: 90},
+        width = 3000 - margin.left - margin.right,
+        height = 1500 - margin.top - margin.bottom;
 
-// append the svg object to the body of the page
-// appends a 'group' element to 'svg'
-// moves the 'group' element to the top left margin
-// var svg = d3.select(".container-documents-analysis").append("svg")
-//     .attr("width", width + margin.right + margin.left)
-//     .attr("height", height + margin.top + margin.bottom)
-//   .append("g")
-//     .attr("transform", "translate("
-//           + margin.left + "," + margin.top + ")");
+    // append the svg object to the body of the page
+    // appends a 'group' element to 'svg'
+    // moves the 'group' element to the top left margin
+    // var svg = d3.select(".container-documents-analysis").append("svg")
+    //     .attr("width", width + margin.right + margin.left)
+    //     .attr("height", height + margin.top + margin.bottom)
+    //   .append("g")
+    //     .attr("transform", "translate("
+    //           + margin.left + "," + margin.top + ")");
 
-var i = 0,
-    duration = 750,
-    root;
+    var i = 0,
+        duration = 750,
+        root;
 
-// declares a tree layout and assigns the size
-var treemap = d3.tree().size([height, width]);
+    // declares a tree layout and assigns the size
+    var treemap = d3.tree().size([height, width]);
 
-// Assigns parent, children, height, depth
-root = d3.hierarchy(treeData, function(d: any) { return d.children; });
-root.x0 = height / 2;
-root.y0 = 0;
+    // Assigns parent, children, height, depth
+    root = d3.hierarchy(treeData, function(d: any) { return d.children; });
+    root.x0 = height / 2;
+    root.y0 = 0;
 
-// Collapse after the second level
-//root.children.forEach(collapse);
+    // Collapse after the second level
+    //root.children.forEach(collapse);
 
-update(root, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-  corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic );
+    update(root, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
+      corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic );
 
-// Collapse the node and all it's children
-// function collapse(d) {
-//   if(d.children) {
-//     d._children = d.children
-//     d._children.forEach(collapse)
-//     d.children = null
-//   }
-// }
+    // Collapse the node and all it's children
+    // function collapse(d) {
+    //   if(d.children) {
+    //     d._children = d.children
+    //     d._children.forEach(collapse)
+    //     d.children = null
+    //   }
+    // }
 
-function update(source, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-  corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
-  // Assigns the x and y position for the nodes
-  var treeData = treemap(root);
+    function update(source, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
+      corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
+      // Assigns the x and y position for the nodes
+      var treeData = treemap(root);
 
-  // Compute the new tree layout.
-  var nodes = treeData.descendants(),
-      links = treeData.descendants().slice(1);
+      // Compute the new tree layout.
+      var nodes = treeData.descendants(),
+          links = treeData.descendants().slice(1);
 
-  // Normalize for fixed-depth.
-  nodes.forEach(function(d){ d.y = d.depth * 180});
+      // Normalize for fixed-depth.
+      nodes.forEach(function(d){ d.y = d.depth * 180});
 
-  // ****************** Nodes section ***************************
+      // ****************** Nodes section ***************************
 
-  // Update the nodes...
-  var node = svg.selectAll('g.node')
-      .data(nodes, function(d: any) {return d.id || (d.id = ++i); });
+      // Update the nodes...
+      var node = svg.selectAll('g.node')
+          .data(nodes, function(d: any) {return d.id || (d.id = ++i); });
 
-  // Enter any new modes at the parent's previous position.
-  var nodeEnter = node.enter().append('g')
-      .attr('class', 'node')
-      .attr("transform", function(d) {
-        return "translate(" + source.x0 + "," + source.y0*2 + ")";
-    })
-    .on('click', click);
+      // Enter any new modes at the parent's previous position.
+      var nodeEnter = node.enter().append('g')
+          .attr('class', 'node')
+          .attr("transform", function(d) {
+            return "translate(" + source.x0 + "," + source.y0*2 + ")";
+        })
+        .on('click', click);
 
-// Define the div for the tooltip
-var valueNode = d3.select("body").append("div")
-    .attr("class", "tooltipValue")
-	.attr("width", 100)
-    .attr("height", 50)
-    //.style("opacity", 0)
-	;
-
-
-  // Add Circle for the nodes
-  nodeEnter.append('circle')
-      .attr('class', 'node')
-      .attr('r', function (d: any) {
-        return d.data.importance == 0 ? 2 : d.data.importance;
-      })
-      // .style("visibility", function(d: any) {
-      //   return d.parent == null ? 'hidden' : '';
-      // })
-    .attr('id', function(d: any) { return d.data.name; })
-      // .style("fill", function(d: any) {
-      //     return d._children ? "lightsteelblue" : "#fff";
-      // })
-    .style("fill", function (d: any) {
-      if (d.data.type === 3) {
-        var color = _this.myColor(d.id);
-        d.data.color = color;
-        return color;
-      } else if (d.parent !== null && d.parent.data.type === 3) {
-        return d.parent.data.color;
-      } else {
-        return '#fff';
-      }
-    })
-	  .on('mouseover', function (d: any) {
-		  valueNode.transition()
-				.duration(200)
-				.style("opacity", .9);
-		  valueNode.html(d.data.value)
-			.style("left", (d3.event.pageX) - 210 + "px")
-			.style("top", (d3.event.pageY - 28) + "px");
-
-		})
-		.on('mouseout', function (d) {
-      if (d.data.type === 3) {
-        var color = _this.myColor(d.id);
-        d.data.color = color;
-        return color;
-      } else if (d.parent !== null && d.parent.data.type === 3) {
-        return d.parent.data.color;
-      } else {
-        return '#fff';
-      }
-		  valueNode.transition()
-			.duration(500)
-			.style("opacity", 0);
-		});
-
-  // Add labels for the nodes
-  nodeEnter.append('text')
-      .attr("dy", "1.35em")
-      .attr("x", function(d: any) {
-          return d.children || d._children ? -13 : -70;
-      })
-      .attr("text-anchor", function(d: any) {
-          return d.children || d._children ? "end" : "start";
-      })
-      .text(function(d: any) { return d.data.name; })
-      .style("font-weight", "bold")
-      .style("font-size", "18px");
-
-  // UPDATE
-  var nodeUpdate = nodeEnter.merge(<any>node);
-
-  // Transition to the proper position for the node
-  nodeUpdate.transition()
-    .duration(duration)
-    .attr("transform", function(d) {
-        return "translate(" + d.y+ "," + d.x + ")";
-        //return "translate(" + d.x+ "," + d.y + ")"; for vertical
-     });
-
-  // Update the node attributes and style
-  nodeUpdate.select('circle.node')
-    .attr('r', function (d: any) {
-      return d.data.importance == 0 ? 2 : d.data.importance;
-    })
-    .style("fill", function(d: any) {
-        // return d._children ? "lightsteelblue" : "#fff";
-        if (d.data.type === 3) {
-          var color = _this.myColor(d.id);
-          d.data.color = color;
-          return color;
-        } else if (d.parent !== null && d.parent.data.type === 3) {
-          return d.parent.data.color;
-        } else {
-          return '#fff';
-        }
-    })
-    .attr('cursor', 'pointer');
+    // Define the div for the tooltip
+    var valueNode = d3.select("body").append("div")
+        .attr("class", "tooltipValue")
+        .attr("width", 100)
+        .attr("height", 50)
+        //.style("opacity", 0)
+        ;
 
 
-  // Remove any exiting nodes
-  var nodeExit = node.exit().transition()
-      .duration(duration)
-      .attr("transform", function(d: any) {
-          //return "translate(" + source.x + "," + source.y + ")"; //for vertical
-          return "translate(" + source.y + "," + source.x + ")";
-      })
-      .remove();
+      // Add Circle for the nodes
+      nodeEnter.append('circle')
+          .attr('class', 'node')
+          .attr('r', function (d: any) {
+            return d.data.importance == 0 ? 2 : d.data.importance;
+          })
+          // .style("visibility", function(d: any) {
+          //   return d.parent == null ? 'hidden' : '';
+          // })
+        .attr('id', function(d: any) { return d.data.name; })
+          // .style("fill", function(d: any) {
+          //     return d._children ? "lightsteelblue" : "#fff";
+          // })
+        .style("fill", function (d: any) {
+          if (d.data.type === 3) {
+            var color = _this.myColor(d.id);
+            d.data.color = color;
+            return color;
+          } else if (d.parent !== null && d.parent.data.type === 3) {
+            return d.parent.data.color;
+          } else {
+            return '#fff';
+          }
+        })
+          .on('mouseover', function (d: any) {
+              valueNode.transition()
+                    .duration(200)
+                    .style("opacity", .9);
+              valueNode.html(d.data.value)
+                .style("left", (d3.event.pageX) - 210 + "px")
+                .style("top", (d3.event.pageY - 28) + "px");
 
-  // On exit reduce the node circles size to 0
-  nodeExit.select('circle')
-    .attr('r', 1e-6);
+            })
+            .on('mouseout', function (d) {
+          if (d.data.type === 3) {
+            var color = _this.myColor(d.id);
+            d.data.color = color;
+            return color;
+          } else if (d.parent !== null && d.parent.data.type === 3) {
+            return d.parent.data.color;
+          } else {
+            return '#fff';
+          }
+              valueNode.transition()
+                .duration(500)
+                .style("opacity", 0);
+            });
 
-  // On exit reduce the opacity of text labels
-  nodeExit.select('text')
-    .style('fill-opacity', 1e-6);
+      // Add labels for the nodes
+      nodeEnter.append('text')
+          .attr("dy", "1.35em")
+          .attr("x", function(d: any) {
+              return d.children || d._children ? -13 : -70;
+          })
+          .attr("text-anchor", function(d: any) {
+              return d.children || d._children ? "end" : "start";
+          })
+          .text(function(d: any) { return d.data.name; })
+          .style("font-weight", "bold")
+          .style("font-size", "18px");
 
-  // ****************** links section ***************************
+      // UPDATE
+      var nodeUpdate = nodeEnter.merge(<any>node);
 
-  // Update the links...
-  var link = svg.selectAll('path.link')
-      .data(links, function(d: any) { return d.id; });
+      // Transition to the proper position for the node
+      nodeUpdate.transition()
+        .duration(duration)
+        .attr("transform", function(d) {
+            return "translate(" + d.y+ "," + d.x + ")";
+            //return "translate(" + d.x+ "," + d.y + ")"; for vertical
+         });
 
-  // Enter any new links at the parent's previous position.
-  var linkEnter = link.enter().insert('path', "g")
-      .attr("class", "link")
-      .attr('d', function(d: any){
-        var o = {x: source.x0, y: source.y0*2}
-        //var o = {y: source.y0, x: source.x0} //for vertical
-        return diagonal(o, o)
+      // Update the node attributes and style
+      nodeUpdate.select('circle.node')
+        .attr('r', function (d: any) {
+          return d.data.importance == 0 ? 2 : d.data.importance;
+        })
+        .style("fill", function(d: any) {
+            // return d._children ? "lightsteelblue" : "#fff";
+            if (d.data.type === 3) {
+              var color = _this.myColor(d.id);
+              d.data.color = color;
+              return color;
+            } else if (d.parent !== null && d.parent.data.type === 3) {
+              return d.parent.data.color;
+            } else {
+              return '#fff';
+            }
+        })
+        .attr('cursor', 'pointer');
+
+
+      // Remove any exiting nodes
+      var nodeExit = node.exit().transition()
+          .duration(duration)
+          .attr("transform", function(d: any) {
+              //return "translate(" + source.x + "," + source.y + ")"; //for vertical
+              return "translate(" + source.y + "," + source.x + ")";
+          })
+          .remove();
+
+      // On exit reduce the node circles size to 0
+      nodeExit.select('circle')
+        .attr('r', 1e-6);
+
+      // On exit reduce the opacity of text labels
+      nodeExit.select('text')
+        .style('fill-opacity', 1e-6);
+
+      // ****************** links section ***************************
+
+      // Update the links...
+      var link = svg.selectAll('path.link')
+          .data(links, function(d: any) { return d.id; });
+
+      // Enter any new links at the parent's previous position.
+      var linkEnter = link.enter().insert('path', "g")
+          .attr("class", "link")
+          .attr('d', function(d: any){
+            var o = {x: source.x0, y: source.y0*2}
+            //var o = {y: source.y0, x: source.x0} //for vertical
+            return diagonal(o, o)
+          });
+
+      // UPDATE
+      var linkUpdate = linkEnter.merge(<any>link);
+
+      // Transition back to the parent element position
+      linkUpdate.transition()
+          .duration(duration)
+          .attr('d', function(d){ return diagonal(d, d.parent) });
+
+      // Remove any exiting links
+      var linkExit = link.exit().transition()
+          .duration(duration)
+          .attr('d', function(d) {
+            var o = {x: source.x, y: source.y}
+            return diagonal(o, o)
+          })
+          .remove();
+
+      // Store the old positions for transition.
+      nodes.forEach(function(d: any){
+        d.x0 = d.x;
+        d.y0 = d.y;
       });
 
-  // UPDATE
-  var linkUpdate = linkEnter.merge(<any>link);
+      nodes.forEach(function (n: any) {
+       _this.nameToNode[n.data.name] = n;
+      });
 
-  // Transition back to the parent element position
-  linkUpdate.transition()
-      .duration(duration)
-      .attr('d', function(d){ return diagonal(d, d.parent) });
+    // Define the div for the tooltip
+    var weightTooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0);
 
-  // Remove any exiting links
-  var linkExit = link.exit().transition()
-      .duration(duration)
-      .attr('d', function(d) {
-        var o = {x: source.x, y: source.y}
-        return diagonal(o, o)
-      })
-      .remove();
-
-  // Store the old positions for transition.
-  nodes.forEach(function(d: any){
-    d.x0 = d.x;
-    d.y0 = d.y;
-  });
+    // Change this as you wish
+    //createEdges(argumentOverlapConnections,_this.sliderValueArgument, 'connection1', 'Lexical Overlap Link (Argument)'); //LEXICAL_OVERLAP: ARGUMENT_OVERLAP
+    _this.createEdges(svg, weightTooltip, contentOverlapConnections,_this.sliderValueContent, 'connection2', 'Lexical Overlap Link (Content)'); //LEXICAL_OVERLAP: CONTENT_OVERLAP
+    _this.createEdges(svg, weightTooltip, topicOverlapConnections, _this.sliderValueTopic, 'connection3', 'Lexical Overlap Link (Topic)'); //LEXICAL_OVERLAP: TOPIC_OVERLAP
+    _this.createEdges(svg, weightTooltip, semanticLsaConnections, _this.sliderValueSemantic, 'connection4', 'Semantic Link (word2vec trained on COCA corpus)'); //SEMANTIC: WORD2VEC(coca)
+    _this.createEdges(svg, weightTooltip, corefConnections, null, 'connection5', 'Co-reference Link'); //COREF
 
 
+      // Creates a curved (diagonal) path from parent to the child nodes
+      function diagonal(s, d) {
 
-  var nameToNode = {};
-  nodes.forEach(function (n: any) {
-   nameToNode[n.data.name] = n;
+        //horizontal
+        var path = `M ${s.y} ${s.x}
+                C ${(s.y + d.y) / 2} ${s.x},
+                  ${(s.y + d.y) / 2} ${d.x},
+                  ${d.y} ${d.x}`
 
-  });
+        //vertical
+        // var path = `M ${s.x} ${s.y}
+        // C ${(s.x + d.x) / 2} ${s.y},
+        //   ${(s.x + d.x) / 2} ${d.y},
+        //   ${d.x} ${d.y}`
 
-// Define the div for the tooltip
-var weightTooltip = d3.select("body").append("div")
-    .attr("class", "tooltip")
-    .style("opacity", 0);
-function createEdges(edges, threshold, className, typeLegend) {
-	edges.forEach(function (arcLink) {
-
-    if (arcLink.weight) {
-      if(parseFloat(arcLink.weight) > threshold) {
-        var path = d3.path();
-        var xSource = nameToNode[arcLink.source].y;
-        var ySource = nameToNode[arcLink.source].x;
-        var xTarget = nameToNode[arcLink.target].y;
-        var yTarget = nameToNode[arcLink.target].x;
-        path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-
-        var pathString = path.toString();
-
-        var pathId = arcLink.source + arcLink.target;
-        svg.append("path")
-          .attr("d", pathString)
-          .attr("id", pathId)
-          .attr('class', className)
-          .attr("fill", "none")
-          .on('mouseover', function (d) {
-            d3.select(this).attr('class', 'pathMouseover');
-            d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
-            d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
-            weightTooltip.transition()
-              .duration(200)
-              .style("opacity", .9);
-            weightTooltip.html(typeLegend + "</br>" + arcLink.source + " => " + arcLink.target + "</br>" +parseFloat(arcLink.weight).toFixed(3))
-            .style("color", "red")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px")
-            .style("vertical-align", "middle");
-
-          })
-          .on('mouseout', function (d) {
-            d3.select(this).attr('class', className);
-            d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
-              // return d._children ? "lightsteelblue" : "#fff";
-              if (d.data.type === 3) {
-                var color = _this.myColor(d.id);
-                d.data.color = color;
-                return color;
-              } else if (d.parent !== null && d.parent.data.type === 3) {
-                return d.parent.data.color;
-              } else {
-                return '#fff';
-              }
-          })
-            d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
-              // return d._children ? "lightsteelblue" : "#fff";
-              if (d.data.type === 3) {
-                var color = _this.myColor(d.id);
-                d.data.color = color;
-                return color;
-              } else if (d.parent !== null && d.parent.data.type === 3) {
-                return d.parent.data.color;
-              } else {
-                return '#fff';
-              }
-          })
-            weightTooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-          });
-
-          //weight on the path
-          // var text = svg.append("text")
-          //   .attr("x", 150)
-          //   .attr("dy", 15)
-          //   .attr('class', className)
-          //   .style("font-size", "14px");
-
-          // text.append("textPath")
-          //     .attr("xlink:href", '#'+pathId)
-          //     .text(parseFloat(arcLink.weight).toFixed(3));
-
+        return path;
       }
-    } else {
-      var path = d3.path();
-        var xSource = nameToNode[arcLink.source].y;
-        var ySource = nameToNode[arcLink.source].x;
-        var xTarget = nameToNode[arcLink.target].y;
-        var yTarget = nameToNode[arcLink.target].x;
-        path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
 
-        var pathString = path.toString();
+      // Toggle children on click.
+      function click(d) {
+        if (d.children) {
+          d3.selectAll(".connection1").remove();
+          d3.selectAll(".connection2").remove();
+          d3.selectAll(".connection3").remove();
+          d3.selectAll(".connection4").remove();
+          d3.selectAll(".connection5").remove();
+          d._children = d.children;
+          d.children = null;
 
-        var pathId = arcLink.source + arcLink.target;
-        svg.append("path")
-          .attr("d", pathString)
-          .attr("id", pathId)
-          .attr('class', className)
-          .attr("fill", "none")
-          .on('mouseover', function (d) {
-            d3.select(this).attr('class', 'pathMouseover');
-            d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
-            d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
-            weightTooltip.transition()
-              .duration(200)
-              .style("opacity", .9);
-            var details = "";
-            arcLink.details.forEach(detail => {
-                details += detail[0] + "<>" + detail[1] + ";";
-            })
-            weightTooltip.html(typeLegend + "</br>" + arcLink.source + " => " + arcLink.target + "</br>" + "[" + details + "]")
-            .style("color", "red")
-            .style("left", (d3.event.pageX) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
+        } else {
+          d3.selectAll(".connection1").remove();
+          d3.selectAll(".connection2").remove();
+          d3.selectAll(".connection3").remove();
+          d3.selectAll(".connection4").remove();
+          d3.selectAll(".connection5").remove();
+          d.children = d._children;
+          d._children = null;
+        }
 
-          })
-          .on('mouseout', function (d) {
-            d3.select(this).attr('class', className);
-            d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
-              // return d._children ? "lightsteelblue" : "#fff";
-              if (d.data.type === 3) {
-                var color = _this.myColor(d.id);
-                d.data.color = color;
-                return color;
-              } else if (d.parent !== null && d.parent.data.type === 3) {
-                return d.parent.data.color;
-              } else {
-                return '#fff';
-              }
-          })
-            d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
-              // return d._children ? "lightsteelblue" : "#fff";
-              if (d.data.type === 3) {
-                var color = _this.myColor(d.id);
-                d.data.color = color;
-                return color;
-              } else if (d.parent !== null && d.parent.data.type === 3) {
-                return d.parent.data.color;
-              } else {
-                return '#fff';
-              }
-          })
-            weightTooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-          });
+
+        update(d, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
+          corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic);
+      }
     }
-
-	});
-}
-// Change this as you wish
-//createEdges(argumentOverlapConnections,_this.sliderValueArgument, 'connection1', 'Lexical Overlap Link (Argument)'); //LEXICAL_OVERLAP: ARGUMENT_OVERLAP
-createEdges(contentOverlapConnections,_this.sliderValueContent, 'connection2', 'Lexical Overlap Link (Content)'); //LEXICAL_OVERLAP: CONTENT_OVERLAP
-createEdges(topicOverlapConnections, _this.sliderValueTopic, 'connection3', 'Lexical Overlap Link (Topic)'); //LEXICAL_OVERLAP: TOPIC_OVERLAP
-createEdges(semanticLsaConnections, _this.sliderValueSemantic, 'connection4', 'Semantic Link (word2vec trained on COCA corpus)'); //SEMANTIC: WORD2VEC(coca)
-createEdges(corefConnections, null, 'connection5', 'Co-reference Link'); //COREF
-
-
-  // Creates a curved (diagonal) path from parent to the child nodes
-  function diagonal(s, d) {
-
-    //horizontal
-    var path = `M ${s.y} ${s.x}
-            C ${(s.y + d.y) / 2} ${s.x},
-              ${(s.y + d.y) / 2} ${d.x},
-              ${d.y} ${d.x}`
-
-    //vertical
-    // var path = `M ${s.x} ${s.y}
-    // C ${(s.x + d.x) / 2} ${s.y},
-    //   ${(s.x + d.x) / 2} ${d.y},
-    //   ${d.x} ${d.y}`
-
-    return path;
   }
 
-  // Toggle children on click.
-  function click(d) {
-    if (d.children) {
-      d3.selectAll(".connection1").remove();
-      d3.selectAll(".connection2").remove();
-      d3.selectAll(".connection3").remove();
-      d3.selectAll(".connection4").remove();
-      d3.selectAll(".connection5").remove();
-      d._children = d.children;
-      d.children = null;
+    private createEdges(svg, weightTooltip, edges, threshold, className, typeLegend) {
+      var _this = this;
+        edges.forEach(function (arcLink) {
 
-    } else {
-      d3.selectAll(".connection1").remove();
-      d3.selectAll(".connection2").remove();
-      d3.selectAll(".connection3").remove();
-      d3.selectAll(".connection4").remove();
-      d3.selectAll(".connection5").remove();
-      d.children = d._children;
-      d._children = null;
+            if (arcLink.weight) {
+                if(parseFloat(arcLink.weight) > threshold) {
+                    var path = d3.path();
+                    var xSource = _this.nameToNode[arcLink.source].y;
+                    var ySource = _this.nameToNode[arcLink.source].x;
+                    var xTarget = _this.nameToNode[arcLink.target].y;
+                    var yTarget = _this.nameToNode[arcLink.target].x;
+                    path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
+
+                    var pathString = path.toString();
+
+                    var pathId = arcLink.source + arcLink.target;
+                    svg.append("path")
+                        .attr("d", pathString)
+                        .attr("id", pathId)
+                        .attr('class', className)
+                        .attr("fill", "none")
+                        .on('mouseover', function (d) {
+                            d3.select(this).attr('class', 'pathMouseover');
+                            d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
+                            d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
+                            weightTooltip.transition()
+                                .duration(200)
+                                .style("opacity", .9);
+                            weightTooltip.html(typeLegend + "</br>" + arcLink.source + " => " + arcLink.target + "</br>" +parseFloat(arcLink.weight).toFixed(3))
+                                .style("color", "red")
+                                .style("left", (d3.event.pageX) + "px")
+                                .style("top", (d3.event.pageY - 28) + "px")
+                                .style("vertical-align", "middle");
+
+                        })
+                        .on('mouseout', function (d) {
+                            d3.select(this).attr('class', className);
+                            d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
+                                // return d._children ? "lightsteelblue" : "#fff";
+                                if (d.data.type === 3) {
+                                    var color = _this.myColor(d.id);
+                                    d.data.color = color;
+                                    return color;
+                                } else if (d.parent !== null && d.parent.data.type === 3) {
+                                    return d.parent.data.color;
+                                } else {
+                                    return '#fff';
+                                }
+                            })
+                            d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
+                                // return d._children ? "lightsteelblue" : "#fff";
+                                if (d.data.type === 3) {
+                                    var color = _this.myColor(d.id);
+                                    d.data.color = color;
+                                    return color;
+                                } else if (d.parent !== null && d.parent.data.type === 3) {
+                                    return d.parent.data.color;
+                                } else {
+                                    return '#fff';
+                                }
+                            })
+                            weightTooltip.transition()
+                                .duration(500)
+                                .style("opacity", 0);
+                        });
+
+                    //weight on the path
+                    // var text = svg.append("text")
+                    //   .attr("x", 150)
+                    //   .attr("dy", 15)
+                    //   .attr('class', className)
+                    //   .style("font-size", "14px");
+
+                    // text.append("textPath")
+                    //     .attr("xlink:href", '#'+pathId)
+                    //     .text(parseFloat(arcLink.weight).toFixed(3));
+
+                }
+            } else {
+                var path = d3.path();
+                var xSource = _this.nameToNode[arcLink.source].y;
+                var ySource = _this.nameToNode[arcLink.source].x;
+                var xTarget = _this.nameToNode[arcLink.target].y;
+                var yTarget = _this.nameToNode[arcLink.target].x;
+                path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
+
+                var pathString = path.toString();
+
+                var pathId = arcLink.source + arcLink.target;
+                svg.append("path")
+                    .attr("d", pathString)
+                    .attr("id", pathId)
+                    .attr('class', className)
+                    .attr("fill", "none")
+                    .on('mouseover', function (d) {
+                        d3.select(this).attr('class', 'pathMouseover');
+                        d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
+                        d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
+                        weightTooltip.transition()
+                            .duration(200)
+                            .style("opacity", .9);
+                        var details = "";
+                        arcLink.details.forEach(detail => {
+                            details += detail[0] + "<>" + detail[1] + ";";
+                        })
+                        weightTooltip.html(typeLegend + "</br>" + arcLink.source + " => " + arcLink.target + "</br>" + "[" + details + "]")
+                            .style("color", "red")
+                            .style("left", (d3.event.pageX) + "px")
+                            .style("top", (d3.event.pageY - 28) + "px");
+
+                    })
+                    .on('mouseout', function (d) {
+                        d3.select(this).attr('class', className);
+                        d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
+                            // return d._children ? "lightsteelblue" : "#fff";
+                            if (d.data.type === 3) {
+                                var color = _this.myColor(d.id);
+                                d.data.color = color;
+                                return color;
+                            } else if (d.parent !== null && d.parent.data.type === 3) {
+                                return d.parent.data.color;
+                            } else {
+                                return '#fff';
+                            }
+                        })
+                        d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
+                            // return d._children ? "lightsteelblue" : "#fff";
+                            if (d.data.type === 3) {
+                                var color = _this.myColor(d.id);
+                                d.data.color = color;
+                                return color;
+                            } else if (d.parent !== null && d.parent.data.type === 3) {
+                                return d.parent.data.color;
+                            } else {
+                                return '#fff';
+                            }
+                        })
+                        weightTooltip.transition()
+                            .duration(500)
+                            .style("opacity", 0);
+                    });
+            }
+
+        });
     }
-
-
-    update(d, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-      corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic);
-  }
-}
-  }
 
   private openTab(tabName) {
     let tabcontent;
@@ -628,6 +622,24 @@ createEdges(corefConnections, null, 'connection5', 'Co-reference Link'); //COREF
     document.getElementById(tabName).style.display = 'block';
     //document.getElementById("button-" + tabName).style.color = 'red';
     document.getElementById("button-" + tabName).style.fontWeight = 'bold';
+
+  }
+
+  private onChangeToggle(event) {
+      d3.select(".container-documents-analysis").selectAll("svg").remove();
+
+      var margin = {top: 20, right: 90, bottom: 30, left: 90},
+          width = 3000 - margin.left - margin.right,
+          height = 1500 - margin.top - margin.bottom;
+      var svg = d3.select(".container-documents-analysis").append("svg")
+          .attr("width", width + margin.right + margin.left)
+          .attr("height", height + margin.top + margin.bottom)
+          .append("g")
+          .attr("transform", "translate("
+              + margin.left + "," + margin.top + ")");
+
+      this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
+          this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
 
   }
 }

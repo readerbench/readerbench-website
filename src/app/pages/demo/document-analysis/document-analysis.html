@@ -59,19 +59,19 @@
         <div class="row">
           <div class="col-xs-6">
             <label>LEXICAL_OVERLAP: CONTENT_OVERLAP</label>
-            <ng5-slider [(value)]="sliderValueContent" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
+            <ng5-slider [(value)]="sliderValueContent" [options]="options" (valueChange)="onChangeToggle($event)"></ng5-slider>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
             <label>LEXICAL_OVERLAP: TOPIC_OVERLAP</label>
-            <ng5-slider [(value)]="sliderValueTopic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
+            <ng5-slider [(value)]="sliderValueTopic" [options]="options" (valueChange)="onChangeToggle($event)"></ng5-slider>
           </div>
         </div>
         <div class="row">
           <div class="col-xs-6">
             <label>SEMANTIC: WORD2VEC</label>
-            <ng5-slider [(value)]="sliderValueSemantic" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
+            <ng5-slider [(value)]="sliderValueSemantic" [options]="options" (valueChange)="onChangeToggle($event)"></ng5-slider>
           </div>
         </div>
 
@@ -80,7 +80,7 @@
               <button class="filter-button" (click)="showGraph()" >Process</button>
             </div>
         </div>
-        
+
       </div>
     </div>
 
