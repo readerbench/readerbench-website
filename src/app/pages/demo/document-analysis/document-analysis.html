@@ -27,25 +27,25 @@
         </div>
         <div class="row">
             <div class="col-xs-12">
-              <label>Text</label>
+              <label>Document 1</label>
               <textarea id="input_text_document_1" class="form-control" rows="10" [(ngModel)]="textInput1"></textarea>
             </div>
         </div>
         <div class="row">
           <div class="col-xs-12">
-            <label>Text</label>
+            <label>Document 2</label>
             <textarea id="input_text_document_2" class="form-control" rows="10" [(ngModel)]="textInput2"></textarea>
           </div>
         </div>
         <div class="row">
             <div class="col-xs-12">
-              <label>Text</label>
+              <label>Document 3</label>
               <textarea id="input_text_document_3" class="form-control" rows="10" [(ngModel)]="textInput3"></textarea>
             </div>
           </div>
           <div class="row">
               <div class="col-xs-12">
-                <label>Text</label>
+                <label>Document 4</label>
                 <textarea id="input_text_document_4" class="form-control" rows="10" [(ngModel)]="textInput4"></textarea>
               </div>
             </div>
@@ -56,6 +56,7 @@
               <ng5-slider [(value)]="sliderValueArgument" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
             </div>
         </div> -->
+          <div class="row">&nbsp;</div>
         <div class="row">
           <div class="col-xs-6">
             <label>LEXICAL_OVERLAP: CONTENT_OVERLAP</label>
@@ -91,9 +92,17 @@
     <div class="row slideshow-container tabs-document-analysis-container">
         <div class="col-md-12">
             <!-- Tab links -->
-            <div class="tab">
-                <button class="tablinks" (click)="openTab('Multi-Doc overview')" id="button-Multi-Doc overview">Multi-Doc overview</button>
-                <button class="tablinks" (click)="openTab('Multi-Doc paragraph/sentence relations')" id="button-Multi-Doc paragraph/sentence relations">Multi-Document Cohesion Grid</button>
+            <div class="row tab">
+                <div class="col-md-2"></div>
+                <div class="col-md-10 tab-buttons">
+                    <button class="tablinks" (click)="openTab('Multi-Doc overview')" id="button-Multi-Doc overview">
+                        Multi-Doc overview
+                    </button>
+                    <button class="tablinks" (click)="openTab('Multi-Doc paragraph/sentence relations')" id="button-Multi-Doc paragraph/sentence relations">
+                        Multi-Document Cohesion Grid
+                    </button>
+                </div>
+
             </div>
 
             <!-- Multi-Doc overview tab -->
