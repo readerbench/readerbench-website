@@ -129,7 +129,7 @@ export class DocumentAnalysisComponent implements OnInit{
 
     var margin = {top: 20, right: 90, bottom: 30, left: 90},
     width = 3000 - margin.left - margin.right,
-    height = 5000 - margin.top - margin.bottom;
+    height = 4000 - margin.top - margin.bottom;
     var svg = d3.select(".container-documents-analysis").append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
@@ -209,7 +209,7 @@ export class DocumentAnalysisComponent implements OnInit{
     // Set the dimensions and margins of the diagram
     var margin = {top: 20, right: 90, bottom: 30, left: 90},
         width = 3000 - margin.left - margin.right,
-        height = 5000 - margin.top - margin.bottom;
+        height = 4000 - margin.top - margin.bottom;
 
     // append the svg object to the body of the page
     // appends a 'group' element to 'svg'
@@ -270,7 +270,7 @@ export class DocumentAnalysisComponent implements OnInit{
       var nodeEnter = node.enter().append('g')
           .attr('class', 'node')
           .attr("transform", function(d) {
-            return "translate(" + source.x0 + "," + source.y0*5 + ")";
+            return "translate(" + source.x0 + "," + source.y0*2 + ")";
         })
         .on('click', click);
 
@@ -402,7 +402,7 @@ export class DocumentAnalysisComponent implements OnInit{
       var linkEnter = link.enter().insert('path', "g")
           .attr("class", "link")
           .attr('d', function(d: any){
-            var o = {x: source.x0, y: source.y0*5}
+            var o = {x: source.x0, y: source.y0*2}
             //var o = {y: source.y0, x: source.x0} //for vertical
             return diagonal(o, o)
           });
@@ -658,7 +658,7 @@ export class DocumentAnalysisComponent implements OnInit{
 
       var margin = {top: 20, right: 90, bottom: 30, left: 90},
           width = 3000 - margin.left - margin.right,
-          height = 5000 - margin.top - margin.bottom;
+          height = 4000 - margin.top - margin.bottom;
       var svg = d3.select(".container-documents-analysis").append("svg")
           .attr("width", width + margin.right + margin.left)
           .attr("height", height + margin.top + margin.bottom)
