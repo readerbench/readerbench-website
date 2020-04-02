@@ -154,7 +154,6 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
         var weightTooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
-        var classColor = "";
         var dataEdges: any = data.data;
         Object.keys(dataEdges.edges).forEach(key => {
             var connections = dataEdges.edges[key];
@@ -229,7 +228,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                         // }
                     } else if (key === "LEXICAL_OVERLAP: CONTENT_OVERLAP") {
                         if (edge.weight > this.thresholdcontent) {
-                            classColor = "connection2";
+                            edge.color = "connection2";
                             var path = d3.path();
                             if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
                                 var xSource = nameToNode[edge.source].cx;
@@ -242,7 +241,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 svgCohesionGraph.append("path")
                                     .attr("d", pathString)
                                     .attr("id", pathId)
-                                    .attr('class', classColor)
+                                    .attr('class', edge.color)
                                     .attr("fill", "none")
                                     .on('mouseover', function (d) {
                                         d3.select(this).attr('class', 'pathMouseover');
@@ -256,7 +255,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                     })
                                     .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', classColor);
+                                        d3.select(this).attr('class', edge.color);
                                         weightTooltip.transition()
                                             .duration(500)
                                             .style("opacity", 0);
@@ -274,7 +273,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 svgCohesionGraph.append("path")
                                     .attr("d", pathString)
                                     .attr("id", pathId)
-                                    .attr('class', classColor)
+                                    .attr('class', edge.color)
                                     .on('mouseover', function (d) {
                                         d3.select(this).attr('class', 'pathMouseover');
                                         weightTooltip.transition()
@@ -287,7 +286,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                     })
                                     .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', classColor);
+                                        d3.select(this).attr('class', edge.color);
                                         weightTooltip.transition()
                                             .duration(500)
                                             .style("opacity", 0);
@@ -296,7 +295,10 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                         }
                     } else if (key === "LEXICAL_OVERLAP: TOPIC_OVERLAP") {
                         if (edge.weight > this.thresholdtopic) {
-                            classColor = "connection3";
+                            // console.log(edge);
+                            // console.log(nameToNode[edge.source].parent.data.name);
+                            // console.log(nameToNode[edge.target].parent.data.name);
+                            edge.color = "connection3";
                             var path = d3.path();
                             if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
                                 var xSource = nameToNode[edge.source].cx;
@@ -309,7 +311,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 svgCohesionGraph.append("path")
                                     .attr("d", pathString)
                                     .attr("id", pathId)
-                                    .attr('class', classColor)
+                                    .attr('class', edge.color)
                                     .attr("fill", "none")
                                     .on('mouseover', function (d) {
                                         d3.select(this).attr('class', 'pathMouseover');
@@ -323,7 +325,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                     })
                                     .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', classColor);
+                                        d3.select(this).attr('class', edge.color);
                                         weightTooltip.transition()
                                             .duration(500)
                                             .style("opacity", 0);
@@ -341,7 +343,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 svgCohesionGraph.append("path")
                                     .attr("d", pathString)
                                     .attr("id", pathId)
-                                    .attr('class', classColor)
+                                    .attr('class', edge.color)
                                     .on('mouseover', function (d) {
                                         d3.select(this).attr('class', 'pathMouseover');
                                         weightTooltip.transition()
@@ -354,7 +356,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                     })
                                     .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', classColor);
+                                        d3.select(this).attr('class', edge.color);
                                         weightTooltip.transition()
                                             .duration(500)
                                             .style("opacity", 0);
@@ -363,7 +365,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                         }
                     } else if (key === "SEMANTIC: WORD2VEC(coca)") {
                         if (edge.weight > this.thresholdsemantic) {
-                            classColor = "connection4";
+                            edge.color = "connection4";
                             var path = d3.path();
 
                             if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
@@ -377,7 +379,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 svgCohesionGraph.append("path")
                                     .attr("d", pathString)
                                     .attr("id", pathId)
-                                    .attr('class', classColor)
+                                    .attr('class', edge.color)
                                     .attr("fill", "none")
                                     .on('mouseover', function (d) {
                                         d3.select(this).attr('class', 'pathMouseover');
@@ -391,7 +393,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                     })
                                     .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', classColor);
+                                        d3.select(this).attr('class', edge.color);
                                         weightTooltip.transition()
                                             .duration(500)
                                             .style("opacity", 0);
@@ -409,7 +411,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 svgCohesionGraph.append("path")
                                     .attr("d", pathString)
                                     .attr("id", pathId)
-                                    .attr('class', classColor)
+                                    .attr('class', edge.color)
                                     .on('mouseover', function (d) {
                                         d3.select(this).attr('class', 'pathMouseover');
                                         weightTooltip.transition()
@@ -422,7 +424,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                     })
                                     .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', classColor);
+                                        d3.select(this).attr('class', edge.color);
                                         weightTooltip.transition()
                                             .duration(500)
                                             .style("opacity", 0);
@@ -430,7 +432,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 }
                         }
                     } else if (key === 'COREF') {
-                        classColor = "connection5";
+                        edge.color = "connection5";
                         var path = d3.path();
                         if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
                             var xSource = nameToNode[edge.source].cx;
@@ -443,7 +445,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                             svgCohesionGraph.append("path")
                                 .attr("d", pathString)
                                 .attr("id", pathId)
-                                .attr('class', classColor)
+                                .attr('class', edge.color)
                                 .attr("fill", "none")
                                 .on('mouseover', function (d) {
                                     d3.select(this).attr('class', 'pathMouseover');
@@ -461,7 +463,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                 })
                                 .on('mouseout', function (d) {
-                                    d3.select(this).attr('class', classColor);
+                                    d3.select(this).attr('class', edge.color);
                                     weightTooltip.transition()
                                         .duration(500)
                                         .style("opacity", 0);
@@ -479,7 +481,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                             svgCohesionGraph.append("path")
                                 .attr("d", pathString)
                                 .attr("id", pathId)
-                                .attr('class', classColor)
+                                .attr('class', edge.color)
                                 .on('mouseover', function (d) {
                                     d3.select(this).attr('class', 'pathMouseover');
                                     weightTooltip.transition()
@@ -496,7 +498,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                                 })
                                 .on('mouseout', function (d) {
-                                    d3.select(this).attr('class', classColor);
+                                    d3.select(this).attr('class', edge.color);
                                     weightTooltip.transition()
                                         .duration(500)
                                         .style("opacity", 0);
