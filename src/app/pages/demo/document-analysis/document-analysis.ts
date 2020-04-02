@@ -245,7 +245,7 @@ export class DocumentAnalysisComponent implements OnInit{
       var nodeEnter = node.enter().append('g')
           .attr('class', 'node')
           .attr("transform", function(d) {
-            return "translate(" + source.x0 + "," + source.y0*2 + ")";
+            return "translate(" + source.x0 + "," + source.y0*10 + ")";
         })
         .on('click', click);
 
@@ -377,7 +377,7 @@ export class DocumentAnalysisComponent implements OnInit{
       var linkEnter = link.enter().insert('path', "g")
           .attr("class", "link")
           .attr('d', function(d: any){
-            var o = {x: source.x0, y: source.y0*2}
+            var o = {x: source.x0, y: source.y0*10}
             //var o = {y: source.y0, x: source.x0} //for vertical
             return diagonal(o, o)
           });
