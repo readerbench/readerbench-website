@@ -2,7 +2,7 @@
   width: 130% !important;
   margin-top: 26px;
 }
-.process-button { 
+.process-button {
   margin-bottom: 30px;
 }
 .inputs-container {
@@ -41,4 +41,9 @@
     background-color: #43B9C7;
     z-index: 3;
     border-radius: 16px;
+}
+
+.document-analysis-loader {
+    margin-top: 15px;
+    margin-left: 45px;
 }

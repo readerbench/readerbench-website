@@ -82,6 +82,7 @@ export class DocumentAnalysisComponent implements OnInit{
   private topicOverlapConnections = [];
   private semanticLsaConnections = [];
   private corefConnections = [];
+  private loading = false;
 
   constructor(private apiRequestService: ApiRequestService) {
 
@@ -123,6 +124,7 @@ export class DocumentAnalysisComponent implements OnInit{
 
   private getProcessedData(texts, language, svg) {
 
+      this.loading = true;
     this.apiRequestService.setApiService('cna-graph');
       const process = this.apiRequestService.process({
           texts: texts,
@@ -149,6 +151,7 @@ export class DocumentAnalysisComponent implements OnInit{
               }
           });
 
+          this.loading = false;
           this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
               this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
           // return response.data;
