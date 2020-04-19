@@ -10,6 +10,10 @@ interface Language {
   description: string;
 }
 
+interface InputText {
+  text: string;
+}
+
 @Component({
   selector: 'document-analysis',
   styleUrls: ['./document-analysis.scss'],
@@ -27,6 +31,7 @@ export class DocumentAnalysisComponent implements OnInit{
   private text: string;
   private languages = [{id: 'en', description: 'English'}]
   private selectedLanguage: Language;
+  private inputTexts: InputText[] = [];
 
 
   // private textInput1: string = "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet. However in doing so we must also leave as small a footprint on humanity as we are able. Incentives for invention are worthwhile. Penalties for overindulgence are worthwhile. It is more important that society train itself in the mindset of good stewardship than it is that the electric car obliterate the need for oil inside of 10 years. The truth of consummation is that humans will always consume natural resources. We do so at a lower rate per capita today than we did in the 1970s and that trend is continuing. It is better that the trend continue than that humans ever find a single solution that allows us to indulge our whims without a requirement of stewardship. May you enjoy a rainbow of environmental possibilities, the color green among them.\n" +
@@ -96,7 +101,7 @@ export class DocumentAnalysisComponent implements OnInit{
   private myColor = d3.scaleOrdinal().domain(["1","25"]).range(d3.schemeSet3);//d3.scaleSequential().domain([1,20]).interpolator(d3.interpolateViridis);
   //private myColor = d3.scaleLinear().domain([1,20]).range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
   private pharagraphContor = 0;
-  private texts = [];
+  //private texts = [];
   private documentTreeData = null;
 
   private nameToNode = {};
@@ -114,6 +119,11 @@ export class DocumentAnalysisComponent implements OnInit{
    }
 
   ngOnInit() {
+    this.inputTexts.push({text: this.textInput1});
+    this.inputTexts.push({text: this.textInput2});
+    this.inputTexts.push({text: this.textInput3});
+    this.inputTexts.push({text: this.textInput4});
+
     document.getElementById('button-Multi-Doc overview').click();
     this.selectedLanguage = this.languages[0];
   }
@@ -133,16 +143,11 @@ export class DocumentAnalysisComponent implements OnInit{
     var svg = d3.select(".container-documents-analysis").append("svg")
     .attr("width", width + margin.right + margin.left)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform", "translate("
           + margin.left + "," + margin.top + ")");
 
-    if (this.textInput1 !== "") {this.texts.push({"text": this.textInput1});}
-    if (this.textInput2 !== "") {this.texts.push({"text": this.textInput2});}
-    if (this.textInput3 !== "") {this.texts.push({"text": this.textInput3});}
-    if (this.textInput4 !== "") {this.texts.push({"text": this.textInput4});}
-
-    this.getProcessedData(this.texts, this.selectedLanguage.id, svg);
+    this.getProcessedData(this.inputTexts, this.selectedLanguage.id, svg);
     this.addLegend();
 
   }
@@ -670,6 +675,20 @@ export class DocumentAnalysisComponent implements OnInit{
       this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
           this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
     }
+  }
 
+  private addDocumentInput() {
+    this.inputTexts.push({text: ''});
+  }
+
+  private deleteDocumentInput(index) {
+    console.log(index);
+  
+    const removeItem = (items, i) =>
+      items.slice(0, i-1).concat(items.slice(i, items.length))
+
+    let filteredItems = removeItem(this.inputTexts, index+1)
+  
+    this.inputTexts = filteredItems;
   }
 }
