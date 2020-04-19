@@ -23,7 +23,7 @@ export class DocumentAnalysisComponent implements OnInit{
   private sliderValueContent: number = 0.1;
   private sliderValueTopic: number = 0.2;
   private sliderValueSemantic: number = 0.8;
-  options: Options = { floor: 0, ceil: 1, step: 0.1, showTicks: true };
+  options: Options = { floor: 0, ceil: 1, step: 0.05, showTicks: true };
   private text: string;
   private languages = [{id: 'en', description: 'English'}]
   private selectedLanguage: Language;
@@ -187,19 +187,19 @@ export class DocumentAnalysisComponent implements OnInit{
         // select the svg area
     var svgLegend = d3.select(".edges-legend-container").append("svg")
     .attr("width", 800)
-    .attr("height", 250);
+    .attr("height", 150);
 
     // Handmade legend
     //svgLegend.append("circle").attr("cx",200).attr("cy",100).attr("r", 6).style("fill", "blue");
-    svgLegend.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "green");
-    svgLegend.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "orange");
-    svgLegend.append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "purple");
-    svgLegend.append("circle").attr("cx",200).attr("cy",220).attr("r", 6).style("fill", "black");
+    svgLegend.append("circle").attr("cx",200).attr("cy",10).attr("r", 6).style("fill", "green");
+    svgLegend.append("circle").attr("cx",200).attr("cy",40).attr("r", 6).style("fill", "orange");
+    svgLegend.append("circle").attr("cx",200).attr("cy",70).attr("r", 6).style("fill", "purple");
+    svgLegend.append("circle").attr("cx",200).attr("cy",100).attr("r", 6).style("fill", "black");
     //svgLegend.append("text").attr("x", 220).attr("y", 100).text("Lexical Overlap Link (Argument)").style("font-size", "18px").attr("alignment-baseline","middle");
-    svgLegend.append("text").attr("x", 220).attr("y", 130).text("Lexical Overlap Link (Content)").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
-    svgLegend.append("text").attr("x", 220).attr("y", 160).text("Lexical Overlap Link (Topic)").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
-    svgLegend.append("text").attr("x", 220).attr("y", 190).text("Semantic Link (word2vec trained on COCA corpus)").style("font-weight", "bold").style("font-size", "18px").attr("alignment-baseline","middle");
-    svgLegend.append("text").attr("x", 220).attr("y", 220).text("Co-reference Link").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
+    svgLegend.append("text").attr("x", 220).attr("y", 10).text("Lexical Overlap Link (Content)").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
+    svgLegend.append("text").attr("x", 220).attr("y", 40).text("Lexical Overlap Link (Topic)").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
+    svgLegend.append("text").attr("x", 220).attr("y", 70).text("Semantic Link (word2vec trained on COCA corpus)").style("font-weight", "bold").style("font-size", "18px").attr("alignment-baseline","middle");
+    svgLegend.append("text").attr("x", 220).attr("y", 100).text("Co-reference Link").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
 
   }
 
@@ -654,6 +654,7 @@ export class DocumentAnalysisComponent implements OnInit{
   }
 
   private onChangeToggle(event) {
+    if(this.treeDataCopy) {
       d3.select(".container-documents-analysis").selectAll("svg").remove();
 
       var margin = {top: 20, right: 90, bottom: 30, left: 90},
@@ -668,6 +669,7 @@ export class DocumentAnalysisComponent implements OnInit{
 
       this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
           this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
+    }
 
   }
 }

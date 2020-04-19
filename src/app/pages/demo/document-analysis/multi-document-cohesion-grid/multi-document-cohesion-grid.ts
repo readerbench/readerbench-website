@@ -2,6 +2,11 @@ import { ApiRequestService } from "../../api-request.service";
 import { OnInit, Component, Input, OnChanges } from "@angular/core";
 import * as d3 from 'd3';
 
+interface Granularity {
+    id: string;
+    description: string;
+}
+
 @Component({
     selector: 'multi-document-cohesion-grid',
     styleUrls: ['./multi-document-cohesion-grid.scss'],
@@ -15,8 +20,11 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
     @Input() thresholdtopic: number;
     @Input() thresholdsemantic: number;
 
+    private granularities = [{id: 'sentence', description: 'Sentence'}, {id: 'paragraph', description: 'Paragraph'}];
+    private selectedGranularity: Granularity;
+
     level: string;
-    toggleLevel: Boolean; //Paragraph = false; Sentence = true
+    //toggleLevel: Boolean; //Paragraph = false; Sentence = true
 
     //nodesColors = d3.scaleLinear().domain([1,10]).range([d3.rgb("#007AFF"), d3.rgb('#FFF500')]);
     //nodesColors = d3.scaleSequential().domain([1,100]).interpolator(d3.interpolateViridis);
@@ -24,7 +32,8 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
     constructor(private apiRequestService: ApiRequestService) {}
 
     ngOnInit() {
-        this.toggleLevel = false;
+        this.selectedGranularity = this.granularities[0];
+        //this.toggleLevel = false;
         if (this.documentsetdata) {
             this.generateCohesionGrid(this.documentsetdata);
         }
@@ -36,9 +45,13 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
         }
     }
 
-    onValueChange(value: boolean) {
-        this.toggleLevel = value;
+    onValueChange(event:any) {
+        //this.toggleLevel = value;
+        console.log(event);
+        this.selectedGranularity = event;
+        console.log("granularity " + this.selectedGranularity.id);
         if (this.documentsetdata) {
+            console.log("generate again");
             this.generateCohesionGrid(this.documentsetdata);
         }
     }
@@ -76,7 +89,8 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
         var nodes = [];
         var colorContor = 1;
-        if (this.toggleLevel === true) { //Sentence
+        if (this.selectedGranularity.id === 'sentence') { //Sentence
+            console.log("sentence");
             data.children.forEach(document => {
                 var sentences = [];
                 document.children.forEach(pharagraph => {
@@ -90,6 +104,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                 nodes.push(sentences);
             });
         } else { //Pharagraph
+            console.log("paragraph");
             data.children.forEach(document => {
                 var pharagraphs = [];
                 document.children.forEach(pharagraph => {
