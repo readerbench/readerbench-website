@@ -9,7 +9,7 @@ interface Granularity {
 
 @Component({
     selector: 'multi-document-cohesion-grid',
-    styleUrls: ['./multi-document-cohesion-grid.scss'],
+    styleUrls: ['./multi-document-cohesion-grid.css'],
     templateUrl: './multi-document-cohesion-grid.html',
     providers: [ApiRequestService]
 })
