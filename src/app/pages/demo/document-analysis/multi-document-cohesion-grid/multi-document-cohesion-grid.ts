@@ -165,367 +165,137 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
             });
         });
 
+        this.generatePaths(data.data, nameToNode, svgCohesionGraph);
+    }
+
+    private generatePaths(data: any, nameToNode, svgCohesionGraph) {
+        let thresholdMapping = new Map();
+        thresholdMapping.set("LEXICAL_OVERLAP: CONTENT_OVERLAP", this.thresholdcontent);
+        thresholdMapping.set("LEXICAL_OVERLAP: TOPIC_OVERLAP", this.thresholdtopic);
+        thresholdMapping.set("SEMANTIC: WORD2VEC(coca)", this.thresholdsemantic);
+        thresholdMapping.set("COREF", 0);
+
+        let classMapping = new Map();
+        classMapping.set("LEXICAL_OVERLAP: CONTENT_OVERLAP", "CONTENT_OVERLAP");
+        classMapping.set("LEXICAL_OVERLAP: TOPIC_OVERLAP", "TOPIC_OVERLAP");
+        classMapping.set("SEMANTIC: WORD2VEC(coca)", "SEMANTIC");
+        classMapping.set("COREF", "COREF");
+
+        //filter by threshold for each type of edge
+        data.edges.forEach(edge => {
+            edge.types = edge.types.filter(function (type) {
+            return type.weight === null || type.weight >= thresholdMapping.get(type.name);
+            });
+        });
+
         // Define the div for the tooltip
         var weightTooltip = d3.select("body").append("div")
         .attr("class", "tooltip")
         .style("opacity", 0);
-        var dataEdges: any = data.data;
-        Object.keys(dataEdges.edges).forEach(key => {
-            var connections = dataEdges.edges[key];
-            connections.forEach(edge => {
-                if ( nameToNode[edge.source] && nameToNode[edge.target]) {
-                    if (key === "LEXICAL_OVERLAP: ARGUMENT_OVERLAP") {
-                        // if (edge.weight > this.thresholdargument) {
-                        //     classColor = "connection1";
-                        //     var path = d3.path();
-                        //     if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
-                        //         var xSource = nameToNode[edge.source].cx;
-                        //         var ySource = nameToNode[edge.source].cy;
-                        //         var xTarget = nameToNode[edge.target].cx;
-                        //         var yTarget = nameToNode[edge.target].cy;
-                        //         path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-                        //         var pathString = path.toString();
-                        //         var pathId = edge.source + edge.target;
-                        //         svgCohesionGraph.append("path")
-                        //             .attr("d", pathString)
-                        //             .attr("id", pathId)
-                        //             .attr('class', classColor)
-                        //             .attr("fill", "none")
-                        //             .on('mouseover', function (d) {
-                        //                 d3.select(this).attr('class', 'pathMouseover');
-                        //                 weightTooltip.transition()
-                        //                     .duration(200)
-                        //                     .style("opacity", .9);
-                        //                 weightTooltip.html(edge.source + " => " + edge.target + ": " + parseFloat(edge.weight).toFixed(3))
-                        //                 .style("color", "red")
-                        //                         .style("left", (d3.event.pageX) + "px")
-                        //                         .style("top", (d3.event.pageY - 28) + "px");
-
-                        //             })
-                        //             .on('mouseout', function (d) {
-                        //                 d3.select(this).attr('class', classColor);
-                        //                 weightTooltip.transition()
-                        //                     .duration(500)
-                        //                     .style("opacity", 0);
-                        //             })
-                        //     } else {
-                        //         var xSource = nameToNode[edge.source].cx;
-                        //         var ySource = nameToNode[edge.source].cy;
-                        //         var xTarget = nameToNode[edge.target].cx;
-                        //         var yTarget = nameToNode[edge.target].cy;
-                        //         path.moveTo(xSource, ySource);
-                        //         path.lineTo(xTarget, yTarget);
-                        //         path.closePath();
-                        //         var pathString = path.toString();
-                        //         var pathId = edge.source + edge.target;
-                        //         svgCohesionGraph.append("path")
-                        //             .attr("d", pathString)
-                        //             .attr("id", pathId)
-                        //             .attr('class', classColor)
-                        //             .on('mouseover', function (d) {
-                        //                 d3.select(this).attr('class', 'pathMouseover');
-                        //                 weightTooltip.transition()
-                        //                     .duration(200)
-                        //                     .style("opacity", .9);
-                        //                 weightTooltip.html(edge.source + " => " + edge.target + ": " + parseFloat(edge.weight).toFixed(3))
-                        //                 .style("color", "red")
-                        //                         .style("left", (d3.event.pageX) + "px")
-                        //                         .style("top", (d3.event.pageY - 28) + "px");
-
-                        //             })
-                        //             .on('mouseout', function (d) {
-                        //                 d3.select(this).attr('class', classColor);
-                        //                 weightTooltip.transition()
-                        //                     .duration(500)
-                        //                     .style("opacity", 0);
-                        //             })
-                        //     }
-                        // }
-                    } else if (key === "LEXICAL_OVERLAP: CONTENT_OVERLAP") {
-                        if (edge.weight > this.thresholdcontent) {
-                            edge.color = "connection2";
-                            var path = d3.path();
-                            if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
-                                var xSource = nameToNode[edge.source].cx;
-                                var ySource = nameToNode[edge.source].cy;
-                                var xTarget = nameToNode[edge.target].cx;
-                                var yTarget = nameToNode[edge.target].cy;
-                                path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-                                var pathString = path.toString();
-                                var pathId = edge.source + edge.target;
-                                svgCohesionGraph.append("path")
-                                    .attr("d", pathString)
-                                    .attr("id", pathId)
-                                    .attr('class', edge.color)
-                                    .attr("fill", "none")
-                                    .on('mouseover', function (d) {
-                                        d3.select(this).attr('class', 'pathMouseover');
-                                        weightTooltip.transition()
-                                            .duration(200)
-                                            .style("opacity", .9);
-                                        weightTooltip.html("Lexical Overlap Link (Content)" + "</br>" + edge.source + " => " + edge.target + "</br>" + parseFloat(edge.weight).toFixed(3))
-                                        .style("color", "red")
-                                                .style("left", (d3.event.pageX) + "px")
-                                                .style("top", (d3.event.pageY - 28) + "px");
-
-                                    })
-                                    .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', edge.color);
-                                        weightTooltip.transition()
-                                            .duration(500)
-                                            .style("opacity", 0);
-                                    })
-                            } else {
-                                var xSource = nameToNode[edge.source].cx;
-                                var ySource = nameToNode[edge.source].cy;
-                                var xTarget = nameToNode[edge.target].cx;
-                                var yTarget = nameToNode[edge.target].cy;
-                                path.moveTo(xSource, ySource);
-                                path.lineTo(xTarget, yTarget);
-                                path.closePath();
-                                var pathString = path.toString();
-                                var pathId = edge.source + edge.target;
-                                svgCohesionGraph.append("path")
-                                    .attr("d", pathString)
-                                    .attr("id", pathId)
-                                    .attr('class', edge.color)
-                                    .on('mouseover', function (d) {
-                                        d3.select(this).attr('class', 'pathMouseover');
-                                        weightTooltip.transition()
-                                            .duration(200)
-                                            .style("opacity", .9);
-                                        weightTooltip.html("Lexical Overlap Link (Content)" + "</br>" + edge.source + " => " + edge.target + "</br>" + parseFloat(edge.weight).toFixed(3))
-                                        .style("color", "red")
-                                                .style("left", (d3.event.pageX) + "px")
-                                                .style("top", (d3.event.pageY - 28) + "px");
-
-                                    })
-                                    .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', edge.color);
-                                        weightTooltip.transition()
-                                            .duration(500)
-                                            .style("opacity", 0);
-                                    })
-                            }
-                        }
-                    } else if (key === "LEXICAL_OVERLAP: TOPIC_OVERLAP") {
-                        if (edge.weight > this.thresholdtopic) {
-                            // console.log(edge);
-                            // console.log(nameToNode[edge.source].parent.data.name);
-                            // console.log(nameToNode[edge.target].parent.data.name);
-                            edge.color = "connection3";
-                            var path = d3.path();
-                            if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
-                                var xSource = nameToNode[edge.source].cx;
-                                var ySource = nameToNode[edge.source].cy;
-                                var xTarget = nameToNode[edge.target].cx;
-                                var yTarget = nameToNode[edge.target].cy;
-                                path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-                                var pathString = path.toString();
-                                var pathId = edge.source + edge.target;
-                                svgCohesionGraph.append("path")
-                                    .attr("d", pathString)
-                                    .attr("id", pathId)
-                                    .attr('class', edge.color)
-                                    .attr("fill", "none")
-                                    .on('mouseover', function (d) {
-                                        d3.select(this).attr('class', 'pathMouseover');
-                                        weightTooltip.transition()
-                                            .duration(200)
-                                            .style("opacity", .9);
-                                        weightTooltip.html("Lexical Overlap Link (Topic)" + "</br>" + edge.source + " => " + edge.target + "</br>" + parseFloat(edge.weight).toFixed(3))
-                                        .style("color", "red")
-                                                .style("left", (d3.event.pageX) + "px")
-                                                .style("top", (d3.event.pageY - 28) + "px");
-
-                                    })
-                                    .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', edge.color);
-                                        weightTooltip.transition()
-                                            .duration(500)
-                                            .style("opacity", 0);
-                                    })
-                            } else {
-                                var xSource = nameToNode[edge.source].cx;
-                                var ySource = nameToNode[edge.source].cy;
-                                var xTarget = nameToNode[edge.target].cx;
-                                var yTarget = nameToNode[edge.target].cy;
-                                path.moveTo(xSource, ySource);
-                                path.lineTo(xTarget, yTarget);
-                                path.closePath();
-                                var pathString = path.toString();
-                                var pathId = edge.source + edge.target;
-                                svgCohesionGraph.append("path")
-                                    .attr("d", pathString)
-                                    .attr("id", pathId)
-                                    .attr('class', edge.color)
-                                    .on('mouseover', function (d) {
-                                        d3.select(this).attr('class', 'pathMouseover');
-                                        weightTooltip.transition()
-                                            .duration(200)
-                                            .style("opacity", .9);
-                                        weightTooltip.html("Lexical Overlap Link (Topic)" + "</br>" + edge.source + " => " + edge.target + "</br>" + parseFloat(edge.weight).toFixed(3))
-                                        .style("color", "red")
-                                                .style("left", (d3.event.pageX) + "px")
-                                                .style("top", (d3.event.pageY - 28) + "px");
-
-                                    })
-                                    .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', edge.color);
-                                        weightTooltip.transition()
-                                            .duration(500)
-                                            .style("opacity", 0);
-                                    })
-                            }
-                        }
-                    } else if (key === "SEMANTIC: WORD2VEC(coca)") {
-                        if (edge.weight > this.thresholdsemantic) {
-                            edge.color = "connection4";
-                            var path = d3.path();
-
-                            if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
-                                var xSource = nameToNode[edge.source].cx;
-                                var ySource = nameToNode[edge.source].cy;
-                                var xTarget = nameToNode[edge.target].cx;
-                                var yTarget = nameToNode[edge.target].cy;
-                                path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-                                var pathString = path.toString();
-                                var pathId = edge.source + edge.target;
-                                svgCohesionGraph.append("path")
-                                    .attr("d", pathString)
-                                    .attr("id", pathId)
-                                    .attr('class', edge.color)
-                                    .attr("fill", "none")
-                                    .on('mouseover', function (d) {
-                                        d3.select(this).attr('class', 'pathMouseover');
-                                        weightTooltip.transition()
-                                            .duration(200)
-                                            .style("opacity", .9);
-                                        weightTooltip.html("Semantic Link (word2vec trained on COCA corpus)" + "</br>" + edge.source + " => " + edge.target + "</br>" + parseFloat(edge.weight).toFixed(3))
-                                        .style("color", "red")
-                                                .style("left", (d3.event.pageX) + "px")
-                                                .style("top", (d3.event.pageY - 28) + "px");
-
-                                    })
-                                    .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', edge.color);
-                                        weightTooltip.transition()
-                                            .duration(500)
-                                            .style("opacity", 0);
-                                    })
-                            } else {
-                                var xSource = nameToNode[edge.source].cx;
-                                var ySource = nameToNode[edge.source].cy;
-                                var xTarget = nameToNode[edge.target].cx;
-                                var yTarget = nameToNode[edge.target].cy;
-                                path.moveTo(xSource, ySource);
-                                path.lineTo(xTarget, yTarget);
-                                path.closePath();
-                                var pathString = path.toString();
-                                var pathId = edge.source + edge.target;
-                                svgCohesionGraph.append("path")
-                                    .attr("d", pathString)
-                                    .attr("id", pathId)
-                                    .attr('class', edge.color)
-                                    .on('mouseover', function (d) {
-                                        d3.select(this).attr('class', 'pathMouseover');
-                                        weightTooltip.transition()
-                                            .duration(200)
-                                            .style("opacity", .9);
-                                        weightTooltip.html("Semantic Link (word2vec trained on COCA corpus)" + "</br>" + edge.source + " => " + edge.target + "</br>" + parseFloat(edge.weight).toFixed(3))
-                                        .style("color", "red")
-                                                .style("left", (d3.event.pageX) + "px")
-                                                .style("top", (d3.event.pageY - 28) + "px");
-
-                                    })
-                                    .on('mouseout', function (d) {
-                                        d3.select(this).attr('class', edge.color);
-                                        weightTooltip.transition()
-                                            .duration(500)
-                                            .style("opacity", 0);
-                                    })
-                                }
-                        }
-                    } else if (key === 'COREF') {
-                        edge.color = "connection5";
-                        var path = d3.path();
-                        if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
-                            var xSource = nameToNode[edge.source].cx;
-                            var ySource = nameToNode[edge.source].cy;
-                            var xTarget = nameToNode[edge.target].cx;
-                            var yTarget = nameToNode[edge.target].cy;
-                            path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-                            var pathString = path.toString();
-                            var pathId = edge.source + edge.target;
-                            svgCohesionGraph.append("path")
-                                .attr("d", pathString)
-                                .attr("id", pathId)
-                                .attr('class', edge.color)
-                                .attr("fill", "none")
-                                .on('mouseover', function (d) {
-                                    d3.select(this).attr('class', 'pathMouseover');
-                                    weightTooltip.transition()
-                                        .duration(200)
-                                        .style("opacity", .9);
-                                    var details = "";
-                                    edge.details.forEach(detail => {
-                                        details += detail[0] + "<>" + detail[1] + ";";
-                                    })
-                                    weightTooltip.html("Co-reference Link" + "</br>" + edge.source + " => " + edge.target + "</br>" + "[" + details + "]")
-                                    .style("color", "red")
-                                            .style("left", (d3.event.pageX) + "px")
-                                            .style("top", (d3.event.pageY - 28) + "px");
-
-                                })
-                                .on('mouseout', function (d) {
-                                    d3.select(this).attr('class', edge.color);
-                                    weightTooltip.transition()
-                                        .duration(500)
-                                        .style("opacity", 0);
-                                })
-                        } else {
-                            var xSource = nameToNode[edge.source].cx;
-                            var ySource = nameToNode[edge.source].cy;
-                            var xTarget = nameToNode[edge.target].cx;
-                            var yTarget = nameToNode[edge.target].cy;
-                            path.moveTo(xSource, ySource);
-                            path.lineTo(xTarget, yTarget);
-                            path.closePath();
-                            var pathString = path.toString();
-                            var pathId = edge.source + edge.target;
-                            svgCohesionGraph.append("path")
-                                .attr("d", pathString)
-                                .attr("id", pathId)
-                                .attr('class', edge.color)
-                                .on('mouseover', function (d) {
-                                    d3.select(this).attr('class', 'pathMouseover');
-                                    weightTooltip.transition()
-                                        .duration(200)
-                                        .style("opacity", .9);
-                                    var details = "";
-                                    edge.details.forEach(detail => {
-                                        details += detail[0] + "<>" + detail[1] + ";";
-                                    })
-                                    weightTooltip.html("Co-reference Link" + "</br>" + edge.source + " => " + edge.target + "</br>" + "[" + details + "]")
-                                    .style("color", "red")
-                                            .style("left", (d3.event.pageX) + "px")
-                                            .style("top", (d3.event.pageY - 28) + "px");
-
-                                })
-                                .on('mouseout', function (d) {
-                                    d3.select(this).attr('class', edge.color);
-                                    weightTooltip.transition()
-                                        .duration(500)
-                                        .style("opacity", 0);
-                                })
-                        }
-
-                    } else {}
+        data.edges.forEach(function (edge) {
+            var tooltipValue = '';
+            if (edge.types.length > 0) {
+                edge.types.forEach(element => {
+                    var details = "";
+                    if (element.details) {
+                    element.details.forEach(detail => {
+                        details += detail[0] + "<>" + detail[1] + ";";
+                    });
+                    }
+                    element.weight === null ? tooltipValue += element.name + "</br>" + details:
+                    tooltipValue += element.name + ": " + parseFloat(element.weight).toFixed(3) + "</br>" + details;
+                });
+                if (edge.types.length > 1) {
+                    edge.color = 'connection-MULTIPLE';
+                } else {
+                    edge.color = 'connection-' + classMapping.get(edge.types[0].name);
                 }
-
-            })
+    
+                var path = d3.path();
+    
+                if (nameToNode[edge.source] && nameToNode[edge.source]) {
+                    var isArc = false;
+                    if (nameToNode[edge.source].depth === 3){
+                        console.log(nameToNode[edge.source]);
+                        if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name || 
+                            nameToNode[edge.source].parent.parent.data.name === nameToNode[edge.target].parent.parent.data.name) {
+                            isArc = true;
+                        } else {
+                            isArc = false;
+                        }
+                    } else {
+                        if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name) {
+                            isArc = true;
+                        } else {
+                            isArc = false;
+                        }
+                    }
+                    if (isArc) {
+                        var xSource = nameToNode[edge.source].cx;
+                        var ySource = nameToNode[edge.source].cy;
+                        var xTarget = nameToNode[edge.target].cx;
+                        var yTarget = nameToNode[edge.target].cy;
+                        path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
+                        var pathString = path.toString();
+                        var pathId = edge.source + edge.target;
+                        svgCohesionGraph.append("path")
+                            .attr("d", pathString)
+                            .attr("id", pathId)
+                            .attr('class', edge.color)
+                            .attr("fill", "none")
+                            .on('mouseover', function (d) {
+                                d3.select(this).attr('class', 'pathMouseover');
+                                weightTooltip.transition()
+                                    .duration(200)
+                                    .style("opacity", .9);
+                                weightTooltip.html(edge.source + " => " + edge.target + "</br>" + tooltipValue)
+                                .style("color", "red")
+                                        .style("left", (d3.event.pageX) + "px")
+                                        .style("top", (d3.event.pageY - 28) + "px");
+        
+                            })
+                            .on('mouseout', function (d) {
+                                d3.select(this).attr('class', edge.color);
+                                weightTooltip.transition()
+                                    .duration(500)
+                                    .style("opacity", 0);
+                            })
+                    } else {
+                        var xSource = nameToNode[edge.source].cx;
+                        var ySource = nameToNode[edge.source].cy;
+                        var xTarget = nameToNode[edge.target].cx;
+                        var yTarget = nameToNode[edge.target].cy;
+                        path.moveTo(xSource, ySource);
+                        path.lineTo(xTarget, yTarget);
+                        path.closePath();
+                        var pathString = path.toString();
+                        var pathId = edge.source + edge.target;
+                        svgCohesionGraph.append("path")
+                            .attr("d", pathString)
+                            .attr("id", pathId)
+                            .attr('class', edge.color)
+                            .on('mouseover', function (d) {
+                                d3.select(this).attr('class', 'pathMouseover');
+                                weightTooltip.transition()
+                                    .duration(200)
+                                    .style("opacity", .9);
+                                weightTooltip.html(edge.source + " => " + edge.target + "</br>" + tooltipValue)
+                                .style("color", "red")
+                                        .style("left", (d3.event.pageX) + "px")
+                                        .style("top", (d3.event.pageY - 28) + "px");
+        
+                            })
+                            .on('mouseout', function (d) {
+                                d3.select(this).attr('class', edge.color);
+                                weightTooltip.transition()
+                                    .duration(500)
+                                    .style("opacity", 0);
+                            })
+                    }
+                }
+          
+            }
+            
         });
-
-
     }
 }

@@ -2,7 +2,7 @@ import * as _ from 'underscore';
 import { Component, OnInit } from '@angular/core';
 import { ApiRequestService } from '../api-request.service';
 import * as d3 from 'd3';
-import { HierarchyNode, treemap, tree } from 'd3';
+import { HierarchyNode, treemap, tree, arc } from 'd3';
 import { Options } from 'ng5-slider';
 
 interface Language {
@@ -27,11 +27,16 @@ export class DocumentAnalysisComponent implements OnInit{
   private sliderValueContent: number = 0.1;
   private sliderValueTopic: number = 0.2;
   private sliderValueSemantic: number = 0.8;
+
   options: Options = { floor: 0, ceil: 1, step: 0.05, showTicks: true };
   private text: string;
   private languages = [{id: 'en', description: 'English'}]
   private selectedLanguage: Language;
   private inputTexts: InputText[] = [];
+
+  margin = {top: 0, right: 0, bottom: 0, left: 50};
+  width = 2000;
+  height = 2000;
 
 
   // private textInput1: string = "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet. However in doing so we must also leave as small a footprint on humanity as we are able. Incentives for invention are worthwhile. Penalties for overindulgence are worthwhile. It is more important that society train itself in the mindset of good stewardship than it is that the electric car obliterate the need for oil inside of 10 years. The truth of consummation is that humans will always consume natural resources. We do so at a lower rate per capita today than we did in the 1970s and that trend is continuing. It is better that the trend continue than that humans ever find a single solution that allows us to indulge our whims without a requirement of stewardship. May you enjoy a rainbow of environmental possibilities, the color green among them.\n" +
@@ -59,8 +64,6 @@ export class DocumentAnalysisComponent implements OnInit{
   //     "There’s no problem and costs are low, because the models say so. But the real world, of course, is different….\n" +
   //     "Countless practical difficulties would arise in trying to wean the U.S. economy from today’s fossil fuels. One estimate done by economists at the Massachusetts Institute of Technology found that meeting most transportation needs in 2050 with locally produced biofuels would require “500 million acres of U.S. land—more than the total of current U.S. cropland.” America would have to become a net food importer….\n" +
   //     "The selling of the green economy involves much economic make-believe. Environmentalists not only maximize the dangers of global warming—from rising sea levels to advancing tropical diseases—they also minimize the costs of dealing with it. Actually, no one involved in this debate really knows what the consequences or costs might be. All are inferred from models of uncertain reliability.";
-
-
 
 
   // private textInput1: string = "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet.";
@@ -107,11 +110,7 @@ export class DocumentAnalysisComponent implements OnInit{
   private nameToNode = {};
 
   private treeDataCopy = null;
-  private argumentOverlapConnections = [];
-  private contentOverlapConnections = [];
-  private topicOverlapConnections = [];
-  private semanticLsaConnections = [];
-  private corefConnections = [];
+  private connections = [];
   private loading = false;
 
   constructor(private apiRequestService: ApiRequestService) {
@@ -136,16 +135,12 @@ export class DocumentAnalysisComponent implements OnInit{
 
   private showGraph() {
     this.cleanData();
-
-    var margin = {top: 20, right: 90, bottom: 30, left: 90},
-    width = 3000 - margin.left - margin.right,
-    height = 4000 - margin.top - margin.bottom;
     var svg = d3.select(".container-documents-analysis").append("svg")
-    .attr("width", width + margin.right + margin.left)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", this.width)
+    .attr("height", this.height)
     .append("g")
     .attr("transform", "translate("
-          + margin.left + "," + margin.top + ")");
+          + this.margin.left + "," + this.margin.top + ")");
 
     this.getProcessedData(this.inputTexts, this.selectedLanguage.id, svg);
     this.addLegend();
@@ -166,24 +161,25 @@ export class DocumentAnalysisComponent implements OnInit{
           this.documentTreeData = response.data;
           this.treeDataCopy = response.data;
 
-          Object.keys(this.treeDataCopy.edges).forEach(key => {
-              let value = this.treeDataCopy.edges[key];
-              if (key === 'LEXICAL_OVERLAP: ARGUMENT_OVERLAP') {
-                  this.argumentOverlapConnections = value;
-              } else if (key === 'LEXICAL_OVERLAP: CONTENT_OVERLAP') {
-                  this.contentOverlapConnections = value;
-              } else if (key === 'LEXICAL_OVERLAP: TOPIC_OVERLAP') {
-                  this.topicOverlapConnections = value;
-              } else if (key === 'SEMANTIC: WORD2VEC(coca)') {
-                  this.semanticLsaConnections = value;
-              } else if (key === 'COREF') {
-                  this.corefConnections = value;
-              }
+          var nodesNumber = 0;
+          this.treeDataCopy.children.forEach(document => {
+            var sentences = [];
+            document.children.forEach(pharagraph => {
+                pharagraph.children.forEach(sentence => {
+                  nodesNumber ++;
+                });
+                nodesNumber ++;
+            });
           });
+          this.width = 700 + 25*nodesNumber;
+          this.height = 50*nodesNumber;
+
+          console.log(this.treeDataCopy);
+          this.connections = this.treeDataCopy.edges;
+          console.log(this.connections);
 
           this.loading = false;
-          this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
-              this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
+          this.displayDiagram(this.treeDataCopy, svg, this.connections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
           // return response.data;
       });
   }
@@ -200,49 +196,33 @@ export class DocumentAnalysisComponent implements OnInit{
     svgLegend.append("circle").attr("cx",200).attr("cy",40).attr("r", 6).style("fill", "orange");
     svgLegend.append("circle").attr("cx",200).attr("cy",70).attr("r", 6).style("fill", "purple");
     svgLegend.append("circle").attr("cx",200).attr("cy",100).attr("r", 6).style("fill", "black");
+    svgLegend.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "blue");
     //svgLegend.append("text").attr("x", 220).attr("y", 100).text("Lexical Overlap Link (Argument)").style("font-size", "18px").attr("alignment-baseline","middle");
     svgLegend.append("text").attr("x", 220).attr("y", 10).text("Lexical Overlap Link (Content)").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
     svgLegend.append("text").attr("x", 220).attr("y", 40).text("Lexical Overlap Link (Topic)").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
     svgLegend.append("text").attr("x", 220).attr("y", 70).text("Semantic Link (word2vec trained on COCA corpus)").style("font-weight", "bold").style("font-size", "18px").attr("alignment-baseline","middle");
     svgLegend.append("text").attr("x", 220).attr("y", 100).text("Co-reference Link").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
-
+    svgLegend.append("text").attr("x", 220).attr("y", 130).text("Multiple Links").style("font-size", "18px").style("font-weight", "bold").attr("alignment-baseline","middle");
   }
 
-  private displayDiagram(treeData, svg, argumentOverlapConnections, contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-    corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
+  private displayDiagram(treeData, svg, connections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
     var _this = this;
-    // Set the dimensions and margins of the diagram
-    var margin = {top: 20, right: 90, bottom: 30, left: 90},
-        width = 3000 - margin.left - margin.right,
-        height = 4000 - margin.top - margin.bottom;
-
-    // append the svg object to the body of the page
-    // appends a 'group' element to 'svg'
-    // moves the 'group' element to the top left margin
-    // var svg = d3.select(".container-documents-analysis").append("svg")
-    //     .attr("width", width + margin.right + margin.left)
-    //     .attr("height", height + margin.top + margin.bottom)
-    //   .append("g")
-    //     .attr("transform", "translate("
-    //           + margin.left + "," + margin.top + ")");
-
     var i = 0,
         duration = 750,
         root;
 
     // declares a tree layout and assigns the size
-    var treemap = d3.tree().size([height, width]);
+    var treemap = d3.tree().size([_this.height, _this.width]);
 
     // Assigns parent, children, height, depth
     root = d3.hierarchy(treeData, function(d: any) { return d.children; });
-    root.x0 = height / 2;
+    root.x0 = _this.height / 2;
     root.y0 = 0;
 
     // Collapse after the second level
     //root.children.forEach(collapse);
 
-    update(root, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-      corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic );
+    update(root, connections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic );
 
     // Collapse the node and all it's children
     // function collapse(d) {
@@ -253,8 +233,7 @@ export class DocumentAnalysisComponent implements OnInit{
     //   }
     // }
 
-    function update(source, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-      corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
+    function update(source, connections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic ) {
       // Assigns the x and y position for the nodes
       var treeData = treemap(root);
 
@@ -444,13 +423,7 @@ export class DocumentAnalysisComponent implements OnInit{
         .attr("class", "tooltip")
         .style("opacity", 0);
 
-    // Change this as you wish
-    //createEdges(argumentOverlapConnections,_this.sliderValueArgument, 'connection1', 'Lexical Overlap Link (Argument)'); //LEXICAL_OVERLAP: ARGUMENT_OVERLAP
-    _this.createEdges(svg, weightTooltip, contentOverlapConnections,_this.sliderValueContent, 'connection2', 'Lexical Overlap Link (Content)'); //LEXICAL_OVERLAP: CONTENT_OVERLAP
-    _this.createEdges(svg, weightTooltip, topicOverlapConnections, _this.sliderValueTopic, 'connection3', 'Lexical Overlap Link (Topic)'); //LEXICAL_OVERLAP: TOPIC_OVERLAP
-    _this.createEdges(svg, weightTooltip, semanticLsaConnections, _this.sliderValueSemantic, 'connection4', 'Semantic Link (word2vec trained on COCA corpus)'); //SEMANTIC: WORD2VEC(coca)
-    _this.createEdges(svg, weightTooltip, corefConnections, null, 'connection5', 'Co-reference Link'); //COREF
-
+    _this.createEdges(svg, weightTooltip, connections);
 
       // Creates a curved (diagonal) path from parent to the child nodes
       function diagonal(s, d) {
@@ -492,156 +465,116 @@ export class DocumentAnalysisComponent implements OnInit{
         }
 
 
-        update(d, argumentOverlapConnections,contentOverlapConnections,  topicOverlapConnections, semanticLsaConnections,
-          corefConnections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic);
+        update(d, connections, sliderValueArgument, sliderValueContent,sliderValueTopic, sliderValueSemantic);
       }
     }
   }
 
-    private createEdges(svg, weightTooltip, edges, threshold, className, typeLegend) {
-      var _this = this;
-        edges.forEach(function (arcLink) {
+    private createEdges(svg, weightTooltip, edges) {
+      let thresholdMapping = new Map();
+      thresholdMapping.set("LEXICAL_OVERLAP: CONTENT_OVERLAP", this.sliderValueContent);
+      thresholdMapping.set("LEXICAL_OVERLAP: TOPIC_OVERLAP", this.sliderValueTopic);
+      thresholdMapping.set("SEMANTIC: WORD2VEC(coca)", this.sliderValueSemantic);
+      thresholdMapping.set("COREF", 0);
 
-            if (arcLink.weight) {
-                if(parseFloat(arcLink.weight) > threshold) {
-                    var path = d3.path();
-                    var xSource = _this.nameToNode[arcLink.source].y;
-                    var ySource = _this.nameToNode[arcLink.source].x;
-                    var xTarget = _this.nameToNode[arcLink.target].y;
-                    var yTarget = _this.nameToNode[arcLink.target].x;
-                    path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
+      let classMapping = new Map();
+      classMapping.set("LEXICAL_OVERLAP: CONTENT_OVERLAP", "CONTENT_OVERLAP");
+      classMapping.set("LEXICAL_OVERLAP: TOPIC_OVERLAP", "TOPIC_OVERLAP");
+      classMapping.set("SEMANTIC: WORD2VEC(coca)", "SEMANTIC");
+      classMapping.set("COREF", "COREF");
 
-                    var pathString = path.toString();
+      console.log(edges);
 
-                    var pathId = arcLink.source + arcLink.target;
-                    svg.append("path")
-                        .attr("d", pathString)
-                        .attr("id", pathId)
-                        .attr('class', className)
-                        .attr("fill", "none")
-                        .on('mouseover', function (d) {
-                            d3.select(this).attr('class', 'pathMouseover');
-                            d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
-                            d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
-                            weightTooltip.transition()
-                                .duration(200)
-                                .style("opacity", .9);
-                            weightTooltip.html(typeLegend + "</br>" + arcLink.source + " => " + arcLink.target + "</br>" +parseFloat(arcLink.weight).toFixed(3))
-                                .style("color", "red")
-                                .style("left", (d3.event.pageX) + "px")
-                                .style("top", (d3.event.pageY - 28) + "px")
-                                .style("vertical-align", "middle");
-
-                        })
-                        .on('mouseout', function (d) {
-                            d3.select(this).attr('class', className);
-                            d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
-                                // return d._children ? "lightsteelblue" : "#fff";
-                                if (d.data.type === 3) {
-                                    var color = _this.myColor(d.id);
-                                    d.data.color = color;
-                                    return color;
-                                } else if (d.parent !== null && d.parent.data.type === 3) {
-                                    return d.parent.data.color;
-                                } else {
-                                    return '#fff';
-                                }
-                            })
-                            d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
-                                // return d._children ? "lightsteelblue" : "#fff";
-                                if (d.data.type === 3) {
-                                    var color = _this.myColor(d.id);
-                                    d.data.color = color;
-                                    return color;
-                                } else if (d.parent !== null && d.parent.data.type === 3) {
-                                    return d.parent.data.color;
-                                } else {
-                                    return '#fff';
-                                }
-                            })
-                            weightTooltip.transition()
-                                .duration(500)
-                                .style("opacity", 0);
-                        });
-
-                    //weight on the path
-                    // var text = svg.append("text")
-                    //   .attr("x", 150)
-                    //   .attr("dy", 15)
-                    //   .attr('class', className)
-                    //   .style("font-size", "14px");
-
-                    // text.append("textPath")
-                    //     .attr("xlink:href", '#'+pathId)
-                    //     .text(parseFloat(arcLink.weight).toFixed(3));
-
-                }
-            } else {
-                var path = d3.path();
-                var xSource = _this.nameToNode[arcLink.source].y;
-                var ySource = _this.nameToNode[arcLink.source].x;
-                var xTarget = _this.nameToNode[arcLink.target].y;
-                var yTarget = _this.nameToNode[arcLink.target].x;
-                path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
-
-                var pathString = path.toString();
-
-                var pathId = arcLink.source + arcLink.target;
-                svg.append("path")
-                    .attr("d", pathString)
-                    .attr("id", pathId)
-                    .attr('class', className)
-                    .attr("fill", "none")
-                    .on('mouseover', function (d) {
-                        d3.select(this).attr('class', 'pathMouseover');
-                        d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
-                        d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
-                        weightTooltip.transition()
-                            .duration(200)
-                            .style("opacity", .9);
-                        var details = "";
-                        arcLink.details.forEach(detail => {
-                            details += detail[0] + "<>" + detail[1] + ";";
-                        })
-                        weightTooltip.html(typeLegend + "</br>" + arcLink.source + " => " + arcLink.target + "</br>" + "[" + details + "]")
-                            .style("color", "red")
-                            .style("left", (d3.event.pageX) + "px")
-                            .style("top", (d3.event.pageY - 28) + "px");
-
-                    })
-                    .on('mouseout', function (d) {
-                        d3.select(this).attr('class', className);
-                        d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
-                            // return d._children ? "lightsteelblue" : "#fff";
-                            if (d.data.type === 3) {
-                                var color = _this.myColor(d.id);
-                                d.data.color = color;
-                                return color;
-                            } else if (d.parent !== null && d.parent.data.type === 3) {
-                                return d.parent.data.color;
-                            } else {
-                                return '#fff';
-                            }
-                        })
-                        d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
-                            // return d._children ? "lightsteelblue" : "#fff";
-                            if (d.data.type === 3) {
-                                var color = _this.myColor(d.id);
-                                d.data.color = color;
-                                return color;
-                            } else if (d.parent !== null && d.parent.data.type === 3) {
-                                return d.parent.data.color;
-                            } else {
-                                return '#fff';
-                            }
-                        })
-                        weightTooltip.transition()
-                            .duration(500)
-                            .style("opacity", 0);
-                    });
-            }
-
+      //filter by threshold for each type of edge
+      edges.forEach(edge => {
+        edge.types = edge.types.filter(function (type) {
+          return type.weight === null || type.weight >= thresholdMapping.get(type.name);
         });
+      });
+      var _this = this;
+      edges.forEach(function (arcLink) {
+
+        var tooltipValue = '';
+        if (arcLink.types.length > 0) {
+          arcLink.types.forEach(element => {
+            var details = "";
+            if (element.details) {
+              element.details.forEach(detail => {
+                details += detail[0] + "<>" + detail[1] + ";";
+              });
+            }
+            element.weight === null ? tooltipValue += element.name + "</br>" + details:
+              tooltipValue += element.name + ": " + parseFloat(element.weight).toFixed(3) + "</br>" + details;
+          });
+  
+          if(arcLink.types.length > 1) {
+            arcLink.color = 'connection-MULTIPLE';
+          } else {
+            arcLink.color = 'connection-' + classMapping.get(arcLink.types[0].name);
+          }
+          console.log(arcLink.color);
+  
+          var path = d3.path();
+          var xSource = _this.nameToNode[arcLink.source].y;
+          var ySource = _this.nameToNode[arcLink.source].x;
+          var xTarget = _this.nameToNode[arcLink.target].y;
+          var yTarget = _this.nameToNode[arcLink.target].x;
+          path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
+          var pathString = path.toString();
+          var pathId = arcLink.source + arcLink.target;
+  
+          svg.append("path")
+              .attr("d", pathString)
+              .attr("id", pathId)
+              .attr('class', arcLink.color)
+              .attr("fill", "none")
+              .on('mouseover', function (d) {
+                  d3.select(this).attr('class', 'pathMouseover');
+                  d3.selectAll('[id=\''+ arcLink.source + '\']').style('fill', 'red');
+                  d3.selectAll('[id=\''+ arcLink.target + '\']').style('fill', 'red');
+                  weightTooltip.transition()
+                      .duration(200)
+                      .style("opacity", .9);
+                  weightTooltip.html(arcLink.source + " => " + arcLink.target + "</br>" + tooltipValue)
+                      .style("color", "red")
+                      .style("left", (d3.event.pageX) + "px")
+                      .style("top", (d3.event.pageY - 28) + "px")
+                      .style("vertical-align", "middle");
+  
+              })
+              .on('mouseout', function (d) {
+                  d3.select(this).attr('class', arcLink.color);
+                  d3.selectAll('[id=\''+ arcLink.source + '\']').style("fill", function(d: any) {
+                      // return d._children ? "lightsteelblue" : "#fff";
+                      if (d.data.type === 3) {
+                          var color = _this.myColor(d.id);
+                          d.data.color = color;
+                          return color;
+                      } else if (d.parent !== null && d.parent.data.type === 3) {
+                          return d.parent.data.color;
+                      } else {
+                          return '#fff';
+                      }
+                  })
+                  d3.selectAll('[id=\''+ arcLink.target + '\']').style("fill", function(d: any) {
+                      // return d._children ? "lightsteelblue" : "#fff";
+                      if (d.data.type === 3) {
+                          var color = _this.myColor(d.id);
+                          d.data.color = color;
+                          return color;
+                      } else if (d.parent !== null && d.parent.data.type === 3) {
+                          return d.parent.data.color;
+                      } else {
+                          return '#fff';
+                      }
+                  })
+                  weightTooltip.transition()
+                      .duration(500)
+                      .style("opacity", 0);
+              });
+        }
+        
+      });
     }
 
   private openTab(tabName) {
@@ -661,19 +594,14 @@ export class DocumentAnalysisComponent implements OnInit{
   private onChangeToggle(event) {
     if(this.treeDataCopy) {
       d3.select(".container-documents-analysis").selectAll("svg").remove();
-
-      var margin = {top: 20, right: 90, bottom: 30, left: 90},
-          width = 3000 - margin.left - margin.right,
-          height = 4000 - margin.top - margin.bottom;
       var svg = d3.select(".container-documents-analysis").append("svg")
-          .attr("width", width + margin.right + margin.left)
-          .attr("height", height + margin.top + margin.bottom)
+          .attr("width", this.width)
+          .attr("height", this.height)
           .append("g")
           .attr("transform", "translate("
-              + margin.left + "," + margin.top + ")");
+              + this.margin.left + "," + this.margin.top + ")");
 
-      this.displayDiagram(this.treeDataCopy, svg, this.argumentOverlapConnections,this.contentOverlapConnections,  this.topicOverlapConnections, this.semanticLsaConnections,
-          this.corefConnections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
+      this.displayDiagram(this.treeDataCopy, svg, this.connections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
     }
   }
 
@@ -683,12 +611,12 @@ export class DocumentAnalysisComponent implements OnInit{
 
   private deleteDocumentInput(index) {
     console.log(index);
-  
+
     const removeItem = (items, i) =>
       items.slice(0, i-1).concat(items.slice(i, items.length))
 
     let filteredItems = removeItem(this.inputTexts, index+1)
-  
+
     this.inputTexts = filteredItems;
   }
 }

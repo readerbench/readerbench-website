@@ -848,26 +848,25 @@ shape-rendering: crispEdges;
   stroke: #ccc;
   stroke-width: 2px;
 }
-.connection1 {
-  stroke: blue;
-  /* stroke-width: 2; */
-}
-.connection2 {
+.connection-CONTENT_OVERLAP {
   stroke: green;
   /* stroke-width: 2; */
 }
 
-.connection3 {
+.connection-TOPIC_OVERLAP {
   stroke: orange;
   /* stroke-width: 2; */
 }
-.connection4 {
+.connection-SEMANTIC {
   stroke: purple;
   /* stroke-width: 2; */
 }
-.connection5{
+.connection-COREF{
   stroke: black;
   stroke-width: 3;
+}
+.connection-MULTIPLE {
+  stroke: blue;
 }
 .connectionUnknown {
   stroke: black;
@@ -890,8 +889,8 @@ shape-rendering: crispEdges;
 div.tooltip {
     position: absolute;
     text-align: center;
-    width: 300px;
-    height: 70px;
+    width: 320px;
+    height: 100px;
     padding: 2px;
     font: 16px sans-serif;
     background: lightsteelblue;
