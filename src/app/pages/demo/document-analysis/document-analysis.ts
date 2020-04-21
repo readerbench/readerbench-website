@@ -16,7 +16,7 @@ interface InputText {
 
 @Component({
   selector: 'document-analysis',
-  styleUrls: ['./document-analysis.scss'],
+  styleUrls: ['./document-analysis.css'],
   templateUrl: './document-analysis.html',
   providers: [ApiRequestService]
 })
