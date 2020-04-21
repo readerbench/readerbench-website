@@ -28,7 +28,7 @@
               "src/assets/styles/icomoon.css",
               "src/assets/styles/main.css",
               "src/assets/styles/screen.css",
-                "./node_modules/ngx-ui-switch/ui-switch.component.css"
+              "./node_modules/ngx-ui-switch/ui-switch.component.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.min.js",
@@ -146,7 +146,7 @@
               "src/assets/styles/icomoon.css",
               "src/assets/styles/main.css",
               "src/assets/styles/screen.css",
-                "./node_modules/ngx-ui-switch/ui-switch.component.css"
+              "./node_modules/ngx-ui-switch/ui-switch.component.css"
             ],
             "assets": [
               "src/assets",
@@ -204,5 +204,8 @@
     "@schematics/angular:directive": {
       "prefix": "app"
     }
+  },
+  "cli": {
+    "analytics": "11f78bc6-3eb8-40f8-a76c-4209f1ede381"
   }
 }

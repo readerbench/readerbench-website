@@ -1,10 +1,10 @@
 export let DemoMenuItemsData = [
     {
-        name: 'Sentiment Analysis',
-        href: 'demo/sentiment-analysis',
-        description: 'Sentiment Analysis',
-        image: 'assets/images/demo_sentiment_analysis.png',
-        altText: 'Sentiment Analysis with ReaderBench framework'
+        name: 'Multi-Document CNA',
+        href: 'demo/document-analysis',
+        description: 'Multi-Document CNA',
+        image: 'assets/images/demo-document-analysis.PNG',
+        altText: 'Multi-Document CNA'
     },
     {
         name: 'Textual Complexity',
@@ -47,14 +47,14 @@ export let DemoMenuItemsData = [
     //         image: 'assets/images/demo_cscl.png',
     //         altText: 'CSCL conversation analysis with ReaderBench framework',
     //     },
-    {
-        name: 'CV Analysis',
-        href: 'demo/cv-analysis',
-        description: 'Given a Curriculum Vitae, specific lexical and visual \n\
-analyses are performed.',
-        image: 'assets/images/demo_cv.png',
-        altText: 'Curriculum Vitae Analysis with the help of the ReaderBench framework'
-    },
+//     {
+//         name: 'CV Analysis',
+//         href: 'demo/cv-analysis',
+//         description: 'Given a Curriculum Vitae, specific lexical and visual \n\
+// analyses are performed.',
+//         image: 'assets/images/demo_cv.png',
+//         altText: 'Curriculum Vitae Analysis with the help of the ReaderBench framework'
+//     },
     // {
     //     name: 'LAK Corpus',
     //     href: 'demo/lak',
@@ -92,5 +92,12 @@ analyses are performed.',
         description: 'Curriculum Recommendation',
         image: 'assets/images/demo_curriculum.png',
         altText: 'Curriculum Recommendation'
+    },
+    {
+        name: 'Sentiment Analysis',
+        href: 'demo/sentiment-analysis',
+        description: 'Sentiment Analysis',
+        image: 'assets/images/demo_sentiment_analysis.png',
+        altText: 'Sentiment Analysis with ReaderBench framework'
     }
 ];
