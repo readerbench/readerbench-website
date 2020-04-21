@@ -11,6 +11,7 @@ export interface CiModelParams {
   minActivationThreshold: number;
   maxActiveConcepts: number;
   maxSemanticExpand: number;
+  language: string;
 }
 
 @Injectable()

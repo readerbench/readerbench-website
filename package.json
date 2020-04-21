@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "prod": "ng serve --port 80 --host 0.0.0.0 --disable-host-check",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -23,8 +24,8 @@
     "@angular/platform-browser": "6.1.7",
     "@angular/platform-browser-dynamic": "6.1.7",
     "@angular/router": "6.1.7",
-    "@ng-bootstrap/ng-bootstrap": "^5.1.5",
-    "@reader-bench/common": "^2.0.3",
+    "@ng-bootstrap/ng-bootstrap": "3.3.1",
+    "@reader-bench/common": "^2.0.4",
     "@types/vega": "0.0.30",
     "angular-font-awesome": "^3.1.2",
     "angular-in-memory-web-api": "^0.5.4",

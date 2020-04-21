@@ -38,15 +38,15 @@ export let DemoMenuItemsData = [
     //         image: 'assets/images/demo_self_explanation.png',
     //         altText: 'Self explanation with ReaderBench framework'
     //     },
-    //     {
-    //         name: 'CSCL',
-    //         href: 'demo/cscl',
-    //         description: 'Starting from dialogism and a cohesion-based model of \n\
-    // discourse, this tool uses two computational models for assessing \n\
-    // participation and collaboration.',
-    //         image: 'assets/images/demo_cscl.png',
-    //         altText: 'CSCL conversation analysis with ReaderBench framework',
-    //     },
+    {
+        name: 'CSCL',
+        href: 'demo/cscl',
+        description: 'Starting from dialogism and a cohesion-based model of \n\
+    discourse, this tool uses two computational models for assessing \n\
+    participation and collaboration.',
+        image: 'assets/images/demo_cscl.png',
+        altText: 'CSCL conversation analysis with ReaderBench framework',
+    },
 //     {
 //         name: 'CV Analysis',
 //         href: 'demo/cv-analysis',

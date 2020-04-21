@@ -61,6 +61,7 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import {NgbAccordion, NgbAccordionModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
@@ -124,6 +125,8 @@ import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analys
     AppRoutingModule,
     HttpModule,
     KeywordsModule,
+    ReaderBenchCommonModule,
+      NgbAccordionModule,
     ReaderBenchCommonModule,
     Ng5SliderModule,
     UiSwitchModule

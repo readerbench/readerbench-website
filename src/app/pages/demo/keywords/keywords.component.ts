@@ -105,7 +105,6 @@ export class KeywordsComponent implements OnInit {
         graph => { this.myGraph = graph; },
         error => { this.error = error.message; },
         () => {
-
           // this.readerbenchService.d3jsForTopics(this.graph, "#conceptMap", false);
         }
       );

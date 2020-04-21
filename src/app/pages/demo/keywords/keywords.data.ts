@@ -7,7 +7,9 @@ export let KeywordsData = {
         DefaultInputData.languages[0],  // en
         DefaultInputData.languages[1],  // fr
         DefaultInputData.languages[2],  // ro
-        DefaultInputData.languages[3]   // nl
+        DefaultInputData.languages[3],  // nl
+        DefaultInputData.languages[4],  // es
+        DefaultInputData.languages[5],  // ru
     ],
     'defaultLanguage': DefaultInputData.languages[0] // en
 };

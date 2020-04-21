@@ -37,6 +37,20 @@
 
             <div class="row top-buffer">
               <div class="col-xs-4">
+                <label for="input_language">Language
+                  <span class="required">*</span>
+                </label>
+              </div>
+              <div class="col-xs-8">
+                <select id="input_language" class="form-control" [(ngModel)]="language"
+                  (ngModelChange)="onChangeLanguage($event)">
+                  <option *ngFor="let option of languages" [ngValue]="option">{{option.name}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="row top-buffer">
+              <div class="col-xs-4">
                 <label>Minimum Activation Threshold </label>
               </div>
               <div class="col-xs-4">

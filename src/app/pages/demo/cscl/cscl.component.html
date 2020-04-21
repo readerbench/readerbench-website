@@ -20,11 +20,12 @@
             <div class="input">
               <div class="row">
                 <div class="col-xs-3 col-md-3">
-                  <label for="file">CSCL file <span class="required">*</span><br /><small>(only XML files allowed)</small></label>
+                  <label for="file">CSCL file <span class="required">*</span><br /><small>(only XML files
+                      allowed)</small></label>
                 </div>
                 <div class="col-xs-4 col-md-4">
-                  <input id="file" class="btn theme-btn-1" type="file" (change)="fileChange($event)" placeholder="Upload file"
-                    accept=".xml" valie="Select File: " />
+                  <input id="file" class="btn theme-btn-1" type="file" (change)="fileChange($event)"
+                    placeholder="Upload file" accept=".xml" valie="Select File: " />
                   File:
                   <small>{{uploadedFileName}}
                     <span class="progress" ng-show="csclFile.progress >= 0">
@@ -39,7 +40,8 @@
                 </div>
               </div>
               <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"
-                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)">
+              </app-demo-common-fields>
               <div class="row top-buffer" *ngIf="!loading">
                 <div class="col-xs-12 col-md-12">
                   <div class="bottom-buttons" *ngIf="!loading">
@@ -57,7 +59,7 @@
                 </div>
               </div>
               <div *ngIf="showResults === true">
-                <!-- <div class="col-xs-12 col-md-3">
+                <div class="col-xs-12 col-md-3">
                   <h4>Participant Interaction</h4>
                   <ul class="course-description-list">
                     <li class="lesson" *ngFor="let participant of participants">
@@ -70,6 +72,9 @@
                     </li>
                   </ul>
                 </div>
+                <!-- <div class="col-xs-12 col-md-9">
+                  <two-mode-graph [graph]="participantInteractionGraph"></two-mode-graph>
+                </div> -->
                 <div class="col-xs-12 col-md-9" id="participantInteractionMap"></div> -->
 
                 <div class="col-xs-12 col-md-12">
@@ -98,7 +103,8 @@
                 <div class="col-xs-12 col-md-12">
                   <h5>CSCL Indices Description</h5>
                   <ul class="course-description-list">
-                    <li class="lesson cscl-indices-description" *ngFor="let csclIndexDescription of csclIndicesDescription | keyvalue">
+                    <li class="lesson cscl-indices-description"
+                      *ngFor="let csclIndexDescription of csclIndicesDescription | keyvalue">
                       <div class="heading">
                         <span class="lesson-nr no-select">{{csclIndexDescription.key}}</span>
                       </div>
@@ -109,14 +115,14 @@
                   </ul>
                 </div>
 
-                <!-- <div class="col-xs-12 col-md-12">
+                <div class="col-xs-12 col-md-12">
                   <h4>Participant evolution</h4>
                 </div>
                 <div class="col-xs-12 col-md-12">
                   <svg id="participantEvolution" width="100%" height="300"></svg>
-                </div> -->
+                </div>
 
-                <!-- <div class="row">
+                <div class="row">
                   <div class="col-xs-12 col-md-12">
                     <h4>Collaboration - Social Knowledge Building</h4>
                   </div>
@@ -131,12 +137,12 @@
                   <div class="col-xs-12 col-md-12">
                     <svg id="collaborationVoiceOverlap" width="100%" height="300"></svg>
                   </div>
-                </div> -->
+                </div>
 
                 <div class="col-xs-12 col-md-3">
                   <h4>Concept Map</h4>
                   <ul class="course-description-list">
-                    <li class="lesson" *ngFor="let topic of conceptMap.nodeList">
+                    <li class="lesson" *ngFor="let topic of topics">
                       <div class="heading">
                         <span class="lesson-nr no-select">{{topic.degree | number}}</span>
                       </div>

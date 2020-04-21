@@ -8,50 +8,59 @@ export let CurriculumRecommendationData = {
             name: 'Medicine',
             value: 'medicine',
             checked: false,
+            id: 1
         },
         {
             name: 'Paediatrics',
             isChild: true,
             value: 'paediatrician',
-            checked: false
+            checked: false,
+            id: 2
         },
         {
             name: 'Obstetrics / Gynocology',
             isChild: true,
             value: 'gynocologist',
-            checked: false
+            checked: false,
+            id: 3
         },
         {
             name: 'General Practice / Family Medicine',
             isChild: true,
             value: 'gp',
-            checked: false
+            checked: false,
+            id: 4
         },
         {
             name: 'Specialist Other Areas',
             isChild: true,
             value: 'other',
-            checked: false
+            checked: false,
+            id: 5
         },
         {
             name: 'Nursing / Midwifery',
             value: 'nursing',
-            checked: false
+            checked: false,
+            id: 6
         },
         {
             name: 'Nutrition / Dietetics',
             value: 'nutrition',
-            checked: false
+            checked: false,
+            id: 7
         },
         {
             name: 'Other Healthcare Workers',
             value: 'other',
-            checked: false
+            checked: false,
+            id: 8
         },
         {
             name: 'Student / Trainee',
             value: 'student',
-            checked: false
+            checked: false,
+            id: 9
         }
     ],
     'themes': [

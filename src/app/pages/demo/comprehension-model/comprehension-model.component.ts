@@ -1,11 +1,12 @@
 import * as _ from 'underscore';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CIModelService } from './service/ci-model.service';
 import { CMResult } from './service/data-objects/cm-result.do';
 import { CIModelTab, CIModelTabType } from './utils/ci-model-tab';
 import { Word, TwoModeGraph } from '@reader-bench/common';
 import { ApiRequestService } from '../api-request.service';
 import { EdgeBundlingService } from './service/edge-bundling.service';
+import { ComprehensionModelData } from './comprehension-model.data';
 
 @Component({
   selector: 'app-comprehension-model',
@@ -13,7 +14,7 @@ import { EdgeBundlingService } from './service/edge-bundling.service';
   templateUrl: './comprehension-model.component.html',
   providers: [ApiRequestService, CIModelService, EdgeBundlingService]
 })
-export class ComprehensionModelComponent {
+export class ComprehensionModelComponent implements OnInit {
   private maxSearchTextLength = 1000;
   public isLoading: boolean;
 
@@ -23,6 +24,8 @@ export class ComprehensionModelComponent {
   public minActivationThreshold = 0.3;
   public maxSemanticExpand = 5;
   public maxActiveConcepts = 20;
+  public languages: any;
+  public language: any;
 
   private _cmResult: CMResult;
   private wordList: Word[];
@@ -42,6 +45,11 @@ export class ComprehensionModelComponent {
 
   constructor(private ciModelService: CIModelService,
     private edgeBundlingService: EdgeBundlingService) { }
+
+  ngOnInit() {
+    this.languages = ComprehensionModelData.languages;
+    this.language = ComprehensionModelData.defaultLanguage;
+  }
 
   public get incorrectSearchText(): boolean {
     return !_.isString(this.searchText) || _.isEmpty(this.searchText) ||
@@ -69,13 +77,16 @@ export class ComprehensionModelComponent {
     }
     if (this.isLoading) { return; }
     this.isLoading = true;
-    this.ciModelService.getWords({
+    const data = {
       text: this.searchText,
       semanticModel: this.semanticModel,
       minActivationThreshold: this.minActivationThreshold,
       maxActiveConcepts: this.maxActiveConcepts,
-      maxSemanticExpand: this.maxSemanticExpand
-    }).subscribe((result: CMResult) => {
+      maxSemanticExpand: this.maxSemanticExpand,
+      language: this.language.value
+    };
+    console.log(data);
+    this.ciModelService.getWords(data).subscribe((result: CMResult) => {
       this.cmResult = result;
       this.buildTabs(result);
       this.edgeBundlingService.setData(result);

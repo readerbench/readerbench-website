@@ -16,7 +16,7 @@
     "sentimentAnalysis": "sentiment-analysis",
     "curriculumRecommendation": "mass-customisation",
     "textualComplexity": "v2/textual-complexity",
-    "keywords": "keywords",
+    "keywords": "v2/keywords",
     "selfExplanation": "self-explanation",
     "semanticAnnotation": "semantic-annotation",
     "cvAnalysis": "cv-processing",
