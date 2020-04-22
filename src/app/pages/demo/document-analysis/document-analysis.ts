@@ -34,9 +34,11 @@ export class DocumentAnalysisComponent implements OnInit{
   private selectedLanguage: Language;
   private inputTexts: InputText[] = [];
 
-  margin = {top: 0, right: 0, bottom: 0, left: 50};
-  width = 2000;
-  height = 2000;
+  margin = {top: 0, right: 0, bottom: 0, left: 0};
+  width = 4000;
+  height = 4000;
+  treeWidth = 1000;
+  treeHeight = 1000;
 
 
   // private textInput1: string = "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet. However in doing so we must also leave as small a footprint on humanity as we are able. Incentives for invention are worthwhile. Penalties for overindulgence are worthwhile. It is more important that society train itself in the mindset of good stewardship than it is that the electric car obliterate the need for oil inside of 10 years. The truth of consummation is that humans will always consume natural resources. We do so at a lower rate per capita today than we did in the 1970s and that trend is continuing. It is better that the trend continue than that humans ever find a single solution that allows us to indulge our whims without a requirement of stewardship. May you enjoy a rainbow of environmental possibilities, the color green among them.\n" +
@@ -168,15 +170,11 @@ export class DocumentAnalysisComponent implements OnInit{
                 pharagraph.children.forEach(sentence => {
                   nodesNumber ++;
                 });
-                nodesNumber ++;
             });
           });
-          this.width = 700 + 25*nodesNumber;
-          this.height = 50*nodesNumber;
-
-          console.log(this.treeDataCopy);
+          this.treeWidth = 10*nodesNumber;
+          this.treeHeight = 20*nodesNumber;
           this.connections = this.treeDataCopy.edges;
-          console.log(this.connections);
 
           this.loading = false;
           this.displayDiagram(this.treeDataCopy, svg, this.connections, this.sliderValueArgument, this.sliderValueContent, this.sliderValueTopic, this.sliderValueSemantic );
@@ -212,11 +210,13 @@ export class DocumentAnalysisComponent implements OnInit{
         root;
 
     // declares a tree layout and assigns the size
-    var treemap = d3.tree().size([_this.height, _this.width]);
+    console.log(this.treeHeight);
+    console.log(this.treeWidth);
+    var treemap = d3.tree().size([this.treeHeight, this.treeWidth]);
 
     // Assigns parent, children, height, depth
     root = d3.hierarchy(treeData, function(d: any) { return d.children; });
-    root.x0 = _this.height / 2;
+    root.x0 = this.treeHeight / 2;
     root.y0 = 0;
 
     // Collapse after the second level
@@ -254,7 +254,7 @@ export class DocumentAnalysisComponent implements OnInit{
       var nodeEnter = node.enter().append('g')
           .attr('class', 'node')
           .attr("transform", function(d) {
-            return "translate(" + source.x0 + "," + source.y0*2 + ")";
+            return "translate(" + source.x0 + "," + source.y0 + ")";
         })
         .on('click', click);
 
@@ -262,7 +262,7 @@ export class DocumentAnalysisComponent implements OnInit{
     var valueNode = d3.select("body").append("div")
         .attr("class", "tooltipValue")
         .attr("width", 100)
-        .attr("height", 50)
+        .attr("height", 30)
         //.style("opacity", 0)
         ;
 
@@ -271,7 +271,7 @@ export class DocumentAnalysisComponent implements OnInit{
       nodeEnter.append('circle')
           .attr('class', 'node')
           .attr('r', function (d: any) {
-            return d.data.importance == 0 ? 2 : d.data.importance;
+            return d.data.importance == 0 ? 2 : d.data.importance*0.5;
           })
           // .style("visibility", function(d: any) {
           //   return d.parent == null ? 'hidden' : '';
@@ -326,7 +326,7 @@ export class DocumentAnalysisComponent implements OnInit{
           })
           .text(function(d: any) { return d.data.name; })
           .style("font-weight", "bold")
-          .style("font-size", "18px");
+          .style("font-size", "14px");
 
       // UPDATE
       var nodeUpdate = nodeEnter.merge(<any>node);
@@ -342,7 +342,7 @@ export class DocumentAnalysisComponent implements OnInit{
       // Update the node attributes and style
       nodeUpdate.select('circle.node')
         .attr('r', function (d: any) {
-          return d.data.importance == 0 ? 2 : d.data.importance;
+          return d.data.importance == 0 ? 2 : d.data.importance *0.5;
         })
         .style("fill", function(d: any) {
             // return d._children ? "lightsteelblue" : "#fff";
@@ -386,7 +386,7 @@ export class DocumentAnalysisComponent implements OnInit{
       var linkEnter = link.enter().insert('path', "g")
           .attr("class", "link")
           .attr('d', function(d: any){
-            var o = {x: source.x0, y: source.y0*2}
+            var o = {x: source.x0, y: source.y0}
             //var o = {y: source.y0, x: source.x0} //for vertical
             return diagonal(o, o)
           });
@@ -446,20 +446,20 @@ export class DocumentAnalysisComponent implements OnInit{
       // Toggle children on click.
       function click(d) {
         if (d.children) {
-          d3.selectAll(".connection1").remove();
-          d3.selectAll(".connection2").remove();
-          d3.selectAll(".connection3").remove();
-          d3.selectAll(".connection4").remove();
-          d3.selectAll(".connection5").remove();
+          d3.selectAll(".connection-CONTENT_OVERLAP").remove();
+          d3.selectAll(".connection-TOPIC_OVERLAP").remove();
+          d3.selectAll(".connection-SEMANTIC").remove();
+          d3.selectAll(".connection-COREF").remove();
+          d3.selectAll(".connection-MULTIPLE").remove();
           d._children = d.children;
           d.children = null;
 
         } else {
-          d3.selectAll(".connection1").remove();
-          d3.selectAll(".connection2").remove();
-          d3.selectAll(".connection3").remove();
-          d3.selectAll(".connection4").remove();
-          d3.selectAll(".connection5").remove();
+          d3.selectAll(".connection-CONTENT_OVERLAP").remove();
+          d3.selectAll(".connection-TOPIC_OVERLAP").remove();
+          d3.selectAll(".connection-SEMANTIC").remove();
+          d3.selectAll(".connection-COREF").remove();
+          d3.selectAll(".connection-MULTIPLE").remove();
           d.children = d._children;
           d._children = null;
         }
@@ -483,8 +483,6 @@ export class DocumentAnalysisComponent implements OnInit{
       classMapping.set("SEMANTIC: WORD2VEC(coca)", "SEMANTIC");
       classMapping.set("COREF", "COREF");
 
-      console.log(edges);
-
       //filter by threshold for each type of edge
       edges.forEach(edge => {
         edge.types = edge.types.filter(function (type) {
@@ -506,14 +504,13 @@ export class DocumentAnalysisComponent implements OnInit{
             element.weight === null ? tooltipValue += element.name + "</br>" + details:
               tooltipValue += element.name + ": " + parseFloat(element.weight).toFixed(3) + "</br>" + details;
           });
-  
+
           if(arcLink.types.length > 1) {
             arcLink.color = 'connection-MULTIPLE';
           } else {
             arcLink.color = 'connection-' + classMapping.get(arcLink.types[0].name);
           }
-          console.log(arcLink.color);
-  
+
           var path = d3.path();
           var xSource = _this.nameToNode[arcLink.source].y;
           var ySource = _this.nameToNode[arcLink.source].x;
@@ -522,7 +519,7 @@ export class DocumentAnalysisComponent implements OnInit{
           path.arc(xSource, (ySource + yTarget)/2, (Math.abs(yTarget - ySource))/2, -0.5 * Math.PI, 0.5 * Math.PI, false);
           var pathString = path.toString();
           var pathId = arcLink.source + arcLink.target;
-  
+
           svg.append("path")
               .attr("d", pathString)
               .attr("id", pathId)
@@ -540,7 +537,7 @@ export class DocumentAnalysisComponent implements OnInit{
                       .style("left", (d3.event.pageX) + "px")
                       .style("top", (d3.event.pageY - 28) + "px")
                       .style("vertical-align", "middle");
-  
+
               })
               .on('mouseout', function (d) {
                   d3.select(this).attr('class', arcLink.color);
@@ -573,7 +570,7 @@ export class DocumentAnalysisComponent implements OnInit{
                       .style("opacity", 0);
               });
         }
-        
+
       });
     }
 
@@ -610,7 +607,6 @@ export class DocumentAnalysisComponent implements OnInit{
   }
 
   private deleteDocumentInput(index) {
-    console.log(index);
 
     const removeItem = (items, i) =>
       items.slice(0, i-1).concat(items.slice(i, items.length))

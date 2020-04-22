@@ -63,9 +63,12 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
     private generateCohesionGrid(treeData) {
         this.clearData();
 
-        var width = 2000, height=3000;
+        var svgWidth = 2000, svgHeight=2000;
+
+        var treeWidth = 800;
+        var treeHeight = 800;
         // declares a tree layout and assigns the size
-        var treemap = d3.tree().size([height, width]);
+        var treemap = d3.tree().size([treeHeight, treeWidth]);
 
         // Assigns parent, children, height, depth
         var root = d3.hierarchy(treeData, function(d: any) { return d.children; });
@@ -75,8 +78,8 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
 
         var svgCohesionGraph = d3.select(".multi-document-cohesion-grid-content-svg").append("svg")
-        .attr("width", width)
-        .attr("height", height);
+        .attr("width", svgWidth)
+        .attr("height", svgHeight);
 
         var nodesColors = d3.scaleOrdinal().domain(["1","25"]).range(d3.schemeSet3);//d3.scaleSequential().domain([1,20]).interpolator(d3.interpolateViridis);
 
@@ -122,7 +125,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
         nodes.forEach(nodeDocument => {
             y = 1;
             svgCohesionGraph.append("circle")
-                    .attr("cx",x*300)
+                    .attr("cx",x*200)
                     .attr("cy",y*50)
                     .attr('r', function () {
                         return 0;
@@ -130,14 +133,14 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                     .style("fill", "grey");
             svgCohesionGraph.append('text')
                 .attr("dy", y*50)
-                .attr("x", x*300-60)
+                .attr("x", x*200-60)
                 .text("Document " + x)
                 .style("font-weight", "bold")
                 .style("font-size", "14px");
             y = 2;
             nodeDocument.forEach(node => {
                 svgCohesionGraph.append("circle")
-                    .attr("cx",x*300)
+                    .attr("cx",x*200)
                     .attr("cy",y*60)
                     .attr('r', function () {
                         return (!node.data.importance || node.importance == 0) ? 10 : node.data.importance * 0.7;
@@ -146,12 +149,12 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                 svgCohesionGraph.append('text')
                     .attr("dy", y*60)
-                    .attr("x", x*300-120)
+                    .attr("x", x*200-120)
                     .text(node.data.name)
                     .style("font-weight", "bold")
                     .style("font-size", "14px");
 
-                node.cx = x*300;
+                node.cx = x*200;
                 node.cy = y*60;
                 y++;
             });
@@ -210,14 +213,14 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                 } else {
                     edge.color = 'connection-' + classMapping.get(edge.types[0].name);
                 }
-    
+
                 var path = d3.path();
-    
+
                 if (nameToNode[edge.source] && nameToNode[edge.source]) {
                     var isArc = false;
                     if (nameToNode[edge.source].depth === 3){
                         console.log(nameToNode[edge.source]);
-                        if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name || 
+                        if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name ||
                             nameToNode[edge.source].parent.parent.data.name === nameToNode[edge.target].parent.parent.data.name) {
                             isArc = true;
                         } else {
@@ -252,7 +255,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 .style("color", "red")
                                         .style("left", (d3.event.pageX) + "px")
                                         .style("top", (d3.event.pageY - 28) + "px");
-        
+
                             })
                             .on('mouseout', function (d) {
                                 d3.select(this).attr('class', edge.color);
@@ -283,7 +286,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                                 .style("color", "red")
                                         .style("left", (d3.event.pageX) + "px")
                                         .style("top", (d3.event.pageY - 28) + "px");
-        
+
                             })
                             .on('mouseout', function (d) {
                                 d3.select(this).attr('class', edge.color);
@@ -293,9 +296,9 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                             })
                     }
                 }
-          
+
             }
-            
+
         });
     }
 }
