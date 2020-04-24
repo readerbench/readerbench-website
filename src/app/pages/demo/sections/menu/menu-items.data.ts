@@ -3,7 +3,7 @@ export let DemoMenuItemsData = [
         name: 'Multi-Document CNA',
         href: 'demo/document-analysis',
         description: 'Multi-Document CNA',
-        image: 'assets/images/demo-document-analysis.PNG',
+        image: 'assets/images/demo-document-analysis.png',
         altText: 'Multi-Document CNA'
     },
     {
