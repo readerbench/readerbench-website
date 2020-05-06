@@ -1,0 +1,229 @@
+
+  private newResponse = {
+    "data": {
+        "children": [
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "importance": 2.2321157135086978,
+                                "name": "Sentence 1.1",
+                                "type": 2,
+                                "value": "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet."
+                            }
+                        ],
+                        "importance": 1.540895418940247,
+                        "name": "Paragraph 1.1",
+                        "type": 3,
+                        "value": "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet."
+                    }
+                ],
+                "importance": 1.540895418940247,
+                "name": "Document 1",
+                "type": 4,
+                "value": "In the long term, going green is a Utopian ideal to which we must aspire if life is to continue on this planet."
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "importance": 2.2794160079357724,
+                                "name": "Sentence 2.1",
+                                "type": 2,
+                                "value": "It’s time to take…a look at how Singapore’s transportation policymakers deal with the tyranny of the automobile."
+                            }
+                        ],
+                        "importance": 1.5792305981687003,
+                        "name": "Paragraph 2.1",
+                        "type": 3,
+                        "value": "It’s time to take…a look at how Singapore’s transportation policymakers deal with the tyranny of the automobile."
+                    }
+                ],
+                "importance": 1.5792305981687003,
+                "name": "Document 2",
+                "type": 4,
+                "value": "It’s time to take…a look at how Singapore’s transportation policymakers deal with the tyranny of the automobile."
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "importance": 0.7677044589155326,
+                                "name": "Sentence 3.1",
+                                "type": 2,
+                                "value": "America has a problem and the world has a problem."
+                            },
+                            {
+                                "importance": 3.0881827936508577,
+                                "name": "Sentence 3.2",
+                                "type": 2,
+                                "value": "America’s problem is that it has lost its way in recent years — partly because of 9/11 and partly because of the bad habits that we have let build up over the last three decades, bad habits that have weakened"
+                            },
+                            {
+                                "importance": 2.138815601286625,
+                                "name": "Sentence 3.3",
+                                "type": 2,
+                                "value": "our society’s ability and willingness to take on big challenges."
+                            }
+                        ],
+                        "importance": 2.2701404258925404,
+                        "name": "Paragraph 3.1",
+                        "type": 3,
+                        "value": "America has a problem and the world has a problem. America’s problem is that it has lost its way in recent years — partly because of 9/11 and partly because of the bad habits that we have let build up over the last three decades, bad habits that have weakened our society’s ability and willingness to take on big challenges."
+                    }
+                ],
+                "importance": 2.2701404258925404,
+                "name": "Document 3",
+                "type": 4,
+                "value": "America has a problem and the world has a problem. America’s problem is that it has lost its way in recent years — partly because of 9/11 and partly because of the bad habits that we have let build up over the last three decades, bad habits that have weakened our society’s ability and willingness to take on big challenges."
+            },
+            {
+                "children": [
+                    {
+                        "children": [
+                            {
+                                "importance": 0,
+                                "name": "Sentence 4.1",
+                                "type": 2,
+                                "value": "Few things are more appealing in politics than something for nothing."
+                            },
+                            {
+                                "importance": 0,
+                                "name": "Sentence 4.2",
+                                "type": 2,
+                                "value": "As Congress begins considering anti-global-warming legislation, environmentalists hold out precisely that tantalizing prospect"
+                            },
+                            {
+                                "importance": 0,
+                                "name": "Sentence 4.3",
+                                "type": 2,
+                                "value": ": We can conquer global warming at virtually no cost."
+                            }
+                        ],
+                        "importance": 0.6909693352441526,
+                        "name": "Paragraph 4.1",
+                        "type": 3,
+                        "value": "Few things are more appealing in politics than something for nothing. As Congress begins considering anti-global-warming legislation, environmentalists hold out precisely that tantalizing prospect: We can conquer global warming at virtually no cost."
+                    }
+                ],
+                "importance": 0.6909693352441526,
+                "name": "Document 4",
+                "type": 4,
+                "value": "Few things are more appealing in politics than something for nothing. As Congress begins considering anti-global-warming legislation, environmentalists hold out precisely that tantalizing prospect: We can conquer global warming at virtually no cost."
+            }
+        ],
+        "edges": [
+            {
+                "source": "Sentence 4.8",
+                "target": "Sentence 3.4",
+                "types": [
+                    {
+                        "name": "CONTENT_OVERLAP",
+                        "weight": "0.2",
+                        "details": null
+                    },
+                    {
+                        "name": "TOPIC_OVERLAP",
+                        "weight": "0.3",
+                        "details": null
+                    },
+                    {
+                        "name": "SEMANTIC",
+                        "weight": "0.9",
+                        "details": null
+                    }
+                ]
+            },
+            {
+                "source": "Sentence 3.5",
+                "target": "Sentence 4.7",
+                "types": [
+                    {
+                        "name": "CONTENT_OVERLAP",
+                        "weight": "0.05",
+                        "details": null
+                    },
+                    {
+                        "name": "TOPIC_OVERLAP",
+                        "weight": "0.1",
+                        "details": null
+                    },
+                    {
+                        "name": "SEMANTIC",
+                        "weight": "0.9",
+                        "details": null
+                    },
+                    {
+                      "name": "COREF",
+                      "weight": null,
+                      "details": null
+                  }
+                ]
+            },    
+            {
+                "source": "Sentence 1.1",
+                "target": "Sentence 2.2",
+                "types": [
+                    {
+                        "name": "CONTENT_OVERLAP",
+                        "weight": "0.2",
+                        "details": null
+                    }
+                ]
+            }, 
+            {
+                "source": "Sentence 3.3",
+                "target": "Sentence 3.4",
+                "types": [
+                    {
+                        "name": "TOPIC_OVERLAP",
+                        "weight": "0.3",
+                        "details": null
+                    }
+                ]
+            }, 
+            {
+                "source": "Sentence 2.2",
+                "target": "Sentence 4.6",
+                "types": [
+                    {
+                        "name": "SEMANTIC",
+                        "weight": "0.8",
+                        "details": null
+                    }
+                ]
+            },
+            {
+              "source": "Sentence 1.1",
+              "target": "Sentence 3.5",
+              "types": [
+                  {
+                      "name": "COREF",
+                      "weight": null,
+                      "details": [
+                        [
+                            "it",
+                            "America"
+                        ],
+                        [
+                            "its",
+                            "America"
+                        ],
+                        [
+                            "America’s problem",
+                            "a problem"
+                        ]
+                      ],
+                  }
+              ]
+          }
+          ],
+        "importance": null,
+        "name": "Set",
+        "type": null,
+        "value": null
+    }
+};

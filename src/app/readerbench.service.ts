@@ -125,15 +125,12 @@ export class ReaderBenchService {
 
     const width = 690, height = 600;
 
-    const color = d3.scale.category20();
+    const color = d3.scaleOrdinal(d3.schemeCategory10);
 
     /*
      * var force = d3.layout.force() .charge(-120) .linkDistance(30)
      * .size([width, height]);
      */
-
-    // const force = d3.layout.force().charge(-100).distance(300).size([width, height]);
-    const force = d3.layout.force().charge(-100).size([width, height]);
 
     const svg = d3.select(element).append('svg').attr('width', width).attr(
       'height', height);
@@ -164,9 +161,11 @@ export class ReaderBenchService {
 
     console.log(graph);
 
-    force.nodes(graph.nodes).links(graph.links).linkDistance(function (link: any) {
-      return link.score * 25;
-    }).start();
+    d3.forceSimulation(graph.nodes)
+      .force('charge', d3.forceManyBody().strength(-100))
+      .force('link', d3.forceLink(graph.links).distance(function (link: any) {
+        return link.score * 25;
+      }).strength(2));
 
     const link = svg.selectAll('.link').data(graph.links).enter().append('line')
       .attr('class', 'link').style('stroke-width', function (d: any) {
@@ -174,7 +173,7 @@ export class ReaderBenchService {
       });
 
     const node = svg.selectAll('.node').data(graph.nodes).enter().append('g')
-      .attr('class', 'node').call(force.drag);
+      .attr('class', 'node').call(d3.drag);
 
     node.append('circle').attr('r', function (d: any) {
       return (d.value / max) * 20;
@@ -187,22 +186,23 @@ export class ReaderBenchService {
         return d.name;
       });
 
-    force.on('tick', function () {
-      link.attr('x1', function (d: any) {
-        return d.source.x;
-      }).attr('y1', function (d: any) {
-        return d.source.y;
-      }).attr('x2', function (d: any) {
-        return d.target.x;
-      }).attr('y2', function (d: any) {
-        return d.target.y;
-      });
+    // TODO : fix this
+    // force.on('tick', function () {
+    //   link.attr('x1', function (d: any) {
+    //     return d.source.x;
+    //   }).attr('y1', function (d: any) {
+    //     return d.source.y;
+    //   }).attr('x2', function (d: any) {
+    //     return d.target.x;
+    //   }).attr('y2', function (d: any) {
+    //     return d.target.y;
+    //   });
 
-      node.attr('transform', function (d: any) {
-        return 'translate(' + d.x + ',' + d.y + ')';
-      });
+    //   node.attr('transform', function (d: any) {
+    //     return 'translate(' + d.x + ',' + d.y + ')';
+    //   });
 
-    });
+    // });
 
     // const fisheye = d3.fisheye.circular().radius(200);
 
@@ -240,32 +240,42 @@ export class ReaderBenchService {
 
   d3jsLineGraph(values, element, xLabel, yLabel) {
 
-    const lineFunc = d3.svg.line().x(function (d: any) {
+    const lineFunc = d3.line().x(function (d: any) {
       return xRange(d.x);
     }).y(function (d: any) {
       return yRange(d.y);
-    }).interpolate('monotone');
+    }).curve(d3.curveBasis);
 
     const vis = d3.select(element), WIDTH = 1000, HEIGHT = 250, MARGINS = {
       top: 20,
       right: 20,
       bottom: 20,
       left: 50
-    }, xRange = d3.scale.linear()
-      .range([MARGINS.left, WIDTH - MARGINS.right]).domain(
-        [d3.min(values, function (d: any) {
-          return d.x;
-        }), d3.max(values, function (d: any) {
-          return d.x;
-        })]), yRange = d3.scale.linear().range(
-          [HEIGHT - MARGINS.top, MARGINS.bottom]).domain(
-            [d3.min(values, function (d: any) {
-              return d.y;
-            }), d3.max(values, function (d: any) {
-              return d.y;
-            })]),
-      xAxis = d3.svg.axis().scale(xRange).tickSize(1),//.tickSubdivide(true),
-      yAxis = d3.svg.axis().scale(yRange).tickSize(1).orient('left');//.tickSubdivide(true);
+    };
+    const xRange = d3.scaleLinear()
+      .range([MARGINS.left, WIDTH - MARGINS.right])
+      .domain(
+        [
+          d3.min(values, function (d: any) {
+            return Number(d.x);
+          }),
+          d3.max(values, function (d: any) {
+            return Number(d.x);
+          })
+        ]);
+    const yRange = d3.scaleLinear()
+      .range([HEIGHT - MARGINS.top, MARGINS.bottom])
+      .domain(
+        [
+          d3.min(values, function (d: any) {
+            return Number(d.y);
+          }),
+          d3.max(values, function (d: any) {
+            return Number(d.y);
+          })
+        ]);
+    const xAxis = d3.axisBottom(xRange).tickSize(1);//.tickSubdivide(true),
+    const yAxis = d3.axisLeft(yRange).tickSize(1);//.tickSubdivide(true);
 
     vis.append('svg:g').attr('class', 'x axis').attr('stroke', '#b8bebf').attr(
       'transform', 'translate(0,' + (HEIGHT - MARGINS.bottom) + ')')
@@ -292,45 +302,53 @@ export class ReaderBenchService {
 
   d3jsMultipleLinesGraph(values, element, xLabel, yLabel) {
 
-    const lineFunc = d3.svg.line().x(function (d: any) {
+    const lineFunc = d3.line().x(function (d: any) {
       return xRange(d.x);
     }).y(function (d: any) {
       return yRange(d.y);
-    }).interpolate('monotone');
+    }).curve(d3.curveBasis);
 
     const vis = d3.select(element), WIDTH = 1000, HEIGHT = 250, MARGINS = {
       top: 50,
       right: 20,
       bottom: 50,
       left: 50
-    }, xRange = d3.scale.linear()
-      .range([MARGINS.left, WIDTH - MARGINS.right]).domain(
+    };
+    const xRange = d3.scaleLinear()
+      .range([MARGINS.left, WIDTH - MARGINS.right])
+      .domain(
         [d3.min(values, function (d: any) {
-          return d.x;
+          return Number(d.x);
         }), d3.max(values, function (d: any) {
-          return d.x;
-        })]), yRange = d3.scale.linear().range(
-          [HEIGHT - MARGINS.top, MARGINS.bottom]).domain(
-            [d3.min(values, function (d: any) {
-              return d.y;
-            }), d3.max(values, function (d: any) {
-              return d.y;
-            })]),
-      xAxis = d3.svg.axis().scale(xRange).tickSize(1),//.tickSubdivide(true),
-      yAxis = d3.svg.axis().scale(yRange).tickSize(1).orient('left');//.tickSubdivide(true);
+          return Number(d.x);
+        })]);
+    const yRange = d3.scaleLinear().
+      range(
+        [HEIGHT - MARGINS.top, MARGINS.bottom])
+      .domain(
+        [d3.min(values, function (d: any) {
+          return Number(d.y);
+        }), d3.max(values, function (d: any) {
+          return Number(d.y);
+        })]);
 
-    const xScale = d3.scale.linear().range([MARGINS.left, WIDTH - MARGINS.right])
+    const xAxis = d3.axisBottom(xRange).tickSize(1);//.tickSubdivide(true),
+    const yAxis = d3.axisLeft(yRange).tickSize(1);//.tickSubdivide(true);
+
+    const xScale = d3.scaleLinear()
+      .range([MARGINS.left, WIDTH - MARGINS.right])
       .domain([d3.min(values, function (d: any) {
-        return d.x;
+        return Number(d.x);
       }), d3.max(values, function (d: any) {
-        return d.x;
+        return Number(d.x);
       })]);
 
-    const yScale = d3.scale.linear().range([HEIGHT - MARGINS.top, MARGINS.bottom])
+    const yScale = d3.scaleLinear()
+      .range([HEIGHT - MARGINS.top, MARGINS.bottom])
       .domain([d3.min(values, function (d: any) {
-        return d.y;
+        return Number(d.y);
       }), d3.max(values, function (d: any) {
-        return d.y;
+        return Number(d.y);
       })]);
 
     const dataGroup = d3.nest().key(function (d: any) {

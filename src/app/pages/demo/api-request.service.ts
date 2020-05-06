@@ -12,7 +12,6 @@ import {Config} from '../../config/config.interface';
 @Injectable()
 export class ApiRequestService {
 
-    private url = '//127.0.0.1:8080/api/';
     private endpoint: string;
     private config: Config;
     private error: string;

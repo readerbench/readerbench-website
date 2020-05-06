@@ -59,7 +59,7 @@ export class ChordComponent implements AfterViewInit {
   }
 
   private candlestick() {
-    const parseDate = d3.time.format('%Y-%m-%d').parse;
+    const parseDate = d3.timeFormat('%Y-%m-%d');
     let TPeriod = '3M';
     const TDays = { '1M': 21, '3M': 63, '6M': 126, '1Y': 252, '2Y': 504, '4Y': 1008 };
     const TIntervals = { '1M': 'day', '3M': 'day', '6M': 'day', '1Y': 'week', '2Y': 'week', '4Y': 'month' };
@@ -67,10 +67,10 @@ export class ChordComponent implements AfterViewInit {
     let genRaw, genData;
 
     (function () {
-      d3.csv('stockdata.csv', genType, function (data) {
-        genRaw = data;
-        mainjs();
-      });
+      // d3.csv('stockdata.csv', genType, function (data) {
+      //   genRaw = data;
+      //   mainjs();
+      // });
     }());
 
     function toSlice(data) { return data.slice(-TDays[TPeriod]); }
@@ -189,18 +189,16 @@ export class ChordComponent implements AfterViewInit {
       function barrender(selection) {
         selection.each(function (data) {
 
-          const x = d3.scale.ordinal()
-            .rangeBands([0, width]);
+          const x = d3.scaleLinear()
+            .range([0, width]);
 
-          const y = d3.scale.linear()
+          const y = d3.scaleLinear()
             .rangeRound([height, 0]);
 
-          const xAxis = d3.svg.axis()
-            .scale(x)
-            .tickFormat(d3.time.format('%Y-%m-%d'));
+          const xAxis = d3.axisBottom(x)
+            .tickFormat(d3.timeFormat('%Y-%m-%d'));
 
-          const yAxis = d3.svg.axis()
-            .scale(y)
+          const yAxis = d3.axisRight(y)
             .ticks(Math.floor(height / 50));
 
           const svg = d3.select(this).select('svg')
@@ -208,7 +206,7 @@ export class ChordComponent implements AfterViewInit {
             .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
           x.domain(data.map(function (d) { return d.TIMESTAMP; }));
-          y.domain([0, d3.max(data, function (d) { return d[MValue]; })]).nice();
+          y.domain([0, d3.max(data, function (d) { return Number(d[MValue]); })]).nice();
 
           const xtickdelta = Math.ceil(60 / (width / data.length));
           xAxis.tickValues(x.domain().filter(function (d, i) { return !((i + Math.floor(xtickdelta / 2)) % xtickdelta); }));
@@ -216,14 +214,14 @@ export class ChordComponent implements AfterViewInit {
           svg.append('g')
             .attr('class', 'axis yaxis')
             .attr('transform', 'translate(' + width + ',0)')
-            .call(yAxis.orient('right').tickFormat('').tickSize(0));
+            .call(yAxis.tickFormat(null));
 
           //      svg.append("g")
           //          .attr("class", "axis yaxis")
           //          .attr("transform", "translate(0,0)")
           //          .call(yAxis.orient("left"));
 
-          const barwidth = x.rangeBand();
+          const barwidth = 0;
           const fillwidth = (Math.floor(barwidth * 0.9) / 2) * 2 + 1;
           const bardelta = Math.round((barwidth - fillwidth) / 2);
 
@@ -282,31 +280,29 @@ export class ChordComponent implements AfterViewInit {
 
           var interval = TIntervals[TPeriod];
 
-          var minimal = d3.min(genData, function (d: any) { return d.LOW; });
-          var maximal = d3.max(genData, function (d: any) { return d.HIGH; });
+          var minimal = Number(d3.min(genData, function (d: any) { return d.LOW; }));
+          var maximal = Number(d3.max(genData, function (d: any) { return d.HIGH; }));
 
-          var extRight = width + margin.right
-          var x = d3.scale.ordinal()
-            .rangeBands([0, width]);
+          var extRight = width + margin.right;
+          var x = d3.scaleLinear()
+            .range([0, width]);
 
-          var y = d3.scale.linear()
+          var y = d3.scaleLinear()
             .rangeRound([height, 0]);
 
-          var xAxis = d3.svg.axis()
-            .scale(x)
-            .tickFormat(d3.time.format(TFormat[interval]));
+          var xAxis = d3.axisBottom(x)
+            .tickFormat(d3.timeFormat(TFormat[interval]));
 
-          var yAxis = d3.svg.axis()
-            .scale(y)
+          var yAxis = d3.axisLeft(y)
             .ticks(Math.floor(height / 50));
 
           x.domain(genData.map(function (d) { return d.TIMESTAMP; }));
           y.domain([minimal, maximal]).nice();
 
-          var xtickdelta = Math.ceil(60 / (width / genData.length))
+          var xtickdelta = Math.ceil(60 / (width / genData.length));
           xAxis.tickValues(x.domain().filter(function (d, i) { return !((i + Math.floor(xtickdelta / 2)) % xtickdelta); }));
 
-          var barwidth = x.rangeBand();
+          var barwidth = 0;
           var candlewidth = Math.floor(d3.min([barwidth * 0.8, 13]) / 2) * 2 + 1;
           var delta = Math.round((barwidth - candlewidth) / 2);
 
@@ -320,19 +316,19 @@ export class ChordComponent implements AfterViewInit {
           svg.append('g')
             .attr('class', 'axis xaxis')
             .attr('transform', 'translate(0,' + height + ')')
-            .call(xAxis.orient('bottom').outerTickSize(0));
+            .call(xAxis.tickSizeOuter(0));
 
           svg.append('g')
             .attr('class', 'axis yaxis')
             .attr('transform', 'translate(' + width + ',0)')
-            .call(yAxis.orient('right').tickSize(0));
+            .call(yAxis.tickSize(0));
 
           svg.append('g')
             .attr('class', 'axis grid')
             .attr('transform', 'translate(' + width + ',0)')
-            .call(yAxis.orient('left').tickFormat('').tickSize(width).outerTickSize(0));
+            .call(yAxis.tickSize(width).tickSizeOuter(0));
 
-          var bands = svg.selectAll('.bands')
+          const bands = svg.selectAll('.bands')
             .data([genData])
             .enter().append('g')
             .attr('class', 'bands');
@@ -407,11 +403,11 @@ export class ChordComponent implements AfterViewInit {
     function timeCompare(date, interval) {
       let durfn: any;
       if (interval === 'week') {
-        durfn = d3.time.monday(date);
+        durfn = d3.timeMonday(date);
       } else if (interval === 'month') {
-        durfn = d3.time.month(date);
+        durfn = d3.timeMonth(date);
       } else {
-        durfn = d3.time.day(date);
+        durfn = d3.timeDay(date);
       }
       return durfn;
     }
@@ -443,8 +439,8 @@ export class ChordComponent implements AfterViewInit {
         selection.each(function (data) {
 
           var interval = TIntervals[TPeriod];
-          var format = (interval == 'month') ? d3.time.format('%b %Y') : d3.time.format('%b %d %Y');
-          var dateprefix = (interval == 'month') ? 'Month of ' : (interval == 'week') ? 'Week of ' : '';
+          var format = (interval === 'month') ? d3.timeFormat('%b %Y') : d3.timeFormat('%b %d %Y');
+          var dateprefix = (interval === 'month') ? 'Month of ' : (interval === 'week') ? 'Week of ' : '';
           d3.select('#infodate').text(dateprefix + format(data.TIMESTAMP));
           d3.select('#infoopen').text('O ' + data.OPEN);
           d3.select('#infohigh').text('H ' + data.HIGH);
@@ -554,34 +550,34 @@ export class ChordComponent implements AfterViewInit {
     }
 
     function drawPaths(svg, data, x, y) {
-      var upperOuterArea = d3.svg.area()
-        .interpolate('basis')
+      const area = d3.interpolate('basis', d3.area()
         .x(function (d: any) { return x(d.date) || 1; })
         .y0(function (d: any) { return y(d.pct95); })
-        .y1(function (d: any) { return y(d.pct75); });
+        .y1(function (d: any) { return y(d.pct75); }));
 
-      var upperInnerArea = d3.svg.area()
-        .interpolate('basis')
+      const upperOuterArea = d3.interpolate('basis', d3.area()
+        .x(function (d: any) { return x(d.date) || 1; })
+        .y0(function (d: any) { return y(d.pct95); })
+        .y1(function (d: any) { return y(d.pct75); }));
+
+      const upperInnerArea = d3.interpolate('basis', d3.area()
         .x(function (d: any) { return x(d.date) || 1; })
         .y0(function (d: any) { return y(d.pct75); })
-        .y1(function (d: any) { return y(d.pct50); });
+        .y1(function (d: any) { return y(d.pct50); }));
 
-      var medianLine = d3.svg.line()
-        .interpolate('basis')
+      const medianLine = d3.interpolate('basis', d3.line()
         .x(function (d: any) { return x(d.date); })
-        .y(function (d: any) { return y(d.pct50); });
+        .y(function (d: any) { return y(d.pct50); }));
 
-      var lowerInnerArea = d3.svg.area()
-        .interpolate('basis')
+      const lowerInnerArea = d3.interpolate('basis', d3.area()
         .x(function (d: any) { return x(d.date) || 1; })
         .y0(function (d: any) { return y(d.pct50); })
-        .y1(function (d: any) { return y(d.pct25); });
+        .y1(function (d: any) { return y(d.pct25); }));
 
-      var lowerOuterArea = d3.svg.area()
-        .interpolate('basis')
+      const lowerOuterArea = d3.interpolate('basis', d3.area()
         .x(function (d: any) { return x(d.date) || 1; })
         .y0(function (d: any) { return y(d.pct25); })
-        .y1(function (d: any) { return y(d.pct05); });
+        .y1(function (d: any) { return y(d.pct05); }));
 
       svg.datum(data);
 
@@ -662,25 +658,24 @@ export class ChordComponent implements AfterViewInit {
       // });
     }
 
-    function makeChart(data, markers) {
-      var svgWidth = 1200,
+    function makeChart(data: any, markers: any) {
+      const svgWidth = 1200,
         svgHeight = 600,
         margin = { top: 20, right: 20, bottom: 40, left: 40 },
         chartWidth = svgWidth - margin.left - margin.right,
         chartHeight = svgHeight - margin.top - margin.bottom;
 
-      var x = d3.time.scale().range([0, chartWidth])
-        .domain(d3.extent(data, function (d: any) { return d.date; })),
-        y = d3.scale.linear().range([chartHeight, 0])
-          .domain([0, d3.max(data, function (d: any) { return d.pct95; })]);
+      const x = d3.scaleTime().range([0, chartWidth])
+        .domain(d3.extent(data, function (d: any) { return new Date(d.date); })),
+        y = d3.scaleLinear().range([chartHeight, 0])
+          .domain([0, d3.max(data, function (d: any) { return Number(d.pct95); })]);
 
-      var xAxis = d3.svg.axis().scale(x).orient('bottom')
-        .innerTickSize(-chartHeight).outerTickSize(0).tickPadding(10),
-        yAxis = d3.svg.axis().scale(y).orient('left')
-          .innerTickSize(-chartWidth).outerTickSize(0).tickPadding(10);
+      const xAxis = d3.axisBottom(x)
+        .tickSizeInner(-chartHeight).tickSizeOuter(0).tickPadding(10),
+        yAxis = d3.axisLeft(y)
+          .tickSizeInner(-chartWidth).tickSizeOuter(0).tickPadding(10);
 
-      //console.log(d3.select("#Community"));
-      var svg = d3.select('body').append('svg')
+      const svg = d3.select('body').append('svg')
         .attr('width', svgWidth)
         .attr('height', svgHeight)
         .append('g')
@@ -688,7 +683,7 @@ export class ChordComponent implements AfterViewInit {
       console.log(svg);
 
       // clipping to start chart hidden and slide it in later
-      var rectClip = svg.append('clipPath')
+      const rectClip = svg.append('clipPath')
         .attr('id', 'rect-clip')
         .append('rect')
         .attr('width', 0)
@@ -699,14 +694,14 @@ export class ChordComponent implements AfterViewInit {
       startTransitions(svg, chartWidth, chartHeight, rectClip, markers, x);
     }
 
-    var parseDate = d3.time.format('%Y-%m-%d').parse;
+    var parseDate = d3.timeFormat('%Y-%m-%d');
     //d3.json('data.json', function (error, rawData) {
     // if (error) {
     //   console.error(error);
     //   return;
     // }
 
-    var data = this.rawData.map(function (d) {
+    const data = this.rawData.map(function (d: any) {
       console.log('parse date: ' + parseDate(d.date));
       return {
         date: parseDate(d.date),
@@ -724,7 +719,7 @@ export class ChordComponent implements AfterViewInit {
     //   return;
     // }
 
-    var markers = this.markerData.map(function (marker) {
+    var markers = this.markerData.map(function (marker: any) {
       return {
         date: parseDate(marker.date),
         type: marker.type,
@@ -803,26 +798,26 @@ export class ChordComponent implements AfterViewInit {
 
 
   private generateChord(cities, matrix) {
-    var width = 720,
+    const width = 720,
       height = 720,
       outerRadius = Math.min(width, height) / 2,
       innerRadius = outerRadius - 24;
 
-    var formatPercent = d3.format('.1%');
+    const formatPercent = d3.format('.1%');
 
-    var arc = d3.svg.arc()
+    const arc = d3.arc()
       .innerRadius(innerRadius)
       .outerRadius(outerRadius);
 
-    var layout = d3.layout.chord()
-      .padding(.04)
+    const layout = d3.chord()
+      .padAngle(.04)
       .sortSubgroups(d3.descending)
       .sortChords(d3.ascending);
 
-    var path = d3.svg.chord()
-      .radius(innerRadius);
+    const path = d3.chord();
+      // .radius(innerRadius);
 
-    var svg = d3.select('body').append('svg')
+    const svg = d3.select('body').append('svg')
       .attr('width', width)
       .attr('height', height)
       .append('g')
@@ -832,32 +827,26 @@ export class ChordComponent implements AfterViewInit {
     svg.append('circle')
       .attr('r', outerRadius);
 
-    //d3.csv("teams.csv", function(cities) {
-    //d3.json("matrix.json", function(matrix) {
-    console.log(cities);
-    // Compute the chord layout.
-    layout.matrix(matrix);
-
     // Add a group per neighborhood.
-    var group = svg.selectAll('.group')
-      .data(layout.groups)
+    const group = svg.selectAll('.group')
+      .datum(layout(matrix).groups)
       .enter().append('g')
       .attr('class', 'group')
       .on('mouseover', mouseover);
 
     // Add a mouseover title.
     group.append('title').text(function (d, i) {
-      return cities[i].name + ': ' + formatPercent(d.value) + ' of origins';
+      return cities[i].name + ': ' + formatPercent(d.values[0]) + ' of origins';
     });
 
     // Add the group arc.
-    var groupPath = group.append('path')
+    const groupPath = group.append('path')
       .attr('id', function (d, i) { return 'group' + i; })
       .attr('d', <any>arc)
       .style('fill', function (d, i) { return cities[i].color; });
 
     // Add a text label.
-    var groupText = group.append('text')
+    const groupText = group.append('text')
       .attr('x', 6)
       .attr('dy', 15);
 
@@ -871,14 +860,14 @@ export class ChordComponent implements AfterViewInit {
 
     // Add the chords.
     var chord = svg.selectAll('.chord')
-      .data(layout.chords)
+      .data(layout)
       .enter().append('path')
       .attr('class', 'chord')
-      .style('fill', function (d) { return cities[d.source.index].color; })
+      .style('fill', function (d: any) { return cities[d.source.index].color; })
       .attr('d', <any>path);
 
     // Add an elaborate mouseover title for each chord.
-    chord.append('title').text(function (d) {
+    chord.append('title').text(function (d: any) {
       return cities[d.source.index].name
         + ' → ' + cities[d.target.index].name
         + ': ' + formatPercent(d.source.value)
@@ -888,13 +877,11 @@ export class ChordComponent implements AfterViewInit {
     });
 
     function mouseover(d, i) {
-      chord.classed('fade', function (p) {
+      chord.classed('fade', function (p: any) {
         return p.source.index != i
           && p.target.index != i;
       });
     }
-    //});
-    //});
   }
 
 

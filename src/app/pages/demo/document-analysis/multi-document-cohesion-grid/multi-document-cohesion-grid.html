@@ -1,0 +1,26 @@
+<div class="row multi-doc-component">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-1 granularity-section">
+                <!-- <ui-switch
+                            size="medium"
+                            color="white"
+                            switchColor="#43B9C7"
+                            checkedLabel="Sentence"
+                            uncheckedLabel="Pharagraph"
+                            checkedTextColor="#43B9C7"
+                            uncheckedTextColor="#43B9C7"
+                            (valueChange)="onValueChange($event)">
+                </ui-switch> -->
+            <label>Granularity</label>
+            <select class="form-control" [ngModel]="selectedGranularity"
+                (ngModelChange)="onValueChange($event)">
+                <option *ngFor="let granularity of granularities" [ngValue]="granularity"
+                    data-toggle="tooltip" title="{{granularity.description}}">{{ granularity.description }}</option>
+            </select>
+        </div>
+
+    </div>
+
+    <div class="col-xs-12 multi-document-cohesion-grid-content-svg"></div>
+</div>

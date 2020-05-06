@@ -19,6 +19,7 @@ import { ContactComponent } from '../pages/contact/contact.component';
 import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
 import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import {DocumentAnalysisComponent} from "../pages/demo/document-analysis/document-analysis";
 
 const routes: Routes = [
   {
@@ -93,6 +94,10 @@ const routes: Routes = [
     path: 'demo/curriculum-recommendation',
     component: CurriculumRecommendationComponent,
   },
+{
+    path: 'demo/document-analysis',
+    component: DocumentAnalysisComponent,
+},
   {
     path: '',
     component: HomeComponent,

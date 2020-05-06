@@ -1,0 +1,8 @@
+@import '~ngx-ui-switch/ui-switch.component.css';
+
+.multi-doc-component{
+    /*margin-top: 100px;*/
+}
+.granularity-section {
+    margin-left: 20px;;
+}

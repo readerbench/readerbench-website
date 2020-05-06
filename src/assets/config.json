@@ -31,7 +31,8 @@
       "communityKeywords": "community/keywords",
 
     "ciModelAnalyzer": "v2/amoc",
-    "keywordsHeatmap": "keywords-heatmap"
+    "keywordsHeatmap": "keywords-heatmap",
+    "cna-graph": "v2/cna-graph"
   },
   "apiHeaders": {
     "commonRequest": {

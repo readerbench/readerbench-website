@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { UiSwitchModule } from 'ngx-ui-switch';
 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 
@@ -61,6 +62,9 @@ import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagr
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import {NgbAccordion, NgbAccordionModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
+import { Ng5SliderModule } from 'ng5-slider';
+import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
 
 @NgModule({
   declarations: [
@@ -110,7 +114,9 @@ import {NgbAccordion, NgbAccordionModule, NgbModule} from '@ng-bootstrap/ng-boot
     HierarchicalEdgeBundlingComponent,
     ClusteredForceLayoutComponent,
     MultiLevelEdgeBundlingComponent,
-    ChordComponent
+    ChordComponent,
+    DocumentAnalysisComponent,
+    MultiDocumentCohesionGridComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +126,10 @@ import {NgbAccordion, NgbAccordionModule, NgbModule} from '@ng-bootstrap/ng-boot
     HttpModule,
     KeywordsModule,
     ReaderBenchCommonModule,
-      NgbAccordionModule
+      NgbAccordionModule,
+    ReaderBenchCommonModule,
+    Ng5SliderModule,
+    UiSwitchModule
   ],
   exports: [
     KeywordsComponent

@@ -1,0 +1,132 @@
+
+<div>
+    <app-header></app-header>
+    <div class="content-wrapper">
+      <app-carousel></app-carousel>
+      <div class="container">
+        <div class="row top-buffer">
+          <app-demo-menu></app-demo-menu>
+        </div>
+      </div>
+      <div class="container">
+        <div class="section-header">
+          <h1>Multi-Document CNA</h1>
+        </div>
+      </div>
+
+      <div class="container inputs-container">
+        <div class="row">
+            <div class="col-xs-2">
+              <label>Language</label>
+              <select class="form-control" [ngModel]="selectedLanguage"
+                  (ngModelChange)="selectedLanguage=$event">
+                  <option *ngFor="let language of languages" [ngValue]="language"
+                      data-toggle="tooltip" title="{{language.description}}">{{ language.description }}</option>
+              </select>
+            </div>
+        </div>
+            
+        <div class="row" *ngFor="let inputText of inputTexts; let in=index">
+          <div class="col-xs-12">
+            <div class="row">
+              <div class="col-xs-12">
+                <label>Document {{in + 1}}</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-11">
+                <textarea id="input_text_document_ + {{in}}" class="form-control" rows="10" [(ngModel)]="inputText.text"></textarea>
+              </div>
+              <div class="col-xs-1">
+                <i class="icon icon-minus delete-document-icon" (click)="deleteDocumentInput(in)"></i>
+              </div>
+            </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-xs-11"></div>
+          <div class="col-xs-1">
+            <i class="icon icon-plus add-document-icon" (click)="addDocumentInput()"></i>
+          </div>
+        </div>
+        
+        <!-- <div class="row">
+            <div class="col-xs-6">
+              <label>LEXICAL_OVERLAP: ARGUMENT_OVERLAP</label>
+              <ng5-slider [(value)]="sliderValueArgument" [options]="options"></ng5-slider> <button (click)="recordDaysConfig()">days</button>
+            </div>
+        </div> -->
+          <div class="row">&nbsp;</div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label>LEXICAL_OVERLAP: CONTENT_OVERLAP</label>
+            <ng5-slider [(value)]="sliderValueContent" [options]="options" (valueChange)="onChangeToggle($event)"></ng5-slider>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label>LEXICAL_OVERLAP: TOPIC_OVERLAP</label>
+            <ng5-slider [(value)]="sliderValueTopic" [options]="options" (valueChange)="onChangeToggle($event)"></ng5-slider>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <label>SEMANTIC: WORD2VEC</label>
+            <ng5-slider [(value)]="sliderValueSemantic" [options]="options" (valueChange)="onChangeToggle($event)"></ng5-slider>
+          </div>
+        </div>
+
+        <div class="row process-button">
+            <div class="col-xs-1">
+              <button class="filter-button" (click)="showGraph()" >Process</button>
+            </div>
+            <div class="col-xs-2 document-analysis-loader" *ngIf="loading">
+                <img src="assets/img/loader-1.gif"/>
+            </div>
+        </div>
+
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col-xs-12 edges-legend-container"></div>
+    </div>
+    <div class="row slideshow-container tabs-document-analysis-container">
+        <div class="col-md-12">
+            <!-- Tab links -->
+            <div class="row tab">
+                <div class="col-xs-1 col-md-1"></div>
+                <div class="col-xs-11 col-md-11 tab-buttons">
+                    <button class="tablinks" (click)="openTab('Multi-Doc overview')" id="button-Multi-Doc overview">
+                        Multi-Doc overview
+                    </button>
+                    <button class="tablinks" (click)="openTab('Multi-Doc paragraph/sentence relations')" id="button-Multi-Doc paragraph/sentence relations">
+                        Multi-Document Cohesion Grid
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Multi-Doc overview tab -->
+            <div id="Multi-Doc overview" class="row tabcontent-document-analysis">
+               
+                <div class="row">
+                    <div class="col-xs-12 container-documents-analysis"></div>
+                </div>
+            </div>
+
+            <!-- Multi-Doc paragraph/sentence relations tab -->
+            <div id="Multi-Doc paragraph/sentence relations" class="row tabcontent-document-analysis">
+              <multi-document-cohesion-grid [documentsetdata]="documentTreeData"
+                                            [thresholdargument]="sliderValueArgument"
+                                            [thresholdcontent]="sliderValueContent"
+                                            [thresholdtopic]="sliderValueTopic"
+                                            [thresholdsemantic]="sliderValueSemantic">
+              </multi-document-cohesion-grid>
+            </div>
+
+        </div>
+    </div>
+
+</div>
