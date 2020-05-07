@@ -30,7 +30,8 @@ export class KeywordsComponent implements OnInit {
 
   value: any;
 
-  constructor(private myApp: AppComponent, private readerbenchService: ReaderBenchService,
+  constructor(private myApp: AppComponent,
+    private readerbenchService: ReaderBenchService,
     private twoModeGraphService: TwoModeGraphService) {
     this.myApp.apiRequestService.setApiService(KeywordsData.serviceName);
     this.myApp.apiRequestService.setHeaders(this.myApp.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
@@ -113,5 +114,9 @@ export class KeywordsComponent implements OnInit {
 
     });
   }
+
+  // downloadCsv() {
+  //   this.readerbenchService.downloadCsv(this.response.)
+  // }
 
 }

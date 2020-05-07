@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as d3 from 'd3';
 import * as _ from 'underscore';
+import { saveAs } from 'file-saver';
 
 @Injectable()
 export class ReaderBenchService {
@@ -389,6 +390,15 @@ export class ReaderBenchService {
       .attr('stroke', '#b8bebf').text(yLabel);
   }
 
+  downloadCsv(data) {
+    const replacer = (key, value) => value === null ? '' : value; // specify how you want to handle null values here
+    const header = Object.keys(data[0]);
+    const csv = data.map(row => header.map(fieldName => JSON.stringify(row[fieldName], replacer)).join(','));
+    csv.unshift(header.join(','));
+    const csvArray = csv.join('\r\n');
 
+    const blob = new Blob([csvArray], { type: 'text/csv' });
+    saveAs(blob, Date.now() + '.csv');
+  }
 
 }

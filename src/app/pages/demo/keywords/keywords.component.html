@@ -31,10 +31,12 @@
                 </div>
               </div>
               <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"
-                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)"></app-demo-common-fields>
+                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)">
+              </app-demo-common-fields>
               <div class="row top-buffer" *ngIf="advanced">
                 <div class="col-xs-12 col-md-12 col-lg-12">
-                  <input type="checkbox" id="input_bigrams" [checked]="formData['bigrams']" (change)="formData['bigrams'] = !formData['bigrams']" />
+                  <input type="checkbox" id="input_bigrams" [checked]="formData['bigrams']"
+                    (change)="formData['bigrams'] = !formData['bigrams']" />
                   <label for="input_bigrams">Include bigrams</label>
                 </div>
               </div>
@@ -74,9 +76,29 @@
                 </div>
               </div>
               <div *ngIf="showResults === true">
-                <!-- <div class="row">
-                  <div class="col-xs-12 col-md-12">
-                    <h4>Keywords</h4>
+                <div class="row top-buffer">
+                  <div class="col-xs-12 col-md-3">
+                    <h4>
+                      Keywords
+                      <span class="download icon-save" (click)="readerbenchService.downloadCsv(this.response.data.nodeList)"></span>
+                    </h4>
+                    <ul class="course-description-list">
+                      <li class="lesson" *ngFor="let topic of response.data.nodeList">
+                        <div class="heading">
+                          <span class="lesson-nr no-select">{{topic.degree | number:'1.2-2'}}</span>
+                        </div>
+                        <div class="body">
+                          <p>{{topic.displayName}}</p>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="col-xs-12 col-md-9" id="conceptMap">
+                    <h4>Concept Map</h4>
+                    <two-mode-graph [graph]="myGraph"></two-mode-graph>
+                  </div>
+
+                  <!-- <div class="col-xs-12 col-md-12">
                     <table class="browse-selections">
                       <thead>
                         <tr>
@@ -102,19 +124,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let topic of topics | limitTo:25">
+                        <tr *ngFor="let topic of response.data.nodeList">
                           <td>{{topic.name}}</td>
                           <td>{{topic.lemma}}</td>
                           <td>{{topic.pos}}</td>
                           <td class="right">{{topic.noOcc}}</td>
                           <td class="right">{{topic.noLinks}}</td>
-                          <td class="right">{{topic.degree| number:3}}</td>
-                          <td class="right">{{topic.value| number:3}}</td>
-                          <td class="right">{{topic.tf| number:3}}</td>
-                          <td class="right">{{topic.idf| number:3}}</td>
-                          <td class="right">{{topic.semanticSimilarities[0].score| number:3}}</td>
-                          <td class="right">{{topic.semanticSimilarities[1].score| number:3}}</td>
-                          <td class="right">{{topic.semanticSimilarities[2].score| number:3}}</td>
+                          <td class="right">{{topic.degree}}</td>
+                          <td class="right">{{topic.value}}</td>
+                          <td class="right">{{topic.tf}}</td>
+                          <td class="right">{{topic.idf}}</td>
+                          <td class="right">{{topic.semanticSimilarities[0].score}}</td>
+                          <td class="right">{{topic.semanticSimilarities[1].score}}</td>
+                          <td class="right">{{topic.semanticSimilarities[2].score}}</td>
                           <td class="right">{{topic.averageDistanceToHypernymTreeRoot}}</td>
                           <td class="right">{{topic.maxDistanceToHypernymTreeRoot}}</td>
                           <td class="right">{{topic.polysemyCount}}</td>
@@ -130,7 +152,7 @@
                               <ng-container *ngFor="let edge of topicEdges">
                                 <ng-container *ngIf="edge.source.id === topic.id">
                                   <li>
-                                    {{topics[edge.target.id].lemma}} ({{topics[edge.target.id].pos}}) - {{edge.score| number:3}}
+                                    {{response.data.nodeList[edge.target.id].lemma}} ({{response.data.nodeList[edge.target.id].pos}}) - {{edge.score}}
                                   </li>
                                 </ng-container>
                               </ng-container>
@@ -139,14 +161,7 @@
                         </tr>
                       </tbody>
                     </table>
-                  </div>
-                </div> -->
-                <div class="row top-buffer">
-                  <div class="col-xs-12 col-md-12 col-lg-12">
-                    <h4>Concept Map</h4>
-                  </div>
-                  <div class="col-xs-12 col-md-12 col-lg-12" id="conceptMap"></div>
-                  <two-mode-graph [graph]="myGraph"></two-mode-graph>
+                  </div> -->
                 </div>
               </div>
             </div>
