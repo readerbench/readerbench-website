@@ -2,7 +2,7 @@ import { DefaultInputData } from '../demo.component.data';
 
 export let CsclData = {
     'fileUploadEndpointKey': 'fileUpload',
-    'serviceName': 'csclProcessing',
+    'serviceName': 'csclProcessingNew',
     'title': 'Computer-Supported Collaborative Learning (New)',
     'languages': [
         DefaultInputData.languages[0],  // en
