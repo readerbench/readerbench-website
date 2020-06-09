@@ -60,12 +60,20 @@ import { ConfigComponent } from './config/config.component';
 import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/hierarchical-edge-bundling.component';
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
-import {CurriculumRecommendationComponent} from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
-import {NgbAccordion, NgbAccordionModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { CurriculumRecommendationComponent } from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import {NgbAccordion, NgbAccordionModule, NgbModule, NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
+import { CsclNewComponent } from './pages/demo/cscl-new/cscl-new.component';
+import { DropzoneModule, DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 
+const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
+  // Change this to your upload POST address:
+  url: '//readerbench.com/api/v2/file-upload',
+  // acceptedFiles: 'image/*',
+  createImageThumbnails: true
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -90,6 +98,7 @@ import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analys
     SemanticAnnotationComponent,
     SelfExplanationComponent,
     CsclComponent,
+    CsclNewComponent,
     CvAnalysisComponent,
     ComprehensionModelComponent,
     CMScoresTableComponent,
@@ -126,10 +135,12 @@ import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analys
     HttpModule,
     KeywordsModule,
     ReaderBenchCommonModule,
-      NgbAccordionModule,
+    NgbAccordionModule,
+    NgbRatingModule,
     ReaderBenchCommonModule,
     Ng5SliderModule,
-    UiSwitchModule
+    UiSwitchModule,
+    DropzoneModule,
   ],
   exports: [
     KeywordsComponent
@@ -137,7 +148,11 @@ import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analys
   providers: [
     ApiRequestService,
     ConfigService,
-    ReaderBenchService
+    ReaderBenchService,
+    {
+      provide: DROPZONE_CONFIG,
+      useValue: DEFAULT_DROPZONE_CONFIG
+    },
   ],
   bootstrap: [
     AppComponent

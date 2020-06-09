@@ -1,5 +1,5 @@
-.last {
-    clear: both;
+.ajax-target .row>div {
+    padding: 0 10px;
 }
 
 .center-image {
