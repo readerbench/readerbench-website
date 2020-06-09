@@ -14,7 +14,7 @@
 
   "apiEndpoints": {
     "sentimentAnalysis": "sentiment-analysis",
-    "curriculumRecommendation": "mass-customisation",
+    "curriculumRecommendation": "v2/mass-customization",
     "textualComplexity": "v2/textual-complexity",
     "keywords": "v2/keywords",
     "selfExplanation": "self-explanation",

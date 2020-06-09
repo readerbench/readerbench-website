@@ -34,18 +34,22 @@ export class CurriculumRecommendationComponent implements OnInit {
     expertise: any;
     themes: any;
     keywords: any;
-    selectedExpertise: any = [];
-    filteredKeywords: any = [];
-    selectedKeywords: any = [];
-    topicsFormat: any = {};
     topics: any = [];
-    selectedThemes: any = [];
+    selectedKeywords: any = [];
+    filteredKeywords: any = [];
     lessons: any = [];
     recommended: any = [];
     preRequisite: any = [];
     postRequisite: any = [];
     preRequisiteLessons: any = [];
     postRequisiteLessons: any = [];
+    levels: any = [];
+    likedLessons: any = [];
+    dislikedLessons: any = [];
+    selectedDomain: string;
+    selectedLevel: string;
+    hoveredRating= 0;
+    selectedRating= 0;
 
     constructor(private myApp: AppComponent) {
         this.myApp.apiRequestService.setApiService(CurriculumRecommendationData.serviceName);
@@ -63,13 +67,22 @@ export class CurriculumRecommendationComponent implements OnInit {
         this.advanced = false;
         this.loading = false;
         this.showResults = false;
+        this.levels = ['Beginner', 'Intermediate', 'Expert'];
+        this.selectedLevel = 'Beginner';
+        this.selectedDomain = 'nutrition';
     }
 
     process() {
+        const selectedExpertise = [];
+        const selectedThemes = [];
+        const topicsFormat = {};
+
         this.expertise.forEach(
             (exp) => {
-                if (exp.checked) {
-                    this.selectedExpertise.push(exp.value);
+                if (exp.checked && exp.id <= 5 && exp.value !== 'medicine') {
+                    selectedExpertise.push('medicine_' + exp.value);
+                } else if (exp.checked && exp.value !== 'medicine') {
+                    selectedExpertise.push(exp.value);
                 }
             }
         );
@@ -77,7 +90,7 @@ export class CurriculumRecommendationComponent implements OnInit {
         this.themes.forEach(
             (thm) => {
                 if (thm.checked) {
-                    this.selectedThemes.push(thm.value);
+                    selectedThemes.push(thm.value);
                 }
             }
         );
@@ -86,16 +99,16 @@ export class CurriculumRecommendationComponent implements OnInit {
             (kywd) => {
                 const tempKey = kywd.split('-');
                 if (tempKey[1]) {
-                    if (this.topicsFormat[tempKey[0].trim()]) {
-                        this.topicsFormat[tempKey[0].trim()].push(tempKey[1].trim());
+                    if (topicsFormat[tempKey[0].trim()]) {
+                        topicsFormat[tempKey[0].trim()].push(tempKey[1].trim());
                     } else {
-                        this.topicsFormat[tempKey[0].trim()] = [tempKey[1].trim()];
+                        topicsFormat[tempKey[0].trim()] = [tempKey[1].trim()];
                     }
                 } else {
                     this.keywords.forEach(
                         (key) => {
                             if (key.value === tempKey[0].trim()) {
-                                this.topicsFormat[tempKey[0].trim()] = [...key.children];
+                                topicsFormat[tempKey[0].trim()] = [...key.children];
                             }
                         }
                     );
@@ -103,13 +116,17 @@ export class CurriculumRecommendationComponent implements OnInit {
             }
         );
 
-        Object.keys(this.topicsFormat).forEach(
-            (key) => {
-                this.topics.push({[key]: this.topicsFormat[key]});
-            }
-        );
+        if (this.selectedDomain !== 'other') {
+            Object.keys(topicsFormat).forEach(
+                (key) => {
+                    this.topics.push({[key]: topicsFormat[key]});
+                }
+            );
+        } else {
+            this.topics = this.selectedKeywords;
+        }
 
-        if (this.selectedExpertise.length === 0) {
+        if (selectedExpertise.length === 0 && this.selectedDomain !== 'other') {
             alert('Please add expertise!');
             return false;
         }
@@ -124,10 +141,14 @@ export class CurriculumRecommendationComponent implements OnInit {
 
         const data = {
             'cme': false,
-            'expertise': this.selectedExpertise,
+            'expertise': selectedExpertise,
             'text': this.textValue,
-            'themes': this.selectedThemes,
+            'themes': selectedThemes,
             'topics': this.topics,
+            'otherdomains': this.selectedDomain === 'other',
+            'level': this.selectedLevel.toLowerCase(),
+            'likedlessons': this.likedLessons,
+            'dislikedlessons': this.dislikedLessons
         };
 
 
@@ -135,43 +156,48 @@ export class CurriculumRecommendationComponent implements OnInit {
                 if (response.success !== true) {
                     alert(response.errorMsg);
                     this.loading = false;
+                    this.topics = [];
                     this.showResults = false;
                     return;
                 }
 
                 this.lessons = response.data.lessons;
+                if (this.selectedDomain === 'other') {
+                    this.recommended = response.data.lessons;
+                } else {
+                    response.data.recommended.forEach(
+                        (rec) => {
+                            this.recommended = [...this.recommended, ...this.lessons.filter(el => el.id === rec)];
+                        }
+                    );
 
-                response.data.recommended.forEach(
-                    (rec) => {
-                        this.recommended = [...this.recommended, ...this.lessons.filter(el => el.id === rec)];
-                    }
-                );
 
+                    this.recommended.forEach(
+                        (element) => {
+                            this.preRequisite = [...this.preRequisite, ...element.prerequisites];
+                            this.postRequisite = [...this.postRequisite, ...element.postrequisites];
+                        }
+                    );
 
-                this.recommended.forEach(
-                    (element) => {
-                        this.preRequisite = [...this.preRequisite, ...element.prerequisites];
-                        this.postRequisite = [...this.postRequisite, ...element.postrequisites];
-                    }
-                );
+                    this.preRequisite.forEach(
+                        (pre) => {
+                            this.preRequisiteLessons = [...this.preRequisiteLessons, ...this.lessons.filter(el => el.id === pre)];
+                        }
+                    );
 
-                this.preRequisite.forEach(
-                    (pre) => {
-                        this.preRequisiteLessons = [...this.preRequisiteLessons, ...this.lessons.filter(el => el.id === pre)];
-                    }
-                );
-
-                this.postRequisite.forEach(
-                    (post) => {
-                        this.postRequisiteLessons = [...this.postRequisiteLessons, ...this.lessons.filter(el => el.id === post)];
-                    }
-                );
+                    this.postRequisite.forEach(
+                        (post) => {
+                            this.postRequisiteLessons = [...this.postRequisiteLessons, ...this.lessons.filter(el => el.id === post)];
+                        }
+                    );
+                }
 
                 this.loading = false;
                 this.showResults = true;
             },
             error => {
-                alert('An error has occured!');
+                console.log(error);
+                this.loading = false;
             });
     }
 
@@ -189,6 +215,37 @@ export class CurriculumRecommendationComponent implements OnInit {
                 }
             );
         }
+    }
+
+    selectDomain(domain) {
+        this.selectedDomain = domain;
+        if (domain === 'nutrition') {
+            this.keywords = Object.assign([], CurriculumRecommendationData.keywords);
+        } else {
+            this.keywords = Object.assign([], CurriculumRecommendationData.subdomains);
+        }
+    }
+
+    likeLesson(lesson) {
+        if (this.likedLessons.includes(lesson.published_title)) {
+            this.likedLessons = this.likedLessons.filter(e => e !== lesson.published_title);
+        } else {
+            this.likedLessons.push(lesson.published_title);
+            this.dislikedLessons = this.dislikedLessons.filter(e => e !== lesson.published_title);
+        }
+    }
+
+    dislikeLesson(lesson) {
+        if (this.dislikedLessons.includes(lesson.published_title)) {
+            this.dislikedLessons = this.dislikedLessons.filter(e => e !== lesson.published_title);
+        } else {
+            this.dislikedLessons.push(lesson.published_title);
+            this.likedLessons = this.likedLessons.filter(e => e !== lesson.published_title);
+        }
+    }
+
+    checkTheme(theme) {
+        theme.checked = !theme.checked;
     }
 
     searchKeyword() {
@@ -217,21 +274,28 @@ export class CurriculumRecommendationComponent implements OnInit {
             keywords.forEach(
                 (keywordSection) => {
                     let tempValue = [];
-                    if (keywordSection.value.toLowerCase().includes(stringFilter.toLowerCase())) {
-                        tempValue.push(keywordSection.value);
-                        keywordSection.children.forEach(
-                            (childKey) => {
-                                tempValue.push(keywordSection.value + ' - ' + childKey);
-                            }
-                        );
+                    if (this.selectedDomain === 'nutrition') {
+                        if (keywordSection.value.toLowerCase().includes(stringFilter.toLowerCase())) {
+                            tempValue.push(keywordSection.value);
+                            keywordSection.children.forEach(
+                                (childKey) => {
+                                    tempValue.push(keywordSection.value + ' - ' + childKey);
+                                }
+                            );
+                        } else {
+                            tempValue = keywordSection.children.reduce((accum, el) => {
+                                if (el.toLowerCase().includes(stringFilter.toLowerCase())) {
+                                    return [...accum, keywordSection.value + ' - ' + el];
+                                }
+                                return [...accum];
+                            }, []);
+                        }
                     } else {
-                        tempValue = keywordSection.children.reduce((accum, el) => {
-                            if (el.toLowerCase().includes(stringFilter.toLowerCase())) {
-                                return [...accum, keywordSection.value + ' - ' + el];
-                            }
-                            return [...accum];
-                        }, []);
+                        if (keywordSection.toLowerCase().includes(stringFilter.toLowerCase())) {
+                            tempValue.push(keywordSection);
+                        }
                     }
+
 
                     this.filteredKeywords = [...this.filteredKeywords, ...tempValue];
                 }
@@ -257,20 +321,15 @@ export class CurriculumRecommendationComponent implements OnInit {
         this.selectedKeywords.splice(index, 1);
     }
 
+    refineSearch() {
+        this.dislikedLessons = [];
+        this.process();
+    }
+
     newSearch() {
         this.lessons = [];
+        this.textValue = '';
+        this.selectedKeywords = [];
         this.showResults = false;
     }
-
-
-    animateProgressBar(element) {
-        element.show();
-        jQuery(element).width(0);
-        jQuery(element).width(
-            function () {
-                return jQuery(this).attr('aria-valuenow') + '%';
-            }
-        );
-    }
-
 }

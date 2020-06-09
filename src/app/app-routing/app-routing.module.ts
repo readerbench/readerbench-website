@@ -20,6 +20,7 @@ import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/c
 import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
 import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import {DocumentAnalysisComponent} from "../pages/demo/document-analysis/document-analysis";
+import { CsclNewComponent } from '../pages/demo/cscl-new/cscl-new.component';
 
 const routes: Routes = [
   {
@@ -65,6 +66,10 @@ const routes: Routes = [
   {
     path: 'demo/cscl',
     component: CsclComponent,
+  },
+  {
+    path: 'demo/cscl-new',
+    component: CsclNewComponent,
   },
   {
     path: 'demo/cv-analysis',

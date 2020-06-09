@@ -50,7 +50,7 @@ export class ApiRequestService {
 
         if (this.serviceName === 'curriculumRecommendation') {
             return this.config.apiProtocol + this.config.portDelimiter + this.config.pathDelimiter + this.config.pathDelimiter +
-                this.config.testServerPath +
+                this.config.apiServer +
                 this.config.pathDelimiter + this.config.apiPath + this.config.pathDelimiter +
                 this.config.apiEndpoints[this.serviceName];
         }

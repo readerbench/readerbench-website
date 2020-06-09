@@ -67,10 +67,64 @@ ol > li > div {
     display: flex;
 }
 
+.input-domain {
+    margin-right: 5px;
+}
+
+.subdomains {
+    margin-left: 40px;
+    opacity: 0.3;
+}
+
+.subdomains.active {
+    opacity: 1;
+}
+
+.lesson-container {
+    position: relative;
+}
+
+.like-buttons{
+    position: absolute;
+    right: 0;
+    top: 5px;
+    font-size: 20px;
+    color: black;
+}
+
+.like-buttons .glyphicon-thumbs-up {
+    margin-right: 20px;
+}
+
+.like-buttons .glyphicon-thumbs-up.active{
+    color: green;
+}
+
+.like-buttons .glyphicon-thumbs-down.active{
+    color: red;
+}
+
+.themes {
+   opacity: 0.3;
+}
+
+.themes.active {
+    opacity: 1;
+}
+
+.level {
+    margin-left: 15px;
+    width: 50%;
+}
+
 .filter-button {
     margin: 0;
     height: 34px;
     line-height: 0;
+}
+
+.bottom-buttons {
+    margin-bottom: 20px;
 }
 
 .wrapper-autocomplete {

@@ -239,6 +239,29 @@ export let CurriculumRecommendationData = {
             ]
         }
     ],
+    'subdomains': [
+        '3D & Animation', 'Accounting & Bookkeeping', 'Advertising', 'Affiliate Marketing', 'Analytics & Automation',
+        'Apple', 'Architectural Design', 'Arts & Crafts', 'Beauty & Makeup', 'Branding', 'Business Law', 'Career Development',
+        'Commercial Photography', 'Communications', 'Compliance', 'Content Marketing', 'Creativity', 'Cryptocurrency & Blockchain',
+        'Dance', 'Data & Analytics', 'Data Science', 'Databases', 'Design Thinking', 'Design Tools', 'Development Tools',
+        'Dieting', 'Digital Marketing', 'Digital Photography', 'E-Commerce', 'Economics', 'Engineering', 'Entrepreneurship',
+        'Essential Tech Skills', 'Fashion', 'Finance', 'Finance Cert & Exam Prep', 'Financial Modeling & Analysis', 'Fitness',
+        'Food & Beverage', 'Game Design', 'Game Development', 'Gaming', 'General Health', 'Google', 'Graphic Design',
+        'Growth Hacking', 'Happiness', 'Hardware', 'Home Business', 'Home Improvement', 'Human Resources', 'Humanities',
+        'Industry', 'Influence', 'Instruments', 'Interior Design', 'Investing & Trading', 'IT Certification', 'Language', 'Leadership',
+        'Management', 'Marketing Fundamentals Math', 'Media', 'Meditation', 'Memory & Study Skills', 'Mental Health',
+        'Microsoft', 'Mobile Apps', 'Money Management Tools', 'Motivation', 'Music Fundamentals', 'Music Software',
+        'Music Techniques', 'Network & Security', 'Nutrition', 'Online Education', 'Operating Systems', 'Operations',
+        'Oracle', 'Other', 'Other Finance & Economics', 'Other Teaching & Academics', 'Parenting & Relationships',
+        'Personal Brand Building', 'Personal Finance', 'Personal Growth & Wellness', 'Personal Transformation',
+        'Pet Care & Training', 'Photography Fundamentals', 'Photography Tools', 'Portraits', 'Product Marketing',
+        'Production', 'Productivity', 'Productivity & Professional Skills', 'Programming Languages', 'Project Management',
+        'Public Relations', 'Real Estate', 'Religion & Spirituality', 'Safety & First Aid', 'Sales', 'SAP', 'Science',
+        'Search Engine Optimization', 'Self Defense', 'Self Esteem', 'Social Media Marketing', 'Social Science',
+        'Software Engineering', 'Software Testing ', 'Sports', 'Strategy', 'Stress Management', 'Taxes',
+        'Teacher Training', 'Test Prep', 'Travel', 'User Experience', 'Video & Mobile Marketing', 'Video Design',
+        'Vocal', 'Vodafone', 'Web Design', 'Web Development', 'Yoga'
+    ],
     'languages': [
         DefaultInputData.languages[0],  // en
         DefaultInputData.languages[1],  // fr
