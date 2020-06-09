@@ -21,6 +21,7 @@
     "semanticAnnotation": "semantic-annotation",
     "cvAnalysis": "cv-processing",
     "csclProcessing": "cscl-processing",
+    "csclProcessingNew": "v2/cscl-processing",
     "fileUpload": "file-upload",
 
     "community": "community/communities",
