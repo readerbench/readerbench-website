@@ -16,7 +16,10 @@
             <h3 class="title">
               <a href="{{item.href}}">{{item.name}}</a>
             </h3>
-            <ul class="course-meta">
+            <ul *ngIf="item.language" class="course-meta">
+              <li><span>Languages</span> {{item.language}}</li>
+            </ul>
+            <ul *ngIf="!item.language" class="course-meta">
               <li><span>Languages</span> English, French</li>
             </ul>
             <div class="course-action">

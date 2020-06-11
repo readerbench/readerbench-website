@@ -45,6 +45,8 @@ import { DemoSemDiffCommonFieldsComponent } from './pages/demo/sections/sem-diff
 import { ReaderBenchCommonModule } from '@reader-bench/common';
 import { KeywordsModule } from './pages/demo/keywords/keywords.module';
 
+import { EssayFeedbackComponent } from './pages/demo/essay-feedback/essay-feedback.component';
+
 import 'jquery';
 import { PeopleComponent } from './pages/people/people.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
@@ -67,6 +69,9 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
 import { CsclNewComponent } from './pages/demo/cscl-new/cscl-new.component';
 import { DropzoneModule, DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -74,6 +79,11 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // acceptedFiles: 'image/*',
   createImageThumbnails: true
 };
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +104,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     CurriculumRecommendationComponent,
     TextualComplexityComponent,
     KeywordsComponent,
-    TextualComplexityComponent,
+    EssayFeedbackComponent,
     SemanticAnnotationComponent,
     SelfExplanationComponent,
     CsclComponent,
@@ -141,6 +151,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     Ng5SliderModule,
     UiSwitchModule,
     DropzoneModule,
+    PerfectScrollbarModule
   ],
   exports: [
     KeywordsComponent
@@ -153,6 +164,10 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
       provide: DROPZONE_CONFIG,
       useValue: DEFAULT_DROPZONE_CONFIG
     },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
   ],
   bootstrap: [
     AppComponent

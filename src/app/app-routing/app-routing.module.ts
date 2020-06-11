@@ -21,6 +21,7 @@ import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keyword
 import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import {DocumentAnalysisComponent} from "../pages/demo/document-analysis/document-analysis";
 import { CsclNewComponent } from '../pages/demo/cscl-new/cscl-new.component';
+import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
 
 const routes: Routes = [
   {
@@ -99,10 +100,14 @@ const routes: Routes = [
     path: 'demo/curriculum-recommendation',
     component: CurriculumRecommendationComponent,
   },
-{
+  {
     path: 'demo/document-analysis',
     component: DocumentAnalysisComponent,
-},
+  },
+  {
+    path: 'demo/essay-feedback',
+    component: EssayFeedbackComponent
+  },
   {
     path: '',
     component: HomeComponent,

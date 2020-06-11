@@ -99,5 +99,13 @@ export let DemoMenuItemsData = [
         description: 'Sentiment Analysis',
         image: 'assets/images/demo_sentiment_analysis.png',
         altText: 'Sentiment Analysis with ReaderBench framework'
-    }
+    },
+    {
+        name: 'Essay Feedback',
+        href: 'demo/essay-feedback',
+        description: 'Essay Feedback',
+        image: 'assets/images/demo_essay_feedback.png',
+        altText: 'Essay Feedback with ReaderBench Framework',
+        language: 'Romanian'
+    },
 ];
