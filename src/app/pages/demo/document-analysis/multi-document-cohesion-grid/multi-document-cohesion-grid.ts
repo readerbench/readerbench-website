@@ -47,11 +47,8 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
     onValueChange(event:any) {
         //this.toggleLevel = value;
-        console.log(event);
         this.selectedGranularity = event;
-        console.log("granularity " + this.selectedGranularity.id);
         if (this.documentsetdata) {
-            console.log("generate again");
             this.generateCohesionGrid(this.documentsetdata);
         }
     }
@@ -87,13 +84,11 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
         var nodesDescendants = data.descendants();
         // Normalize for fixed-depth.
         nodesDescendants.forEach(function(d){ d.y = d.depth * 180});
-        //console.log(nodesDescendants);
 
 
         var nodes = [];
         var colorContor = 1;
         if (this.selectedGranularity.id === 'sentence') { //Sentence
-            console.log("sentence");
             data.children.forEach(document => {
                 var sentences = [];
                 document.children.forEach(pharagraph => {
@@ -107,7 +102,6 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                 nodes.push(sentences);
             });
         } else { //Pharagraph
-            console.log("paragraph");
             data.children.forEach(document => {
                 var pharagraphs = [];
                 document.children.forEach(pharagraph => {
@@ -206,7 +200,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                     });
                     }
                     element.weight === null ? tooltipValue += element.name + "</br>" + details:
-                    tooltipValue += element.name + ": " + parseFloat(element.weight).toFixed(3) + "</br>" + details;
+                    tooltipValue += classMapping.get(element.name) + ": " + parseFloat(element.weight).toFixed(3) + "</br>" + details;
                 });
                 if (edge.types.length > 1) {
                     edge.color = 'connection-MULTIPLE';
@@ -219,7 +213,6 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
                 if (nameToNode[edge.source] && nameToNode[edge.source]) {
                     var isArc = false;
                     if (nameToNode[edge.source].depth === 3){
-                        console.log(nameToNode[edge.source]);
                         if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name ||
                             nameToNode[edge.source].parent.parent.data.name === nameToNode[edge.target].parent.parent.data.name) {
                             isArc = true;

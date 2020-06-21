@@ -67,6 +67,7 @@ import {NgbAccordion, NgbAccordionModule, NgbModule, NgbRatingModule} from '@ng-
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
+import { MultiDocumentHierarchicalViewComponent } from './pages/demo/document-analysis/multi-document-hierarchical/multi-document-hierarchical';
 import { CsclNewComponent } from './pages/demo/cscl-new/cscl-new.component';
 import { DropzoneModule, DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
@@ -135,7 +136,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MultiLevelEdgeBundlingComponent,
     ChordComponent,
     DocumentAnalysisComponent,
-    MultiDocumentCohesionGridComponent
+    MultiDocumentCohesionGridComponent,
+    MultiDocumentHierarchicalViewComponent
   ],
   imports: [
     BrowserModule,

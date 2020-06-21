@@ -43,7 +43,7 @@
   "data": [
     {
       "name": "tree",
-      "url": "assets/nodes.json",
+      "url": "assets/nodes-document.json",
       "transform": [
         {
           "type": "stratify",
@@ -90,7 +90,7 @@
     },
     {
       "name": "dependencies",
-      "url": "assets/edges.json",
+      "url": "assets/edges-document.json",
       "transform": [
         {
           "type": "formula",
@@ -115,7 +115,7 @@
   "marks": [
     {
       "type": "text",
-      "from": {"data": "leaves"},
+      "from": {"data": "tree"},
       "encode": {
         "enter": {
           "text": {"field": "name"},
