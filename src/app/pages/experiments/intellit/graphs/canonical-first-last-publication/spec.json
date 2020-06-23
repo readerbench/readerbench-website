@@ -1,0 +1,83 @@
+{
+    "dataSource": {
+        "url": "assets/canonical-first-last-publication/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "ColumnSeries",
+            "name": "Autori",
+            "dataFields": {
+                "categoryY": "name",
+                "openValueX": "firstPubYear",
+                "valueX": "lastPubYear"
+            },
+            "tooltipText": "First publication year: {openValueX.value}\nLast publication year:{valueX.value}",
+            "sequencedInterpolation": true,
+            "fillOpacity": 0,
+            "strokeOpacity": 1,
+            "columns": {
+                "height": 0.01
+            },
+            "tooltip": {
+                "pointerOrientation": "vertical"
+            },
+            "bullets": [
+                {
+                    "type": "CircleBullet",
+                    "locationX": 1
+                },
+                {
+                    "type": "CircleBullet",
+                    "fill": "#a367dc",
+                    "stroke": "#a367dc"
+                }
+            ]
+        }
+    ],
+    "cursor": {
+        "behavior": "zoomY"
+    },
+    "scrollbarX": {
+        "type": "Scrollbar"        
+    },
+    "yAxes": [
+        {
+            "type": "CategoryAxis",
+            "renderer": {
+                "grid": {
+                    "location": 0.5,
+                    "strokeDaskarray": "1.3"
+                },
+                "ticks": {
+                    "disabled": true
+                },
+                "axisFills": {
+                    "disabled": true
+                },
+                "minGridDistance": 15,
+                "inversed": true,
+                "inside": true
+            },
+            "dataFields": {
+                "category": "name"
+            }
+        }
+    ],
+    "xAxes": [
+        {
+            "type": "ValueAxis",
+            "tooltip": {
+                "disabled": true
+            },
+            "renderer": {
+                "ticks": {
+                    "disabled": true
+                },
+                "axisFills": {
+                    "disabled": true
+                }
+            }
+        }
+    ]
+}

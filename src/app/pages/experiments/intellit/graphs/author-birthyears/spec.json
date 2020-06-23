@@ -1,0 +1,51 @@
+{
+    "dataSource": {
+        "url": "assets/author-birthyears/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "ColumnSeries",
+            "name": "Autori",
+            "dataFields": {
+                "valueY": "count",
+                "categoryX": "year"
+            },
+            "columns": {
+                "tooltipText": "An: {categoryX}\nNumar de autori:{valueY}"
+            }
+        }
+    ],
+    "scrollbarX": {
+        "type": "XYChartScrollbar",
+        "series": [
+            "s1"
+        ],
+        "scrollbarChart": {
+            "seriesContainer": {
+                "opacity": 0
+            }
+        }
+    },
+    "yAxes": [
+        {
+            "type": "ValueAxis",
+            "title": {
+                "text": "Numar autori",
+                "fontWeight": "bold"
+            }    
+        }
+    ],
+    "xAxes": [
+        {
+            "type": "CategoryAxis",
+            "dataFields": {
+                "category": "year"
+            },
+            "title": {
+                "text": "Ani de nastere",
+                "fontWeight": "bold"
+            }
+        }
+    ]
+}

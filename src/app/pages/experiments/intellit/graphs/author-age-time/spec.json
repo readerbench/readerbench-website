@@ -1,0 +1,76 @@
+{
+    "dataSource": {
+        "url": "assets/author-age-time/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "LineSeries",
+            "dataFields": {
+                "dateX": "date",
+                "openValueY": "first",
+                "valueY": "last"
+            },
+            "tooltipText": "Youngest: {openValueY.value}\nOldest: {valueY.value}",
+            "sequencedInterpolation": true,
+            "fillOpacity": 0.3,
+            "defaultState": {
+                "transitionDuration": 1000
+            },
+            "tensionX": 0.8
+        },
+        {
+            "id": "s2",
+            "type": "LineSeries",
+            "dataFields": {
+                "dateX": "date",
+                "valueY": "first"
+            },
+            "sequencedInterpolation": true,
+            "defaultState": {
+                "transitionDuration": 1500
+            },
+            "stroke": "#e38bd9",
+            "tensionX": 0.8
+        },
+        {
+            "id": "s3",
+            "type": "LineSeries",
+            "dataFields": {
+                "dateX": "date",
+                "valueY": "average"
+            },
+            "sequencedInterpolation": true,
+            "defaultState": {
+                "transitionDuration": 2000
+            },
+            "stroke": "#0076ad",
+            "tensionX": 0.8
+        }
+    ],
+    "scrollbarX": {
+        "type": "XYChartScrollbar",
+        "series": [
+            "s1"
+        ],
+        "scrollbarChart": {
+            "seriesContainer": {
+                "opacity": 0
+            }
+        }
+    },
+    "cursor": {},
+    "yAxes": [
+        {
+            "type": "ValueAxis",
+            "tooltip": {
+                "disabled": true
+            }
+        }
+    ],
+    "xAxes": [
+        {
+            "type": "DateAxis"
+        }
+    ]
+}

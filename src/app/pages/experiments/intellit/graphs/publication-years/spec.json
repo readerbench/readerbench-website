@@ -1,0 +1,51 @@
+{
+    "dataSource": {
+        "url": "assets/publication-years/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "ColumnSeries",
+            "name": "Publications",
+            "dataFields": {
+                "valueY": "count",
+                "categoryX": "year"
+            },
+            "columns": {
+                "tooltipText": "Year: {categoryX}\nNumber of publications:{valueY}"
+            }
+        }
+    ],
+    "scrollbarX": {
+        "type": "XYChartScrollbar",
+        "series": [
+            "s1"
+        ],
+        "scrollbarChart": {
+            "seriesContainer": {
+                "opacity": 0
+            }
+        }
+    },
+    "yAxes": [
+        {
+            "type": "ValueAxis",
+            "title": {
+                "text": "Number of publications",
+                "fontWeight": "bold"
+            }    
+        }
+    ],
+    "xAxes": [
+        {
+            "type": "CategoryAxis",
+            "dataFields": {
+                "category": "year"
+            },
+            "title": {
+                "text": "Year",
+                "fontWeight": "bold"
+            }
+        }
+    ]
+}
