@@ -26,13 +26,13 @@ export let IntellitData = {
                 {
                     "type": "spec",
                     "title": "Age evolution through time",
-                    "description": "This visualisation represents the birth years of the authors presented in the DGLR.",
+                    "description": "This visualisation represents the age evolution of the authors presented in the DGLR.",
                     "schema": "assets/author-age-time/spec.json"
                 },
                 {
                     "type": "spec",
                     "title": "Publications and active authors",
-                    "description": "This visualisation represents the birth years of the authors presented in the DGLR.",
+                    "description": "This visualisation represents the active authors versus the published works.",
                     "schema": "assets/publications-active-authors/spec.json"
                 }
             ]
@@ -44,19 +44,19 @@ export let IntellitData = {
                 {
                     "type": "component",
                     "title": "Travels",
-                    "description": "This visualisation represents the birth years of the authors presented in the DGLR.",
+                    "description": "This visualisation represents the places the canonical authors travelled to.",
                     "schema": "author-travels"
                 },
                 {
                     "type": "component",
                     "title": "Timeline",
-                    "description": "Experimental timeline",
+                    "description": "This is an experimental timeline and represents the publications of George Coșbuc through his entire life.",
                     "schema": "authors-timeline"
                 },
                 {
                     "type": "spec",
                     "title": "Publications",
-                    "description": "This visualisation represents the birth years of the authors presented in the DGLR.",
+                    "description": "This visualisation represents the years of the first and last publications of the canonical authors.",
                     "schema": "assets/canonical-first-last-publication/spec.json"
                 }
             ]
@@ -68,13 +68,13 @@ export let IntellitData = {
                 {
                     "type": "spec",
                     "title": "Publish years",
-                    "description": "This visualisation represents the birth years of the authors presented in the DGLR.",
+                    "description": "This visualisation represents the number of publications per year.",
                     "schema": "assets/publication-years/spec.json"
                 },
                 {
                     "type": "spec",
                     "title": "Active journals",
-                    "description": "Removed before 1830",
+                    "description": "This visualization represents the number of active publications (journals, magazines etc.) after 1830.",
                     "schema": "assets/publication-per-year/spec.json"
                 },
             ]
