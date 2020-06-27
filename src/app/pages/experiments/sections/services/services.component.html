@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="ajax-target">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-4" [class.last]="last" *ngFor="let item of items; let last= last;">
+        <div class="single-course grid-course">
+          <div class="course-thumbnail">
+            <a href="{{item.href}}" class="cover-info">
+              <div class="text">
+                <h4>{{item.name}}</h4>
+                <p>{{item.description}}</p>
+              </div>
+            </a>
+            <img class="center-image" src="{{item.image || 'images/rb_370_250.png'}}" alt="{{item.altText}}">
+          </div>
+          <div class="course-details">
+            <h3 class="title">
+              <a href="{{item.href}}">{{item.name}}</a>
+            </h3>
+            <div class="course-action">
+              <a href="{{item.href}}" class="btn theme-btn-1 register-btn">
+                <span class="button">View</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

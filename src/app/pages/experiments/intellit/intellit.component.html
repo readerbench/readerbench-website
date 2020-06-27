@@ -1,0 +1,61 @@
+<ngx-spinner [fullScreen]="true" type="ball-scale-ripple-multiple" size="large" bdColor="rgba(255,255,255,0.8)"
+  color="#00c4dc">
+  <p class="loading">Loading...</p>
+</ngx-spinner>
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="section-header">
+            <h1>{{componentTitle}}</h1>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row">
+            <div class="demo-menu">
+              <nav>
+                <ul>
+                  <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3" [ngClass]="{'selected': item.name === section.name}"
+                    (click)="onClickSection(item)" *ngFor="let item of sections">
+                    <a>
+                      <span>{{item.name}}</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <hr class="spacer">
+          <div class="row">
+            <div class="demo-menu">
+              <nav>
+                <ul>
+                  <li class="col-xs-12 col-sm-6 col-md-4 col-lg-3"
+                    [ngClass]="{'selected': item.title === currentGraph.title}" *ngFor=" let item of section.graphs"
+                    (click)="onClickGraph(item)">
+                    <a>
+                      <span>{{item.title}}</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div id="results" class="col-xs-12 col-md-12 col-lg-12">
+            <div class="container">
+              <div class="graph-description">{{currentGraph.description}}</div>
+            </div>
+            <div id="chartdiv" style="height: 500px;" class="col-xs-12 col-md-12 col-lg-12"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -14,8 +14,36 @@
             "columns": {
                 "tooltipText": "Year: {categoryX}\nNumber of publications:{valueY}"
             }
+        },
+        {
+            "id": "s2",
+            "type": "LineSeries",
+            "name": "Moving average",
+            "dataFields": {
+                "valueY": "mavg",
+                "categoryX": "year"
+            },
+            "stroke": "#fdd400",
+            "strokeWidth": 3,
+            "strokeDasharray": "lineDash",
+            "tooltip": {
+                "label": {
+                    "textAlign": "middle"
+                }
+            },
+            "bullets": [{
+                "fill": "#fdd400",
+                "children": [{
+                    "type": "Circle",
+                    "radius": 0.5,
+                    "fill": "#fff",
+                    "strokeWidth": 3
+                }]
+            }]
         }
     ],
+    "legend": {},
+    "cursor": {},
     "scrollbarX": {
         "type": "XYChartScrollbar",
         "series": [
@@ -43,7 +71,7 @@
                 "category": "year"
             },
             "title": {
-                "text": "Year",
+                "text": "Years",
                 "fontWeight": "bold"
             }
         }

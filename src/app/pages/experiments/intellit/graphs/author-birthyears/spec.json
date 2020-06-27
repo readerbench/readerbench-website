@@ -6,14 +6,40 @@
         {
             "id": "s1",
             "type": "ColumnSeries",
-            "name": "Autori",
+            "name": "Authors",
             "dataFields": {
                 "valueY": "count",
                 "categoryX": "year"
             },
             "columns": {
-                "tooltipText": "An: {categoryX}\nNumar de autori:{valueY}"
+                "tooltipText": "Birth year: {categoryX}\nNumber of authors:{valueY}"
             }
+        },
+        {
+            "id": "s2",
+            "type": "LineSeries",
+            "name": "Moving average",
+            "dataFields": {
+                "valueY": "mavg",
+                "categoryX": "year"
+            },
+            "stroke": "#fdd400",
+            "strokeWidth": 3,
+            "strokeDasharray": "lineDash",
+            "tooltip": {
+                "label": {
+                    "textAlign": "middle"
+                }
+            },
+            "bullets": [{
+                "fill": "#fdd400",
+                "children": [{
+                    "type": "Circle",
+                    "radius": 0.5,
+                    "fill": "#fff",
+                    "strokeWidth": 3
+                }]
+            }]
         }
     ],
     "scrollbarX": {
@@ -27,11 +53,13 @@
             }
         }
     },
+    "cursor": {},
+    "legend": {},
     "yAxes": [
         {
             "type": "ValueAxis",
             "title": {
-                "text": "Numar autori",
+                "text": "Number of authors",
                 "fontWeight": "bold"
             }    
         }
@@ -43,7 +71,7 @@
                 "category": "year"
             },
             "title": {
-                "text": "Ani de nastere",
+                "text": "Birth years",
                 "fontWeight": "bold"
             }
         }

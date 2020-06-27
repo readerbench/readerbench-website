@@ -1,0 +1,8 @@
+.ajax-target .row>div {
+    padding: 0 10px;
+}
+
+.center-image {
+    margin: 0 auto;
+    display: block;
+}

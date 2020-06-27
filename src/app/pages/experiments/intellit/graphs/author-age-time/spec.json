@@ -6,6 +6,7 @@
         {
             "id": "s1",
             "type": "LineSeries",
+            "name": "Youngest",
             "dataFields": {
                 "dateX": "date",
                 "openValueY": "first",
@@ -22,6 +23,7 @@
         {
             "id": "s2",
             "type": "LineSeries",
+            "name": "Oldest",
             "dataFields": {
                 "dateX": "date",
                 "valueY": "first"
@@ -36,6 +38,7 @@
         {
             "id": "s3",
             "type": "LineSeries",
+            "name": "Average",
             "dataFields": {
                 "dateX": "date",
                 "valueY": "average"
@@ -60,9 +63,16 @@
         }
     },
     "cursor": {},
+    "legend": {
+        "useDefaultMarker": true
+    },
     "yAxes": [
         {
             "type": "ValueAxis",
+            "title": {
+                "text": "Age",
+                "fontWeight": "bold"
+            },
             "tooltip": {
                 "disabled": true
             }
@@ -70,7 +80,11 @@
     ],
     "xAxes": [
         {
-            "type": "DateAxis"
+            "type": "DateAxis",
+            "title": {
+                "text": "Years",
+                "fontWeight": "bold"
+            }
         }
     ]
 }

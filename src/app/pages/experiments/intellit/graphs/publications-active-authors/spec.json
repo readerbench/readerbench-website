@@ -12,7 +12,7 @@
                 "categoryX": "year"
             },
             "columns": {
-                "tooltipText": "[#fff font-size: 15px]{name} in {categoryX}:\n[/][#fff font-size: 20px]{valueY}[/] [#fff]{additional}[/]",
+                "tooltipText": "{name} in {categoryX}:\n{valueY}",
                 "propertyFields": {
                     "fillOpacity": "fillOpacity",
                     "stroke": "stroke",
@@ -34,7 +34,7 @@
                 "valueY": "publications",
                 "categoryX": "year"
             },
-            "stroke": "#fdd400",
+            "stroke": "#67dc8c",
             "strokeWidth": 3,
             "strokeDasharray": "lineDash",
             "tooltip": {
@@ -43,8 +43,8 @@
                 }
             },
             "bullets": [{
-                "fill": "#fdd400",
-                "tooltipText": "[#fff font-size: 15px]{name} in {categoryX}:\n[/][#fff font-size: 20px]{valueY}[/] [#fff]{additional}[/]",
+                "fill": "#67dc8c",
+                "tooltipText": "{name} in {categoryX}:\n{valueY}",
                 "children": [{
                     "type": "Circle",
                     "radius": 0.5,
@@ -67,8 +67,13 @@
     },
     "yAxes": [
         {
-            "type": "ValueAxis"
+            "type": "ValueAxis",
+            "title": {
+                "text": "Count",
+                "fontWeight": "bold"
+            }
         }
+
     ],
     "xAxes": [
         {
@@ -78,8 +83,16 @@
             },
             "renderer": {
                 "minGridDistance": 30
+            },
+            "title": {
+                "text": "Years",
+                "fontWeight": "bold"
+            },
+            "tooltip": {
+                "dy": 5
             }
         }
     ],
-    "cursor": {}
+    "cursor": {},
+    "legend": {}
 }

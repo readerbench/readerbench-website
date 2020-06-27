@@ -38,6 +38,10 @@ import { CommunityKeywordsHeatmapComponent } from './pages/demo/community/keywor
 import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
 import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-level-edge-bundling/multi-level-edge-bundling.component';
 
+import { ExperimentsComponent } from './pages/experiments/experiments.component';
+import { ExperimentsMenuComponent } from './pages/experiments/sections/menu/menu.component';
+import { ExperimentsServicesComponent }  from './pages/experiments/sections/services/services.component'
+import { IntellitComponent } from './pages/experiments/intellit/intellit.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -46,6 +50,10 @@ import { ReaderBenchCommonModule } from '@reader-bench/common';
 import { KeywordsModule } from './pages/demo/keywords/keywords.module';
 
 import { EssayFeedbackComponent } from './pages/demo/essay-feedback/essay-feedback.component';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import 'jquery';
 import { PeopleComponent } from './pages/people/people.component';
@@ -105,6 +113,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TextualComplexityComponent,
     KeywordsComponent,
     EssayFeedbackComponent,
+    IntellitComponent,
     SemanticAnnotationComponent,
     SelfExplanationComponent,
     CsclComponent,
@@ -117,6 +126,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CommunityComponent,
     SemDiffComponent,
     DemoServicesComponent,
+    ExperimentsServicesComponent,
     DemoCommonFieldsComponent,
     DemoSemDiffCommonFieldsComponent,
     ApproximationPipe,
@@ -135,7 +145,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MultiLevelEdgeBundlingComponent,
     ChordComponent,
     DocumentAnalysisComponent,
-    MultiDocumentCohesionGridComponent
+    MultiDocumentCohesionGridComponent,
+    ExperimentsComponent,
+    ExperimentsMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -151,7 +163,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     Ng5SliderModule,
     UiSwitchModule,
     DropzoneModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    NgxSpinnerModule
   ],
   exports: [
     KeywordsComponent
@@ -171,6 +184,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }
