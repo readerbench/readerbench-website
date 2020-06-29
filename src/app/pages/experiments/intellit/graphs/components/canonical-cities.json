@@ -1,0 +1,884 @@
+[
+    {
+        "id": "huși",
+        "title": "Huși",
+        "latitude": 46.67361,
+        "longitude": 28.05944
+    },
+    {
+        "id": "fălticeni",
+        "title": "Fălticeni",
+        "latitude": 47.45,
+        "longitude": 26.3
+    },
+    {
+        "id": "odessa",
+        "title": "Odessa",
+        "latitude": 46.47747,
+        "longitude": 30.73262
+    },
+    {
+        "id": "focșani",
+        "title": "Focșani",
+        "latitude": 45.7,
+        "longitude": 27.18333
+    },
+    {
+        "id": "bucurești",
+        "title": "București",
+        "latitude": 44.43225,
+        "longitude": 26.10626
+    },
+    {
+        "id": "viena",
+        "title": "Viena",
+        "latitude": 48.20849,
+        "longitude": 16.37208
+    },
+    {
+        "id": "curtea de argeș",
+        "title": "Curtea de Argeș",
+        "latitude": 45.13422,
+        "longitude": 24.67409
+    },
+    {
+        "id": "palestina",
+        "title": "Palestina",
+        "latitude": 31.92157,
+        "longitude": 35.20329
+    },
+    {
+        "id": "egipt",
+        "title": "Egipt",
+        "latitude": 27,
+        "longitude": 30
+    },
+    {
+        "id": "franța",
+        "title": "Franța",
+        "latitude": 46,
+        "longitude": 2
+    },
+    {
+        "id": "constanța",
+        "title": "Constanța",
+        "latitude": 44.18073,
+        "longitude": 28.63432
+    },
+    {
+        "id": "dijon",
+        "title": "Dijon",
+        "latitude": 47.31667,
+        "longitude": 5.01667
+    },
+    {
+        "id": "paris",
+        "title": "Paris",
+        "latitude": 48.85341,
+        "longitude": 2.3488
+    },
+    {
+        "id": "bar",
+        "title": "Bar",
+        "latitude": 42.0937,
+        "longitude": 19.09841
+    },
+    {
+        "id": "galaţi",
+        "title": "Galaţi",
+        "latitude": 45.43687,
+        "longitude": 28.05028
+    },
+    {
+        "id": "cernica",
+        "title": "Cernica",
+        "latitude": 42.42556,
+        "longitude": 21.41972
+    },
+    {
+        "id": "turtucaia",
+        "title": "Turtucaia",
+        "latitude": 44.04906,
+        "longitude": 26.61206
+    },
+    {
+        "id": "delta dunării",
+        "title": "Delta Dunării",
+        "latitude": 45.5,
+        "longitude": 29.41667
+    },
+    {
+        "id": "padina",
+        "title": "Padina",
+        "latitude": 43.9,
+        "longitude": 26.91667
+    },
+    {
+        "id": "humor",
+        "title": "Humor",
+        "latitude": 47.37787,
+        "longitude": 18.20353
+    },
+    {
+        "id": "agapia",
+        "title": "Agapia",
+        "latitude": 47.16196,
+        "longitude": 26.29545
+    },
+    {
+        "id": "berlin",
+        "title": "Berlin",
+        "latitude": 52.52437,
+        "longitude": 13.41053
+    },
+    {
+        "id": "târgu frumos",
+        "title": "Târgu Frumos",
+        "latitude": 47.20788,
+        "longitude": 27.01196
+    },
+    {
+        "id": "roman",
+        "title": "Roman",
+        "latitude": 46.92119,
+        "longitude": 26.92646
+    },
+    {
+        "id": "poiana lui iuraşcu",
+        "title": "Poiana lui Iuraşcu",
+        "latitude": 46.69819,
+        "longitude": 27.01765
+    },
+    {
+        "id": "bacău",
+        "title": "Bacău",
+        "latitude": 46.56718,
+        "longitude": 26.91384
+    },
+    {
+        "id": "bârlad",
+        "title": "Bârlad",
+        "latitude": 46.23175,
+        "longitude": 27.66907
+    },
+    {
+        "id": "iaşi",
+        "title": "Iaşi",
+        "latitude": 47.16667,
+        "longitude": 27.6
+    },
+    {
+        "id": "durău",
+        "title": "Durău",
+        "latitude": 46.99813,
+        "longitude": 25.91852
+    },
+    {
+        "id": "piatra neamţ",
+        "title": "Piatra Neamţ",
+        "latitude": 46.91667,
+        "longitude": 26.33333
+    },
+    {
+        "id": "călăraşi",
+        "title": "Călăraşi",
+        "latitude": 44.25,
+        "longitude": 27
+    },
+    {
+        "id": "vatra dornei",
+        "title": "Vatra Dornei",
+        "latitude": 47.35,
+        "longitude": 25.36667
+    },
+    {
+        "id": "bistriţa",
+        "title": "Bistriţa",
+        "latitude": 47.13316,
+        "longitude": 24.50011
+    },
+    {
+        "id": "neamţ",
+        "title": "Neamţ",
+        "latitude": 46.91667,
+        "longitude": 26.33333
+    },
+    {
+        "id": "austria",
+        "title": "Austria",
+        "latitude": 47.33333,
+        "longitude": 13.33333
+    },
+    {
+        "id": "italia",
+        "title": "Italia",
+        "latitude": 42.83333,
+        "longitude": 12.83333
+    },
+    {
+        "id": "elveția",
+        "title": "Elveția",
+        "latitude": 47.00016,
+        "longitude": 8.01427
+    },
+    {
+        "id": "germania",
+        "title": "Germania",
+        "latitude": 51.5,
+        "longitude": 10.5
+    },
+    {
+        "id": "lancrăm",
+        "title": "Lancrăm",
+        "latitude": 45.98708,
+        "longitude": 23.55665
+    },
+    {
+        "id": "sebeş",
+        "title": "Sebeş",
+        "latitude": 45.95646,
+        "longitude": 23.571
+    },
+    {
+        "id": "braşov",
+        "title": "Braşov",
+        "latitude": 45.64861,
+        "longitude": 25.60613
+    },
+    {
+        "id": "constantinopol",
+        "title": "Constantinopol",
+        "latitude": 41.0086,
+        "longitude": 28.98
+    },
+    {
+        "id": "atena",
+        "title": "Atena",
+        "latitude": 37.98376,
+        "longitude": 23.72784
+    },
+    {
+        "id": "napoli",
+        "title": "Napoli",
+        "latitude": 40.85216,
+        "longitude": 14.26811
+    },
+    {
+        "id": "pompei",
+        "title": "Pompei",
+        "latitude": 40.75,
+        "longitude": 14.48333
+    },
+    {
+        "id": "roma",
+        "title": "Roma",
+        "latitude": 41.89193,
+        "longitude": 12.51133
+    },
+    {
+        "id": "fiume",
+        "title": "Fiume",
+        "latitude": 45.32673,
+        "longitude": 14.44241
+    },
+    {
+        "id": "veneţia",
+        "title": "Veneţia",
+        "latitude": 45.43713,
+        "longitude": 12.33265
+    },
+    {
+        "id": "sibiu",
+        "title": "Sibiu",
+        "latitude": 45.8,
+        "longitude": 24.15
+    },
+    {
+        "id": "alba iulia",
+        "title": "Alba Iulia",
+        "latitude": 46.06667,
+        "longitude": 23.58333
+    },
+    {
+        "id": "cluj",
+        "title": "Cluj",
+        "latitude": 46.76667,
+        "longitude": 23.6
+    },
+    {
+        "id": "lugoj",
+        "title": "Lugoj",
+        "latitude": 45.68861,
+        "longitude": 21.90306
+    },
+    {
+        "id": "varşovia",
+        "title": "Varşovia",
+        "latitude": 52.22977,
+        "longitude": 21.01178
+    },
+    {
+        "id": "praga",
+        "title": "Praga",
+        "latitude": 50.08804,
+        "longitude": 14.42076
+    },
+    {
+        "id": "berna",
+        "title": "Berna",
+        "latitude": 46.94809,
+        "longitude": 7.44744
+    },
+    {
+        "id": "lisabona",
+        "title": "Lisabona",
+        "latitude": 38.71667,
+        "longitude": -9.13333
+    },
+    {
+        "id": "piteşti",
+        "title": "Piteşti",
+        "latitude": 44.85,
+        "longitude": 24.86667
+    },
+    {
+        "id": "călugăra",
+        "title": "Călugăra",
+        "latitude": 46.53604,
+        "longitude": 26.84012
+    },
+    {
+        "id": "cernavodă",
+        "title": "Cernavodă",
+        "latitude": 44.33957,
+        "longitude": 28.03273
+    },
+    {
+        "id": "calcutta",
+        "title": "Calcutta",
+        "latitude": 22.56263,
+        "longitude": 88.36304
+    },
+    {
+        "id": "himalaya",
+        "title": "Himalaya",
+        "latitude": 28,
+        "longitude": 84
+    },
+    {
+        "id": "miercurea ciuc",
+        "title": "Miercurea Ciuc",
+        "latitude": 46.35,
+        "longitude": 25.8
+    },
+    {
+        "id": "londra",
+        "title": "Londra",
+        "latitude": 51.50853,
+        "longitude": -0.12574
+    },
+    {
+        "id": "chicago",
+        "title": "Chicago",
+        "latitude": 41.85003,
+        "longitude": -87.65005
+    },
+    {
+        "id": "yale",
+        "title": "Yale",
+        "latitude": 41.31121,
+        "longitude": -72.92649
+    },
+    {
+        "id": "sorbona",
+        "title": "Sorbona",
+        "latitude": 48.84869,
+        "longitude": 2.34363
+    },
+    {
+        "id": "ekaterinoslav",
+        "title": "Ekaterinoslav",
+        "latitude": 48.4593,
+        "longitude": 35.03865
+    },
+    {
+        "id": "harkov",
+        "title": "Harkov",
+        "latitude": 49.98081,
+        "longitude": 36.25272
+    },
+    {
+        "id": "chișinău",
+        "title": "Chișinău",
+        "latitude": 47.00556,
+        "longitude": 28.8575
+    },
+    {
+        "id": "ploiești",
+        "title": "Ploiești",
+        "latitude": 44.95,
+        "longitude": 26.01667
+    },
+    {
+        "id": "galați",
+        "title": "Galați",
+        "latitude": 45.43687,
+        "longitude": 28.05028
+    },
+    {
+        "id": "sankt petersburg",
+        "title": "Sankt Petersburg",
+        "latitude": 59.93863,
+        "longitude": 30.31413
+    },
+    {
+        "id": "mezen",
+        "title": "Mezen",
+        "latitude": 65.8336,
+        "longitude": 44.2138
+    },
+    {
+        "id": "norvegia",
+        "title": "Norvegia",
+        "latitude": 62,
+        "longitude": 10
+    },
+    {
+        "id": "anglia",
+        "title": "Anglia",
+        "latitude": 51.50853,
+        "longitude": -0.12574
+    },
+    {
+        "id": "urss",
+        "title": "URSS",
+        "latitude": 60,
+        "longitude": 98
+    },
+    {
+        "id": "zürich",
+        "title": "Zürich",
+        "latitude": 47.36667,
+        "longitude": 8.55
+    },
+    {
+        "id": "basel",
+        "title": "Basel",
+        "latitude": 47.55839,
+        "longitude": 7.57327
+    },
+    {
+        "id": "năsăud",
+        "title": "Năsăud",
+        "latitude": 47.16667,
+        "longitude": 24.58333
+    },
+    {
+        "id": "hordou",
+        "title": "Hordou",
+        "latitude": 47.3683862,
+        "longitude": 24.3735766
+    },
+    {
+        "id": "münchen",
+        "title": "München",
+        "latitude": 48.13743,
+        "longitude": 11.57549
+    },
+    {
+        "id": "karlsbad",
+        "title": "Karlsbad",
+        "latitude": 33.15809,
+        "longitude": -117.35059
+    },
+    {
+        "id": "blaj",
+        "title": "Blaj",
+        "latitude": 46.17508,
+        "longitude": 23.91578
+    },
+    {
+        "id": "câmpulung",
+        "title": "Câmpulung",
+        "latitude": 47.53333,
+        "longitude": 25.56667
+    },
+    {
+        "id": "muscel",
+        "title": "Muscel",
+        "latitude": 45.31667,
+        "longitude": 25
+    },
+    {
+        "id": "göttingen",
+        "title": "Göttingen",
+        "latitude": 51.53443,
+        "longitude": 9.93228
+    },
+    {
+        "id": "tübingen",
+        "title": "Tübingen",
+        "latitude": 48.52266,
+        "longitude": 9.05222
+    },
+    {
+        "id": "mărcuţa",
+        "title": "Mărcuţa",
+        "latitude": 44.45,
+        "longitude": 26.16667
+    },
+    {
+        "id": "giurgiu",
+        "title": "Giurgiu",
+        "latitude": 43.88664,
+        "longitude": 25.9627
+    },
+    {
+        "id": "oslo",
+        "title": "Oslo",
+        "latitude": 59.91273,
+        "longitude": 10.74609
+    },
+    {
+        "id": "münster",
+        "title": "Münster",
+        "latitude": 51.96236,
+        "longitude": 7.62571
+    },
+    {
+        "id": "fribourg",
+        "title": "Fribourg",
+        "latitude": 46.80237,
+        "longitude": 7.15128
+    },
+    {
+        "id": "geneva",
+        "title": "Geneva",
+        "latitude": 46.20222,
+        "longitude": 6.14569
+    },
+    {
+        "id": "văcăreşti",
+        "title": "Văcăreşti",
+        "latitude": 44.4,
+        "longitude": 26.13333
+    },
+    {
+        "id": "târgu jiu",
+        "title": "Târgu Jiu",
+        "latitude": 45.05,
+        "longitude": 23.28333
+    },
+    {
+        "id": "botoşani",
+        "title": "Botoşani",
+        "latitude": 47.75,
+        "longitude": 26.66667
+    },
+    {
+        "id": "cernăuţi",
+        "title": "Cernăuţi",
+        "latitude": 48.29149,
+        "longitude": 25.94034
+    },
+    {
+        "id": "târgu mureş",
+        "title": "Târgu Mureş",
+        "latitude": 46.54245,
+        "longitude": 24.55747
+    },
+    {
+        "id": "putna",
+        "title": "Putna",
+        "latitude": 47.88518,
+        "longitude": 25.60374
+    },
+    {
+        "id": "vaslui",
+        "title": "Vaslui",
+        "latitude": 46.63333,
+        "longitude": 27.73333
+    },
+    {
+        "id": "macedonia",
+        "title": "Macedonia",
+        "latitude": 41.66667,
+        "longitude": 21.75
+    },
+    {
+        "id": "brusa",
+        "title": "Brusa",
+        "latitude": 40.19559,
+        "longitude": 29.06013
+    },
+    {
+        "id": "samos",
+        "title": "Samos",
+        "latitude": 37.73292,
+        "longitude": 26.81186
+    },
+    {
+        "id": "baziaş",
+        "title": "Baziaş",
+        "latitude": 44.81594,
+        "longitude": 21.38959
+    },
+    {
+        "id": "orşova",
+        "title": "Orşova",
+        "latitude": 44.7252,
+        "longitude": 22.39771
+    },
+    {
+        "id": "china",
+        "title": "China",
+        "latitude": 35,
+        "longitude": 105
+    },
+    {
+        "id": "frankfurt am main",
+        "title": "Frankfurt am Main",
+        "latitude": 50.11552,
+        "longitude": 8.68417
+    },
+    {
+        "id": "bonn",
+        "title": "Bonn",
+        "latitude": 50.87894,
+        "longitude": 7.12292
+    },
+    {
+        "id": "metz",
+        "title": "Metz",
+        "latitude": 49.11911,
+        "longitude": 6.17269
+    },
+    {
+        "id": "lemberg",
+        "title": "Lemberg",
+        "latitude": 49.83826,
+        "longitude": 24.02324
+    },
+    {
+        "id": "palermo",
+        "title": "Palermo",
+        "latitude": 38.13205,
+        "longitude": 13.33561
+    },
+    {
+        "id": "africa",
+        "title": "Africa",
+        "latitude": 7.1881,
+        "longitude": 21.09375
+    },
+    {
+        "id": "belgia",
+        "title": "Belgia",
+        "latitude": 50.75,
+        "longitude": 4.5
+    },
+    {
+        "id": "mirceşti",
+        "title": "Mirceşti",
+        "latitude": 47.05486,
+        "longitude": 26.83945
+    },
+    {
+        "id": "crimeea",
+        "title": "Crimeea",
+        "latitude": 45,
+        "longitude": 34
+    },
+    {
+        "id": "humuleşti",
+        "title": "Humuleşti",
+        "latitude": 46.99648,
+        "longitude": 28.97645
+    },
+    {
+        "id": "broşteni",
+        "title": "Broşteni",
+        "latitude": 47.23673,
+        "longitude": 25.70028
+    },
+    {
+        "id": "târgu neamţ",
+        "title": "Târgu Neamţ",
+        "latitude": 47.2,
+        "longitude": 26.36667
+    },
+    {
+        "id": "ţicău",
+        "title": "Ţicău",
+        "latitude": 47.44566,
+        "longitude": 23.30723
+    },
+    {
+        "id": "târgovişte",
+        "title": "Târgovişte",
+        "latitude": 44.92543,
+        "longitude": 25.4567
+    },
+    {
+        "id": "leipzig",
+        "title": "Leipzig",
+        "latitude": 51.33962,
+        "longitude": 12.37129
+    },
+    {
+        "id": "chios",
+        "title": "Chios",
+        "latitude": 38.41102,
+        "longitude": 26.06161
+    },
+    {
+        "id": "polonia",
+        "title": "Polonia",
+        "latitude": 52,
+        "longitude": 20
+    },
+    {
+        "id": "beresteczko",
+        "title": "Beresteczko",
+        "latitude": 50.36047,
+        "longitude": 25.11071
+    },
+    {
+        "id": "hotin",
+        "title": "Hotin",
+        "latitude": 45.16667,
+        "longitude": 23.48333
+    },
+    {
+        "id": "slatina",
+        "title": "Slatina",
+        "latitude": 46.24667,
+        "longitude": 15.62944
+    },
+    {
+        "id": "craiova",
+        "title": "Craiova",
+        "latitude": 44.31667,
+        "longitude": 23.8
+    },
+    {
+        "id": "vichy",
+        "title": "Vichy",
+        "latitude": 46.12709,
+        "longitude": 3.42577
+    },
+    {
+        "id": "spoleto",
+        "title": "Spoleto",
+        "latitude": 42.74071,
+        "longitude": 12.73899
+    },
+    {
+        "id": "helsinki",
+        "title": "Helsinki",
+        "latitude": 60.16952,
+        "longitude": 24.93545
+    },
+    {
+        "id": "copenhaga",
+        "title": "Copenhaga",
+        "latitude": 55.67594,
+        "longitude": 12.56553
+    },
+    {
+        "id": "brazilia",
+        "title": "Brazilia",
+        "latitude": -10,
+        "longitude": -55
+    },
+    {
+        "id": "new york",
+        "title": "New York",
+        "latitude": 40.71427,
+        "longitude": -74.00597
+    },
+    {
+        "id": "danemarca",
+        "title": "Danemarca",
+        "latitude": 56,
+        "longitude": 10
+    },
+    {
+        "id": "argentina",
+        "title": "Argentina",
+        "latitude": -34,
+        "longitude": -64
+    },
+    {
+        "id": "uruguay",
+        "title": "Uruguay",
+        "latitude": -33,
+        "longitude": -56
+    },
+    {
+        "id": "columbia",
+        "title": "Columbia",
+        "latitude": 4,
+        "longitude": -73.25
+    },
+    {
+        "id": "chile",
+        "title": "Chile",
+        "latitude": -30,
+        "longitude": -71
+    },
+    {
+        "id": "finlanda",
+        "title": "Finlanda",
+        "latitude": 64,
+        "longitude": 26
+    },
+    {
+        "id": "tel aviv",
+        "title": "Tel Aviv",
+        "latitude": 32.08088,
+        "longitude": 34.78057
+    },
+    {
+        "id": "california",
+        "title": "California",
+        "latitude": 34.68743,
+        "longitude": -116.78467
+    },
+    {
+        "id": "mexic",
+        "title": "Mexic",
+        "latitude": 23,
+        "longitude": -102
+    },
+    {
+        "id": "katowice",
+        "title": "Katowice",
+        "latitude": 50.25841,
+        "longitude": 19.02754
+    },
+    {
+        "id": "stănileşti",
+        "title": "Stănileşti",
+        "latitude": 46.6503,
+        "longitude": 28.16151
+    },
+    {
+        "id": "moscova",
+        "title": "Moscova",
+        "latitude": 55.75222,
+        "longitude": 37.61556
+    },
+    {
+        "id": "caucaz",
+        "title": "Caucaz",
+        "latitude": 42.5566975,
+        "longitude": 39.1838793
+    },
+    {
+        "id": "astrahan",
+        "title": "Astrahan",
+        "latitude": 46.34968,
+        "longitude": 48.04076
+    }
+]

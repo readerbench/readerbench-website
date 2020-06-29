@@ -1,0 +1,61 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="row top-buffer">
+            <app-demo-menu></app-demo-menu>
+          </div>
+        </div>
+        <div class="container">
+          <div class="section-header">
+            <h1>{{componentTitle}}</h1>
+          </div>
+        </div>
+
+        <div class="container row-list">
+          <div class="form-group col-xs-6 col-md-6 col-lg-6">
+            <div class="row">
+              <label for="input_text">Text
+                <span class="required">*</span>
+              </label>
+            </div>
+            <div class="row">
+              <textarea id="input_text" class="form-control text-area" [(ngModel)]="formData.text" rows="20"></textarea>
+            </div>
+            <div class="row top-buffer bottom-buttons" *ngIf="!loading">
+              <button class="btn theme-btn-1" (click)="process()">
+                <span class="button">Process</span>
+              </button>
+            </div>
+          </div>
+
+          <div id="results" class="col-xs-6 col-md-6 col-lg-6">
+            <div class="ml-10">
+              <label for="input_text">Feedback</label>
+              <label *ngIf="showResults" class="blue ml-10"> {{score}}</label>
+            </div>
+            <div *ngIf="loading" class="m-10">
+              <img src="../../../../assets/img/loading.gif" alt="Loading..." />
+            </div>
+            <perfect-scrollbar style="max-height: 400px;" *ngIf="showResults" class="m-10 feedback">
+              <div class="feedback-element" *ngFor="let feedback of response">
+                <div class="feedback-name row">{{feedback.name}}</div>
+                <div class="feedback-description row">{{feedback.description}}</div>
+              </div>
+            </perfect-scrollbar>
+            <div *ngIf="!showResults && !loading">
+              <div class="feedback-element">
+                <div class="feedback-name row">Feedback results</div>
+                <div class="feedback-description row">Please insert a text in the right-side box and press 'PROCESS' to continue.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

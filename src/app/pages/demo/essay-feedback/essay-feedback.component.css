@@ -1,0 +1,36 @@
+.m-10 {
+    margin: 10px;
+    margin-top: 0px;
+}
+
+.ml-10 {
+    margin-left: 10px;;
+}
+
+.feedback-element {
+    border: solid 1px #a4acb3;
+    padding: 12px;
+    margin: 8px 0px;
+}
+
+.feedback-element:first-of-type {
+    margin-top: 0px;
+}
+
+.feedback-name {
+    color: #43b9c7;
+    margin: 0px;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.blue {
+    color: #43b9c7;
+}
+
+.feedback-description, .text-area {
+    margin: 0px;
+    color: #b8bebf;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}

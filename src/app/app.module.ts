@@ -38,12 +38,22 @@ import { CommunityKeywordsHeatmapComponent } from './pages/demo/community/keywor
 import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
 import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-level-edge-bundling/multi-level-edge-bundling.component';
 
+import { ExperimentsComponent } from './pages/experiments/experiments.component';
+import { ExperimentsMenuComponent } from './pages/experiments/sections/menu/menu.component';
+import { ExperimentsServicesComponent }  from './pages/experiments/sections/services/services.component'
+import { IntellitComponent } from './pages/experiments/intellit/intellit.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
 import { DemoSemDiffCommonFieldsComponent } from './pages/demo/sections/sem-diff-common-fields/sem-diff-common-fields.component';
 import { ReaderBenchCommonModule } from '@reader-bench/common';
 import { KeywordsModule } from './pages/demo/keywords/keywords.module';
+
+import { EssayFeedbackComponent } from './pages/demo/essay-feedback/essay-feedback.component';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// Import library module
+import { NgxSpinnerModule } from "ngx-spinner";
 
 import 'jquery';
 import { PeopleComponent } from './pages/people/people.component';
@@ -67,6 +77,9 @@ import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
 import { CsclNewComponent } from './pages/demo/cscl-new/cscl-new.component';
 import { DropzoneModule, DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
+import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
+import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -74,6 +87,11 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // acceptedFiles: 'image/*',
   createImageThumbnails: true
 };
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -94,7 +112,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     CurriculumRecommendationComponent,
     TextualComplexityComponent,
     KeywordsComponent,
-    TextualComplexityComponent,
+    EssayFeedbackComponent,
+    IntellitComponent,
     SemanticAnnotationComponent,
     SelfExplanationComponent,
     CsclComponent,
@@ -107,6 +126,7 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     CommunityComponent,
     SemDiffComponent,
     DemoServicesComponent,
+    ExperimentsServicesComponent,
     DemoCommonFieldsComponent,
     DemoSemDiffCommonFieldsComponent,
     ApproximationPipe,
@@ -125,7 +145,9 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     MultiLevelEdgeBundlingComponent,
     ChordComponent,
     DocumentAnalysisComponent,
-    MultiDocumentCohesionGridComponent
+    MultiDocumentCohesionGridComponent,
+    ExperimentsComponent,
+    ExperimentsMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -141,6 +163,8 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
     Ng5SliderModule,
     UiSwitchModule,
     DropzoneModule,
+    PerfectScrollbarModule,
+    NgxSpinnerModule
   ],
   exports: [
     KeywordsComponent
@@ -153,9 +177,14 @@ const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
       provide: DROPZONE_CONFIG,
       useValue: DEFAULT_DROPZONE_CONFIG
     },
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+    }
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

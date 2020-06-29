@@ -1,0 +1,79 @@
+{
+    "dataSource": {
+        "url": "assets/author-birthyears/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "ColumnSeries",
+            "name": "Authors",
+            "dataFields": {
+                "valueY": "count",
+                "categoryX": "year"
+            },
+            "columns": {
+                "tooltipText": "Birth year: {categoryX}\nNumber of authors:{valueY}"
+            }
+        },
+        {
+            "id": "s2",
+            "type": "LineSeries",
+            "name": "Moving average",
+            "dataFields": {
+                "valueY": "mavg",
+                "categoryX": "year"
+            },
+            "stroke": "#fdd400",
+            "strokeWidth": 3,
+            "strokeDasharray": "lineDash",
+            "tooltip": {
+                "label": {
+                    "textAlign": "middle"
+                }
+            },
+            "bullets": [{
+                "fill": "#fdd400",
+                "children": [{
+                    "type": "Circle",
+                    "radius": 0.5,
+                    "fill": "#fff",
+                    "strokeWidth": 3
+                }]
+            }]
+        }
+    ],
+    "scrollbarX": {
+        "type": "XYChartScrollbar",
+        "series": [
+            "s1"
+        ],
+        "scrollbarChart": {
+            "seriesContainer": {
+                "opacity": 0
+            }
+        }
+    },
+    "cursor": {},
+    "legend": {},
+    "yAxes": [
+        {
+            "type": "ValueAxis",
+            "title": {
+                "text": "Number of authors",
+                "fontWeight": "bold"
+            }    
+        }
+    ],
+    "xAxes": [
+        {
+            "type": "CategoryAxis",
+            "dataFields": {
+                "category": "year"
+            },
+            "title": {
+                "text": "Birth years",
+                "fontWeight": "bold"
+            }
+        }
+    ]
+}

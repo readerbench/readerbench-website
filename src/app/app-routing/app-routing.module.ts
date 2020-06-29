@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../pages/home/home.component';
 import { DemoComponent } from '../pages/demo/demo.component';
+import { ExperimentsComponent } from '../pages/experiments/experiments.component';
 import { SentimentAnalysisComponent } from '../pages/demo/sentiment-analysis/sentiment-analysis.component';
 import { TextualComplexityComponent } from '../pages/demo/textual-complexity/textual-complexity.component';
 import { KeywordsComponent } from '../pages/demo/keywords/keywords.component';
@@ -18,14 +19,20 @@ import { PublicationsComponent } from '../pages/publications/publications.compon
 import { ContactComponent } from '../pages/contact/contact.component';
 import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
 import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
-import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
-import {DocumentAnalysisComponent} from "../pages/demo/document-analysis/document-analysis";
+import { CurriculumRecommendationComponent } from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import { DocumentAnalysisComponent } from "../pages/demo/document-analysis/document-analysis";
 import { CsclNewComponent } from '../pages/demo/cscl-new/cscl-new.component';
+import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
+import { IntellitComponent } from '../pages/experiments/intellit/intellit.component';
 
 const routes: Routes = [
   {
     path: 'demo',
     component: DemoComponent,
+  },
+  {
+    path: 'experiments',
+    component: ExperimentsComponent,
   },
   {
     path: 'people',
@@ -99,10 +106,18 @@ const routes: Routes = [
     path: 'demo/curriculum-recommendation',
     component: CurriculumRecommendationComponent,
   },
-{
+  {
     path: 'demo/document-analysis',
     component: DocumentAnalysisComponent,
-},
+  },
+  {
+    path: 'demo/essay-feedback',
+    component: EssayFeedbackComponent
+  },
+  {
+    path: 'experiments/intellit',
+    component: IntellitComponent
+  },
   {
     path: '',
     component: HomeComponent,

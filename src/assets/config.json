@@ -29,11 +29,12 @@
     "communityEdgeBundling": "community/participants/edgeBundling",
 
     "communityParticipants": "community/participants",
-      "communityKeywords": "community/keywords",
+    "communityKeywords": "community/keywords",
 
     "ciModelAnalyzer": "v2/amoc",
     "keywordsHeatmap": "keywords-heatmap",
-    "cna-graph": "v2/cna-graph"
+    "cna-graph": "v2/cna-graph",
+    "essayFeedback": "v2/feedback"
   },
   "apiHeaders": {
     "commonRequest": {

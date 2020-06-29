@@ -1,0 +1,98 @@
+{
+    "dataSource": {
+        "url": "assets/publications-active-authors/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "ColumnSeries",
+            "name": "Authors",
+            "dataFields": {
+                "valueY": "authors",
+                "categoryX": "year"
+            },
+            "columns": {
+                "tooltipText": "{name} in {categoryX}:\n{valueY}",
+                "propertyFields": {
+                    "fillOpacity": "fillOpacity",
+                    "stroke": "stroke",
+                    "strokeWidth": "strokeWidth",
+                    "strokeDasharray": "columnDash"
+                }
+            },
+            "tooltip": {
+                "label": {
+                    "textAlign": "middle"
+                }
+            }
+        },
+        {
+            "id": "s2",
+            "type": "LineSeries",
+            "name": "Publications",
+            "dataFields": {
+                "valueY": "publications",
+                "categoryX": "year"
+            },
+            "stroke": "#67dc8c",
+            "strokeWidth": 3,
+            "strokeDasharray": "lineDash",
+            "tooltip": {
+                "label": {
+                    "textAlign": "middle"
+                }
+            },
+            "bullets": [{
+                "fill": "#67dc8c",
+                "tooltipText": "{name} in {categoryX}:\n{valueY}",
+                "children": [{
+                    "type": "Circle",
+                    "radius": 0.5,
+                    "fill": "#fff",
+                    "strokeWidth": 3
+                }]
+            }]
+        }
+    ],
+    "scrollbarX": {
+        "type": "XYChartScrollbar",
+        "series": [
+            "s1", "s2"
+        ],
+        "scrollbarChart": {
+            "seriesContainer": {
+                "opacity": 0
+            }
+        }
+    },
+    "yAxes": [
+        {
+            "type": "ValueAxis",
+            "title": {
+                "text": "Count",
+                "fontWeight": "bold"
+            }
+        }
+
+    ],
+    "xAxes": [
+        {
+            "type": "CategoryAxis",
+            "dataFields": {
+                "category": "year"
+            },
+            "renderer": {
+                "minGridDistance": 30
+            },
+            "title": {
+                "text": "Years",
+                "fontWeight": "bold"
+            },
+            "tooltip": {
+                "dy": 5
+            }
+        }
+    ],
+    "cursor": {},
+    "legend": {}
+}
