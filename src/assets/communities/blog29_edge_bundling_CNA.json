@@ -1,0 +1,337 @@
+{
+    "data": [
+        {
+            "name": "CENTRAL/0",
+            "group": "CENTRAL",
+            "size": 34,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/2",
+                "PERIPHERAL/3",
+                "ACTIVE/5",
+                "ACTIVE/6",
+                "PERIPHERAL/7",
+                "PERIPHERAL/8",
+                "PERIPHERAL/9",
+                "PERIPHERAL/10",
+                "PERIPHERAL/11",
+                "PERIPHERAL/12",
+                "PERIPHERAL/13",
+                "PERIPHERAL/14",
+                "PERIPHERAL/15",
+                "PERIPHERAL/16",
+                "PERIPHERAL/17",
+                "PERIPHERAL/18",
+                "PERIPHERAL/19",
+                "PERIPHERAL/20",
+                "ACTIVE/21",
+                "ACTIVE/22",
+                "PERIPHERAL/23",
+                "PERIPHERAL/24",
+                "PERIPHERAL/25",
+                "PERIPHERAL/26",
+                "PERIPHERAL/27",
+                "PERIPHERAL/28",
+                "PERIPHERAL/29",
+                "PERIPHERAL/30",
+                "PERIPHERAL/31"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/1",
+            "group": "PERIPHERAL",
+            "size": 2,
+            "imports": []
+        },
+        {
+            "name": "PERIPHERAL/2",
+            "group": "PERIPHERAL",
+            "size": 3,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/2"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/3",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/3"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/4",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "PERIPHERAL/4"
+            ]
+        },
+        {
+            "name": "ACTIVE/5",
+            "group": "ACTIVE",
+            "size": 7,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/5",
+                "PERIPHERAL/8",
+                "ACTIVE/21",
+                "ACTIVE/22",
+                "PERIPHERAL/26",
+                "PERIPHERAL/27"
+            ]
+        },
+        {
+            "name": "ACTIVE/6",
+            "group": "ACTIVE",
+            "size": 3,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/6",
+                "PERIPHERAL/7"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/7",
+            "group": "PERIPHERAL",
+            "size": 2,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/6",
+                "PERIPHERAL/7"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/8",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/5",
+                "PERIPHERAL/8"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/9",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/9"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/10",
+            "group": "PERIPHERAL",
+            "size": 2,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/10"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/11",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/11"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/12",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/12"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/13",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/13"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/14",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/14",
+                "PERIPHERAL/19"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/15",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/15"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/16",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/16"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/17",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/17"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/18",
+            "group": "PERIPHERAL",
+            "size": 2,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/18"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/19",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/14",
+                "PERIPHERAL/19"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/20",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/20"
+            ]
+        },
+        {
+            "name": "ACTIVE/21",
+            "group": "ACTIVE",
+            "size": 2,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/5",
+                "ACTIVE/21",
+                "ACTIVE/22"
+            ]
+        },
+        {
+            "name": "ACTIVE/22",
+            "group": "ACTIVE",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/5",
+                "ACTIVE/21",
+                "ACTIVE/22"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/23",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/23"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/24",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/24"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/25",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/25"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/26",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/5",
+                "PERIPHERAL/26",
+                "PERIPHERAL/27"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/27",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "ACTIVE/5",
+                "PERIPHERAL/26",
+                "PERIPHERAL/27"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/28",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/28"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/29",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/29"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/30",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/30"
+            ]
+        },
+        {
+            "name": "PERIPHERAL/31",
+            "group": "PERIPHERAL",
+            "size": 1,
+            "imports": [
+                "CENTRAL/0",
+                "PERIPHERAL/31"
+            ]
+        }
+    ],
+    "endDate": 1589109120,
+    "startDate": 1558286100,
+    "communityName": "learningfrommymistakesenglish"
+}
