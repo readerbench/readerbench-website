@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="page-wrapper">
+        <!-- <search-box></search-box> -->
+        <div id="page">
+            <app-header></app-header>
+            <div class="content-wrapper">
+                <app-carousel></app-carousel>
+                <div class="container">
+                    <div class="row top-buffer">
+                        <app-demo-menu></app-demo-menu>
+                    </div>
+                </div>
+            </div>
+            <div class="community-container">
+                <div class="section-header">
+                    <h1>Online Blog Communities</h1>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">&nbsp;</div>
+                </div>
+
+                <!-- <div class="row">
+                    <svg id='viz'></svg>
+                </div> -->
+                <div class="row">
+                    <div class="col-xs-3"></div>
+                    <div class="col-xs-1">
+                        <label for="self_language" class="dropdown-label">Community: </label>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <select class="form-control dropdown-community" [ngModel]="selectedCommunity"
+                                (ngModelChange)="selectedCommunity=$event">
+                                <option *ngFor="let option of communities" [ngValue]="option"
+                                    data-toggle="tooltip" title="{{option.name}}">{{ option.name }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-1">
+                        <div class="bottom-buttons">
+                            <button style="margin-top: 0px;" class="filter-button " (click)="generateViews()">Generate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="margin-bottom: -150px;">
+                    <svg id="my_blogs_legend" height=200 width=450></svg>
+                  </div>
+                <div class="row">
+                    <div class="col-xs-6"><svg id="viz"></svg></div>
+                    <div class="col-xs-6" style="margin-top: 100px;"><svg id="viz-edge-bundling"></svg></div>
+                    
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-6" id="blogs-force-directed-graph"></div>
+                    <div class="col-xs-6" id="blogs-hierarchical-edge-bundling"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

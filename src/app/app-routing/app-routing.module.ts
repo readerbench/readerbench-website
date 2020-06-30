@@ -22,6 +22,7 @@ import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recoma
 import {DocumentAnalysisComponent} from "../pages/demo/document-analysis/document-analysis";
 import { CsclNewComponent } from '../pages/demo/cscl-new/cscl-new.component';
 import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
+import { OnlineCommunitiesComponent } from '../pages/demo/online-communities/online-communities.component';
 
 const routes: Routes = [
   {
@@ -107,6 +108,10 @@ const routes: Routes = [
   {
     path: 'demo/essay-feedback',
     component: EssayFeedbackComponent
+  },
+  {
+    path: 'demo/online-communities',
+    component: OnlineCommunitiesComponent,
   },
   {
     path: '',

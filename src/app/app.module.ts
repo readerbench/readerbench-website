@@ -72,6 +72,7 @@ import { DropzoneModule, DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dr
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { OnlineCommunitiesComponent } from './pages/demo/online-communities/online-communities.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -135,7 +136,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MultiLevelEdgeBundlingComponent,
     ChordComponent,
     DocumentAnalysisComponent,
-    MultiDocumentCohesionGridComponent
+    MultiDocumentCohesionGridComponent,
+    OnlineCommunitiesComponent
   ],
   imports: [
     BrowserModule,
