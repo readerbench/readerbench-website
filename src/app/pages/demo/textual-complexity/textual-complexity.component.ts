@@ -23,6 +23,7 @@ export class TextualComplexityComponent implements OnInit {
   showResults: boolean;
   languages: any;
   language: any;
+  displayedText: string;
 
   response: any;
 
@@ -34,6 +35,7 @@ export class TextualComplexityComponent implements OnInit {
     this.componentTitle = TextualComplexityData.componentTitle;
     this.languages = TextualComplexityData.languages;
     this.language = TextualComplexityData.defaultLanguage;
+    this.displayedText = 'Selected text will be displayed in here.';
 
     this.formData = {
       'text': DefaultInputData.text,
@@ -100,6 +102,77 @@ export class TextualComplexityComponent implements OnInit {
 
       this.showResults = true;
     });
+  }
+
+  documentToStr(encapsulatorDepth = 1, decoratorTag = 'div', encapsulatorTag = 'ul') {
+    let sb = '';
+    sb += '<' + decoratorTag + '>';
+    sb += '<b>Document:</b> ';
+    sb += '<' + encapsulatorTag + ' class="level' + encapsulatorDepth + '">';
+    if (this.response.data.texts.length > 0) {
+      this.response.data.texts.forEach((paragraph, pIndex) => {
+        sb += this.paragraphToStr(pIndex, encapsulatorDepth + 1);
+      });
+    }
+    sb += '</' + encapsulatorTag + '>';
+    sb += '</' + decoratorTag + '>';
+    return sb;
+  }
+
+  paragraphToStr(paragraph_index = -1, encapsulatorDepth = 2, decoratorTag = 'li', encapsulatorTag = 'ul') {
+    if (paragraph_index === -1) {
+      return null;
+    }
+    let sb = '';
+    sb += '<' + decoratorTag + '>';
+    sb += '<b>Paragraph ' + paragraph_index + ':</b> ';
+    sb += '<' + encapsulatorTag + ' class="level' + encapsulatorDepth + '">';
+    if (this.response.data.texts[paragraph_index].length > 0) {
+      this.response.data.texts[paragraph_index].forEach((sentence, sIndex) => {
+        sb += this.sentenceToStr(paragraph_index, sIndex);
+      });
+    }
+    sb += '</' + encapsulatorTag + '>';
+    sb += '</' + decoratorTag + '>';
+    return sb;
+  }
+
+  sentenceToStr(paragraph_index = -1, sentence_index = -1, decoratorTag = 'li') {
+    if (paragraph_index === -1 || sentence_index === -1) {
+      return null;
+    }
+    let sb = '';
+    sb += '<' + decoratorTag + '>';
+    sb += '<b>Sentence ' + paragraph_index + '.' + sentence_index + '</b>: ';
+    sb += this.response.data.texts[paragraph_index][sentence_index];
+    sb += '</' + decoratorTag + '>';
+    return sb;
+  }
+
+  textToStr(paragraph_index = -1, sentence_index = -1) {
+    let sb = '';
+    if (sentence_index === -1) {
+      if (paragraph_index === -1) { // document level
+        sb += this.documentToStr();
+      } else { // pararaph level
+        sb += this.paragraphToStr(paragraph_index, 1, 'div');
+      }
+    } else { // sentence level
+      if (paragraph_index === -1) { // impossible
+        return null;
+      } else {
+        sb += this.sentenceToStr(paragraph_index, sentence_index, 'div');
+      }
+    }
+    return sb;
+  }
+
+  showText(paragraph_index = -1, sentence_index = -1) {
+    const sb = this.textToStr(paragraph_index, sentence_index);
+    jQuery('.displayed-text').html(sb);
+    jQuery('html, body').animate({
+      scrollTop: $('.displayed-text').offset().top - 70
+    }, 1000);
   }
 
 }
