@@ -109,7 +109,7 @@
                   <h5>CSCL Indices Description</h5>
                   <ul class="course-description-list">
                     <li class="lesson cscl-indices-description"
-                      *ngFor="let csclIndexDescription of csclIndicesDescription | keyvalue">
+                      *ngFor="let csclIndexDescription of csclIndicesDescriptions | keyvalue">
                       <div class="heading">
                         <span class="lesson-nr no-select">{{csclIndexDescription.key}}</span>
                       </div>
@@ -135,7 +135,7 @@
                     <svg id="collaborationSocialKB" width="100%" height="300"></svg>
                   </div>
                 </div>
-                <div class="row">
+                <div class="row" style="display: none;">
                   <div class="col-xs-12 col-md-12">
                     <h4>Collaboration - Voice Overlap</h4>
                   </div>

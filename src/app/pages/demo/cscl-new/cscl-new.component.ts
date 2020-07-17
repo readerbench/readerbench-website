@@ -39,9 +39,9 @@ export class CsclNewComponent implements OnInit {
   participantEdges: any;
   participantEvolution: any;
   collaborationSocialKBNodes: any;
-  voiceOverlapNodes: any;
+  // voiceOverlapNodes: any;
   csclIndices: any;
-  csclIndicesDescription: any;
+  csclIndicesDescriptions: any;
   conceptMap: any;
   error: string;
 
@@ -200,18 +200,18 @@ export class CsclNewComponent implements OnInit {
       }, 1000);
 
       // build collaboration voice graph
-      this.voiceOverlapNodes = response.data.voiceOverlap;
-      const intervalCollaborationVoiceOverlap = setInterval(function () {
-        if (_this.voiceOverlapNodes.count === response.data.voiceOverlap.count) {
-          clearInterval(intervalCollaborationVoiceOverlap);
-          _this.readerbenchService.d3jsLineGraph(
-            response.data.voiceOverlap,
-            '#collaborationVoiceOverlap',
-            'Contribution ID',
-            'Voice PMI'
-          );
-        }
-      }, 1000);
+      // this.voiceOverlapNodes = response.data.voiceOverlap;
+      // const intervalCollaborationVoiceOverlap = setInterval(function () {
+      //   if (_this.voiceOverlapNodes.count === response.data.voiceOverlap.count) {
+      //     clearInterval(intervalCollaborationVoiceOverlap);
+      //     _this.readerbenchService.d3jsLineGraph(
+      //       response.data.voiceOverlap,
+      //       '#collaborationVoiceOverlap',
+      //       'Contribution ID',
+      //       'Voice PMI'
+      //     );
+      //   }
+      // }, 1000);
 
       // build cscl indices
       this.csclIndices = response.data.csclIndices;
@@ -222,10 +222,10 @@ export class CsclNewComponent implements OnInit {
       }, 1000);
 
       // build cscl indices description
-      this.csclIndicesDescription = response.data.csclIndicesDescription;
-      const intervalCsclIndicesDescription = setInterval(function () {
-        if (_this.csclIndicesDescription.count === response.data.csclIndicesDescription.count) {
-          clearInterval(intervalCsclIndicesDescription);
+      this.csclIndicesDescriptions = response.data.csclIndicesDescriptions;
+      const csclIndicesDescriptions = setInterval(function () {
+        if (_this.csclIndicesDescriptions.count === response.data.csclIndicesDescriptions.count) {
+          clearInterval(csclIndicesDescriptions);
         }
       }, 1000);
 
