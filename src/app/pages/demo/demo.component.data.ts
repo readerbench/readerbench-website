@@ -98,7 +98,7 @@ export let DefaultInputData = {
             'fr': [{
                 id: '1',
                 name: 'Le Monde',
-                value: 'Le_Monde'
+                value: 'le_monde'
             },
             {
                 id: '2',
@@ -170,7 +170,7 @@ export let DefaultInputData = {
             'fr': [{
                 id: '1',
                 name: 'Le Monde',
-                value: 'Le_Monde'
+                value: 'le_monde'
             },
             {
                 id: '2',
@@ -233,7 +233,7 @@ export let DefaultInputData = {
             'fr': [{
                 id: '1',
                 name: 'Le Monde',
-                value: 'Le_Monde'
+                value: 'le_monde'
             },
             {
                 id: '2',
