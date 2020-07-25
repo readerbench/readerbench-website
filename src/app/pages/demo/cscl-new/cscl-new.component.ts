@@ -42,7 +42,8 @@ export class CsclNewComponent implements OnInit {
   // voiceOverlapNodes: any;
   csclIndices: any;
   csclIndicesDescriptions: any;
-  conceptMap: any;
+  conceptMaps: any;
+  conceptGraphs: any;
   error: string;
 
   participantInteractionGraph: any;
@@ -50,7 +51,7 @@ export class CsclNewComponent implements OnInit {
   noFilesToUpload: number;
   noUploadedFiles: number;
 
-  @ViewChild(DropzoneModule, { }) componentRef?: DropzoneModule;
+  @ViewChild(DropzoneModule, {}) componentRef?: DropzoneModule;
   @ViewChild(DropzoneDirective, {}) directiveRef?: DropzoneDirective;
 
   constructor(
@@ -78,6 +79,38 @@ export class CsclNewComponent implements OnInit {
 
     this.noFilesToUpload = 0;
     this.noUploadedFiles = 0;
+    this.conceptMaps = {
+      'LSA': null,
+      'LDA': null,
+      'WORD2VEC': null
+    };
+    this.conceptGraphs = {
+      'LSA': null,
+      'LDA': null,
+      'WORD2VEC': null
+    };
+  }
+
+  switchTo(zoneSelector = '') {
+    jQuery('.response-zone').hide();
+    console.log('activating ' + zoneSelector);
+    if (zoneSelector) {
+      jQuery(zoneSelector).show();
+      switch (zoneSelector) {
+        case '#participant-interaction':
+          this.drawParticipantInteractionGraph(this.response.data.participantInteractionGraph);
+          break;
+        case '#concept-graph-LSA':
+          this.drawConceptGraph(this.response.data.conceptMaps.LSA, 'LSA');
+          break;
+        case '#concept-graph-LDA':
+          this.drawConceptGraph(this.response.data.conceptMaps.LDA, 'LDA');
+          break;
+        case '#concept-graph-WORD2VEC':
+          this.drawConceptGraph(this.response.data.conceptMaps.WORD2VEC, 'WORD2VEC');
+          break;
+      }
+    }
   }
 
   loadSemanticModels() {
@@ -94,6 +127,35 @@ export class CsclNewComponent implements OnInit {
   languageEmitter($event) {
     this.language = $event;
     this.loadSemanticModels();
+  }
+
+  drawConceptGraph(conceptMapData = null, key = null) {
+    if (conceptMapData == null || key == null) { return; }
+    console.log('drawing concept map ' + key, conceptMapData);
+    const conceptGraph = {
+      nodeList: conceptMapData.nodeList,
+      edgeList: conceptMapData.edgeList,
+    };
+
+    this.twoModeGraphService.getGraph(conceptGraph).subscribe(
+      graph => { this.conceptGraphs[key] = graph; },
+      error => { this.error = error.message; },
+      () => {
+      }
+    );
+  }
+
+  drawParticipantInteractionGraph(participantInteractionData = null) {
+    if (participantInteractionData == null) { return; }
+    const participantInteractionObj = {
+      'nodeList': participantInteractionData.nodeList,
+      'edgeList': participantInteractionData.edgeList
+    };
+    this.twoModeGraphService.getGraph(participantInteractionObj).subscribe(
+      graph => { this.participantInteractionGraph = graph; },
+      error => { this.error = error.message; },
+      () => { }
+    );
   }
 
   process() {
@@ -120,8 +182,8 @@ export class CsclNewComponent implements OnInit {
       this.loading = false;
 
       if (response.success !== true) {
-        if (!isNil(response.data.errorMsg)) {
-          alert(response.data.errorMsg);
+        if (!isNil(response.errorMsg)) {
+          alert(response.errorMsg);
         } else {
           alert('Server error occured!');
         }
@@ -129,48 +191,6 @@ export class CsclNewComponent implements OnInit {
       }
 
       this.showResults = true;
-      // build concept map
-      this.topics = response.data.conceptMap.nodeList;
-      const conceptGraph = {
-        nodeList: response.data.conceptMap.nodeList,
-        edgeList: response.data.conceptMap.edgeList,
-      };
-
-      this.twoModeGraphService.getGraph(conceptGraph).subscribe(
-        graph => { this.conceptMap = graph; },
-        error => { this.error = error.message; },
-        () => {
-        }
-      );
-
-      // participant interaction graph
-      // this.participantInteractionGraph = {
-      //   'nodeList': response.data.participantInteractionGraph.nodeList,
-      //   'edgeList': response.data.participantInteractionGraph.edgeList
-      // };
-
-      // this.twoModeGraphService.getGraph(this.participantInteractionGraph).subscribe(
-      //   graph => { this.participantInteractionGraph = graph; },
-      //   error => { this.error = error.message; },
-      //   () => { }
-      // );
-
-      this.participants = response.data.participantInteractionGraph.nodeList;
-      this.participantEdges = response.data.participantInteractionGraph.edgeList;
-      const intervalParticipantInteraction = setInterval(function () {
-        if (_this.participantEdges.count === response.data.participantInteractionGraph.edgeList.count) {
-          clearInterval(intervalParticipantInteraction);
-          const participantInteractionGraph = {
-            'nodes': response.data.participantInteractionGraph.nodeList,
-            'links': response.data.participantInteractionGraph.edgeList
-          };
-          _this.readerbenchService.d3jsForTopics(
-            participantInteractionGraph,
-            '#participantInteractionMap',
-            false
-          );
-        }
-      }, 1000);
 
       // build participant evolution graph
       this.participantEvolution = response.data.participantEvolution;
