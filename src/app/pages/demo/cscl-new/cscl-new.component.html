@@ -191,19 +191,38 @@
                     <table class="contributions-indices">
                       <thead>
                         <tr class="entry">
-                          <th>Contribution ID</th>
+                          <th>ID</th>
+                          <th>Parent</th>
+                          <th>Timestamp</th>
+                          <th>Participant</th>
+                          <th>Utterance</th>
                           <th>Social KB</th>
                           <th>Importance</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr *ngFor="let contribution of response.data.contributionsIndices; let i = index"
+                        <tr *ngFor="let contribution of response.data.contributionsIndices.contributions"
                           class="entry">
-                          <td class="contribution-id">{{i}}</td>
+                          <td class="contribution-id">{{contribution.genid}}</td>
+                          <td class="value">{{contribution.ref}}</td>
+                          <td class="value">{{contribution.timestamp}}</td>
+                          <td class="value">{{contribution.participant}}</td>
+                          <td class="value">{{contribution.text}}</td>
                           <td class="value">{{contribution.SOCIAL_KB | number:'1.3-3'}}</td>
                           <td class="value">{{contribution.LOCAL_IMPORTANCE | number:'1.3-3'}}</td>
                         </tr>
                       </tbody>
+                      <tfoot>
+                        <tr>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td>&nbsp;</td>
+                          <td>Total</td>
+                          <td>{{response.data.contributionsIndices.total.SOCIAL_KB | number:'1.3-3'}};</td>
+                          <td>{{response.data.contributionsIndices.total.LOCAL_IMPORTANCE | number:'1.3-3'}};</td>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div>
                 </div>

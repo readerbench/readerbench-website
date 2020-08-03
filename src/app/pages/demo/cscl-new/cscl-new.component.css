@@ -34,8 +34,10 @@
 }
 
 .contributions-indices>thead th,
-.contributions-indices>tbody td.contribution-id {
+.contributions-indices>tbody td.contribution-id,
+.contributions-indices>tfoot td {
     color: #43b9c7;
+    font-weight: bold;
 }
 
 .contributions-indices td.value {
