@@ -112,7 +112,7 @@
                     <ul class="course-description-list">
                       <li class="lesson" *ngFor="let participant of response.data.participantInteractionGraph.nodeList">
                         <div class="heading">
-                          <span class="lesson-nr no-select"></span>
+                          <span class="lesson-nr no-select">{{participant.degree | number:'1.3-3'}}</span>
                         </div>
                         <div class="body">
                           <p>{{participant.displayName}}</p>
@@ -235,7 +235,7 @@
                         <ul class="course-description-list">
                           <li class="lesson" *ngFor="let topic of conceptMap.value.nodeList">
                             <div class="heading">
-                              <span class="lesson-nr no-select">{{topic.degree | number}}</span>
+                              <span class="lesson-nr no-select">{{topic.degree | number:'1.3-3'}}</span>
                             </div>
                             <div class="body">
                               <p>{{topic.uri}}</p>
