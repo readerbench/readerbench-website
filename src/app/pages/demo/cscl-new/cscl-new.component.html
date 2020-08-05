@@ -203,11 +203,11 @@
                       <tbody>
                         <tr *ngFor="let contribution of response.data.contributionsIndices.contributions"
                           class="entry">
-                          <td class="contribution-id">{{contribution.genid}}</td>
+                          <td class="contribution-id value">{{contribution.genid}}</td>
                           <td class="value">{{contribution.ref}}</td>
-                          <td class="value">{{contribution.timestamp}}</td>
-                          <td class="value">{{contribution.participant}}</td>
-                          <td class="value">{{contribution.text}}</td>
+                          <td class="">{{contribution.timestamp}}</td>
+                          <td class="">{{contribution.participant}}</td>
+                          <td class="">{{contribution.text}}</td>
                           <td class="value">{{contribution.SOCIAL_KB | number:'1.3-3'}}</td>
                           <td class="value">{{contribution.LOCAL_IMPORTANCE | number:'1.3-3'}}</td>
                         </tr>
@@ -218,9 +218,9 @@
                           <td>&nbsp;</td>
                           <td>&nbsp;</td>
                           <td>&nbsp;</td>
-                          <td>Total</td>
-                          <td>{{response.data.contributionsIndices.total.SOCIAL_KB | number:'1.3-3'}};</td>
-                          <td>{{response.data.contributionsIndices.total.LOCAL_IMPORTANCE | number:'1.3-3'}};</td>
+                          <td class="value">Total</td>
+                          <td class="value">{{response.data.contributionsIndices.total.SOCIAL_KB | number:'1.3-3'}}</td>
+                          <td class="value">{{response.data.contributionsIndices.total.LOCAL_IMPORTANCE | number:'1.3-3'}}</td>
                         </tr>
                       </tfoot>
                     </table>

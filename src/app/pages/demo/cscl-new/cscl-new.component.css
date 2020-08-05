@@ -31,6 +31,8 @@
 .contributions-indices th {
     font-size: 12px;
     padding: 0 5px;
+    text-align: left;
+    vertical-align: top;
 }
 
 .contributions-indices>thead th,
