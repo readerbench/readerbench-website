@@ -210,7 +210,7 @@ export class MultiDocumentCohesionGridComponent implements OnInit, OnChanges {
 
                 var path = d3.path();
 
-                if (nameToNode[edge.source] && nameToNode[edge.source]) {
+                if (nameToNode[edge.source] && nameToNode[edge.target]) {
                     var isArc = false;
                     if (nameToNode[edge.source].depth === 3){
                         if (nameToNode[edge.source].parent.data.name === nameToNode[edge.target].parent.data.name ||
