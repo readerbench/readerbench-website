@@ -60,13 +60,6 @@ export let DefaultInputData = {
     defaultPosTaggingOption: function () {
         return DefaultInputData.posTaggingOptions[0];
     },
-    dialogismOptions: [
-        true,
-        false
-    ],
-    defaultDialogismOption: function () {
-        return DefaultInputData.dialogismOptions[1];
-    },
     defaultBigrams: false,
     metricOptions: {
         lsa: {
