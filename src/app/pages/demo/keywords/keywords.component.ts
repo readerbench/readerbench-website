@@ -95,16 +95,15 @@ export class KeywordsComponent implements OnInit {
         return;
       }
 
-      this.myGraph = {
-        'nodeList': response.data.nodeList,
-        'edgeList': response.data.edgeList
+      const conceptGraph = {
+        nodeList: response.data.nodeList,
+        edgeList: response.data.edgeList,
       };
 
-      this.twoModeGraphService.getGraph(this.myGraph).subscribe(
+      this.twoModeGraphService.getGraph(conceptGraph).subscribe(
         graph => { this.myGraph = graph; },
         error => { this.error = error.message; },
         () => {
-          // this.readerbenchService.d3jsForTopics(this.graph, "#conceptMap", false);
         }
       );
 
