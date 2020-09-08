@@ -962,5 +962,12 @@ div.tooltipValue {
   stroke: #2ca02c;
 }
 
+.axis {
+  opacity: 0.4;
+}
+.axis:hover {
+  opacity: 1;
+}
+
 
 

@@ -1,6 +1,7 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, SystemJsNgModuleLoader } from "@angular/core";
 import * as d3 from 'd3';
 import * as vega from 'vega';
+import { RadarChart } from "./radar-chart";
 
 interface BlogCommunity {
   name: string;
@@ -14,6 +15,8 @@ interface BlogCommunity {
   })
   export class OnlineCommunitiesComponent implements OnInit {
 
+    
+
     private vegaView: vega.View;
     private vegaEdgeBundlingView: vega.View;
     selectedCommunity: BlogCommunity;
@@ -24,16 +27,317 @@ interface BlogCommunity {
     fileName: String;
 
     ngOnInit() {
-      // this.legend();
-      // this.drawDirectedGraph();
-      // this.drawEdgeBundling();
 
-      //this.displayForceDirectedLayoutDiagram();
-      //this.displayEdgeBundlingDiagram();
+      //this.displayForceDirectedLayoutDiagramVega();
+      //this.displayEdgeBundlingDiagramVega(); - doens't work
+      //this.radarChartViewD3();
+
+      //this.circularBarplot();
+
+      this.parallelViewD3();
       
     }
 
-    private displayEdgeBundlingDiagram() {
+    private parallelViewD3() {
+      // set the dimensions and margins of the graph
+      var margin = {top: 30, right: 50, bottom: 10, left: 50},
+      width = 800 - margin.left - margin.right,
+      height = 400 - margin.top - margin.bottom;
+
+      // append the svg object to the body of the page
+      var svg = d3.select("#parallel_view")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform",
+            "translate(" + margin.left + "," + margin.top + ")");
+
+      // Parse the Data
+      d3.json("assets/communities/parallel-view.json").then(function(data: any) {
+
+      // Color scale: give me a specie name, I return a color
+      var color = d3.scaleOrdinal()
+        .domain(["STUD", "TA", "PROF" ])
+        .range([ "#440154ff", "#21908dff", "#fde725ff"])
+
+      // Here I set the list of dimension manually to control the order of axis:
+      var dimensions = ["week_1", "week_2", "week_3", "week_4", "week_5", "week_6", "week_7", "week_8", "week_9", "week_10", "week_11", "week_12", "week_13", "week_14"]
+
+      // For each dimension, I build a linear scale. I store all in a y object
+      var y = {}
+      for (var i in dimensions) {
+        var name = dimensions[i]
+        y[name] = d3.scaleLinear()
+          .domain( [0,100] ) // --> Same axis range for each group
+          // --> different axis range for each group --> .domain( [d3.extent(data, function(d) { return +d[name]; })] )
+        
+          .range([height, 0])
+      }
+
+      // Build the X scale -> it find the best position for each Y axis
+      var x = d3.scalePoint()
+        .range([0, width])
+        .domain(dimensions);
+
+      // Highlight the specie that is hovered
+      var highlight = function(d){
+
+        var selected_specie = d.group
+
+        // first every group turns grey
+        d3.selectAll(".line")
+          .transition().duration(200)
+          .style("stroke", "lightgrey")
+          .style("opacity", "0.2")
+        // Second the hovered specie takes its color
+        d3.selectAll("." + selected_specie)
+          .transition().duration(200)
+          .style("stroke", <string>color(selected_specie))
+          .style("opacity", "1")
+      }
+
+      // Unhighlight
+      var doNotHighlight = function(d){
+        d3.selectAll(".line")
+          .transition().duration(200).delay(1000)
+          .style("stroke", function(d: any){ return <string>color(d.group)} )
+          .style("opacity", "1")
+      }
+
+      // The path function take a row of the csv as input, and return x and y coordinates of the line to draw for this raw.
+      function path(d) {
+        return d3.line()(dimensions.map(function(p) {
+          return [x(p), y[p](d[p])]; 
+        }));
+      }
+
+      // Draw the lines
+      svg
+        .selectAll("myPath")
+        .data(data)
+        .enter()
+        .append("path")
+          .attr("class", function (d: any) { return "line " + d.group } ) // 2 class for each line: 'line' and the group name
+          .attr("d",  path)
+          .style("fill", "none" )
+          .style("stroke", function(d: any){ return <string>color(d.group)} )
+          .style("opacity", 0.5)
+          .on("mouseover", highlight)
+          .on("mouseleave", doNotHighlight )
+
+      // Draw the axis:
+      svg.selectAll("myAxis")
+        // For each dimension of the dataset I add a 'g' element:
+        .data(dimensions).enter()
+        .append("g")
+        .attr("class", "axis")
+        // I translate this element to its right position on the x axis
+        .attr("transform", function(d) { return "translate(" + x(d) + ")"; })
+        // And I build the axis with the call function
+        .each(function(d) { d3.select(this).call(d3.axisLeft(x).ticks(5).scale(y[d])); })
+        // Add axis title
+        .append("text")
+          .style("text-anchor", "middle")
+          .attr("y", -9)
+          .text(function(d) { return d; })
+          .style("fill", "black")
+
+      })
+    }
+
+    private circularBarplot() {
+
+      // set the dimensions and margins of the graph
+      var margin = {top: 50, right: 0, bottom: 50, left: 50},
+      width = 460 - margin.left - margin.right,
+      height = 460 - margin.top - margin.bottom,
+      innerRadius = 90,
+      outerRadius = Math.min(width, height) / 2;   // the outerRadius goes from the middle of the SVG area to the border
+
+      // append the svg object
+      var svg = d3.select("#circular-barplot")
+      .append("svg")
+      .attr("width", width + margin.left + margin.right)
+      .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+      .attr("transform", "translate(" + (width / 2 + margin.left) + "," + (height / 2 + margin.top) + ")");
+
+      d3.json("assets/communities/circular-barplot.json").then(function(data: any) {
+
+      // Scales
+      var x = d3.scaleBand()
+        .range([0, 2 * Math.PI])    // X axis goes from 0 to 2pi = all around the circle. If I stop at 1Pi, it will be around a half circle
+        .align(0)                  // This does nothing
+        .domain(data.map(function(d) { return d.week; })); // The domain of the X axis is the list of states.
+      // var y = d3.scaleOrdinal()
+      //   .range([innerRadius, outerRadius])   // Domain will be define later.
+      //   .domain(["0", "14000"]); // Domain of Y is from 0 to the max seen in the data
+
+      var yLinear = d3.scaleLinear()
+        .range([innerRadius, outerRadius])   // Domain will be define later.
+        .domain([0, 14000]); // Domain of Y is from 0 to the max seen in the data
+      var y = Object.assign(d => Math.sqrt(yLinear(d)), yLinear);
+      
+
+      // Add the bars
+      svg.append("g")
+      .selectAll("path")
+      .data(data)
+      .enter()
+      .append("path")
+        .attr("fill", "#69b3a2")
+        .attr("d", d3.arc()     // imagine your doing a part of a donut plot
+            .innerRadius(innerRadius)
+            .outerRadius(function(d: any) { return (+y(d.value)); })
+            .startAngle(function(d: any) { return x(d.week); })
+            .endAngle(function(d: any) { return x(d.week) + x.bandwidth(); })
+            .padAngle(0.01)
+            .padRadius(innerRadius))
+
+      // Add the labels
+      svg.append("g")
+      .selectAll("g")
+      .data(data)
+      .enter()
+      .append("g")
+        .attr("text-anchor", function(d:any) { return (x(d.week) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? "end" : "start"; })
+        .attr("transform", function(d: any) { return "rotate(" + ((x(d.week) + x.bandwidth() / 2) * 180 / Math.PI - 90) + ")"+"translate(" + 
+          (+y(d.value)+10) + ",0)"; })
+      .append("text")
+        .text(function(d: any){return(d.week)})
+        .attr("transform", function(d:any) { return (x(d.week) + x.bandwidth() / 2 + Math.PI) % (2 * Math.PI) < Math.PI ? "rotate(180)" : "rotate(0)"; })
+        .style("font-size", "11px")
+        .attr("alignment-baseline", "middle")
+
+      });
+    }
+
+    private radarChartViewD3() {
+      //////////////////////////////////////////////////////////////
+			//////////////////////// Set-Up //////////////////////////////
+			//////////////////////////////////////////////////////////////
+
+			var margin = { top: 50, right: 80, bottom: 50, left: 80 },
+      width = Math.min(700, window.innerWidth / 4) - margin.left - margin.right,
+      height = Math.min(width, window.innerHeight - margin.top - margin.bottom);
+
+    //////////////////////////////////////////////////////////////
+    ////////////////////////// Data //////////////////////////////
+    //////////////////////////////////////////////////////////////
+
+    var data = [
+      { name: 'STUDENT 1',
+        axes: [
+          {axis: 'week 1', value: 42},
+          {axis: 'week 2', value: 20},
+          {axis: 'week 3', value: 60},
+          {axis: 'week 4', value: 26},
+          {axis: 'week 5', value: 35},
+          {axis: 'week 6', value: 20},
+          {axis: 'week 7', value: 42},
+          {axis: 'week 8', value: 20},
+          {axis: 'week 9', value: 60},
+          {axis: 'week 10', value: 26},
+          {axis: 'week 11', value: 35},
+          {axis: 'week 12', value: 20},
+          {axis: 'week 13', value: 35},
+          {axis: 'week 14', value: 20}
+        ]
+      },
+      { name: 'STUDENT 2',
+        axes: [
+          {axis: 'week 1', value: 54},
+          {axis: 'week 2', value: 23},
+          {axis: 'week 3', value: 78},
+          {axis: 'week 4', value: 90},
+          {axis: 'week 5', value: 23},
+          {axis: 'week 6', value: 45},
+          {axis: 'week 7', value: 23},
+          {axis: 'week 8', value: 23},
+          {axis: 'week 9', value: 43},
+          {axis: 'week 10', value: 54},
+          {axis: 'week 11', value: 76},
+          {axis: 'week 12', value: 86},
+          {axis: 'week 13', value: 12},
+          {axis: 'week 14', value: 12}
+        ]
+      },
+      { name: 'STUDENT 3',
+        axes: [
+          {axis: 'week 1', value: 12},
+          {axis: 'week 2', value: 34},
+          {axis: 'week 3', value: 45},
+          {axis: 'week 4', value: 64},
+          {axis: 'week 5', value: 43},
+          {axis: 'week 6', value: 64},
+          {axis: 'week 7', value: 56},
+          {axis: 'week 8', value: 34},
+          {axis: 'week 9', value: 76},
+          {axis: 'week 10', value: 23},
+          {axis: 'week 11', value: 65},
+          {axis: 'week 12', value: 87},
+          {axis: 'week 13', value: 12},
+          {axis: 'week 14', value: 45}
+        ]
+      },
+      { name: 'STUDENT 4',
+        axes: [
+          {axis: 'week 1', value: 12},
+          {axis: 'week 2', value: 34},
+          {axis: 'week 3', value: 4},
+          {axis: 'week 4', value: 34},
+          {axis: 'week 5', value: 23},
+          {axis: 'week 6', value: 43},
+          {axis: 'week 7', value: 21},
+          {axis: 'week 8', value: 89},
+          {axis: 'week 9', value: 78},
+          {axis: 'week 10', value: 67},
+          {axis: 'week 11', value: 89},
+          {axis: 'week 12', value: 67},
+          {axis: 'week 13', value: 98},
+          {axis: 'week 14', value: 7}
+        ]
+      },
+      { name: 'STUDENT 5',
+        axes: [
+          {axis: 'week 1', value: 78},
+          {axis: 'week 2', value: 97},
+          {axis: 'week 3', value: 57},
+          {axis: 'week 4', value: 87},
+          {axis: 'week 5', value: 46},
+          {axis: 'week 6', value: 34},
+          {axis: 'week 7', value: 23},
+          {axis: 'week 8', value: 45},
+          {axis: 'week 9', value: 67},
+          {axis: 'week 10', value: 24},
+          {axis: 'week 11', value: 57},
+          {axis: 'week 12', value: 78},
+          {axis: 'week 13', value: 23},
+          {axis: 'week 14', value: 67}
+        ]
+      }
+    ];
+  
+    var radarChartOptions = {
+      w: 690,
+      h: 350,
+      margin: margin,
+      maxValue: 60,
+      levels: 6,
+      roundStrokes: false,
+      color: d3.scaleOrdinal(d3.schemeSet3),
+      format: '.0f',
+      legend: { title: 'Students', translateX: 150, translateY: 40 },
+      unit: ' posts'
+    };
+
+    // Draw the chart, get a reference the created svg element :
+    let svg_radar1 = RadarChart(".radarChart", data, radarChartOptions);
+    
+    }
+
+    private displayEdgeBundlingDiagramVega() {
       const spec: vega.Spec = {
         "$schema": "https://vega.github.io/schema/vega/v5.json",
         "description": "A network diagram of software dependencies, with edges grouped via hierarchical edge bundling.",
@@ -247,14 +551,13 @@ interface BlogCommunity {
       setTimeout(() => {
         this.vegaView = new vega.View(vega.parse(spec))
             .renderer('canvas')  // set renderer (canvas or svg)
-            .initialize('#blogs-hierarchical-edge-bundling') // initialize view within parent DOM container
+            .initialize('#blogs-hierarchical-edge-bundling-vega') // initialize view within parent DOM container
             .hover()             // enable hover encode set processing
             .run();
       }, 100);
     }
 
-    private displayForceDirectedLayoutDiagram() {
-        console.log("display diagram");
+    private displayForceDirectedLayoutDiagramVega() {
         const spec: vega.Spec = {
           "$schema": "https://vega.github.io/schema/vega/v5.json",
           "description": "A node-link diagram with force-directed layout, depicting character co-occurrence in the novel Les Misérables.",
@@ -359,7 +662,7 @@ interface BlogCommunity {
                   "stroke": {"value": "white"}
                 },
                 "update": {
-                  "size": {"signal": "2 * nodeRadius * nodeRadius"},
+                  "size": {"signal": "2 * nodeRadius + datum.value"},
                   "cursor": {"value": "pointer"}
                 }
               },
@@ -392,6 +695,7 @@ interface BlogCommunity {
               },
               "transform": [
                 {
+                  "filter": "datum.value > 10",
                   "type": "linkpath",
                   "require": {"signal": "force"},
                   "shape": "line",
@@ -406,13 +710,15 @@ interface BlogCommunity {
         setTimeout(() => {
             this.vegaView = new vega.View(vega.parse(spec))
                 .renderer('canvas')  // set renderer (canvas or svg)
-                .initialize('#blogs-force-directed-graph') // initialize view within parent DOM container
+                .initialize('#blogs-force-directed-graph-vega') // initialize view within parent DOM container
                 .hover()             // enable hover encode set processing
                 .run();
         }, 100);
+
+        
     }
 
-    public drawDirectedGraph() {
+    public drawDirectedGraphD3() {
       var width = 1000;
       var height = 1000;
       var color = d3.scaleOrdinal(d3.schemeSet3); 
@@ -598,8 +904,7 @@ interface BlogCommunity {
       }); // d3.json
     }
 
-    public drawEdgeBundling() {
-      console.log("bau");
+    public drawEdgeBundlingD3() {
       // var diameter = 960,
       //   radius = diameter / 2,
       //   innerRadius = radius - 120;
@@ -787,7 +1092,6 @@ interface BlogCommunity {
         }
     
         function mouseouted(d) {
-            console.log("moouseout");
             link
                 .classed("link--target", false)
                 .classed("link--source", false);
@@ -801,7 +1105,6 @@ interface BlogCommunity {
 
         // Lazily construct the package hierarchy from class names.
         function packageHierarchy(classes) {
-          console.log(classes);
           var map = {};
 
           function find(name, data) {
@@ -859,10 +1162,10 @@ interface BlogCommunity {
     }
 
     public generateViews(){
-      this.cleanData();
-      this.legend();
-      this.drawDirectedGraph();
-      this.drawEdgeBundling();
+      // this.cleanData();
+      // this.legend();
+      //this.drawDirectedGraphD3();
+      //this.drawEdgeBundlingD3();
     }
 
     public cleanData(){

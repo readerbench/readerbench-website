@@ -60,6 +60,9 @@
               {
                 "input": "src/assets/js/third-party/bxslider.js",
                 "lazy": true
+              },
+              {
+                "input": "src/assets/js/third-party/d3-scale-radial-circular-barplot.js"
               }
             ]
           },
