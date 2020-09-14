@@ -103,6 +103,11 @@
                         </li>
                       </ng-container>
                     </ng-repeat>
+                    <li>
+                      <a title="CNA Graph" (click)="switchTo('#cna-graph')">
+                        <span>CNA Graph</span>
+                      </a>
+                    </li>
                   </ul>
                 </nav>
 
@@ -232,6 +237,11 @@
                     <ng-container *ngIf="conceptMap.value != null">
                       <div class="col-xs-12 col-md-3">
                         <h4>Concept Map ({{conceptMap.key}})</h4>
+                        <!-- <p>
+                          <mat-slider thumbLabel min="1" max="100" step="5" value="100"
+                            [displayWith]="formatConceptMapLabel"
+                            (input)="onChangeConceptMapSlider(conceptMap.key, $event)"></mat-slider>
+                        </p> -->
                         <ul class="course-description-list">
                           <li class="lesson" *ngFor="let topic of conceptMap.value.nodeList">
                             <div class="heading">
@@ -249,6 +259,16 @@
                     </ng-container>
                   </div>
                 </ng-repeat>
+
+                <div class="row response-zone" id="cna-graph" style="display: none;">
+                  <div class="col-xs-12 col-md-12">
+                    <h4>CNA Graph</h4>
+                  </div>
+                  <div class="col-xs-12 col-md-12">
+                    <div class="container-documents-analysis">
+                    </div>
+                  </div>
+                </div>
 
                 <div class="row" id="voice-overlap" class="response-zone" style="display: none;">
                   <div class="col-xs-12 col-md-12">
