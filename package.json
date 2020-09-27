@@ -6,7 +6,7 @@
     "ng": "ng",
     "start": "ng serve",
     "prod": "ng serve --port 80 --host 0.0.0.0 --disable-host-check",
-    "ssl": "ng serve --port 443 --host 0.0.0.0 --disable-host-check",
+    "ssl": "ng serve --port 443 --host 0.0.0.0 --disable-host-check --ssl true",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
