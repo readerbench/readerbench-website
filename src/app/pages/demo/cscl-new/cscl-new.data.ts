@@ -7,6 +7,7 @@ export let CsclData = {
     'languages': [
         DefaultInputData.languages[0],  // en
         DefaultInputData.languages[1],  // fr
+        DefaultInputData.languages[2],  // ro
     ],
     'defaultLanguage': DefaultInputData.languages[0] // en
 };
