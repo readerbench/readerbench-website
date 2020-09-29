@@ -102,8 +102,9 @@
                 </div>
               </div>
             </div>
+            
 
-            <div class="row" *ngIf="!isLoading">
+            <div class="row">
               <div class="col-xs-12 demo-menu">
                 <nav>
                   <ul>
@@ -120,8 +121,8 @@
             </div>
 
 
-            <div class="row" *ngIf="!isLoading && selectedTab">
-              <div class="col-xs-12" *ngIf="selectedTab.isHitmap()">
+            <div class="row">
+              <div class="col-xs-12">
                 <word-hitmap [wordList]="wordList"></word-hitmap>
               </div>
               <!-- <div class="col-xs-12" *ngIf="selectedTab.isSentence()">

@@ -821,7 +821,10 @@ display: none;
 }
 
 svg {
-font: 10px sans-serif;
+font: 12px sans-serif;
+}
+.tick {
+  color: black;
 }
 
 .axis path, .axis line {

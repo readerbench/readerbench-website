@@ -52,6 +52,27 @@
                     
                 </div>
 
+            
+                <!-- <div class="row" *ngFor="let data of weeks; let i = index">
+                    WEEK {{i+1}}
+                    <div class="col-xs-6"><svg id="blogs-force-directed-graph-lastyear-week{{i+1}}"></svg></div>
+                    <div class="col-xs-6"><svg id="blogs-force-directed-graph-week{{i+1}}"></svg></div>
+                </div> -->
+                <!-- <div class="row">
+                    <div class="col-xs-12"><svg id="blogs-force-directed-graph-lastyear-all"></svg></div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12"><svg id="blogs-force-directed-graph-thisyear-all"></svg></div>
+                </div> -->
+
+                <div class="row">
+                    <div class="col-xs-2" ></div>
+                    <div class="col-xs-4">
+                        <word-hitmap [wordList]="wordList" style="height: 900px !important;"></word-hitmap>
+                    </div>
+                    
+                </div>
+
                 <div class="row">
                     <div class="col-xs-6" id="blogs-force-directed-graph"></div>
                     <div class="col-xs-6" id="blogs-hierarchical-edge-bundling"></div>

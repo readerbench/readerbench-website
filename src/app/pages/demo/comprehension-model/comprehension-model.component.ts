@@ -7,6 +7,7 @@ import { Word, TwoModeGraph } from '@reader-bench/common';
 import { ApiRequestService } from '../api-request.service';
 import { EdgeBundlingService } from './service/edge-bundling.service';
 import { ComprehensionModelData } from './comprehension-model.data';
+import * as d3 from 'd3';
 
 @Component({
   selector: 'app-comprehension-model',
@@ -49,6 +50,25 @@ export class ComprehensionModelComponent implements OnInit {
   ngOnInit() {
     this.languages = ComprehensionModelData.languages;
     this.language = ComprehensionModelData.defaultLanguage;
+    var _this = this;
+      d3.json("assets/communities/pa_2019-2020-keywords.json").then(function(keywords: any) {
+            const list: Word[] = [];
+
+            keywords.words.forEach(w => {
+                const word = new Word();
+                word.value = w.value;
+                word.type = 'TextBased';
+                word.scoreList = [];
+                w.activationList.forEach(element => {
+                  word.scoreList.push(element.score);
+                });
+
+                list.push(word);
+            });
+      
+            _this.wordList = list;
+            console.log(_this.wordList);
+      });
   }
 
   public get incorrectSearchText(): boolean {

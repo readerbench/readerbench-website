@@ -1,301 +1,670 @@
-{
-    "data": [
-        {
-            "name": "CENTRAL/0",
-            "group": "CENTRAL",
-            "size": 30,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/1",
-                "ACTIVE/2",
-                "ACTIVE/3",
-                "PERIPHERAL/4",
-                "ACTIVE/5",
-                "PERIPHERAL/6",
-                "PERIPHERAL/7",
-                "PERIPHERAL/8",
-                "PERIPHERAL/9",
-                "PERIPHERAL/10",
-                "PERIPHERAL/12",
-                "PERIPHERAL/13",
-                "PERIPHERAL/14",
-                "ACTIVE/15",
-                "PERIPHERAL/16",
-                "PERIPHERAL/17",
-                "ACTIVE/18",
-                "ACTIVE/20",
-                "PERIPHERAL/21",
-                "PERIPHERAL/22",
-                "PERIPHERAL/23",
-                "PERIPHERAL/24",
-                "PERIPHERAL/25",
-                "PERIPHERAL/26",
-                "PERIPHERAL/27",
-                "ACTIVE/28"
-            ]
-        },
-        {
-            "name": "ACTIVE/1",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/1"
-            ]
-        },
-        {
-            "name": "ACTIVE/2",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/2"
-            ]
-        },
-        {
-            "name": "ACTIVE/3",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/3"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/4",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/4"
-            ]
-        },
-        {
-            "name": "ACTIVE/5",
-            "group": "ACTIVE",
-            "size": 2,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/5"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/6",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/6"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/7",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/7"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/8",
-            "group": "PERIPHERAL",
-            "size": 5,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/8",
-                "PERIPHERAL/9"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/9",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/8",
-                "PERIPHERAL/9"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/10",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/10",
-                "PERIPHERAL/11"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/11",
-            "group": "PERIPHERAL",
-            "size": 3,
-            "imports": [
-                "PERIPHERAL/10",
-                "PERIPHERAL/11"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/12",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/12",
-                "PERIPHERAL/13"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/13",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/12",
-                "PERIPHERAL/13"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/14",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/14"
-            ]
-        },
-        {
-            "name": "ACTIVE/15",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/15"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/16",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/16"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/17",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/17"
-            ]
-        },
-        {
-            "name": "ACTIVE/18",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/18"
-            ]
-        },
-        {
-            "name": "ACTIVE/19",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": []
-        },
-        {
-            "name": "ACTIVE/20",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/20"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/21",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/21"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/22",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/22"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/23",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/23"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/24",
-            "group": "PERIPHERAL",
-            "size": 4,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/24",
-                "PERIPHERAL/25",
-                "PERIPHERAL/26"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/25",
-            "group": "PERIPHERAL",
-            "size": 2,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/24",
-                "PERIPHERAL/25",
-                "PERIPHERAL/26"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/26",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/24",
-                "PERIPHERAL/25",
-                "PERIPHERAL/26"
-            ]
-        },
-        {
-            "name": "PERIPHERAL/27",
-            "group": "PERIPHERAL",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "PERIPHERAL/27"
-            ]
-        },
-        {
-            "name": "ACTIVE/28",
-            "group": "ACTIVE",
-            "size": 1,
-            "imports": [
-                "CENTRAL/0",
-                "ACTIVE/28"
-            ]
-        }
-    ],
-    "endDate": 1586638800,
-    "startDate": 1553119200,
-    "communityName": "whatedsaid"
-}
+{"data": [
+    {
+        "name": "STUD35",
+        "size": 1.9775684275557537,
+        "group": 3,
+        "imports": [
+            "STUD35",
+            "STUD53",
+            "TA10",
+            "TA3"
+        ]
+    },
+    {
+        "name": "STUD53",
+        "size": 4.10441611541163,
+        "group": 3,
+        "imports": [
+            "STUD53",
+            "STUD35",
+            "TA10",
+            "TA3",
+            "TA1"
+        ]
+    },
+    {
+        "name": "TA10",
+        "size": 70.28682124852008,
+        "group": 2,
+        "imports": [
+            "TA10",
+            "STUD35",
+            "STUD53",
+            "TA3",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD36",
+            "STUD61",
+            "STUD20",
+            "TA3",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD36",
+            "STUD61",
+            "STUD51"
+        ]
+    },
+    {
+        "name": "TA3",
+        "size": 3.5614028088508305,
+        "group": 2,
+        "imports": [
+            "TA3",
+            "STUD35",
+            "STUD53",
+            "TA10",
+            "TA10"
+        ]
+    },
+    {
+        "name": "STUD60",
+        "size": 0,
+        "group": 3,
+        "imports": [
+            "STUD60"
+        ]
+    },
+    {
+        "name": "STUD105",
+        "size": 0,
+        "group": 3,
+        "imports": [
+            "STUD105"
+        ]
+    },
+    {
+        "name": "STUD106",
+        "size": 4.131256509895278,
+        "group": 3,
+        "imports": [
+            "STUD106",
+            "STUD50",
+            "TA1",
+            "STUD107",
+            "STUD109"
+        ]
+    },
+    {
+        "name": "STUD50",
+        "size": 4.1001822609315415,
+        "group": 3,
+        "imports": [
+            "STUD50",
+            "STUD106",
+            "TA1",
+            "STUD107",
+            "STUD109"
+        ]
+    },
+    {
+        "name": "TA1",
+        "size": 16.177299841331227,
+        "group": 2,
+        "imports": [
+            "TA1",
+            "STUD53",
+            "STUD106",
+            "STUD50",
+            "STUD107",
+            "STUD86",
+            "STUD109",
+            "STUD114",
+            "STUD13",
+            "STUD107",
+            "STUD109",
+            "STUD67",
+            "STUD201",
+            "STUD46"
+        ]
+    },
+    {
+        "name": "STUD107",
+        "size": 5.60427906819478,
+        "group": 3,
+        "imports": [
+            "STUD107",
+            "STUD106",
+            "STUD50",
+            "TA1",
+            "TA1",
+            "STUD86",
+            "STUD109"
+        ]
+    },
+    {
+        "name": "STUD108",
+        "size": 0,
+        "group": 3,
+        "imports": [
+            "STUD108"
+        ]
+    },
+    {
+        "name": "STUD86",
+        "size": 1.9164604647971184,
+        "group": 3,
+        "imports": [
+            "STUD86",
+            "TA1",
+            "STUD107",
+            "STUD109"
+        ]
+    },
+    {
+        "name": "STUD109",
+        "size": 6.381475343588113,
+        "group": 3,
+        "imports": [
+            "STUD109",
+            "STUD106",
+            "STUD50",
+            "TA1",
+            "STUD107",
+            "STUD86",
+            "TA1"
+        ]
+    },
+    {
+        "name": "STUD112",
+        "size": 18.069857170144157,
+        "group": 3,
+        "imports": [
+            "STUD112",
+            "TA10",
+            "TA10",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD169",
+            "STUD161",
+            "STUD20",
+            "STUD170"
+        ]
+    },
+    {
+        "name": "STUD84",
+        "size": 26.86664171015978,
+        "group": 3,
+        "imports": [
+            "STUD84",
+            "TA10",
+            "STUD112",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "TA10",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD81",
+        "size": 14.46372921358075,
+        "group": 3,
+        "imports": [
+            "STUD81",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "TA10",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD36",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD72",
+        "size": 31.31332012232328,
+        "group": 3,
+        "imports": [
+            "STUD72",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "TA10",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD36",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD167",
+        "size": 15.848113696496528,
+        "group": 3,
+        "imports": [
+            "STUD167",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD140",
+            "STUD168",
+            "TA10",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD36",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD140",
+        "size": 26.290374929537506,
+        "group": 3,
+        "imports": [
+            "STUD140",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "TA10",
+            "STUD169",
+            "STUD161",
+            "STUD170",
+            "STUD61",
+            "STUD20",
+            "STUD57",
+            "STUD168"
+        ]
+    },
+    {
+        "name": "STUD168",
+        "size": 10.790984674995897,
+        "group": 3,
+        "imports": [
+            "STUD168",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD72",
+            "STUD167",
+            "TA10",
+            "STUD140",
+            "STUD169",
+            "STUD161",
+            "STUD57",
+            "STUD170"
+        ]
+    },
+    {
+        "name": "STUD169",
+        "size": 12.097286871515962,
+        "group": 3,
+        "imports": [
+            "STUD169",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD161",
+            "STUD170",
+            "TA10"
+        ]
+    },
+    {
+        "name": "STUD161",
+        "size": 14.86511316083854,
+        "group": 3,
+        "imports": [
+            "STUD161",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD169",
+            "STUD57",
+            "STUD170",
+            "TA10",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD20",
+        "size": 3.1048343169722252,
+        "group": 3,
+        "imports": [
+            "STUD20",
+            "TA10",
+            "STUD112",
+            "STUD140",
+            "STUD170"
+        ]
+    },
+    {
+        "name": "STUD57",
+        "size": 11.372458811590192,
+        "group": 3,
+        "imports": [
+            "STUD57",
+            "TA10",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD161",
+            "STUD170",
+            "STUD36",
+            "TA10",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD170",
+        "size": 17.179428434254344,
+        "group": 3,
+        "imports": [
+            "STUD170",
+            "TA10",
+            "STUD112",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD168",
+            "STUD169",
+            "STUD161",
+            "STUD20",
+            "STUD57",
+            "STUD36",
+            "TA10",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD36",
+        "size": 7.932072990570365,
+        "group": 3,
+        "imports": [
+            "STUD36",
+            "TA10",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD57",
+            "STUD170",
+            "TA10",
+            "STUD61"
+        ]
+    },
+    {
+        "name": "STUD31",
+        "size": 10.739109329070411,
+        "group": 3,
+        "imports": [
+            "STUD31",
+            "STUD13",
+            "TA13",
+            "TA13"
+        ]
+    },
+    {
+        "name": "STUD61",
+        "size": 11.35474313897486,
+        "group": 3,
+        "imports": [
+            "STUD61",
+            "TA10",
+            "STUD84",
+            "STUD81",
+            "STUD72",
+            "STUD167",
+            "STUD140",
+            "STUD161",
+            "STUD57",
+            "STUD170",
+            "STUD36",
+            "TA10"
+        ]
+    },
+    {
+        "name": "STUD165",
+        "size": 4.694835193280056,
+        "group": 3,
+        "imports": [
+            "STUD165",
+            "STUD166",
+            "STUD102",
+            "STUD166"
+        ]
+    },
+    {
+        "name": "STUD166",
+        "size": 3.2968738237492765,
+        "group": 3,
+        "imports": [
+            "STUD166",
+            "STUD165",
+            "STUD165",
+            "STUD102"
+        ]
+    },
+    {
+        "name": "STUD102",
+        "size": 3.013865973484279,
+        "group": 3,
+        "imports": [
+            "STUD102",
+            "STUD165",
+            "STUD166"
+        ]
+    },
+    {
+        "name": "STUD49",
+        "size": 0.77827363547531,
+        "group": 3,
+        "imports": [
+            "STUD49",
+            "TA13"
+        ]
+    },
+    {
+        "name": "TA13",
+        "size": 13.726788241486902,
+        "group": 2,
+        "imports": [
+            "TA13",
+            "STUD31",
+            "STUD49",
+            "STUD31",
+            "STUD171",
+            "STUD24",
+            "STUD171"
+        ]
+    },
+    {
+        "name": "STUD56",
+        "size": 0,
+        "group": 3,
+        "imports": [
+            "STUD56"
+        ]
+    },
+    {
+        "name": "TA15",
+        "size": 0,
+        "group": 2,
+        "imports": [
+            "TA15"
+        ]
+    },
+    {
+        "name": "STUD13",
+        "size": 2.9435673929672035,
+        "group": 3,
+        "imports": [
+            "STUD13",
+            "TA1",
+            "STUD31",
+            "STUD67",
+            "STUD114"
+        ]
+    },
+    {
+        "name": "STUD67",
+        "size": 2.9932315998335586,
+        "group": 3,
+        "imports": [
+            "STUD67",
+            "TA1",
+            "STUD114",
+            "STUD13"
+        ]
+    },
+    {
+        "name": "STUD199",
+        "size": 0,
+        "group": 3,
+        "imports": [
+            "STUD199"
+        ]
+    },
+    {
+        "name": "STUD200",
+        "size": 0,
+        "group": 3,
+        "imports": [
+            "STUD200"
+        ]
+    },
+    {
+        "name": "STUD114",
+        "size": 2.232808629950017,
+        "group": 3,
+        "imports": [
+            "STUD114",
+            "TA1",
+            "STUD67",
+            "STUD13"
+        ]
+    },
+    {
+        "name": "STUD201",
+        "size": 0.8667885950581457,
+        "group": 3,
+        "imports": [
+            "STUD201",
+            "TA1"
+        ]
+    },
+    {
+        "name": "STUD24",
+        "size": 0.6830539314447008,
+        "group": 3,
+        "imports": [
+            "STUD24",
+            "TA13"
+        ]
+    },
+    {
+        "name": "STUD51",
+        "size": 0.7900749030702875,
+        "group": 3,
+        "imports": [
+            "STUD51",
+            "TA10"
+        ]
+    },
+    {
+        "name": "TA11",
+        "size": 1.3817333053916165,
+        "group": 2,
+        "imports": [
+            "TA11",
+            "TA16",
+            "TA17"
+        ]
+    },
+    {
+        "name": "TA16",
+        "size": 1.4234451178975345,
+        "group": 2,
+        "imports": [
+            "TA16",
+            "TA11",
+            "TA17"
+        ]
+    },
+    {
+        "name": "TA17",
+        "size": 1.3875079204063177,
+        "group": 2,
+        "imports": [
+            "TA17",
+            "TA11",
+            "TA16"
+        ]
+    },
+    {
+        "name": "STUD46",
+        "size": 0.7315004048513799,
+        "group": 3,
+        "imports": [
+            "STUD46",
+            "TA1"
+        ]
+    },
+    {
+        "name": "STUD171",
+        "size": 2.245102277546249,
+        "group": 3,
+        "imports": [
+            "STUD171",
+            "TA13",
+            "TA13"
+        ]
+    }
+]}

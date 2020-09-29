@@ -40,9 +40,9 @@ rect.bordered {
 }
 
 text.mono {
-    font-size: 11pt;
+    font-size: 16pt;
     font-family: Consolas, courier;
-    fill: #aaa;
+    fill: #000;
 }
 
 text.wordLabel {
@@ -64,7 +64,7 @@ text.wordLabel.inferred {
 text.phraseLabel {
     fill: #000;
     font-weight: bold;
-    font-size: 10px;
+    font-size: 16px;
 }
 
 input.error, textarea.error {

@@ -12,7 +12,7 @@ const sin = Math.sin;
 const cos = Math.cos;
 const HALF_PI = Math.PI / 2;
 
-export function RadarChart(parent_selector, data, options) {
+export function  RadarChart(parent_selector, data, options) {
 	//Wraps SVG text - Taken from http://bl.ocks.org/mbostock/7555321
 	const wrap = (text, width) => {
 	  text.each(function() {
@@ -133,7 +133,7 @@ export function RadarChart(parent_selector, data, options) {
 		.append("circle")
 		.attr("class", "gridCircle")
 		.attr("r", d => radius / cfg.levels * d)
-		.style("fill", "#CDCDCD")
+		.style("fill", "white")
 		.style("stroke", "#CDCDCD")
 		.style("fill-opacity", cfg.opacityCircles)
 		.style("filter" , "url(#glow)");
@@ -167,13 +167,13 @@ export function RadarChart(parent_selector, data, options) {
 		.attr("x2", (d, i) => rScale(maxValue *1.1) * cos(angleSlice * i - HALF_PI))
 		.attr("y2", (d, i) => rScale(maxValue* 1.1) * sin(angleSlice * i - HALF_PI))
 		.attr("class", "line")
-		.style("stroke", "white")
+		.style("stroke", "#CDCDCD")
 		.style("stroke-width", "2px");
 
 	//Append the labels at each axis
 	axis.append("text")
 		.attr("class", "legend")
-		.style("font-size", "11px")
+		.style("font-size", "18px")
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em")
 		.attr("x", (d,i) => rScale(maxValue * cfg.labelFactor) * cos(angleSlice * i - HALF_PI))
@@ -283,7 +283,7 @@ export function RadarChart(parent_selector, data, options) {
 		.attr("class", "tooltip")
 		.attr('x', 0)
 		.attr('y', 0)
-		.style("font-size", "12px")
+		.style("font-size", "18px")
 		.style('display', 'none')
 		.attr("text-anchor", "middle")
 		.attr("dy", "0.35em");
@@ -297,7 +297,7 @@ export function RadarChart(parent_selector, data, options) {
 				.attr('transform', `translate(${cfg.legend.translateX},${cfg.legend.translateY})`)
 				.attr("x", cfg.w - 70)
 				.attr("y", 10)
-				.attr("font-size", "12px")
+				.attr("font-size", "18px")
 				.attr("fill", "#404040")
 				.text(cfg.legend.title);
 		}
@@ -323,7 +323,7 @@ export function RadarChart(parent_selector, data, options) {
 		  .append("text")
 		  .attr("x", cfg.w - 52)
 		  .attr("y", (d,i) => i * 20 + 9)
-		  .attr("font-size", "11px")
+		  .attr("font-size", "18px")
           .attr("fill", "#737373")
           .text(function(d: any) { return d; });
 		  //.text(d => d);

@@ -2,6 +2,7 @@ import { Component, OnInit, SystemJsNgModuleLoader } from "@angular/core";
 import * as d3 from 'd3';
 import * as vega from 'vega';
 import { RadarChart } from "./radar-chart";
+import { Word } from "@reader-bench/common";
 
 interface BlogCommunity {
   name: string;
@@ -15,7 +16,7 @@ interface BlogCommunity {
   })
   export class OnlineCommunitiesComponent implements OnInit {
 
-    
+
 
     private vegaView: vega.View;
     private vegaEdgeBundlingView: vega.View;
@@ -25,6 +26,8 @@ interface BlogCommunity {
     {name: "blog25"},
     {name: "blog29"}];
     fileName: String;
+    weeks: Number[] = [1,2,3,4,5,6,7,8,9,10,11,12,13,14];
+    public wordList: Word[];
 
     ngOnInit() {
 
@@ -34,8 +37,34 @@ interface BlogCommunity {
 
       //this.circularBarplot();
 
-      this.parallelViewD3();
+      //this.parallelViewD3();
+
+      //this.generateDirectedGradphForAllWeeks();
+
+      this.test();
+
+      // var _this = this;
+      // d3.json("assets/communities/pa_2018-2019-keywords.json").then(function(keywords: any) {
+      //       const list: Word[] = [];
+
+      //       keywords.words.forEach(w => {
+      //           const word = new Word();
+      //           word.value = w.value;
+      //           word.type = 'TextBased';
+      //           word.scoreList = [];
+      //           w.activationList.forEach(element => {
+      //             word.scoreList.push(element.score);
+      //           });
+
+      //           list.push(word);
+      //       });
       
+      //       _this.wordList = list;
+      //       console.log(_this.wordList);
+      // });
+
+      //this.legend();
+
     }
 
     private parallelViewD3() {
@@ -54,22 +83,23 @@ interface BlogCommunity {
             "translate(" + margin.left + "," + margin.top + ")");
 
       // Parse the Data
-      d3.json("assets/communities/parallel-view.json").then(function(data: any) {
+      d3.json("assets/communities/parallel-view_2018-2019.json").then(function(data: any) {
 
       // Color scale: give me a specie name, I return a color
       var color = d3.scaleOrdinal()
-        .domain(["STUD", "TA", "PROF" ])
-        .range([ "#440154ff", "#21908dff", "#fde725ff"])
+        .domain(["social_kb", "outdegree", "indegree" ])
+        .range([ "blue", "red", "green"])
 
       // Here I set the list of dimension manually to control the order of axis:
-      var dimensions = ["week_1", "week_2", "week_3", "week_4", "week_5", "week_6", "week_7", "week_8", "week_9", "week_10", "week_11", "week_12", "week_13", "week_14"]
+      var dimensions = ["week_1", "week_2", "week_3", "week_4", "week_5", "week_6", "week_7", "week_8", 
+      "week_9", "week_10", "week_11", "week_12", "week_13", "week_14"]
 
       // For each dimension, I build a linear scale. I store all in a y object
       var y = {}
       for (var i in dimensions) {
         var name = dimensions[i]
         y[name] = d3.scaleLinear()
-          .domain( [0,100] ) // --> Same axis range for each group
+          .domain( [0,60] ) // --> Same axis range for each group
           // --> different axis range for each group --> .domain( [d3.extent(data, function(d) { return +d[name]; })] )
         
           .range([height, 0])
@@ -122,6 +152,7 @@ interface BlogCommunity {
           .attr("d",  path)
           .style("fill", "none" )
           .style("stroke", function(d: any){ return <string>color(d.group)} )
+          .style("stroke-width", "2px")
           .style("opacity", 0.5)
           .on("mouseover", highlight)
           .on("mouseleave", doNotHighlight )
@@ -142,6 +173,7 @@ interface BlogCommunity {
           .attr("y", -9)
           .text(function(d) { return d; })
           .style("fill", "black")
+          .style("font-weight", "bold")
 
       })
     }
@@ -226,115 +258,140 @@ interface BlogCommunity {
     ////////////////////////// Data //////////////////////////////
     //////////////////////////////////////////////////////////////
 
-    var data = [
-      { name: 'STUDENT 1',
+    //2018-2019
+    var data1= [
+
+      { name: 'STUD31',
         axes: [
-          {axis: 'week 1', value: 42},
-          {axis: 'week 2', value: 20},
-          {axis: 'week 3', value: 60},
-          {axis: 'week 4', value: 26},
-          {axis: 'week 5', value: 35},
-          {axis: 'week 6', value: 20},
-          {axis: 'week 7', value: 42},
-          {axis: 'week 8', value: 20},
-          {axis: 'week 9', value: 60},
-          {axis: 'week 10', value: 26},
-          {axis: 'week 11', value: 35},
-          {axis: 'week 12', value: 20},
-          {axis: 'week 13', value: 35},
-          {axis: 'week 14', value: 20}
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: Math.log2(7.113270799621281)},
+          {axis: 'week4', value: Math.log2(7.550873675431539)},
+          {axis: 'week5', value: Math.log2(1.308194432524488)},
+          {axis: 'week6', value: Math.log2(3.4986221183883)},
+          {axis: 'week7', value: 0},
+          {axis: 'week8', value: 0},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: Math.log2(0.6458145860919903)},
+          {axis: 'week12', value: Math.log2(22.8278416695908306)},
+          {axis: 'week13', value: Math.log2(7.714819825787197)},
+          {axis: 'week14', value: 0}
         ]
       },
-      { name: 'STUDENT 2',
+      { name: 'STUD56',
         axes: [
-          {axis: 'week 1', value: 54},
-          {axis: 'week 2', value: 23},
-          {axis: 'week 3', value: 78},
-          {axis: 'week 4', value: 90},
-          {axis: 'week 5', value: 23},
-          {axis: 'week 6', value: 45},
-          {axis: 'week 7', value: 23},
-          {axis: 'week 8', value: 23},
-          {axis: 'week 9', value: 43},
-          {axis: 'week 10', value: 54},
-          {axis: 'week 11', value: 76},
-          {axis: 'week 12', value: 86},
-          {axis: 'week 13', value: 12},
-          {axis: 'week 14', value: 12}
+          {axis: 'week1', value : 0},
+          {axis: 'week2', value : 0},
+          {axis: 'week3', value : 0},
+          {axis: 'week4', value : 0},
+          {axis: 'week5', value : 0},
+          {axis: 'week6', value : Math.log2(7.849121013544668)},
+          {axis: 'week7', value : 0},
+          {axis: 'week8', value : Math.log2(0.4550062420973411)},
+          {axis: 'week9', value : 0},
+          {axis: 'week10', value : 0},
+          {axis: 'week11', value : Math.log2(0.24587944142120818)},
+          {axis: 'week12', value : Math.log2(3.7491159301564814)},
+          {axis: 'week13', value : Math.log2(0.7008856835185493)},
+          {axis: 'week14', value : 0}
         ]
       },
-      { name: 'STUDENT 3',
+      { name: 'STUD84',
         axes: [
-          {axis: 'week 1', value: 12},
-          {axis: 'week 2', value: 34},
-          {axis: 'week 3', value: 45},
-          {axis: 'week 4', value: 64},
-          {axis: 'week 5', value: 43},
-          {axis: 'week 6', value: 64},
-          {axis: 'week 7', value: 56},
-          {axis: 'week 8', value: 34},
-          {axis: 'week 9', value: 76},
-          {axis: 'week 10', value: 23},
-          {axis: 'week 11', value: 65},
-          {axis: 'week 12', value: 87},
-          {axis: 'week 13', value: 12},
-          {axis: 'week 14', value: 45}
-        ]
-      },
-      { name: 'STUDENT 4',
-        axes: [
-          {axis: 'week 1', value: 12},
-          {axis: 'week 2', value: 34},
-          {axis: 'week 3', value: 4},
-          {axis: 'week 4', value: 34},
-          {axis: 'week 5', value: 23},
-          {axis: 'week 6', value: 43},
-          {axis: 'week 7', value: 21},
-          {axis: 'week 8', value: 89},
-          {axis: 'week 9', value: 78},
-          {axis: 'week 10', value: 67},
-          {axis: 'week 11', value: 89},
-          {axis: 'week 12', value: 67},
-          {axis: 'week 13', value: 98},
-          {axis: 'week 14', value: 7}
-        ]
-      },
-      { name: 'STUDENT 5',
-        axes: [
-          {axis: 'week 1', value: 78},
-          {axis: 'week 2', value: 97},
-          {axis: 'week 3', value: 57},
-          {axis: 'week 4', value: 87},
-          {axis: 'week 5', value: 46},
-          {axis: 'week 6', value: 34},
-          {axis: 'week 7', value: 23},
-          {axis: 'week 8', value: 45},
-          {axis: 'week 9', value: 67},
-          {axis: 'week 10', value: 24},
-          {axis: 'week 11', value: 57},
-          {axis: 'week 12', value: 78},
-          {axis: 'week 13', value: 23},
-          {axis: 'week 14', value: 67}
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: 0},
+          {axis: 'week4', value: 0},
+          {axis: 'week5', value: 0},
+          {axis: 'week6', value: 0},
+          {axis: 'week7', value: Math.log2(2.55470864329524)},
+          {axis: 'week8', value: Math.log2(2.9095721502006686)},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: Math.log2(0.24587944142120818)},
+          {axis: 'week12', value: Math.log2(1.6577527160974226)},
+          {axis: 'week13', value: Math.log2(5.193471621682791)},
+          {axis: 'week14', value: 0}
         ]
       }
     ];
-  
+
+    //2019-2020
+    var data = [
+
+      { name: 'STUD29',
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: Math.log2(2.431502075277253)},
+          {axis: 'week4', value: Math.log2(5.342501657818246)},
+          {axis: 'week5', value: Math.log2(2.9606913962240613)},
+          {axis: 'week6', value: 0},
+          {axis: 'week7', value: 0},
+          {axis: 'week8', value: Math.log2(9.767463633349797)},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: Math.log2(1.0209039842686087)},
+          {axis: 'week11', value: Math.log2(2.605190676480361)},
+          {axis: 'week12', value: Math.log2(2.148861979260961)},
+          {axis: 'week13', value: Math.log2(2.075785913472686)},
+          {axis: 'week14', value: 0}
+        ]
+      },
+      { name: 'STUD25',
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: Math.log2(4.302671924075632)},
+          {axis: 'week4', value: Math.log2(6.762801057365927)},
+          {axis: 'week5', value: Math.log2(3.181733258342107)},
+          {axis: 'week6', value: Math.log2(2.2786219519508624)},
+          {axis: 'week7', value: Math.log2(1.9440398739678624)},
+          {axis: 'week8', value: 0},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: Math.log2(2.7230072545184636)},
+          {axis: 'week12', value: 0},
+          {axis: 'week13', value: Math.log2(5.639566716525496)},
+          {axis: 'week14', value: 0}
+        ]
+      },
+      { name: 'STUD71',
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: 0},
+          {axis: 'week4', value: 0},
+          {axis: 'week5', value: Math.log2(14.106840499647213)},
+          {axis: 'week6', value: 0},
+          {axis: 'week7', value: 0},
+          {axis: 'week8', value: 0},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: 0},
+          {axis: 'week12', value: 0},
+          {axis: 'week13', value: 0},
+          {axis: 'week14', value: 0}
+        ]
+      }
+    ];
+
     var radarChartOptions = {
       w: 690,
       h: 350,
       margin: margin,
-      maxValue: 60,
-      levels: 6,
+      maxValue: 5,
+      levels: 3,
       roundStrokes: false,
-      color: d3.scaleOrdinal(d3.schemeSet3),
+      color: d3.scaleOrdinal(d3.schemeCategory10),
       format: '.0f',
       legend: { title: 'Students', translateX: 150, translateY: 40 },
-      unit: ' posts'
+      //unit: ' contribution_score'
     };
 
     // Draw the chart, get a reference the created svg element :
     let svg_radar1 = RadarChart(".radarChart", data, radarChartOptions);
-    
+
     }
 
     private displayEdgeBundlingDiagramVega() {
@@ -345,7 +402,7 @@ interface BlogCommunity {
         "width": 720,
         "height": 720,
         "autosize": "none",
-      
+
         "signals": [
           {
             "name": "tension", "value": 0.85,
@@ -387,7 +444,7 @@ interface BlogCommunity {
             ]
           }
         ],
-      
+
         "data": [
           {
             "name": "tree",
@@ -459,7 +516,7 @@ interface BlogCommunity {
             ]
           }
         ],
-      
+
         "marks": [
           {
             "type": "text",
@@ -528,7 +585,7 @@ interface BlogCommunity {
             ]
           }
         ],
-      
+
         "scales": [
           {
             "name": "color",
@@ -537,7 +594,7 @@ interface BlogCommunity {
             "range": [{"signal": "colorIn"}, {"signal": "colorOut"}]
           }
         ],
-      
+
         "legends": [
           {
             "stroke": "color",
@@ -547,7 +604,7 @@ interface BlogCommunity {
           }
         ]
       }
-      
+
       setTimeout(() => {
         this.vegaView = new vega.View(vega.parse(spec))
             .renderer('canvas')  // set renderer (canvas or svg)
@@ -565,7 +622,7 @@ interface BlogCommunity {
           "height": 600,
           "padding": 0,
           "autosize": "none",
-        
+
           "signals": [
             { "name": "cx", "update": "width / 2" },
             { "name": "cy", "update": "height / 2" },
@@ -614,7 +671,7 @@ interface BlogCommunity {
               ]
             }
           ],
-        
+
           "data": [
             {
               "name": "node-data",
@@ -627,7 +684,7 @@ interface BlogCommunity {
               "format": {"type": "json", "property": "links"}
             }
           ],
-        
+
           "scales": [
             {
               "name": "color",
@@ -636,13 +693,13 @@ interface BlogCommunity {
               "range": {"scheme": "category10"}
             }
           ],
-        
+
           "marks": [
             {
               "name": "nodes",
               "type": "symbol",
               "zindex": 1,
-        
+
               "from": {"data": "node-data"},
               "on": [
                 {
@@ -655,7 +712,7 @@ interface BlogCommunity {
                   "modify": "node", "values": "{fx: null, fy: null}"
                 }
               ],
-        
+
               "encode": {
                 "enter": {
                   "fill": {"scale": "color", "field": "group"},
@@ -666,7 +723,7 @@ interface BlogCommunity {
                   "cursor": {"value": "pointer"}
                 }
               },
-        
+
               "transform": [
                 {
                   "type": "force",
@@ -706,7 +763,7 @@ interface BlogCommunity {
             }
           ]
         }
-        
+
         setTimeout(() => {
             this.vegaView = new vega.View(vega.parse(spec))
                 .renderer('canvas')  // set renderer (canvas or svg)
@@ -715,15 +772,31 @@ interface BlogCommunity {
                 .run();
         }, 100);
 
-        
+
     }
 
-    public drawDirectedGraphD3() {
-      var width = 1000;
-      var height = 1000;
-      var color = d3.scaleOrdinal(d3.schemeSet3); 
+    public computeGroup(name: String) {
+      if (name.startsWith('STUD')) {
+        return 3;
+      } else if (name.startsWith('TA')) {
+        return 2;
+      } else {
+        return 1; //Lecturer
+      }
+    }
 
-      d3.json("assets/communities/" + this.selectedCommunity.name + "__directed_graph_CNA.json").then(function(graph: any) {
+    public drawDirectedGraphD3(id, graph) {
+      var width = 900;
+      var height = 900;
+      //var color = d3.scaleOrdinal(d3.schemeCategory10);
+      var colorGroup = {
+        1: 'Tomato', 2: 'MediumSeaGreen', 3: 'DodgerBlue'
+      };
+      var _this = this;
+
+      //d3.json("assets/communities/" + this.selectedCommunity.name + "__directed_graph_CNA.json").then(function(graph: any) {
+
+      //d3.json("assets/communities/pa_2018-2019_directed_graph_week13.json").then(function(graph: any) {
 
         var label = {
             'nodes': [],
@@ -731,6 +804,7 @@ interface BlogCommunity {
         };
 
         graph.nodes.forEach(function(d, i) {
+            d.group = _this.computeGroup(d.name);
             label.nodes.push({node: d});
             label.nodes.push({node: d});
             label.links.push({
@@ -763,7 +837,7 @@ interface BlogCommunity {
         }
 
 
-        var svg = d3.select("#viz").attr("width", width).attr("height", height);
+        var svg = d3.select("#" + id).attr("width", width).attr("height", height);
         var container = svg.append("g");
 
         svg.call(
@@ -779,8 +853,8 @@ interface BlogCommunity {
             .append("line")
             .attr("stroke", "#aaa")
             //.attr("stroke-width", "1px");
-            .attr("stroke-width", 
-              function(d: any) { return d.value == 0.0 ? 0 + "px": (Math.log(d.value) + 1) + "px"; }
+            .attr("stroke-width",
+              function(d: any) { return d.value == 0.0 ? 0 + "px": (Math.log(d.value) + 1)*3 + "px"; }
             );
 
         var node = container.append("g").attr("class", "nodes")
@@ -788,11 +862,12 @@ interface BlogCommunity {
             .data(graph.nodes)
             .enter()
             .append("circle")
-            .attr("r", 
-              function(d: any) { return(Math.log(d.value) + 1)*5; }
+            .attr("r",
+              function(d: any) { return d.value == 0 ? 5 : (Math.log(d.value) + 1)*5; }
               //10
             )
-            .attr("fill", function(d: any) { return color(d.group); })
+            .attr("fill", function(d: any) { return colorGroup[d.group]  ; })
+
 
         node.on("mouseover", focus).on("mouseout", unfocus);
 
@@ -808,10 +883,10 @@ interface BlogCommunity {
             .data(label.nodes)
             .enter()
             .append("text")
-            .text(function(d, i) { return i % 2 == 0 ? "" : d.node.id; })
+            .text(function(d, i) { return i % 2 == 0 ? "" : d.node.name; })
             .style("fill", "#555")
             .style("font-family", "Arial")
-            .style("font-size", 24)
+            .style("font-size", 18)
             .style("font-weight", "bold")
             .style("pointer-events", "none"); // to prevent mouseover/drag capture
 
@@ -901,133 +976,15 @@ interface BlogCommunity {
             d.fy = null;
         }
 
-      }); // d3.json
+      //}); // d3.json
     }
 
     public drawEdgeBundlingD3() {
-      // var diameter = 960,
-      //   radius = diameter / 2,
-      //   innerRadius = radius - 120;
 
-      // var cluster = d3.cluster()
-      //     .size([360, innerRadius]);
-
-      // const line = d3.radialLine()
-      //     .radius(function(d: any) { return d.y; })
-      //     .angle(function(d: any) { return d.x / 180 * Math.PI; })
-      //     .curve(d3.curveBundle.beta(0.95));
-
-      // var svg = d3.select("#viz-edge-bundling")
-      //     .attr("width", diameter)
-      //     .attr("height", diameter)
-      //     .append("g")
-      //     .attr("transform", "translate(" + radius + "," + radius + ")");
-
-      // var link = svg.append("g").selectAll(".link"),
-      //     node = svg.append("g").selectAll(".node");
-
-      //     d3.json("assets/communities/blog1__directed_graph_CNA.json").then(function(graph: any) {
-
-      //     var root = d3.hierarchy(packageHierarchy(graph), (d) => d.children);
-
-      //     var links = packageImports(root.descendants());
-
-      //     console.dir(links);
-
-      //     cluster(root);
-
-      //     var nodes = root.descendants();
-
-      //     link = link
-      //         .data(links)
-      //         .enter().append('path')
-      //         .attr('class', 'link')
-      //         //.merge(edges)
-      //         .attr('d', d => line(d.source.path(d.target)));
-
-      //     node = node
-      //         .data(nodes.filter(function(n) { return !n.children; }))
-      //         .enter().append("text")
-      //         .attr("class", "node")
-      //         .attr("dy", ".31em")
-      //         .attr("transform", function(d: any) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
-      //         .style("text-anchor", function(d: any) { return d.x < 180 ? "start" : "end"; })
-      //         .text(function(d) { return d.data.key; })
-      //         .on("mouseover", mouseovered)
-      //         .on("mouseout", mouseouted);
-      // });
-
-      // function mouseovered(d) {
-      //     node
-      //         .each(function(n: any) { n.target = n.source = false; });
-
-      //     link
-      //         .classed("link--target", function(l: any) { if (l.target === d) return l.source.source = true; })
-      //         .classed("link--source", function(l: any) { if (l.source === d) return l.target.target = true; })
-      //         .filter(function(l: any) { return l.target === d || l.source === d; })
-      //         //.each(function() { this.parentNode.appendChild(this); });
-
-      //     node
-      //         .classed("node--target", function(n: any) { return n.target; })
-      //         .classed("node--source", function(n: any) { return n.source; });
-      // }
-
-      // function mouseouted(d) {
-      //     console.log("moouseout");
-      //     link
-      //         .classed("link--target", false)
-      //         .classed("link--source", false);
-
-      //     node
-      //         .classed("node--target", false)
-      //         .classed("node--source", false);
-      // }
-
-      // d3.select(self.frameElement).style("height", diameter + "px");
-
-      // // Lazily construct the package hierarchy from class names.
-      // function packageHierarchy(classes) {
-      //     var map = {};
-
-      //     function find(name, data) {
-      //         var node = map[name], i;
-      //         if (!node) {
-      //             node = map[name] = data || {name: name, children: []};
-      //             if (name.length) {
-      //                 node.parent = data.find(name.substring(0, i = name.lastIndexOf(".")));
-      //                 node.parent.children.push(node);
-      //                 node.key = name.substring(i + 1);
-      //             }
-      //         }
-      //         return node;
-      //     }
-
-      //     classes.forEach(function(d) {
-      //         find(d.name, d);
-      //     });
-
-      //     return map[""];
-      // }
-
-      // // Return a list of imports for the given array of nodes.
-      // function packageImports(nodes) {
-      //     var map = {},
-      //         imports = [];
-
-      //     // Compute a map from name to node.
-      //     nodes.forEach(function(d) {
-      //         map[d.data.name] = d;
-      //     });
-
-      //     // For each import, construct a link from the source to target node.
-      //     nodes.forEach(function(d) {
-      //         if (d.data.imports) d.data.imports.forEach(function(i) {
-      //             imports.push({source: map[d.data.name], target: map[i]});
-      //         });
-      //     });
-
-      //     return imports;
-      // }
+      //var color = d3.scaleOrdinal(d3.schemeCategory10);
+      var colorGroup = {
+        1: 'Tomato', 2: 'MediumSeaGreen', 3: 'DodgerBlue'
+      };
 
       var diameter = 700,
             radius = diameter / 2,
@@ -1051,7 +1008,7 @@ interface BlogCommunity {
             node = svg.append("g").selectAll(".node");
 
             d3.json("assets/communities/" + this.selectedCommunity.name + "_edge_bundling_CNA.json").then(function(classes: any) {
-          
+
           var root = packageHierarchy(classes)
               .sum(function(d) { return d.size; });
 
@@ -1068,6 +1025,8 @@ interface BlogCommunity {
             .data(root.leaves())
             .enter().append("text")
               .attr("class", "node")
+              //.style("font-size", "18px")
+              .style("fill", function(d: any) { return colorGroup[d.data.group]; })
               .attr("dy", "0.31em")
               .attr("transform", function(d: any) { return "rotate(" + (d.x - 90) + ")translate(" + (d.y + 8) + ",0)" + (d.x < 180 ? "" : "rotate(180)"); })
               .attr("text-anchor", function(d: any) { return d.x < 180 ? "start" : "end"; })
@@ -1079,23 +1038,23 @@ interface BlogCommunity {
         function mouseovered(d) {
             node
                 .each(function(n: any) { n.target = n.source = false; });
-  
+
             link
                 .classed("link--target", function(l: any) { if (l.target === d) return l.source.source = true; })
                 .classed("link--source", function(l: any) { if (l.source === d) return l.target.target = true; })
                 .filter(function(l: any) { return l.target === d || l.source === d; });
                 //.each(function() { this.parentNode.appendChild(this); });
-  
+
             node
                 .classed("node--target", function(n: any) { return n.target; })
                 .classed("node--source", function(n: any) { return n.source; });
         }
-    
+
         function mouseouted(d) {
             link
                 .classed("link--target", false)
                 .classed("link--source", false);
-  
+
             node
                 .classed("node--target", false)
                 .classed("node--source", false);
@@ -1153,20 +1112,224 @@ interface BlogCommunity {
       var svg = d3.select("#my_blogs_legend")
 
       // Handmade legend
-      svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "rgb(141, 211, 199)")
-      svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "rgb(190, 186, 218)")
-      svg.append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "rgb(255, 255, 179)")
-      svg.append("text").attr("x", 220).attr("y", 130).text("CENTRAL").style("font-size", "18px").attr("alignment-baseline","middle")
-      svg.append("text").attr("x", 220).attr("y", 160).text("ACTIVE").style("font-size", "18px").attr("alignment-baseline","middle")
-      svg.append("text").attr("x", 220).attr("y", 190).text("PERIPHERAL").style("font-size", "18px").attr("alignment-baseline","middle")
+      svg.append("circle").attr("cx",200).attr("cy",130).attr("r", 6).style("fill", "Tomato")
+      svg.append("circle").attr("cx",200).attr("cy",160).attr("r", 6).style("fill", "MediumSeaGreen")
+      svg.append("circle").attr("cx",200).attr("cy",190).attr("r", 6).style("fill", "DodgerBlue")
+      svg.append("text").attr("x", 220).attr("y", 130).text("Lecturer").style("font-size", "18px").attr("alignment-baseline","middle")
+      svg.append("text").attr("x", 220).attr("y", 160).text("Teaching Assistant").style("font-size", "18px").attr("alignment-baseline","middle")
+      svg.append("text").attr("x", 220).attr("y", 190).text("Student").style("font-size", "18px").attr("alignment-baseline","middle")
+    }
+
+    public clusteredForceLayout(id, data) {
+      var width = 960,
+      height = 500,
+      padding = 1.5, // separation between same-color nodes
+      clusterPadding = 6, // separation between different-color nodes
+      maxRadius = 12;
+      var _this = this;
+
+      var color = d3.scaleOrdinal()
+            .range(["#7A99AC", "#E4002B"]);
+
+
+
+      //d3.text("word_groups.csv", function(error, text) {
+
+        data.forEach(function(d) {
+          d.value = +d.value;
+        });
+
+
+        //unique cluster/group id's
+        var cs = [1,2,3];
+
+        var n = data.length, // total number of nodes
+            m = cs.length; // number of distinct clusters
+
+        //create clusters and nodes
+        var clusters = new Array(m);
+        var nodes = [];
+        for (var i = 0; i<n; i++){
+            nodes.push(create_nodes(data,i));
+        }
+
+
+
+        var svg = d3.select("#" + id).append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+
+        var node = svg.selectAll("circle")
+            .data(nodes)
+            .enter().append("g").call(d3.drag());
+
+        var colorGroup = {
+          1: 'green', 2: 'blue', 3: 'orange'
+        };
+        node.append("circle")
+            .attr("fill", function(d: any) { return colorGroup[d.group]  ; })
+            .attr("r", function(d){return d.radius})
+
+
+        node.append("text")
+              .attr("dy", ".3em")
+              .style("text-anchor", "middle")
+              .text(function(d) { return d.text.substring(0, d.radius / 3); });
+
+        var force = d3.forceSimulation(nodes)
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        .force("x", d3.forceX(width / 2).strength(1))
+        .force("y", d3.forceY(height / 2).strength(1))
+        //.gravity(.02)
+        .force("charge", d3.forceCollide)
+        .on("tick", ticked);
+
+
+        function create_nodes(data,node_counter) {
+          var i = _this.computeGroup(data[node_counter].name),
+              r = Math.sqrt((i + 1) / m * -Math.log(Math.random())) * maxRadius,
+              d = {
+                cluster: i,
+                radius: data[node_counter].value*1.5,
+                text: data[node_counter].name,
+                x: Math.cos(i / m * 2 * Math.PI) * 200 + width / 2 + Math.random(),
+                y: Math.sin(i / m * 2 * Math.PI) * 200 + height / 2 + Math.random()
+              };
+          if (!clusters[i] || (r > clusters[i].radius)) clusters[i] = d;
+          return d;
+        };
+
+
+
+        function tick(e) {
+            node.each(cluster(10 * e.alpha * e.alpha))
+                .each(collide(.5))
+            .attr("transform", function (d) {
+              console.log(d);
+                var k = "translate(" + d.x + "," + d.y + ")";
+                return k;
+            })
+
+        }
+
+        function ticked() {
+          node.call(tick)
+        }
+        // Move d to be adjacent to the cluster node.
+        function cluster(alpha) {
+            return function (d) {
+                var cluster = clusters[d.cluster];
+                if (cluster === d) return;
+                var x = d.x - cluster.x,
+                    y = d.y - cluster.y,
+                    l = Math.sqrt(x * x + y * y),
+                    r = d.radius + cluster.radius;
+                if (l != r) {
+                    l = (l - r) / l * alpha;
+                    d.x -= x *= l;
+                    d.y -= y *= l;
+                    cluster.x += x;
+                    cluster.y += y;
+                }
+            };
+        }
+
+        // Resolves collisions between d and all other circles.
+        function collide(alpha) {
+            var quadtree = d3.quadtree(nodes);
+            return function (d) {
+                var r = d.radius + maxRadius + Math.max(padding, clusterPadding),
+                    nx1 = d.x - r,
+                    nx2 = d.x + r,
+                    ny1 = d.y - r,
+                    ny2 = d.y + r;
+                quadtree.visit(function (quad: any, x1, y1, x2, y2) {
+                    if (quad.point && (quad.point !== d)) {
+                        var x = d.x - quad.point.x,
+                            y = d.y - quad.point.y,
+                            l = Math.sqrt(x * x + y * y),
+                            r = d.radius + quad.point.radius + (d.cluster === quad.point.cluster ? padding : clusterPadding);
+                        if (l < r) {
+                            l = (l - r) / l * alpha;
+                            d.x -= x *= l;
+                            d.y -= y *= l;
+                            quad.point.x += x;
+                            quad.point.y += y;
+                        }
+                    }
+                    return x1 > nx2 || x2 < nx1 || y1 > ny2 || y2 < ny1;
+                });
+            };
+        }
+      //});
+
+
     }
 
     public generateViews(){
       // this.cleanData();
       // this.legend();
       //this.drawDirectedGraphD3();
-      //this.drawEdgeBundlingD3();
+      this.drawEdgeBundlingD3();
     }
+
+    public generateDirectedGradphForAllWeeks() {
+      var _this = this;
+      // d3.json("assets/communities/pa_2018-2019_graphs.json").then(function(graph: any) {
+
+      //   for (var key in graph) {
+      //     _this.drawDirectedGraphD3("blogs-force-directed-graph-lastyear-" + key, graph[key]);
+      //   }
+
+      // });
+
+      // d3.json("assets/communities/pa_2019-2020_graphs.json").then(function(graph: any) {
+
+      //   for (var key in graph) {
+      //     _this.drawDirectedGraphD3("blogs-force-directed-graph-" + key, graph[key]);
+      //   }
+      // });
+
+
+      // d3.json("assets/communities/pa_2018-2019-graph.json").then(function(graph: any) {
+      //   _this.drawDirectedGraphD3("blogs-force-directed-graph-lastyear-all", graph);
+      // });
+      // d3.json("assets/communities/pa_2019-2020-graph.json").then(function(graph: any) {
+      //   _this.drawDirectedGraphD3("blogs-force-directed-graph-thisyear-all", graph);
+      // });
+    }
+
+    test () {
+      var _this = this;
+      d3.json("assets/communities/blog1__directed_graph_CNA.json").then(function(graph: any) {
+        
+        var data = [];
+        graph.nodes.forEach(node => {
+            var element = {name: '', size: 0, group: 0, imports: []};
+            element.name = node.name;
+            element.size = node.value;
+            element.group = _this.computeGroup(node.name);
+            element.imports.push(node.name);
+            graph.links.forEach(link => {
+              if (node.id === link.source) {
+                var found = graph.nodes.find(n => n.id === link.target);
+                element.imports.push(found.name);
+              }
+
+              if (node.id === link.target) {
+                var found = graph.nodes.find(n => n.id === link.source);
+                element.imports.push(found.name);
+              }
+            });
+            data.push(element);
+        });
+
+        console.log(JSON.stringify(data));
+
+      });
+    }
+
 
     public cleanData(){
       d3.select("#my_blogs_legend").selectAll("*").remove();
