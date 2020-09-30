@@ -46,6 +46,7 @@ export let DemoMenuItemsData = [
     participation and collaboration.',
         image: 'assets/images/demo_cscl.png',
         altText: 'CSCL conversation analysis with ReaderBench framework',
+        language: 'English, French, Romanian'
     },
 //     {
 //         name: 'CV Analysis',
