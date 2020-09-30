@@ -128,7 +128,7 @@ export let DefaultInputData = {
             'ro': [{
                 id: '1',
                 name: 'Read me',
-                value: 'ReadMe'
+                value: 'readme'
             },
             {
                 id: '2',
@@ -263,7 +263,7 @@ export let DefaultInputData = {
             'ro': [{
                 id: '1',
                 name: 'Read me',
-                value: 'ReadMe'
+                value: 'readme'
             },
             {
                 id: '2',
