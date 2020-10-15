@@ -12,7 +12,7 @@
                 "categoryX": "year"
             },
             "columns": {
-                "tooltipText": "{name} in {categoryX}:\n{valueY}",
+                "tooltipText": "{name} in {categoryX}:\n{valueY}"
             }
         },
         {
