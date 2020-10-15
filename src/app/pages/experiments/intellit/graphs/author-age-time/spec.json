@@ -12,7 +12,7 @@
                 "openValueY": "first",
                 "valueY": "last"
             },
-            "tooltipText": "Youngest: {openValueY.value}\nOldest: {valueY.value}",
+            "tooltipText": "Youngest: {openValueY.value}\nOldest: {valueY.value}\nAverage: {(openValueY.value + valueY.value)/2}",
             "sequencedInterpolation": true,
             "fillOpacity": 0.3,
             "defaultState": {

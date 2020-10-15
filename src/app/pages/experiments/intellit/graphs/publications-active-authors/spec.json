@@ -13,17 +13,6 @@
             },
             "columns": {
                 "tooltipText": "{name} in {categoryX}:\n{valueY}",
-                "propertyFields": {
-                    "fillOpacity": "fillOpacity",
-                    "stroke": "stroke",
-                    "strokeWidth": "strokeWidth",
-                    "strokeDasharray": "columnDash"
-                }
-            },
-            "tooltip": {
-                "label": {
-                    "textAlign": "middle"
-                }
             }
         },
         {
@@ -57,7 +46,7 @@
     "scrollbarX": {
         "type": "XYChartScrollbar",
         "series": [
-            "s1", "s2"
+            "s1"
         ],
         "scrollbarChart": {
             "seriesContainer": {
@@ -81,15 +70,9 @@
             "dataFields": {
                 "category": "year"
             },
-            "renderer": {
-                "minGridDistance": 30
-            },
             "title": {
                 "text": "Years",
                 "fontWeight": "bold"
-            },
-            "tooltip": {
-                "dy": 5
             }
         }
     ],

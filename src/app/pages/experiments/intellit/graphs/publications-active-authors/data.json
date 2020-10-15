@@ -1,667 +1,867 @@
 [
-    {
-        "year": "1878",
-        "publications": 11,
-        "authors": 51
-    },
-    {
-        "year": "1879",
-        "publications": 17,
-        "authors": 52
-    },
-    {
-        "year": "1880",
-        "publications": 24,
-        "authors": 57
-    },
-    {
-        "year": "1881",
-        "publications": 22,
-        "authors": 56
-    },
-    {
-        "year": "1882",
-        "publications": 20,
-        "authors": 60
-    },
-    {
-        "year": "1883",
-        "publications": 11,
-        "authors": 62
-    },
-    {
-        "year": "1884",
-        "publications": 27,
-        "authors": 61
-    },
-    {
-        "year": "1885",
-        "publications": 29,
-        "authors": 62
-    },
-    {
-        "year": "1886",
-        "publications": 17,
-        "authors": 64
-    },
-    {
-        "year": "1887",
-        "publications": 29,
-        "authors": 65
-    },
-    {
-        "year": "1888",
-        "publications": 19,
-        "authors": 71
-    },
-    {
-        "year": "1889",
-        "publications": 19,
-        "authors": 71
-    },
-    {
-        "year": "1890",
-        "publications": 20,
-        "authors": 76
-    },
-    {
-        "year": "1891",
-        "publications": 26,
-        "authors": 75
-    },
-    {
-        "year": "1892",
-        "publications": 48,
-        "authors": 79
-    },
-    {
-        "year": "1893",
-        "publications": 31,
-        "authors": 86
-    },
-    {
-        "year": "1894",
-        "publications": 37,
-        "authors": 85
-    },
-    {
-        "year": "1895",
-        "publications": 31,
-        "authors": 87
-    },
-    {
-        "year": "1896",
-        "publications": 40,
-        "authors": 91
-    },
-    {
-        "year": "1897",
-        "publications": 38,
-        "authors": 94
-    },
-    {
-        "year": "1898",
-        "publications": 42,
-        "authors": 98
-    },
-    {
-        "year": "1899",
-        "publications": 34,
-        "authors": 102
-    },
-    {
-        "year": "1900",
-        "publications": 30,
-        "authors": 112
-    },
-    {
-        "year": "1901",
-        "publications": 55,
-        "authors": 117
-    },
-    {
-        "year": "1902",
-        "publications": 35,
-        "authors": 120
-    },
-    {
-        "year": "1903",
-        "publications": 60,
-        "authors": 129
-    },
-    {
-        "year": "1904",
-        "publications": 54,
-        "authors": 129
-    },
-    {
-        "year": "1905",
-        "publications": 46,
-        "authors": 135
-    },
-    {
-        "year": "1906",
-        "publications": 46,
-        "authors": 139
-    },
-    {
-        "year": "1907",
-        "publications": 43,
-        "authors": 145
-    },
-    {
-        "year": "1908",
-        "publications": 87,
-        "authors": 153
-    },
-    {
-        "year": "1909",
-        "publications": 84,
-        "authors": 160
-    },
-    {
-        "year": "1910",
-        "publications": 90,
-        "authors": 164
-    },
-    {
-        "year": "1911",
-        "publications": 85,
-        "authors": 164
-    },
-    {
-        "year": "1912",
-        "publications": 73,
-        "authors": 166
-    },
-    {
-        "year": "1913",
-        "publications": 77,
-        "authors": 169
-    },
-    {
-        "year": "1914",
-        "publications": 80,
-        "authors": 172
-    },
-    {
-        "year": "1915",
-        "publications": 73,
-        "authors": 178
-    },
-    {
-        "year": "1916",
-        "publications": 92,
-        "authors": 181
-    },
-    {
-        "year": "1917",
-        "publications": 13,
-        "authors": 182
-    },
-    {
-        "year": "1918",
-        "publications": 47,
-        "authors": 193
-    },
-    {
-        "year": "1919",
-        "publications": 50,
-        "authors": 198
-    },
-    {
-        "year": "1920",
-        "publications": 59,
-        "authors": 202
-    },
-    {
-        "year": "1921",
-        "publications": 89,
-        "authors": 206
-    },
-    {
-        "year": "1922",
-        "publications": 98,
-        "authors": 213
-    },
-    {
-        "year": "1923",
-        "publications": 85,
-        "authors": 221
-    },
-    {
-        "year": "1924",
-        "publications": 131,
-        "authors": 226
-    },
-    {
-        "year": "1925",
-        "publications": 116,
-        "authors": 229
-    },
-    {
-        "year": "1926",
-        "publications": 106,
-        "authors": 244
-    },
-    {
-        "year": "1927",
-        "publications": 106,
-        "authors": 253
-    },
-    {
-        "year": "1928",
-        "publications": 118,
-        "authors": 255
-    },
-    {
-        "year": "1929",
-        "publications": 118,
-        "authors": 266
-    },
-    {
-        "year": "1930",
-        "publications": 113,
-        "authors": 278
-    },
-    {
-        "year": "1931",
-        "publications": 108,
-        "authors": 286
-    },
-    {
-        "year": "1932",
-        "publications": 93,
-        "authors": 297
-    },
-    {
-        "year": "1933",
-        "publications": 108,
-        "authors": 305
-    },
-    {
-        "year": "1934",
-        "publications": 146,
-        "authors": 324
-    },
-    {
-        "year": "1935",
-        "publications": 133,
-        "authors": 332
-    },
-    {
-        "year": "1936",
-        "publications": 179,
-        "authors": 345
-    },
-    {
-        "year": "1937",
-        "publications": 157,
-        "authors": 355
-    },
-    {
-        "year": "1938",
-        "publications": 154,
-        "authors": 348
-    },
-    {
-        "year": "1939",
-        "publications": 163,
-        "authors": 350
-    },
-    {
-        "year": "1940",
-        "publications": 162,
-        "authors": 344
-    },
-    {
-        "year": "1941",
-        "publications": 106,
-        "authors": 353
-    },
-    {
-        "year": "1942",
-        "publications": 152,
-        "authors": 357
-    },
-    {
-        "year": "1943",
-        "publications": 163,
-        "authors": 348
-    },
-    {
-        "year": "1944",
-        "publications": 90,
-        "authors": 344
-    },
-    {
-        "year": "1945",
-        "publications": 117,
-        "authors": 343
-    },
-    {
-        "year": "1946",
-        "publications": 108,
-        "authors": 345
-    },
-    {
-        "year": "1947",
-        "publications": 107,
-        "authors": 342
-    },
-    {
-        "year": "1948",
-        "publications": 49,
-        "authors": 350
-    },
-    {
-        "year": "1949",
-        "publications": 85,
-        "authors": 358
-    },
-    {
-        "year": "1950",
-        "publications": 60,
-        "authors": 373
-    },
-    {
-        "year": "1951",
-        "publications": 84,
-        "authors": 374
-    },
-    {
-        "year": "1952",
-        "publications": 80,
-        "authors": 377
-    },
-    {
-        "year": "1953",
-        "publications": 102,
-        "authors": 391
-    },
-    {
-        "year": "1954",
-        "publications": 130,
-        "authors": 402
-    },
-    {
-        "year": "1955",
-        "publications": 141,
-        "authors": 424
-    },
-    {
-        "year": "1956",
-        "publications": 175,
-        "authors": 445
-    },
-    {
-        "year": "1957",
-        "publications": 193,
-        "authors": 456
-    },
-    {
-        "year": "1958",
-        "publications": 137,
-        "authors": 457
-    },
-    {
-        "year": "1959",
-        "publications": 130,
-        "authors": 467
-    },
-    {
-        "year": "1960",
-        "publications": 148,
-        "authors": 474
-    },
-    {
-        "year": "1961",
-        "publications": 138,
-        "authors": 477
-    },
-    {
-        "year": "1962",
-        "publications": 200,
-        "authors": 490
-    },
-    {
-        "year": "1963",
-        "publications": 185,
-        "authors": 507
-    },
-    {
-        "year": "1964",
-        "publications": 207,
-        "authors": 520
-    },
-    {
-        "year": "1965",
-        "publications": 190,
-        "authors": 532
-    },
-    {
-        "year": "1966",
-        "publications": 231,
-        "authors": 559
-    },
-    {
-        "year": "1967",
-        "publications": 296,
-        "authors": 589
-    },
-    {
-        "year": "1968",
-        "publications": 338,
-        "authors": 627
-    },
-    {
-        "year": "1969",
-        "publications": 328,
-        "authors": 660
-    },
-    {
-        "year": "1970",
-        "publications": 354,
-        "authors": 689
-    },
-    {
-        "year": "1971",
-        "publications": 355,
-        "authors": 705
-    },
-    {
-        "year": "1972",
-        "publications": 366,
-        "authors": 722
-    },
-    {
-        "year": "1973",
-        "publications": 347,
-        "authors": 721
-    },
-    {
-        "year": "1974",
-        "publications": 364,
-        "authors": 743
-    },
-    {
-        "year": "1975",
-        "publications": 306,
-        "authors": 756
-    },
-    {
-        "year": "1976",
-        "publications": 331,
-        "authors": 782
-    },
-    {
-        "year": "1977",
-        "publications": 318,
-        "authors": 790
-    },
-    {
-        "year": "1978",
-        "publications": 295,
-        "authors": 798
-    },
-    {
-        "year": "1979",
-        "publications": 327,
-        "authors": 810
-    },
-    {
-        "year": "1980",
-        "publications": 350,
-        "authors": 816
-    },
-    {
-        "year": "1981",
-        "publications": 326,
-        "authors": 813
-    },
-    {
-        "year": "1982",
-        "publications": 342,
-        "authors": 822
-    },
-    {
-        "year": "1983",
-        "publications": 353,
-        "authors": 829
-    },
-    {
-        "year": "1984",
-        "publications": 331,
-        "authors": 834
-    },
-    {
-        "year": "1985",
-        "publications": 289,
-        "authors": 828
-    },
-    {
-        "year": "1986",
-        "publications": 292,
-        "authors": 814
-    },
-    {
-        "year": "1987",
-        "publications": 267,
-        "authors": 807
-    },
-    {
-        "year": "1988",
-        "publications": 265,
-        "authors": 801
-    },
-    {
-        "year": "1989",
-        "publications": 249,
-        "authors": 795
-    },
-    {
-        "year": "1990",
-        "publications": 223,
-        "authors": 792
-    },
-    {
-        "year": "1991",
-        "publications": 252,
-        "authors": 787
-    },
-    {
-        "year": "1992",
-        "publications": 221,
-        "authors": 791
-    },
-    {
-        "year": "1993",
-        "publications": 246,
-        "authors": 795
-    },
-    {
-        "year": "1994",
-        "publications": 297,
-        "authors": 800
-    },
-    {
-        "year": "1995",
-        "publications": 381,
-        "authors": 794
-    },
-    {
-        "year": "1996",
-        "publications": 388,
-        "authors": 782
-    },
-    {
-        "year": "1997",
-        "publications": 458,
-        "authors": 777
-    },
-    {
-        "year": "1998",
-        "publications": 493,
-        "authors": 765
-    },
-    {
-        "year": "1999",
-        "publications": 462,
-        "authors": 751
-    },
-    {
-        "year": "2000",
-        "publications": 476,
-        "authors": 739
-    },
-    {
-        "year": "2001",
-        "publications": 518,
-        "authors": 712
-    },
-    {
-        "year": "2002",
-        "publications": 485,
-        "authors": 691
-    },
-    {
-        "year": "2003",
-        "publications": 488,
-        "authors": 667
-    },
-    {
-        "year": "2004",
-        "publications": 454,
-        "authors": 649
-    },
-    {
-        "year": "2005",
-        "publications": 409,
-        "authors": 629
-    },
-    {
-        "year": "2006",
-        "publications": 347,
-        "authors": 606
-    },
-    {
-        "year": "2007",
-        "publications": 407,
-        "authors": 578
-    },
-    {
-        "year": "2008",
-        "publications": 388,
-        "authors": 535
-    },
-    {
-        "year": "2009",
-        "publications": 339,
-        "authors": 466
-    },
-    {
-        "year": "2010",
-        "publications": 340,
-        "authors": 380
-    }
+	{
+		"year": "1840",
+		"publications": 15,
+		"authors": 34
+	},
+	{
+		"year": "1841",
+		"publications": 9,
+		"authors": 36
+	},
+	{
+		"year": "1842",
+		"publications": 4,
+		"authors": 38
+	},
+	{
+		"year": "1843",
+		"publications": 12,
+		"authors": 44
+	},
+	{
+		"year": "1844",
+		"publications": 22,
+		"authors": 48
+	},
+	{
+		"year": "1845",
+		"publications": 8,
+		"authors": 48
+	},
+	{
+		"year": "1846",
+		"publications": 13,
+		"authors": 50
+	},
+	{
+		"year": "1847",
+		"publications": 28,
+		"authors": 51
+	},
+	{
+		"year": "1848",
+		"publications": 14,
+		"authors": 59
+	},
+	{
+		"year": "1849",
+		"publications": 5,
+		"authors": 60
+	},
+	{
+		"year": "1850",
+		"publications": 18,
+		"authors": 60
+	},
+	{
+		"year": "1851",
+		"publications": 26,
+		"authors": 66
+	},
+	{
+		"year": "1852",
+		"publications": 26,
+		"authors": 63
+	},
+	{
+		"year": "1853",
+		"publications": 13,
+		"authors": 62
+	},
+	{
+		"year": "1854",
+		"publications": 23,
+		"authors": 66
+	},
+	{
+		"year": "1855",
+		"publications": 14,
+		"authors": 69
+	},
+	{
+		"year": "1856",
+		"publications": 15,
+		"authors": 72
+	},
+	{
+		"year": "1857",
+		"publications": 40,
+		"authors": 71
+	},
+	{
+		"year": "1858",
+		"publications": 33,
+		"authors": 74
+	},
+	{
+		"year": "1859",
+		"publications": 30,
+		"authors": 76
+	},
+	{
+		"year": "1860",
+		"publications": 24,
+		"authors": 81
+	},
+	{
+		"year": "1861",
+		"publications": 24,
+		"authors": 84
+	},
+	{
+		"year": "1862",
+		"publications": 21,
+		"authors": 88
+	},
+	{
+		"year": "1863",
+		"publications": 31,
+		"authors": 86
+	},
+	{
+		"year": "1864",
+		"publications": 14,
+		"authors": 89
+	},
+	{
+		"year": "1865",
+		"publications": 16,
+		"authors": 88
+	},
+	{
+		"year": "1866",
+		"publications": 29,
+		"authors": 93
+	},
+	{
+		"year": "1867",
+		"publications": 22,
+		"authors": 93
+	},
+	{
+		"year": "1868",
+		"publications": 27,
+		"authors": 99
+	},
+	{
+		"year": "1869",
+		"publications": 33,
+		"authors": 99
+	},
+	{
+		"year": "1870",
+		"publications": 31,
+		"authors": 101
+	},
+	{
+		"year": "1871",
+		"publications": 22,
+		"authors": 101
+	},
+	{
+		"year": "1872",
+		"publications": 23,
+		"authors": 101
+	},
+	{
+		"year": "1873",
+		"publications": 30,
+		"authors": 105
+	},
+	{
+		"year": "1874",
+		"publications": 29,
+		"authors": 106
+	},
+	{
+		"year": "1875",
+		"publications": 42,
+		"authors": 103
+	},
+	{
+		"year": "1876",
+		"publications": 17,
+		"authors": 107
+	},
+	{
+		"year": "1877",
+		"publications": 32,
+		"authors": 104
+	},
+	{
+		"year": "1878",
+		"publications": 18,
+		"authors": 108
+	},
+	{
+		"year": "1879",
+		"publications": 34,
+		"authors": 114
+	},
+	{
+		"year": "1880",
+		"publications": 39,
+		"authors": 122
+	},
+	{
+		"year": "1881",
+		"publications": 40,
+		"authors": 128
+	},
+	{
+		"year": "1882",
+		"publications": 39,
+		"authors": 133
+	},
+	{
+		"year": "1883",
+		"publications": 34,
+		"authors": 139
+	},
+	{
+		"year": "1884",
+		"publications": 45,
+		"authors": 142
+	},
+	{
+		"year": "1885",
+		"publications": 63,
+		"authors": 144
+	},
+	{
+		"year": "1886",
+		"publications": 48,
+		"authors": 147
+	},
+	{
+		"year": "1887",
+		"publications": 54,
+		"authors": 148
+	},
+	{
+		"year": "1888",
+		"publications": 51,
+		"authors": 164
+	},
+	{
+		"year": "1889",
+		"publications": 50,
+		"authors": 163
+	},
+	{
+		"year": "1890",
+		"publications": 47,
+		"authors": 170
+	},
+	{
+		"year": "1891",
+		"publications": 54,
+		"authors": 172
+	},
+	{
+		"year": "1892",
+		"publications": 104,
+		"authors": 179
+	},
+	{
+		"year": "1893",
+		"publications": 86,
+		"authors": 191
+	},
+	{
+		"year": "1894",
+		"publications": 73,
+		"authors": 196
+	},
+	{
+		"year": "1895",
+		"publications": 80,
+		"authors": 201
+	},
+	{
+		"year": "1896",
+		"publications": 99,
+		"authors": 206
+	},
+	{
+		"year": "1897",
+		"publications": 84,
+		"authors": 213
+	},
+	{
+		"year": "1898",
+		"publications": 83,
+		"authors": 214
+	},
+	{
+		"year": "1899",
+		"publications": 63,
+		"authors": 218
+	},
+	{
+		"year": "1900",
+		"publications": 79,
+		"authors": 233
+	},
+	{
+		"year": "1901",
+		"publications": 96,
+		"authors": 239
+	},
+	{
+		"year": "1902",
+		"publications": 60,
+		"authors": 245
+	},
+	{
+		"year": "1903",
+		"publications": 100,
+		"authors": 257
+	},
+	{
+		"year": "1904",
+		"publications": 113,
+		"authors": 258
+	},
+	{
+		"year": "1905",
+		"publications": 95,
+		"authors": 267
+	},
+	{
+		"year": "1906",
+		"publications": 116,
+		"authors": 281
+	},
+	{
+		"year": "1907",
+		"publications": 96,
+		"authors": 296
+	},
+	{
+		"year": "1908",
+		"publications": 165,
+		"authors": 315
+	},
+	{
+		"year": "1909",
+		"publications": 154,
+		"authors": 333
+	},
+	{
+		"year": "1910",
+		"publications": 176,
+		"authors": 342
+	},
+	{
+		"year": "1911",
+		"publications": 143,
+		"authors": 344
+	},
+	{
+		"year": "1912",
+		"publications": 173,
+		"authors": 351
+	},
+	{
+		"year": "1913",
+		"publications": 156,
+		"authors": 362
+	},
+	{
+		"year": "1914",
+		"publications": 158,
+		"authors": 370
+	},
+	{
+		"year": "1915",
+		"publications": 153,
+		"authors": 384
+	},
+	{
+		"year": "1916",
+		"publications": 181,
+		"authors": 388
+	},
+	{
+		"year": "1917",
+		"publications": 32,
+		"authors": 391
+	},
+	{
+		"year": "1918",
+		"publications": 89,
+		"authors": 412
+	},
+	{
+		"year": "1919",
+		"publications": 112,
+		"authors": 416
+	},
+	{
+		"year": "1920",
+		"publications": 173,
+		"authors": 434
+	},
+	{
+		"year": "1921",
+		"publications": 216,
+		"authors": 445
+	},
+	{
+		"year": "1922",
+		"publications": 189,
+		"authors": 458
+	},
+	{
+		"year": "1923",
+		"publications": 197,
+		"authors": 475
+	},
+	{
+		"year": "1924",
+		"publications": 258,
+		"authors": 485
+	},
+	{
+		"year": "1925",
+		"publications": 269,
+		"authors": 495
+	},
+	{
+		"year": "1926",
+		"publications": 236,
+		"authors": 519
+	},
+	{
+		"year": "1927",
+		"publications": 220,
+		"authors": 527
+	},
+	{
+		"year": "1928",
+		"publications": 254,
+		"authors": 540
+	},
+	{
+		"year": "1929",
+		"publications": 194,
+		"authors": 555
+	},
+	{
+		"year": "1930",
+		"publications": 245,
+		"authors": 574
+	},
+	{
+		"year": "1931",
+		"publications": 207,
+		"authors": 594
+	},
+	{
+		"year": "1932",
+		"publications": 228,
+		"authors": 611
+	},
+	{
+		"year": "1933",
+		"publications": 256,
+		"authors": 639
+	},
+	{
+		"year": "1934",
+		"publications": 287,
+		"authors": 677
+	},
+	{
+		"year": "1935",
+		"publications": 316,
+		"authors": 699
+	},
+	{
+		"year": "1936",
+		"publications": 374,
+		"authors": 721
+	},
+	{
+		"year": "1937",
+		"publications": 336,
+		"authors": 740
+	},
+	{
+		"year": "1938",
+		"publications": 357,
+		"authors": 744
+	},
+	{
+		"year": "1939",
+		"publications": 363,
+		"authors": 745
+	},
+	{
+		"year": "1940",
+		"publications": 335,
+		"authors": 747
+	},
+	{
+		"year": "1941",
+		"publications": 245,
+		"authors": 758
+	},
+	{
+		"year": "1942",
+		"publications": 316,
+		"authors": 767
+	},
+	{
+		"year": "1943",
+		"publications": 371,
+		"authors": 740
+	},
+	{
+		"year": "1944",
+		"publications": 222,
+		"authors": 733
+	},
+	{
+		"year": "1945",
+		"publications": 235,
+		"authors": 740
+	},
+	{
+		"year": "1946",
+		"publications": 220,
+		"authors": 739
+	},
+	{
+		"year": "1947",
+		"publications": 231,
+		"authors": 728
+	},
+	{
+		"year": "1948",
+		"publications": 108,
+		"authors": 740
+	},
+	{
+		"year": "1949",
+		"publications": 173,
+		"authors": 761
+	},
+	{
+		"year": "1950",
+		"publications": 141,
+		"authors": 793
+	},
+	{
+		"year": "1951",
+		"publications": 153,
+		"authors": 799
+	},
+	{
+		"year": "1952",
+		"publications": 144,
+		"authors": 806
+	},
+	{
+		"year": "1953",
+		"publications": 169,
+		"authors": 829
+	},
+	{
+		"year": "1954",
+		"publications": 225,
+		"authors": 855
+	},
+	{
+		"year": "1955",
+		"publications": 271,
+		"authors": 892
+	},
+	{
+		"year": "1956",
+		"publications": 325,
+		"authors": 926
+	},
+	{
+		"year": "1957",
+		"publications": 400,
+		"authors": 970
+	},
+	{
+		"year": "1958",
+		"publications": 278,
+		"authors": 985
+	},
+	{
+		"year": "1959",
+		"publications": 236,
+		"authors": 1011
+	},
+	{
+		"year": "1960",
+		"publications": 247,
+		"authors": 1025
+	},
+	{
+		"year": "1961",
+		"publications": 265,
+		"authors": 1042
+	},
+	{
+		"year": "1962",
+		"publications": 389,
+		"authors": 1077
+	},
+	{
+		"year": "1963",
+		"publications": 373,
+		"authors": 1108
+	},
+	{
+		"year": "1964",
+		"publications": 404,
+		"authors": 1138
+	},
+	{
+		"year": "1965",
+		"publications": 418,
+		"authors": 1163
+	},
+	{
+		"year": "1966",
+		"publications": 503,
+		"authors": 1208
+	},
+	{
+		"year": "1967",
+		"publications": 597,
+		"authors": 1265
+	},
+	{
+		"year": "1968",
+		"publications": 750,
+		"authors": 1347
+	},
+	{
+		"year": "1969",
+		"publications": 712,
+		"authors": 1430
+	},
+	{
+		"year": "1970",
+		"publications": 775,
+		"authors": 1482
+	},
+	{
+		"year": "1971",
+		"publications": 753,
+		"authors": 1511
+	},
+	{
+		"year": "1972",
+		"publications": 855,
+		"authors": 1565
+	},
+	{
+		"year": "1973",
+		"publications": 763,
+		"authors": 1581
+	},
+	{
+		"year": "1974",
+		"publications": 771,
+		"authors": 1613
+	},
+	{
+		"year": "1975",
+		"publications": 686,
+		"authors": 1644
+	},
+	{
+		"year": "1976",
+		"publications": 716,
+		"authors": 1689
+	},
+	{
+		"year": "1977",
+		"publications": 689,
+		"authors": 1706
+	},
+	{
+		"year": "1978",
+		"publications": 655,
+		"authors": 1724
+	},
+	{
+		"year": "1979",
+		"publications": 699,
+		"authors": 1755
+	},
+	{
+		"year": "1980",
+		"publications": 702,
+		"authors": 1785
+	},
+	{
+		"year": "1981",
+		"publications": 701,
+		"authors": 1799
+	},
+	{
+		"year": "1982",
+		"publications": 735,
+		"authors": 1811
+	},
+	{
+		"year": "1983",
+		"publications": 716,
+		"authors": 1814
+	},
+	{
+		"year": "1984",
+		"publications": 700,
+		"authors": 1822
+	},
+	{
+		"year": "1985",
+		"publications": 638,
+		"authors": 1817
+	},
+	{
+		"year": "1986",
+		"publications": 569,
+		"authors": 1810
+	},
+	{
+		"year": "1987",
+		"publications": 549,
+		"authors": 1794
+	},
+	{
+		"year": "1988",
+		"publications": 522,
+		"authors": 1776
+	},
+	{
+		"year": "1989",
+		"publications": 525,
+		"authors": 1775
+	},
+	{
+		"year": "1990",
+		"publications": 452,
+		"authors": 1777
+	},
+	{
+		"year": "1991",
+		"publications": 521,
+		"authors": 1776
+	},
+	{
+		"year": "1992",
+		"publications": 529,
+		"authors": 1798
+	},
+	{
+		"year": "1993",
+		"publications": 590,
+		"authors": 1817
+	},
+	{
+		"year": "1994",
+		"publications": 665,
+		"authors": 1833
+	},
+	{
+		"year": "1995",
+		"publications": 810,
+		"authors": 1824
+	},
+	{
+		"year": "1996",
+		"publications": 869,
+		"authors": 1817
+	},
+	{
+		"year": "1997",
+		"publications": 1009,
+		"authors": 1818
+	},
+	{
+		"year": "1998",
+		"publications": 1051,
+		"authors": 1806
+	},
+	{
+		"year": "1999",
+		"publications": 1034,
+		"authors": 1794
+	},
+	{
+		"year": "2000",
+		"publications": 1032,
+		"authors": 1770
+	},
+	{
+		"year": "2001",
+		"publications": 1104,
+		"authors": 1746
+	},
+	{
+		"year": "2002",
+		"publications": 1040,
+		"authors": 1722
+	},
+	{
+		"year": "2003",
+		"publications": 1087,
+		"authors": 1692
+	},
+	{
+		"year": "2004",
+		"publications": 900,
+		"authors": 1663
+	},
+	{
+		"year": "2005",
+		"publications": 832,
+		"authors": 1635
+	},
+	{
+		"year": "2006",
+		"publications": 758,
+		"authors": 1612
+	},
+	{
+		"year": "2007",
+		"publications": 775,
+		"authors": 1585
+	},
+	{
+		"year": "2008",
+		"publications": 786,
+		"authors": 1550
+	},
+	{
+		"year": "2009",
+		"publications": 670,
+		"authors": 1515
+	},
+	{
+		"year": "2010",
+		"publications": 694,
+		"authors": 1483
+	},
+	{
+		"year": "2011",
+		"publications": 730,
+		"authors": 1449
+	},
+	{
+		"year": "2012",
+		"publications": 559,
+		"authors": 1397
+	}
 ]
