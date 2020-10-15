@@ -8,7 +8,7 @@ import { TextualComplexityComponent } from '../pages/demo/textual-complexity/tex
 import { KeywordsComponent } from '../pages/demo/keywords/keywords.component';
 import { SemanticAnnotationComponent } from '../pages/demo/semantic-annotation/semantic-annotation.component';
 import { SelfExplanationComponent } from '../pages/demo/self-explanation/self-explanation.component';
-import { CsclComponent } from '../pages/demo/cscl/cscl.component';
+import { CsclOldComponent } from '../pages/demo/cscl-old/cscl-old.component';
 import { CvAnalysisComponent } from '../pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from '../pages/demo/lak/lak.component';
 import { CommunityComponent } from '../pages/demo/community/community.component';
@@ -21,7 +21,7 @@ import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/c
 import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
 import { CurriculumRecommendationComponent } from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
 import { DocumentAnalysisComponent } from "../pages/demo/document-analysis/document-analysis";
-import { CsclNewComponent } from '../pages/demo/cscl-new/cscl-new.component';
+import { CsclComponent } from '../pages/demo/cscl/cscl.component';
 import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
 import { IntellitComponent } from '../pages/experiments/intellit/intellit.component';
 
@@ -71,12 +71,12 @@ const routes: Routes = [
     component: SelfExplanationComponent,
   },
   {
-    path: 'demo/cscl',
-    component: CsclComponent,
+    path: 'demo/cscl-old',
+    component: CsclOldComponent,
   },
   {
-    path: 'demo/cscl-new',
-    component: CsclNewComponent,
+    path: 'demo/cscl',
+    component: CsclComponent,
   },
   {
     path: 'demo/cv-analysis',
