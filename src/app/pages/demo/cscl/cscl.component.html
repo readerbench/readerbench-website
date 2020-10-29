@@ -113,7 +113,9 @@
 
                 <div class="row response-zone" id="participant-interaction" style="display: none;">
                   <div class="col-xs-12 col-md-3">
-                    <h4>Participant Interaction</h4>
+                    <h4>
+                      Participant Interaction
+                    </h4>
                     <ul class="course-description-list">
                       <li class="lesson" *ngFor="let participant of response.data.participantInteractionGraph.nodeList">
                         <div class="heading">
@@ -132,7 +134,9 @@
 
                 <div class="row response-zone" id="cscl-indices" style="display: none;">
                   <div class="col-xs-12 col-md-12">
-                    <h4>CSCL Indices</h4>
+                    <h4>
+                      CSCL Indices
+                    </h4>
                     <table class="cscl-indices">
                       <tbody>
                         <tr class="entry" *ngFor="let csclIndex of csclIndices | keyvalue">
@@ -172,7 +176,10 @@
 
                 <div class="row response-zone" id="participant-evolution" style="display: none;">
                   <div class="col-xs-12 col-md-12">
-                    <h4>Participant evolution</h4>
+                    <h4>
+                      Participant Evolution
+                      <span class="download icon-save" (click)="readerbenchService.downloadCsv(response.data.participantEvolution)" title="Export as CSV"></span>
+                    </h4>
                   </div>
                   <div class="col-xs-12 col-md-12">
                     <svg id="participantEvolution" width="100%" height="300"></svg>
@@ -181,7 +188,10 @@
 
                 <div class="row response-zone" id="social-kb" style="display: none;">
                   <div class="col-xs-12 col-md-12">
-                    <h4>Collaboration - Social Knowledge Building</h4>
+                    <h4>
+                      Collaboration - Social Knowledge Building
+                      <span class="download icon-save" (click)="readerbenchService.downloadCsv(response.data.socialKB)" title="Export as CSV"></span>
+                    </h4>
                   </div>
                   <div class="col-xs-12 col-md-12">
                     <svg id="collaborationSocialKB" width="100%" height="300"></svg>
@@ -190,7 +200,10 @@
 
                 <div class="row response-zone" id="contribution-indices" style="display: none;">
                   <div class="col-xs-12 col-md-12">
-                    <h4>Contributions Indices</h4>
+                    <h4>
+                      Contributions Indices
+                      <span class="download icon-save" (click)="readerbenchService.downloadCsv(response.data.contributionsIndices.contributions)" title="Export as CSV"></span>
+                    </h4>
                   </div>
                   <div class="col-xs-12 col-md-12">
                     <table class="contributions-indices">
@@ -236,7 +249,10 @@
                   <div class="row response-zone" id="concept-graph-{{conceptMap.key}}" style="display: none;">
                     <ng-container *ngIf="conceptMap.value != null">
                       <div class="col-xs-12 col-md-3">
-                        <h4>Concept Map ({{conceptMap.key}})</h4>
+                        <h4>
+                          Concept Map ({{conceptMap.key}})
+                          <span class="download icon-save" (click)="readerbenchService.downloadCsv(conceptMap.value.nodeList)" title="Export as CSV"></span>
+                        </h4>
                         <!-- <p>
                           <mat-slider thumbLabel min="1" max="100" step="5" value="100"
                             [displayWith]="formatConceptMapLabel"
@@ -262,7 +278,10 @@
 
                 <div class="row response-zone" id="cna-graph" style="display: none;">
                   <div class="col-xs-12 col-md-12">
-                    <h4>CNA Graph</h4>
+                    <h4>
+                      CNA Graph
+                      <span class="download icon-save" (click)="readerbenchService.downloadCsv(response.data.cnaGraph.data.children)" title="Export as CSV"></span>
+                    </h4>
                   </div>
                   <div class="col-xs-12 col-md-12">
                     <div class="container-documents-analysis">

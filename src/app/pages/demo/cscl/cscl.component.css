@@ -83,3 +83,18 @@
 .mat-slider-thumb-label-text {
     opacity: 1 !important;
 }
+.download {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    height: 52px;
+    padding: 0 8px;
+    min-width: 52px;
+    text-align: center;
+    background: #43b9c7;
+    line-height: 52px;
+    cursor: pointer;
+}
