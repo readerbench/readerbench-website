@@ -2,7 +2,7 @@ export var Projects = [
     {
         title: 'Automated Text Evaluation and Simplification',
         link: '#',
-        description: 'The general objective of the ATES (Automated Text Evaluation Simplification) project is to enable writers to improve the quality of their writing, in both English and Romanian languages. Writers will receive immediate feedback when typing the input text through personalized recommendations and highlights of different text elements that can be improved with an easy-to-use and intuitive user interface. The system will automatically evaluate the texts and provide guidance and instructions to allow users to adjust them accordingly to the targeted audience (e.g., belletristic, scientific writing styles), through text adjustments and simplification mechanisms. Our aim is to increase the reading ease of resulted materials and to incrementally refine the user’s writing style, transcending towards a higher writing proficiency. This objective will consider multiple experiments performed towards assessing text difficulty, before and after any automated adjustments are made.',
+        description: 'The project wants to enable writers to improve the quality of their writing, in both English and Romanian languages, with immediate feedback when typing the input text through personalized recommendations and highlights of different text elements that can be improved',
         category: 'Physical Sciences and Engineering',
         image: 'assets/images/ates_picture.jpg',
         imageDescription: 'Automated text evaluation for tutors and learners'
