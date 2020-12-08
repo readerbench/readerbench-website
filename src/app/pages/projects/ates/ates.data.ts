@@ -80,5 +80,6 @@ export let AtesData = {
     imageDescription: 'Automated text evaluation for tutors and learners',
     logo: 'assets/images/projects/ates_100x100.jpg',
     logoDescription: 'Automated text evaluation for tutors and learners',
-    fullWidthImage: 'assets/images/projects/ates_1995x392.jpg'
+    fullWidthImage: 'assets/images/projects/ates_1995x392.jpg',
+    uefiscdiImage: 'assets/images/projects/uefiscdi_330x200.png',
 }
