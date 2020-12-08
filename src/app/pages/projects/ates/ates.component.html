@@ -1,0 +1,301 @@
+<div class="row">
+  <div class="page-wrapper">
+    <!-- <search-box></search-box> -->
+    <div id="page">
+      <app-header></app-header>
+      <div class="content-wrapper people">
+        <app-carousel></app-carousel>
+        <div class="container">
+          <div class="section-header">
+            <h1>{{data.title}}</h1>
+          </div>
+        </div>
+        <section class="section-courses">
+          <div class="container">
+            <div class="single-course-page">
+              <div class="row">
+                <div class="col-md-7">
+                  <div class="main-content">
+                    <div class="course-cover">
+                      <img src="{{data.image}}" alt="project cover" title="{{data.imageDescription}}" />
+                    </div>
+
+                    <div class="course-body">
+                      <h2>Project Description</h2>
+
+                      <ng-container *ngFor="let paragraph of data.abstract">
+                        <p>{{paragraph}}</p>
+                      </ng-container>
+
+                      <h2>General Objective</h2>
+
+                      <ng-container *ngFor="let paragraph of data.objective">
+                        <p>{{paragraph}}</p>
+                      </ng-container>
+
+                      <h2 style="display: none;">Pictures</h2>
+                      <div class="single-course-gallery" style="display: none;">
+                        <div class="row">
+                          <div class="col-sm-6 col-xs-12">
+                            <div class="gallery-item">
+                              <div class="cover">
+                                <a href="img/full-gallery-1.jpg" data-lightbox="gallery"><i
+                                    class="icon-search3"></i></a>
+                              </div>
+                              <img src="img/course-gallery-1.jpg" alt="gallery image" />
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-xs-12">
+                            <div class="gallery-item">
+                              <div class="cover">
+                                <a href="img/full-gallery-3.jpg" data-lightbox="gallery"><i
+                                    class="icon-search3"></i></a>
+                              </div>
+                              <img src="img/course-gallery-2.jpg" alt="gallery image" />
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3 col-xs-6">
+                            <div class="gallery-item">
+                              <div class="cover">
+                                <a href="img/full-gallery-3.jpg" data-lightbox="gallery"><i
+                                    class="icon-search3"></i></a>
+                              </div>
+                              <img src="img/course-gallery-3.jpg" alt="gallery image" />
+                            </div>
+                          </div>
+
+                          <div class="col-sm-3 col-xs-6">
+                            <div class="gallery-item">
+                              <div class="cover">
+                                <a href="img/full-gallery-4.jpg" data-lightbox="gallery"><i
+                                    class="icon-search3"></i></a>
+                              </div>
+                              <img src="img/course-gallery-4.jpg" alt="gallery image" />
+                            </div>
+                          </div>
+
+                          <div class="col-sm-6 col-xs-12">
+                            <div class="gallery-item">
+                              <div class="cover">
+                                <a href="img/full-gallery-5.jpg" data-lightbox="gallery"><i
+                                    class="icon-search3"></i></a>
+                              </div>
+                              <img src="img/course-gallery-5.jpg" alt="gallery image" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h4>The Team</h4>
+
+                      <div class="people-list-wrapper">
+                        <div class="people-list" *ngFor="let people of data.team">
+                          <div class="people-name">
+                            <span>{{people.name}}</span>
+                          </div>
+                          <div class="people-social">
+                            <ul class="social-block">
+                              <li>
+                                <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}"
+                                  href="{{people.dblplink}}" target="_blank">
+                                  <i class="fa fa-eraser"></i>
+                                </a>
+                                <a *ngIf="!people.dblplink" disabled="disabled">
+                                  <i class="fa fa-eraser inactive"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                                  href="{{people.scholarlink}}" target="_blank">
+                                  <i class="fa fa-graduation-cap"></i>
+                                </a>
+                                <a *ngIf="!people.scholarlink" disabled="disabled">
+                                  <i class="fa fa-graduation-cap inactive"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                                  href="{{people.linkedin}}" target="_blank">
+                                  <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a *ngIf="!people.linkedin" disabled="disabled">
+                                  <i class="fa fa-linkedin inactive"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                                  href="{{people.researchgate}}" target="_blank">
+                                  <i class="fa fa-file-text"></i>
+                                </a>
+                                <a *ngIf="!people.researchgate" disabled="disabled">
+                                  <i class="fa fa-file-text inactive"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+
+                      <h4>Project Activities</h4>
+
+                      <ul class="course-description-list">
+                        <li class="lesson" *ngFor="let activity of data.activities; let i = index">
+                          <div class="heading">
+                            <span class="lesson-nr no-select">Activity {{i+1}}</span>
+                          </div>
+
+                          <div class="body">
+                            <p>{{activity}}</p>
+                          </div>
+
+                          <ul class="lesson-description" style="display: none;">
+                            <li>
+                              <div class="heading">
+                                <i class="icon icon-divider"></i>
+                              </div>
+
+                              <div class="body">
+                                <p>Short history.</p>
+                              </div>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+
+                      <div class="share-block" style="display: none;">
+                        <div class="row row-fit-10">
+                          <div class="col-xs-6 col-sm-3">
+                            <a class="facebook" href="#">facebook</a>
+                          </div>
+
+                          <div class="col-xs-6 col-sm-3">
+                            <a class="twitter" href="#">twitter</a>
+                          </div>
+
+                          <div class="col-xs-6 col-sm-3">
+                            <a class="pinterest" href="#">pinterest</a>
+                          </div>
+
+                          <div class="col-xs-6 col-sm-3">
+                            <a class="dribbble" href="#">dribbble</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="post-nav" style="display: none;">
+                        <div class="row">
+                          <div class="col-sm-4">
+                            <div class="nav-direction-wrapper prev">
+                              <a href="course-online.html" class="nav-direction">
+                                <span>Prev project</span>
+                                <p>Technology for your kids</p>
+                              </a>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4">
+                            <div class="navigation-info-wrapper">
+                              <div class="navigation-info">
+                                <p>Find more amazing projects</p>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-sm-4">
+                            <div class="nav-direction-wrapper next">
+                              <a href="course.html" class="nav-direction">
+                                <span>Next project</span>
+                                <p>Physical exercises for your body</p>
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-5">
+                  <div class="sidebar-description">
+                    <div class="instructor-box">
+                      <div class="instructor-profile">
+                        <div class="avatar">
+                          <img src="{{data.logo}}" alt="project logo" title="{{logoDescription}}" />
+                        </div>
+
+                        <ul class="course-info">
+                          <li><span>Shortname:</span> {{data.shortname}}</li>
+                          <li><span>Category:</span> {{data.categoryAcronym}}</li>
+                          <li><span>Period:</span> {{data.period}}</li>
+                        </ul>
+                      </div>
+
+                      <div class="course-action">
+                        <!-- <a href="#" class="btn theme-btn-1 register-to-course">
+                          <span class="button">Register</span>
+                        </a> -->
+
+                        <!-- <span class="price">RB</span> -->
+                      </div>
+                    </div>
+
+                    <div class="location-box">
+                      <h3 class="box-title">Location</h3>
+
+                      <p><span>Splaiul Independentei 313</span><br />Bucharest, Romania</p>
+                      <!-- <div class="map" id="map-canvas"></div> -->
+                    </div>
+
+                    <div class="related-courses-box">
+                      <h3 class="box-title" style="display: none;">Related Projects</h3>
+
+                      <div class="single-course grid-course" style="display: none;">
+                        <div class="course-thumbnail">
+                          <a href="course.html" class="cover-info">
+                            <div class="text">
+                              <h4>Don't miss this course</h4>
+                              <p>These cases are perfectly simple and easy to distinguish. In a free hour, when our
+                                power of choice is untrammelled and when nothing prevents our being able.</p>
+                            </div>
+                          </a>
+
+                          <img src="img/sidebar-related.jpg" alt="course thumbnail" />
+                        </div>
+
+                        <div class="course-details">
+                          <h3 class="title">
+                            <a href="course.html">Masterclass from top chefs</a>
+                          </h3>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="call-to-action-box" [attr.data-parallax-bg]="data.fullWidthImage">
+          <div class="box-img"><span></span></div>
+          <div class="container">
+            <div class="row">
+              <div class="col-md-7">
+                <h2>&copy; ReaderBench</h2>
+              </div>
+
+              <div class="col-md-5" style="display: none;">
+                <div class="button-wrapper">
+                  <a href="#" class="btn theme-btn-3">Get in touch</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -24,6 +24,7 @@ import { DocumentAnalysisComponent } from "../pages/demo/document-analysis/docum
 import { CsclComponent } from '../pages/demo/cscl/cscl.component';
 import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
 import { IntellitComponent } from '../pages/experiments/intellit/intellit.component';
+import { AtesComponent } from '../pages/projects/ates/ates.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent,
+  },
+  {
+    path: 'projects/ates',
+    component: AtesComponent,
   },
   {
     path: 'publications',

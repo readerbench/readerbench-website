@@ -82,6 +82,7 @@ import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import {MatSliderModule} from '@angular/material/slider';
+import { AtesComponent } from './pages/projects/ates/ates.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -149,7 +150,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DocumentAnalysisComponent,
     MultiDocumentCohesionGridComponent,
     ExperimentsComponent,
-    ExperimentsMenuComponent
+    ExperimentsMenuComponent,
+    AtesComponent
   ],
   imports: [
     BrowserModule,

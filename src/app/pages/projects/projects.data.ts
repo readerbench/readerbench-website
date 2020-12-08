@@ -1,7 +1,7 @@
 export var Projects = [
     {
         title: 'Automated Text Evaluation and Simplification',
-        link: '#',
+        link: 'projects/ates',
         description: 'The project wants to enable writers to improve the quality of their writing, in both English and Romanian languages, with immediate feedback when typing the input text through personalized recommendations and highlights of different text elements that can be improved',
         category: 'Physical Sciences and Engineering',
         image: 'assets/images/ates_picture.jpg',
