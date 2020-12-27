@@ -314,6 +314,46 @@ interface BlogCommunity {
           {axis: 'week13', value: Math.log2(5.193471621682791)},
           {axis: 'week14', value: 0}
         ]
+      },
+      {
+        name: "STUD79",
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: 0},
+          {axis: 'week4', value: 0},
+          {axis: 'week5', value: 0},
+          {axis: 'week6', value: 0},
+          {axis: 'week7', value: Math.log2(1.4240699559551415)},
+          {axis: 'week8', value: 0},
+          {axis: 'week9', value: Math.log2(1.6659426769827732)},
+          {axis: 'week10', value: Math.log2(0.5149949507462526)},
+          {axis: 'week11', value: Math.log2(2.47490818911257)},
+          {axis: 'week12', value: Math.log2(5.103293149692368)},
+          {axis: 'week13', value: 0},
+          {axis: 'week14', value: 0}
+        ]
+        
+      },
+      {
+        name: "STUD44",
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: 0},
+          {axis: 'week4', value: Math.log2(0.6373122389303326)},
+          {axis: 'week5', value: 0},
+          {axis: 'week6', value: 0},
+          {axis: 'week7', value: 0},
+          {axis: 'week8', value: 0},
+          {axis: 'week9', value: Math.log2(0.8026935091326179)},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: Math.log2(2.80984598524583)},
+          {axis: 'week12', value: Math.log2(6.430192963428837)},
+          {axis: 'week13', value: 0},
+          {axis: 'week14', value: 0}
+        ]
+        
       }
     ];
 
@@ -363,6 +403,42 @@ interface BlogCommunity {
           {axis: 'week3', value: 0},
           {axis: 'week4', value: 0},
           {axis: 'week5', value: Math.log2(14.106840499647213)},
+          {axis: 'week6', value: 0},
+          {axis: 'week7', value: 0},
+          {axis: 'week8', value: 0},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: 0},
+          {axis: 'week12', value: 0},
+          {axis: 'week13', value: 0},
+          {axis: 'week14', value: 0}
+        ]
+      },
+      { name: 'STUD33',
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: 0},
+          {axis: 'week3', value: Math.log2(1.2027620851463097)},
+          {axis: 'week4', value: Math.log2(3.9354685289252673)},
+          {axis: 'week5', value: 0},
+          {axis: 'week6', value: Math.log2(4.773433195552462)},
+          {axis: 'week7', value: Math.log2(2.0306557167710353)},
+          {axis: 'week8', value: Math.log2(0.6509959644656119)},
+          {axis: 'week9', value: 0},
+          {axis: 'week10', value: 0},
+          {axis: 'week11', value: 0},
+          {axis: 'week12', value: 0},
+          {axis: 'week13', value: 0},
+          {axis: 'week14', value: 0}
+        ]
+      },
+      { name: 'STUD8',
+        axes: [
+          {axis: 'week1', value: 0},
+          {axis: 'week2', value: Math.log2(1.4849789775530653)},
+          {axis: 'week3', value: Math.log2(3.5881070941191178)},
+          {axis: 'week4', value: Math.log2(7.150902704174387)},
+          {axis: 'week5', value: 0},
           {axis: 'week6', value: 0},
           {axis: 'week7', value: 0},
           {axis: 'week8', value: 0},
@@ -986,7 +1062,7 @@ interface BlogCommunity {
         1: 'Tomato', 2: 'MediumSeaGreen', 3: 'DodgerBlue'
       };
 
-      var diameter = 700,
+      var diameter = 900,
             radius = diameter / 2,
             innerRadius = radius - 120;
 
