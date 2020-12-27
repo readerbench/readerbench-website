@@ -1,25 +1,17 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApiRequestService } from '../api-request.service';
 import { DefaultInputData } from '../demo.component.data';
-import { CsclData } from './cscl-new.data';
+import { CsclOldData } from './cscl-old.data';
 import { isNil } from 'lodash';
 import { TwoModeGraphService } from '../../../two-mode-graph.service';
 import { ReaderBenchService } from '../../../readerbench.service';
-import { DropzoneModule, DropzoneDirective, DropzoneConfigInterface } from 'ngx-dropzone-wrapper';
-
 @Component({
-  selector: 'app-cscl',
-  templateUrl: './cscl-new.component.html',
-  styleUrls: ['./cscl-new.component.css'],
+  selector: 'app-old-cscl',
+  templateUrl: './cscl-old.component.html',
+  styleUrls: ['./cscl-old.component.css'],
   providers: [ApiRequestService, TwoModeGraphService]
 })
-export class CsclNewComponent implements OnInit {
-
-  public config: DropzoneConfigInterface = {
-    clickable: true,
-    maxFiles: 0,
-    timeout: 60 * 1000,
-  };
+export class CsclOldComponent implements OnInit {
 
   formData: any;
   @Input() advanced: boolean;
@@ -47,12 +39,6 @@ export class CsclNewComponent implements OnInit {
 
   participantInteractionGraph: any;
 
-  noFilesToUpload: number;
-  noUploadedFiles: number;
-
-  @ViewChild(DropzoneModule, { }) componentRef?: DropzoneModule;
-  @ViewChild(DropzoneDirective, {}) directiveRef?: DropzoneDirective;
-
   constructor(
     private apiRequestService: ApiRequestService,
     private twoModeGraphService: TwoModeGraphService,
@@ -62,8 +48,8 @@ export class CsclNewComponent implements OnInit {
 
   ngOnInit() {
     this.isFileUploaded = false;
-    this.languages = CsclData.languages;
-    this.language = CsclData.defaultLanguage;
+    this.languages = CsclOldData.languages;
+    this.language = CsclOldData.defaultLanguage;
 
     this.formData = {
       'language': this.language,
@@ -76,8 +62,6 @@ export class CsclNewComponent implements OnInit {
     this.loading = false;
     this.showResults = false;
 
-    this.noFilesToUpload = 0;
-    this.noUploadedFiles = 0;
   }
 
   loadSemanticModels() {
@@ -97,7 +81,7 @@ export class CsclNewComponent implements OnInit {
   }
 
   process() {
-    this.apiRequestService.setApiService(CsclData.serviceName);
+    this.apiRequestService.setApiService(CsclOldData.serviceName);
     this.apiRequestService.setHeaders(this.apiRequestService.HEADERS_TYPE_COMMON_REQUEST);
     this.loading = true;
     this.showResults = false;
@@ -233,7 +217,7 @@ export class CsclNewComponent implements OnInit {
   }
 
   fileChange(event) {
-    this.apiRequestService.setApiService(CsclData.fileUploadEndpointKey);
+    this.apiRequestService.setApiService(CsclOldData.fileUploadEndpointKey);
     this.apiRequestService.setHeaders(this.apiRequestService.HEADERS_TYPE_FILE_UPLOAD);
     const fileList: FileList = event.target.files;
     if (fileList.length > 0) {
@@ -252,30 +236,6 @@ export class CsclNewComponent implements OnInit {
         this.isFileUploaded = true;
         // jQuery('#submit-button').prop('disabled', false);
       });
-    }
-  }
-
-  public onUploadInit(args: any): void {
-  }
-
-  public onSending(args: any): void {
-    this.noFilesToUpload++;
-  }
-
-  public onUploadError(args: any): void {
-    alert('There was an error uploading your file(s)!');
-  }
-
-  public onUploadSuccess(args: any): void {
-    // console.log(args);
-    this.uploadedFileName = args[1].data.file;
-  }
-
-  public onUploadComplete(args: any, response): void {
-    this.noUploadedFiles++;
-    if (this.noUploadedFiles == this.noFilesToUpload) {
-      console.log('File uploaded', args, response);
-      // this.uploadedFileName = args.data.name;
     }
   }
 

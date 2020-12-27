@@ -25,7 +25,7 @@ import { EdgeBundlingDiagramComponent } from './pages/demo/comprehension-model/e
 import { KeywordsComponent } from './pages/demo/keywords/keywords.component';
 import { SemanticAnnotationComponent } from './pages/demo/semantic-annotation/semantic-annotation.component';
 import { SelfExplanationComponent } from './pages/demo/self-explanation/self-explanation.component';
-import { CsclComponent } from './pages/demo/cscl/cscl.component';
+import { CsclOldComponent } from './pages/demo/cscl-old/cscl-old.component';
 import { CvAnalysisComponent } from './pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from './pages/demo/lak/lak.component';
 import { CommunityComponent } from './pages/demo/community/community.component';
@@ -38,6 +38,10 @@ import { CommunityKeywordsHeatmapComponent } from './pages/demo/community/keywor
 import { ClusteredForceLayoutComponent } from './pages/demo/community/clustered-force-layout/clustered-force-layout.component';
 import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-level-edge-bundling/multi-level-edge-bundling.component';
 
+import { ExperimentsComponent } from './pages/experiments/experiments.component';
+import { ExperimentsMenuComponent } from './pages/experiments/sections/menu/menu.component';
+import { ExperimentsServicesComponent }  from './pages/experiments/sections/services/services.component'
+import { IntellitComponent } from './pages/experiments/intellit/intellit.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
 import { DemoCommonFieldsComponent } from './pages/demo/sections/common-fields/common-fields.component';
@@ -46,6 +50,10 @@ import { ReaderBenchCommonModule } from '@reader-bench/common';
 import { KeywordsModule } from './pages/demo/keywords/keywords.module';
 
 import { EssayFeedbackComponent } from './pages/demo/essay-feedback/essay-feedback.component';
+
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+// Import library module
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 import 'jquery';
 import { PeopleComponent } from './pages/people/people.component';
@@ -67,12 +75,15 @@ import {NgbAccordion, NgbAccordionModule, NgbModule, NgbRatingModule} from '@ng-
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
+import { CsclComponent } from './pages/demo/cscl/cscl.component';
 import { MultiDocumentHierarchicalViewComponent } from './pages/demo/document-analysis/multi-document-hierarchical/multi-document-hierarchical';
-import { CsclNewComponent } from './pages/demo/cscl-new/cscl-new.component';
 import { DropzoneModule, DropzoneConfigInterface, DROPZONE_CONFIG } from 'ngx-dropzone-wrapper';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+
+import {MatSliderModule} from '@angular/material/slider';
+import { AtesComponent } from './pages/projects/ates/ates.component';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -106,10 +117,11 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     TextualComplexityComponent,
     KeywordsComponent,
     EssayFeedbackComponent,
+    IntellitComponent,
     SemanticAnnotationComponent,
     SelfExplanationComponent,
+    CsclOldComponent,
     CsclComponent,
-    CsclNewComponent,
     CvAnalysisComponent,
     ComprehensionModelComponent,
     CMScoresTableComponent,
@@ -118,6 +130,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     CommunityComponent,
     SemDiffComponent,
     DemoServicesComponent,
+    ExperimentsServicesComponent,
     DemoCommonFieldsComponent,
     DemoSemDiffCommonFieldsComponent,
     ApproximationPipe,
@@ -137,6 +150,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ChordComponent,
     DocumentAnalysisComponent,
     MultiDocumentCohesionGridComponent,
+    ExperimentsComponent,
+    ExperimentsMenuComponent,
+    AtesComponent,
     MultiDocumentHierarchicalViewComponent
   ],
   imports: [
@@ -153,7 +169,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     Ng5SliderModule,
     UiSwitchModule,
     DropzoneModule,
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    NgxSpinnerModule,
+    MatSliderModule
   ],
   exports: [
     KeywordsComponent
@@ -173,6 +191,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   ],
   bootstrap: [
     AppComponent
-  ]
+  ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

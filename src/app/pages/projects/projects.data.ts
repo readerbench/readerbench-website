@@ -1,5 +1,13 @@
 export var Projects = [
     {
+        title: 'Automated Text Evaluation and Simplification',
+        link: 'projects/ates',
+        description: 'The project wants to enable writers to improve the quality of their writing, in both English and Romanian languages, with immediate feedback when typing the input text through personalized recommendations and highlights of different text elements that can be improved',
+        category: 'Physical Sciences and Engineering',
+        image: 'assets/images/ates_picture.jpg',
+        imageDescription: 'Automated text evaluation for tutors and learners'
+    },
+    {
         title: 'Robots and Society: Cognitive Systems for Personal Robots and Autonomous Vehicles (Robin)',
         link: '#',
         description: 'User-centered project designing software and services modules for the use of robots in an interconnected digital society that enables companies to develop complex, intelligent and performing products and services for these users as well as society as a whole.',

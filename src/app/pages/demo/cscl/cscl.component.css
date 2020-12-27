@@ -1,1 +1,100 @@
+.dropzone.dropzone-default.dropzone-success {
+    border-color: #0abb87;
+}
 
+.dropzone.dropzone-default {
+    /* min-height: 350px; */
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px dashed #ebedf2;
+    border-radius: 4px;
+}
+
+.dropzone {
+    min-height: 150px;
+    border: 2px solid rgba(0, 0, 0, 0.3);
+    background: white;
+    padding: 20px 20px;
+}
+
+.dropzone,
+.dropzone * {
+    box-sizing: border-box;
+}
+
+.dropzone {
+    min-height: auto;
+}
+
+.contributions-indices td,
+.contributions-indices th {
+    font-size: 12px;
+    padding: 0 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+.contributions-indices>thead th,
+.contributions-indices>tbody td.contribution-id,
+.contributions-indices>tfoot td {
+    color: #43b9c7;
+    font-weight: bold;
+}
+
+.contributions-indices td.value {
+    text-align: right;
+}
+
+#cscl-tabs ul {
+    display: inline-block;
+    list-style-type: none;
+}
+
+#cscl-tabs ul li {
+    display: inline-block;
+}
+
+#cscl-tabs ul li a {
+    cursor: pointer;
+}
+
+#cscl-tabs ul li a span {
+    vertical-align: middle;
+    display: inline-block;
+    padding: 10px 25px;
+    color: #43b9c7;
+    font-size: 12px;
+    line-height: 1em;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+.mat-slider-thumb-label {
+    transform: rotate(45deg) !important;
+    border-radius: 50% 50% 0 !important;
+  }
+
+.mat-slider-thumb {
+    transform: scale(0) !important;
+}
+
+.mat-slider-thumb-label-text {
+    opacity: 1 !important;
+}
+.download {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+    font-size: 24px;
+    font-weight: 300;
+    color: #fff;
+    height: 52px;
+    padding: 0 8px;
+    min-width: 52px;
+    text-align: center;
+    background: #43b9c7;
+    line-height: 52px;
+    cursor: pointer;
+}

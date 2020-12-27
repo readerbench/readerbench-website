@@ -12,36 +12,31 @@
         </div>
         <div class="container">
           <div class="section-header">
-            <h1>Computer Supported Collaborative Learning (new)</h1>
+            <h1>Computer Supported Collaborative Learning</h1>
           </div>
         </div>
         <div class="container">
           <div class="form-group">
             <div class="input">
               <div class="row">
-                <div class="col-xs-12 col-md-12 col-lg-3">
+                <div class="col-xs-3 col-md-3">
                   <label for="file">CSCL file <span class="required">*</span><br /><small>(only XML files
                       allowed)</small></label>
                 </div>
-                <div class="col-xs-12 col-md-12 col-lg-6">
-                  <div [dropzone]="dropzone" class="dropzone dropzone-default dropzone-success" id="kt_dropzone_3"
-                    (config)="config" (init)="onUploadInit($event)" (sending)="onSending($event)"
-                    (error)="onUploadError($event)" (success)="onUploadSuccess($event)"
-                    (complete)="onUploadComplete($event, $data)">
-                    <div class="dropzone-msg dz-message needsclick">
-                      <h3 class="dropzone-msg-title">Drop your XML file here or click this area to upload it.</h3>
-                      <span class="dropzone-msg-desc">Your file will be uploaded immediately to the server.<br />
-                        Only XML files are allowed!</span>
-                    </div>
-                  </div>
+                <div class="col-xs-4 col-md-4">
+                  <input id="file" class="btn theme-btn-1" type="file" (change)="fileChange($event)"
+                    placeholder="Upload file" accept=".xml" valie="Select File: " />
+                  File:
+                  <small>{{uploadedFileName}}
+                    <span class="progress" ng-show="csclFile.progress >= 0">
+                      <!-- <div style="width:{{csclFile.progress}}%" ng-bind="csclFile.progress + '%'"></div> -->
+                    </span>
+                  </small>
+                  {{csclErrorMsg}}
                   <input type="hidden" ng-model="formData.csclFile" />
                 </div>
-                <div class="col-xs-12 col-md-12 col-lg-3">
-                  <!-- <a href="{{sampleFileUrl}}" target="_blank">Sample CSCL file</a> -->
-                  <!-- <dropzone class="dropzone-container dropzone dropzone-default dropzone-success" [config]="config"
-                    (init)="onUploadInit($event)" (sending)="onSending($event)" (error)="onUploadError($event)"
-                    (success)="onUploadSuccess($event)">
-                  </dropzone> -->
+                <div class="col-xs-3 col-md-3">
+                  <a href="{{sampleFileUrl}}" target="_blank">Sample CSCL file</a>
                 </div>
               </div>
               <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"

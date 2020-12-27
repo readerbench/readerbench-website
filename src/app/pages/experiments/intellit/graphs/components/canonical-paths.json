@@ -1,0 +1,2691 @@
+[{
+		"name": "HOLBAN Anton",
+		"id": 1,
+		"firstTrip": 1902,
+		"lastTrip": 1937,
+		"places": [{
+				"latitude": 46.67361,
+				"longitude": 28.05944,
+				"name": "Huși",
+				"year": "1902"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1904"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1909"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1913"
+			},
+			{
+				"latitude": 46.47747,
+				"longitude": 30.73262,
+				"name": "Odessa",
+				"year": "1917"
+			},
+			{
+				"latitude": 45.7,
+				"longitude": 27.18333,
+				"name": "Focșani",
+				"year": "1918"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1919"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1921"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1922"
+			},
+			{
+				"latitude": 45.13422,
+				"longitude": 24.67409,
+				"name": "Curtea de Argeș",
+				"year": "1923"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1924"
+			},
+			{
+				"latitude": 31.92157,
+				"longitude": 35.20329,
+				"name": "Palestina",
+				"year": "1924"
+			},
+			{
+				"latitude": 27,
+				"longitude": 30,
+				"name": "Egipt",
+				"year": "1924"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1925"
+			},
+			{
+				"latitude": 44.18073,
+				"longitude": 28.63432,
+				"name": "Constanța",
+				"year": "1925"
+			},
+			{
+				"latitude": 47.31667,
+				"longitude": 5.01667,
+				"name": "Dijon",
+				"year": "1926"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1927"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1927"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1927"
+			},
+			{
+				"latitude": 45.43687,
+				"longitude": 28.05028,
+				"name": "Galaţi",
+				"year": "1928"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1931"
+			},
+			{
+				"latitude": 42.42556,
+				"longitude": 21.41972,
+				"name": "Cernica",
+				"year": "1931"
+			},
+			{
+				"latitude": 44.04906,
+				"longitude": 26.61206,
+				"name": "Turtucaia",
+				"year": "1932"
+			},
+			{
+				"latitude": 45.5,
+				"longitude": 29.41667,
+				"name": "Delta Dunării",
+				"year": "1932"
+			},
+			{
+				"latitude": 43.9,
+				"longitude": 26.91667,
+				"name": "Padina",
+				"year": "1932"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1934"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1935"
+			},
+			{
+				"latitude": 47.37787,
+				"longitude": 18.20353,
+				"name": "Humor",
+				"year": "1935"
+			},
+			{
+				"latitude": 47.16196,
+				"longitude": 26.29545,
+				"name": "Agapia",
+				"year": "1935"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1935"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1937"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1937"
+			}
+		]
+	},
+	{
+		"name": "IBRĂILEANU Garabet",
+		"id": 2,
+		"firstTrip": 1871,
+		"lastTrip": 1934,
+		"places": [{
+				"latitude": 47.20788,
+				"longitude": 27.01196,
+				"name": "Târgu Frumos",
+				"year": "1871"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1871"
+			},
+			{
+				"latitude": 46.69819,
+				"longitude": 27.01765,
+				"name": "Poiana lui Iuraşcu",
+				"year": "1875"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1878"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1878"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1878"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1879"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1883"
+			},
+			{
+				"latitude": 46.23175,
+				"longitude": 27.66907,
+				"name": "Bârlad",
+				"year": "1887"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1890"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1891"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1893"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1895"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1895"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1895"
+			},
+			{
+				"latitude": 46.99813,
+				"longitude": 25.91852,
+				"name": "Durău",
+				"year": "1895"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Piatra Neamţ",
+				"year": "1895"
+			},
+			{
+				"latitude": 44.25,
+				"longitude": 27,
+				"name": "Călăraşi",
+				"year": "1895"
+			},
+			{
+				"latitude": 47.35,
+				"longitude": 25.36667,
+				"name": "Vatra Dornei",
+				"year": "1895"
+			},
+			{
+				"latitude": 47.13316,
+				"longitude": 24.50011,
+				"name": "Bistriţa",
+				"year": "1895"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1895"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1895"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1900"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1901"
+			},
+			{
+				"latitude": 47.33333,
+				"longitude": 13.33333,
+				"name": "Austria",
+				"year": "1904"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1904"
+			},
+			{
+				"latitude": 47.00016,
+				"longitude": 8.01427,
+				"name": "Elveția",
+				"year": "1904"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1904"
+			},
+			{
+				"latitude": 47.00016,
+				"longitude": 8.01427,
+				"name": "Elveția",
+				"year": "1904"
+			},
+			{
+				"latitude": 47.33333,
+				"longitude": 13.33333,
+				"name": "Austria",
+				"year": "1904"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1908"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1909"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1914"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1915"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1934"
+			}
+		]
+	},
+	{
+		"name": "BLAGA Lucian",
+		"firstTrip": 1902,
+		"lastTrip": 1961,
+		"id": 3,
+		"places": [{
+				"latitude": 45.98708,
+				"longitude": 23.55665,
+				"name": "Lancrăm",
+				"year": "1895"
+			},
+			{
+				"latitude": 45.98708,
+				"longitude": 23.55665,
+				"name": "Lancrăm",
+				"year": "1902"
+			},
+			{
+				"latitude": 45.95646,
+				"longitude": 23.571,
+				"name": "Sebeş",
+				"year": "1902"
+			},
+			{
+				"latitude": 45.64861,
+				"longitude": 25.60613,
+				"name": "Braşov",
+				"year": "1906"
+			},
+			{
+				"latitude": 45.95646,
+				"longitude": 23.571,
+				"name": "Sebeş",
+				"year": "1909"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1911"
+			},
+			{
+				"latitude": 37.98376,
+				"longitude": 23.72784,
+				"name": "Atena",
+				"year": "1911"
+			},
+			{
+				"latitude": 40.85216,
+				"longitude": 14.26811,
+				"name": "Napoli",
+				"year": "1911"
+			},
+			{
+				"latitude": 40.75,
+				"longitude": 14.48333,
+				"name": "Pompei",
+				"year": "1911"
+			},
+			{
+				"latitude": 41.89193,
+				"longitude": 12.51133,
+				"name": "Roma",
+				"year": "1911"
+			},
+			{
+				"latitude": 45.32673,
+				"longitude": 14.44241,
+				"name": "Fiume",
+				"year": "1911"
+			},
+			{
+				"latitude": 45.43713,
+				"longitude": 12.33265,
+				"name": "Veneţia",
+				"year": "1911"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1914"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1916"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1917"
+			},
+			{
+				"latitude": 46.06667,
+				"longitude": 23.58333,
+				"name": "Alba Iulia",
+				"year": "1918"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1920"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1920"
+			},
+			{
+				"latitude": 45.68861,
+				"longitude": 21.90306,
+				"name": "Lugoj",
+				"year": "1924"
+			},
+			{
+				"latitude": 52.22977,
+				"longitude": 21.01178,
+				"name": "Varşovia",
+				"year": "1926"
+			},
+			{
+				"latitude": 50.08804,
+				"longitude": 14.42076,
+				"name": "Praga",
+				"year": "1927"
+			},
+			{
+				"latitude": 46.94809,
+				"longitude": 7.44744,
+				"name": "Berna",
+				"year": "1928"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1932"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1933"
+			},
+			{
+				"latitude": 46.94809,
+				"longitude": 7.44744,
+				"name": "Berna",
+				"year": "1937"
+			},
+			{
+				"latitude": 38.71667,
+				"longitude": -9.13333,
+				"name": "Lisabona",
+				"year": "1938"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1939"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1940"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1940"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1944"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1946"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1949"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1954"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1959"
+			},
+			{
+				"latitude": 45.98708,
+				"longitude": 23.55665,
+				"name": "Lancrăm",
+				"year": "1961"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1961"
+			}
+		]
+	},
+	{
+		"name": "BACOVIA George",
+		"firstTrip": 1881,
+		"lastTrip": 1930,
+		"id": 4,
+		"places": [{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1881"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1889"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1894"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1903"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1903"
+			},
+			{
+				"latitude": 44.85,
+				"longitude": 24.86667,
+				"name": "Piteşti",
+				"year": "1903"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1907"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1911"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1912"
+			},
+			{
+				"latitude": 46.53604,
+				"longitude": 26.84012,
+				"name": "Călugăra",
+				"year": "1912"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1914"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1922"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1925"
+			},
+			{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1930"
+			}
+		]
+	},
+	{
+		"name": "ELIADE Mircea",
+		"firstTrip": 1907,
+		"lastTrip": 1986,
+		"id": 5,
+		"places": [{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1907"
+			},
+			{
+				"latitude": 44.33957,
+				"longitude": 28.03273,
+				"name": "Cernavodă",
+				"year": "1912"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1927"
+			},
+			{
+				"latitude": 22.56263,
+				"longitude": 88.36304,
+				"name": "Calcutta",
+				"year": "1928"
+			},
+			{
+				"latitude": 28,
+				"longitude": 84,
+				"name": "Himalaya",
+				"year": "1930"
+			},
+			{
+				"latitude": 22.56263,
+				"longitude": 88.36304,
+				"name": "Calcutta",
+				"year": "1931"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1933"
+			},
+			{
+				"latitude": 46.35,
+				"longitude": 25.8,
+				"name": "Miercurea Ciuc",
+				"year": "1938"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Londra",
+				"year": "1940"
+			},
+			{
+				"latitude": 38.71667,
+				"longitude": -9.13333,
+				"name": "Lisabona",
+				"year": "1941"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1945"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1957"
+			},
+			{
+				"latitude": 41.85003,
+				"longitude": -87.65005,
+				"name": "Chicago",
+				"year": "1957"
+			},
+			{
+				"latitude": 41.31121,
+				"longitude": -72.92649,
+				"name": "Yale",
+				"year": "1966"
+			},
+			{
+				"latitude": 48.84869,
+				"longitude": 2.34363,
+				"name": "Sorbona",
+				"year": "1976"
+			},
+			{
+				"latitude": 41.85003,
+				"longitude": -87.65005,
+				"name": "Chicago",
+				"year": "1985"
+			},
+			{
+				"latitude": 41.85003,
+				"longitude": -87.65005,
+				"name": "Chicago",
+				"year": "1986"
+			}
+		]
+	},
+	{
+		"name": "DOBROGEANU-GHEREA Constantin",
+		"id": 6,
+		"firstTrip": 1855,
+		"lastTrip": 1920,
+		"places": [{
+				"latitude": 48.4593,
+				"longitude": 35.03865,
+				"name": "Ekaterinoslav",
+				"year": "1855"
+			},
+			{
+				"latitude": 48.4593,
+				"longitude": 35.03865,
+				"name": "Ekaterinoslav",
+				"year": "1862"
+			},
+			{
+				"latitude": 49.98081,
+				"longitude": 36.25272,
+				"name": "Harkov",
+				"year": "1872"
+			},
+			{
+				"latitude": 47.00556,
+				"longitude": 28.8575,
+				"name": "Chișinău",
+				"year": "1872"
+			},
+			{
+				"latitude": 47.00016,
+				"longitude": 8.01427,
+				"name": "Elveția",
+				"year": "1875"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1876"
+			},
+			{
+				"latitude": 44.95,
+				"longitude": 26.01667,
+				"name": "Ploiești",
+				"year": "1876"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1877"
+			},
+			{
+				"latitude": 44.95,
+				"longitude": 26.01667,
+				"name": "Ploiești",
+				"year": "1877"
+			},
+			{
+				"latitude": 45.43687,
+				"longitude": 28.05028,
+				"name": "Galați",
+				"year": "1878"
+			},
+			{
+				"latitude": 59.93863,
+				"longitude": 30.31413,
+				"name": "Sankt Petersburg",
+				"year": "1878"
+			},
+			{
+				"latitude": 65.8336,
+				"longitude": 44.2138,
+				"name": "Mezen",
+				"year": "1878"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1879"
+			},
+			{
+				"latitude": 47.33333,
+				"longitude": 13.33333,
+				"name": "Austria",
+				"year": "1879"
+			},
+			{
+				"latitude": 44.95,
+				"longitude": 26.01667,
+				"name": "Ploiești",
+				"year": "1879"
+			},
+			{
+				"latitude": 65.8336,
+				"longitude": 44.2138,
+				"name": "Mezen",
+				"year": "1879"
+			},
+			{
+				"latitude": 62,
+				"longitude": 10,
+				"name": "Norvegia",
+				"year": "1879"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1879"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1879"
+			},
+			{
+				"latitude": 60,
+				"longitude": 98,
+				"name": "URSS",
+				"year": "1879"
+			},
+			{
+				"latitude": 47.33333,
+				"longitude": 13.33333,
+				"name": "Austria",
+				"year": "1879"
+			},
+			{
+				"latitude": 44.95,
+				"longitude": 26.01667,
+				"name": "Ploiești",
+				"year": "1882"
+			},
+			{
+				"latitude": 47.36667,
+				"longitude": 8.55,
+				"name": "Zürich",
+				"year": "1893"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1906"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1912"
+			},
+			{
+				"latitude": 47.55839,
+				"longitude": 7.57327,
+				"name": "Basel",
+				"year": "1912"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1915"
+			},
+			{
+				"latitude": 47.00016,
+				"longitude": 8.01427,
+				"name": "Elveția",
+				"year": "1916"
+			},
+			{
+				"latitude": 47.36667,
+				"longitude": 8.55,
+				"name": "Zürich",
+				"year": "1916"
+			},
+			{
+				"latitude": 44.95,
+				"longitude": 26.01667,
+				"name": "Ploiești",
+				"year": "1919"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1920"
+			}
+		]
+	},
+	{
+		"name": "COȘBUC George",
+		"id": 7,
+		"firstTrip": 1866,
+		"lastTrip": 1913,
+		"places": [{
+				"latitude": 47.16667,
+				"longitude": 24.58333,
+				"name": "Năsăud",
+				"year": "1866"
+			},
+			{
+				"latitude": 47.3683862,
+				"longitude": 24.3735766,
+				"name": "Hordou",
+				"year": "1866"
+			},
+			{
+				"latitude": 47.3683862,
+				"longitude": 24.3735766,
+				"name": "Hordou",
+				"year": "1873"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 24.58333,
+				"name": "Năsăud",
+				"year": "1876"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1882"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1883"
+			},
+			{
+				"latitude": 46.76667,
+				"longitude": 23.6,
+				"name": "Cluj",
+				"year": "1884"
+			},
+			{
+				"latitude": 47.3683862,
+				"longitude": 24.3735766,
+				"name": "Hordou",
+				"year": "1884"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1887"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1887"
+			},
+			{
+				"latitude": 48.13743,
+				"longitude": 11.57549,
+				"name": "München",
+				"year": "1893"
+			},
+			{
+				"latitude": 47.33333,
+				"longitude": 13.33333,
+				"name": "Austria",
+				"year": "1898"
+			},
+			{
+				"latitude": 33.15809,
+				"longitude": -117.35059,
+				"name": "Karlsbad",
+				"year": "1898"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1902"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1902"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1908"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 24.58333,
+				"name": "Năsăud",
+				"year": "1909"
+			},
+			{
+				"latitude": 47.3683862,
+				"longitude": 24.3735766,
+				"name": "Hordou",
+				"year": "1909"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1911"
+			},
+			{
+				"latitude": 33.15809,
+				"longitude": -117.35059,
+				"name": "Karlsbad",
+				"year": "1911"
+			},
+			{
+				"latitude": 46.17508,
+				"longitude": 23.91578,
+				"name": "Blaj",
+				"year": "1911"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1912"
+			},
+			{
+				"latitude": 45.43713,
+				"longitude": 12.33265,
+				"name": "Veneţia",
+				"year": "1912"
+			},
+			{
+				"latitude": 33.15809,
+				"longitude": -117.35059,
+				"name": "Karlsbad",
+				"year": "1913"
+			}
+		]
+	},
+	{
+		"name": "BARBU Ion",
+		"id": 8,
+		"firstTrip": 1895,
+		"lastTrip": 1961,
+		"places": [{
+				"latitude": 47.53333,
+				"longitude": 25.56667,
+				"name": "Câmpulung",
+				"year": "1895"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1895"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1902"
+			},
+			{
+				"latitude": 47.53333,
+				"longitude": 25.56667,
+				"name": "Câmpulung",
+				"year": "1902"
+			},
+			{
+				"latitude": 45.31667,
+				"longitude": 25,
+				"name": "Muscel",
+				"year": "1902"
+			},
+			{
+				"latitude": 47.53333,
+				"longitude": 25.56667,
+				"name": "Câmpulung",
+				"year": "1906"
+			},
+			{
+				"latitude": 44.85,
+				"longitude": 24.86667,
+				"name": "Piteşti",
+				"year": "1906"
+			},
+			{
+				"latitude": 40.75,
+				"longitude": 14.48333,
+				"name": "Pompei",
+				"year": "1914"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1921"
+			},
+			{
+				"latitude": 51.53443,
+				"longitude": 9.93228,
+				"name": "Göttingen",
+				"year": "1921"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1921"
+			},
+			{
+				"latitude": 48.52266,
+				"longitude": 9.05222,
+				"name": "Tübingen",
+				"year": "1921"
+			},
+			{
+				"latitude": 44.45,
+				"longitude": 26.16667,
+				"name": "Mărcuţa",
+				"year": "1921"
+			},
+			{
+				"latitude": 43.88664,
+				"longitude": 25.9627,
+				"name": "Giurgiu",
+				"year": "1925"
+			},
+			{
+				"latitude": 50.08804,
+				"longitude": 14.42076,
+				"name": "Praga",
+				"year": "1934"
+			},
+			{
+				"latitude": 59.91273,
+				"longitude": 10.74609,
+				"name": "Oslo",
+				"year": "1936"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1938"
+			},
+			{
+				"latitude": 51.96236,
+				"longitude": 7.62571,
+				"name": "Münster",
+				"year": "1938"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1961"
+			}
+		]
+	},
+	{
+		"name": "ARGHEZI Tudor",
+		"id": 9,
+		"firstTrip": 1900,
+		"lastTrip": 1965,
+		"places": [{
+				"latitude": 42.42556,
+				"longitude": 21.41972,
+				"name": "Cernica",
+				"year": "1900"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1905"
+			},
+			{
+				"latitude": 46.80237,
+				"longitude": 7.15128,
+				"name": "Fribourg",
+				"year": "1905"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1906"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1906"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1906"
+			},
+			{
+				"latitude": 46.20222,
+				"longitude": 6.14569,
+				"name": "Geneva",
+				"year": "1906"
+			},
+			{
+				"latitude": 44.4,
+				"longitude": 26.13333,
+				"name": "Văcăreşti",
+				"year": "1919"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1925"
+			},
+			{
+				"latitude": 45.05,
+				"longitude": 23.28333,
+				"name": "Târgu Jiu",
+				"year": "1943"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1943"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1965"
+			}
+		]
+	},
+	{
+		"name": "EMINESCU Mihai",
+		"id": 10,
+		"firstTrip": 1850,
+		"lastTrip": 1889,
+		"places": [{
+				"latitude": 47.75,
+				"longitude": 26.66667,
+				"name": "Botoşani",
+				"year": "1850"
+			},
+			{
+				"latitude": 48.29149,
+				"longitude": 25.94034,
+				"name": "Cernăuţi",
+				"year": "1858"
+			},
+			{
+				"latitude": 48.29149,
+				"longitude": 25.94034,
+				"name": "Cernăuţi",
+				"year": "1860"
+			},
+			{
+				"latitude": 47.75,
+				"longitude": 26.66667,
+				"name": "Botoşani",
+				"year": "1864"
+			},
+			{
+				"latitude": 46.54245,
+				"longitude": 24.55747,
+				"name": "Târgu Mureş",
+				"year": "1866"
+			},
+			{
+				"latitude": 46.17508,
+				"longitude": 23.91578,
+				"name": "Blaj",
+				"year": "1866"
+			},
+			{
+				"latitude": 48.29149,
+				"longitude": 25.94034,
+				"name": "Cernăuţi",
+				"year": "1867"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1869"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1871"
+			},
+			{
+				"latitude": 47.88518,
+				"longitude": 25.60374,
+				"name": "Putna",
+				"year": "1871"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1872"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1872"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1874"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1874"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1875"
+			},
+			{
+				"latitude": 46.63333,
+				"longitude": 27.73333,
+				"name": "Vaslui",
+				"year": "1875"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1876"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1877"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1883"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1884"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1884"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1886"
+			},
+			{
+				"latitude": 47.75,
+				"longitude": 26.66667,
+				"name": "Botoşani",
+				"year": "1887"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1887"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1889"
+			},
+			{
+				"latitude": 44.45,
+				"longitude": 26.16667,
+				"name": "Mărcuţa",
+				"year": "1889"
+			}
+		]
+	},
+	{
+		"name": "CIORAN Emil",
+		"id": 11,
+		"firstTrip": 1911,
+		"lastTrip": 1995,
+		"places": [{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1911"
+			},
+			{
+				"latitude": 45.8,
+				"longitude": 24.15,
+				"name": "Sibiu",
+				"year": "1921"
+			},
+			{
+				"latitude": 46.20222,
+				"longitude": 6.14569,
+				"name": "Geneva",
+				"year": "1931"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1933"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1935"
+			},
+			{
+				"latitude": 45.64861,
+				"longitude": 25.60613,
+				"name": "Braşov",
+				"year": "1936"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1937"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1942"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1951"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1952"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1952"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1953"
+			},
+			{
+				"latitude": 46.94809,
+				"longitude": 7.44744,
+				"name": "Berna",
+				"year": "1973"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1995"
+			}
+		]
+	},
+	{
+		"name": "BOLINTINEANU Dimitrie",
+		"id": 12,
+		"firstTrip": 1846,
+		"lastTrip": 1861,
+		"places": [{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1846"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1849"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1852"
+			},
+			{
+				"latitude": 31.92157,
+				"longitude": 35.20329,
+				"name": "Palestina",
+				"year": "1854"
+			},
+			{
+				"latitude": 27,
+				"longitude": 30,
+				"name": "Egipt",
+				"year": "1854"
+			},
+			{
+				"latitude": 41.66667,
+				"longitude": 21.75,
+				"name": "Macedonia",
+				"year": "1854"
+			},
+			{
+				"latitude": 40.19559,
+				"longitude": 29.06013,
+				"name": "Brusa",
+				"year": "1854"
+			},
+			{
+				"latitude": 37.73292,
+				"longitude": 26.81186,
+				"name": "Samos",
+				"year": "1856"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1860"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1861"
+			}
+		]
+	},
+	{
+		"name": "DUMITRIU Petru",
+		"id": 13,
+		"firstTrip": 1924,
+		"lastTrip": 2002,
+		"places": [{
+				"latitude": 44.81594,
+				"longitude": 21.38959,
+				"name": "Baziaş",
+				"year": "1924"
+			},
+			{
+				"latitude": 44.7252,
+				"longitude": 22.39771,
+				"name": "Orşova",
+				"year": "1931"
+			},
+			{
+				"latitude": 45.05,
+				"longitude": 23.28333,
+				"name": "Târgu Jiu",
+				"year": "1934"
+			},
+			{
+				"latitude": 44.7252,
+				"longitude": 22.39771,
+				"name": "Orşova",
+				"year": "1934"
+			},
+			{
+				"latitude": 48.13743,
+				"longitude": 11.57549,
+				"name": "München",
+				"year": "1941"
+			},
+			{
+				"latitude": 45.05,
+				"longitude": 23.28333,
+				"name": "Târgu Jiu",
+				"year": "1944"
+			},
+			{
+				"latitude": 60,
+				"longitude": 98,
+				"name": "URSS",
+				"year": "1954"
+			},
+			{
+				"latitude": 35,
+				"longitude": 105,
+				"name": "China",
+				"year": "1955"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1960"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1960"
+			},
+			{
+				"latitude": 50.11552,
+				"longitude": 8.68417,
+				"name": "Frankfurt am Main",
+				"year": "1960"
+			},
+			{
+				"latitude": 50.11552,
+				"longitude": 8.68417,
+				"name": "Frankfurt am Main",
+				"year": "1963"
+			},
+			{
+				"latitude": 50.87894,
+				"longitude": 7.12292,
+				"name": "Bonn",
+				"year": "1988"
+			},
+			{
+				"latitude": 49.11911,
+				"longitude": 6.17269,
+				"name": "Metz",
+				"year": "1989"
+			},
+			{
+				"latitude": 49.11911,
+				"longitude": 6.17269,
+				"name": "Metz",
+				"year": "2002"
+			}
+		]
+	},
+	{
+		"name": "ALECSANDRI Vasile",
+		"id": 14,
+		"firstTrip": 1818,
+		"lastTrip": 1890,
+		"places": [{
+				"latitude": 46.56718,
+				"longitude": 26.91384,
+				"name": "Bacău",
+				"year": "1818"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1834"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1839"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1845"
+			},
+			{
+				"latitude": 49.83826,
+				"longitude": 24.02324,
+				"name": "Lemberg",
+				"year": "1845"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1846"
+			},
+			{
+				"latitude": 37.98376,
+				"longitude": 23.72784,
+				"name": "Atena",
+				"year": "1846"
+			},
+			{
+				"latitude": 40.19559,
+				"longitude": 29.06013,
+				"name": "Brusa",
+				"year": "1846"
+			},
+			{
+				"latitude": 45.43713,
+				"longitude": 12.33265,
+				"name": "Veneţia",
+				"year": "1846"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1847"
+			},
+			{
+				"latitude": 40.85216,
+				"longitude": 14.26811,
+				"name": "Napoli",
+				"year": "1847"
+			},
+			{
+				"latitude": 38.13205,
+				"longitude": 13.33561,
+				"name": "Palermo",
+				"year": "1847"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1848"
+			},
+			{
+				"latitude": 45.64861,
+				"longitude": 25.60613,
+				"name": "Braşov",
+				"year": "1848"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1850"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1851"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1851"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1852"
+			},
+			{
+				"latitude": 7.1881,
+				"longitude": 21.09375,
+				"name": "Africa",
+				"year": "1852"
+			},
+			{
+				"latitude": 51.5,
+				"longitude": 10.5,
+				"name": "Germania",
+				"year": "1854"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1854"
+			},
+			{
+				"latitude": 50.75,
+				"longitude": 4.5,
+				"name": "Belgia",
+				"year": "1854"
+			},
+			{
+				"latitude": 47.05486,
+				"longitude": 26.83945,
+				"name": "Mirceşti",
+				"year": "1854"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1855"
+			},
+			{
+				"latitude": 45,
+				"longitude": 34,
+				"name": "Crimeea",
+				"year": "1855"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1859"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1859"
+			},
+			{
+				"latitude": 47.05486,
+				"longitude": 26.83945,
+				"name": "Mirceşti",
+				"year": "1863"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1868"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1885"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1886"
+			},
+			{
+				"latitude": 47.05486,
+				"longitude": 26.83945,
+				"name": "Mirceşti",
+				"year": "1890"
+			}
+		]
+	},
+	{
+		"name": "CREANGĂ Ion",
+		"id": 15,
+		"firstTrip": 1837,
+		"lastTrip": 1889,
+		"places": [{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1837"
+			},
+			{
+				"latitude": 46.99648,
+				"longitude": 28.97645,
+				"name": "Humuleşti",
+				"year": "1837"
+			},
+			{
+				"latitude": 47.13316,
+				"longitude": 24.50011,
+				"name": "Bistriţa",
+				"year": "1849"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1849"
+			},
+			{
+				"latitude": 47.23673,
+				"longitude": 25.70028,
+				"name": "Broşteni",
+				"year": "1849"
+			},
+			{
+				"latitude": 47.2,
+				"longitude": 26.36667,
+				"name": "Târgu Neamţ",
+				"year": "1849"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1852"
+			},
+			{
+				"latitude": 47.2,
+				"longitude": 26.36667,
+				"name": "Târgu Neamţ",
+				"year": "1852"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1854"
+			},
+			{
+				"latitude": 47.45,
+				"longitude": 26.3,
+				"name": "Fălticeni",
+				"year": "1855"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1855"
+			},
+			{
+				"latitude": 47.20788,
+				"longitude": 27.01196,
+				"name": "Târgu Frumos",
+				"year": "1859"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1859"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1864"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1866"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1870"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1871"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1872"
+			},
+			{
+				"latitude": 47.44566,
+				"longitude": 23.30723,
+				"name": "Ţicău",
+				"year": "1872"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1875"
+			},
+			{
+				"latitude": 47.44566,
+				"longitude": 23.30723,
+				"name": "Ţicău",
+				"year": "1879"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1882"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1887"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1889"
+			},
+			{
+				"latitude": 46.91667,
+				"longitude": 26.33333,
+				"name": "Neamţ",
+				"year": "1889"
+			},
+			{
+				"latitude": 47.2,
+				"longitude": 26.36667,
+				"name": "Târgu Neamţ",
+				"year": "1889"
+			}
+		]
+	},
+	{
+		"name": "HELIADE-RĂDULESCU Ion",
+		"id": 16,
+		"firstTrip": 1802,
+		"lastTrip": 1864,
+		"places": [{
+				"latitude": 44.92543,
+				"longitude": 25.4567,
+				"name": "Târgovişte",
+				"year": "1802"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1846"
+			},
+			{
+				"latitude": 50.08804,
+				"longitude": 14.42076,
+				"name": "Praga",
+				"year": "1846"
+			},
+			{
+				"latitude": 51.33962,
+				"longitude": 12.37129,
+				"name": "Leipzig",
+				"year": "1846"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1849"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Londra",
+				"year": "1849"
+			},
+			{
+				"latitude": 38.41102,
+				"longitude": 26.06161,
+				"name": "Chios",
+				"year": "1851"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1857"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Londra",
+				"year": "1857"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1860"
+			},
+			{
+				"latitude": 45.31667,
+				"longitude": 25,
+				"name": "Muscel",
+				"year": "1864"
+			}
+		]
+	},
+	{
+		"name": "CARAGIALE Mateiu",
+		"id": 17,
+		"firstTrip": 1904,
+		"lastTrip": 1928,
+		"places": [{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1904"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1907"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1912"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1928"
+			}
+		]
+	},
+	{
+		"name": "COSTIN Miron",
+		"id": 18,
+		"firstTrip": 1633,
+		"lastTrip": 1691,
+		"places": [{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1633"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1633"
+			},
+			{
+				"latitude": 52,
+				"longitude": 20,
+				"name": "Polonia",
+				"year": "1634"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1647"
+			},
+			{
+				"latitude": 50.36047,
+				"longitude": 25.11071,
+				"name": "Beresteczko",
+				"year": "1652"
+			},
+			{
+				"latitude": 52,
+				"longitude": 20,
+				"name": "Polonia",
+				"year": "1653"
+			},
+			{
+				"latitude": 45.16667,
+				"longitude": 23.48333,
+				"name": "Hotin",
+				"year": "1660"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1674"
+			},
+			{
+				"latitude": 52,
+				"longitude": 20,
+				"name": "Polonia",
+				"year": "1674"
+			},
+			{
+				"latitude": 52,
+				"longitude": 20,
+				"name": "Polonia",
+				"year": "1683"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1686"
+			},
+			{
+				"latitude": 46.92119,
+				"longitude": 26.92646,
+				"name": "Roman",
+				"year": "1691"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1691"
+			},
+			{
+				"latitude": 42.0937,
+				"longitude": 19.09841,
+				"name": "Bar",
+				"year": "1691"
+			}
+		]
+	},
+	{
+		"name": "IONESCU Eugen",
+		"id": 19,
+		"firstTrip": 1909,
+		"lastTrip": 1994,
+		"places": [{
+				"latitude": 46.24667,
+				"longitude": 15.62944,
+				"name": "Slatina",
+				"year": "1909"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1911"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1920"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1923"
+			},
+			{
+				"latitude": 44.31667,
+				"longitude": 23.8,
+				"name": "Craiova",
+				"year": "1923"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1929"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1936"
+			},
+			{
+				"latitude": 45.13422,
+				"longitude": 24.67409,
+				"name": "Curtea de Argeș",
+				"year": "1936"
+			},
+			{
+				"latitude": 44.33957,
+				"longitude": 28.03273,
+				"name": "Cernavodă",
+				"year": "1936"
+			},
+			{
+				"latitude": 44.43225,
+				"longitude": 26.10626,
+				"name": "București",
+				"year": "1938"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1938"
+			},
+			{
+				"latitude": 46,
+				"longitude": 2,
+				"name": "Franța",
+				"year": "1942"
+			},
+			{
+				"latitude": 46.12709,
+				"longitude": 3.42577,
+				"name": "Vichy",
+				"year": "1942"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1945"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1947"
+			},
+			{
+				"latitude": 42.74071,
+				"longitude": 12.73899,
+				"name": "Spoleto",
+				"year": "1959"
+			},
+			{
+				"latitude": 60.16952,
+				"longitude": 24.93545,
+				"name": "Helsinki",
+				"year": "1959"
+			},
+			{
+				"latitude": 55.67594,
+				"longitude": 12.56553,
+				"name": "Copenhaga",
+				"year": "1959"
+			},
+			{
+				"latitude": -10,
+				"longitude": -55,
+				"name": "Brazilia",
+				"year": "1959"
+			},
+			{
+				"latitude": 40.71427,
+				"longitude": -74.00597,
+				"name": "New York",
+				"year": "1959"
+			},
+			{
+				"latitude": 56,
+				"longitude": 10,
+				"name": "Danemarca",
+				"year": "1959"
+			},
+			{
+				"latitude": 48.20849,
+				"longitude": 16.37208,
+				"name": "Viena",
+				"year": "1970"
+			},
+			{
+				"latitude": -10,
+				"longitude": -55,
+				"name": "Brazilia",
+				"year": "1970"
+			},
+			{
+				"latitude": -34,
+				"longitude": -64,
+				"name": "Argentina",
+				"year": "1970"
+			},
+			{
+				"latitude": -33,
+				"longitude": -56,
+				"name": "Uruguay",
+				"year": "1970"
+			},
+			{
+				"latitude": 4,
+				"longitude": -73.25,
+				"name": "Columbia",
+				"year": "1970"
+			},
+			{
+				"latitude": -30,
+				"longitude": -71,
+				"name": "Chile",
+				"year": "1970"
+			},
+			{
+				"latitude": 47.33333,
+				"longitude": 13.33333,
+				"name": "Austria",
+				"year": "1972"
+			},
+			{
+				"latitude": 56,
+				"longitude": 10,
+				"name": "Danemarca",
+				"year": "1972"
+			},
+			{
+				"latitude": 64,
+				"longitude": 26,
+				"name": "Finlanda",
+				"year": "1972"
+			},
+			{
+				"latitude": 32.08088,
+				"longitude": 34.78057,
+				"name": "Tel Aviv",
+				"year": "1975"
+			},
+			{
+				"latitude": 50.87894,
+				"longitude": 7.12292,
+				"name": "Bonn",
+				"year": "1982"
+			},
+			{
+				"latitude": 42.83333,
+				"longitude": 12.83333,
+				"name": "Italia",
+				"year": "1983"
+			},
+			{
+				"latitude": 34.68743,
+				"longitude": -116.78467,
+				"name": "California",
+				"year": "1983"
+			},
+			{
+				"latitude": 23,
+				"longitude": -102,
+				"name": "Mexic",
+				"year": "1983"
+			},
+			{
+				"latitude": 41.85003,
+				"longitude": -87.65005,
+				"name": "Chicago",
+				"year": "1985"
+			},
+			{
+				"latitude": 52,
+				"longitude": 20,
+				"name": "Polonia",
+				"year": "1992"
+			},
+			{
+				"latitude": 50.25841,
+				"longitude": 19.02754,
+				"name": "Katowice",
+				"year": "1992"
+			},
+			{
+				"latitude": 48.85341,
+				"longitude": 2.3488,
+				"name": "Paris",
+				"year": "1994"
+			}
+		]
+	},
+	{
+		"name": "CANTEMIR Dimitrie",
+		"id": 20,
+		"firstTrip": 1673,
+		"lastTrip": 1723,
+		"places": [{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1673"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1688"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1691"
+			},
+			{
+				"latitude": 41.0086,
+				"longitude": 28.98,
+				"name": "Constantinopol",
+				"year": "1693"
+			},
+			{
+				"latitude": 51.50853,
+				"longitude": -0.12574,
+				"name": "Anglia",
+				"year": "1708"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1711"
+			},
+			{
+				"latitude": 49.98081,
+				"longitude": 36.25272,
+				"name": "Harkov",
+				"year": "1711"
+			},
+			{
+				"latitude": 46.6503,
+				"longitude": 28.16151,
+				"name": "Stănileşti",
+				"year": "1711"
+			},
+			{
+				"latitude": 52.52437,
+				"longitude": 13.41053,
+				"name": "Berlin",
+				"year": "1714"
+			},
+			{
+				"latitude": 55.75222,
+				"longitude": 37.61556,
+				"name": "Moscova",
+				"year": "1719"
+			},
+			{
+				"latitude": 42.5566975,
+				"longitude": 39.1838793,
+				"name": "Caucaz",
+				"year": "1722"
+			},
+			{
+				"latitude": 47.16667,
+				"longitude": 27.6,
+				"name": "Iaşi",
+				"year": "1723"
+			},
+			{
+				"latitude": 55.75222,
+				"longitude": 37.61556,
+				"name": "Moscova",
+				"year": "1723"
+			},
+			{
+				"latitude": 46.34968,
+				"longitude": 48.04076,
+				"name": "Astrahan",
+				"year": "1723"
+			}
+		]
+	}
+]

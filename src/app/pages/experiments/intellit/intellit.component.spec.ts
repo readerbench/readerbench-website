@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CsclNewComponent } from './cscl-new.component';
+import { IntellitComponent } from './intellit.component';
 
-describe('CsclNewComponent', () => {
-  let component: CsclNewComponent;
-  let fixture: ComponentFixture<CsclNewComponent>;
+describe('IntellitComponent', () => {
+  let component: IntellitComponent;
+  let fixture: ComponentFixture<IntellitComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [CsclNewComponent]
+      declarations: [IntellitComponent]
     })
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(CsclNewComponent);
+    fixture = TestBed.createComponent(IntellitComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

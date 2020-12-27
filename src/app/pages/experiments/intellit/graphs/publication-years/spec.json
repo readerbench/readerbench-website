@@ -1,0 +1,79 @@
+{
+    "dataSource": {
+        "url": "assets/publication-years/data.json"
+    },
+    "series": [
+        {
+            "id": "s1",
+            "type": "ColumnSeries",
+            "name": "Publications",
+            "dataFields": {
+                "valueY": "count",
+                "categoryX": "year"
+            },
+            "columns": {
+                "tooltipText": "Year: {categoryX}\nNumber of publications:{valueY}"
+            }
+        },
+        {
+            "id": "s2",
+            "type": "LineSeries",
+            "name": "Moving average",
+            "dataFields": {
+                "valueY": "mavg",
+                "categoryX": "year"
+            },
+            "stroke": "#fdd400",
+            "strokeWidth": 3,
+            "strokeDasharray": "lineDash",
+            "tooltip": {
+                "label": {
+                    "textAlign": "middle"
+                }
+            },
+            "bullets": [{
+                "fill": "#fdd400",
+                "children": [{
+                    "type": "Circle",
+                    "radius": 0.5,
+                    "fill": "#fff",
+                    "strokeWidth": 3
+                }]
+            }]
+        }
+    ],
+    "legend": {},
+    "cursor": {},
+    "scrollbarX": {
+        "type": "XYChartScrollbar",
+        "series": [
+            "s1"
+        ],
+        "scrollbarChart": {
+            "seriesContainer": {
+                "opacity": 0
+            }
+        }
+    },
+    "yAxes": [
+        {
+            "type": "ValueAxis",
+            "title": {
+                "text": "Number of publications",
+                "fontWeight": "bold"
+            }    
+        }
+    ],
+    "xAxes": [
+        {
+            "type": "CategoryAxis",
+            "dataFields": {
+                "category": "year"
+            },
+            "title": {
+                "text": "Years",
+                "fontWeight": "bold"
+            }
+        }
+    ]
+}

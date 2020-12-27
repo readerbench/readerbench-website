@@ -45,7 +45,6 @@ export class KeywordsComponent implements OnInit {
       'text': DefaultInputData.text,
       'language': this.language,
       'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
-      'dialogism': DefaultInputData.defaultDialogismOption(),
       'threshold': DefaultInputData.semanticSimilarityThreshold,
       'bigrams': DefaultInputData.defaultBigrams
     };
@@ -82,7 +81,6 @@ export class KeywordsComponent implements OnInit {
       'lda': this.formData['lda'].value,
       'w2v': this.formData['word2vec'].value,
       'pos-tagging': this.formData['pos-tagging'],
-      'dialogism': this.formData['dialogism'],
       'threshold': this.formData['threshold'],
       'bigrams': this.formData['bigrams']
     };
@@ -97,16 +95,15 @@ export class KeywordsComponent implements OnInit {
         return;
       }
 
-      this.myGraph = {
-        'nodeList': response.data.nodeList,
-        'edgeList': response.data.edgeList
+      const conceptGraph = {
+        nodeList: response.data.nodeList,
+        edgeList: response.data.edgeList,
       };
 
-      this.twoModeGraphService.getGraph(this.myGraph).subscribe(
+      this.twoModeGraphService.getGraph(conceptGraph).subscribe(
         graph => { this.myGraph = graph; },
         error => { this.error = error.message; },
         () => {
-          // this.readerbenchService.d3jsForTopics(this.graph, "#conceptMap", false);
         }
       );
 

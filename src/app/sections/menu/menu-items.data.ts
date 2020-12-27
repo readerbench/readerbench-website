@@ -8,6 +8,10 @@ export var MenuItemsData = [
         href: 'demo'
     },
     {
+        name: 'Experiments',
+        href: 'experiments'
+    },
+    {
         name: 'People',
         href: 'people'
     },

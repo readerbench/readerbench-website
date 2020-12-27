@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from '../pages/home/home.component';
 import { DemoComponent } from '../pages/demo/demo.component';
+import { ExperimentsComponent } from '../pages/experiments/experiments.component';
 import { SentimentAnalysisComponent } from '../pages/demo/sentiment-analysis/sentiment-analysis.component';
 import { TextualComplexityComponent } from '../pages/demo/textual-complexity/textual-complexity.component';
 import { KeywordsComponent } from '../pages/demo/keywords/keywords.component';
 import { SemanticAnnotationComponent } from '../pages/demo/semantic-annotation/semantic-annotation.component';
 import { SelfExplanationComponent } from '../pages/demo/self-explanation/self-explanation.component';
-import { CsclComponent } from '../pages/demo/cscl/cscl.component';
+import { CsclOldComponent } from '../pages/demo/cscl-old/cscl-old.component';
 import { CvAnalysisComponent } from '../pages/demo/cv-analysis/cv-analysis.component';
 import { LakComponent } from '../pages/demo/lak/lak.component';
 import { CommunityComponent } from '../pages/demo/community/community.component';
@@ -18,15 +19,21 @@ import { PublicationsComponent } from '../pages/publications/publications.compon
 import { ContactComponent } from '../pages/contact/contact.component';
 import { ComprehensionModelComponent } from '../pages/demo/comprehension-model/comprehension-model.component';
 import { KeywordsHeatmapComponent } from '../pages/demo/keywords-heatmap/keywords-heatmap.component';
-import {CurriculumRecommendationComponent} from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
-import {DocumentAnalysisComponent} from "../pages/demo/document-analysis/document-analysis";
-import { CsclNewComponent } from '../pages/demo/cscl-new/cscl-new.component';
+import { CurriculumRecommendationComponent } from '../pages/demo/curriculum-recomandation/curriculum-recommendation.component';
+import { DocumentAnalysisComponent } from "../pages/demo/document-analysis/document-analysis";
+import { CsclComponent } from '../pages/demo/cscl/cscl.component';
 import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
+import { IntellitComponent } from '../pages/experiments/intellit/intellit.component';
+import { AtesComponent } from '../pages/projects/ates/ates.component';
 
 const routes: Routes = [
   {
     path: 'demo',
     component: DemoComponent,
+  },
+  {
+    path: 'experiments',
+    component: ExperimentsComponent,
   },
   {
     path: 'people',
@@ -35,6 +42,10 @@ const routes: Routes = [
   {
     path: 'projects',
     component: ProjectsComponent,
+  },
+  {
+    path: 'projects/ates',
+    component: AtesComponent,
   },
   {
     path: 'publications',
@@ -65,12 +76,12 @@ const routes: Routes = [
     component: SelfExplanationComponent,
   },
   {
-    path: 'demo/cscl',
-    component: CsclComponent,
+    path: 'demo/cscl-old',
+    component: CsclOldComponent,
   },
   {
-    path: 'demo/cscl-new',
-    component: CsclNewComponent,
+    path: 'demo/cscl',
+    component: CsclComponent,
   },
   {
     path: 'demo/cv-analysis',
@@ -107,6 +118,10 @@ const routes: Routes = [
   {
     path: 'demo/essay-feedback',
     component: EssayFeedbackComponent
+  },
+  {
+    path: 'experiments/intellit',
+    component: IntellitComponent
   },
   {
     path: '',
