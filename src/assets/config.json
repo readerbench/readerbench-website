@@ -34,7 +34,9 @@
     "ciModelAnalyzer": "v2/amoc",
     "keywordsHeatmap": "keywords-heatmap",
     "cna-graph": "v2/cna-graph",
-    "essayFeedback": "v2/feedback"
+    "essayFeedback": "v2/feedback",
+    "dialogism-voices": "v1/dialogism/voices",
+    "dialogism-texts": "v1/dialogism/sentences"
   },
   "apiHeaders": {
     "commonRequest": {

@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { UiSwitchModule } from 'ngx-ui-switch';
 
@@ -84,6 +84,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
 import {MatSliderModule} from '@angular/material/slider';
 import { AtesComponent } from './pages/projects/ates/ates.component';
+import {DialogismComponent} from "./pages/demo/dialogism/dialogism";
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -153,7 +154,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ExperimentsComponent,
     ExperimentsMenuComponent,
     AtesComponent,
-    MultiDocumentHierarchicalViewComponent
+    MultiDocumentHierarchicalViewComponent,
+      DialogismComponent
   ],
   imports: [
     BrowserModule,
@@ -171,7 +173,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DropzoneModule,
     PerfectScrollbarModule,
     NgxSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    ReactiveFormsModule
   ],
   exports: [
     KeywordsComponent

@@ -25,6 +25,7 @@ import { CsclComponent } from '../pages/demo/cscl/cscl.component';
 import { EssayFeedbackComponent } from '../pages/demo/essay-feedback/essay-feedback.component';
 import { IntellitComponent } from '../pages/experiments/intellit/intellit.component';
 import { AtesComponent } from '../pages/projects/ates/ates.component';
+import {DialogismComponent} from "../pages/demo/dialogism/dialogism";
 
 const routes: Routes = [
   {
@@ -115,6 +116,10 @@ const routes: Routes = [
     path: 'demo/document-analysis',
     component: DocumentAnalysisComponent,
   },
+    {
+        path: 'demo/dialogism',
+        component: DialogismComponent,
+    },
   {
     path: 'demo/essay-feedback',
     component: EssayFeedbackComponent

@@ -1,0 +1,13 @@
+table.table-bordered > tbody{
+    border:2px solid;
+}
+
+table.table-bordered > tbody >tr > td{
+    color: black;
+}
+
+#svgContainer { 
+	z-index: auto;
+	position:absolute;
+	opacity: 1;
+}
