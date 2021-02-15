@@ -6,6 +6,7 @@ import { EBEdge } from './models/eb-edge.model';
 import { EBResult } from './models/eb-result.model';
 import { TwoModeGraphNode, TwoModeGraph } from '../../../../../../node_modules/@reader-bench/common';
 import * as cloneDeep from 'lodash/cloneDeep';
+import { indexOf } from 'underscore';
 
 @Injectable()
 export class EdgeBundlingService {
@@ -67,19 +68,19 @@ export class EdgeBundlingService {
         result.words.push(this.rootParent);
         result.words = result.words.concat(this.generateParents(index));
 
-        for (let i = 0; i <= index; i++) {
-            this.sentenceWordList[i].forEach(node => {
+        // for (let i = 0; i <= index; i++) {
+            this.sentenceWordList[index].forEach(node => {
                 const word: EBWord = {
                     id: this.finalId++,
                     name: node.displayName,
-                    parent: this.generateParentIdForNode(node, i),
+                    parent: this.generateParentIdForNode(node, index),
                     active: node.active,
                     type: node.type === 'TextBased' ? 1 : 2,
-                    bold: i === index ? true : false
+                    // bold: i === index ? true : false
                 };
                 result.words.push(word);
             });
-        }
+        // }
 
         this.sentenceList[index].graph.edgeList.forEach(graphEdge => {
             const source = result.words.find(x => x.name === graphEdge.sourceUri);
@@ -122,15 +123,16 @@ export class EdgeBundlingService {
     }
 
     private parseSentences() {
+        // this.sentenceWordList = [];
         const count = this.data.sentenceList.length;
         this.sentenceWordList.push(this.data.sentenceList[0].graph.nodeList);
-        let previousLength = this.sentenceWordList[0].length;
+        // let previousLength = this.sentenceWordList[0].length;
 
         for (let i = 1; i < count; i++) {
             const tempArray = cloneDeep(this.data.sentenceList[i].graph.nodeList);
-            tempArray.splice(0, previousLength);
+            // tempArray.splice(0, previousLength);
             this.sentenceWordList.push(tempArray);
-            previousLength = this.sentenceList[i].graph.nodeList.length;
+            // previousLength = this.sentenceList[i].graph.nodeList.length;
         }
     }
 
