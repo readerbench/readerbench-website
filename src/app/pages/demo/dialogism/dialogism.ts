@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormBuilder, FormGroup } from "@angular/forms";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
 import { isEmpty } from "underscore";
+declare var require: any;
 import { ApiRequestService } from "../api-request.service";
 
 interface Text {
@@ -15,7 +16,8 @@ interface Voice {
     name: string;
     id: number;
     ngrams: NGram[];
-    selected: Boolean
+    selected: Boolean,
+    color: string
 }
 interface NGram {
     name: string,
@@ -80,7 +82,7 @@ interface Document {
         var _this = this;
         setTimeout(function (){
             _this.connectAll();
-        }, 20000);
+        }, 5000);
         //this.connectAll();
         
     }
@@ -92,8 +94,9 @@ interface Document {
             return voice.selected;
         });
         selectedVoices.forEach(selectedVoice => {
-            var voiceColor = this.colors[selectedVoice.id];
+            var voiceColor = selectedVoice.color;//this.colors[selectedVoice.id-1];
             var points = [];
+            //console.log("voice: " + JSON.stringify(selectedVoice));
             selectedVoice.ngrams.forEach(ngram => {
 
                 var ngramId = selectedVoice.name+"-"+ngram.name+"-"+ngram.identifier;
@@ -101,7 +104,17 @@ interface Document {
                     return text.id == ngram.identifier;
                 });
                 selectedTexts.forEach(selectedText => {
-                    selectedText.text = selectedText.text.replace(' ' + ngram.name, ' <span id="' + ngramId + '" style="color: ' + voiceColor + ';"><b>'+ngram.name+'</b></span>');
+                    var indexOf = selectedText.text.indexOf(ngram.name + '</b>');
+                    var indexOfNgram = selectedText.text.indexOf(ngram.name);
+                    var nextChar = selectedText.text.substring(indexOfNgram + ngram.name.length, indexOfNgram + ngram.name.length + 1);
+                    var isChar = (/[a-zA-Z]/).test(nextChar);
+                    
+                    //if (indexOf == -1 && !isChar) {
+            
+                    if (indexOf == -1) {
+                        selectedText.text = selectedText.text.replace(ngram.name, ' <span id="' + ngramId + '" style="color: ' + voiceColor + ';"><b>'+ngram.name+'</b></span>');
+                    }
+                    
                 });
                 points.push(ngramId);
 
@@ -143,21 +156,26 @@ interface Document {
         //     text: documentText
         // });
         // process.subscribe(response => {
-            let response = require('assets/dialogism/low_chains.json');
+            let response = require('assets/dialogism/chains.json');
             response.data.forEach(voice => {
+                
+                //var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                var randomColor = require('randomcolor');
+                var color = randomColor({luminosity: 'dark'});
+                this.colors.push(color);
+
                 this.voices.push({
                     name: voice.name,
                     id: voice.id,
                     ngrams: voice.nGrams,
-                    selected: true
+                    selected: true,
+                    color: color
                 });
-                var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                this.colors.push(randomColor);
             });
             
             this.voices.forEach(selectedVoice => {
                 var points = [];
-                var voiceColor = this.colors[selectedVoice.id];
+                var voiceColor = selectedVoice.color;//this.colors[selectedVoice.id-1];
                 selectedVoice.ngrams.forEach(ngram => {
                     var ngramId = selectedVoice.name+"-"+ngram.name+"-"+ngram.identifier;
                     points.push(ngramId);
@@ -171,7 +189,7 @@ interface Document {
             var _this = this;
             setTimeout(function (){
                 _this.connectAll();
-            }, 20000);
+            }, 5000);
         // });
         this.voicesLoaded = true;
     }
@@ -183,7 +201,7 @@ interface Document {
         //     text: documentText
         // });
         // process.subscribe(response => {
-        let response = require('assets/dialogism/low_sentences.json');
+        let response = require('assets/dialogism/sentences.json');
             response.data.forEach(text => {
                 this.texts.push({
                     id: text.id,
@@ -214,6 +232,7 @@ interface Document {
     private connectAll() {
         // connect all the paths you want!
         this.paths.forEach(path => {
+            //svg, path, start, end
             this.connectElements($("#svg1"), $("#" + path.id), $("#"+path.source),   $("#"+path.target));
         })
     }
@@ -230,7 +249,7 @@ private drawPath(svg, path, startX, startY, endX, endY) {
     // get the path's stroke width (if one wanted to be  really precize, one could use half the stroke size)
     var stroke =  parseFloat(path.attr("stroke-width"));
     // check if the svg is big enough to draw the path, if not, set heigh/width
-    if (svg.attr("height") <  endY)                 svg.attr("height", endY);
+    if (svg.attr("height") <  endY)                 svg.attr("height", endY + 150);
     if (svg.attr("width" ) < (startX + stroke) )    svg.attr("width", (startX + stroke));
     if (svg.attr("width" ) < (endX   + stroke) )    svg.attr("width", (endX   + stroke));
     
@@ -266,8 +285,12 @@ private connectElements(svg, path, startElem, endElem) {
     var svgContainer = $("#svgContainer");//document.getElementById('svgContainer');
     
     // if first element is lower than the second, swap!
-    console.log("startElem" + startElem);
-    console.log("endElem" + endElem);
+    console.log("path");
+    console.log(path);
+    console.log("start");
+    console.log(startElem);
+    console.log("end");
+    console.log(JSON.stringify(endElem));
     if(startElem.offset().top > endElem.offset().top){
         var temp = startElem;
         startElem = endElem;

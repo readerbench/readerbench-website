@@ -64,6 +64,7 @@
     "ngx-ui-switch": "^8.3.0",
     "node-sass": "^4.14.1",
     "popper.js": "^1.14.3",
+    "randomcolor": "^0.6.2",
     "rxjs": "^6.3.2",
     "select2": "^4.0.6-rc.1",
     "toastr": "^2.1.4",

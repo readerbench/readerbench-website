@@ -1,0 +1,190 @@
+{
+    "data": [
+        {
+            "id": 0,
+            "name": 0,
+            "nGrams": [
+                {
+                    "name": "British",
+                    "identifier": 0
+                },
+                {
+                    "name": "colonists",
+                    "identifier": 1
+                },
+                {
+                    "name": "Boston",
+                    "identifier": 3
+                },
+                {
+                    "name": "Boston",
+                    "identifier": 4
+                },
+                {
+                    "name": "Massachusetts",
+                    "identifier": 5
+                },
+                {
+                    "name": "Massachusetts",
+                    "identifier": 6
+                },
+                {
+                    "name": "colonists",
+                    "identifier": 6
+                },
+                {
+                    "name": "Boston",
+                    "identifier": 7
+                },
+                {
+                    "name": "colonies",
+                    "identifier": 8
+                },
+                {
+                    "name": "Boston",
+                    "identifier": 8
+                },
+                {
+                    "name": "colonies",
+                    "identifier": 9
+                },
+                {
+                    "name": "colony",
+                    "identifier": 10
+                },
+                {
+                    "name": "Britain",
+                    "identifier": 10
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": 1,
+            "nGrams": [
+                {
+                    "name": "what",
+                    "identifier": 1
+                },
+                {
+                    "name": "what",
+                    "identifier": 8
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": 2,
+            "nGrams": [
+                {
+                    "name": "called",
+                    "identifier": 1
+                },
+                {
+                    "name": "means",
+                    "identifier": 2
+                },
+                {
+                    "name": "meant",
+                    "identifier": 3
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": 3,
+            "nGrams": [
+                {
+                    "name": "Acts",
+                    "identifier": 1
+                },
+                {
+                    "name": "acts",
+                    "identifier": 3
+                },
+                {
+                    "name": "acted",
+                    "identifier": 7
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "name": 4,
+            "nGrams": [
+                {
+                    "name": "punish",
+                    "identifier": 3
+                },
+                {
+                    "name": "anger",
+                    "identifier": 10
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": 5,
+            "nGrams": [
+                {
+                    "name": "people",
+                    "identifier": 3
+                },
+                {
+                    "name": "people",
+                    "identifier": 8
+                },
+                {
+                    "name": "People",
+                    "identifier": 10
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": 6,
+            "nGrams": [
+                {
+                    "name": "allowed",
+                    "identifier": 5
+                },
+                {
+                    "name": "help",
+                    "identifier": 9
+                },
+                {
+                    "name": "supplies",
+                    "identifier": 9
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": 7,
+            "nGrams": [
+                {
+                    "name": "housed",
+                    "identifier": 6
+                },
+                {
+                    "name": "fed",
+                    "identifier": 6
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "name": 8,
+            "nGrams": [
+                {
+                    "name": "sent",
+                    "identifier": 8
+                },
+                {
+                    "name": "sent",
+                    "identifier": 9
+                }
+            ]
+        }
+    ]
+}

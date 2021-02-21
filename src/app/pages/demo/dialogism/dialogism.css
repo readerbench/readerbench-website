@@ -4,6 +4,7 @@ table.table-bordered > tbody{
 
 table.table-bordered > tbody >tr > td{
     color: black;
+	font-size: 18px;
 }
 
 #svgContainer { 
@@ -11,3 +12,7 @@ table.table-bordered > tbody >tr > td{
 	position:absolute;
 	opacity: 1;
 }
+
+/* .table>tbody>tr>td {
+padding: 4px !important;
+} */

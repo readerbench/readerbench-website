@@ -61,11 +61,12 @@
 
             <div class="row">&nbsp;</div>
             <div class="row" *ngIf="voicesLoaded">
-                <div class="col-xs-12">
-                    <table class="table table-striped table-bordered" *ngFor="let paragraph of groupedSentences | keyvalue" id="voices-table-{{paragraph.key}}">
+                <div class="col-xs-4">
+                    <table class="table table-striped table-bordered mb-4" *ngFor="let paragraph of groupedSentences | keyvalue" id="voices-table-{{paragraph.key}}">
                         <tr *ngFor="let t of paragraph.value | keyvalue">
                           <td>{{t.value.id}}. <span [innerHTML]="t.value.safeHtml"></span></td>
                         </tr>
+                        
                     </table>
                 </div>
 
