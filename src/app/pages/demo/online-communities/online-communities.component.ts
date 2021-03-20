@@ -41,27 +41,27 @@ interface BlogCommunity {
 
       //this.generateDirectedGradphForAllWeeks();
 
-      this.test();
+     // this.test();
 
-      // var _this = this;
-      // d3.json("assets/communities/pa_2018-2019-keywords.json").then(function(keywords: any) {
-      //       const list: Word[] = [];
+      var _this = this;
+      d3.json("assets/communities/pa_2019-2020-keywords.json").then(function(keywords: any) {
+            const list: Word[] = [];
 
-      //       keywords.words.forEach(w => {
-      //           const word = new Word();
-      //           word.value = w.value;
-      //           word.type = 'TextBased';
-      //           word.scoreList = [];
-      //           w.activationList.forEach(element => {
-      //             word.scoreList.push(element.score);
-      //           });
+            keywords.words.forEach(w => {
+                const word = new Word();
+                word.value = w.value;
+                word.type = 'TextBased';
+                word.scoreList = [];
+                w.activationList.forEach(element => {
+                  word.scoreList.push(element.score);
+                });
 
-      //           list.push(word);
-      //       });
+                list.push(word);
+            });
       
-      //       _this.wordList = list;
-      //       console.log(_this.wordList);
-      // });
+            _this.wordList = list;
+            console.log(_this.wordList);
+      });
 
       //this.legend();
 

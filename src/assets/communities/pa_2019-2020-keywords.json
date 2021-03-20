@@ -45,7 +45,7 @@
                     "score": 0.9325096531100473
                 }
             ],
-            "value": "cauză"
+            "value": "cauză (cause)"
         },
         {
             "activationList": [
@@ -92,7 +92,7 @@
                     "score": 2.175971580790515
                 }
             ],
-            "value": "caz"
+            "value": "caz (case)"
         },
         {
             "activationList": [
@@ -139,7 +139,7 @@
                     "score": 1.019205280659781
                 }
             ],
-            "value": "crede"
+            "value": "crede (believe)"
         },
         {
             "activationList": [
@@ -186,7 +186,7 @@
                     "score": 1.1341403488572224
                 }
             ],
-            "value": "exemplu"
+            "value": "exemplu (example)"
         },
         {
             "activationList": [
@@ -233,7 +233,7 @@
                     "score": 1.6958094032388955
                 }
             ],
-            "value": "exista"
+            "value": "exista (exist)"
         },
         {
             "activationList": [
@@ -280,7 +280,7 @@
                     "score": 1.2722385854177103
                 }
             ],
-            "value": "folosi"
+            "value": "folosi (use)"
         },
         {
             "activationList": [
@@ -327,7 +327,7 @@
                     "score": 1.6568162631778856
                 }
             ],
-            "value": "juca"
+            "value": "juca (play)"
         },
         {
             "activationList": [
@@ -374,7 +374,7 @@
                     "score": 1.130306878869179
                 }
             ],
-            "value": "lucru"
+            "value": "lucru (work)"
         },
         {
             "activationList": [
@@ -421,7 +421,7 @@
                     "score": 0
                 }
             ],
-            "value": "merge"
+            "value": "merge (run)"
         },
         {
             "activationList": [
@@ -468,7 +468,7 @@
                     "score": 1.745969253762469
                 }
             ],
-            "value": "parte"
+            "value": "parte (part)"
         },
         {
             "activationList": [
@@ -515,7 +515,7 @@
                     "score": 1.2958640841661437
                 }
             ],
-            "value": "problemă"
+            "value": "problemă (problem)"
         },
         {
             "activationList": [
@@ -562,7 +562,7 @@
                     "score": 0.7554576340599074
                 }
             ],
-            "value": "pune"
+            "value": "pune (put)"
         },
         {
             "activationList": [
@@ -609,7 +609,7 @@
                     "score": 0
                 }
             ],
-            "value": "răspunde"
+            "value": "răspunde (answer)"
         },
         {
             "activationList": [
@@ -656,7 +656,7 @@
                     "score": 0.9091148888827302
                 }
             ],
-            "value": "situație"
+            "value": "situație (situation)"
         },
         {
             "activationList": [
@@ -703,7 +703,7 @@
                     "score": 0
                 }
             ],
-            "value": "soluție"
+            "value": "soluție (solution)"
         },
         {
             "activationList": [
@@ -750,7 +750,7 @@
                     "score": 0
                 }
             ],
-            "value": "spune"
+            "value": "spune (say)"
         },
         {
             "activationList": [
@@ -797,7 +797,7 @@
                     "score": 0.2611759410029186
                 }
             ],
-            "value": "trece"
+            "value": "trece (pass)"
         },
         {
             "activationList": [
@@ -844,7 +844,7 @@
                     "score": 1.486171030413367
                 }
             ],
-            "value": "începe"
+            "value": "începe (begin)"
         },
         {
             "activationList": [
@@ -891,7 +891,7 @@
                     "score": 0.6922904877332677
                 }
             ],
-            "value": "înțelege"
+            "value": "înțelege (understand)"
         },
         {
             "activationList": [
@@ -938,7 +938,7 @@
                     "score": 0
                 }
             ],
-            "value": "ști"
+            "value": "ști (know)"
         }
     ]
 }

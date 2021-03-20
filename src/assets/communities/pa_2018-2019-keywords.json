@@ -45,7 +45,7 @@
                     "score": 0.4891630367808359
                 }
             ],
-            "value": "afla"
+            "value": "afla (find)"
         },
         {
             "activationList": [
@@ -92,7 +92,7 @@
                     "score": 1.3960880111408809
                 }
             ],
-            "value": "apărea"
+            "value": "apărea (appear)"
         },
         {
             "activationList": [
@@ -139,7 +139,7 @@
                     "score": 0
                 }
             ],
-            "value": "crede"
+            "value": "crede (believe)"
         },
         {
             "activationList": [
@@ -186,7 +186,7 @@
                     "score": 0
                 }
             ],
-            "value": "exemplu"
+            "value": "exemplu (example)"
         },
         {
             "activationList": [
@@ -233,7 +233,7 @@
                     "score": 0
                 }
             ],
-            "value": "exista"
+            "value": "exista (exist)"
         },
         {
             "activationList": [
@@ -280,7 +280,7 @@
                     "score": 0
                 }
             ],
-            "value": "fapt"
+            "value": "fapt (fact)"
         },
         {
             "activationList": [
@@ -327,7 +327,7 @@
                     "score": 0.5870756662032136
                 }
             ],
-            "value": "folosi"
+            "value": "folosi (use)"
         },
         {
             "activationList": [
@@ -374,7 +374,7 @@
                     "score": 0.36903559466557495
                 }
             ],
-            "value": "loc"
+            "value": "loc (place)"
         },
         {
             "activationList": [
@@ -421,7 +421,7 @@
                     "score": 0.37245588839992344
                 }
             ],
-            "value": "lucru"
+            "value": "lucru (work)"
         },
         {
             "activationList": [
@@ -468,7 +468,7 @@
                     "score": 0
                 }
             ],
-            "value": "merge"
+            "value": "merge (run)"
         },
         {
             "activationList": [
@@ -515,7 +515,7 @@
                     "score": 0
                 }
             ],
-            "value": "moment"
+            "value": "moment (time)"
         },
         {
             "activationList": [
@@ -562,7 +562,7 @@
                     "score": 0.951197611691175
                 }
             ],
-            "value": "parte"
+            "value": "parte (part)"
         },
         {
             "activationList": [
@@ -609,7 +609,7 @@
                     "score": 1.3113087494880487
                 }
             ],
-            "value": "problemă"
+            "value": "problemă (problem)"
         },
         {
             "activationList": [
@@ -656,7 +656,7 @@
                     "score": 0.23665819399917062
                 }
             ],
-            "value": "pune"
+            "value": "pune (put)"
         },
         {
             "activationList": [
@@ -703,7 +703,7 @@
                     "score": 0
                 }
             ],
-            "value": "situație"
+            "value": "situație (situation)"
         },
         {
             "activationList": [
@@ -750,7 +750,7 @@
                     "score": 0
                 }
             ],
-            "value": "soluție"
+            "value": "soluție (solution)"
         },
         {
             "activationList": [
@@ -797,7 +797,7 @@
                     "score": 1.0341591824875611
                 }
             ],
-            "value": "trece"
+            "value": "trece (pass)"
         },
         {
             "activationList": [
@@ -844,7 +844,7 @@
                     "score": 0.5973079974323415
                 }
             ],
-            "value": "vedea"
+            "value": "vedea (see)"
         },
         {
             "activationList": [
@@ -891,7 +891,7 @@
                     "score": 0
                 }
             ],
-            "value": "vedere"
+            "value": "vedere (view)"
         },
         {
             "activationList": [
@@ -938,7 +938,7 @@
                     "score": 0
                 }
             ],
-            "value": "încerca"
+            "value": "încerca (try)"
         }
     ]
 }
