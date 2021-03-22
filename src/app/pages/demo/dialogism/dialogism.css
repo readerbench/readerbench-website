@@ -16,3 +16,22 @@ table.table-bordered > tbody >tr > td{
 /* .table>tbody>tr>td {
 padding: 4px !important;
 } */
+
+.tab button {
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	color: #43B9C7;
+  }
+  
+  .tab button:hover {
+	background-color: #ddd;
+  }
+  
+  .tab button:active {
+	background-color: #43B9C7;
+	color: white;
+  }

@@ -1,0 +1,30 @@
+table.table-bordered > thead{
+    border:2px solid;
+}
+
+table.table-bordered > tbody >tr > td,th{
+    color: black;
+	font-size: 11px;
+}
+
+table.table-bordered > thead >tr > th,td{
+    color: black;
+	font-size: 11px;
+}
+
+#svgContainerDialogismChats { 
+	z-index: auto;
+	position:absolute;
+	opacity: 1;
+}
+
+.chat-voices-container {
+	margin-top: 10px;
+	font-size: 11px;
+}
+
+.table-wrapper {
+	max-height: 100%;
+	overflow: auto;
+	display:inline-block;
+}

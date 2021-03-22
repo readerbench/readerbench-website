@@ -1,5 +1,12 @@
 export let DemoMenuItemsData = [
     {
+        name: 'Dialogism',
+        href: 'demo/dialogism',
+        description: 'Dialogism',
+        image: 'assets/images/demo-dialogism.png',
+        altText: 'Dialogism'
+    },
+    {
         name: 'Multi-Document CNA',
         href: 'demo/document-analysis',
         description: 'Multi-Document CNA',

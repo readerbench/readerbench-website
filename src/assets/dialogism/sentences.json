@@ -1,59 +1,1882 @@
 {
     "data": [
         {
-            "text": "The British were very angry!'",
+            "text": "joins the room.",
             "id": 0,
-            "paragraphId": 0
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:43 "
         },
         {
-            "text": "Within a few months, they- passed what the colonists called the Intolerable Acts.",
+            "text": "joins the room Hello.",
             "id": 1,
-            "paragraphId": 0
+            "user": "corina-forum",
+            "date": "1900-01-01 11:45 "
         },
         {
-            "text": "Intolerable means \"unbearable\".",
-            "id": 2,
-            "paragraphId": 0
-        },
-        {
-            "text": "These acts were meant to punish the people of Boston.",
+            "text": "Hello, Corina!",
             "id": 3,
-            "paragraphId": 0
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:45 "
         },
         {
-            "text": "The port of Boston was closed.",
+            "text": "joins the room.",
             "id": 4,
-            "paragraphId": 0
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:45 "
         },
         {
-            "text": "No self-government was allowed in Massachusetts.",
+            "text": "joins the room.",
             "id": 5,
-            "paragraphId": 0
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:45 "
         },
         {
-            "text": "British troops had to be housed and fed by the Massachusetts colonists.",
+            "text": "Hello, Diana! Hello, Cristi!",
             "id": 6,
-            "paragraphId": 0
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:45 "
         },
         {
-            "text": "Colonial leaders in Boston acted quickly.",
-            "id": 7,
-            "paragraphId": 1
-        },
-        {
-            "text": "Letters were sent telling people in the other colonies what was happening in Boston.",
+            "text": "Hello :).",
             "id": 8,
-            "paragraphId": 1
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:45 "
         },
         {
-            "text": "The other colonies sent help and supplies.",
+            "text": "hello.",
             "id": 9,
-            "paragraphId": 1
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:46 "
         },
         {
-            "text": "People wondered if their colony would be the next to feel the anger of Great Britain.",
+            "text": "joins the room Hello.",
             "id": 10,
-            "paragraphId": 1
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:46 "
+        },
+        {
+            "text": "Hello, Stefan! So.... everybody is here....",
+            "id": 12,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:46 "
+        },
+        {
+            "text": "First of all I think we should talk a little about the workflow of our converstion.",
+            "id": 14,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:47 "
+        },
+        {
+            "text": "What kind of company are we?",
+            "id": 15,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:48 "
+        },
+        {
+            "text": "we are supposed to be in company , right ? *a.",
+            "id": 16,
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:48 "
+        },
+        {
+            "text": "I think so.",
+            "id": 18,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:48 "
+        },
+        {
+            "text": "I was thinking of something related to IT.",
+            "id": 19,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:48 "
+        },
+        {
+            "text": "We have to implement a communication solution.",
+            "id": 20,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:49 "
+        },
+        {
+            "text": "i don't think this is very important.",
+            "id": 21,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:49 "
+        },
+        {
+            "text": "I agree.",
+            "id": 22,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:49 "
+        },
+        {
+            "text": "So we don't need a company...",
+            "id": 23,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:49 "
+        },
+        {
+            "text": "maybe it should be in general.",
+            "id": 24,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:49 "
+        },
+        {
+            "text": "ok.... so we are just a company....",
+            "id": 25,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:49 "
+        },
+        {
+            "text": "and we have to decide which of the 5 concepts are better for us.",
+            "id": 26,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:50 "
+        },
+        {
+            "text": "right.",
+            "id": 27,
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:50 "
+        },
+        {
+            "text": "Let's think od some activities... and then decide which technology is better.",
+            "id": 28,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:50 "
+        },
+        {
+            "text": "As we previously disccoused i think a combination of them should be perfect.",
+            "id": 29,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:51 "
+        },
+        {
+            "text": "ok...but let's think again we are a company now :).",
+            "id": 30,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:51 "
+        },
+        {
+            "text": "Of course... we will be using all of the 5 technologies.... but first we have to think of some activities...",
+            "id": 32,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:52 "
+        },
+        {
+            "text": "it depends...",
+            "id": 33,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:52 "
+        },
+        {
+            "text": "I think we should have a server which has soupport and logging for all kinds of concepts.",
+            "id": 34,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:52 "
+        },
+        {
+            "text": "i think that is very important to be good at what we are doing so first we should be well informed.",
+            "id": 35,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:52 "
+        },
+        {
+            "text": "yes...we should think of some activities ... like a board meeting where some of us can't be there ...what tech should I use  ?",
+            "id": 36,
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:53 "
+        },
+        {
+            "text": "for example if an employee has a great solution he should blog it.",
+            "id": 37,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:53 "
+        },
+        {
+            "text": "i think chat is the best solution for a board meeting.",
+            "id": 38,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:53 "
+        },
+        {
+            "text": "or if we are searching for a solution we should make a topic about it on the forum :P.",
+            "id": 39,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:53 "
+        },
+        {
+            "text": "true or we can edit a page on wikipedia.",
+            "id": 40,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:53 "
+        },
+        {
+            "text": "and if it  is a \"public\" one shoud be logged if it is important it should be private.",
+            "id": 41,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:54 "
+        },
+        {
+            "text": "or visible to the board.",
+            "id": 43,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:54 "
+        },
+        {
+            "text": "then the forum is the solution! some topics are private.",
+            "id": 44,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:54 "
+        },
+        {
+            "text": "Yes. But forum should be updated real time by it self.",
+            "id": 45,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:55 "
+        },
+        {
+            "text": "and you think blog is the solution then?",
+            "id": 47,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:55 "
+        },
+        {
+            "text": "but you can't be sure that the solutions are correct because they are written by a single person.",
+            "id": 48,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:55 "
+        },
+        {
+            "text": "wave has a presentation template where videochat is included ..with multiple features.",
+            "id": 49,
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:55 "
+        },
+        {
+            "text": "i think forum is teh best solution for answering questions comming from our customers.",
+            "id": 50,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:56 "
+        },
+        {
+            "text": "it's a forum you can reply...",
+            "id": 51,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:56 "
+        },
+        {
+            "text": "this sound really good for a board meeting.",
+            "id": 52,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:56 "
+        },
+        {
+            "text": "not if our customer require a fast response.",
+            "id": 53,
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:56 "
+        },
+        {
+            "text": "i think a videochat isn't so good because you can't see previous statements.",
+            "id": 54,
+            "user": "stefan-blog",
+            "date": "1900-01-01 11:56 "
+        },
+        {
+            "text": "but it is really important when someone is missing.",
+            "id": 55,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:57 "
+        },
+        {
+            "text": "I think videochat is awesome for a meeting do you need previous statements?",
+            "id": 56,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:57 "
+        },
+        {
+            "text": "i don't think that there is something that can replace a videochat.",
+            "id": 58,
+            "user": "diana-wiki",
+            "date": "1900-01-01 11:57 "
+        },
+        {
+            "text": "yes.... i am also for videochat.",
+            "id": 59,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:57 "
+        },
+        {
+            "text": "it's the closest thing to a face-to-face meeting.",
+            "id": 60,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:58 "
+        },
+        {
+            "text": "a videochat with possibility to draw in real time some charts for example ... here wave is very helpful.",
+            "id": 61,
+            "user": "cristi-wave",
+            "date": "1900-01-01 11:58 "
+        },
+        {
+            "text": "I agree..for meetings using wave it's the best solution.",
+            "id": 62,
+            "user": "corina-forum",
+            "date": "1900-01-01 11:59 "
+        },
+        {
+            "text": "and if you do not have a good internet connection, clasic chat chould also be a solution...",
+            "id": 63,
+            "user": "Mona-chat",
+            "date": "1900-01-01 11:59 "
+        },
+        {
+            "text": "agree...videochat requires some bandwidth.",
+            "id": 64,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:00 "
+        },
+        {
+            "text": "ok...but what about information, what do you think it is the most reliable source of information?",
+            "id": 65,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:00 "
+        },
+        {
+            "text": "chat is fast, simple to use and it does not require such a good internet connection.",
+            "id": 66,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:00 "
+        },
+        {
+            "text": "if it is an inside network i don't think this should be a problem.",
+            "id": 67,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:00 "
+        },
+        {
+            "text": "well depends on the type of the meeting...",
+            "id": 68,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:00 "
+        },
+        {
+            "text": "what do you mean by inside network? in the same building?",
+            "id": 69,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:01 "
+        },
+        {
+            "text": "LAN.",
+            "id": 71,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:01 "
+        },
+        {
+            "text": "nowadays a fast internet connection is everywhere :).",
+            "id": 72,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:01 "
+        },
+        {
+            "text": "or VPN.",
+            "id": 73,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:01 "
+        },
+        {
+            "text": "true.... internet connection is not really a problem nowadays... so we all agree that videochat is the best solution for a \"virtual\" meeting.",
+            "id": 74,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:02 "
+        },
+        {
+            "text": "undoubtedly.",
+            "id": 76,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:02 "
+        },
+        {
+            "text": "yes!",
+            "id": 77,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:03 "
+        },
+        {
+            "text": "so.... one activity solved....",
+            "id": 78,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:03 "
+        },
+        {
+            "text": "ok so for meetings we have video chat.",
+            "id": 79,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:03 "
+        },
+        {
+            "text": "well last time we agreed that wiki is the most reliable source.... :).",
+            "id": 80,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:03 "
+        },
+        {
+            "text": "I think wiki would be perfect for project specification... or simply describing the workflow of an activity.",
+            "id": 81,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:04 "
+        },
+        {
+            "text": "agree, it is written and edited by more than one person so you can have an objective opinion.",
+            "id": 83,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "true .... wiki = how to.",
+            "id": 84,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "yes..well at the beginning of a project we must use wiki for research...",
+            "id": 85,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "i don't think wiki is good for project specification unless it has restricted acces.",
+            "id": 86,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "not if the project is a open source ;).",
+            "id": 87,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "the document should be updated only by project managers.",
+            "id": 88,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "one.",
+            "id": 89,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:05 "
+        },
+        {
+            "text": "one what?",
+            "id": 90,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:06 "
+        },
+        {
+            "text": "i don't think the project manager should be the only one to modify it.",
+            "id": 91,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:06 "
+        },
+        {
+            "text": "it was the end for my sentence above :).",
+            "id": 92,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:06 "
+        },
+        {
+            "text": "why?",
+            "id": 93,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:06 "
+        },
+        {
+            "text": "I agree...but the others can have an opinion..so they can use a forum to discuss, to make a poll ...",
+            "id": 94,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:07 "
+        },
+        {
+            "text": "every employee or group of employees could write  and describe their activities.",
+            "id": 95,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:08 "
+        },
+        {
+            "text": "is fixed. If the customer wnts something we can't say what he/se wants.",
+            "id": 96,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:08 "
+        },
+        {
+            "text": "every employee could describe his/her activities... and this way averyone will know how the project is going.",
+            "id": 97,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:08 "
+        },
+        {
+            "text": "yes and everyone could express their ideas about the project.",
+            "id": 98,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:08 "
+        },
+        {
+            "text": "true..but the official document must be done by the project manager...",
+            "id": 99,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:09 "
+        },
+        {
+            "text": "or come with suggestions.",
+            "id": 100,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:09 "
+        },
+        {
+            "text": "that's why i think it should be a restricted wiki or a blog.",
+            "id": 101,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:09 "
+        },
+        {
+            "text": "yes.... but such a wiki page would be a great starting point.",
+            "id": 102,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:09 "
+        },
+        {
+            "text": "comments on blog.",
+            "id": 103,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:09 "
+        },
+        {
+            "text": "of course but it is very important to have as many ideas as possib;e and i think forum is suitable for this kind of activivity.",
+            "id": 104,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:09 "
+        },
+        {
+            "text": "i agree the acces to the wiki page should be restricted.",
+            "id": 106,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:10 "
+        },
+        {
+            "text": "well blog can be used for history...and in the blog everyone can write what they are doing...",
+            "id": 107,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:10 "
+        },
+        {
+            "text": "for projects pecification i think a blog is enough posts and comments.",
+            "id": 108,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:10 "
+        },
+        {
+            "text": "for small projects ..yes.",
+            "id": 110,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:10 "
+        },
+        {
+            "text": "speaking od ideas I was thinking of a web page that has also a chat system incorporated... and this way customers or petential customers could talk directly to our employees.",
+            "id": 111,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:11 "
+        },
+        {
+            "text": "why not for big ones?",
+            "id": 112,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:11 "
+        },
+        {
+            "text": "but for a large one ... use cases , lots of pdf files ... probably wiki.",
+            "id": 113,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:11 "
+        },
+        {
+            "text": "for projects yes, for specification blogs.",
+            "id": 114,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:11 "
+        },
+        {
+            "text": "and the blog should have a link to the wiki related to the project.",
+            "id": 115,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:12 "
+        },
+        {
+            "text": "it is a good idea if an employee is online all the time.",
+            "id": 116,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:12 "
+        },
+        {
+            "text": "sounds good, and after that we could save the answers and post them.",
+            "id": 117,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:12 "
+        },
+        {
+            "text": "otherwise they should use the forum.",
+            "id": 118,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:13 "
+        },
+        {
+            "text": "so in case someone has the same problem they could solve it fastre.",
+            "id": 119,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:13 "
+        },
+        {
+            "text": "don't forget that a project has contact with the client only in the begging and in the end.",
+            "id": 120,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:16 "
+        },
+        {
+            "text": "not really we should offer assitance and training.",
+            "id": 121,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:16 "
+        },
+        {
+            "text": "after the project is done.",
+            "id": 123,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:17 "
+        },
+        {
+            "text": "well the client must know the progress of a project ,no?",
+            "id": 124,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:17 "
+        },
+        {
+            "text": "and also during the project, in case some major dificulties.",
+            "id": 125,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:17 "
+        },
+        {
+            "text": "i agree.",
+            "id": 126,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:18 "
+        },
+        {
+            "text": "maybe a major change must be done so we must stay in touch with our clients during the whole project.",
+            "id": 127,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:18 "
+        },
+        {
+            "text": "ok guys we are taking a small break now! keep your ideas please!",
+            "id": 128,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:18 "
+        },
+        {
+            "text": "yes...sometime the client wants to be in touch with all the stages.",
+            "id": 129,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:18 "
+        },
+        {
+            "text": "Mona is out because of her Internet connection! so let's wait for her!",
+            "id": 130,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:19 "
+        },
+        {
+            "text": "ok :).",
+            "id": 131,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:19 "
+        },
+        {
+            "text": "ok.",
+            "id": 132,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:19 "
+        },
+        {
+            "text": "joins the room Sorry, guys....",
+            "id": 133,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:23 "
+        },
+        {
+            "text": "no problem.",
+            "id": 135,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:24 "
+        },
+        {
+            "text": "it's ok to continue this chat like this? or we should start another one?",
+            "id": 136,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:24 "
+        },
+        {
+            "text": "We were talking about reliable internet connections...",
+            "id": 137,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:24 "
+        },
+        {
+            "text": "i think we should wait until your first nickname automaticly disconnects 5 min i think is enough.",
+            "id": 138,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:25 "
+        },
+        {
+            "text": "I talked to Traian, and it's ok... I'll continue using this new nickname.",
+            "id": 140,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:25 "
+        },
+        {
+            "text": "I don`t think is going to happen :).",
+            "id": 141,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:25 "
+        },
+        {
+            "text": "ok.",
+            "id": 142,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:25 "
+        },
+        {
+            "text": "it is a bug in the program :p.",
+            "id": 143,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:25 "
+        },
+        {
+            "text": "kill it:P.",
+            "id": 144,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:26 "
+        },
+        {
+            "text": "ok! perfect.",
+            "id": 145,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:26 "
+        },
+        {
+            "text": "yes...chat is sometimes unreliable.",
+            "id": 146,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:26 "
+        },
+        {
+            "text": "ok.... so what we were talking about before the connection issue?",
+            "id": 147,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:26 "
+        },
+        {
+            "text": "as long as it depends on an internet connection...",
+            "id": 148,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:27 "
+        },
+        {
+            "text": "meeting board.",
+            "id": 149,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:27 "
+        },
+        {
+            "text": "about different stages of a project... a client must know about them..so wiki is a good solution meeting?",
+            "id": 150,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:27 "
+        },
+        {
+            "text": "ok.",
+            "id": 152,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:28 "
+        },
+        {
+            "text": "so we agree that wiki is a good solution when we want to present a product/the evolution of a project to a client ?",
+            "id": 153,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:29 "
+        },
+        {
+            "text": "what about selling our products..what technologies we should use for this?",
+            "id": 154,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:29 "
+        },
+        {
+            "text": "yes voice chat.",
+            "id": 155,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:29 "
+        },
+        {
+            "text": "yes and we can alse use chats in order to stay in touch and offer help to our customers i meant something like advertising.",
+            "id": 157,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:30 "
+        },
+        {
+            "text": "spam :P.",
+            "id": 159,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:30 "
+        },
+        {
+            "text": "guys..we stop here I think! keep your ideas! :P.",
+            "id": 160,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:30 "
+        },
+        {
+            "text": "yes.... and I was also saying that a chat system that would allow us to talk directly to our clients would also be a good idea.",
+            "id": 162,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:31 "
+        },
+        {
+            "text": "I think the connection is up and running again..",
+            "id": 163,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:32 "
+        },
+        {
+            "text": "perfect to sell our products blog is the best solution.",
+            "id": 164,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:32 "
+        },
+        {
+            "text": "why ?",
+            "id": 166,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:33 "
+        },
+        {
+            "text": "A blog would be a good way to advertise our products.",
+            "id": 168,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:34 "
+        },
+        {
+            "text": "agree.",
+            "id": 169,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:34 "
+        },
+        {
+            "text": "because it has reviews and you can rate it.",
+            "id": 170,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:35 "
+        },
+        {
+            "text": "well on a blog you can put questions about the product...and usually the blog is used in this kind of things.",
+            "id": 172,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:35 "
+        },
+        {
+            "text": "but maybe a post on a forum would be also a good idea.",
+            "id": 173,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:36 "
+        },
+        {
+            "text": "I saw a lot of blogs for selling stuff ... I agree.",
+            "id": 174,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:36 "
+        },
+        {
+            "text": "A blog would also be usefull for describing our latest products, in order to convince the potential customers to buy.",
+            "id": 175,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:36 "
+        },
+        {
+            "text": "and posting some images for example.",
+            "id": 176,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:36 "
+        },
+        {
+            "text": "the forum is used to find more about something...for promotion blog is the best solution in my opinion.",
+            "id": 177,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:37 "
+        },
+        {
+            "text": "and videos.",
+            "id": 178,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:37 "
+        },
+        {
+            "text": "A forum would be useful for offering solutions to some problems that our customers have.",
+            "id": 179,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:37 "
+        },
+        {
+            "text": "I agree...also other people can offer solutions, not only us.",
+            "id": 180,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:38 "
+        },
+        {
+            "text": "agree but i meant that maybe we can discover that someone has a problem and post it on a forum and we can post back to offer our product as solution.",
+            "id": 181,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:39 "
+        },
+        {
+            "text": "and chat would also be great... as customers could have real-time feedback from the developpers of the products they are using.",
+            "id": 182,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:39 "
+        },
+        {
+            "text": "or we can make a poll to find out what our customers will like to buy.",
+            "id": 183,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:39 "
+        },
+        {
+            "text": "what about new customers? what should we use for attracting them?",
+            "id": 184,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:40 "
+        },
+        {
+            "text": "for selling the best solution is something like ebay  , but this is not our topic now.",
+            "id": 185,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:40 "
+        },
+        {
+            "text": "true ..but for using a chat the developpers must be online..so if they are not online....",
+            "id": 186,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:40 "
+        },
+        {
+            "text": "from time to time we could also organize chats with customers and employees and ask for new ideas....",
+            "id": 187,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:40 "
+        },
+        {
+            "text": "and in this case the best solution is a blog.",
+            "id": 188,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:40 "
+        },
+        {
+            "text": "this is a great idea!",
+            "id": 189,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:41 "
+        },
+        {
+            "text": "if we are trully caring about or customers we could have special employees just for this kind of activity.",
+            "id": 190,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:41 "
+        },
+        {
+            "text": "well is also about promoting/selling our image...so blog is the best solution.",
+            "id": 191,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:41 "
+        },
+        {
+            "text": "yes..but if they need more details? chat is ok for small problems.",
+            "id": 192,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:42 "
+        },
+        {
+            "text": "good point.",
+            "id": 193,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:43 "
+        },
+        {
+            "text": "you can select some of the participants at the chat at have a real conversation with them.",
+            "id": 194,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:43 "
+        },
+        {
+            "text": "if there is someone that can answer cutsomers' questionsm i don't tkink the complexity of the solution is an issue.",
+            "id": 195,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:44 "
+        },
+        {
+            "text": "sometimes we need a bigger answer s a post on a forum is ok..on a chat we use small sentences.",
+            "id": 196,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:45 "
+        },
+        {
+            "text": "a qualified person cand answer to all kinds of questions...",
+            "id": 197,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:45 "
+        },
+        {
+            "text": "at least a voice chat ... I have not  heard so far about selling something ,  just chatting  :).",
+            "id": 198,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:45 "
+        },
+        {
+            "text": "true... a forum could also be useful.",
+            "id": 199,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:45 "
+        },
+        {
+            "text": "true a voice chat it would be awesome...so in this case using wave is the solution?",
+            "id": 200,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:46 "
+        },
+        {
+            "text": "and this way the solutions to all kinds of problems will be there for others to see as well.",
+            "id": 201,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:46 "
+        },
+        {
+            "text": "I think so.",
+            "id": 202,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:46 "
+        },
+        {
+            "text": "voice chatting with our customers seems a liitle to much to me...",
+            "id": 203,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:47 "
+        },
+        {
+            "text": "i agree.",
+            "id": 204,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:47 "
+        },
+        {
+            "text": "it is very usefull but it is demanding.",
+            "id": 205,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:47 "
+        },
+        {
+            "text": "this means only one cutomer could receive help at a time.",
+            "id": 206,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:47 "
+        },
+        {
+            "text": "i think we waste too much time.",
+            "id": 207,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:47 "
+        },
+        {
+            "text": "but we can record the chat and put it on the blog :).",
+            "id": 208,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:47 "
+        },
+        {
+            "text": "in this case why not using a classical chat?without voice.",
+            "id": 209,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:48 "
+        },
+        {
+            "text": "and we should have a lot of employees doing that.",
+            "id": 210,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:48 "
+        },
+        {
+            "text": "true..... but maybe we can explain some problems better on the phone/with our voice :P.",
+            "id": 211,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:49 "
+        },
+        {
+            "text": "classical chat offers the possibility of \"multitasking\" ... if I may call it like that.",
+            "id": 212,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:49 "
+        },
+        {
+            "text": "exactly and even it is impersonal i consider it a good option.",
+            "id": 213,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:49 "
+        },
+        {
+            "text": "One person can answer to more than one question at a time this way.",
+            "id": 214,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:49 "
+        },
+        {
+            "text": "the problem is that we must save the chat and make a special archieve with all conversations ...",
+            "id": 215,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:50 "
+        },
+        {
+            "text": "not really i think people tend to get confused when they are told something than they would read it.",
+            "id": 216,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:50 "
+        },
+        {
+            "text": "so using the forum is better! a moderator can be online all the time.",
+            "id": 217,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:50 "
+        },
+        {
+            "text": "why is this a problem? we can post it afterwards.",
+            "id": 218,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:50 "
+        },
+        {
+            "text": "as I said before, forum is more efficient with solving problems.",
+            "id": 220,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:51 "
+        },
+        {
+            "text": "yes, forum is a siutable option too.",
+            "id": 221,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:51 "
+        },
+        {
+            "text": "yes but on a forum we can make special topics and they are saved automatically.",
+            "id": 222,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:51 "
+        },
+        {
+            "text": "maybe some of customers feel uncomfortable to post their problems on forums thinking they maybe to simple.",
+            "id": 223,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:52 "
+        },
+        {
+            "text": "yes ... in a forum topics are very well delimited .... it is very easy to read it.",
+            "id": 224,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:52 "
+        },
+        {
+            "text": "true.... there could be such customers.... and in this case the privacy of a chat is great!",
+            "id": 225,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:53 "
+        },
+        {
+            "text": "true..maybe they want more details idk..so chat is perfect for them.",
+            "id": 226,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:53 "
+        },
+        {
+            "text": "the only wrong question is the  one not asked  :).",
+            "id": 227,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:53 "
+        },
+        {
+            "text": "agree, and we can post only parts of the converstaion without the nicknames.",
+            "id": 228,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:53 "
+        },
+        {
+            "text": "lol..and on the Internet no one can see our face.",
+            "id": 229,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:54 "
+        },
+        {
+            "text": "nicely said but not everybody agrees on that unfortunately.",
+            "id": 230,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:54 "
+        },
+        {
+            "text": "true.... but there are people that don't like forums and pefere the privacy of a chat conversation.",
+            "id": 231,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:54 "
+        },
+        {
+            "text": "in forums members can send each one private messages.",
+            "id": 232,
+            "user": "stefan-blog",
+            "date": "1900-01-01 12:55 "
+        },
+        {
+            "text": "indeed but they may recognize you after you nickname when you post later.",
+            "id": 233,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:55 "
+        },
+        {
+            "text": "or they just need an answer right away and do not want to waste time searching for it on a forum.",
+            "id": 234,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:55 "
+        },
+        {
+            "text": "a private one is the best solution :p.",
+            "id": 235,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:55 "
+        },
+        {
+            "text": "but we need to make the disscutions public to everyone.",
+            "id": 236,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:55 "
+        },
+        {
+            "text": "I think a chat room is suitable in this case.",
+            "id": 237,
+            "user": "cristi-wave",
+            "date": "1900-01-01 12:56 "
+        },
+        {
+            "text": "yes so a chat room is ok in this case.",
+            "id": 238,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:56 "
+        },
+        {
+            "text": "customers are different... and their needs are different.... and this is why I think we should use both chat and forums.",
+            "id": 239,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:57 "
+        },
+        {
+            "text": "After all, our customers' satisfaction is our priority and if some of them prefere chat, we should offer the possibility to use it... and if they are forum fans, we should also have a forum.",
+            "id": 240,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:58 "
+        },
+        {
+            "text": "I agree...",
+            "id": 241,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:58 "
+        },
+        {
+            "text": "yes but this  depends a lot on our buget.",
+            "id": 242,
+            "user": "diana-wiki",
+            "date": "1900-01-01 12:59 "
+        },
+        {
+            "text": "as we were saying in our previous chat, all the technologies we are sustaining are different and each one of them is great for a specific type of thing...",
+            "id": 243,
+            "user": "Mona-chat",
+            "date": "1900-01-01 12:59 "
+        },
+        {
+            "text": "well we can use free servers for a while.",
+            "id": 244,
+            "user": "corina-forum",
+            "date": "1900-01-01 12:59 "
+        },
+        {
+            "text": "i don't tink having a forum or a chat system would be so expensive.",
+            "id": 245,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:00 "
+        },
+        {
+            "text": "i don't think this is a good ideea if we have private information.",
+            "id": 246,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:00 "
+        },
+        {
+            "text": "let's say chat would be a little more time consuming..",
+            "id": 247,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:00 "
+        },
+        {
+            "text": "is about human resources I think.",
+            "id": 248,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:01 "
+        },
+        {
+            "text": "and we would have to pay more people to take care of that.",
+            "id": 249,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:01 "
+        },
+        {
+            "text": "yes unless we a have a bot with some AI ;).",
+            "id": 250,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:01 "
+        },
+        {
+            "text": "but if having a special employee to take care of the chat is too much, all the other omployees could take turns in answering questions.",
+            "id": 252,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:01 "
+        },
+        {
+            "text": "true.... or the developpers can take care of the chat.",
+            "id": 253,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:01 "
+        },
+        {
+            "text": "and we should of course take care of their training it should be updated constantly in order to provide the best answer in little time.",
+            "id": 254,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:01 "
+        },
+        {
+            "text": "I think no training is needed....",
+            "id": 256,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:02 "
+        },
+        {
+            "text": "having someone online all the time it's not a must... at least this is my opinion.",
+            "id": 257,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:03 "
+        },
+        {
+            "text": "true..but none of the developers would want to answear some questions in a chat ... their job is to develop , not client support.",
+            "id": 258,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:03 "
+        },
+        {
+            "text": "but we should try to give answers as soon as possible.",
+            "id": 259,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:03 "
+        },
+        {
+            "text": "yes! I also wanted to say they can take care also of the forum..after all they know the best answers at any question.",
+            "id": 260,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:04 "
+        },
+        {
+            "text": "so we should hire others for that.",
+            "id": 261,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:04 "
+        },
+        {
+            "text": "yes... answers should be as quick as possible ... but I don't think all of them shoul be right away...",
+            "id": 262,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:05 "
+        },
+        {
+            "text": "full time support means more money.",
+            "id": 263,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:05 "
+        },
+        {
+            "text": "more money spent?",
+            "id": 264,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:05 "
+        },
+        {
+            "text": "true.",
+            "id": 265,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:06 "
+        },
+        {
+            "text": "more money for the company ... this kind of support is more expensive for the client I mean.",
+            "id": 266,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:06 "
+        },
+        {
+            "text": "true! a satisfied client always come back.",
+            "id": 268,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:07 "
+        },
+        {
+            "text": "I suggest making an experiment and trying both options: full time support and the second one.",
+            "id": 269,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:07 "
+        },
+        {
+            "text": "but it also involves more money spent for the company.",
+            "id": 270,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:07 "
+        },
+        {
+            "text": "If full time support turns out to bring us more profit, why not continue to use it?",
+            "id": 271,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:08 "
+        },
+        {
+            "text": "good idea.",
+            "id": 272,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:08 "
+        },
+        {
+            "text": "depends on our  clients target market.",
+            "id": 273,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:08 "
+        },
+        {
+            "text": "what do you mean?",
+            "id": 274,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:08 "
+        },
+        {
+            "text": "if it is a product that you change easely we should have full support.",
+            "id": 275,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:09 "
+        },
+        {
+            "text": "we have to try to get to know our clients better and see which option is better ... both for them and for us.",
+            "id": 276,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:09 "
+        },
+        {
+            "text": "after all, a satisfied customer means a step forward for our company.",
+            "id": 277,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:10 "
+        },
+        {
+            "text": "Another important issue for our company is the communication between employees and I think chat would be great for that.",
+            "id": 278,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:11 "
+        },
+        {
+            "text": "I agree..chat is ok but only when they are at work..in their free time they can use the forum.",
+            "id": 280,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:12 "
+        },
+        {
+            "text": "i think it depends on what they are discussing.",
+            "id": 281,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:12 "
+        },
+        {
+            "text": "and by communication I mean notifications, quick questions and answers, file sharing...",
+            "id": 282,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:12 "
+        },
+        {
+            "text": "about.",
+            "id": 283,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:12 "
+        },
+        {
+            "text": "can be done by wiki.",
+            "id": 284,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:13 "
+        },
+        {
+            "text": "or a SVN... this would really be useful but this is not our concern right now...",
+            "id": 285,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:13 "
+        },
+        {
+            "text": "any sharing file system I think is ok ... if it is synchronized is better.",
+            "id": 287,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:14 "
+        },
+        {
+            "text": "true, it would be really usefull if they have to share source code.",
+            "id": 288,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:14 "
+        },
+        {
+            "text": "totally agree.",
+            "id": 289,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:15 "
+        },
+        {
+            "text": "SVN is the best solution.",
+            "id": 290,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:15 "
+        },
+        {
+            "text": "we can't share source code so easily.",
+            "id": 291,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:15 "
+        },
+        {
+            "text": "but if we'd had to choose between the 5 i think chat is the best solution why not? it's inside of the company.",
+            "id": 292,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:15 "
+        },
+        {
+            "text": "well it's something private...",
+            "id": 295,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:16 "
+        },
+        {
+            "text": "but in big projects it's vital to share source code.",
+            "id": 296,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:17 "
+        },
+        {
+            "text": "inside a company you have confidential agrrement.",
+            "id": 297,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:17 "
+        },
+        {
+            "text": "ok then!",
+            "id": 298,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:18 "
+        },
+        {
+            "text": "the project is developed by many progammers and there is also a testing stage too.",
+            "id": 299,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:18 "
+        },
+        {
+            "text": "yes...a  NDA.",
+            "id": 300,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:18 "
+        },
+        {
+            "text": "do we covered everything?",
+            "id": 301,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:19 "
+        },
+        {
+            "text": "i think so.",
+            "id": 302,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:19 "
+        },
+        {
+            "text": "let's see....",
+            "id": 303,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:19 "
+        },
+        {
+            "text": "at leat most of it.",
+            "id": 304,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:20 "
+        },
+        {
+            "text": "we talked about meetings advertising our products.",
+            "id": 305,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:20 "
+        },
+        {
+            "text": "so for board meeting we should use wave because of the video chat.",
+            "id": 307,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:20 "
+        },
+        {
+            "text": "offer support.",
+            "id": 308,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:20 "
+        },
+        {
+            "text": "staying in touch with our clients.",
+            "id": 309,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:20 "
+        },
+        {
+            "text": "yes! and for advertising the blog is the best solution.",
+            "id": 310,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:20 "
+        },
+        {
+            "text": "I agree.",
+            "id": 311,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:21 "
+        },
+        {
+            "text": "and communication in the company.",
+            "id": 312,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:21 "
+        },
+        {
+            "text": "yes..forum and chat in this case.",
+            "id": 313,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:21 "
+        },
+        {
+            "text": "and probably wave...if we include  brainstorming.",
+            "id": 314,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:22 "
+        },
+        {
+            "text": "another thing regarding blog... I think a blog could also be great for customers to \"see\" the atmosphere in the company.",
+            "id": 315,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:22 "
+        },
+        {
+            "text": "we also discused about the page of the project where we can put different stages on..and in this case wiki it would be a good solution.",
+            "id": 316,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:22 "
+        },
+        {
+            "text": "what do you mean?",
+            "id": 317,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:22 "
+        },
+        {
+            "text": "the image of the company is very important and the relations between employees are a great part of it.",
+            "id": 318,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:23 "
+        },
+        {
+            "text": "I think they are more interested in the product ..just saying.",
+            "id": 319,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:24 "
+        },
+        {
+            "text": "agree soemtimes a bad image can influence a company's sales a lot.",
+            "id": 320,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:25 "
+        },
+        {
+            "text": "true.... but relationships between employees are also important we could have an \"inside blog\"... available only for our employees.",
+            "id": 321,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:25 "
+        },
+        {
+            "text": "it would be nice.... yeah for curious clients.",
+            "id": 323,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:26 "
+        },
+        {
+            "text": "there they could share experiences, talk about team building activities.... there are also very important for a serius company they *.",
+            "id": 324,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:27 "
+        },
+        {
+            "text": "true..so in this case we should use a blog did we miss something?",
+            "id": 326,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:27 "
+        },
+        {
+            "text": "i don't think so.",
+            "id": 328,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:28 "
+        },
+        {
+            "text": "it's important to have a real team i think most of the activities are covered.",
+            "id": 329,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:28 "
+        },
+        {
+            "text": "so... this is it...",
+            "id": 331,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:29 "
+        },
+        {
+            "text": "yes, we talked about most of them and even if we did not reach a conclusion every time we did a really good job.",
+            "id": 332,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:29 "
+        },
+        {
+            "text": "we must use all the technologies in order to be a succesfull company.",
+            "id": 333,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:30 "
+        },
+        {
+            "text": "true and we also need to find the perfect balance between them.",
+            "id": 334,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:30 "
+        },
+        {
+            "text": "and most importnat of all, me must know when to use each of them.",
+            "id": 335,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:30 "
+        },
+        {
+            "text": "true! So once again we have the same conclusion!",
+            "id": 336,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:31 "
+        },
+        {
+            "text": "yes!",
+            "id": 337,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:31 "
+        },
+        {
+            "text": "So, good job, team! ;) It was really nice talking to you.",
+            "id": 338,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:31 "
+        },
+        {
+            "text": "okay then! we stop here for tonight! nice chat! :).",
+            "id": 339,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "good night all!",
+            "id": 340,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "good night to everyone.",
+            "id": 341,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "ok...good night then :).",
+            "id": 342,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "good night.",
+            "id": 343,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "good night!",
+            "id": 344,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "leaves the room.",
+            "id": 345,
+            "user": "Mona-chat",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "leaves the room.",
+            "id": 346,
+            "user": "diana-wiki",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "leaves the room.",
+            "id": 347,
+            "user": "cristi-wave",
+            "date": "1900-01-01 01:32 "
+        },
+        {
+            "text": "leaves the room.",
+            "id": 348,
+            "user": "stefan-blog",
+            "date": "1900-01-01 01:33 "
+        },
+        {
+            "text": "leaves the room.",
+            "id": 349,
+            "user": "corina-forum",
+            "date": "1900-01-01 01:33 "
         }
     ]
 }

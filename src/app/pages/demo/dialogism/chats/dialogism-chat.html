@@ -1,0 +1,69 @@
+<div>
+    
+    <div class="row chat-voices-container" *ngIf="voicesLoaded">
+        <div class="col-xs-8">
+            <table class="table table-striped table-bordered mb-4">
+                <thead>
+                    <tr>
+                      <th scope="col">Date</th>
+                      <th scope="col">Username</th>
+                      <th scope="col">Utterance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let text of htmlTexts">
+                        <td>{{text.date}}</td>
+                        <td>{{text.user}}</td>
+                        <td><span [innerHTML]="text.safeHtml"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="svgContainerDialogismChats" style="margin: 10px 10px;" *ngIf="voicesLoaded">
+            <svg id="svg-dialogism-chats" width="0" height="0" >
+                <path *ngFor="let path of drawedPaths"
+                    id="{{path.id}}"
+                    d="M0 0"             
+                    stroke-width="0.1em"
+                    attr.stroke="{{path.color}}"
+                    style="fill:none;"/>
+            </svg>
+        </div>
+    </div>
+
+    <!--<div class="row" *ngIf="voicesLoaded">
+        <div class="col-xs-6">
+            <table class="table table-striped table-bordered mb-4">
+                <thead>
+                    <tr>
+                      <th [attr.rowspan]="2">User</th>
+                      <th [attr.colspan]="htmlTexts.length">Uterances</th>
+                    </tr>
+                    <tr>
+                        <th *ngFor="let utterance of htmlTexts">{{utterance.id}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of groupedTextsByUser | keyvalue">
+                        <th>{{user.key}}</th>
+                        <td *ngFor="let utterance of htmlTexts">
+                            <div [innerHTML]="getChainsForUserBySentence(user.value, utterance.id)"></div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="svgContainerDialogismChats" style="margin: 10px 10px;" *ngIf="voicesLoaded">
+            <svg id="svg-dialogism-chats" width="0" height="0" >
+                <path *ngFor="let path of drawedPaths"
+                    id="{{path.id}}"
+                    d="M0 0"             
+                    stroke-width="0.1em"
+                    attr.stroke="{{path.color}}"
+                    style="fill:none;"/>
+            </svg>
+        </div>
+    </div>-->
+
+</div>

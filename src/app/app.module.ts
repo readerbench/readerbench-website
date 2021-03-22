@@ -85,6 +85,7 @@ import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 import {MatSliderModule} from '@angular/material/slider';
 import { AtesComponent } from './pages/projects/ates/ates.component';
 import {DialogismComponent} from "./pages/demo/dialogism/dialogism";
+import {DialogismChatComponent} from "./pages/demo/dialogism/chats/dialogism-chat";
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -155,7 +156,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ExperimentsMenuComponent,
     AtesComponent,
     MultiDocumentHierarchicalViewComponent,
-      DialogismComponent
+      DialogismComponent,
+      DialogismChatComponent
   ],
   imports: [
     BrowserModule,

@@ -1,16 +1,16 @@
-import { DOCUMENT } from "@angular/common";
-import { Component, Inject, OnInit, ViewEncapsulation } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
-import { isEmpty } from "underscore";
+import { ApiRequestService } from "../../api-request.service";
 declare var require: any;
-import { ApiRequestService } from "../api-request.service";
 
 interface Text {
     text: string;
     id: number,
     safeHtml: SafeHtml,
-    paragraphId: number
+    user: string,
+    date: string,
+    chains: string[];
 }
 interface Voice {
     name: string;
@@ -23,49 +23,38 @@ interface NGram {
     name: string,
     identifier: number;
 }
-interface Level {
-    id: string;
-    description: string;
-}
-
-interface Document {
-    text: string;
-}
 
 @Component({
-    selector: 'dialogism',
-    styleUrls: ['./dialogism.css'],
-    templateUrl: './dialogism.html',
+    selector: 'dialogism-chat',
+    styleUrls: ['./dialogism-chat.css'],
+    templateUrl: './dialogism-chat.html',
     providers: [ApiRequestService],
     encapsulation: ViewEncapsulation.None,
   })
-  export class DialogismComponent implements OnInit{
+  export class DialogismChatComponent implements OnInit{
 
     constructor(private apiRequestService: ApiRequestService, 
-        private sanitizer:DomSanitizer, @Inject(DOCUMENT) document) {
+        private sanitizer:DomSanitizer) {
     }
 
-    private levels = [{id: 'sentence', description: 'Sentence'}, {id: 'paragraph', description: 'Paragraph'}]
-    private selectedLevel: Level;
-    private inputText: Document = {text: ''};
     private texts: Text[] = [];
     private htmlTexts: Text[] = [];
     private voices: Voice[] = [];
     private voicesLoaded: Boolean =  false;
     private colors = [];
-    private groupedSentences = [];
     private paths = [];
     private drawedPaths = [];
     private showPath: Boolean = false;
+    private groupedTextsByUser = [];
  
     ngOnInit() {
-        this.selectedLevel = this.levels[0];
-        
-    }
 
-    private processDialogism() {
-        this.getTexts(this.selectedLevel.id, this.inputText.text);
-        this.getVoices(this.selectedLevel.id, this.inputText.text);
+        this.getTexts();
+        this.getVoices();
+
+        console.log(this.groupedTextsByUser);
+        console.log(this.htmlTexts);
+        
     }
 
     clearData() {
@@ -77,7 +66,6 @@ interface Document {
 
         this.clearData();
         this.showVoices();
-        //this.showPath = true;
         //draw paths
         var _this = this;
         setTimeout(function (){
@@ -99,6 +87,7 @@ interface Document {
             //console.log("voice: " + JSON.stringify(selectedVoice));
             selectedVoice.ngrams.forEach(ngram => {
 
+                //var ngramName = ngram.name.replace("'",  "i");
                 var ngramId = selectedVoice.name+"-"+ngram.name+"-"+ngram.identifier;
                 var selectedTexts = this.htmlTexts.filter(function(text) {
                     return text.id == ngram.identifier;
@@ -114,6 +103,7 @@ interface Document {
                     if (indexOf == -1) {
                         selectedText.text = selectedText.text.replace(ngram.name, ' <span id="' + ngramId + '" style="color: ' + voiceColor + ';"><b>'+ngram.name+'</b></span>');
                     }
+                    selectedText.chains.push('<span id="' + ngramId + '" style="color: ' + voiceColor + ';"><b>'+ngram.name+'</b></span>');
                     
                 });
                 points.push(ngramId);
@@ -128,12 +118,12 @@ interface Document {
             text.safeHtml = this.sanitizer.bypassSecurityTrustHtml(text.text);
         });
 
-        this.groupByParagraph();
+        this.groupByUser();
     
     }
 
-    private groupByParagraph() {
-        this.groupedSentences = this.groupBy(this.htmlTexts, 'paragraphId');
+    private groupByUser() {
+        this.groupedTextsByUser = this.groupBy(this.htmlTexts, 'user');
     }
 
     private groupBy(objectArray, property) {
@@ -148,71 +138,59 @@ interface Document {
         }, {});
     }
 
-    private getVoices(level, documentText) {
+    private getVoices() {
         this.drawedPaths = [];
-        // this.apiRequestService.setApiService('dialogism-voices');
-        // const process = this.apiRequestService.process({
-        //     level: level,
-        //     text: documentText
-        // });
-        // process.subscribe(response => {
-            let response = require('assets/dialogism/chains.json');
-            response.data.forEach(voice => {
-                
-                //var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                var randomColor = require('randomcolor');
-                var color = randomColor({luminosity: 'dark'});
-                this.colors.push(color);
-
-                this.voices.push({
-                    name: voice.name,
-                    id: voice.id,
-                    ngrams: voice.nGrams,
-                    selected: true,
-                    color: color
-                });
-            });
+        
+        let response = require('assets/dialogism/chains.json');
+        response.data.forEach(voice => {
             
-            this.voices.forEach(selectedVoice => {
-                var points = [];
-                var voiceColor = selectedVoice.color;//this.colors[selectedVoice.id-1];
-                selectedVoice.ngrams.forEach(ngram => {
-                    var ngramId = selectedVoice.name+"-"+ngram.name+"-"+ngram.identifier;
-                    points.push(ngramId);
-                });
-                for (var i = 0; i < points.length-1; i++) {
-                    this.drawedPaths.push({color: voiceColor, id: 'voicePath-'+points[i]+points[i+1]});
-                }
-            })
+            //var randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            var randomColor = require('randomcolor');
+            var color = randomColor({luminosity: 'dark'});
+            this.colors.push(color);
 
-            this.showVoices();
-            var _this = this;
-            setTimeout(function (){
-                _this.connectAll();
-            }, 5000);
-        // });
+            this.voices.push({
+                name: voice.name,
+                id: voice.id,
+                ngrams: voice.nGrams,
+                selected: true,
+                color: color
+            });
+        });
+        
+        this.voices.forEach(selectedVoice => {
+            var points = [];
+            var voiceColor = selectedVoice.color;//this.colors[selectedVoice.id-1];
+            selectedVoice.ngrams.forEach(ngram => {
+                var ngramId = selectedVoice.name+"-"+ngram.name+"-"+ngram.identifier;
+                points.push(ngramId);
+            });
+            for (var i = 0; i < points.length-1; i++) {
+                this.drawedPaths.push({color: voiceColor, id: 'voicePath-'+points[i]+points[i+1]});
+            }
+        })
+
+        this.showVoices();
+        var _this = this;
+        setTimeout(function (){
+            _this.connectAll();
+        }, 5000);
         this.voicesLoaded = true;
     }
 
-    private getTexts(level, documentText) {
-        // this.apiRequestService.setApiService('dialogism-texts');
-        // const process = this.apiRequestService.process({
-        //     level: level,
-        //     text: documentText
-        // });
-        // process.subscribe(response => {
+    private getTexts() {
         let response = require('assets/dialogism/sentences.json');
-            response.data.forEach(text => {
-                this.texts.push({
-                    id: text.id,
-                    text: text.text,
-                    safeHtml: this.sanitizer.bypassSecurityTrustHtml(text.text),
-                    paragraphId: text.paragraphId
-                });
+        response.data.forEach(text => {
+            this.texts.push({
+                id: text.id,
+                text: text.text,
+                safeHtml: this.sanitizer.bypassSecurityTrustHtml(text.text),
+                user: text.user,
+                date: text.date,
+                chains: []
             });
-            this.htmlTexts = this.copyData(this.texts);
-
-        // });
+        });
+        this.htmlTexts = this.copyData(this.texts);
     }
 
     private copyData(source) {
@@ -222,7 +200,9 @@ interface Document {
                 id: element.id,
                 text: element.text,
                 safeHtml: this.sanitizer.bypassSecurityTrustHtml(element.text),
-                paragraphId: element.paragraphId
+                user: element.user,
+                date: element.date,
+                chains: []
             });
         });
 
@@ -233,7 +213,7 @@ interface Document {
         // connect all the paths you want!
         this.paths.forEach(path => {
             //svg, path, start, end
-            this.connectElements($("#svg1"), $("#" + path.id), $("#"+path.source),   $("#"+path.target));
+            this.connectElements($("#svg-dialogism-chats"), $("#" + path.id), $("#"+path.source),   $("#"+path.target));
         })
     }
 
@@ -249,7 +229,7 @@ private drawPath(svg, path, startX, startY, endX, endY) {
     // get the path's stroke width (if one wanted to be  really precize, one could use half the stroke size)
     var stroke =  parseFloat(path.attr("stroke-width"));
     // check if the svg is big enough to draw the path, if not, set heigh/width
-    if (svg.attr("height") <  endY)                 svg.attr("height", endY + 150);
+    if (svg.attr("height") <  endY)                 svg.attr("height", endY + 3000);
     if (svg.attr("width" ) < (startX + stroke) )    svg.attr("width", (startX + stroke));
     if (svg.attr("width" ) < (endX   + stroke) )    svg.attr("width", (endX   + stroke));
     
@@ -279,18 +259,58 @@ private drawPath(svg, path, startX, startY, endX, endY) {
                     " H" + (endX - delta*this.signum(deltaX)) + 
                     " A" + delta + " " +  delta + " 0 0 " + arc2 + " " + endX + " " + (startY + 3*delta) +
                     " V" + endY );
+
 }
 
+private drawArcPath(svg, path, startX, startY, endX, endY) {
+    // get the path's stroke width (if one wanted to be  really precize, one could use half the stroke size)
+    var stroke =  parseFloat(path.attr("stroke-width"));
+    // check if the svg is big enough to draw the path, if not, set heigh/width
+    if (svg.attr("height") <  endY)                 svg.attr("height", endY + 150);
+    if (svg.attr("width" ) < (startX + stroke) )    svg.attr("width", (startX + stroke));
+    if (svg.attr("width" ) < (endX   + stroke) )    svg.attr("width", (endX   + stroke));
+    
+    var deltaX = (endX - startX) * 0.15;
+    var deltaY = (endY - startY) * 0.15;
+    // for further calculations which ever is the shortest distance
+    var delta  =  deltaY < this.absolute(deltaX) ? deltaY : this.absolute(deltaX);
+    //var delta  =  this.absolute(deltaY) < this.absolute(deltaX) ? this.absolute(deltaY) : this.absolute(deltaX);
+
+    if (deltaY < 0) {
+        delta = this.absolute(deltaY);
+    }
+
+    // set sweep-flag (counter/clock-wise)
+    // if start element is closer to the left edge,
+    // draw the first arc counter-clockwise, and the second one clock-wise
+    var arc1 = 0; var arc2 = 1;
+    if (startX > endX) {
+        arc1 = 1;
+        arc2 = 0;
+    }
+    // draw tha pipe-like path
+    // mid-point of line:
+    var mpx = (startX + endX) * 0.5;
+    var mpy = (startY + endY) * 0.5;
+
+    // angle of perpendicular to line:
+    var theta = Math.atan2(endY - startY, endX - startX) - Math.PI / 2;
+
+    // distance of control point from mid-point of line:
+    var offset = 30;
+
+    // location of control point:
+    var c1x = mpx + offset * Math.cos(theta);
+    var c1y = mpy + offset * Math.sin(theta);
+    var curve = "M" + startX + " " + startY + " Q " + c1x + " " + c1y + " " + endX + " " + endY;
+    path.attr("d",  curve);
+}
+
+
 private connectElements(svg, path, startElem, endElem) {
-    var svgContainer = $("#svgContainer");//document.getElementById('svgContainer');
+    var svgContainer = $("#svgContainerDialogismChats");//document.getElementById('svgContainer');
     
     // if first element is lower than the second, swap!
-    console.log("path");
-    console.log(path);
-    console.log("start");
-    console.log(startElem);
-    console.log("end");
-    console.log(JSON.stringify(endElem));
     if(startElem.offset().top > endElem.offset().top){
         var temp = startElem;
         startElem = endElem;
@@ -319,18 +339,19 @@ private connectElements(svg, path, startElem, endElem) {
 
 }
 
-    private openTab(tabName) {
-        let tabcontent;
-        tabcontent = document.getElementsByClassName('tabcontent-dialogism');
-        for (let i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = 'none';
-        document.getElementById("button-" + tabcontent[i].id).style.fontWeight = 'normal';
+    private getChainsForUserBySentence(sentences, id) {
+        var selectedSentence = sentences.filter(function(sentence) {
+            return sentence.id == id;
+        });
+        if(selectedSentence.length > 0) {
+            var result = '';
+            selectedSentence[0].chains.forEach(element => {
+                result += element + '</br>';
+            });
+            return this.sanitizer.bypassSecurityTrustHtml(result);
         }
-        document.getElementById(tabName).style.display = 'block';
-        document.getElementById("button-" + tabName).style.fontWeight = 'bold';
 
+        return '';
     }
-
-   
 
 }
