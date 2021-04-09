@@ -28,9 +28,6 @@
                   <textarea id="input_text" class="form-control" [(ngModel)]="formData.text" rows="12"></textarea>
                 </div>
               </div>
-              <app-demo-common-fields [formData]="formData" [language]="language" [languages]="languages"
-                (advancedEmitter)="advancedEmitter($event)" (languageEmitter)="languageEmitter($event)">
-              </app-demo-common-fields>
               <div class="row top-buffer">
                 <div class="col-xs-6 col-md-4 col-lg-3">
                   <label for="input_granularity">Granularity
@@ -38,7 +35,7 @@
                   </label>
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-3">
-                  <select id="input_granularity" class="form-control" [(ngModel)]="formData.granularity">
+                  <select id="input_granularity" class="form-control" [(ngModel)]="formData.granularity" disabled>
                     <option *ngFor="let option of granularities" [ngValue]="option">{{option.name}}</option>
                   </select>
                 </div>
@@ -67,7 +64,17 @@
                 </div>
                 <div class="row">
                   <div class="col-xs-12 col-md-12">
-                    <div id="sentiment-list">
+                    <div id="progress-container">
+                      <p class="progress-label">
+                        Sentiment
+                      </p>
+                      <div class="progress">
+                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="sentimentScore"
+                          [attr.aria-valuemin]="0" [attr.aria-valuemax]="1" [style.width.%]="sentimentScore*100">{{sentimentScore}}
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div id="sentiment-list">
                       <ul>
                         <li *ngFor="let element of response.data">
                           {{element.text}}
@@ -96,7 +103,7 @@
                           </ul>
                         </li>
                       </ul>
-                    </div>
+                    </div> -->
                   </div>
                 </div>
               </div>

@@ -20,6 +20,7 @@ interface Granularity {
 
 export class SentimentAnalysisComponent implements OnInit {
 
+  sentimentScore: number;
   componentTitle: string;
   formData: any;
   @Input() advanced: boolean;
@@ -77,7 +78,7 @@ export class SentimentAnalysisComponent implements OnInit {
 
     const data = {
       'text': this.formData['text'],
-      'language': this.formData['language'].value,
+      'lang': this.formData['language'].value,
       'lsa': this.formData['lsa'].value,
       'lda': this.formData['lda'].value,
       'w2v': this.formData['word2vec'].value,
@@ -97,6 +98,7 @@ export class SentimentAnalysisComponent implements OnInit {
       }
 
       this.showResults = true;
+      this.sentimentScore = response.data.prediction;
     });
   }
 
