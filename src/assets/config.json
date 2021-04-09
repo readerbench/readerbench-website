@@ -13,7 +13,7 @@
   "pathDelimiter": "/",
 
   "apiEndpoints": {
-    "sentimentAnalysis": "sentiment-analysis",
+    "sentimentAnalysis": "v2/sentiment",
     "curriculumRecommendation": "v2/mass-customization",
     "textualComplexity": "v2/textual-complexity",
     "keywords": "v2/keywords",

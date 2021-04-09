@@ -26,7 +26,7 @@ export let SentimentAnalysisData = {
         }
     ],
     'defaultGranularity': function () {
-        return SentimentAnalysisData['granularities'][2];
+        return SentimentAnalysisData['granularities'][0];
     },
     'languages': [
         DefaultInputData.languages[0],  // en
