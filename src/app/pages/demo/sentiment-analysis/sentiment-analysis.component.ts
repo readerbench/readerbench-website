@@ -43,10 +43,8 @@ export class SentimentAnalysisComponent implements OnInit {
     this.granularities = SentimentAnalysisData.granularities;
 
     this.formData = {
-      'text': DefaultInputData.text,
+      'text': SentimentAnalysisData.text,
       'language': this.language,
-      'pos-tagging': DefaultInputData.defaultPosTaggingOption(),
-      'dialogism': DefaultInputData.defaultDialogismOption(),
       'granularity': SentimentAnalysisData.defaultGranularity(),
     };
     this.loadSemanticModels();
@@ -58,8 +56,6 @@ export class SentimentAnalysisComponent implements OnInit {
 
   loadSemanticModels() {
     const languageValue = this.language.value;
-    this.formData['lsa'] = DefaultInputData.defaultMetricOptions.lsa[languageValue]();
-    this.formData['lda'] = DefaultInputData.defaultMetricOptions.lda[languageValue]();
     this.formData['word2vec'] = DefaultInputData.defaultMetricOptions.word2vec[languageValue]();
   }
 
@@ -79,11 +75,6 @@ export class SentimentAnalysisComponent implements OnInit {
     const data = {
       'text': this.formData['text'],
       'lang': this.formData['language'].value,
-      'lsa': this.formData['lsa'].value,
-      'lda': this.formData['lda'].value,
-      'w2v': this.formData['word2vec'].value,
-      'pos-tagging': this.formData['pos-tagging'],
-      'dialogism': this.formData['dialogism'],
       'granularity': this.formData['granularity'].value,
     };
 
