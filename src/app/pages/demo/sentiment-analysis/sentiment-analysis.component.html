@@ -30,12 +30,24 @@
               </div>
               <div class="row top-buffer">
                 <div class="col-xs-6 col-md-4 col-lg-3">
+                  <label for="input_language">Language
+                    <span class="required">*</span>
+                  </label>
+                </div>
+                <div class="col-xs-6 col-md-4 col-lg-3">
+                  <select id="input_language" class="form-control" [(ngModel)]="formData.language">
+                    <option *ngFor="let option of languages" [ngValue]="option">{{option.name}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row top-buffer">
+                <div class="col-xs-6 col-md-4 col-lg-3">
                   <label for="input_granularity">Granularity
                     <span class="required">*</span>
                   </label>
                 </div>
                 <div class="col-xs-6 col-md-4 col-lg-3">
-                  <select id="input_granularity" class="form-control" [(ngModel)]="formData.granularity" disabled>
+                  <select id="input_granularity" class="form-control" [(ngModel)]="formData.granularity">
                     <option *ngFor="let option of granularities" [ngValue]="option">{{option.name}}</option>
                   </select>
                 </div>
@@ -62,19 +74,29 @@
                     <h4>Sentiment analysis</h4>
                   </div>
                 </div>
-                <div class="row">
-                  <div class="col-xs-12 col-md-12">
-                    <div id="progress-container">
-                      <p class="progress-label">
-                        Sentiment
-                      </p>
-                      <div class="progress">
-                        <div class="progress-bar" role="progressbar" [attr.aria-valuenow]="sentimentScore"
-                          [attr.aria-valuemin]="0" [attr.aria-valuemax]="1" [style.width.%]="sentimentScore*100">{{sentimentScore}}
-                        </div>
-                      </div>
+                <div class="row form-group" *ngFor="let prediction of response.data.predictions">
+                  <div id="progress-container">
+                    <div class="progress-label col-xs-12 col-md-7">
+                      {{prediction.text}}
                     </div>
-                    <!-- <div id="sentiment-list">
+                    <div class="progress col-xs-12 col-md-5">
+                      <div class="progress-bar progress-bar-striped"
+                        [class.progress-bar-danger]="prediction.prediction < .33"
+                        [class.progress-bar-warning]="prediction.prediction >= .33 && prediction.prediction < .66"
+                        [class.progress-bar-success]="prediction.prediction >= .66" role="progressbar"
+                        [attr.aria-valuenow]="prediction.prediction" [attr.aria-valuemin]="0" [attr.aria-valuemax]="1"
+                        [style.width.%]="prediction.prediction*100">
+                        {{prediction.prediction}}&nbsp;
+                      </div>
+                      <span class="glyphicon glyphicon-thumbs-down pull-right" aria-hidden="true"
+                        *ngIf="prediction.prediction < .33"></span>
+                      <span class="glyphicon glyphicon-hand-right pull-right" aria-hidden="true"
+                        *ngIf="prediction.prediction >= .33 && prediction.prediction < .66"></span>
+                      <span class="glyphicon glyphicon-thumbs-up pull-right" aria-hidden="true"
+                        *ngIf="prediction.prediction >= .66" role="progressbar"></span>
+                    </div>
+                  </div>
+                  <!-- <div id="sentiment-list">
                       <ul>
                         <li *ngFor="let element of response.data">
                           {{element.text}}
@@ -104,7 +126,6 @@
                         </li>
                       </ul>
                     </div> -->
-                  </div>
                 </div>
               </div>
             </div>
