@@ -18,18 +18,20 @@
                   <div class="sign-picture-wrapper">
                     <div class="sign-picture">
                       <img src="assets/img/UPB.jpg" alt="location picture" />
+                      <h2>Core Team</h2>
                     </div>
                   </div>
                 </div>
                 <div class="people-list-wrapper">
-                  <div class="people-list" *ngFor="let people of peopleListUPB">
+                  <div class="people-list" *ngFor="let people of peopleListCore">
                     <div class="people-name">
                       <span>{{people.name}}</span>
                     </div>
                     <div class="people-social">
                       <ul class="social-block">
                         <li>
-                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}" target="_blank">
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
                             <i class="fa fa-eraser"></i>
                           </a>
                           <a *ngIf="!people.dblplink" disabled="disabled">
@@ -37,7 +39,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}" href="{{people.scholarlink}}" target="_blank">
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
                             <i class="fa fa-graduation-cap"></i>
                           </a>
                           <a *ngIf="!people.scholarlink" disabled="disabled">
@@ -45,7 +48,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}" href="{{people.linkedin}}" target="_blank">
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin"></i>
                           </a>
                           <a *ngIf="!people.linkedin" disabled="disabled">
@@ -53,7 +57,64 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}" href="{{people.researchgate}}" target="_blank">
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
+                            <i class="fa fa-file-text"></i>
+                          </a>
+                          <a *ngIf="!people.researchgate" disabled="disabled">
+                            <i class="fa fa-file-text inactive"></i>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="people-container">
+                <div class="header">
+                  <div class="sign-picture-wrapper">
+                    <div class="sign-picture">
+                      <h2>PhD Students</h2>
+                    </div>
+                  </div>
+                </div>
+                <div class="people-list-wrapper">
+                  <div class="people-list" *ngFor="let people of peopleListStudents">
+                    <div class="people-name">
+                      <span>{{people.name}}</span>
+                    </div>
+                    <div class="people-social">
+                      <ul class="social-block">
+                        <li>
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
+                            <i class="fa fa-eraser"></i>
+                          </a>
+                          <a *ngIf="!people.dblplink" disabled="disabled">
+                            <i class="fa fa-eraser inactive"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
+                            <i class="fa fa-graduation-cap"></i>
+                          </a>
+                          <a *ngIf="!people.scholarlink" disabled="disabled">
+                            <i class="fa fa-graduation-cap inactive"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
+                            <i class="fa fa-linkedin"></i>
+                          </a>
+                          <a *ngIf="!people.linkedin" disabled="disabled">
+                            <i class="fa fa-linkedin inactive"></i>
+                          </a>
+                        </li>
+                        <li>
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
                             <i class="fa fa-file-text"></i>
                           </a>
                           <a *ngIf="!people.researchgate" disabled="disabled">
@@ -81,7 +142,8 @@
                     <div class="people-social">
                       <ul class="social-block">
                         <li>
-                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}" target="_blank">
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
                             <i class="fa fa-eraser"></i>
                           </a>
                           <a *ngIf="!people.dblplink" disabled="disabled">
@@ -89,7 +151,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}" href="{{people.scholarlink}}" target="_blank">
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
                             <i class="fa fa-graduation-cap"></i>
                           </a>
                           <a *ngIf="!people.scholarlink" disabled="disabled">
@@ -97,7 +160,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}" href="{{people.linkedin}}" target="_blank">
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin"></i>
                           </a>
                           <a *ngIf="!people.linkedin" disabled="disabled">
@@ -105,7 +169,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}" href="{{people.researchgate}}" target="_blank">
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
                             <i class="fa fa-file-text"></i>
                           </a>
                           <a *ngIf="!people.researchgate" disabled="disabled">
@@ -133,7 +198,8 @@
                     <div class="people-social">
                       <ul class="social-block">
                         <li>
-                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}" target="_blank">
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
                             <i class="fa fa-eraser"></i>
                           </a>
                           <a *ngIf="!people.dblplink" disabled="disabled">
@@ -141,7 +207,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}" href="{{people.scholarlink}}" target="_blank">
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
                             <i class="fa fa-graduation-cap"></i>
                           </a>
                           <a *ngIf="!people.scholarlink" disabled="disabled">
@@ -149,7 +216,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}" href="{{people.linkedin}}" target="_blank">
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin"></i>
                           </a>
                           <a *ngIf="!people.linkedin" disabled="disabled">
@@ -157,7 +225,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}" href="{{people.researchgate}}" target="_blank">
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
                             <i class="fa fa-file-text"></i>
                           </a>
                           <a *ngIf="!people.researchgate" disabled="disabled">
@@ -185,7 +254,8 @@
                     <div class="people-social">
                       <ul class="social-block">
                         <li>
-                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}" target="_blank">
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
                             <i class="fa fa-eraser"></i>
                           </a>
                           <a *ngIf="!people.dblplink" disabled="disabled">
@@ -193,7 +263,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}" href="{{people.scholarlink}}" target="_blank">
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
                             <i class="fa fa-graduation-cap"></i>
                           </a>
                           <a *ngIf="!people.scholarlink" disabled="disabled">
@@ -201,7 +272,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}" href="{{people.linkedin}}" target="_blank">
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin"></i>
                           </a>
                           <a *ngIf="!people.linkedin" disabled="disabled">
@@ -209,7 +281,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}" href="{{people.researchgate}}" target="_blank">
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
                             <i class="fa fa-file-text"></i>
                           </a>
                           <a *ngIf="!people.researchgate" disabled="disabled">
@@ -237,7 +310,8 @@
                     <div class="people-social">
                       <ul class="social-block">
                         <li>
-                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}" target="_blank">
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
                             <i class="fa fa-eraser"></i>
                           </a>
                           <a *ngIf="!people.dblplink" disabled="disabled">
@@ -245,7 +319,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}" href="{{people.scholarlink}}" target="_blank">
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
                             <i class="fa fa-graduation-cap"></i>
                           </a>
                           <a *ngIf="!people.scholarlink" disabled="disabled">
@@ -253,7 +328,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}" href="{{people.linkedin}}" target="_blank">
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin"></i>
                           </a>
                           <a *ngIf="!people.linkedin" disabled="disabled">
@@ -261,7 +337,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}" href="{{people.researchgate}}" target="_blank">
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
                             <i class="fa fa-file-text"></i>
                           </a>
                           <a *ngIf="!people.researchgate" disabled="disabled">
@@ -289,7 +366,8 @@
                     <div class="people-social">
                       <ul class="social-block">
                         <li>
-                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}" target="_blank">
+                          <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}" href="{{people.dblplink}}"
+                            target="_blank">
                             <i class="fa fa-eraser"></i>
                           </a>
                           <a *ngIf="!people.dblplink" disabled="disabled">
@@ -297,7 +375,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}" href="{{people.scholarlink}}" target="_blank">
+                          <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                            href="{{people.scholarlink}}" target="_blank">
                             <i class="fa fa-graduation-cap"></i>
                           </a>
                           <a *ngIf="!people.scholarlink" disabled="disabled">
@@ -305,7 +384,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}" href="{{people.linkedin}}" target="_blank">
+                          <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                            href="{{people.linkedin}}" target="_blank">
                             <i class="fa fa-linkedin"></i>
                           </a>
                           <a *ngIf="!people.linkedin" disabled="disabled">
@@ -313,7 +393,8 @@
                           </a>
                         </li>
                         <li>
-                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}" href="{{people.researchgate}}" target="_blank">
+                          <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                            href="{{people.researchgate}}" target="_blank">
                             <i class="fa fa-file-text"></i>
                           </a>
                           <a *ngIf="!people.researchgate" disabled="disabled">

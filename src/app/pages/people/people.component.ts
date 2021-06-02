@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeopleUPB, PeopleLSE, PeopleLMU, PeopleASU, PeopleGSU, PeoplePrevious } from './people.data';
+import { PeopleCore, PeopleStudents, PeopleLSE, PeopleLMU, PeopleASU, PeopleGSU, PeoplePrevious } from './people.data';
 
 @Component({
   selector: 'app-people',
@@ -8,7 +8,8 @@ import { PeopleUPB, PeopleLSE, PeopleLMU, PeopleASU, PeopleGSU, PeoplePrevious }
 })
 export class PeopleComponent implements OnInit {
 
-  peopleListUPB: any;
+  peopleListCore: any;
+  peopleListStudents: any;
   peopleListLSE: any;
   peopleListLMU: any;
   peopleListASU: any;
@@ -19,7 +20,8 @@ export class PeopleComponent implements OnInit {
 
   ngOnInit() {
 
-    this.peopleListUPB = PeopleUPB;
+    this.peopleListCore = PeopleCore;
+    this.peopleListStudents = PeopleStudents;
     this.peopleListLSE = PeopleLSE;
     this.peopleListLMU = PeopleLMU;
     this.peopleListASU = PeopleASU;

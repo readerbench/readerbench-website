@@ -1,4 +1,4 @@
-export const PeopleUPB = [
+export const PeopleCore = [
     {
         name: 'Mihai Dascalu',
         picture: 'img/male.jpg',
@@ -36,15 +36,6 @@ export const PeopleUPB = [
         researchgate: 'https://www.researchgate.net/profile/Stefan_Ruseti'
     },
     {
-        name: 'Ionut Cristian Paraschiv',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: 'https://www.linkedin.com/in/ionutcristianparaschiv',
-        scholarlink: '',
-        dblplink: 'http://dblp1.uni-trier.de/pers/hd/p/Paraschiv:Ionut_Cristian',
-        researchgate: ''
-    },
-    {
         name: 'Traian Rebedea',
         picture: 'img/male.jpg',
         area: 'Software Development',
@@ -72,15 +63,6 @@ export const PeopleUPB = [
         researchgate: 'https://www.researchgate.net/profile/Dragos_Georgian_Corlatescu'
     },
     {
-        name: 'Teodor-Mihai Cotet',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: 'https://www.linkedin.com/in/cotet-teodor-00530b107',
-        scholarlink: '',
-        dblplink: 'https://dblp.uni-trier.de/pers/hd/c/Cotet:Teodor=Mihai',
-        researchgate: ''
-    },
-    {
         name: 'Maria-Dorinela Dascalu',
         picture: 'img/male.jpg',
         area: 'Software Development',
@@ -89,6 +71,26 @@ export const PeopleUPB = [
         dblplink: 'http://dblp.uni-trier.de/pers/hd/s/Sirbu:Maria=Dorinela',
         researchgate: 'https://www.researchgate.net/profile/Dorinela_Dascalu',
     },
+    {
+        name: 'Mihai Masala',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: '',
+        scholarlink: 'https://scholar.google.ro/citations?user=KDzBOtgAAAAJ&hl=en',
+        dblplink: 'https://dblp.uni-trier.de/pers/hd/m/Masala:Mihai',
+        researchgate: 'https://www.researchgate.net/profile/Mihai_Masala'
+    },
+    {
+        name: 'Laur Neagu',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/laur-neagu-b338184b',
+        scholarlink: '',
+        dblplink: 'https://dblp.org/pid/258/6203.html',
+        researchgate: 'https://www.researchgate.net/profile/Laur-Neagu-2',
+    },
+];
+export const PeopleStudents = [
     {
         name: 'Marilena Panaite',
         picture: 'img/male.jpg',
@@ -106,15 +108,6 @@ export const PeopleUPB = [
         scholarlink: 'https://scholar.google.com/citations?user=gaFXrrMAAAAJ&hl=en',
         dblplink: '',
         researchgate: 'https://www.researchgate.net/profile/Iulia_Pasov'
-    },
-    {
-        name: 'Mihai Masala',
-        picture: 'img/male.jpg',
-        area: 'Software Development',
-        linkedin: '',
-        scholarlink: 'https://scholar.google.ro/citations?user=KDzBOtgAAAAJ&hl=en',
-        dblplink: 'https://dblp.uni-trier.de/pers/hd/m/Masala:Mihai',
-        researchgate: 'https://www.researchgate.net/profile/Mihai_Masala'
     },
     {
         name: 'Robert-Mihai Botarleanu',
@@ -220,6 +213,24 @@ export const PeopleGSU = [
         researchgate: ''
     }];
 export const PeoplePrevious = [
+    {
+        name: 'Ionut Cristian Paraschiv',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/ionutcristianparaschiv',
+        scholarlink: '',
+        dblplink: 'http://dblp1.uni-trier.de/pers/hd/p/Paraschiv:Ionut_Cristian',
+        researchgate: ''
+    },
+    {
+        name: 'Teodor-Mihai Cotet',
+        picture: 'img/male.jpg',
+        area: 'Software Development',
+        linkedin: 'https://www.linkedin.com/in/cotet-teodor-00530b107',
+        scholarlink: '',
+        dblplink: 'https://dblp.uni-trier.de/pers/hd/c/Cotet:Teodor=Mihai',
+        researchgate: ''
+    },
     {
         name: 'Remus Mazilu',
         picture: 'img/male.jpg',
