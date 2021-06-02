@@ -14,11 +14,28 @@ export let DemoMenuItemsData = [
         altText: 'Textual Complexity with ReaderBench framework'
     },
     {
+        name: 'Sentiment Analysis',
+        href: 'demo/sentiment-analysis',
+        description: 'Sentiment Analysis',
+        image: 'assets/images/demo_sentiment_analysis.png',
+        altText: 'Sentiment Analysis with ReaderBench framework'
+    },
+    {
         name: 'Keywords',
         href: 'demo/keywords',
         description: 'Keywords',
         image: 'assets/images/demo_keywords.png',
         altText: 'Keywords extraction with ReaderBench framework'
+    },
+    {
+        name: 'CSCL',
+        href: 'demo/cscl',
+        description: 'Starting from dialogism and a cohesion-based model of \n\
+    discourse, this tool uses two computational models for assessing \n\
+    participation and collaboration.',
+        image: 'assets/images/demo_cscl.png',
+        altText: 'CSCL conversation analysis with ReaderBench framework',
+        language: 'English, French, Romanian'
     },
     //     {
     //         name: 'Semantic Annotation',
@@ -38,24 +55,14 @@ export let DemoMenuItemsData = [
     //         image: 'assets/images/demo_self_explanation.png',
     //         altText: 'Self explanation with ReaderBench framework'
     //     },
-    {
-        name: 'CSCL',
-        href: 'demo/cscl',
-        description: 'Starting from dialogism and a cohesion-based model of \n\
-    discourse, this tool uses two computational models for assessing \n\
-    participation and collaboration.',
-        image: 'assets/images/demo_cscl.png',
-        altText: 'CSCL conversation analysis with ReaderBench framework',
-        language: 'English, French, Romanian'
-    },
-//     {
-//         name: 'CV Analysis',
-//         href: 'demo/cv-analysis',
-//         description: 'Given a Curriculum Vitae, specific lexical and visual \n\
-// analyses are performed.',
-//         image: 'assets/images/demo_cv.png',
-//         altText: 'Curriculum Vitae Analysis with the help of the ReaderBench framework'
-//     },
+    //     {
+    //         name: 'CV Analysis',
+    //         href: 'demo/cv-analysis',
+    //         description: 'Given a Curriculum Vitae, specific lexical and visual \n\
+    // analyses are performed.',
+    //         image: 'assets/images/demo_cv.png',
+    //         altText: 'Curriculum Vitae Analysis with the help of the ReaderBench framework'
+    //     },
     // {
     //     name: 'LAK Corpus',
     //     href: 'demo/lak',
@@ -80,33 +87,26 @@ export let DemoMenuItemsData = [
         image: 'assets/images/demo_cm.png',
         altText: 'Automated Model of Comprehension (AMoC)'
     },
-    {
-        name: 'Online Communities',
-        href: 'demo/community',
-        description: 'Online Communities',
-        image: 'assets/images/demo_communities.png',
-        altText: 'Online Communities'
-    },
-    {
-        name: 'Curriculum Recommendation',
-        href: 'demo/curriculum-recommendation',
-        description: 'Curriculum Recommendation',
-        image: 'assets/images/demo_curriculum.png',
-        altText: 'Curriculum Recommendation'
-    },
-    {
-        name: 'Sentiment Analysis',
-        href: 'demo/sentiment-analysis',
-        description: 'Sentiment Analysis',
-        image: 'assets/images/demo_sentiment_analysis.png',
-        altText: 'Sentiment Analysis with ReaderBench framework'
-    },
-    {
-        name: 'Essay Feedback',
-        href: 'demo/essay-feedback',
-        description: 'Essay Feedback',
-        image: 'assets/images/demo_essay_feedback.png',
-        altText: 'Essay Feedback with ReaderBench Framework',
-        language: 'Romanian'
-    },
+    // {
+    //     name: 'Online Communities',
+    //     href: 'demo/community',
+    //     description: 'Online Communities',
+    //     image: 'assets/images/demo_communities.png',
+    //     altText: 'Online Communities'
+    // },
+    // {
+    //     name: 'Curriculum Recommendation',
+    //     href: 'demo/curriculum-recommendation',
+    //     description: 'Curriculum Recommendation',
+    //     image: 'assets/images/demo_curriculum.png',
+    //     altText: 'Curriculum Recommendation'
+    // },
+    // {
+    //     name: 'Essay Feedback',
+    //     href: 'demo/essay-feedback',
+    //     description: 'Essay Feedback',
+    //     image: 'assets/images/demo_essay_feedback.png',
+    //     altText: 'Essay Feedback with ReaderBench Framework',
+    //     language: 'Romanian'
+    // },
 ];
