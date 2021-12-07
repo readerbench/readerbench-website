@@ -19,6 +19,16 @@ export let AtesData = {
         'Our aim is to increase the reading ease of resulted materials and to incrementally refine the user\'s writing style, transcending towards a higher writing proficiency.',
         'This objective will consider multiple experiments performed towards assessing text difficulty, before and after any automated adjustments are made.'
     ],
+    aoe: [
+        'Age of Acquisition (AoA) is a measure of word complexity which refers to the age at which a word is typically learned. AoA measures have shown strong correlations with reading comprehension, lexical decision times, and writing quality. AoA scores based on both adult and child data have limitations that allow for error in measurement, and increase the cost and effort to produce.',
+        'We introduce Age of Exposure (AoE) version 2, a novel method of expanding AoA word lists through training regressors to predict AoA scores. Word2vec word embeddings are trained on cumulatively increasing corpora of texts and are then used to generate word exposure trajectories by aligning the word2vec vector spaces. This method was used as a proxy for human exposure to new vocabulary terms in order to generate features of words that were then used to model the AoA scores. In addition, multiple regression models were trained to learn and generalize AoA word lists across multiple languages including English, German, French, and Spanish. Our approach allows for the estimation of AoA scores for words that are not found in the original lists, up to the majority of the target language’s vocabulary. Our method can be uniformly applied across multiple languages though the usage of parallel corpora and helps bridge the gap in the size of AoA word lists available for non-English languages. This effort is particularly important for efforts toward extending AI to languages with fewer resources and benchmarked corpora.'
+    ],
+    aes: [
+        'Designing learning materials tailored for each individual’s level of understanding is a challenging and arguably a crucial task, especially for students in earlier grades. Linguists underpinned a potential problem in educational systems related to a proper presentation of materials in increasing order of difficulty to learners; however, manual assessments are time-consuming and may be subject to conflicting points of view. We introduce an adaptation of the open source ReaderBench framework that now supports multilevel analyses of text characteristics, while integrating both textual complexity indices and state-of-the-art language models, namely BERT.'
+    ],
+    ts: [
+        'A key writing skill is the capability to clearly convey desired meaning using available linguistic knowledge. Consequently, writers must select from a large array of idioms, vocabulary terms that are semantically equivalent, and discourse features that simultaneously reflect content and allow readers to grasp meaning. In many cases, a simplified version of a text is needed to ensure comprehension on the part of a targeted audience (e.g., second language learners). To address this need, we propose an automated method to simplify texts based on paraphrasing. Specifically, we explore the potential for a deep learning model, previously used for machine translation, to learn a simplified version of the English language within the context of short phrases. The best model based on a Transformer architecture achieves a BLEU score of 64.71. We also evaluate this model’s capability to perform similar transformation to texts that were simplified by human experts at different levels.'
+    ],
     team: [
         {
             name: 'Mihai Dascalu',
@@ -28,15 +38,6 @@ export let AtesData = {
             scholarlink: 'https://scholar.google.com/citations?user=3L9yY8UAAAAJ&hl=en',
             dblplink: 'http://dblp1.uni-trier.de/pers/hd/d/Dascalu:Mihai',
             researchgate: 'https://www.researchgate.net/profile/Mihai_Dascalu'
-        },
-        {
-            name: 'Gabriel Gutu-Robu',
-            picture: 'img/male.jpg',
-            area: 'Software Development',
-            linkedin: 'https://www.linkedin.com/in/gabrielgutu',
-            scholarlink: 'https://scholar.google.com/citations?user=-pGqq7QAAAAJ&hl=en',
-            dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius',
-            researchgate: 'https://www.researchgate.net/profile/Gabriel_Gutu'
         },
         {
             name: 'Stefan Ruseti',
@@ -57,22 +58,108 @@ export let AtesData = {
             researchgate: 'https://www.researchgate.net/profile/Dragos_Georgian_Corlatescu'
         },
         {
-            name: 'Irina Toma',
+            name: 'Gabriel Gutu-Robu*',
+            tooltip: 'Withdrawn from the project',
+            picture: 'img/male.jpg',
+            area: 'Software Development',
+            linkedin: 'https://www.linkedin.com/in/gabrielgutu',
+            scholarlink: 'https://scholar.google.com/citations?user=-pGqq7QAAAAJ&hl=en',
+            dblplink: 'http://dblp.uni-trier.de/pers/hd/g/Gutu:Gabriel=Marius',
+            researchgate: 'https://www.researchgate.net/profile/Gabriel_Gutu'
+        },
+        {
+            name: 'Irina Toma*',
+            tooltip: 'Withdrawn from the project',
             picture: 'img/male.jpg',
             area: 'Software Development',
             linkedin: 'https://www.linkedin.com/in/irina-toma-b51146151/',
             scholarlink: 'https://scholar.google.com/citations?user=tJ8GnRUAAAAJ&hl=en',
             dblplink: 'http://dblp.uni-trier.de/pers/hd/t/Toma:Irina',
             researchgate: 'https://www.researchgate.net/profile/Irina_Toma'
-        },
+        }
     ],
     activities: [
-        'Gather relevant datasets',
-        'Build multi-lingual automated AoA models',
-        'Automated Essay Scoring',
-        'Automated Writing Evaluation',
-        'Text simplification',
-        'Dissemination of results',
+        {
+            name: 'A1. Gather relevant datasets',
+            status: 'Completed \n(Phase 1)'
+        },
+        {
+            name: 'A2. Build multi-lingual automated AoA models',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A2.1. Create baseline English model',
+            status: 'Completed (Phase 1)'
+        },
+        {
+            name: 'A2.2. Train AoA models for additional languages',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A2.3. Bridge word learning rates modeled by automated AoA scores across languages',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A3. Automated Essay Scoring',
+            status: 'Ongoing'
+        },
+
+        {
+            name: 'A3.1. Train models that combine ReaderBench textual complexity indices with word embeddings',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A3.2. Assess multi-lingual AES models',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A3.3. Develop and deploy a dedicated service that takes as input a collection of documents and their scores and establishes the most predictive model',
+            status: 'To be started (Phase 3)'
+
+        },
+        {
+            name: 'A4. Automated Writing Evaluation',
+            status: 'To be started (Phase 3)'
+        },
+        {
+            name: 'A4.1. Run experiments on paragraph restructuring',
+            status: 'To be started (Phase 3)'
+        },
+        {
+            name: 'A4.2. Generate rules for a given domain based on textual complexity indices and PCA components to provide feedback',
+            status: 'To be started (Phase 3)'
+        },
+        {
+            name: 'A4.3. Detect out-of-place phrases',
+            status: 'To be started (Phase 3)'
+
+        },
+        {
+            name: 'A5. Text simplification',
+            status: 'Ongoing'
+        },
+        {
+            name: 'A5.1. Prepare datasets consisting of proper alignments',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A5.2. Train multiple sequence-to-sequence models',
+            status: 'Completed (Phase 2)'
+        },
+        {
+            name: 'A5.3. Analyze results and iteratively improve methods',
+            status: 'To be started (Phase 3)'
+
+        },
+        {
+            name: 'A6. Dissemination of results',
+            status: 'Ongoing'
+        }
+    ],
+    phases: [
+        { id: 'Phase 1 – 2020', title: 'Gather relevant datasets' },
+        { id: 'Phase 2 – 2021', title: 'Development of services for automatic essay scoring (O1), text simplification (O3), and prediction of AoA scores at word level (O4) - initial version' },
+        { id: 'Phase 3 – 2022', title: 'Development of automatic essay scoring services (O1), automate writing evaluation (O2), text simplification (O3), and prediction of AoA scores at word level (O4) - final version' }
     ],
     category: 'Physical Sciences and Engineering',
     categoryAcronym: 'NLP',

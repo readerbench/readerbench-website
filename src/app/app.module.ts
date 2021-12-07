@@ -40,7 +40,7 @@ import { MultiLevelEdgeBundlingComponent } from './pages/demo/community/multi-le
 
 import { ExperimentsComponent } from './pages/experiments/experiments.component';
 import { ExperimentsMenuComponent } from './pages/experiments/sections/menu/menu.component';
-import { ExperimentsServicesComponent }  from './pages/experiments/sections/services/services.component'
+import { ExperimentsServicesComponent } from './pages/experiments/sections/services/services.component'
 import { IntellitComponent } from './pages/experiments/intellit/intellit.component';
 
 import { DemoServicesComponent } from './pages/demo/sections/services/services.component';
@@ -71,7 +71,7 @@ import { HierarchicalEdgeBundlingComponent } from './hierarchical-edge-bundling/
 import { ChordComponent } from './pages/demo/community/chord-diagram/chord-diagram';
 import { KeywordsHeatmapComponent } from './pages/demo/keywords-heatmap/keywords-heatmap.component';
 import { CurriculumRecommendationComponent } from './pages/demo/curriculum-recomandation/curriculum-recommendation.component';
-import {NgbAccordion, NgbAccordionModule, NgbModule, NgbRatingModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbAccordion, NgbAccordionModule, NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 import { DocumentAnalysisComponent } from './pages/demo/document-analysis/document-analysis';
 import { Ng5SliderModule } from 'ng5-slider';
 import { MultiDocumentCohesionGridComponent } from './pages/demo/document-analysis/multi-document-cohesion-grid/multi-document-cohesion-grid';
@@ -81,8 +81,11 @@ import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
-import {MatSliderModule} from '@angular/material/slider';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { AtesComponent } from './pages/projects/ates/ates.component';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const DEFAULT_DROPZONE_CONFIG: DropzoneConfigInterface = {
   // Change this to your upload POST address:
@@ -169,7 +172,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     DropzoneModule,
     PerfectScrollbarModule,
     NgxSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    MatTooltipModule,
+    BrowserAnimationsModule
   ],
   exports: [
     KeywordsComponent

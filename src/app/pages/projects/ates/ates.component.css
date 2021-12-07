@@ -1,6 +1,44 @@
 .people-social {
-    width: 30%;
+    width: 40%;
 }
+
 .people-name {
-    width: 70%;
+    width: 60%;
+}
+
+.table-status {
+    display: inline-block;
+    cursor: pointer;
+    color: #43b9c7;
+    text-align: justify;
+    padding: 13px 2px 13px 3px;
+    /* border: 1px solid #43b9c7; */
+    font-size: 12px;
+    line-height: 1em;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    transition: all 0.25s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.table-status:hover {
+    color: #fff;
+    background: #43b9c7;
+}
+
+.table-details {
+    margin: 0 !important;
+    color: #a8afb0;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.35em;
+    letter-spacing: 0.04em;
+}
+
+tr {
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+tr:first-child {
+    border-top: 1px dashed #e1e1e1;
 }

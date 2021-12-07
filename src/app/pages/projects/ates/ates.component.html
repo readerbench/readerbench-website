@@ -33,14 +33,49 @@
                         <p>{{paragraph}}</p>
                       </ng-container>
 
-                      <h2 style="display: none;">Pictures</h2>
+                      <h2>Age of Exposure (Multi-lingual automated AoA models)</h2>
+
+                      <ng-container *ngFor="let paragraph of data.aoe">
+                        <p>{{paragraph}}</p>
+                      </ng-container>
+
+                      <!-- Age of Exposure picture -->
+                      <!-- <div class="col-sm-3 col-xs-6">
+                        <div class="gallery-item">
+                          <img src="img/aoe.jpg" alt="gallery image" />
+                        </div>
+                        <div>
+                          <span>Learning trajectories for different languages</span>
+                        </div>
+                      </div> -->
+
+                      <!-- Age of Exposure repo -->
+                      <div>
+                        <p>Repository: <a
+                            href="https://github.com/readerbench/Age-of-Exposure">https://github.com/readerbench/Age-of-Exposure</a>
+                        </p>
+                      </div>
+
+                      <h2>Automated Essay Scoring</h2>
+
+                      <ng-container *ngFor="let paragraph of data.aes">
+                        <p>{{paragraph}}</p>
+                      </ng-container>
+
+                      <h2>Text Simplification</h2>
+
+                      <ng-container *ngFor="let paragraph of data.ts">
+                        <p>{{paragraph}}</p>
+                      </ng-container>
+
+                      <!-- <h2 style="display: none;">Pictures</h2>
                       <div class="single-course-gallery" style="display: none;">
                         <div class="row">
                           <div class="col-sm-6 col-xs-12">
                             <div class="gallery-item">
                               <div class="cover">
-                                <a href="img/full-gallery-1.jpg" data-lightbox="gallery"><i
-                                    class="icon-search3"></i></a>
+                                <a href="img/full-gallery-1.jpg" data-lightbox="gallery">
+                                  <i class="icon-search3"></i></a>
                               </div>
                               <img src="img/course-gallery-1.jpg" alt="gallery image" />
                             </div>
@@ -79,92 +114,16 @@
                           <div class="col-sm-6 col-xs-12">
                             <div class="gallery-item">
                               <div class="cover">
-                                <a href="img/full-gallery-5.jpg" data-lightbox="gallery"><i
-                                    class="icon-search3"></i></a>
+                                <a href="img/full-gallery-5.jpg" data-lightbox="gallery">
+                                  <i class="icon-search3"></i></a>
                               </div>
                               <img src="img/course-gallery-5.jpg" alt="gallery image" />
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
 
-                      <h4>The Team</h4>
-
-                      <div class="people-list-wrapper">
-                        <div class="people-list" *ngFor="let people of data.team">
-                          <div class="people-name">
-                            <span>{{people.name}}</span>
-                          </div>
-                          <div class="people-social">
-                            <ul class="social-block">
-                              <li>
-                                <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}"
-                                  href="{{people.dblplink}}" target="_blank">
-                                  <i class="fa fa-eraser"></i>
-                                </a>
-                                <a *ngIf="!people.dblplink" disabled="disabled">
-                                  <i class="fa fa-eraser inactive"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
-                                  href="{{people.scholarlink}}" target="_blank">
-                                  <i class="fa fa-graduation-cap"></i>
-                                </a>
-                                <a *ngIf="!people.scholarlink" disabled="disabled">
-                                  <i class="fa fa-graduation-cap inactive"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
-                                  href="{{people.linkedin}}" target="_blank">
-                                  <i class="fa fa-linkedin"></i>
-                                </a>
-                                <a *ngIf="!people.linkedin" disabled="disabled">
-                                  <i class="fa fa-linkedin inactive"></i>
-                                </a>
-                              </li>
-                              <li>
-                                <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
-                                  href="{{people.researchgate}}" target="_blank">
-                                  <i class="fa fa-file-text"></i>
-                                </a>
-                                <a *ngIf="!people.researchgate" disabled="disabled">
-                                  <i class="fa fa-file-text inactive"></i>
-                                </a>
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-
-                      <h4>Project Activities</h4>
-
-                      <ul class="course-description-list">
-                        <li class="lesson" *ngFor="let activity of data.activities; let i = index">
-                          <div class="heading">
-                            <span class="lesson-nr no-select">Activity {{i+1}}</span>
-                          </div>
-
-                          <div class="body">
-                            <p>{{activity}}</p>
-                          </div>
-
-                          <ul class="lesson-description" style="display: none;">
-                            <li>
-                              <div class="heading">
-                                <i class="icon icon-divider"></i>
-                              </div>
-
-                              <div class="body">
-                                <p>Short history.</p>
-                              </div>
-                            </li>
-                          </ul>
-                        </li>
-                      </ul>
-
-                      <div class="share-block" style="display: none;">
+                      <!-- <div class="share-block" style="display: none;">
                         <div class="row row-fit-10">
                           <div class="col-xs-6 col-sm-3">
                             <a class="facebook" href="#">facebook</a>
@@ -182,9 +141,9 @@
                             <a class="dribbble" href="#">dribbble</a>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
 
-                      <div class="post-nav" style="display: none;">
+                      <!-- <div class="post-nav" style="display: none;">
                         <div class="row">
                           <div class="col-sm-4">
                             <div class="nav-direction-wrapper prev">
@@ -212,7 +171,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -256,9 +215,9 @@
                         </div>
                       </div>
 
-                      <h3 class="box-title" style="display: none;">Related Projects</h3>
+                      <!-- <h3 class="box-title" style="display: none;">Related Projects</h3> -->
 
-                      <div class="single-course grid-course" style="display: none;">
+                      <!-- <div class="single-course grid-course" style="display: none;">
                         <div class="course-thumbnail">
                           <a href="course.html" class="cover-info">
                             <div class="text">
@@ -276,9 +235,100 @@
                             <a href="course.html">Masterclass from top chefs</a>
                           </h3>
                         </div>
-                      </div>
+                      </div> -->
 
                     </div>
+
+                    <div class="phases-box">
+                      <h4>Project Phases</h4>
+
+                      <ul class="course-description-list">
+                        <li class="lesson" *ngFor="let phase of data.phases; let i = index">
+                          <div class="heading">
+                            <span class="lesson-nr no-select">{{phase.id}}</span>
+                          </div>
+
+                          <div class="body">
+                            <p>{{phase.title}}</p>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div class="activities-box">
+                      <h4>Project Activities</h4>
+
+                      <table>
+                        <tr *ngFor="let activity of data.activities; let i = index">
+                          <td class="table-status">{{activity.status}}</td>
+                          <td class="table-details">{{activity.name}}</td>
+                        </tr>
+                      </table>
+
+                      <!-- <ul class="course-description-list">
+                        <li class="lesson" *ngFor="let activity of data.activities; let i = index">
+                          <div class="heading">
+                            <span class="lesson-nr no-select">{{activity.status}}</span>
+                          </div>
+                          <div class="body">
+                            <p>{{activity.name}}</p>
+                          </div>
+                        </li>
+                      </ul> -->
+                    </div>
+
+                    <div class="team-box">
+                      <h4>The Team</h4>
+
+                      <div class="people-list-wrapper">
+                        <div class="people-list" *ngFor="let people of data.team">
+                          <div class="people-name">
+                            <span matTooltip="{{people.tooltip}}">{{people.name}}</span>
+                          </div>
+                          <div class="people-social">
+                            <ul class="social-block">
+                              <li>
+                                <a *ngIf="people.dblplink" title="dblp profile of {{people.name}}"
+                                  href="{{people.dblplink}}" target="_blank">
+                                  <i class="fa fa-eraser"></i>
+                                </a>
+                                <a *ngIf="!people.dblplink" disabled="disabled">
+                                  <i class="fa fa-eraser inactive"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a *ngIf="people.scholarlink" title="Google Scholar profile of {{people.name}}"
+                                  href="{{people.scholarlink}}" target="_blank">
+                                  <i class="fa fa-graduation-cap"></i>
+                                </a>
+                                <a *ngIf="!people.scholarlink" disabled="disabled">
+                                  <i class="fa fa-graduation-cap inactive"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a *ngIf="people.linkedin" title="LinkedIn profile of {{people.name}}"
+                                  href="{{people.linkedin}}" target="_blank">
+                                  <i class="fa fa-linkedin"></i>
+                                </a>
+                                <a *ngIf="!people.linkedin" disabled="disabled">
+                                  <i class="fa fa-linkedin inactive"></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a *ngIf="people.researchgate" title="ResearchGate profile of {{people.name}}"
+                                  href="{{people.researchgate}}" target="_blank">
+                                  <i class="fa fa-file-text"></i>
+                                </a>
+                                <a *ngIf="!people.researchgate" disabled="disabled">
+                                  <i class="fa fa-file-text inactive"></i>
+                                </a>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
               </div>
@@ -294,11 +344,11 @@
                 <h2>&copy; ReaderBench</h2>
               </div>
 
-              <div class="col-md-5" style="display: none;">
+              <!-- <div class="col-md-5" style="display: none;">
                 <div class="button-wrapper">
                   <a href="#" class="btn theme-btn-3">Get in touch</a>
                 </div>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
