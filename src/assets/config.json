@@ -13,15 +13,15 @@
   "pathDelimiter": "/",
 
   "apiEndpoints": {
-    "sentimentAnalysis": "v2/sentiment",
-    "curriculumRecommendation": "v2/mass-customization",
-    "textualComplexity": "v2/textual-complexity",
-    "keywords": "v2/keywords",
+    "sentimentAnalysis": "v1/sentiment",
+    "curriculumRecommendation": "v1/mass-customization",
+    "textualComplexity": "v1/textual-complexity",
+    "keywords": "v1/keywords",
     "selfExplanation": "self-explanation",
     "semanticAnnotation": "semantic-annotation",
     "cvAnalysis": "cv-processing",
     "csclProcessingOld": "cscl-processing",
-    "csclProcessing": "v2/cscl-processing",
+    "csclProcessing": "v1/cscl-processing",
     "fileUpload": "file-upload",
 
     "community": "community/communities",
@@ -31,10 +31,10 @@
     "communityParticipants": "community/participants",
     "communityKeywords": "community/keywords",
 
-    "ciModelAnalyzer": "v2/amoc",
+    "ciModelAnalyzer": "v1/amoc",
     "keywordsHeatmap": "keywords-heatmap",
-    "cna-graph": "v2/cna-graph",
-    "essayFeedback": "v2/feedback"
+    "cna-graph": "v1/cna-graph",
+    "essayFeedback": "v1/feedback"
   },
   "apiHeaders": {
     "commonRequest": {
