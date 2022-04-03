@@ -55,7 +55,7 @@
     "le-sni-auto": "^2.1.5",
     "le-store-certbot": "^2.2.3",
     "lightbox2": "^2.10.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "mobile-detect": "^1.4.2",
     "ng5-slider": "^1.2.4",
     "ngx-dropzone-wrapper": "^9.0.0",
