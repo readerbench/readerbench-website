@@ -1,0 +1,9 @@
+version: '2'
+services:
+  readerbench-website:
+    container_name: readerbench-website
+    build:
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    ports:
+      - "80:80"
