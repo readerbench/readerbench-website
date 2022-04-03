@@ -25,3 +25,17 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Building docker mage & publishing
+
+```
+docker build --platform linux/x86_64 -t readerbench-website:latest -f ./docker/Dockerfile .
+docker tag readerbench-website:latest ionutparaschiv/readerbench-website:latest
+docker push ionutparaschiv/readerbench-website:latest
+```
+
+run it on the server with 
+
+```
+sudo docker run --platform linux/x86_64 -p 0.0.0.0:80:80/tcp ionutparaschiv/readerbench-website:latest
+```
