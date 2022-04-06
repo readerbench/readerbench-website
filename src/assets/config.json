@@ -1,7 +1,7 @@
 {
-  "apiProtocol": "http",
+  "apiProtocol": "https",
   "apiServer": "readerbench.com",
-  "apiPort": 6006,
+  "apiPort": 80,
   "apiPath": "api",
   "testServerPath": "141.85.232.91:8080",
 
